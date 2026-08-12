@@ -430,23 +430,34 @@
     try { localStorage.setItem("an-read", JSON.stringify(state.read)); } catch (e) {}
   }
 
+  // User preference (localStorage an-chrome) vs visual data-chrome (may auto-collapse on scroll).
+  var chromePref = "full";
+  var chromeScrollPinned = false;
+
+  function getStoredChromePref() {
+    try {
+      return localStorage.getItem("an-chrome") === "compact" ? "compact" : "full";
+    } catch (e) {
+      return "full";
+    }
+  }
+
   function applyPrefs() {
     var root = document.documentElement;
     var theme = null;
     var density = null;
-    var chrome = null;
     try {
       theme = localStorage.getItem("an-theme");
       density = localStorage.getItem("an-density");
-      chrome = localStorage.getItem("an-chrome");
     } catch (e) {}
     if (theme === "dark") root.setAttribute("data-theme", "dark");
     else root.removeAttribute("data-theme"); // light default
     if (density === "compact") root.setAttribute("data-density", "compact");
     else root.removeAttribute("data-density");
     // Default expanded (full desk); compact = Focus mode
-    if (chrome === "compact") root.setAttribute("data-chrome", "compact");
-    else root.removeAttribute("data-chrome");
+    chromePref = getStoredChromePref();
+    applyChromeVisual(chromePref);
+    syncChromeToggle();
   }
 
   function syncChromeToggle() {
@@ -463,13 +474,74 @@
     if (hero) hero.setAttribute("aria-hidden", compact ? "true" : "false");
   }
 
-  function setChromeMode(mode) {
+  /** Apply visual chrome only — does not write an-chrome preference. */
+  function applyChromeVisual(mode) {
     var root = document.documentElement;
     var next = mode === "compact" ? "compact" : "full";
-    if (next === "compact") root.setAttribute("data-chrome", "compact");
-    else root.removeAttribute("data-chrome");
-    try { localStorage.setItem("an-chrome", next); } catch (e) {}
+    var hero = document.querySelector(".desk-hero");
+    var intel = document.getElementById("intelStrip");
+
+    if (next === "compact") {
+      root.setAttribute("data-chrome", "compact");
+      if (hero) {
+        hero.hidden = true;
+        hero.classList.add("chrome-collapsed");
+        hero.setAttribute("aria-hidden", "true");
+      }
+      if (intel) {
+        intel.hidden = true;
+        intel.classList.add("chrome-collapsed");
+      }
+    } else {
+      root.removeAttribute("data-chrome");
+      if (hero) {
+        hero.hidden = false;
+        hero.classList.remove("chrome-collapsed");
+        hero.setAttribute("aria-hidden", "false");
+      }
+      if (intel) {
+        intel.classList.remove("chrome-collapsed");
+      }
+      // renderIntelStrip decides whether #intelStrip should show (today page only)
+      if (pageName() === "today") {
+        try { renderIntelStrip(); } catch (e) {}
+      }
+    }
     syncChromeToggle();
+  }
+
+  /** Persist toggle preference and apply visually. */
+  function setChromePreference(mode) {
+    var next = mode === "compact" ? "compact" : "full";
+    chromePref = next;
+    try { localStorage.setItem("an-chrome", next); } catch (e) {}
+    if (next === "full") {
+      // Pin against scroll auto-collapse until near top
+      chromeScrollPinned = (window.scrollY || document.documentElement.scrollTop || 0) > 48;
+      applyChromeVisual("full");
+    } else {
+      chromeScrollPinned = false;
+      applyChromeVisual("compact");
+    }
+  }
+
+  function setChromeMode(mode) {
+    setChromePreference(mode);
+  }
+
+  function onChromeScroll() {
+    var y = window.scrollY || document.documentElement.scrollTop || 0;
+    var visualCompact = document.documentElement.getAttribute("data-chrome") === "compact";
+    if (y > 72) {
+      if (!visualCompact && !chromeScrollPinned) {
+        applyChromeVisual("compact"); // auto — do not overwrite an-chrome pref
+      }
+    } else if (y < 48) {
+      chromeScrollPinned = false;
+      if (chromePref === "full" && visualCompact) {
+        applyChromeVisual("full");
+      }
+    }
   }
 
   function fmtRelative(iso) {
@@ -1111,6 +1183,12 @@
       el.innerHTML = "";
       return;
     }
+    // Stay collapsed while Focus / scroll auto-compact is active
+    if (document.documentElement.getAttribute("data-chrome") === "compact") {
+      el.hidden = true;
+      el.classList.add("chrome-collapsed");
+      return;
+    }
     var stories = (state.data.stories || []).filter(function (s) {
       return isTodayFeedKind(s) && isAiRelevant(s) && !isRetweetNoise(s);
     }).slice().sort(function (a, b) {
@@ -1121,6 +1199,7 @@
       return;
     }
     el.hidden = false;
+    el.classList.remove("chrome-collapsed");
     el.innerHTML =
       '<div class="intel-head"><span class="intel-kicker">Desk glance</span><span class="intel-sub">What moved across Scoble lists</span></div>' +
       '<ol class="intel-list">' +
@@ -1522,9 +1601,11 @@
       syncChromeToggle();
       chromeBtn.addEventListener("click", function () {
         var compact = document.documentElement.getAttribute("data-chrome") === "compact";
-        setChromeMode(compact ? "full" : "compact");
+        setChromePreference(compact ? "full" : "compact");
       });
     }
+
+    window.addEventListener("scroll", onChromeScroll, { passive: true });
 
     var themeBtn = $("#themeToggle");
     if (themeBtn) {
