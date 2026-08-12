@@ -544,11 +544,11 @@
     var dy = y - lastScrollY;
     var visualCompact = document.documentElement.getAttribute("data-chrome") === "compact";
 
-    // Soft pin: auto-clear on clear downward motion (>24px).
-    if (dy > 24) chromeScrollPinned = false;
+    // Soft pin: auto-clear on clear downward motion.
+    if (dy > 16) chromeScrollPinned = false;
 
-    if (dy > 0 && y > 40) {
-      // Digg-like: scroll-down always collapses — do not require clearing pin first.
+    // Digg-like: any downward scroll past ~40px always collapses desk chrome.
+    if ((dy > 0 || y > lastScrollY) && y > 40) {
       chromeScrollPinned = false;
       if (!visualCompact) {
         applyChromeVisual("compact"); // auto — do not overwrite an-chrome pref
@@ -558,7 +558,7 @@
       if (chromePref === "full" && visualCompact) {
         applyChromeVisual("full");
       }
-    } else if (y < 56 && chromePref === "full" && visualCompact && !chromeScrollPinned) {
+    } else if (y < 40 && chromePref === "full" && visualCompact && !chromeScrollPinned) {
       // Near top even without a measured upward tick (iOS bounce / touch end).
       applyChromeVisual("full");
     }
@@ -581,12 +581,20 @@
     var main = document.querySelector(".main");
     if (main) main.addEventListener("scroll", onChromeScrollThrottled, opts);
     // iOS Safari often delays scroll events until finger lifts; touchmove keeps chrome responsive.
-    window.addEventListener("touchmove", onChromeScrollThrottled, { passive: true });
-    document.addEventListener("touchmove", onChromeScrollThrottled, { passive: true });
+    window.addEventListener("touchmove", onChromeScrollThrottled, opts);
+    document.addEventListener("touchmove", onChromeScrollThrottled, opts);
+    if (main) main.addEventListener("touchmove", onChromeScrollThrottled, opts);
     lastScrollY = getScrollY();
   }
 
   var loadBarHideTimer = null;
+  var clusterHideTimer = null;
+  var clusterAnimTimer = null;
+  var clusterShownAt = 0;
+  var clusterPctValue = 8;
+  var CLUSTER_TICK_COUNT = 32;
+  var CLUSTER_MIN_MS = 750;
+
   function prefersReducedMotion() {
     try {
       return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -594,40 +602,164 @@
       return false;
     }
   }
-  function showLoadBar() {
+
+  function ensureClusterTicks() {
+    var ticks = document.getElementById("clusterTicks");
+    if (!ticks) return null;
+    if (ticks.childElementCount !== CLUSTER_TICK_COUNT) {
+      var html = "";
+      var i;
+      for (i = 0; i < CLUSTER_TICK_COUNT; i++) {
+        html += '<span class="cluster-tick"></span>';
+      }
+      ticks.innerHTML = html;
+    }
+    return ticks;
+  }
+
+  function paintClusterPct(pct) {
+    clusterPctValue = Math.max(0, Math.min(100, Math.round(pct)));
+    var label = document.getElementById("clusterPct");
+    if (label) label.textContent = clusterPctValue + "% COMPLETE.";
+    var ticks = ensureClusterTicks();
+    if (!ticks) return;
+    var filled = Math.round((clusterPctValue / 100) * CLUSTER_TICK_COUNT);
+    var nodes = ticks.children;
+    var i;
+    for (i = 0; i < nodes.length; i++) {
+      if (i < filled) nodes[i].classList.add("is-filled");
+      else nodes[i].classList.remove("is-filled");
+    }
+  }
+
+  function stopClusterAnim() {
+    if (clusterAnimTimer) {
+      clearInterval(clusterAnimTimer);
+      clusterAnimTimer = null;
+    }
+  }
+
+  function startClusterAnim(fromPct, toPct, durationMs) {
+    stopClusterAnim();
+    var start = fromPct == null ? 8 : fromPct;
+    var end = toPct == null ? 92 : toPct;
+    var dur = prefersReducedMotion() ? 0 : (durationMs == null ? 2200 : durationMs);
+    paintClusterPct(start);
+    if (dur <= 0) {
+      paintClusterPct(end);
+      return;
+    }
+    var t0 = Date.now();
+    clusterAnimTimer = setInterval(function () {
+      var u = Math.min(1, (Date.now() - t0) / dur);
+      // Ease-out toward end so it feels like Digg clustering.
+      var eased = 1 - Math.pow(1 - u, 2.2);
+      paintClusterPct(start + (end - start) * eased);
+      if (u >= 1) stopClusterAnim();
+    }, 50);
+  }
+
+  function showThinLoadBar() {
     var bar = document.getElementById("loadBar");
     if (!bar) return;
-    if (loadBarHideTimer) {
-      clearTimeout(loadBarHideTimer);
-      loadBarHideTimer = null;
-    }
     bar.hidden = false;
     bar.setAttribute("aria-hidden", "false");
     bar.classList.add("is-active");
     if (prefersReducedMotion()) bar.classList.add("is-static");
     else bar.classList.remove("is-static");
   }
-  function hideLoadBar() {
+
+  function hideThinLoadBar() {
     var bar = document.getElementById("loadBar");
     if (!bar) return;
-    if (loadBarHideTimer) {
-      clearTimeout(loadBarHideTimer);
-      loadBarHideTimer = null;
-    }
     bar.classList.remove("is-active");
     bar.hidden = true;
     bar.setAttribute("aria-hidden", "true");
   }
+
+  function showClusterProgress() {
+    var card = document.getElementById("clusterCard");
+    if (clusterHideTimer) {
+      clearTimeout(clusterHideTimer);
+      clusterHideTimer = null;
+    }
+    if (loadBarHideTimer) {
+      clearTimeout(loadBarHideTimer);
+      loadBarHideTimer = null;
+    }
+    showThinLoadBar();
+    if (!card) return;
+    card.classList.remove("is-leaving");
+    card.hidden = false;
+    card.setAttribute("aria-hidden", "false");
+    clusterShownAt = Date.now();
+    ensureClusterTicks();
+    startClusterAnim(8, 92, 2400);
+  }
+
+  function hideClusterProgress(forceImmediate) {
+    var card = document.getElementById("clusterCard");
+    if (clusterHideTimer) {
+      clearTimeout(clusterHideTimer);
+      clusterHideTimer = null;
+    }
+    if (loadBarHideTimer) {
+      clearTimeout(loadBarHideTimer);
+      loadBarHideTimer = null;
+    }
+
+    function finishHide() {
+      stopClusterAnim();
+      paintClusterPct(100);
+      var pause = prefersReducedMotion() || forceImmediate ? 0 : 320;
+      clusterHideTimer = setTimeout(function () {
+        clusterHideTimer = null;
+        hideThinLoadBar();
+        if (!card) return;
+        card.classList.add("is-leaving");
+        var leaveMs = prefersReducedMotion() ? 0 : 260;
+        setTimeout(function () {
+          card.hidden = true;
+          card.setAttribute("aria-hidden", "true");
+          card.classList.remove("is-leaving");
+          paintClusterPct(8);
+        }, leaveMs);
+      }, pause);
+    }
+
+    // Always show card briefly even when fetch is instant/cached.
+    var elapsed = clusterShownAt ? (Date.now() - clusterShownAt) : CLUSTER_MIN_MS;
+    var wait = forceImmediate ? 0 : Math.max(0, CLUSTER_MIN_MS - elapsed);
+    if (wait > 0) {
+      clusterHideTimer = setTimeout(function () {
+        clusterHideTimer = null;
+        finishHide();
+      }, wait);
+    } else {
+      finishHide();
+    }
+  }
+
+  function showLoadBar() {
+    showClusterProgress();
+  }
+
+  function hideLoadBar() {
+    hideClusterProgress(false);
+  }
+
   function flashLoadBar(ms) {
-    showLoadBar();
-    var dur = prefersReducedMotion() ? 0 : (ms == null ? 400 : ms);
+    showClusterProgress();
+    var dur = prefersReducedMotion() ? 0 : (ms == null ? 700 : Math.max(ms, CLUSTER_MIN_MS));
     if (dur <= 0) {
-      hideLoadBar();
+      hideClusterProgress(true);
       return;
     }
+    // Fast chip-filter pulse: climb toward ~70% then complete.
+    startClusterAnim(12, 78, Math.min(dur, 900));
     loadBarHideTimer = setTimeout(function () {
       loadBarHideTimer = null;
-      hideLoadBar();
+      hideClusterProgress(false);
     }, dur);
   }
 
@@ -1234,7 +1366,7 @@
     $all(".chip", el).forEach(function (btn) {
       btn.addEventListener("click", function () {
         state.filter = btn.getAttribute("data-filter") || "all";
-        flashLoadBar(400);
+        flashLoadBar(750);
         renderChips(containerId);
         if (pageName() === "today") renderTodayFeed();
         if (pageName() === "signals") renderSignals();

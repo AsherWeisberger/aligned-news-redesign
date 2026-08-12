@@ -1730,3 +1730,106 @@ html[data-chrome="compact"] .foryou:not([hidden]) {
     opacity: 0.7;
   }
 }
+
+/* === Digg-style clustering progress card === */
+.cluster-card {
+  margin: 0 0 0.85rem;
+  padding: 0.85rem 0.95rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 100%;
+  min-width: 0;
+}
+.cluster-card[hidden] {
+  display: none !important;
+}
+.cluster-card.is-leaving {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.28s var(--ease-soft), transform 0.28s var(--ease-soft);
+}
+.cluster-card-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-width: 0;
+}
+.cluster-icon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.08rem;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cluster-icon svg { display: block; }
+.cluster-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.cluster-copy {
+  margin: 0 0 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--text);
+  font-weight: 500;
+}
+.cluster-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+.cluster-ticks {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  height: 14px;
+}
+.cluster-tick {
+  flex: 1 1 0;
+  min-width: 2px;
+  max-width: 4px;
+  height: 11px;
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--muted) 28%, transparent);
+  transition: background 0.12s linear;
+}
+.cluster-tick.is-filled {
+  background: color-mix(in srgb, var(--text) 78%, var(--muted));
+}
+html[data-theme="dark"] .cluster-tick {
+  background: rgba(255, 255, 255, 0.14);
+}
+html[data-theme="dark"] .cluster-tick.is-filled {
+  background: rgba(242, 243, 247, 0.82);
+}
+.cluster-pct {
+  flex: 0 0 auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant: all-small-caps;
+  color: var(--muted);
+  white-space: nowrap;
+  line-height: 1;
+}
+@media (max-width: 520px) {
+  .cluster-card {
+    padding: 0.78rem 0.85rem;
+    border-radius: 11px;
+  }
+  .cluster-copy { font-size: 0.86rem; }
+  .cluster-pct { font-size: 0.58rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cluster-card.is-leaving { transition: none; }
+  .cluster-tick { transition: none; }
+}
