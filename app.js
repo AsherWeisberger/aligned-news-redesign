@@ -1358,11 +1358,8 @@
     return document.body.getAttribute("data-page") || "today";
   }
 
-  var BUILD = "focus12";
 
   function renderChrome() {
-    var stampEl = document.getElementById("buildStamp");
-    if (stampEl) stampEl.textContent = BUILD;
     var data = state.data;
     var page = pageName();
     var counts = {
