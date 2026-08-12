@@ -1358,7 +1358,7 @@
     return document.body.getAttribute("data-page") || "today";
   }
 
-  var BUILD = "focus11";
+  var BUILD = "focus12";
 
   function renderChrome() {
     var stampEl = document.getElementById("buildStamp");
@@ -1865,10 +1865,10 @@
       var metaLine = metaBits.join(" · ");
       if (featured) {
         return (
-          '<li class="nl-issue nl-issue-featured lead-card" ' + staggerStyle(i) + '>' +
+          '<li class="nl-issue nl-issue-featured" ' + staggerStyle(i) + '>' +
             '<div class="nl-issue-badge">Featured</div>' +
             '<a class="nl-issue-link" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
-              '<h2 class="nl-issue-title lead-title">' + escapeHtml(issue.title) + "</h2>" +
+              '<h2 class="nl-issue-title">' + escapeHtml(issue.title) + "</h2>" +
               (issue.blurb ? '<p class="nl-issue-blurb">' + escapeHtml(issue.blurb) + "</p>" : "") +
               '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
             "</a>" +
@@ -1876,9 +1876,9 @@
         );
       }
       return (
-        '<li class="nl-issue feed-row" ' + staggerStyle(i) + '>' +
+        '<li class="nl-issue" ' + staggerStyle(i) + '>' +
           '<a class="nl-issue-link" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
-            '<h2 class="nl-issue-title story-title">' + escapeHtml(issue.title) + "</h2>" +
+            '<h2 class="nl-issue-title">' + escapeHtml(issue.title) + "</h2>" +
             (issue.blurb ? '<p class="nl-issue-blurb">' + escapeHtml(issue.blurb) + "</p>" : "") +
             '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
           "</a>" +

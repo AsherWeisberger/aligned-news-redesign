@@ -2362,8 +2362,18 @@ html[data-theme="dark"] {
 }
 .nl-issue-link {
   display: block;
+  width: 100%;
+  min-width: 0;
   color: inherit;
   text-decoration: none;
+}
+/* Never inherit Today feed-row 3-col grid — that crushed titles into the rank gutter */
+.nl-archive.feed,
+.nl-issue.feed-row,
+.nl-issue.lead-card {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
 }
 .nl-issue-title {
   margin: 0 0 0.35rem;
@@ -2372,6 +2382,8 @@ html[data-theme="dark"] {
   letter-spacing: -0.02em;
   line-height: 1.28;
   color: var(--text);
+  max-width: none;
+  width: 100%;
 }
 .nl-issue-featured .nl-issue-title {
   font-family: var(--serif);
