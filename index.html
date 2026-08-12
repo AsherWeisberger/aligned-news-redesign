@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aligned News — AI Intelligence from 63 Curated X Lists</title>
+<meta name="description" content="AI news intelligence from Robert Scoble’s 63 curated X lists tracking 100K+ accounts. Signals, stories, reports, and API/MCP — redesigned preview." />
+<meta property="og:title" content="Aligned News — AI Intelligence" />
+<meta property="og:description" content="63 lists · 100K+ accounts · 37 sections · ~5K posts/sweep. Premium redesign preview for Robert Scoble." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="hero.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="preview-banner" id="previewBanner" role="status">
+    <span>Redesign preview · Not the live site</span>
+    <button type="button" id="dismissBanner" aria-label="Dismiss banner">×</button>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Aligned News home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#4f46e5"/>
+          <path d="M18 42 L32 14 L46 42 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round"/>
+          <circle cx="32" cy="46" r="3.2" fill="#fff"/>
+        </svg>
+        <span class="brand-name">Aligned <em>News</em></span>
+      </a>
+
+      <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="ai.html">AI</a></li>
+        <li><a href="#signals">Signals</a></li>
+        <li><a href="#reports">Reports</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#api">API</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light mode" title="Light mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a class="nav-cta" href="ai.html">Open /ai briefing</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="live-pill">
+            <span class="live-dot" aria-hidden="true"></span>
+            LIVE · Updated 12 min ago
+          </div>
+          <h1>The AI signal layer <span class="grad">behind the noise</span></h1>
+          <p class="hero-lede">
+            Robert Scoble’s 63 curated X lists, watching 100K+ accounts across models, agents, robotics, and capital — distilled into stories, ACTION/BULLISH/CAUTION signals, and an API your agents can call.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="ai.html">Read today’s AI briefing</a>
+            <a class="btn btn-secondary" href="#signals">Top signals</a>
+            <a class="btn btn-ghost" href="#api">API + MCP →</a>
+          </div>
+          <div class="stats" aria-label="Canonical product stats">
+            <div class="stat"><b>63</b><span>Curated lists</span></div>
+            <div class="stat"><b>100K+</b><span>Accounts</span></div>
+            <div class="stat"><b>37</b><span>Sections</span></div>
+            <div class="stat"><b>~5K</b><span>Posts / sweep</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-visual" aria-label="Aligned News visual">
+          <img src="hero.png" alt="Aligned News redesign preview — dark editorial interface" width="1200" height="900" />
+          <div class="hero-caption">
+            <div>
+              <strong>Sweep corpus · Aug 11</strong>
+              Cross-list hits ranked before the dinner circuit
+            </div>
+            <span class="badge badge-soft">Preview</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TOP SIGNALS FIRST -->
+    <section class="section" id="signals">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Top Signals</p>
+            <h2>What the lists are converging on</h2>
+            <p>Cross-list synthesis with ACTION / BULLISH / CAUTION badges — not conference dinners.</p>
+          </div>
+          <a class="link-more" href="ai.html">View all signals →</a>
+        </div>
+
+        <div class="signal-rail">
+          <article class="signal-card">
+            <div class="signal-meta">
+              <span class="badge badge-action">Action</span>
+              <span class="conf">78% conf.</span>
+            </div>
+            <h3>Specialized 3D gen pipelines are collapsing useful asset costs toward cents</h3>
+            <p>
+              Multiple builder threads across AI Community and creative-tool lists describe production meshes dropping from “studio quote” to pocket change. The actionable edge: inventory which internal tools still assume $50–$200 per asset.
+            </p>
+            <div class="signal-foot">
+              <span>AI Community #1 · Creative</span>
+              <span>Aug 6</span>
+            </div>
+          </article>
+
+          <article class="signal-card">
+            <div class="signal-meta">
+              <span class="badge badge-bullish">Bullish</span>
+              <span class="conf">86% conf.</span>
+            </div>
+            <h3>AI video competition is shifting to longer native clips and larger reference sets</h3>
+            <p>
+              Company and investor lists lit up on vendors shipping multi-minute coherent generations with denser style locks. Short-clip demos are no longer the bar — continuity across cuts is.
+            </p>
+            <div class="signal-foot">
+              <span>AI Companies #1–2</span>
+              <span>Aug 6</span>
+            </div>
+          </article>
+
+          <article class="signal-card">
+            <div class="signal-meta">
+              <span class="badge badge-caution">Caution</span>
+              <span class="conf">81% conf.</span>
+            </div>
+            <h3>Private messaging history is becoming a new context layer for personal AI</h3>
+            <p>
+              Leader chatter points to assistants that quietly ingest chat archives. Upside for memory is real; so is the permission surface. Watch how products disclose retention before enterprise pilots expand.
+            </p>
+            <div class="signal-foot">
+              <span>AI Leaders #1 · Agents</span>
+              <span>Aug 6</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST STORIES -->
+    <section class="section" id="stories">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Latest Stories</p>
+            <h2>Models, capital, robots, agents</h2>
+            <p>Scoble-quality intel with source density — written for people who already live in the feed.</p>
+          </div>
+          <a class="link-more" href="ai.html#models">Open /ai sections →</a>
+        </div>
+
+        <div class="stories-grid">
+          <article class="story-card featured">
+            <span class="story-tag">Models · Hidden gem</span>
+            <h3>Reasoning evals leave static leaderboards for live academic competitions</h3>
+            <p>
+              Across AI Companies lists, researchers stopped arguing about frozen MMLU deltas and started posting bracket-style runs against fresh problem sets. The pattern that matters: models that “win” Tuesday look average by Friday when the exam redistributes. Labs quietly shipping continuous eval harnesses are the ones operators should shortlist — not whoever topped last month’s screenshot.
+            </p>
+            <p>
+              Cross-list tell: investor accounts amplified the same three open eval repos within six hours of a labs blog drop, while mainstream tech news still framed it as a single benchmark win. That’s the Aligned edge — the echo chamber arrives before the press release.
+            </p>
+            <div class="story-meta">
+              <span>Lists: AI Companies #1 · AI Leaders #1</span>
+              <span>12 sources in sweep</span>
+              <span>8 min read</span>
+            </div>
+          </article>
+
+          <div class="stories-side">
+            <article class="story-card">
+              <span class="story-tag">Funding</span>
+              <h3>Infrastructure rounds favor “tokens-per-watt” narratives over raw GPU tallies</h3>
+              <p>
+                AI Investors and AI Newsmakers both rotated toward power-aware pitch language this week. Cap tables still chase clusters, but the term sheets that closed cited energy contracts and scheduler software as often as H100 counts.
+              </p>
+              <div class="story-meta">
+                <span>AI Investors · Newsmakers</span>
+                <span>Aug 10</span>
+              </div>
+            </article>
+
+            <article class="story-card">
+              <span class="story-tag">Robotics</span>
+              <h3>Warehouse pilots quietly expand while humanoid demos steal the cameras</h3>
+              <p>
+                Robot AI and SF Bay Area Robots lists show deployment photos from brownfield sites — conveyors, not keynotes. The signal isn’t bipedal drama; it’s MTBF tickets and union-facing change-management threads.
+              </p>
+              <div class="story-meta">
+                <span>Robot AI · Bay Area Robots</span>
+                <span>Aug 9</span>
+              </div>
+            </article>
+
+            <article class="story-card">
+              <span class="story-tag">Agents</span>
+              <h3>Tool-use agents graduate from demo loops to overnight batch jobs</h3>
+              <p>
+                Builder lists report overnight agent runs that file tickets, draft PRs, and leave a human queue for morning. Failure modes shifted from “can’t call tools” to “called the wrong tools confidently.”
+              </p>
+              <div class="story-meta">
+                <span>AI Community #2–4</span>
+                <span>Aug 11</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Volume viz -->
+        <div class="viz-panel" aria-label="Section volume visualization">
+          <div class="viz-top">
+            <h3>Section volume · last sweep</h3>
+            <span>~5K posts ranked across 37 sections · sample viz</span>
+          </div>
+          <div class="heatmap" aria-hidden="true">
+            <div class="heat" data-v="5" title="Models"></div>
+            <div class="heat" data-v="4"></div>
+            <div class="heat" data-v="5"></div>
+            <div class="heat" data-v="3"></div>
+            <div class="heat" data-v="4"></div>
+            <div class="heat" data-v="2"></div>
+            <div class="heat" data-v="5"></div>
+            <div class="heat" data-v="3"></div>
+            <div class="heat" data-v="4"></div>
+            <div class="heat" data-v="1"></div>
+            <div class="heat" data-v="3"></div>
+            <div class="heat" data-v="2"></div>
+            <div class="heat" data-v="4"></div>
+            <div class="heat" data-v="5"></div>
+            <div class="heat" data-v="2"></div>
+            <div class="heat" data-v="3"></div>
+            <div class="heat" data-v="4"></div>
+            <div class="heat" data-v="5"></div>
+            <div class="heat" data-v="3"></div>
+            <div class="heat" data-v="1"></div>
+            <div class="heat" data-v="2"></div>
+            <div class="heat" data-v="4"></div>
+            <div class="heat" data-v="3"></div>
+            <div class="heat" data-v="2"></div>
+          </div>
+          <div class="heat-labels">
+            <span><i style="background:linear-gradient(135deg,#818cf8,#a78bfa)"></i> Models · Agents · Infra hot</span>
+            <span><i style="background:rgba(99,102,241,0.48)"></i> Robotics · Capital warm</span>
+            <span><i style="background:rgba(99,102,241,0.18)"></i> Events demoted below fold</span>
+          </div>
+          <div class="bars" aria-hidden="true" style="margin-top:28px">
+            <div class="bar" style="height:92%"><span>Models</span></div>
+            <div class="bar" style="height:78%"><span>Agents</span></div>
+            <div class="bar" style="height:64%"><span>Infra</span></div>
+            <div class="bar" style="height:58%"><span>Capital</span></div>
+            <div class="bar" style="height:52%"><span>Robots</span></div>
+            <div class="bar" style="height:40%"><span>Safety</span></div>
+            <div class="bar" style="height:34%"><span>Spatial</span></div>
+            <div class="bar" style="height:18%"><span>Events</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOFT PAYWALL DEMO -->
+    <section class="section" id="story-demo">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Story teaser · Soft paywall</p>
+            <h2>Show the quality, then invite the upgrade</h2>
+            <p>Two full paragraphs free — enough to trust the analysis — then a tasteful Pro card.</p>
+          </div>
+        </div>
+
+        <article class="paywall-story">
+          <div class="paywall-body">
+            <p class="eyebrow">Deep dive · Agents</p>
+            <h3>Why overnight agent batches are outrunning chat UIs in real teams</h3>
+            <p class="byline">Aligned synthesis · Aug 11, 2026 · Sources across AI Community #2–4 & AI Leaders #1</p>
+            <p>
+              The interesting shift isn’t another “agent that books restaurants” clip. It’s ops teams describing jobs that start after standup, fan out across tickets and repos, and leave a triage queue by 8 a.m. Across Scoble’s community lists, the people shipping this stop talking about prompt cleverness and start talking about idempotency, rollback, and which tools an agent is allowed to touch without a human in the loop.
+            </p>
+            <p>
+              That same sweep shows a second pattern: confidence without calibration. When a batch agent mis-tags a severity or opens PRs against the wrong base branch, the failure looks like productivity until someone audits the trail. The lists that catch this early are the builder channels — not the keynote circuit — which is why Aligned ranks those threads above the dinner calendars that used to dominate the homepage.
+            </p>
+          </div>
+          <div class="upgrade-card">
+            <div>
+              <h4>Continue with Aligned Pro</h4>
+              <p>Full source graph, list-level breakdowns, and the rest of this analysis — plus Signals and /ai without the soft gate.</p>
+            </div>
+            <div class="upgrade-actions">
+              <a class="btn btn-primary" href="https://alignednews.com" target="_blank" rel="noopener">Upgrade on alignednews.com</a>
+              <a class="btn btn-secondary" href="#newsletter">Or get the free daily</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- REPORTS + API -->
+    <section class="section" id="reports">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Reports · API / MCP</p>
+            <h2>Depth for humans, endpoints for agents</h2>
+          </div>
+        </div>
+
+        <div class="split-panels">
+          <div class="panel">
+            <span class="badge badge-soft">Research</span>
+            <h3 style="margin-top:12px">Custom research & nightly archives</h3>
+            <p>Deep dives on funding, model comparisons, and competitive intel — plus complete evening-run archives when you need the corpus, not the headline.</p>
+            <ul class="report-list">
+              <li>
+                <strong>Archive Report: Evening Run, August 9 2026</strong>
+                <span>Corpus · editorial validation · Ten Things · Scoble coverage</span>
+              </li>
+              <li>
+                <strong>Archive Report: Evening Run, August 8 2026</strong>
+                <span>Models · agents · robotics · infrastructure · events</span>
+              </li>
+              <li>
+                <strong>Aligned News Morning Run · August 6 2026</strong>
+                <span>Deep dive · Aligned News Research</span>
+              </li>
+            </ul>
+            <a class="btn btn-secondary" href="https://alignednews.com" target="_blank" rel="noopener">Browse reports →</a>
+          </div>
+
+          <div class="panel" id="api">
+            <span class="badge badge-bullish">Differentiator</span>
+            <h3 style="margin-top:12px">REST API + MCP for Claude & Cursor</h3>
+            <p>Pull stories, signals, and section briefs into your own agents. Same intelligence graph — programmable.</p>
+            <div class="chip-row">
+              <span class="chip">REST</span>
+              <span class="chip">MCP server</span>
+              <span class="chip">Stories</span>
+              <span class="chip">Signals</span>
+              <span class="chip">Sections</span>
+            </div>
+            <div class="code-strip" aria-label="Example API request">
+              <div><span class="c"># fetch top ACTION signals</span></div>
+              <div><span class="k">curl</span> -s <span class="s">https://api.alignednews.com/v1/signals?badge=action</span> \</div>
+              <div>&nbsp;&nbsp;-H <span class="s">"Authorization: Bearer $ALIGNED_KEY"</span></div>
+            </div>
+            <a class="btn btn-primary" href="https://alignednews.com" target="_blank" rel="noopener">Open developers docs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING TEASER -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Pricing</p>
+            <h2>Clear tiers. One primary CTA.</h2>
+            <p>Free daily intelligence · Pro for full depth · Enterprise for teams and custom research.</p>
+          </div>
+          <a class="link-more" href="https://alignednews.com" target="_blank" rel="noopener">See live pricing →</a>
+        </div>
+        <div class="split-panels">
+          <div class="panel">
+            <h3>Free</h3>
+            <p>Daily newsletter, limited story teasers, and a taste of /ai — enough to feel the signal quality.</p>
+            <a class="btn btn-secondary" href="#newsletter">Join the free daily</a>
+          </div>
+          <div class="panel" style="border-color:rgba(129,140,248,0.35)">
+            <span class="badge badge-soft">Most used</span>
+            <h3 style="margin-top:10px">Pro · $25/mo</h3>
+            <p>Full stories, Signals rail, unrestricted /ai briefing, and API access for personal agents.</p>
+            <a class="btn btn-primary" href="https://alignednews.com" target="_blank" rel="noopener">Start Pro</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section" id="newsletter">
+      <div class="wrap">
+        <div class="newsletter">
+          <div>
+            <p class="section-kicker">Aligned Daily Intelligence</p>
+            <h2>Weekday brief at 1 p.m. PT</h2>
+            <p>
+              Top AI stories, launches, funding, and cross-list signals from 63 curated X lists — Saturday roundup included. Free during launch.
+            </p>
+          </div>
+          <form class="newsletter-form" id="newsletterForm" action="https://alignednews.com" method="get">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+            <button class="btn btn-primary" type="submit">Get the free daily</button>
+            <p class="newsletter-note" id="newsletterNote">Preview form · routes to alignednews.com on the live product</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#4f46e5"/>
+              <path d="M18 42 L32 14 L46 42 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round"/>
+              <circle cx="32" cy="46" r="3.2" fill="#fff"/>
+            </svg>
+            Aligned News
+          </div>
+          <p>AI intelligence from Robert Scoble’s curated lists — built with Levangie Labs. This page is a static redesign preview for demo purposes.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="ai.html">AI briefing</a>
+          <a href="#signals">Signals</a>
+          <a href="#reports">Reports</a>
+          <a href="#api">API + MCP</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="https://alignednews.com" target="_blank" rel="noopener">Live site</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Scoble × Levangie Labs</span>
+        <span>Redesign preview · Aug 2026 · Not the production site</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

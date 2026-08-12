@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Briefing — Aligned News</title>
+<meta name="description" content="Dense, scannable AI intelligence briefing from 63 curated X lists — models, agents, robotics, and more. Redesign preview." />
+<meta property="og:title" content="AI Briefing — Aligned News" />
+<meta property="og:description" content="37 sections of AI intel, chip-navigable and expandable. Redesign preview for Robert Scoble." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="preview-banner" id="previewBanner" role="status">
+    <span>Redesign preview · Not the live site</span>
+    <button type="button" id="dismissBanner" aria-label="Dismiss banner">×</button>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Aligned News home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#4f46e5"/>
+          <path d="M18 42 L32 14 L46 42 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round"/>
+          <circle cx="32" cy="46" r="3.2" fill="#fff"/>
+        </svg>
+        <span class="brand-name">Aligned <em>News</em></span>
+      </a>
+
+      <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="ai.html">AI</a></li>
+        <li><a href="index.html#signals">Signals</a></li>
+        <li><a href="index.html#reports">Reports</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#api">API</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light mode" title="Light mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a class="nav-cta" href="index.html#newsletter">Get the daily</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="ai-hero">
+      <div class="wrap">
+        <div class="live-pill">
+          <span class="live-dot" aria-hidden="true"></span>
+          LIVE · Updated 12 min ago · 37 sections
+        </div>
+        <h1>AI Industry Intelligence</h1>
+        <p>
+          Dense on purpose — scannable by design. Jump by section chip, expand only what earns a click. Sourced from 63 lists · 100K+ accounts · ~5K posts this sweep.
+        </p>
+
+        <nav class="section-chips" aria-label="Jump to section">
+          <a class="active" href="#models">Models</a>
+          <a href="#agents">Agents</a>
+          <a href="#robotics">Robotics</a>
+          <a href="#capital">Capital</a>
+          <a href="#infra">Infrastructure</a>
+          <a href="#safety">Safety</a>
+          <a href="#spatial">Spatial</a>
+          <a href="index.html#signals">Signals →</a>
+        </nav>
+
+        <div class="ai-cta-bar">
+          <p><strong>Primary path:</strong> skim Models → open one item → follow source chips. Secondary links stay out of the way.</p>
+          <a class="btn btn-secondary" href="index.html">← Back to home</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODELS -->
+    <section class="brief-section wrap" id="models">
+      <header>
+        <h2>Models</h2>
+        <span class="count">4 items · high volume this sweep</span>
+      </header>
+
+      <details class="brief-item" open>
+        <summary>
+          <span class="rank">1</span>
+          <div>
+            <h3>Live academic competitions replace frozen benchmark screenshots</h3>
+            <p class="lede">Labs and eval builders converge on rotating problem sets — Tuesday winners fade by Friday.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            AI Companies #1 and AI Leaders #1 both amplified the same shift: static leaderboards are losing rhetorical power. Teams posting bracket-style runs against freshly sampled academic problems are getting more attention than another MMLU delta. The operational read is simple — prefer vendors who publish continuous harnesses over those who only ship a marketing table.
+          </p>
+          <p>
+            Hidden gem from the community lists: three open eval repos were forked hard within hours of a labs blog, while mainstream coverage still framed a single model as “winning the week.” Cross-list velocity beat the press cycle again.
+          </p>
+          <div class="source-links">
+            <a href="#">AI Companies #1</a>
+            <a href="#">AI Leaders #1</a>
+            <a href="#">Eval builders thread</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="rank">2</span>
+          <div>
+            <h3>Long-context shipping stories emphasize retrieval discipline, not just window size</h3>
+            <p class="lede">Million-token claims cool; “what did you actually ground on?” heats up.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Practitioner threads are less impressed by raw context ceilings and more interested in citation fidelity under load. Several company accounts previewed hybrid retrieval stacks that keep the wide window as a fallback, not the default path — a quieter story than parameter counts, and more useful for buyers.
+          </p>
+          <div class="source-links">
+            <a href="#">AI Companies #2</a>
+            <a href="#">AI Community #3</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="rank">3</span>
+          <div>
+            <h3>Open-weight releases cluster around specialized tool-use variants</h3>
+            <p class="lede">General chat models still drop, but the forks that move are tool-tuned.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Community lists show download spikes on weights marketed for structured tool calling and constrained decoding. The echo is practical: teams want agents that fail closed, not another generalist chat personality.
+          </p>
+          <div class="source-links">
+            <a href="#">AI Community #1</a>
+            <a href="#">Open-source watch</a>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- AGENTS -->
+    <section class="brief-section wrap" id="agents">
+      <header>
+        <h2>Agents</h2>
+        <span class="count">3 items · ACTION adjacent</span>
+      </header>
+
+      <details class="brief-item" open>
+        <summary>
+          <span class="rank">1</span>
+          <div>
+            <h3>Overnight batch agents leave morning triage queues — and new failure modes</h3>
+            <p class="lede">From demo loops to jobs that run while the team sleeps.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Builder channels describe agents that file tickets, draft PRs, and assemble a human review queue before 8 a.m. The conversation moved past “can it call tools?” into idempotency, rollback, and which systems an agent may touch unsupervised. Confidence without calibration is the cautionary chorus — wrong-severity tickets look like velocity until audit day.
+          </p>
+          <div class="source-links">
+            <a href="#">AI Community #2</a>
+            <a href="#">AI Community #4</a>
+            <a href="#">AI Leaders #1</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="rank">2</span>
+          <div>
+            <h3>Private chat archives as memory — permission UX becomes the product</h3>
+            <p class="lede">CAUTION signal: assistants that quietly ingest messaging history.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Leader list chatter points to personal AI that treats messaging history as a first-class context layer. The upside for continuity is obvious; the enterprise blocker is disclosure and retention. Watch which products put permission surfaces in the first-run flow versus burying them in settings.
+          </p>
+          <div class="source-links">
+            <a href="#">AI Leaders #1</a>
+            <a href="#">Security list</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="rank">3</span>
+          <div>
+            <h3>MCP and tool registries show up in non-developer threads</h3>
+            <p class="lede">Protocol talk leaking into operator and investor lists.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            What started as a builders’ acronym is now getting casual mentions from investors asking how agents discover tools. That bleed across lists is usually an early adoption tell — worth tracking next to Aligned’s own MCP surface.
+          </p>
+          <div class="source-links">
+            <a href="#">AI Investors</a>
+            <a href="#">AI Community #5</a>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ROBOTICS -->
+    <section class="brief-section wrap" id="robotics">
+      <header>
+        <h2>Robotics</h2>
+        <span class="count">3 items · demos vs deployments</span>
+      </header>
+
+      <details class="brief-item" open>
+        <summary>
+          <span class="rank">1</span>
+          <div>
+            <h3>Brownfield warehouse pilots expand while humanoid reels dominate feeds</h3>
+            <p class="lede">MTBF tickets > bipedal keynotes for operators on the lists.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Robot AI and SF Bay Area Robots keep posting conveyor-side reality: retrofit sites, union-facing change management, and uptime spreadsheets. The humanoid demos still win the algorithm; the procurement conversations on these lists sound more like industrial software than sci-fi.
+          </p>
+          <div class="source-links">
+            <a href="#">Robot AI</a>
+            <a href="#">SF Bay Area Robots</a>
+            <a href="#">Robot Influencers</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="rank">2</span>
+          <div>
+            <h3>Autonomy stacks borrow more language from LLM eval culture</h3>
+            <p class="lede">Scenario suites and regression gates, not just miles driven.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Autonomous Vehicles list traffic this week borrowed “eval harness” vocabulary from the model world — scenario libraries, nightly regression, and explicit holdout towns. Cross-pollination is the story: AI culture infecting robotics QA for the better.
+          </p>
+          <div class="source-links">
+            <a href="#">Autonomous Vehicles</a>
+            <a href="#">AI Companies #1</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="brief-item">
+        <summary>
+          <span class="rank">3</span>
+          <div>
+            <h3>Component suppliers talk software margins louder than hardware catalogs</h3>
+            <p class="lede">Sensors still ship; recurring perception SKUs get the airtime.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Influencer and supplier accounts framed perception updates as subscription-shaped. That’s a capital-markets tell as much as a robotics one — recurring revenue narratives migrating down the stack.
+          </p>
+          <div class="source-links">
+            <a href="#">Robot Influencers</a>
+            <a href="#">AI Investors</a>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Lightweight stubs for other chips -->
+    <section class="brief-section wrap" id="capital">
+      <header>
+        <h2>Capital</h2>
+        <span class="count">Teaser · full section on live site</span>
+      </header>
+      <details class="brief-item">
+        <summary>
+          <span class="rank">1</span>
+          <div>
+            <h3>Tokens-per-watt language shows up in closed term sheets</h3>
+            <p class="lede">Power contracts and schedulers cited alongside GPU tallies.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            AI Investors and AI Newsmakers rotated pitch vocabulary toward energy-aware infrastructure. Clusters still matter; so do megawatts and the software that keeps GPUs from idling.
+          </p>
+          <div class="source-links">
+            <a href="#">AI Investors</a>
+            <a href="#">AI Newsmakers</a>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="brief-section wrap" id="infra">
+      <header>
+        <h2>Infrastructure</h2>
+        <span class="count">Teaser</span>
+      </header>
+      <details class="brief-item">
+        <summary>
+          <span class="rank">1</span>
+          <div>
+            <h3>Scheduler and cooler deals get equal billing with chip announcements</h3>
+            <p class="lede">The bottleneck conversation widened past silicon.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Infra-adjacent accounts treated cooling, power provisioning, and cluster schedulers as first-class news — not footnotes under a GPU drop.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="brief-section wrap" id="safety">
+      <header>
+        <h2>Safety</h2>
+        <span class="count">Teaser</span>
+      </header>
+      <details class="brief-item">
+        <summary>
+          <span class="rank">1</span>
+          <div>
+            <h3>Eval culture for agents includes permission and retention, not only jailbreaks</h3>
+            <p class="lede">Enterprise threads broaden “safety” past model refusals.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            Safety and Security lists spent more airtime on data retention and tool allow-lists than on classic prompt-injection demos this sweep — a maturity marker.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="brief-section wrap" id="spatial">
+      <header>
+        <h2>Spatial</h2>
+        <span class="count">Teaser</span>
+      </header>
+      <details class="brief-item">
+        <summary>
+          <span class="rank">1</span>
+          <div>
+            <h3>3D asset pipelines race toward commodity pricing</h3>
+            <p class="lede">Matches the ACTION signal on the homepage rail.</p>
+          </div>
+          <span class="chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="brief-body">
+          <p>
+            AR/VR and Spatial Computing lists echoed the generative 3D cost collapse — useful meshes measured in cents, forcing a rethink of internal asset budgets.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="newsletter" style="grid-template-columns:1fr auto; align-items:center;">
+          <div>
+            <p class="section-kicker">Keep the briefing</p>
+            <h2 style="margin-bottom:6px">Weekday delivery at 1 p.m. PT</h2>
+            <p>Same lists. Fewer tabs. Free during launch.</p>
+          </div>
+          <a class="btn btn-primary" href="index.html#newsletter">Get the free daily</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#4f46e5"/>
+              <path d="M18 42 L32 14 L46 42 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round"/>
+              <circle cx="32" cy="46" r="3.2" fill="#fff"/>
+            </svg>
+            Aligned News
+          </div>
+          <p>AI intelligence from Robert Scoble’s curated lists — built with Levangie Labs. Static redesign preview.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="ai.html">AI briefing</a>
+          <a href="index.html#signals">Signals</a>
+          <a href="index.html#reports">Reports</a>
+          <a href="index.html#api">API + MCP</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="https://alignednews.com" target="_blank" rel="noopener">Live site</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#newsletter">Newsletter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Scoble × Levangie Labs</span>
+        <span>Redesign preview · Aug 2026 · Not the production site</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
