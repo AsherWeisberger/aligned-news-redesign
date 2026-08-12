@@ -176,6 +176,7 @@ button:focus-visible {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   isolation: isolate;
+  overflow: hidden; /* clip half-snap so it never paints over News */
   /* reserve layout size from one half */
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -199,16 +200,26 @@ button:focus-visible {
 .brand-align-sub {
   display: inline-flex;
   align-items: baseline;
+  margin-left: 0.25rem; /* breath between Aligned + News when settled */
+  will-change: transform, filter, opacity, letter-spacing;
+}
+.brand-align-sub em {
+  font-style: normal;
+  font-weight: 550;
+  color: var(--muted);
+  letter-spacing: -0.03em;
+  display: inline-block;
+  animation: brand-news-dock 1.05s cubic-bezier(0.22, 1.35, 0.36, 1) 0.28s both;
 }
 @keyframes brand-align-in-top {
-  from { transform: translateX(-8px); }
+  from { transform: translateX(-6px); }
   to { transform: translateX(0); }
 }
 @keyframes brand-align-in-bot {
-  from { transform: translateX(8px); }
+  from { transform: translateX(6px); }
   to { transform: translateX(0); }
 }
-/* Listening while desk loads — subtle drift apart, then settle when loading ends */
+/* Listening while desk loads — subtle drift apart (clipped by mark), then settle */
 @keyframes brand-listen-top {
   0%, 100% { transform: translateX(-3px); }
   50% { transform: translateX(-6px); }
@@ -216,6 +227,60 @@ button:focus-visible {
 @keyframes brand-listen-bot {
   0%, 100% { transform: translateX(3px); }
   50% { transform: translateX(6px); }
+}
+/* News docks from space onto Aligned — not a left/right split */
+@keyframes brand-news-dock {
+  0% {
+    opacity: 0;
+    transform: translate(1.15rem, -0.42rem) scale(1.2);
+    letter-spacing: 0.22em;
+    filter: blur(8px);
+    text-shadow:
+      0 0 14px rgba(167, 139, 250, 0.85),
+      0 0 28px rgba(34, 211, 238, 0.55),
+      0 0 4px rgba(255, 255, 255, 0.35);
+  }
+  62% {
+    opacity: 1;
+    transform: translate(-0.08rem, 0.04rem) scale(0.98);
+    letter-spacing: 0.01em;
+    filter: blur(0);
+    text-shadow:
+      0 0 10px rgba(167, 139, 250, 0.35),
+      0 0 18px rgba(34, 211, 238, 0.22);
+  }
+  82% {
+    transform: translate(0.04rem, -0.02rem) scale(1.02);
+    letter-spacing: -0.01em;
+    text-shadow:
+      0 0 6px rgba(167, 139, 250, 0.18),
+      0 0 12px rgba(34, 211, 238, 0.12);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    letter-spacing: -0.03em;
+    filter: blur(0);
+    text-shadow: none;
+  }
+}
+/* Subtle cosmic orbit shimmer on News while loading — no drift into Aligned */
+@keyframes brand-news-orbit {
+  0%, 100% {
+    opacity: 0.88;
+    transform: translateY(0);
+    text-shadow:
+      0 0 8px rgba(167, 139, 250, 0.35),
+      0 0 16px rgba(34, 211, 238, 0.18);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1.5px);
+    text-shadow:
+      0 0 12px rgba(167, 139, 250, 0.55),
+      0 0 22px rgba(34, 211, 238, 0.32),
+      0 0 4px rgba(255, 255, 255, 0.2);
+  }
 }
 html[data-loading="1"] .brand-align-top,
 body.siri-glow .brand-align-top {
@@ -225,15 +290,26 @@ html[data-loading="1"] .brand-align-bot,
 body.siri-glow .brand-align-bot {
   animation: brand-listen-bot 2.2s ease-in-out infinite;
 }
+html[data-loading="1"] .brand-align-sub em,
+body.siri-glow .brand-align-sub em {
+  animation: brand-news-orbit 2.4s ease-in-out infinite;
+}
 @media (prefers-reduced-motion: reduce) {
   .brand-align-top,
   .brand-align-bot,
+  .brand-align-sub em,
   html[data-loading="1"] .brand-align-top,
   html[data-loading="1"] .brand-align-bot,
+  html[data-loading="1"] .brand-align-sub em,
   body.siri-glow .brand-align-top,
-  body.siri-glow .brand-align-bot {
+  body.siri-glow .brand-align-bot,
+  body.siri-glow .brand-align-sub em {
     animation: none !important;
     transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    letter-spacing: normal !important;
+    text-shadow: none !important;
   }
 }
 
@@ -1465,9 +1541,11 @@ body[data-page="signals"] .feed-row {
     transform: none;
     animation: none;
   }
-  .brand-align-top, .brand-align-bot {
+  .brand-align-top, .brand-align-bot, .brand-align-sub em {
     transform: none !important;
     animation: none !important;
+    filter: none !important;
+    text-shadow: none !important;
   }
   .lead-hero img { transform: none; animation: none; opacity: 1; }
   .live-dot { animation: none; }
