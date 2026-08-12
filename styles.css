@@ -1684,3 +1684,49 @@ html[data-chrome="compact"] .foryou:not([hidden]) {
     transition: none !important;
   }
 }
+
+
+/* === Digg-style top loading bar === */
+.load-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+  background: transparent;
+}
+.load-bar[hidden] {
+  display: none !important;
+}
+.load-bar-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 35%;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent), #60a5fa);
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.45);
+  transform-origin: left center;
+  animation: load-bar-slide 1.05s var(--ease-soft) infinite;
+}
+.load-bar.is-static .load-bar-inner {
+  animation: none;
+  width: 100%;
+  opacity: 0.85;
+}
+@keyframes load-bar-slide {
+  0% { transform: translateX(-120%) scaleX(0.45); }
+  40% { transform: translateX(40%) scaleX(1); }
+  100% { transform: translateX(280%) scaleX(0.55); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .load-bar-inner {
+    animation: none !important;
+    width: 100%;
+    opacity: 0.7;
+  }
+}

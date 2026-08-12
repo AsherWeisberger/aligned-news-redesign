@@ -432,7 +432,14 @@
 
   // User preference (localStorage an-chrome) vs visual data-chrome (may auto-collapse on scroll).
   var chromePref = "full";
+  // Soft pin: cleared automatically on clear downward scroll so scroll-down always collapses.
   var chromeScrollPinned = false;
+  var lastScrollY = 0;
+  var chromeScrollRaf = 0;
+
+  function getScrollY() {
+    return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
 
   function getStoredChromePref() {
     try {
@@ -458,20 +465,23 @@
     chromePref = getStoredChromePref();
     applyChromeVisual(chromePref);
     syncChromeToggle();
+    lastScrollY = getScrollY();
   }
 
   function syncChromeToggle() {
-    var compact = document.documentElement.getAttribute("data-chrome") === "compact";
+    // Button reflects preference (an-chrome), not transient scroll visual state.
+    var prefCompact = chromePref === "compact";
+    var visualCompact = document.documentElement.getAttribute("data-chrome") === "compact";
     var btn = $("#chromeToggle");
     if (btn) {
-      btn.setAttribute("aria-pressed", compact ? "true" : "false");
-      // Expanded → "Focus" (action to collapse). Collapsed → "Desk" (action to restore).
-      btn.textContent = compact ? "Desk" : "Focus";
-      btn.title = compact ? "Show desk overview" : "Hide desk for more feed space";
-      btn.setAttribute("aria-label", compact ? "Show desk" : "Focus — hide desk for more space");
+      btn.setAttribute("aria-pressed", prefCompact ? "true" : "false");
+      // Pref full → "Focus" (action to collapse). Pref compact → "Desk" (action to restore).
+      btn.textContent = prefCompact ? "Desk" : "Focus";
+      btn.title = prefCompact ? "Show desk overview" : "Hide desk for more feed space";
+      btn.setAttribute("aria-label", prefCompact ? "Show desk" : "Focus — hide desk for more space");
     }
     var hero = document.querySelector(".desk-hero");
-    if (hero) hero.setAttribute("aria-hidden", compact ? "true" : "false");
+    if (hero) hero.setAttribute("aria-hidden", visualCompact ? "true" : "false");
   }
 
   /** Apply visual chrome only — does not write an-chrome preference. */
@@ -516,8 +526,8 @@
     chromePref = next;
     try { localStorage.setItem("an-chrome", next); } catch (e) {}
     if (next === "full") {
-      // Pin against scroll auto-collapse until near top
-      chromeScrollPinned = (window.scrollY || document.documentElement.scrollTop || 0) > 48;
+      // Soft pin only; cleared on downward scroll > 24px so scroll-down always collapses.
+      chromeScrollPinned = getScrollY() > 40;
       applyChromeVisual("full");
     } else {
       chromeScrollPinned = false;
@@ -530,18 +540,95 @@
   }
 
   function onChromeScroll() {
-    var y = window.scrollY || document.documentElement.scrollTop || 0;
+    var y = getScrollY();
+    var dy = y - lastScrollY;
     var visualCompact = document.documentElement.getAttribute("data-chrome") === "compact";
-    if (y > 72) {
-      if (!visualCompact && !chromeScrollPinned) {
+
+    // Soft pin: auto-clear on clear downward motion (>24px).
+    if (dy > 24) chromeScrollPinned = false;
+
+    if (dy > 0 && y > 40) {
+      // Digg-like: scroll-down always collapses — do not require clearing pin first.
+      chromeScrollPinned = false;
+      if (!visualCompact) {
         applyChromeVisual("compact"); // auto — do not overwrite an-chrome pref
       }
-    } else if (y < 48) {
+    } else if (dy < 0 && y < 56) {
       chromeScrollPinned = false;
       if (chromePref === "full" && visualCompact) {
         applyChromeVisual("full");
       }
+    } else if (y < 56 && chromePref === "full" && visualCompact && !chromeScrollPinned) {
+      // Near top even without a measured upward tick (iOS bounce / touch end).
+      applyChromeVisual("full");
     }
+
+    lastScrollY = y < 0 ? 0 : y;
+  }
+
+  function onChromeScrollThrottled() {
+    if (chromeScrollRaf) return;
+    chromeScrollRaf = requestAnimationFrame(function () {
+      chromeScrollRaf = 0;
+      onChromeScroll();
+    });
+  }
+
+  function bindChromeScrollListeners() {
+    var opts = { passive: true, capture: true };
+    window.addEventListener("scroll", onChromeScrollThrottled, opts);
+    document.addEventListener("scroll", onChromeScrollThrottled, opts);
+    var main = document.querySelector(".main");
+    if (main) main.addEventListener("scroll", onChromeScrollThrottled, opts);
+    // iOS Safari often delays scroll events until finger lifts; touchmove keeps chrome responsive.
+    window.addEventListener("touchmove", onChromeScrollThrottled, { passive: true });
+    document.addEventListener("touchmove", onChromeScrollThrottled, { passive: true });
+    lastScrollY = getScrollY();
+  }
+
+  var loadBarHideTimer = null;
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (e) {
+      return false;
+    }
+  }
+  function showLoadBar() {
+    var bar = document.getElementById("loadBar");
+    if (!bar) return;
+    if (loadBarHideTimer) {
+      clearTimeout(loadBarHideTimer);
+      loadBarHideTimer = null;
+    }
+    bar.hidden = false;
+    bar.setAttribute("aria-hidden", "false");
+    bar.classList.add("is-active");
+    if (prefersReducedMotion()) bar.classList.add("is-static");
+    else bar.classList.remove("is-static");
+  }
+  function hideLoadBar() {
+    var bar = document.getElementById("loadBar");
+    if (!bar) return;
+    if (loadBarHideTimer) {
+      clearTimeout(loadBarHideTimer);
+      loadBarHideTimer = null;
+    }
+    bar.classList.remove("is-active");
+    bar.hidden = true;
+    bar.setAttribute("aria-hidden", "true");
+  }
+  function flashLoadBar(ms) {
+    showLoadBar();
+    var dur = prefersReducedMotion() ? 0 : (ms == null ? 400 : ms);
+    if (dur <= 0) {
+      hideLoadBar();
+      return;
+    }
+    loadBarHideTimer = setTimeout(function () {
+      loadBarHideTimer = null;
+      hideLoadBar();
+    }, dur);
   }
 
   function fmtRelative(iso) {
@@ -1147,6 +1234,7 @@
     $all(".chip", el).forEach(function (btn) {
       btn.addEventListener("click", function () {
         state.filter = btn.getAttribute("data-filter") || "all";
+        flashLoadBar(400);
         renderChips(containerId);
         if (pageName() === "today") renderTodayFeed();
         if (pageName() === "signals") renderSignals();
@@ -1600,12 +1688,12 @@
     if (chromeBtn) {
       syncChromeToggle();
       chromeBtn.addEventListener("click", function () {
-        var compact = document.documentElement.getAttribute("data-chrome") === "compact";
-        setChromePreference(compact ? "full" : "compact");
+        // Toggle preference (not transient visual scroll state).
+        setChromePreference(chromePref === "compact" ? "full" : "compact");
       });
     }
 
-    window.addEventListener("scroll", onChromeScroll, { passive: true });
+    bindChromeScrollListeners();
 
     var themeBtn = $("#themeToggle");
     if (themeBtn) {
@@ -1662,6 +1750,7 @@
       }
     }
 
+    showLoadBar();
     fetch(DATA_URL, { cache: "no-store" })
       .then(function (res) {
         if (!res.ok) throw new Error("Could not load " + DATA_URL);
@@ -1696,6 +1785,7 @@
           status.innerHTML = "";
           status.remove();
         }
+        hideLoadBar();
       })
       .catch(function (err) {
         if (status) {
@@ -1704,6 +1794,7 @@
           status.textContent = "Could not load live-data.json. Open this folder via a local static server (file:// may block fetch).";
         }
         console.error(err);
+        hideLoadBar();
       });
   }
 
