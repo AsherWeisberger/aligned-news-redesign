@@ -434,14 +434,42 @@
     var root = document.documentElement;
     var theme = null;
     var density = null;
+    var chrome = null;
     try {
       theme = localStorage.getItem("an-theme");
       density = localStorage.getItem("an-density");
+      chrome = localStorage.getItem("an-chrome");
     } catch (e) {}
     if (theme === "dark") root.setAttribute("data-theme", "dark");
     else root.removeAttribute("data-theme"); // light default
     if (density === "compact") root.setAttribute("data-density", "compact");
     else root.removeAttribute("data-density");
+    // Default expanded (full desk); compact = Focus mode
+    if (chrome === "compact") root.setAttribute("data-chrome", "compact");
+    else root.removeAttribute("data-chrome");
+  }
+
+  function syncChromeToggle() {
+    var compact = document.documentElement.getAttribute("data-chrome") === "compact";
+    var btn = $("#chromeToggle");
+    if (btn) {
+      btn.setAttribute("aria-pressed", compact ? "true" : "false");
+      // Expanded → "Focus" (action to collapse). Collapsed → "Desk" (action to restore).
+      btn.textContent = compact ? "Desk" : "Focus";
+      btn.title = compact ? "Show desk overview" : "Hide desk for more feed space";
+      btn.setAttribute("aria-label", compact ? "Show desk" : "Focus — hide desk for more space");
+    }
+    var hero = document.querySelector(".desk-hero");
+    if (hero) hero.setAttribute("aria-hidden", compact ? "true" : "false");
+  }
+
+  function setChromeMode(mode) {
+    var root = document.documentElement;
+    var next = mode === "compact" ? "compact" : "full";
+    if (next === "compact") root.setAttribute("data-chrome", "compact");
+    else root.removeAttribute("data-chrome");
+    try { localStorage.setItem("an-chrome", next); } catch (e) {}
+    syncChromeToggle();
   }
 
   function fmtRelative(iso) {
@@ -982,6 +1010,7 @@
       densBtn.setAttribute("aria-pressed", compact ? "true" : "false");
       densBtn.textContent = compact ? "Compact" : "Comfortable";
     }
+    syncChromeToggle();
     var themeBtn = $("#themeToggle");
     if (themeBtn) {
       var dark = document.documentElement.getAttribute("data-theme") === "dark";
@@ -1485,6 +1514,15 @@
         try { localStorage.setItem("an-density", next); } catch (e) {}
         densBtn.setAttribute("aria-pressed", next === "compact" ? "true" : "false");
         densBtn.textContent = next === "compact" ? "Compact" : "Comfortable";
+      });
+    }
+
+    var chromeBtn = $("#chromeToggle");
+    if (chromeBtn) {
+      syncChromeToggle();
+      chromeBtn.addEventListener("click", function () {
+        var compact = document.documentElement.getAttribute("data-chrome") === "compact";
+        setChromeMode(compact ? "full" : "compact");
       });
     }
 

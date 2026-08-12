@@ -1608,3 +1608,82 @@ html, body {
   .pro-badge { display: none !important; }
   .brand em { display: none; }
 }
+
+
+/* === collapsible desk chrome (Focus) === */
+.chrome-toggle {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+@media (max-width: 520px) {
+  .chrome-toggle {
+    padding: 0.28rem 0.62rem;
+    font-size: 0.74rem;
+  }
+}
+
+/* Animate desk hero + intel strip out when Focus is on */
+.desk-hero,
+.intel-strip:not([hidden]) {
+  transition:
+    opacity 0.28s var(--ease-soft),
+    max-height 0.32s var(--ease-soft),
+    margin 0.28s var(--ease-soft),
+    padding 0.28s var(--ease-soft),
+    border-color 0.28s var(--ease-soft),
+    box-shadow 0.28s var(--ease-soft);
+  max-height: 720px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+html[data-chrome="compact"] .desk-hero {
+  max-height: 0 !important;
+  opacity: 0;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-color: transparent;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+html[data-chrome="compact"] .intel-strip {
+  max-height: 0 !important;
+  opacity: 0;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-color: transparent;
+  box-shadow: none;
+  pointer-events: none;
+  /* keep out of layout even if JS cleared [hidden] */
+  display: block;
+  overflow: hidden;
+}
+html[data-chrome="compact"] .intel-strip[hidden] {
+  display: none !important;
+}
+
+/* Keep chips; tighten for feed real estate */
+html[data-chrome="compact"] .chips {
+  margin-bottom: 0.55rem;
+  padding-top: 0;
+  padding-bottom: 0.2rem;
+}
+html[data-chrome="compact"] .chip {
+  padding: 0.28rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+/* Optional: hide For You strip extras when focusing (leave if present but soft) */
+html[data-chrome="compact"] .foryou:not([hidden]) {
+  margin-bottom: 0.45rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desk-hero,
+  .intel-strip:not([hidden]) {
+    transition: none !important;
+  }
+}
