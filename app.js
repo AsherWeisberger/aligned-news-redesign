@@ -593,7 +593,6 @@
   var glowHideTimer = null;
   var glowShownAt = 0;
   var GLOW_MIN_MS = 1600;
-  var MELT_FINISH_MS = 820;
   var thinkPhraseTimer = null;
   var thinkPhraseIndex = 0;
   var THINK_PHRASES = [
@@ -611,41 +610,26 @@
     }
   }
 
+  function edgeGlowMarkup() {
+    return '<div class="edge-glow-ocean" aria-hidden="true"><div class="siri-edge siri-edge-top"><span class="siri-tide tide-magenta t1"></span><span class="siri-tide tide-cyan t2"></span><span class="siri-tide tide-violet t3"></span></div><div class="siri-edge siri-edge-right"><span class="siri-tide tide-coral t1"></span><span class="siri-tide tide-violet t2"></span><span class="siri-tide tide-cyan t3"></span></div><div class="siri-edge siri-edge-bot"><span class="siri-tide tide-teal t1"></span><span class="siri-tide tide-magenta t2"></span><span class="siri-tide tide-coral t3"></span></div><div class="siri-edge siri-edge-left"><span class="siri-tide tide-cyan t1"></span><span class="siri-tide tide-violet t2"></span><span class="siri-tide tide-magenta t3"></span></div></div><svg class="edge-glow-svg" aria-hidden="true" focusable="false"><filter id="siriOcean" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="7" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter></svg>';
+  }
+
   function ensureEdgeGlow() {
     var glow = document.getElementById("edgeGlow");
-    if (glow) return glow;
+    if (glow) {
+      if (!glow.querySelector(".edge-glow-ocean")) {
+        glow.innerHTML = edgeGlowMarkup();
+      }
+      return glow;
+    }
     glow = document.createElement("div");
     glow.id = "edgeGlow";
     glow.className = "edge-glow";
     glow.hidden = true;
     glow.setAttribute("aria-hidden", "true");
-    glow.innerHTML = '<div class="edge-glow-aura" aria-hidden="true"></div>';
+    glow.innerHTML = edgeGlowMarkup();
     document.body.insertBefore(glow, document.body.firstChild);
     return glow;
-  }
-
-  function ensureMeltVeil() {
-    var veil = document.getElementById("meltVeil");
-    if (veil) return veil;
-    veil = document.createElement("div");
-    veil.id = "meltVeil";
-    veil.className = "melt-veil";
-    veil.hidden = true;
-    veil.setAttribute("aria-live", "polite");
-    veil.setAttribute("aria-busy", "true");
-    veil.innerHTML =
-      '<div class="melt-veil-sheet" aria-hidden="true"></div>' +
-      '<div class="melt-veil-hud">' +
-        '<span class="melt-veil-kicker">Loading</span>' +
-        '<span class="melt-veil-phrase" id="meltPhrase">Building your desk…</span>' +
-      "</div>";
-    var edge = document.getElementById("edgeGlow");
-    if (edge && edge.parentNode === document.body) {
-      document.body.insertBefore(veil, edge.nextSibling);
-    } else {
-      document.body.insertBefore(veil, document.body.firstChild);
-    }
-    return veil;
   }
 
   function ensureThinkStatus() {
@@ -676,12 +660,6 @@
       if (wrap) textEl = wrap.querySelector(".think-status-text") || document.getElementById("thinkStatusText");
     }
     if (textEl) textEl.textContent = text;
-    var meltEl = document.getElementById("meltPhrase");
-    if (!meltEl) {
-      ensureMeltVeil();
-      meltEl = document.getElementById("meltPhrase");
-    }
-    if (meltEl) meltEl.textContent = text;
   }
 
   function stopThinkPhrases() {
@@ -725,38 +703,6 @@
     }, leaveMs);
   }
 
-  function showMeltVeil() {
-    var veil = ensureMeltVeil();
-    veil.classList.remove("is-finishing");
-    veil.hidden = false;
-    veil.setAttribute("aria-busy", "true");
-    veil.setAttribute("aria-hidden", "false");
-    // force reflow so is-on transitions apply
-    void veil.offsetWidth;
-    veil.classList.add("is-on");
-  }
-
-  function hideMeltVeil(forceImmediate, done) {
-    var veil = document.getElementById("meltVeil") || ensureMeltVeil();
-    function afterGone() {
-      veil.classList.remove("is-on", "is-finishing");
-      veil.hidden = true;
-      veil.setAttribute("aria-busy", "false");
-      veil.setAttribute("aria-hidden", "true");
-      if (typeof done === "function") done();
-    }
-    if (!veil.classList.contains("is-on") && veil.hidden) {
-      afterGone();
-      return;
-    }
-    if (forceImmediate || prefersReducedMotion()) {
-      afterGone();
-      return;
-    }
-    veil.classList.add("is-finishing");
-    setTimeout(afterGone, MELT_FINISH_MS);
-  }
-
   function showThinLoadBar() {
     var bar = document.getElementById("loadBar");
     if (!bar) return;
@@ -786,16 +732,14 @@
     }
     document.documentElement.removeAttribute("data-revealed");
     var glow = ensureEdgeGlow();
-    ensureMeltVeil();
     document.documentElement.setAttribute("data-loading", "1");
     document.body.classList.add("siri-glow");
     glow.hidden = false;
     glow.setAttribute("aria-hidden", "false");
     glow.classList.add("is-on");
     glowShownAt = Date.now();
-    // Edges-only Siri rim + melt veil HUD (no top rainbow bar wash).
+    // Perimeter Siri rim + topbar think status only (no center overlay).
     hideThinLoadBar();
-    showMeltVeil();
     showThinkStatus();
   }
 
@@ -813,20 +757,18 @@
       var instant = !!forceImmediate || prefersReducedMotion();
       hideThinLoadBar();
       hideThinkStatus();
-      hideMeltVeil(instant, function () {
-        document.documentElement.removeAttribute("data-loading");
-        document.body.classList.remove("siri-glow");
-        var glow = document.getElementById("edgeGlow");
-        if (glow) {
-          glow.classList.remove("is-on");
-          var leaveMs = instant ? 0 : 280;
-          setTimeout(function () {
-            glow.hidden = true;
-            glow.setAttribute("aria-hidden", "true");
-          }, leaveMs);
-        }
-        document.documentElement.setAttribute("data-revealed", "1");
-      });
+      document.documentElement.removeAttribute("data-loading");
+      document.body.classList.remove("siri-glow");
+      var glow = document.getElementById("edgeGlow");
+      if (glow) {
+        glow.classList.remove("is-on");
+        var leaveMs = instant ? 0 : 280;
+        setTimeout(function () {
+          glow.hidden = true;
+          glow.setAttribute("aria-hidden", "true");
+        }, leaveMs);
+      }
+      document.documentElement.setAttribute("data-revealed", "1");
     }
 
     var elapsed = glowShownAt ? (Date.now() - glowShownAt) : GLOW_MIN_MS;
@@ -899,17 +841,18 @@
     var actions = document.querySelector(".top-actions");
     if (!actions) return null;
     var el = document.getElementById("authCta");
-    if (el) return el;
-    el = document.createElement("a");
-    el.id = "authCta";
-    el.className = "auth-cta";
-    el.href = "https://alignednews.com/account";
-    el.target = "_blank";
-    el.rel = "noopener noreferrer";
-    el.textContent = "Sign up / Login";
-    var pill = actions.querySelector(".user-pill");
-    if (pill) actions.insertBefore(el, pill);
-    else actions.appendChild(el);
+    if (!el) {
+      el = document.createElement("a");
+      el.id = "authCta";
+      el.className = "auth-cta";
+      el.textContent = "Sign up / Login";
+      var pill = actions.querySelector(".user-pill");
+      if (pill) actions.insertBefore(el, pill);
+      else actions.appendChild(el);
+    }
+    el.href = "auth.html";
+    el.removeAttribute("target");
+    el.removeAttribute("rel");
     return el;
   }
 
@@ -1770,6 +1713,88 @@
       "</ol>";
   }
 
+
+  function storyTimeIso(item) {
+    if (!item) return "";
+    var keys = [
+      "published_at", "created_at", "first_seen", "first_seen_at",
+      "seen_at", "timestamp", "posted_at", "date"
+    ];
+    for (var i = 0; i < keys.length; i++) {
+      var v = item[keys[i]];
+      if (v == null || v === "") continue;
+      if (typeof v === "number") {
+        try {
+          var d = new Date(v > 1e12 ? v : v * 1000);
+          if (!isNaN(d.getTime())) return d.toISOString();
+        } catch (e) {}
+        continue;
+      }
+      if (Date.parse(v)) return v;
+    }
+    return resolveTimeIso(null);
+  }
+
+  function localDayKey(iso) {
+    var d = new Date(Date.parse(iso) || Date.now());
+    var y = d.getFullYear();
+    var m = String(d.getMonth() + 1);
+    if (m.length < 2) m = "0" + m;
+    var day = String(d.getDate());
+    if (day.length < 2) day = "0" + day;
+    return y + "-" + m + "-" + day;
+  }
+
+  function startOfLocalDay(d) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+
+  function diggDayLabel(dayKey) {
+    var parts = String(dayKey || "").split("-");
+    if (parts.length !== 3) return "Earlier";
+    var dayDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    if (isNaN(dayDate.getTime())) return "Earlier";
+    var today = startOfLocalDay(new Date());
+    var yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    var sod = startOfLocalDay(dayDate);
+    if (sod.getTime() === today.getTime()) return "Today's top stories";
+    if (sod.getTime() === yesterday.getTime()) return "Yesterday";
+    var ageDays = Math.round((today.getTime() - sod.getTime()) / 86400000);
+    try {
+      if (ageDays >= 0 && ageDays < 7) {
+        return dayDate.toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" });
+      }
+      return dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    } catch (e) {
+      return dayKey;
+    }
+  }
+
+  function groupStoriesByDay(stories) {
+    var map = {};
+    var order = [];
+    for (var i = 0; i < stories.length; i++) {
+      var s = stories[i];
+      var key = localDayKey(storyTimeIso(s));
+      if (!map[key]) {
+        map[key] = [];
+        order.push(key);
+      }
+      map[key].push(s);
+    }
+    order.sort(function (a, b) { return a < b ? 1 : a > b ? -1 : 0; });
+    return order.map(function (key) {
+      var items = map[key].slice().sort(function (a, b) {
+        var ra = rankScore(a);
+        var rb = rankScore(b);
+        if (rb !== ra) return rb - ra;
+        return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+      });
+      return { key: key, label: diggDayLabel(key), items: items };
+    });
+  }
+
   function renderTodayFeed() {
     var list = $("#feed");
     if (!list || !state.data) return;
@@ -1779,11 +1804,6 @@
       if (!isTodayFeedKind(s)) return false;
       if (isRetweetNoise(s)) return false;
       return storyMatches(s);
-    }).slice().sort(function (a, b) {
-      var ra = rankScore(a);
-      var rb = rankScore(b);
-      if (rb !== ra) return rb - ra;
-      return Date.parse(b.published_at || 0) - Date.parse(a.published_at || 0);
     });
     if (!stories.length) {
       if (getParam("view") === "saved") {
@@ -1798,12 +1818,18 @@
       return;
     }
 
-    var showLead = getParam("view") !== "saved" && state.filter === "all" && !state.query;
-    if (showLead && stories.length > 1) {
+    var isSaved = getParam("view") === "saved";
+    var showLead = !isSaved && state.filter === "all" && !state.query;
+    var html = "";
+    var rankCounter = 0;
+    var todayKey = localDayKey(new Date().toISOString());
+
+    function pickLeadInGroup(items) {
+      if (!showLead || !items || items.length < 2) return items;
       var bestIdx = -1;
       var best = -1e9;
-      for (var bi = 0; bi < Math.min(stories.length, 40); bi++) {
-        var cand = stories[bi];
+      for (var bi = 0; bi < Math.min(items.length, 40); bi++) {
+        var cand = items[bi];
         if (!isAiRelevant(cand)) continue;
         var rs = relevanceScore(cand);
         if (rs < 12) continue;
@@ -1811,14 +1837,14 @@
         if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180;
         if (score > best) { best = score; bestIdx = bi; }
       }
-      if (bestIdx >= 0) {
-        var lead = stories.splice(bestIdx, 1)[0];
-        stories.unshift(lead);
-      }
+      if (bestIdx < 0) return items;
+      var next = items.slice();
+      var lead = next.splice(bestIdx, 1)[0];
+      next.unshift(lead);
+      return next;
     }
-    var html = "";
 
-    stories.forEach(function (s, i) {
+    function renderStoryItem(s, i, allowLead) {
       var badge = s.signal_badge
         ? '<span class="' + badgeClass(s.signal_badge) + '">' + escapeHtml(String(s.signal_badge).toUpperCase()) + "</span>"
         : "";
@@ -1829,11 +1855,12 @@
       var key = s.topic_key || s.section_key || mapSectionKey(s.section || s.tag || "");
       var headline = editorialTitle(s, 92);
 
-      if (showLead && i === 0) {
+      if (allowLead && showLead && i === 0) {
         var leadHeadline = editorialTitle(s, 72);
         var dek = uniqueDek(s, leadHeadline, 170);
         var why = whyItMatters(s);
-        html +=
+        rankCounter = 1;
+        return (
           '<li class="lead-card' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
             '<div class="lead-rank-row">' +
               '<div class="lead-eyebrow">Top Story</div>' +
@@ -1851,15 +1878,16 @@
               avatarStackHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
-          "</li>";
-        return;
+          "</li>"
+        );
       }
 
-      var rank = i + 1;
+      rankCounter += 1;
+      var rank = rankCounter;
       var excerpt = uniqueDek(s, headline, 140);
-      var callout = (i === 3 || i === 8) && s.signal_badge;
-      html +=
-        '<li class="feed-row' + (isRead ? " is-read" : "") + (callout ? " feed-row-callout" : "") + '" style="--i:' + Math.min(i, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
+      var callout = (rank === 3 || rank === 8) && s.signal_badge;
+      return (
+        '<li class="feed-row' + (isRead ? " is-read" : "") + (callout ? " feed-row-callout" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(headline) + "</a></h2>" +
@@ -1873,8 +1901,36 @@
             "</div>" +
           "</div>" +
           rowThumbHtml(s, key, sectionPretty) +
-        "</li>";
-    });
+        "</li>"
+      );
+    }
+
+    if (isSaved) {
+      // Saved: flat ranked list, no Digg day sections
+      stories = stories.slice().sort(function (a, b) {
+        var ra = rankScore(a);
+        var rb = rankScore(b);
+        if (rb !== ra) return rb - ra;
+        return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+      });
+      stories.forEach(function (s, i) {
+        html += renderStoryItem(s, i, false);
+      });
+    } else {
+      var groups = groupStoriesByDay(stories);
+      groups.forEach(function (group, gi) {
+        var items = group.items;
+        var isTodayGroup = group.key === todayKey;
+        if (isTodayGroup) items = pickLeadInGroup(items);
+        html +=
+          '<li class="feed-day-head" role="presentation">' +
+            '<h2 class="feed-day-label">' + escapeHtml(group.label) + "</h2>" +
+          "</li>";
+        items.forEach(function (s, i) {
+          html += renderStoryItem(s, i, isTodayGroup && gi === 0);
+        });
+      });
+    }
 
     list.innerHTML = html;
     enableCardNavigation(list);
