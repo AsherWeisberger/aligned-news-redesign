@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Today · Aligned News</title>
 <meta name="description" content="Aligned News — a calm Pro reader for AI stories and signals." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d4ed8'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a73e8'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
@@ -19,7 +19,7 @@
       </button>
       <a class="brand" href="index.html">
         <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <rect width="64" height="64" rx="14" fill="#1d4ed8"/>
+          <rect width="64" height="64" rx="14" fill="#1a73e8"/>
           <path d="M18 42 L32 14 L46 42 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round"/>
           <circle cx="32" cy="46" r="3.2" fill="#fff"/>
         </svg>
@@ -58,11 +58,31 @@
         <div class="chips" id="chips" role="toolbar" aria-label="Filter"></div>
         <div class="foryou" id="forYou" hidden></div>
         <p class="status" id="loadStatus">Loading…</p>
-        <ol class="feed" id="feed"></ol>
+
+        <div class="page-layout">
+          <div class="page-primary">
+            <ol class="feed" id="feed"></ol>
+          </div>
+          <aside class="page-rail" id="pageRail" aria-label="Sidebar modules">
+            <section class="rail-card" id="topSignals">
+              <h2 class="rail-title">Top Signals</h2>
+              <ul class="rail-list" id="topSignalsList"></ul>
+            </section>
+            <section class="rail-card" id="sectionsRail">
+              <h2 class="rail-title">Sections</h2>
+              <div class="section-cloud" id="sectionCloud"></div>
+            </section>
+            <section class="rail-card" id="vibeRail">
+              <h2 class="rail-title">Last 7 days</h2>
+              <p class="vibe-body" id="vibeCopy">Quiet week across models and agents — skim the signals rail for what moved.</p>
+              <div id="vibeStats"></div>
+            </section>
+          </aside>
+        </div>
 
         <footer class="site-footer">
-          <span>Preview mock · sample data</span>
-          <span>Aligned News · Pro reader</span>
+          <span>Preview mock</span>
+          <span>Aligned News · Pro</span>
         </footer>
       </div>
     </main>

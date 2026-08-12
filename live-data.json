@@ -110,7 +110,7 @@
       "engagement_score": 100,
       "created_at": "2026-07-20T00:21:00.316997+00:00",
       "source_url": "https://x.com/Alibaba_Qwen/status/2078759124914098291",
-      "analysis": "",
+      "analysis": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -126,7 +126,7 @@
       "engagement_score": 97,
       "created_at": "2026-08-06T18:06:15.078283+00:00",
       "source_url": "https://x.com/HadrianInc/status/2085327390033752461",
-      "analysis": "",
+      "analysis": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -142,7 +142,7 @@
       "engagement_score": 88,
       "created_at": "2026-08-06T18:06:15.078866+00:00",
       "source_url": "https://x.com/AIatMeta/status/2085388945148297322",
-      "analysis": "",
+      "analysis": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
       "_from_live": true,
       "_analysis_placeholder": true
     }
@@ -170,7 +170,7 @@
     {
       "id": "ai-7e905a5ec3b9",
       "headline": "An unreleased Qwen model called Kiana appears in an arena as a faster but weaker counterpart to Qwen3.8-Max",
-      "summary": "Kiana was faster than Qwen3.8-Max but less capable \u2014 an early signal of Qwen's next speed-versus-quality tradeoff.",
+      "summary": "Kiana was faster than Qwen3.8-Max but less capable — an early signal of Qwen's next speed-versus-quality tradeoff.",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
@@ -179,7 +179,7 @@
       "author_name": "Tim Jayas",
       "source_url": null,
       "sources": [],
-      "body": "Kiana was faster than Qwen3.8-Max but less capable \u2014 an early signal of Qwen's next speed-versus-quality tradeoff.\n\nFiled under Big Stuff Happening in AI Right Now. Source note: Tim Jayas.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "body": "Kiana was faster than Qwen3.8-Max but less capable — an early signal of Qwen's next speed-versus-quality tradeoff.\n\nFiled under Big Stuff Happening in AI Right Now. Source note: Tim Jayas.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
       "kind": "ai-item",
       "ai_section": "Big Stuff Happening in AI Right Now",
       "_from_live": true,
@@ -536,7 +536,7 @@
     },
     {
       "id": "cc88601a-e58d-48e7-b99c-19830d86a83b",
-      "headline": "Web Summit opening-night networking begins Lisbon\u2019s technology week",
+      "headline": "Web Summit opening-night networking begins Lisbon’s technology week",
       "summary": "Web Summit plans this dinner or evening networking event for 2026-11-09 in Lisbon, Portugal, with a focus on startups, global technology, investment, partnerships, policy, and cross-border business development.",
       "section": "events-dinners",
       "section_key": "events",
@@ -606,7 +606,7 @@
     {
       "id": "31d99a43-8aa8-40f3-9665-be15bfe55042",
       "headline": "RO-MAN conference banquet extends technical exchange beyond sessions",
-      "summary": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-27 in Eindhoven, Netherlands, with a focus on conference community building, research discussion, professional recognition, and human\u2013robot interaction networking.",
+      "summary": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-27 in Eindhoven, Netherlands, with a focus on conference community building, research discussion, professional recognition, and human–robot interaction networking.",
       "section": "events-dinners",
       "section_key": "events",
       "section_label": "Events",
@@ -621,15 +621,15 @@
           "type": "primary"
         }
       ],
-      "body": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-27 in Eindhoven, Netherlands, with a focus on conference community building, research discussion, professional recognition, and human\u2013robot interaction networking.",
+      "body": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-27 in Eindhoven, Netherlands, with a focus on conference community building, research discussion, professional recognition, and human–robot interaction networking.",
       "kind": "story",
       "_from_live": true,
       "_body_placeholder": true
     },
     {
       "id": "bb21a418-aceb-4eaa-a78a-4e46c0b77aa7",
-      "headline": "RO-MAN welcome reception creates an early human\u2013robot interaction meeting point",
-      "summary": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-24 in Eindhoven, Netherlands, with a focus on research introductions, human\u2013robot interaction, social robotics, collaboration, and conference networking.",
+      "headline": "RO-MAN welcome reception creates an early human–robot interaction meeting point",
+      "summary": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-24 in Eindhoven, Netherlands, with a focus on research introductions, human–robot interaction, social robotics, collaboration, and conference networking.",
       "section": "events-dinners",
       "section_key": "events",
       "section_label": "Events",
@@ -644,7 +644,7 @@
           "type": "primary"
         }
       ],
-      "body": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-24 in Eindhoven, Netherlands, with a focus on research introductions, human\u2013robot interaction, social robotics, collaboration, and conference networking.",
+      "body": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-24 in Eindhoven, Netherlands, with a focus on research introductions, human–robot interaction, social robotics, collaboration, and conference networking.",
       "kind": "story",
       "_from_live": true,
       "_body_placeholder": true
@@ -720,7 +720,7 @@
     },
     {
       "id": "1ffeccad-6bf1-4cff-aac8-8b1243801348",
-      "headline": "ETHGlobal\u2019s 2026 calendar offers an autumn Ethereum build path",
+      "headline": "ETHGlobal’s 2026 calendar offers an autumn Ethereum build path",
       "summary": "ETHGlobal plans this hackathon/build event for 2026-10-09 through 2026-10-11 in Event location listed by organizer, with a focus on Ethereum applications, smart contracts, decentralized infrastructure, identity, finance, and developer tooling.",
       "section": "events-hackathons",
       "section_key": "events",
@@ -1088,8 +1088,8 @@
     },
     {
       "id": "165b3a15-9457-4f79-ae9e-35ed8d818aad",
-      "headline": "IEEE RO-MAN 2026 convenes human\u2013robot interaction researchers",
-      "summary": "IEEE RO-MAN plans this conference for 2026-08-24 through 2026-08-28 in Eindhoven, Netherlands, with a focus on human\u2013robot interaction, social robotics, teleoperation, trust, and responsible deployment.",
+      "headline": "IEEE RO-MAN 2026 convenes human–robot interaction researchers",
+      "summary": "IEEE RO-MAN plans this conference for 2026-08-24 through 2026-08-28 in Eindhoven, Netherlands, with a focus on human–robot interaction, social robotics, teleoperation, trust, and responsible deployment.",
       "section": "events-conferences",
       "section_key": "events",
       "section_label": "Events",
@@ -1104,7 +1104,7 @@
           "type": "primary"
         }
       ],
-      "body": "IEEE RO-MAN plans this conference for 2026-08-24 through 2026-08-28 in Eindhoven, Netherlands, with a focus on human\u2013robot interaction, social robotics, teleoperation, trust, and responsible deployment.",
+      "body": "IEEE RO-MAN plans this conference for 2026-08-24 through 2026-08-28 in Eindhoven, Netherlands, with a focus on human–robot interaction, social robotics, teleoperation, trust, and responsible deployment.",
       "kind": "story",
       "_from_live": true,
       "_body_placeholder": true
@@ -1521,7 +1521,7 @@
       "engagement_score": 78,
       "created_at": "2026-08-06T18:06:15.078942+00:00",
       "source_url": "https://x.com/xyz2maureen/status/2085346460032496025",
-      "analysis": "",
+      "analysis": "Specialized generative pipelines are pushing useful 3D asset costs toward cents",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1537,7 +1537,7 @@
       "engagement_score": 86,
       "created_at": "2026-08-06T18:06:15.078924+00:00",
       "source_url": "https://x.com/capcutapp/status/2085355533943357650",
-      "analysis": "",
+      "analysis": "AI video competition is shifting toward longer native clips and larger reference sets",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1553,7 +1553,7 @@
       "engagement_score": 81,
       "created_at": "2026-08-06T18:06:15.078904+00:00",
       "source_url": "https://x.com/hazhubble/status/2085403480974586354",
-      "analysis": "",
+      "analysis": "Private messaging history is becoming a new context layer for personal AI assistants",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1569,7 +1569,7 @@
       "engagement_score": 88,
       "created_at": "2026-08-06T18:06:15.078866+00:00",
       "source_url": "https://x.com/AIatMeta/status/2085388945148297322",
-      "analysis": "",
+      "analysis": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1585,7 +1585,7 @@
       "engagement_score": 97,
       "created_at": "2026-08-06T18:06:15.078283+00:00",
       "source_url": "https://x.com/HadrianInc/status/2085327390033752461",
-      "analysis": "",
+      "analysis": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1601,7 +1601,7 @@
       "engagement_score": 68,
       "created_at": "2026-07-20T00:21:00.318043+00:00",
       "source_url": "https://x.com/HuggingPapers/status/2078764006404427945",
-      "analysis": "",
+      "analysis": "World-model benchmark uses 90 hours of Black Myth gameplay",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1617,7 +1617,7 @@
       "engagement_score": 48,
       "created_at": "2026-07-20T00:21:00.317993+00:00",
       "source_url": "https://x.com/nordicinst/status/2078656191165530522",
-      "analysis": "",
+      "analysis": "Global guidelines for industrial embodied intelligence enter drafting",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1633,7 +1633,7 @@
       "engagement_score": 72,
       "created_at": "2026-07-20T00:21:00.317936+00:00",
       "source_url": "https://x.com/theinformation/status/2078925348020932667",
-      "analysis": "",
+      "analysis": "Nvidia GPU shortages force cloud providers to ration capacity",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1649,7 +1649,7 @@
       "engagement_score": 71,
       "created_at": "2026-07-20T00:21:00.317887+00:00",
       "source_url": "https://x.com/chetanp/status/2078920861181169925",
-      "analysis": "",
+      "analysis": "Enterprise buyers are adopting multiple competing AI models",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1665,7 +1665,7 @@
       "engagement_score": null,
       "created_at": "2026-07-19T18:00:00+00:00",
       "source_url": "https://alignednews.com/signals/359c66aa-0078-463d-8bab-b6812cf57ca4",
-      "analysis": "",
+      "analysis": "Anthropic's reported compute shortage turns access into a product constraint",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1681,7 +1681,7 @@
       "engagement_score": 62,
       "created_at": "2026-07-20T00:21:00.317783+00:00",
       "source_url": "https://x.com/Techstars/status/2078857491086020650",
-      "analysis": "",
+      "analysis": "InStockRx raises $5 million after reaching 1,600 pharmacies",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1697,7 +1697,7 @@
       "engagement_score": 76,
       "created_at": "2026-07-20T00:21:00.317727+00:00",
       "source_url": "https://x.com/PhotonCap/status/2078629661966573623",
-      "analysis": "",
+      "analysis": "AI networking splits into three markets based on link distance",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1713,7 +1713,7 @@
       "engagement_score": 73,
       "created_at": "2026-07-20T00:21:00.317666+00:00",
       "source_url": "https://x.com/morganlinton/status/2078910387404378504",
-      "analysis": "",
+      "analysis": "Vercel releases a Python version of its AI SDK",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1729,7 +1729,7 @@
       "engagement_score": null,
       "created_at": "2026-07-19T18:00:00+00:00",
       "source_url": "https://alignednews.com/signals/4bc3639a-4985-4c05-935a-446415cfff2f",
-      "analysis": "",
+      "analysis": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
       "_from_live": true,
       "_analysis_placeholder": true
     },
@@ -1745,7 +1745,7 @@
       "engagement_score": 100,
       "created_at": "2026-07-20T00:21:00.316997+00:00",
       "source_url": "https://x.com/Alibaba_Qwen/status/2078759124914098291",
-      "analysis": "",
+      "analysis": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
       "_from_live": true,
       "_analysis_placeholder": true
     }
@@ -1819,7 +1819,7 @@
     },
     {
       "id": "c52053d1-3024-41c5-8922-d52f83ff6a9a",
-      "title": "Morning Report \u2014 August 3, 2026",
+      "title": "Morning Report — August 3, 2026",
       "summary": "Completed August 3 morning intelligence run with 22 refreshed content sections, 223 validated stories, full Scoble coverage, updated essay and descriptions, and passing quality and live-link postflight checks.",
       "type": "trend_report",
       "author": "Aligned News Research",
@@ -1893,7 +1893,7 @@
     },
     {
       "id": "61ae1c4d-a0ed-4a5f-b83b-4a5a6c82181d",
-      "title": "Aligned News Evening Publication Report \u2014 July 30, 2026",
+      "title": "Aligned News Evening Publication Report — July 30, 2026",
       "summary": "Publication record for the July 30 11 PM edition: 22 sections, 272 section stories, updated descriptions and essay, with quality and postflight checks passed.",
       "type": "weekly_roundup",
       "author": "Aligned News Research",
@@ -1933,7 +1933,7 @@
     },
     {
       "id": "48d676e5-01bb-4381-8c3b-abd57bb70da1",
-      "title": "Aligned News Evening Run \u2014 July 24, 2026",
+      "title": "Aligned News Evening Run — July 24, 2026",
       "summary": "Publication archive for the July 24 Aligned News evening run, covering the refreshed editorial sections, events, essay, descriptions, Ten Things, and Robert Scoble activity.",
       "type": "deep_dive",
       "author": "Aligned News Research",
@@ -1943,7 +1943,7 @@
     },
     {
       "id": "f4bb553c-6920-41ec-b8b3-b95ab8448a8c",
-      "title": "Archive: July 21, 2026 Morning \u2014 AI is starting to discover, build, and move in the same day",
+      "title": "Archive: July 21, 2026 Morning — AI is starting to discover, build, and move in the same day",
       "summary": "Complete July 21 morning snapshot covering 16 lists, 278 published section stories, all 68 Scoble timeline items, the HTML essay, updated descriptions, and strict postflight.",
       "type": "trend_report",
       "author": "Aligned News Research",
@@ -1963,7 +1963,7 @@
     },
     {
       "id": "0cab862d-fab9-471d-9abd-d567e3d4ad85",
-      "title": "Complete AI News Run \u2014 July 19, 2026",
+      "title": "Complete AI News Run — July 19, 2026",
       "summary": "A complete 19-core-list run with 298 source-verified stories, simplified headlines, refreshed signals, and a new systems-focused essay.",
       "type": "weekly_roundup",
       "author": "Aligned News Research",
@@ -1983,8 +1983,8 @@
     },
     {
       "id": "e21977a3-837d-440a-be2f-512ca51dd123",
-      "title": "Aligned News Morning Archive \u2014 July 19, 2026",
-      "summary": "A source-backed archive of the July 19 morning run across models, agents, robotics, infrastructure, creative tools, policy, and Scoble\u2019s complete 24-hour activity window.",
+      "title": "Aligned News Morning Archive — July 19, 2026",
+      "summary": "A source-backed archive of the July 19 morning run across models, agents, robotics, infrastructure, creative tools, policy, and Scoble’s complete 24-hour activity window.",
       "type": "weekly_roundup",
       "author": "Aligned News Research",
       "reading_time_min": 1,
@@ -2014,7 +2014,7 @@
     {
       "id": "16f223ee-8af8-4330-a098-8b17e3b965ef",
       "title": "Archive Report: Evening Run, July 17 2026",
-      "summary": "The July 17 evening edition adds fresh cyber, agent, product, model, privacy, infrastructure, and complete Scoble timeline coverage to today\u2019s validated Aligned News base.",
+      "summary": "The July 17 evening edition adds fresh cyber, agent, product, model, privacy, infrastructure, and complete Scoble timeline coverage to today’s validated Aligned News base.",
       "type": "weekly_roundup",
       "author": "Aligned News Research",
       "reading_time_min": 1,
@@ -2024,7 +2024,7 @@
     {
       "id": "8fd42a0b-7797-4657-8f58-7303c7f17eca",
       "title": "The Open Model Race Is Becoming a Systems Race",
-      "summary": "Kimi K3\u2019s rise shows that frontier capability is spreading, but model quality alone will not determine the winners. Cost per completed task, agent reliability, security, infrastructure, and deployment systems are becoming the real competitive stack.",
+      "summary": "Kimi K3’s rise shows that frontier capability is spreading, but model quality alone will not determine the winners. Cost per completed task, agent reliability, security, infrastructure, and deployment systems are becoming the real competitive stack.",
       "type": "trend_report",
       "author": "Aligned News Research",
       "reading_time_min": 1,
@@ -2133,7 +2133,7 @@
     },
     {
       "id": "571ca329-91bc-4951-9181-c52144a34837",
-      "title": "Archive: July 10, 2026 Morning Run \u2014 The Model War Became A Work War",
+      "title": "Archive: July 10, 2026 Morning Run — The Model War Became A Work War",
       "summary": "Morning archive snapshot for the July 10 run.",
       "type": "trend_report",
       "author": "Aligned News Research",
@@ -2173,8 +2173,8 @@
     },
     {
       "id": "ab522cff-5712-4c62-83c8-c869443338eb",
-      "name": "Frontier Model Wars \u2014 March 2026",
-      "description": "Claude 4.5 Opus, Llama 4, Mistral Large 3, and DeepSeek V4 \u2014 four major model releases reshape the competitive landscape in a single week.",
+      "name": "Frontier Model Wars — March 2026",
+      "description": "Claude 4.5 Opus, Llama 4, Mistral Large 3, and DeepSeek V4 — four major model releases reshape the competitive landscape in a single week.",
       "story_count": 0,
       "updated_at": "2026-03-07T22:00:50.159519+00:00",
       "_from_live": true
@@ -2182,7 +2182,7 @@
     {
       "id": "77586772-b425-48b1-a27d-fb12bbd18ab8",
       "name": "Physical AI Goes Mainstream",
-      "description": "Figure 03 warehouse shifts, Waymo 10-city expansion, and Atlas running a 5K \u2014 humanoid robots and autonomous vehicles cross the viability threshold.",
+      "description": "Figure 03 warehouse shifts, Waymo 10-city expansion, and Atlas running a 5K — humanoid robots and autonomous vehicles cross the viability threshold.",
       "story_count": 0,
       "updated_at": "2026-03-07T22:00:50.159519+00:00",
       "_from_live": true
@@ -2217,7 +2217,7 @@
         },
         {
           "title": "An unreleased Qwen model called Kiana appears in an arena as a faster but weaker counterpart to Qwen3.8-Max",
-          "excerpt": "Kiana was faster than Qwen3.8-Max but less capable \u2014 an early signal of Qwen's next speed-versus-quality tradeoff.",
+          "excerpt": "Kiana was faster than Qwen3.8-Max but less capable — an early signal of Qwen's next speed-versus-quality tradeoff.",
           "source": "Tim Jayas"
         },
         {

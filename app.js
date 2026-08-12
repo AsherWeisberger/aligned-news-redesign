@@ -76,7 +76,7 @@
           author_name: item.source || "Aligned News",
           source_url: item.url,
           sources: item.url ? [{ url: item.url, name: item.source || "Source" }] : [],
-          body: excerpt + "\n\nFiled under " + secName + ".\n\n[Sample Pro body · from scraped /ai cards.]",
+          body: excerpt + (excerpt ? "\n\n" : "") + "Filed under " + secName + ".",
           kind: "ai-item",
           ai_section: secName,
           _body_placeholder: true
@@ -90,7 +90,7 @@
       var cat = sig.category || "general";
       var key = mapSectionKey(cat);
       var id = sig.id || simpleId("sig", text);
-      var body = sig.analysis || (text + ".\n\n[Sample Pro body · signal from live site.]");
+      var body = cleanDisplayText(sig.analysis || text || "");
       pushStory({
         id: "sigstory-" + id,
         headline: text,
@@ -142,7 +142,7 @@
         author_name: s.source || s.author_name || "Aligned News",
         source_url: s.url || s.source_url,
         sources: (s.url || s.source_url) ? [{ url: s.url || s.source_url, name: "Story" }] : [],
-        body: summary + "\n\n[Sample Pro body · from live site listing.]",
+        body: summary || "",
         kind: "story",
         _body_placeholder: true
       });
@@ -268,19 +268,215 @@
       .trim();
   }
 
+  function hasSamplePlaceholder(s) {
+    return /\[Sample Pro body/i.test(String(s == null ? "" : s));
+  }
+
+  /** Non-empty parts only, joined with " · " */
   function joinMeta(parts) {
     return parts.filter(function (p) { return p != null && String(p).trim() !== ""; })
       .map(function (p) { return String(p).trim(); })
       .join(" · ");
   }
 
-  function fallbackTime(iso) {
-    var t = fmtRelative(iso);
-    if (t) return t;
+  function resolveTimeIso(iso) {
+    if (iso && Date.parse(iso)) return iso;
     var meta = state.data && state.data.meta;
-    if (meta && meta.generatedAt) return fmtRelative(meta.generatedAt);
-    if (meta && meta.lastUpdatedTs) return fmtRelative(new Date(Number(meta.lastUpdatedTs)).toISOString());
-    return "";
+    if (meta && meta.generatedAt && Date.parse(meta.generatedAt)) return meta.generatedAt;
+    if (meta && meta.scrapedAt && Date.parse(meta.scrapedAt)) return meta.scrapedAt;
+    if (meta && meta.scraped_at && Date.parse(meta.scraped_at)) return meta.scraped_at;
+    if (meta && meta.lastUpdatedTs) {
+      try { return new Date(Number(meta.lastUpdatedTs)).toISOString(); } catch (e) {}
+    }
+    return "2026-08-09T12:00:00.000Z";
+  }
+
+  function fallbackTime(iso) {
+    return fmtRelative(resolveTimeIso(iso)) || "Aug 9";
+  }
+
+  function fallbackTimeLong(iso) {
+    return fmtDateLong(resolveTimeIso(iso)) || "Aug 9";
+  }
+
+  function isEventItem(item) {
+    var hay = [item.section_key, item.section, item.tag, item.category].join(" ").toLowerCase();
+    return hay.indexOf("event") !== -1;
+  }
+
+  function isTodayFeedKind(item) {
+    return item.kind === "story" || item.kind === "ai-item";
+  }
+
+  function signalExcerpt(sig) {
+    var title = String(sig.title || sig.text || "").trim();
+    var cleaned = cleanDisplayText(sig.analysis || "");
+    if (!cleaned) return "";
+    if (cleaned.toLowerCase() === title.toLowerCase()) return "";
+    var first = cleaned.split(/\n/)[0].trim();
+    if (first.toLowerCase() === title.toLowerCase()) return "";
+    return first;
+  }
+
+  function storyBodyParagraphs(story) {
+    var raw = String(story.body || "");
+    var hadPh = hasSamplePlaceholder(raw) || !!story._body_placeholder;
+    var cleaned = cleanDisplayText(raw);
+    if (hadPh) {
+      var paras = [];
+      var summary = cleanDisplayText(story.summary || "").trim();
+      if (summary) paras.push(summary);
+      if (story.kind === "ai-item" || story.ai_section) paras.push("From the /ai briefing.");
+      else if (story.signal_badge || story.kind === "signal-story") paras.push("From the Aligned News signals desk.");
+      else paras.push("From the Aligned News briefing.");
+      return paras;
+    }
+    return cleaned.split(/\n\n+/).map(function (p) { return p.trim(); }).filter(Boolean)
+      .filter(function (p) { return !hasSamplePlaceholder(p) && !/^\[Sample/i.test(p); });
+  }
+
+
+  function initialsFrom(name) {
+    var s = String(name || "").trim();
+    if (!s) return "?";
+    var parts = s.replace(/[^a-zA-Z0-9\s.-]/g, " ").split(/[\s.-]+/).filter(Boolean);
+    if (!parts.length) return s.slice(0, 1).toUpperCase();
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0].slice(0, 1) + parts[1].slice(0, 1)).toUpperCase();
+  }
+
+  var AVATAR_PALETTE = [
+    "#1a73e8", "#0f766e", "#b45309", "#7c3aed", "#be123c",
+    "#0369a1", "#15803d", "#c2410c", "#4338ca", "#0e7490"
+  ];
+
+  function avatarColor(seed) {
+    var s = String(seed || "");
+    var h = 0;
+    for (var i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+    return AVATAR_PALETTE[Math.abs(h) % AVATAR_PALETTE.length];
+  }
+
+  function sourceNamesFor(item) {
+    var names = [];
+    function push(n) {
+      n = String(n || "").trim();
+      if (!n) return;
+      var low = n.toLowerCase();
+      if (low === "signal" || low === "story" || low === "source") return;
+      if (names.some(function (x) { return x.toLowerCase() === low; })) return;
+      names.push(n);
+    }
+    if (item.author_name) push(item.author_name);
+    if (item.source_list) {
+      String(item.source_list).split(/[,+/|&]/).forEach(function (p) { push(p); });
+    }
+    (item.sources || []).forEach(function (src) { push(src && src.name); });
+    push(item.section_label || item.section || item.category || "");
+    if (names.length < 2) push("Aligned News");
+    if (!names.length) push("AN");
+    return names.slice(0, 3);
+  }
+
+  function avatarStackHtml(item) {
+    var names = sourceNamesFor(item);
+    return '<span class="avatar-stack" aria-hidden="true">' +
+      names.map(function (n) {
+        return '<span class="source-avatar" style="background:' + avatarColor(n) + '" title="' +
+          escapeHtml(n) + '">' + escapeHtml(initialsFrom(n)) + "</span>";
+      }).join("") +
+      "</span>";
+  }
+
+  var SECTION_GRADIENTS = {
+    models: "linear-gradient(145deg,#1e3a8a,#60a5fa)",
+    agents: "linear-gradient(145deg,#5b21b6,#c4b5fd)",
+    robotics: "linear-gradient(145deg,#0f766e,#5eead4)",
+    funding: "linear-gradient(145deg,#166534,#86efac)",
+    policy: "linear-gradient(145deg,#9a3412,#fdba74)",
+    chips: "linear-gradient(145deg,#1e293b,#94a3b8)",
+    "open-source": "linear-gradient(145deg,#0369a1,#7dd3fc)",
+    events: "linear-gradient(145deg,#be123c,#fda4af)",
+    research: "linear-gradient(145deg,#4338ca,#a5b4fc)",
+    creative: "linear-gradient(145deg,#9d174d,#f9a8d4)",
+    compute: "linear-gradient(145deg,#0e7490,#67e8f9)",
+    industry: "linear-gradient(145deg,#374151,#d1d5db)",
+    scoble: "linear-gradient(145deg,#7c2d12,#fdba74)",
+    general: "linear-gradient(145deg,#334155,#93c5fd)"
+  };
+
+  function sectionThumbStyle(key) {
+    return SECTION_GRADIENTS[key] || SECTION_GRADIENTS.general;
+  }
+
+  function signalIconColor(badge) {
+    var b = String(badge || "signal").toLowerCase();
+    if (b === "bullish") return "#16a34a";
+    if (b === "critical") return "#dc2626";
+    if (b === "caution") return "#ca8a04";
+    if (b === "action") return "#ea580c";
+    if (b === "vc") return "#7c3aed";
+    if (b === "interview") return "#db2777";
+    return "#1a73e8";
+  }
+
+  function renderRightRail() {
+    if (!state.data) return;
+    var list = $("#topSignalsList");
+    if (list) {
+      var items = (state.data.forYou && state.data.forYou.length)
+        ? state.data.forYou.slice(0, 5)
+        : (state.data.signals || []).slice().sort(function (a, b) {
+            return (b.engagement_score || 0) - (a.engagement_score || 0);
+          }).slice(0, 5);
+      if (!items.length) {
+        list.innerHTML = '<li class="empty" style="padding:0.5rem 0;text-align:left">No signals yet.</li>';
+      } else {
+        list.innerHTML = items.map(function (s) {
+          var href = "story.html?id=" + encodeURIComponent("sigstory-" + s.id);
+          return (
+            '<li class="rail-item">' +
+              '<span class="rail-icon" style="background:' + signalIconColor(s.badge) + '">' +
+                escapeHtml(String(s.badge || "sig").slice(0, 1).toUpperCase()) +
+              "</span>" +
+              "<div>" +
+                '<h3 class="rail-item-title"><a href="' + href + '">' + escapeHtml(s.title || s.text || "") + "</a></h3>" +
+                '<div class="rail-item-meta">' +
+                  avatarStackHtml(s) +
+                  '<span>' + escapeHtml(joinMeta([
+                    (s.badge || "signal").toUpperCase(),
+                    fallbackTime(s.created_at)
+                  ])) + "</span>" +
+                "</div>" +
+              "</div>" +
+            "</li>"
+          );
+        }).join("");
+      }
+    }
+
+    var cloud = $("#sectionCloud");
+    if (cloud) {
+      var chips = (state.data.chips || []).filter(function (c) { return c.id !== "all"; });
+      var page = pageName();
+      cloud.innerHTML = chips.map(function (c) {
+        var href = page === "signals"
+          ? "signals.html?section=" + encodeURIComponent(c.id)
+          : "index.html?section=" + encodeURIComponent(c.id);
+        return '<a href="' + href + '">' + escapeHtml(c.label) + "</a>";
+      }).join("");
+    }
+
+    var vibeStats = $("#vibeStats");
+    if (vibeStats) {
+      var stories = (state.data.stories || []).filter(isTodayFeedKind).length;
+      var signals = (state.data.signals || []).length;
+      var reports = (state.data.reports || []).length;
+      vibeStats.innerHTML =
+        '<div class="vibe-stat"><span>Stories</span><strong>' + stories + "</strong></div>" +
+        '<div class="vibe-stat"><span>Signals</span><strong>' + signals + "</strong></div>" +
+        '<div class="vibe-stat"><span>Reports</span><strong>' + reports + "</strong></div>";
+    }
   }
 
   function badgeClass(badge) {
@@ -296,7 +492,7 @@
     var data = state.data;
     var page = pageName();
     var counts = {
-      stories: (data.stories || []).length,
+      stories: (data.stories || []).filter(isTodayFeedKind).length,
       signals: (data.signals || []).length,
       reports: (data.reports || []).length,
       saved: state.saved.length,
@@ -337,16 +533,7 @@
           );
         }).join("") +
         "</ul>" +
-        '<div class="nav-label" style="margin-top:1.25rem">Sections</div>' +
-        '<ul class="side-nav" id="sectionNav"></ul>' +
-        '<div class="sidebar-foot">Logged in as Asher · Pro<br>Quiet reader mock · data from alignednews.com</div>';
-
-      var sectionNav = $("#sectionNav");
-      var chips = data.chips || [];
-      sectionNav.innerHTML = chips.filter(function (c) { return c.id !== "all"; }).map(function (c) {
-        var href = page === "signals" ? "signals.html?section=" + encodeURIComponent(c.id) : "index.html?section=" + encodeURIComponent(c.id);
-        return '<li><a href="' + href + '">' + escapeHtml(c.label) + "</a></li>";
-      }).join("");
+        '<div class="sidebar-foot">Asher · Pro<br>Preview mock</div>';
     }
 
     var metaEl = $("#pageMeta");
@@ -441,15 +628,20 @@
   function renderTodayFeed() {
     var list = $("#feed");
     if (!list || !state.data) return;
+    renderRightRail();
     var stories = (state.data.stories || []).filter(function (s) {
-      if (s.kind === "signal-story") return false;
+      if (!isTodayFeedKind(s)) return false;
       return storyMatches(s);
     });
     if (!stories.length) {
       list.innerHTML = '<li class="empty">No stories match this filter.</li>';
       return;
     }
-    list.innerHTML = stories.map(function (s, i) {
+
+    var showLead = getParam("view") !== "saved" && state.filter === "all" && !state.query;
+    var html = "";
+
+    stories.forEach(function (s, i) {
       var badge = s.signal_badge
         ? '<span class="' + badgeClass(s.signal_badge) + '">' + escapeHtml(String(s.signal_badge).toUpperCase()) + "</span>"
         : "";
@@ -462,26 +654,55 @@
         (!s.signal_badge && s.author_name) ? s.author_name : "",
         s.source_list || ""
       ]);
-      return (
+      var href = "story.html?id=" + encodeURIComponent(s.id);
+      var key = s.section_key || mapSectionKey(s.section || s.tag || "");
+
+      if (showLead && i === 0) {
+        var dek = excerpt;
+        if (dek.length > 220) dek = dek.slice(0, 217).trim() + "…";
+        html +=
+          '<li class="lead-card' + (isRead ? " is-read" : "") + '">' +
+            '<div class="lead-eyebrow">Top Story</div>' +
+            '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(s.headline) + "</a></h2>" +
+            (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
+            '<div class="lead-hero">' +
+              '<img src="lead-hero.png" alt="" loading="eager" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'lead-hero-fallback\')" />' +
+            "</div>" +
+            '<div class="lead-meta" style="margin:0.95rem 0 0">' +
+              avatarStackHtml(s) +
+              badge +
+              '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
+            "</div>" +
+          "</li>";
+        return;
+      }
+
+      var rank = showLead ? (i + 1) : (i + 1);
+      html +=
         '<li class="feed-row' + (isRead ? " is-read" : "") + '">' +
-          '<div class="rank">' + (i + 1) + "</div>" +
+          '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
-            '<h2 class="story-title"><a href="story.html?id=' + encodeURIComponent(s.id) + '">' +
-              escapeHtml(s.headline) + "</a></h2>" +
+            '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(s.headline) + "</a></h2>" +
             (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
+              avatarStackHtml(s) +
               badge +
-              '<span class="dot">' + escapeHtml(metaLine) + "</span>" +
+              '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
-        "</li>"
-      );
-    }).join("");
+          '<div class="row-thumb" aria-hidden="true">' +
+            '<div class="row-thumb-tile" style="background:' + sectionThumbStyle(key) + '"></div>' +
+          "</div>" +
+        "</li>";
+    });
+
+    list.innerHTML = html;
   }
 
   function renderSignals() {
     var list = $("#feed");
     if (!list || !state.data) return;
+    renderRightRail();
     var items = (state.data.signals || []).filter(function (s) {
       if (state.filter && state.filter !== "all" && (s.section_key || "") !== state.filter) return false;
       if (state.query) {
@@ -496,13 +717,9 @@
       return;
     }
     list.innerHTML = items.map(function (s, i) {
-      var excerpt = cleanDisplayText(s.analysis || "");
-      if (!excerpt || excerpt.toLowerCase() === String(s.title || "").toLowerCase()) {
-        excerpt = "";
-      }
+      var excerpt = signalExcerpt(s);
       if (excerpt.length > 200) excerpt = excerpt.slice(0, 197).trim() + "…";
       var metaLine = joinMeta([
-        (s.badge || "signal").toUpperCase(),
         s.section_label || s.category || "",
         fallbackTime(s.created_at),
         s.source_list || "",
@@ -516,13 +733,9 @@
               escapeHtml(s.title) + "</a></h2>" +
             (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
+              avatarStackHtml(s) +
               '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
-              '<span class="dot">' + escapeHtml(joinMeta([
-                s.section_label || s.category || "",
-                fallbackTime(s.created_at),
-                s.source_list || "",
-                (s.engagement_score != null ? s.engagement_score + "% conf." : "")
-              ])) + "</span>" +
+              '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
         "</li>"
@@ -533,6 +746,7 @@
   function renderReports() {
     var list = $("#reportList");
     if (!list || !state.data) return;
+    renderRightRail();
     var items = state.data.reports || [];
     if (state.query) {
       var q = state.query.toLowerCase();
@@ -549,12 +763,12 @@
         '<li class="report-item">' +
           "<h2>" + escapeHtml(r.title) + "</h2>" +
           (r.summary ? "<p>" + escapeHtml(r.summary) + "</p>" : "") +
-          '<div class="meta">' +
-            '<span class="section-pill">' + escapeHtml((r.type || "report").replace(/_/g, " ")) + "</span>" +
-            (r.reading_time_min ? '<span class="dot">' + r.reading_time_min + " min</span>" : "") +
-            '<span class="dot">' + escapeHtml(fmtRelative(r.published_at)) + "</span>" +
-            (r.author ? '<span class="dot">' + escapeHtml(r.author) + "</span>" : "") +
-          "</div>" +
+          '<div class="meta"><span class="meta-line">' + escapeHtml(joinMeta([
+            (r.type || "report").replace(/_/g, " "),
+            r.reading_time_min ? (r.reading_time_min + " min") : "",
+            fallbackTime(r.published_at),
+            r.author || ""
+          ])) + "</span></div>" +
         "</li>"
       );
     }).join("");
@@ -580,9 +794,10 @@
           source_list: sig.source_list,
           source_url: sig.source_url,
           sources: sig.source_url ? [{ url: sig.source_url, name: sig.source_list || "Source" }] : [],
-          body: sig.analysis || sig.text,
+          body: cleanDisplayText(sig.analysis || sig.text || ""),
           author_name: "Aligned News",
-          _body_placeholder: sig._analysis_placeholder,
+          kind: "signal-story",
+          _body_placeholder: !!sig._analysis_placeholder || hasSamplePlaceholder(sig.analysis || ""),
         };
       }
     }
@@ -603,18 +818,12 @@
       persistRead();
     }
     var saved = state.saved.indexOf(story.id) !== -1;
-    var paragraphs = cleanDisplayText(story.body || story.summary || "")
-      .split(/\n\n+/)
-      .map(function (p) { return p.trim(); })
-      .filter(function (p) {
-        if (!p) return false;
-        if (/^\[Sample/i.test(p)) return false;
-        if (/^\[/.test(p) && /placeholder/i.test(p)) return false;
-        return true;
-      });
-    if (!paragraphs.length && story.summary) paragraphs = [cleanDisplayText(story.summary)];
-
+    var paragraphs = storyBodyParagraphs(story);
     var bodyHtml = paragraphs.map(function (p) {
+      if (hasSamplePlaceholder(p) || /^\[Sample/i.test(p)) return "";
+      if (/^From the \/ai briefing/i.test(p) || /^From the Aligned News/i.test(p)) {
+        return '<p class="sample-note">' + escapeHtml(p) + "</p>";
+      }
       return "<p>" + escapeHtml(p) + "</p>";
     }).join("");
 
@@ -627,12 +836,15 @@
       '<a class="back-link" href="index.html">← Today</a>' +
       '<div class="article-kicker">' +
         (story.signal_badge ? '<span class="' + badgeClass(story.signal_badge) + '">' + escapeHtml(String(story.signal_badge).toUpperCase()) + "</span>" : "") +
-        '<span class="section-pill">' + escapeHtml(story.section_label || story.section || "") + "</span>" +
-        '<span class="dot">' + escapeHtml(fmtDateLong(story.published_at)) + "</span>" +
-        (story.source_list ? '<span class="dot">' + escapeHtml(story.source_list) + "</span>" : "") +
+        '<span class="meta-line">' + escapeHtml(joinMeta([
+          story.section_label || story.section || "",
+          fallbackTimeLong(story.published_at),
+          story.source_list || "",
+          (!story.signal_badge && story.author_name) ? story.author_name : ""
+        ])) + "</span>" +
       "</div>" +
       "<h1>" + escapeHtml(story.headline) + "</h1>" +
-      (story.summary ? '<p class="article-dek">' + escapeHtml(story.summary) + "</p>" : "") +
+      (cleanDisplayText(story.summary) ? '<p class="article-dek">' + escapeHtml(cleanDisplayText(story.summary)) + "</p>" : "") +
       '<div class="article-actions">' +
         '<button type="button" class="btn" id="saveBtn">' + (saved ? "Saved" : "Save") + "</button>" +
         '<button type="button" class="btn" id="readBtn">Mark unread</button>' +
