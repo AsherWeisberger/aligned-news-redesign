@@ -601,24 +601,10 @@
   var loadBarHideTimer = null;
   var skelHideTimer = null;
   var revealClearTimer = null;
-  var SKEL_CROSSFADE_MS = 950;
-  var FEED_REVEAL_MS = 1650;
+  var SKEL_CROSSFADE_MS = 520;
+  var FEED_REVEAL_MS = 1950;
+  /* Load-whisper corner UI retired — feed morph is the load effect */
   var loadWhisperTimer = null;
-  var loadWhisperBrIdx = 0;
-  var loadWhisperTlIdx = 0;
-  var LOAD_WHISPER_BR = [
-    "Ranking Scoble’s lists before the timeline does.",
-    "Pulling signal across 63 curated lists.",
-    "Today’s desk is locking in.",
-    "Surfacing what crossed lists first."
-  ];
-  var LOAD_WHISPER_TL = [
-    "Weighing list consensus…",
-    "Reading the signal stack…",
-    "Sorting for what crossed first…"
-  ];
-  var WHISPER_CYCLE_MS = 2500;
-  var WHISPER_MORPH_MS = 820;
 
   function prefersReducedMotion() {
     try {
@@ -634,95 +620,22 @@
     document.body.classList.remove("siri-glow");
   }
 
-  function makeWhisperEl(id, cornerClass, firstLine) {
-    var el = document.getElementById(id);
-    if (el) return el;
-    el = document.createElement("div");
-    el.id = id;
-    el.className = "load-whisper " + cornerClass;
-    el.setAttribute("aria-live", "polite");
-    el.setAttribute("aria-hidden", "true");
-    el.innerHTML =
-      '<div class="load-whisper-viewport">' +
-        '<span class="load-whisper-line is-current">' + firstLine + "</span>" +
-      "</div>";
-    document.body.appendChild(el);
-    return el;
+  function removeLoadWhisperDom() {
+    var ids = ["loadWhisperBr", "loadWhisperTl"];
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    }
   }
 
-  function ensureLoadWhisper() {
-    makeWhisperEl("loadWhisperBr", "load-whisper-br", LOAD_WHISPER_BR[0]);
-    makeWhisperEl("loadWhisperTl", "load-whisper-tl", LOAD_WHISPER_TL[0]);
-  }
-
-  function morphWhisperLine(root, nextText) {
-    if (!root) return;
-    var viewport = root.querySelector(".load-whisper-viewport");
-    if (!viewport) return;
-    var current = viewport.querySelector(".load-whisper-line.is-current");
-    if (!current) {
-      viewport.innerHTML = '<span class="load-whisper-line is-current"></span>';
-      current = viewport.querySelector(".load-whisper-line.is-current");
-    }
-    if (prefersReducedMotion()) {
-      current.textContent = nextText;
-      current.className = "load-whisper-line is-current";
-      var extras = viewport.querySelectorAll(".load-whisper-line:not(.is-current)");
-      for (var e = 0; e < extras.length; e++) {
-        if (extras[e].parentNode) extras[e].parentNode.removeChild(extras[e]);
-      }
-      return;
-    }
-    var exiting = viewport.querySelectorAll(".load-whisper-line.is-exit, .load-whisper-line.is-enter");
-    for (var x = 0; x < exiting.length; x++) {
-      if (exiting[x].parentNode) exiting[x].parentNode.removeChild(exiting[x]);
-    }
-    current = viewport.querySelector(".load-whisper-line.is-current") || current;
-    current.classList.remove("is-current");
-    current.classList.add("is-exit");
-    var next = document.createElement("span");
-    next.className = "load-whisper-line is-enter";
-    next.textContent = nextText;
-    viewport.appendChild(next);
-    window.setTimeout(function () {
-      if (current && current.parentNode) current.parentNode.removeChild(current);
-      if (next && next.parentNode) {
-        next.classList.remove("is-enter");
-        next.classList.add("is-current");
-      }
-    }, WHISPER_MORPH_MS);
-  }
-
-  function cycleLoadWhisperOnce() {
-    loadWhisperBrIdx = (loadWhisperBrIdx + 1) % LOAD_WHISPER_BR.length;
-    loadWhisperTlIdx = (loadWhisperTlIdx + 1) % LOAD_WHISPER_TL.length;
-    morphWhisperLine(document.getElementById("loadWhisperBr"), LOAD_WHISPER_BR[loadWhisperBrIdx]);
-    morphWhisperLine(document.getElementById("loadWhisperTl"), LOAD_WHISPER_TL[loadWhisperTlIdx]);
-  }
+  function ensureLoadWhisper() { /* retired */ }
 
   function startLoadWhisper() {
-    ensureLoadWhisper();
-    loadWhisperBrIdx = 0;
-    loadWhisperTlIdx = 0;
-    var br = document.getElementById("loadWhisperBr");
-    var tl = document.getElementById("loadWhisperTl");
-    if (br) {
-      br.classList.add("is-on");
-      br.setAttribute("aria-hidden", "false");
-      var line = br.querySelector(".load-whisper-line.is-current");
-      if (line) line.textContent = LOAD_WHISPER_BR[0];
-    }
-    if (tl) {
-      tl.classList.add("is-on");
-      tl.setAttribute("aria-hidden", "true");
-      var lineTl = tl.querySelector(".load-whisper-line.is-current");
-      if (lineTl) lineTl.textContent = LOAD_WHISPER_TL[0];
-    }
     if (loadWhisperTimer) {
       clearInterval(loadWhisperTimer);
       loadWhisperTimer = null;
     }
-    loadWhisperTimer = setInterval(cycleLoadWhisperOnce, WHISPER_CYCLE_MS);
+    removeLoadWhisperDom();
   }
 
   function stopLoadWhisper() {
@@ -730,14 +643,9 @@
       clearInterval(loadWhisperTimer);
       loadWhisperTimer = null;
     }
-    var ids = ["loadWhisperBr", "loadWhisperTl"];
-    for (var i = 0; i < ids.length; i++) {
-      var el = document.getElementById(ids[i]);
-      if (!el) continue;
-      el.classList.remove("is-on");
-      el.setAttribute("aria-hidden", "true");
-    }
+    removeLoadWhisperDom();
   }
+
 
   function feedHostEl() {
     var page = pageName();
@@ -844,38 +752,37 @@
     }
     var sk = document.getElementById("feedSkeleton");
     var host = feedHostEl();
-    if (typeof renderFn === "function") {
-      try { renderFn(); } catch (e) { console.error(e); }
-    }
+    var motionOk = !prefersReducedMotion();
+
+    // Attach feed-reveal BEFORE render so cards never get opacity:1 !important
+    // inline styles that would cancel the unfair-style morph.
     if (host) {
       host.classList.remove("feed-waiting");
       host.removeAttribute("aria-busy");
+      if (motionOk) host.classList.add("feed-reveal");
+      host.classList.add("is-ready");
     }
+
+    if (typeof renderFn === "function") {
+      try { renderFn(); } catch (e) { console.error(e); }
+    }
+
     if (!sk) {
-      if (host) {
-        host.classList.add("is-ready");
-        if (!prefersReducedMotion()) {
-          host.classList.add("feed-reveal");
-          revealClearTimer = setTimeout(function () {
-            revealClearTimer = null;
-            if (host) host.classList.remove("feed-reveal");
-          }, FEED_REVEAL_MS);
-        }
+      if (host && motionOk) {
+        revealClearTimer = setTimeout(function () {
+          revealClearTimer = null;
+          if (host) host.classList.remove("feed-reveal");
+        }, FEED_REVEAL_MS);
       }
       return;
     }
 
-    var instant = prefersReducedMotion();
-    if (instant) {
+    if (!motionOk) {
       if (sk.parentNode) sk.parentNode.removeChild(sk);
-      if (host) host.classList.add("is-ready");
+      if (host) host.classList.remove("feed-reveal");
       return;
     }
 
-    if (host) {
-      host.classList.add("feed-reveal");
-      host.classList.add("is-ready");
-    }
     sk.classList.add("is-out");
     sk.classList.remove("is-on");
     skelHideTimer = setTimeout(function () {
@@ -1020,13 +927,14 @@
     if (!list) return;
     list.classList.add("is-ready");
     var cards = list.querySelectorAll(".lead-card, .feed-row");
-    var revealing = list.classList.contains("feed-reveal");
     var i;
     for (i = 0; i < cards.length; i++) {
       (function (card) {
         card.classList.add("is-ready");
-        if (!revealing) card.style.setProperty("opacity", "1", "important");
-        else card.style.removeProperty("opacity");
+        // Never pin opacity during feed-reveal — CSS morph owns it
+        card.style.removeProperty("opacity");
+        card.style.removeProperty("filter");
+        card.style.removeProperty("transform");
         var href = card.getAttribute("data-href");
         if (!href) {
           var link = card.querySelector(".story-title a, .lead-title a");
