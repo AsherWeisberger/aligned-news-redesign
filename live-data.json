@@ -1,260 +1,2208 @@
 {
-  "scraped_at": "2026-08-12T01:19:12.581406+00:00",
-  "notes": "Not paywalled; all content free. Homepage 'Latest Stories' rail renders only 5 items (all events-dinners, 2D old); extra story items below are taken from /ai section feed. Site content is dated Aug 2026. Feed order adjusted: AI stories first, events-dinners demoted for reader mock.",
+  "meta": {
+    "product": "Aligned News",
+    "mock": true,
+    "placeholderNote": "Normalized from scraper live-data.json + public API. Article bodies marked sample where gated.",
+    "scrapedAt": "2026-08-12T01:19:12.581406+00:00",
+    "scraperNotes": "Not paywalled; all content free. Homepage 'Latest Stories' rail renders only 5 items (all events-dinners, 2D old); extra story items below are taken from /ai section feed. Site content is dated Aug 2026. Feed order adjusted: AI stories first, events-dinners demoted for reader mock.",
+    "generatedAt": "2026-08-12T01:21:53.991762+00:00",
+    "liveCounts": "341,15,251,36,5",
+    "lastUpdatedTs": 1786319297793,
+    "aiSectionNames": [
+      "Big Stuff Happening in AI Right Now",
+      "News From AI Companies",
+      "Robots",
+      "Tools for Creatives",
+      "Funding & Deals",
+      "Models & Benchmarks",
+      "Labs",
+      "Papers",
+      "AI Hardware & Chips",
+      "AI Agents",
+      "OpenClaw, Hermes, and Competitors",
+      "AI Infrastructure",
+      "AI in Science",
+      "Videos",
+      "AI Policy & Regulation",
+      "Jobs",
+      "Anomalies",
+      "Events"
+    ]
+  },
+  "user": {
+    "name": "Asher",
+    "plan": "Pro"
+  },
+  "stats": {
+    "list_count": {
+      "value": "63",
+      "label": "Curated Lists"
+    },
+    "posts_per_list": {
+      "value": "500",
+      "label": "Posts/List"
+    },
+    "stories_today": {
+      "value": "20",
+      "label": "Stories Today"
+    },
+    "accounts": {
+      "value": "125K+",
+      "label": "Accounts Monitored"
+    }
+  },
+  "chips": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "models",
+      "label": "Models"
+    },
+    {
+      "id": "agents",
+      "label": "Agents"
+    },
+    {
+      "id": "robotics",
+      "label": "Robotics"
+    },
+    {
+      "id": "funding",
+      "label": "Funding"
+    },
+    {
+      "id": "policy",
+      "label": "Policy"
+    },
+    {
+      "id": "chips",
+      "label": "Chips"
+    },
+    {
+      "id": "open-source",
+      "label": "Open source"
+    },
+    {
+      "id": "events",
+      "label": "Events"
+    },
+    {
+      "id": "research",
+      "label": "Research"
+    },
+    {
+      "id": "creative",
+      "label": "Creative"
+    }
+  ],
+  "forYou": [
+    {
+      "id": "3686e457-de57-4b30-9b89-67082f5513cf",
+      "title": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
+      "text": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
+      "badge": "bullish",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "AI Companies #1",
+      "engagement_score": 100,
+      "created_at": "2026-07-20T00:21:00.316997+00:00",
+      "source_url": "https://x.com/Alibaba_Qwen/status/2078759124914098291",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "bbcb8432-537b-474b-abc5-32ac5d46e63c",
+      "title": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "text": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "badge": "critical",
+      "category": "industry",
+      "section_key": "industry",
+      "section_label": "Industry",
+      "source_list": "Robots, AI Investors",
+      "engagement_score": 97,
+      "created_at": "2026-08-06T18:06:15.078283+00:00",
+      "source_url": "https://x.com/HadrianInc/status/2085327390033752461",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "a317c3c5-c88b-40ff-ac31-f60d4b54ae90",
+      "title": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
+      "text": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "AI Companies #1",
+      "engagement_score": 88,
+      "created_at": "2026-08-06T18:06:15.078866+00:00",
+      "source_url": "https://x.com/AIatMeta/status/2085388945148297322",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    }
+  ],
   "stories": [
     {
-      "title": "OpenAI retires the standalone Atlas browser while moving its browsing functions into Codex and ChatGPT",
-      "summary": "Karthik Mahadevan reported OpenAI was retiring Atlas but moving the browser's work into Codex and ChatGPT, consolidating browser capability into its agent and assistant products.",
-      "section": "Big Stuff Happening in AI Right Now",
-      "when": "Sunday, August 9, 2026 \u2014 updated 4:48 PM",
-      "source": "Karthik Mahadevan",
-      "url": "https://alignednews.com/ai"
+      "id": "ai-1767452c263e",
+      "headline": "OpenAI retires the standalone Atlas browser while moving its browsing functions into Codex and ChatGPT",
+      "summary": "The change consolidates browser capabilities into OpenAI's agent and assistant products rather than ending its web-automation effort.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Karthik Mahadevan",
+      "source_url": null,
+      "sources": [],
+      "body": "The change consolidates browser capabilities into OpenAI's agent and assistant products rather than ending its web-automation effort.\n\nFiled under Big Stuff Happening in AI Right Now. Source note: Karthik Mahadevan.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Big Stuff Happening in AI Right Now",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
     },
     {
-      "title": "Kraken Technology raises $175 million at a $1 billion valuation to expand autonomous maritime systems and manufacturing",
+      "id": "ai-7e905a5ec3b9",
+      "headline": "An unreleased Qwen model called Kiana appears in an arena as a faster but weaker counterpart to Qwen3.8-Max",
+      "summary": "Kiana was faster than Qwen3.8-Max but less capable \u2014 an early signal of Qwen's next speed-versus-quality tradeoff.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Tim Jayas",
+      "source_url": null,
+      "sources": [],
+      "body": "Kiana was faster than Qwen3.8-Max but less capable \u2014 an early signal of Qwen's next speed-versus-quality tradeoff.\n\nFiled under Big Stuff Happening in AI Right Now. Source note: Tim Jayas.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Big Stuff Happening in AI Right Now",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-f218b0924931",
+      "headline": "ScanRobot 2.0 automates gentle book scanning at up to 2,500 pages per hour, targeting libraries and archives",
+      "summary": "TREVENTUS Mechatronics' machine auto-turns pages using a 60-degree V-shaped cradle for bound materials.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "CTO ROBOTICS Media",
+      "source_url": null,
+      "sources": [],
+      "body": "TREVENTUS Mechatronics' machine auto-turns pages using a 60-degree V-shaped cradle for bound materials.\n\nFiled under Big Stuff Happening in AI Right Now. Source note: CTO ROBOTICS Media (FROM ROBOT AI).\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Big Stuff Happening in AI Right Now",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-ba2fbe1a5e54",
+      "headline": "Elephant Robotics demonstrates real-time teleoperation for the myArm M750",
+      "summary": "Six-axis myArm M750 twists a bottle cap under real-time teleoperation from the myController S570.",
+      "section": "industry",
+      "section_key": "industry",
+      "section_label": "Industry",
+      "tag": "industry",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Elephant Robotics",
+      "source_url": null,
+      "sources": [],
+      "body": "Six-axis myArm M750 twists a bottle cap under real-time teleoperation from the myController S570.\n\nFiled under News From AI Companies. Source note: Elephant Robotics (FROM ROBOT AI).\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "News From AI Companies",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-270e3a3f6963",
+      "headline": "CapCut demonstrates Design Studio through a conceptual product redesign",
+      "summary": "Sara Shakeel reinterprets a boxing glove as a symbol of beauty and healing.",
+      "section": "industry",
+      "section_key": "industry",
+      "section_label": "Industry",
+      "tag": "industry",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "CapCut",
+      "source_url": null,
+      "sources": [],
+      "body": "Sara Shakeel reinterprets a boxing glove as a symbol of beauty and healing.\n\nFiled under News From AI Companies. Source note: CapCut.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "News From AI Companies",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-db02dd0cc6fa",
+      "headline": "DomoAI adds Seedance 2.5 with up to 50 multimodal references",
+      "summary": "One generation can accept 30 images, 10 videos, and 10 audio clips.",
+      "section": "industry",
+      "section_key": "industry",
+      "section_label": "Industry",
+      "tag": "industry",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "DomoAI",
+      "source_url": null,
+      "sources": [],
+      "body": "One generation can accept 30 images, 10 videos, and 10 audio clips.\n\nFiled under News From AI Companies. Source note: DomoAI.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "News From AI Companies",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-bf390c025a76",
+      "headline": "Reimagine Robotics says workers can teach new tasks in ten minutes",
+      "summary": "Company exited stealth on 3 August, founded by four co-authors of Google DeepMind's RoboCat.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "FROM ROBOT AI",
+      "source_url": null,
+      "sources": [],
+      "body": "Company exited stealth on 3 August, founded by four co-authors of Google DeepMind's RoboCat.\n\nFiled under Robots. Source note: FROM ROBOT AI.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Robots",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-03e78be06ac7",
+      "headline": "Humanoid security flaws reportedly enable rapid remote takeover",
+      "summary": "Researchers found 17 critical vulnerabilities in a leading humanoid robot allowing remote takeover in under 60 seconds.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Aligned News",
+      "source_url": null,
+      "sources": [],
+      "body": "Researchers found 17 critical vulnerabilities in a leading humanoid robot allowing remote takeover in under 60 seconds.\n\nFiled under Robots. Source note: Aligned News.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Robots",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-eccc1ac8d007",
+      "headline": "Low-cost robot arm learns autonomous sock pickup in hours",
+      "summary": "A 3D-printed SO-101 arm trained with LeRobot ACT succeeded in 38 of 50 trials after 3.5 hours on an RTX 5070 Ti.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Walnut Sensei",
+      "source_url": null,
+      "sources": [],
+      "body": "A 3D-printed SO-101 arm trained with LeRobot ACT succeeded in 38 of 50 trials after 3.5 hours on an RTX 5070 Ti.\n\nFiled under Robots. Source note: Walnut Sensei (FROM ROBOT AI).\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Robots",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-9ce0a9abd768",
+      "headline": "BubbleGraph visualizes MusicBrainz relationships as expandable nodes",
+      "summary": "Double-click expansion of related artist nodes; Spotify support absent because its Related Artists API is unavailable.",
+      "section": "creative",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "tag": "creative",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Aligned News",
+      "source_url": null,
+      "sources": [],
+      "body": "Double-click expansion of related artist nodes; Spotify support absent because its Related Artists API is unavailable.\n\nFiled under Tools for Creatives. Source note: Aligned News.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Tools for Creatives",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-5b55e89f50ae",
+      "headline": "Omniwork proposes a desktop operating system for creative agents",
+      "summary": "Presented as a Creative Agent OS for desktop creation, signalling cross-application agent workflows.",
+      "section": "creative",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "tag": "creative",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Aligned News",
+      "source_url": null,
+      "sources": [],
+      "body": "Presented as a Creative Agent OS for desktop creation, signalling cross-application agent workflows.\n\nFiled under Tools for Creatives. Source note: Aligned News.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Tools for Creatives",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "ai-92818eaaec7e",
+      "headline": "Claude Design becomes the prototype stage in a one-day app workflow",
+      "summary": "Supplying a design system is the recommended defense against generic output.",
+      "section": "creative",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "tag": "creative",
+      "published_at": "2026-08-09T12:00:00.000Z",
+      "author_name": "Aligned News",
+      "source_url": null,
+      "sources": [],
+      "body": "Supplying a design system is the recommended defense against generic output.\n\nFiled under Tools for Creatives. Source note: Aligned News.\n\nIn the live Pro product this item sits inside the /ai briefing with neighboring posts from the same sweep. Use Save to keep it in your personal list.",
+      "kind": "ai-item",
+      "ai_section": "Tools for Creatives",
+      "_from_live": true,
+      "_body_placeholder": true,
+      "_published_fallback": true
+    },
+    {
+      "id": "story-aca9257804d6",
+      "headline": "Kraken Technology raises $175 million at a $1 billion valuation to expand autonomous maritime systems and manufacturing",
       "summary": "Series B funds uncrewed surface vessels for defense and security while scaling global manufacturing.",
       "section": "Big Stuff Happening in AI Right Now",
-      "when": "Sunday, August 9, 2026",
-      "source": "OLogic",
-      "url": "https://alignednews.com/ai"
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "Big Stuff Happening in AI Right Now",
+      "published_at": "2026-08-12T01:21:53.991401+00:00",
+      "author_name": "OLogic",
+      "source_url": "https://alignednews.com/ai",
+      "sources": [
+        {
+          "url": "https://alignednews.com/ai",
+          "name": "Story"
+        }
+      ],
+      "body": "Series B funds uncrewed surface vessels for defense and security while scaling global manufacturing.\n\nSection: Big Stuff Happening in AI Right Now. Source: OLogic.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
     },
     {
-      "title": "Robotics equity funding reaches roughly $40 billion in 2026, already exceeding all of 2025",
+      "id": "story-3c45f2a0b385",
+      "headline": "Robotics equity funding reaches roughly $40 billion in 2026, already exceeding all of 2025",
       "summary": "Silicon Valley Robotics reports early-stage rounds remain healthy while larger later-stage financings become more prominent.",
       "section": "Big Stuff Happening in AI Right Now",
-      "when": "Sunday, August 9, 2026",
-      "source": "Silicon Valley Robotics / FROM ROBOT AI",
-      "url": "https://alignednews.com/ai"
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "Big Stuff Happening in AI Right Now",
+      "published_at": "2026-08-12T01:21:53.991421+00:00",
+      "author_name": "Silicon Valley Robotics / FROM ROBOT AI",
+      "source_url": "https://alignednews.com/ai",
+      "sources": [
+        {
+          "url": "https://alignednews.com/ai",
+          "name": "Story"
+        }
+      ],
+      "body": "Silicon Valley Robotics reports early-stage rounds remain healthy while larger later-stage financings become more prominent.\n\nSection: Big Stuff Happening in AI Right Now. Source: Silicon Valley Robotics / FROM ROBOT AI.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
     },
     {
-      "title": "Slush evening program extends founder and investor meetings",
+      "id": "911c65d5-5150-49fb-968a-67346e55474e",
+      "headline": "Slush evening program extends founder and investor meetings",
       "summary": "Slush plans this dinner or evening networking event for 2026-11-18 in Helsinki, Finland, with a focus on startup financing, founder relationships, venture capital, product strategy, and European ecosystem networking.",
       "section": "events-dinners",
-      "when": "2D",
-      "source": "Scoble Media Agent",
-      "url": "https://alignednews.com/stories/911c65d5-5150-49fb-968a-67346e55474e"
+      "section_key": "events",
+      "section_label": "Events Dinners",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.59673+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://slush.org/events/slush-2026/side-events/",
+      "sources": [
+        {
+          "url": "https://slush.org/events/slush-2026/side-events/",
+          "name": "Slush official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Slush plans this dinner or evening networking event for 2026-11-18 in Helsinki, Finland, with a focus on startup financing, founder relationships, venture capital, product strategy, and European ecosystem networking.\n\nSection: events-dinners. Source: Scoble Media Agent.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
     },
     {
-      "title": "Web Summit opening-night networking begins Lisbon's technology week",
+      "id": "story-6e2fb5e4c0fe",
+      "headline": "Web Summit opening-night networking begins Lisbon's technology week",
       "summary": "Web Summit plans this dinner or evening networking event for 2026-11-09 in Lisbon, Portugal, with a focus on startups, global technology, investment, partnerships, policy, and cross-border business development.",
       "section": "events-dinners",
-      "when": "2D",
-      "source": "Scoble Media Agent",
-      "url": "https://alignednews.com/stories/cc88601a-e58d-48e7-b99c-19830d86a83b"
+      "section_key": "events",
+      "section_label": "Events Dinners",
+      "tag": "events-dinners",
+      "published_at": "2026-08-10T01:21:53.991454+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://alignednews.com/stories/cc88601a-e58d-48e7-b99c-19830d86a83b",
+      "sources": [
+        {
+          "url": "https://alignednews.com/stories/cc88601a-e58d-48e7-b99c-19830d86a83b",
+          "name": "Story"
+        }
+      ],
+      "body": "Web Summit plans this dinner or evening networking event for 2026-11-09 in Lisbon, Portugal, with a focus on startups, global technology, investment, partnerships, policy, and cross-border business development.\n\nSection: events-dinners. Source: Scoble Media Agent.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
     },
     {
-      "title": "HLTH evening program creates a healthcare innovation meeting point",
+      "id": "03977541-bf5b-40e7-a567-5b27c6b97eac",
+      "headline": "HLTH evening program creates a healthcare innovation meeting point",
       "summary": "HLTH plans this dinner or evening networking event for 2026-10-19 in Las Vegas, Nevada, with a focus on digital health, clinical operations, insurance, medical technology, AI deployment, and healthcare partnerships.",
       "section": "events-dinners",
-      "when": "2D",
-      "source": "Scoble Media Agent",
-      "url": "https://alignednews.com/stories/03977541-bf5b-40e7-a567-5b27c6b97eac"
+      "section_key": "events",
+      "section_label": "Events Dinners",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.596667+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://hlth.com/events/hlth-2026/networking/",
+      "sources": [
+        {
+          "url": "https://hlth.com/events/hlth-2026/networking/",
+          "name": "HLTH official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "HLTH plans this dinner or evening networking event for 2026-10-19 in Las Vegas, Nevada, with a focus on digital health, clinical operations, insurance, medical technology, AI deployment, and healthcare partnerships.\n\nSection: events-dinners. Source: Scoble Media Agent.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
     },
     {
-      "title": "TechCrunch Disrupt evening networking connects founders and investors",
+      "id": "53dc9b32-3f5f-4a6a-9e98-be757a396ef5",
+      "headline": "TechCrunch Disrupt evening networking connects founders and investors",
       "summary": "TechCrunch plans this dinner or evening networking event for 2026-10-13 in San Francisco, California, with a focus on startup fundraising, product launches, founder relationships, venture capital, and technology partnerships.",
       "section": "events-dinners",
-      "when": "2D",
-      "source": "Scoble Media Agent",
-      "url": "https://alignednews.com/stories/53dc9b32-3f5f-4a6a-9e98-be757a396ef5"
+      "section_key": "events",
+      "section_label": "Events Dinners",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.596609+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://techcrunch.com/events/tc-disrupt-2026/side-events/",
+      "sources": [
+        {
+          "url": "https://techcrunch.com/events/tc-disrupt-2026/side-events/",
+          "name": "TechCrunch official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "TechCrunch plans this dinner or evening networking event for 2026-10-13 in San Francisco, California, with a focus on startup fundraising, product launches, founder relationships, venture capital, and technology partnerships.\n\nSection: events-dinners. Source: Scoble Media Agent.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
     },
     {
-      "title": "World Summit AI evening networking continues Amsterdam discussions",
+      "id": "c061b661-a814-4b52-9505-4dcff23c494d",
+      "headline": "World Summit AI evening networking continues Amsterdam discussions",
       "summary": "World Summit AI plans this dinner or evening networking event for 2026-10-07 in Amsterdam, Netherlands, with a focus on AI leadership, responsible deployment, investment, enterprise implementation, and international networking.",
       "section": "events-dinners",
-      "when": "2D",
-      "source": "Scoble Media Agent",
-      "url": "https://alignednews.com/stories/c061b661-a814-4b52-9505-4dcff23c494d"
+      "section_key": "events",
+      "section_label": "Events Dinners",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.59658+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://worldsummit.ai/networking/",
+      "sources": [
+        {
+          "url": "https://worldsummit.ai/networking/",
+          "name": "World Summit AI official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "World Summit AI plans this dinner or evening networking event for 2026-10-07 in Amsterdam, Netherlands, with a focus on AI leadership, responsible deployment, investment, enterprise implementation, and international networking.\n\nSection: events-dinners. Source: Scoble Media Agent.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "cc88601a-e58d-48e7-b99c-19830d86a83b",
+      "headline": "Web Summit opening-night networking begins Lisbon\u2019s technology week",
+      "summary": "Web Summit plans this dinner or evening networking event for 2026-11-09 in Lisbon, Portugal, with a focus on startups, global technology, investment, partnerships, policy, and cross-border business development.",
+      "section": "events-dinners",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.596698+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://websummit.com/night-summit/",
+      "sources": [
+        {
+          "url": "https://websummit.com/night-summit/",
+          "name": "Web Summit official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Web Summit plans this dinner or evening networking event for 2026-11-09 in Lisbon, Portugal, with a focus on startups, global technology, investment, partnerships, policy, and cross-border business development.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "99ea1f57-d8a7-4a00-bd7e-40da0f1691aa",
+      "headline": "IROS conference banquet gathers robotics researchers in Pittsburgh",
+      "summary": "IEEE/RSJ IROS plans this dinner or evening networking event for 2026-09-30 in Pittsburgh, Pennsylvania, with a focus on robotics research, professional recognition, cross-institution collaboration, and technical community networking.",
+      "section": "events-dinners",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.59655+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://iros2026.org/program/social-events/",
+      "sources": [
+        {
+          "url": "https://iros2026.org/program/social-events/",
+          "name": "IEEE/RSJ IROS official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "IEEE/RSJ IROS plans this dinner or evening networking event for 2026-09-30 in Pittsburgh, Pennsylvania, with a focus on robotics research, professional recognition, cross-institution collaboration, and technical community networking.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "a7e73dff-de7f-4b87-951c-76c6320946fe",
+      "headline": "INTERSPEECH social evening connects the global speech community",
+      "summary": "INTERSPEECH plans this dinner or evening networking event for 2026-09-30 in Sydney, Australia, with a focus on speech science, spoken-language systems, audio AI, multilingual research, and international collaboration.",
+      "section": "events-dinners",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.596516+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://interspeech2026.org/social-program/",
+      "sources": [
+        {
+          "url": "https://interspeech2026.org/social-program/",
+          "name": "INTERSPEECH official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "INTERSPEECH plans this dinner or evening networking event for 2026-09-30 in Sydney, Australia, with a focus on speech science, spoken-language systems, audio AI, multilingual research, and international collaboration.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "31d99a43-8aa8-40f3-9665-be15bfe55042",
+      "headline": "RO-MAN conference banquet extends technical exchange beyond sessions",
+      "summary": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-27 in Eindhoven, Netherlands, with a focus on conference community building, research discussion, professional recognition, and human\u2013robot interaction networking.",
+      "section": "events-dinners",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.596483+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://ro-man2026.org/social-events/conference-banquet/",
+      "sources": [
+        {
+          "url": "https://ro-man2026.org/social-events/conference-banquet/",
+          "name": "IEEE RO-MAN official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-27 in Eindhoven, Netherlands, with a focus on conference community building, research discussion, professional recognition, and human\u2013robot interaction networking.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "bb21a418-aceb-4eaa-a78a-4e46c0b77aa7",
+      "headline": "RO-MAN welcome reception creates an early human\u2013robot interaction meeting point",
+      "summary": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-24 in Eindhoven, Netherlands, with a focus on research introductions, human\u2013robot interaction, social robotics, collaboration, and conference networking.",
+      "section": "events-dinners",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.596448+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://ro-man2026.org/social-events/welcome-reception/",
+      "sources": [
+        {
+          "url": "https://ro-man2026.org/social-events/welcome-reception/",
+          "name": "IEEE RO-MAN official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "IEEE RO-MAN plans this dinner or evening networking event for 2026-08-24 in Eindhoven, Netherlands, with a focus on research introductions, human\u2013robot interaction, social robotics, collaboration, and conference networking.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "f1431f19-afd0-4080-8e5a-7586a31c5890",
+      "headline": "Ai4 Executive Leadership Dinner opens high-level AI conversations",
+      "summary": "Ai4 plans this dinner or evening networking event for 2026-08-11 in Las Vegas, Nevada, with a focus on executive discussion around enterprise AI strategy, deployment, governance, infrastructure, and operating priorities.",
+      "section": "events-dinners",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-dinners",
+      "published_at": "2026-08-09T23:46:04.596407+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://ai4.io/networking-events/executive-leadership-dinner/",
+      "sources": [
+        {
+          "url": "https://ai4.io/networking-events/executive-leadership-dinner/",
+          "name": "Ai4 official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Ai4 plans this dinner or evening networking event for 2026-08-11 in Las Vegas, Nevada, with a focus on executive discussion around enterprise AI strategy, deployment, governance, infrastructure, and operating priorities.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "ce4ea8a5-a3af-46bb-9334-95e204e92944",
+      "headline": "Junction 2026 gathers international builders in Helsinki",
+      "summary": "Junction plans this hackathon/build event for 2026-11-13 through 2026-11-15 in Helsinki, Finland, with a focus on partner challenges, software, AI, data, design, hardware, teamwork, and prototype demonstrations.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894483+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://www.junction2026.com/",
+      "sources": [
+        {
+          "url": "https://www.junction2026.com/",
+          "name": "Junction official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Junction plans this hackathon/build event for 2026-11-13 through 2026-11-15 in Helsinki, Finland, with a focus on partner challenges, software, AI, data, design, hardware, teamwork, and prototype demonstrations.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "90c150d4-79a0-43c1-b0b8-ea817ebacfbf",
+      "headline": "Cal Hacks 2026 brings a major student hackathon back to Berkeley",
+      "summary": "Cal Hacks plans this hackathon/build event for 2026-10-23 through 2026-10-25 in Berkeley, California, with a focus on student-led software, hardware, AI, design, mentorship, project demos, and technical recruiting.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894456+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://calhacks.io/",
+      "sources": [
+        {
+          "url": "https://calhacks.io/",
+          "name": "Cal Hacks official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Cal Hacks plans this hackathon/build event for 2026-10-23 through 2026-10-25 in Berkeley, California, with a focus on student-led software, hardware, AI, design, mentorship, project demos, and technical recruiting.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "1ffeccad-6bf1-4cff-aac8-8b1243801348",
+      "headline": "ETHGlobal\u2019s 2026 calendar offers an autumn Ethereum build path",
+      "summary": "ETHGlobal plans this hackathon/build event for 2026-10-09 through 2026-10-11 in Event location listed by organizer, with a focus on Ethereum applications, smart contracts, decentralized infrastructure, identity, finance, and developer tooling.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894424+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://ethglobal.com/events/autumn2026",
+      "sources": [
+        {
+          "url": "https://ethglobal.com/events/autumn2026",
+          "name": "ETHGlobal official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "ETHGlobal plans this hackathon/build event for 2026-10-09 through 2026-10-11 in Event location listed by organizer, with a focus on Ethereum applications, smart contracts, decentralized infrastructure, identity, finance, and developer tooling.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "9f3111d7-af62-4d47-988a-304ff82d3879",
+      "headline": "NASA Space Apps Challenge 2026 organizes a global build weekend",
+      "summary": "NASA plans this hackathon/build event for 2026-10-03 through 2026-10-04 in Worldwide and local host sites, with a focus on open Earth and space data, science communication, software, hardware, visualization, and civic problem-solving.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894396+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://www.spaceappschallenge.org/2026/",
+      "sources": [
+        {
+          "url": "https://www.spaceappschallenge.org/2026/",
+          "name": "NASA official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "NASA plans this hackathon/build event for 2026-10-03 through 2026-10-04 in Worldwide and local host sites, with a focus on open Earth and space data, science communication, software, hardware, visualization, and civic problem-solving.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "3290d8cf-35d9-461a-9357-59e73ec9c47a",
+      "headline": "HackZurich 2026 turns partner challenges into working prototypes",
+      "summary": "HackZurich plans this hackathon/build event for 2026-09-25 through 2026-09-27 in Zurich, Switzerland, with a focus on software, data, AI, mobility, finance, enterprise challenges, and multidisciplinary prototyping.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894368+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://www.hackzurich.com/",
+      "sources": [
+        {
+          "url": "https://www.hackzurich.com/",
+          "name": "HackZurich official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "HackZurich plans this hackathon/build event for 2026-09-25 through 2026-09-27 in Zurich, Switzerland, with a focus on software, data, AI, mobility, finance, enterprise challenges, and multidisciplinary prototyping.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "0d93aaec-79cd-4f44-b752-a365372aa411",
+      "headline": "HackMIT 2026 invites student builders to Cambridge",
+      "summary": "HackMIT plans this hackathon/build event for 2026-09-19 through 2026-09-20 in Cambridge, Massachusetts, with a focus on student software and hardware projects, rapid prototyping, mentorship, demos, and technical learning.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.89434+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://hackmit.org/",
+      "sources": [
+        {
+          "url": "https://hackmit.org/",
+          "name": "HackMIT official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "HackMIT plans this hackathon/build event for 2026-09-19 through 2026-09-20 in Cambridge, Massachusetts, with a focus on student software and hardware projects, rapid prototyping, mentorship, demos, and technical learning.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "7f230164-9095-41cb-8601-9091e11b4955",
+      "headline": "Frontiers schedules a three-day San Francisco build program",
+      "summary": "Cerebral Valley plans this hackathon/build event for 2026-10-12 through 2026-10-14 in San Francisco, California, with a focus on frontier AI systems, agent applications, model infrastructure, prototypes, and founder collaboration.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894313+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://www.cerebralvalley.ai/frontiers",
+      "sources": [
+        {
+          "url": "https://www.cerebralvalley.ai/frontiers",
+          "name": "Cerebral Valley official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Cerebral Valley plans this hackathon/build event for 2026-10-12 through 2026-10-14 in San Francisco, California, with a focus on frontier AI systems, agent applications, model infrastructure, prototypes, and founder collaboration.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "935de1c6-c2fd-4f33-b15f-9ee39905bc4b",
+      "headline": "YC office hackathon brings builders together on August 23",
+      "summary": "Y Combinator startup community plans this hackathon/build event for 2026-08-23 in Y Combinator office, San Francisco, California, with a focus on rapid product development, AI applications, startup experimentation, demos, and founder collaboration.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894282+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://www.ycombinator.com/events/hackathon-at-yc-august-23-2026",
+      "sources": [
+        {
+          "url": "https://www.ycombinator.com/events/hackathon-at-yc-august-23-2026",
+          "name": "Y Combinator startup community official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Y Combinator startup community plans this hackathon/build event for 2026-08-23 in Y Combinator office, San Francisco, California, with a focus on rapid product development, AI applications, startup experimentation, demos, and founder collaboration.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "7a53529c-2076-476a-bd0d-fad8540d0ab4",
+      "headline": "San Francisco physical AI hackathon targets embodied systems",
+      "summary": "San Francisco physical-AI community plans this hackathon/build event for 2026-08-17 in San Francisco, California, with a focus on robotics, embodied agents, perception, simulation, manipulation, and physical-world prototypes.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.89425+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://www.cerebralvalley.ai/events/physical-ai-hackathon",
+      "sources": [
+        {
+          "url": "https://www.cerebralvalley.ai/events/physical-ai-hackathon",
+          "name": "San Francisco physical-AI community official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "San Francisco physical-AI community plans this hackathon/build event for 2026-08-17 in San Francisco, California, with a focus on robotics, embodied agents, perception, simulation, manipulation, and physical-world prototypes.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "7650d8b7-296c-4311-aaaf-a6bd59b4e848",
+      "headline": "Persistent Context Sprint heads to Pier 48 in San Francisco",
+      "summary": "Cerebral Valley ecosystem plans this hackathon/build event for 2026-08-13 in Pier 48, San Francisco, California, with a focus on persistent context for AI agents, memory systems, long-running workflows, prototypes, and technical collaboration.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-09T23:46:03.894206+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://www.cerebralvalley.ai/events/persistent-context-sprint",
+      "sources": [
+        {
+          "url": "https://www.cerebralvalley.ai/events/persistent-context-sprint",
+          "name": "Cerebral Valley ecosystem official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Cerebral Valley ecosystem plans this hackathon/build event for 2026-08-13 in Pier 48, San Francisco, California, with a focus on persistent context for AI agents, memory systems, long-running workflows, prototypes, and technical collaboration.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "be9a8e00-a154-41cf-97c1-cfe6a7204354",
+      "headline": "NeurIPS 2026 closes the year with frontier machine-learning research",
+      "summary": "NeurIPS plans this conference for 2026-12-06 through 2026-12-12 in Sydney, Australia, with a focus on machine learning research, benchmarks, optimization, generative models, safety, and AI systems.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.105011+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://neurips.cc/Conferences/2026",
+      "sources": [
+        {
+          "url": "https://neurips.cc/Conferences/2026",
+          "name": "NeurIPS official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "NeurIPS plans this conference for 2026-12-06 through 2026-12-12 in Sydney, Australia, with a focus on machine learning research, benchmarks, optimization, generative models, safety, and AI systems.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "778e2566-6f18-4e12-8bdf-47a61ec8d607",
+      "headline": "Slush 2026 brings the startup ecosystem to Helsinki",
+      "summary": "Slush plans this conference for 2026-11-18 through 2026-11-19 in Helsinki, Finland, with a focus on early-stage companies, venture capital, founder meetings, product strategy, and European technology.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104981+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://slush.org/events/slush-2026/",
+      "sources": [
+        {
+          "url": "https://slush.org/events/slush-2026/",
+          "name": "Slush official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Slush plans this conference for 2026-11-18 through 2026-11-19 in Helsinki, Finland, with a focus on early-stage companies, venture capital, founder meetings, product strategy, and European technology.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "db53796e-ef42-4304-85ff-f1f5fc47327f",
+      "headline": "Web Summit 2026 returns to Lisbon",
+      "summary": "Web Summit plans this conference for 2026-11-09 through 2026-11-12 in Lisbon, Portugal, with a focus on global startups, investment, internet platforms, AI, policy, and technology business.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104951+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://websummit.com/",
+      "sources": [
+        {
+          "url": "https://websummit.com/",
+          "name": "Web Summit official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Web Summit plans this conference for 2026-11-09 through 2026-11-12 in Lisbon, Portugal, with a focus on global startups, investment, internet platforms, AI, policy, and technology business.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "6a058826-2171-4d17-9870-b62a8bf119fa",
+      "headline": "HLTH 2026 examines AI and digital transformation in healthcare",
+      "summary": "HLTH plans this conference for 2026-10-18 through 2026-10-21 in Las Vegas, Nevada, with a focus on healthcare delivery, clinical AI, digital health, insurance, data systems, and medical innovation.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104922+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://hlth.com/",
+      "sources": [
+        {
+          "url": "https://hlth.com/",
+          "name": "HLTH official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "HLTH plans this conference for 2026-10-18 through 2026-10-21 in Las Vegas, Nevada, with a focus on healthcare delivery, clinical AI, digital health, insurance, data systems, and medical innovation.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "e645d4df-e85e-439b-a90b-b8f7d5e242a7",
+      "headline": "TechCrunch Disrupt 2026 gathers founders and investors in San Francisco",
+      "summary": "TechCrunch plans this conference for 2026-10-13 through 2026-10-15 in San Francisco, California, with a focus on startup launches, venture financing, founder strategy, AI products, and emerging technology.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104891+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://techcrunch.com/events/tc-disrupt-2026/",
+      "sources": [
+        {
+          "url": "https://techcrunch.com/events/tc-disrupt-2026/",
+          "name": "TechCrunch official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "TechCrunch plans this conference for 2026-10-13 through 2026-10-15 in San Francisco, California, with a focus on startup launches, venture financing, founder strategy, AI products, and emerging technology.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "e03617b9-f243-4af7-86ac-251873976c8e",
+      "headline": "World Summit AI returns to Amsterdam in October",
+      "summary": "World Summit AI plans this conference for 2026-10-07 through 2026-10-08 in Amsterdam, Netherlands, with a focus on commercial AI, responsible deployment, research translation, investment, and enterprise adoption.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104861+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://worldsummit.ai/",
+      "sources": [
+        {
+          "url": "https://worldsummit.ai/",
+          "name": "World Summit AI official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "World Summit AI plans this conference for 2026-10-07 through 2026-10-08 in Amsterdam, Netherlands, with a focus on commercial AI, responsible deployment, research translation, investment, and enterprise adoption.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "3ffa3b38-70a8-4de8-8b31-8d947aef16dd",
+      "headline": "IROS 2026 brings the global robotics community to Pittsburgh",
+      "summary": "IEEE/RSJ IROS plans this conference for 2026-09-27 through 2026-10-01 in Pittsburgh, Pennsylvania, with a focus on intelligent robots, autonomy, manipulation, mobility, embodied AI, and field deployment.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104831+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://iros2026.org/",
+      "sources": [
+        {
+          "url": "https://iros2026.org/",
+          "name": "IEEE/RSJ IROS official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "IEEE/RSJ IROS plans this conference for 2026-09-27 through 2026-10-01 in Pittsburgh, Pennsylvania, with a focus on intelligent robots, autonomy, manipulation, mobility, embodied AI, and field deployment.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "34a77c3a-c5ca-4e01-874c-7b00aa94ea8d",
+      "headline": "INTERSPEECH 2026 brings speech science and language technology to Sydney",
+      "summary": "International Speech Communication Association plans this conference for 2026-09-27 through 2026-10-01 in Sydney, Australia, with a focus on speech recognition, spoken-language systems, audio generation, multilingual AI, and speech science.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.1048+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://interspeech2026.org/",
+      "sources": [
+        {
+          "url": "https://interspeech2026.org/",
+          "name": "International Speech Communication Association official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "International Speech Communication Association plans this conference for 2026-09-27 through 2026-10-01 in Sydney, Australia, with a focus on speech recognition, spoken-language systems, audio generation, multilingual AI, and speech science.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "165b3a15-9457-4f79-ae9e-35ed8d818aad",
+      "headline": "IEEE RO-MAN 2026 convenes human\u2013robot interaction researchers",
+      "summary": "IEEE RO-MAN plans this conference for 2026-08-24 through 2026-08-28 in Eindhoven, Netherlands, with a focus on human\u2013robot interaction, social robotics, teleoperation, trust, and responsible deployment.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104764+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://ro-man2026.org/",
+      "sources": [
+        {
+          "url": "https://ro-man2026.org/",
+          "name": "IEEE RO-MAN official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "IEEE RO-MAN plans this conference for 2026-08-24 through 2026-08-28 in Eindhoven, Netherlands, with a focus on human\u2013robot interaction, social robotics, teleoperation, trust, and responsible deployment.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "0dfb2eaa-8786-4601-a713-42f9025ced85",
+      "headline": "Ai4 2026 opens its Las Vegas enterprise AI program",
+      "summary": "Ai4 plans this conference for 2026-08-11 through 2026-08-13 in Las Vegas, Nevada, with a focus on enterprise AI deployment, model infrastructure, governance, and business adoption.",
+      "section": "events-conferences",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-conferences",
+      "published_at": "2026-08-09T23:46:03.104722+00:00",
+      "author_name": "Scoble Media Agent",
+      "source_url": "https://ai4.io/",
+      "sources": [
+        {
+          "url": "https://ai4.io/",
+          "name": "Ai4 official event information",
+          "type": "primary"
+        }
+      ],
+      "body": "Ai4 plans this conference for 2026-08-11 through 2026-08-13 in Las Vegas, Nevada, with a focus on enterprise AI deployment, model infrastructure, governance, and business adoption.",
+      "kind": "story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-da5440d5-2d91-4c35-9d71-2bd629c2ddad",
+      "headline": "Specialized generative pipelines are pushing useful 3D asset costs toward cents",
+      "summary": "Specialized generative pipelines are pushing useful 3D asset costs toward cents",
+      "section": "open-source",
+      "section_key": "open-source",
+      "section_label": "Open source",
+      "tag": "open-source",
+      "published_at": "2026-08-06T18:06:15.078942+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/xyz2maureen/status/2085346460032496025",
+      "sources": [
+        {
+          "url": "https://x.com/xyz2maureen/status/2085346460032496025",
+          "name": "AI Community #1"
+        }
+      ],
+      "body": "Specialized generative pipelines are pushing useful 3D asset costs toward cents",
+      "signal_badge": "action",
+      "engagement_score": 78,
+      "source_list": "AI Community #1",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-28fda570-80c8-441b-a78b-fcc87dbaf20e",
+      "headline": "AI video competition is shifting toward longer native clips and larger reference sets",
+      "summary": "AI video competition is shifting toward longer native clips and larger reference sets",
+      "section": "creative",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "tag": "creative",
+      "published_at": "2026-08-06T18:06:15.078924+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/capcutapp/status/2085355533943357650",
+      "sources": [
+        {
+          "url": "https://x.com/capcutapp/status/2085355533943357650",
+          "name": "AI Companies #1, AI Companies #2"
+        }
+      ],
+      "body": "AI video competition is shifting toward longer native clips and larger reference sets",
+      "signal_badge": "bullish",
+      "engagement_score": 86,
+      "source_list": "AI Companies #1, AI Companies #2",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-bf8d7c0e-009b-4faa-9f36-a60df3a6db94",
+      "headline": "Private messaging history is becoming a new context layer for personal AI assistants",
+      "summary": "Private messaging history is becoming a new context layer for personal AI assistants",
+      "section": "agents",
+      "section_key": "agents",
+      "section_label": "Agents",
+      "tag": "agents",
+      "published_at": "2026-08-06T18:06:15.078904+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/hazhubble/status/2085403480974586354",
+      "sources": [
+        {
+          "url": "https://x.com/hazhubble/status/2085403480974586354",
+          "name": "AI Leaders #1"
+        }
+      ],
+      "body": "Private messaging history is becoming a new context layer for personal AI assistants",
+      "signal_badge": "caution",
+      "engagement_score": 81,
+      "source_list": "AI Leaders #1",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-a317c3c5-c88b-40ff-ac31-f60d4b54ae90",
+      "headline": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
+      "summary": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-06T18:06:15.078866+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/AIatMeta/status/2085388945148297322",
+      "sources": [
+        {
+          "url": "https://x.com/AIatMeta/status/2085388945148297322",
+          "name": "AI Companies #1"
+        }
+      ],
+      "body": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
+      "signal_badge": "signal",
+      "engagement_score": 88,
+      "source_list": "AI Companies #1",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-bbcb8432-537b-474b-abc5-32ac5d46e63c",
+      "headline": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "summary": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "section": "industry",
+      "section_key": "industry",
+      "section_label": "Industry",
+      "tag": "industry",
+      "published_at": "2026-08-06T18:06:15.078283+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/HadrianInc/status/2085327390033752461",
+      "sources": [
+        {
+          "url": "https://x.com/HadrianInc/status/2085327390033752461",
+          "name": "Robots, AI Investors"
+        }
+      ],
+      "body": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "signal_badge": "critical",
+      "engagement_score": 97,
+      "source_list": "Robots, AI Investors",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-1567a573-94f0-4742-816e-4b569157ee19",
+      "headline": "World-model benchmark uses 90 hours of Black Myth gameplay",
+      "summary": "World-model benchmark uses 90 hours of Black Myth gameplay",
+      "section": "research",
+      "section_key": "research",
+      "section_label": "Research",
+      "tag": "research",
+      "published_at": "2026-07-20T00:21:00.318043+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/HuggingPapers/status/2078764006404427945",
+      "sources": [
+        {
+          "url": "https://x.com/HuggingPapers/status/2078764006404427945",
+          "name": "AI Organizations"
+        }
+      ],
+      "body": "World-model benchmark uses 90 hours of Black Myth gameplay",
+      "signal_badge": "interview",
+      "engagement_score": 68,
+      "source_list": "AI Organizations",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-4cd1518d-6ee3-4dc5-961b-a9b02397d9dc",
+      "headline": "Global guidelines for industrial embodied intelligence enter drafting",
+      "summary": "Global guidelines for industrial embodied intelligence enter drafting",
+      "section": "robotics-policy",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics-policy",
+      "published_at": "2026-07-20T00:21:00.317993+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/nordicinst/status/2078656191165530522",
+      "sources": [
+        {
+          "url": "https://x.com/nordicinst/status/2078656191165530522",
+          "name": "AI Organizations"
+        }
+      ],
+      "body": "Global guidelines for industrial embodied intelligence enter drafting",
+      "signal_badge": "action",
+      "engagement_score": 48,
+      "source_list": "AI Organizations",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-d6334cde-bce9-42b2-9cd4-6f8b5b5fb0e6",
+      "headline": "Nvidia GPU shortages force cloud providers to ration capacity",
+      "summary": "Nvidia GPU shortages force cloud providers to ration capacity",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-07-20T00:21:00.317936+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/theinformation/status/2078925348020932667",
+      "sources": [
+        {
+          "url": "https://x.com/theinformation/status/2078925348020932667",
+          "name": "AI Newsmakers"
+        }
+      ],
+      "body": "Nvidia GPU shortages force cloud providers to ration capacity",
+      "signal_badge": "critical",
+      "engagement_score": 72,
+      "source_list": "AI Newsmakers",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-535149c2-e08b-44c6-a497-0c395878f496",
+      "headline": "Enterprise buyers are adopting multiple competing AI models",
+      "summary": "Enterprise buyers are adopting multiple competing AI models",
+      "section": "enterprise",
+      "section_key": "enterprise",
+      "section_label": "Enterprise",
+      "tag": "enterprise",
+      "published_at": "2026-07-20T00:21:00.317887+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/chetanp/status/2078920861181169925",
+      "sources": [
+        {
+          "url": "https://x.com/chetanp/status/2078920861181169925",
+          "name": "AI Investors"
+        }
+      ],
+      "body": "Enterprise buyers are adopting multiple competing AI models",
+      "signal_badge": "signal",
+      "engagement_score": 71,
+      "source_list": "AI Investors",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-sig-41155784b054",
+      "headline": "Anthropic's reported compute shortage turns access into a product constraint",
+      "summary": "Anthropic's reported compute shortage turns access into a product constraint",
+      "section": "compute",
+      "section_key": "compute",
+      "section_label": "Compute",
+      "tag": "compute",
+      "published_at": "2026-07-19T18:00:00+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://alignednews.com/signals/359c66aa-0078-463d-8bab-b6812cf57ca4",
+      "sources": [
+        {
+          "url": "https://alignednews.com/signals/359c66aa-0078-463d-8bab-b6812cf57ca4",
+          "name": "Signal"
+        }
+      ],
+      "body": "Anthropic's reported compute shortage turns access into a product constraint",
+      "signal_badge": "caution",
+      "engagement_score": null,
+      "source_list": null,
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-a4151c7c-2bc3-4b96-b066-3fb665d1a5d6",
+      "headline": "InStockRx raises $5 million after reaching 1,600 pharmacies",
+      "summary": "InStockRx raises $5 million after reaching 1,600 pharmacies",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-07-20T00:21:00.317783+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/Techstars/status/2078857491086020650",
+      "sources": [
+        {
+          "url": "https://x.com/Techstars/status/2078857491086020650",
+          "name": "VC Firms"
+        }
+      ],
+      "body": "InStockRx raises $5 million after reaching 1,600 pharmacies",
+      "signal_badge": "vc",
+      "engagement_score": 62,
+      "source_list": "VC Firms",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-b4d54945-14d5-4528-8643-4da9e986d5de",
+      "headline": "AI networking splits into three markets based on link distance",
+      "summary": "AI networking splits into three markets based on link distance",
+      "section": "infrastructure",
+      "section_key": "compute",
+      "section_label": "Compute",
+      "tag": "infrastructure",
+      "published_at": "2026-07-20T00:21:00.317727+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/PhotonCap/status/2078629661966573623",
+      "sources": [
+        {
+          "url": "https://x.com/PhotonCap/status/2078629661966573623",
+          "name": "VC Firms"
+        }
+      ],
+      "body": "AI networking splits into three markets based on link distance",
+      "signal_badge": "signal",
+      "engagement_score": 76,
+      "source_list": "VC Firms",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-5944c7e8-3fe0-47dd-adea-0b54447722ee",
+      "headline": "Vercel releases a Python version of its AI SDK",
+      "summary": "Vercel releases a Python version of its AI SDK",
+      "section": "developer-tools",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "tag": "developer-tools",
+      "published_at": "2026-07-20T00:21:00.317666+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/morganlinton/status/2078910387404378504",
+      "sources": [
+        {
+          "url": "https://x.com/morganlinton/status/2078910387404378504",
+          "name": "AI Investors"
+        }
+      ],
+      "body": "Vercel releases a Python version of its AI SDK",
+      "signal_badge": "action",
+      "engagement_score": 73,
+      "source_list": "AI Investors",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-sig-2da3e7aa7468",
+      "headline": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
+      "summary": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
+      "section": "acquisitions",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "acquisitions",
+      "published_at": "2026-07-19T18:00:00+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://alignednews.com/signals/4bc3639a-4985-4c05-935a-446415cfff2f",
+      "sources": [
+        {
+          "url": "https://alignednews.com/signals/4bc3639a-4985-4c05-935a-446415cfff2f",
+          "name": "Signal"
+        }
+      ],
+      "body": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
+      "signal_badge": "vc",
+      "engagement_score": null,
+      "source_list": null,
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
+    },
+    {
+      "id": "sigstory-3686e457-de57-4b30-9b89-67082f5513cf",
+      "headline": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
+      "summary": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-07-20T00:21:00.316997+00:00",
+      "author_name": "Aligned News",
+      "source_url": "https://x.com/Alibaba_Qwen/status/2078759124914098291",
+      "sources": [
+        {
+          "url": "https://x.com/Alibaba_Qwen/status/2078759124914098291",
+          "name": "AI Companies #1"
+        }
+      ],
+      "body": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
+      "signal_badge": "bullish",
+      "engagement_score": 100,
+      "source_list": "AI Companies #1",
+      "kind": "signal-story",
+      "_from_live": true,
+      "_body_placeholder": true
     }
   ],
   "signals": [
     {
-      "badge": "ACTION",
-      "category": "open-source",
+      "id": "da5440d5-2d91-4c35-9d71-2bd629c2ddad",
+      "title": "Specialized generative pipelines are pushing useful 3D asset costs toward cents",
       "text": "Specialized generative pipelines are pushing useful 3D asset costs toward cents",
-      "when": "AI Community #1 \u00b7 8/6/2026 \u00b7 78%",
-      "url": "https://alignednews.com/signals/da5440d5-2d91-4c35-9d71-2bd629c2ddad"
+      "badge": "action",
+      "category": "open-source",
+      "section_key": "open-source",
+      "section_label": "Open source",
+      "source_list": "AI Community #1",
+      "engagement_score": 78,
+      "created_at": "2026-08-06T18:06:15.078942+00:00",
+      "source_url": "https://x.com/xyz2maureen/status/2085346460032496025",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
     },
     {
-      "badge": "BULLISH",
-      "category": "creative",
+      "id": "28fda570-80c8-441b-a78b-fcc87dbaf20e",
+      "title": "AI video competition is shifting toward longer native clips and larger reference sets",
       "text": "AI video competition is shifting toward longer native clips and larger reference sets",
-      "when": "AI Companies #1, AI Companies #2 \u00b7 8/6/2026 \u00b7 86%",
-      "url": "https://alignednews.com/signals/28fda570-80c8-441b-a78b-fcc87dbaf20e"
+      "badge": "bullish",
+      "category": "creative",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "source_list": "AI Companies #1, AI Companies #2",
+      "engagement_score": 86,
+      "created_at": "2026-08-06T18:06:15.078924+00:00",
+      "source_url": "https://x.com/capcutapp/status/2085355533943357650",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
     },
     {
-      "badge": "CAUTION",
-      "category": "agents",
+      "id": "bf8d7c0e-009b-4faa-9f36-a60df3a6db94",
+      "title": "Private messaging history is becoming a new context layer for personal AI assistants",
       "text": "Private messaging history is becoming a new context layer for personal AI assistants",
-      "when": "AI Leaders #1 \u00b7 8/6/2026 \u00b7 81%",
-      "url": "https://alignednews.com/signals/bf8d7c0e-009b-4faa-9f36-a60df3a6db94"
+      "badge": "caution",
+      "category": "agents",
+      "section_key": "agents",
+      "section_label": "Agents",
+      "source_list": "AI Leaders #1",
+      "engagement_score": 81,
+      "created_at": "2026-08-06T18:06:15.078904+00:00",
+      "source_url": "https://x.com/hazhubble/status/2085403480974586354",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
     },
     {
-      "badge": "SIGNAL",
-      "category": "models",
+      "id": "a317c3c5-c88b-40ff-ac31-f60d4b54ae90",
+      "title": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
       "text": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
-      "when": "AI Companies #1 \u00b7 8/6/2026 \u00b7 88%",
-      "url": "https://alignednews.com/signals/a317c3c5-c88b-40ff-ac31-f60d4b54ae90"
-    },
-    {
-      "badge": "CRITICAL",
-      "category": "industry",
-      "text": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
-      "when": "Robots, AI Investors \u00b7 8/6/2026 \u00b7 97%",
-      "url": "https://alignednews.com/signals/bbcb8432-537b-474b-abc5-32ac5d46e63c"
-    },
-    {
-      "badge": "INTERVIEW",
-      "category": "research",
-      "text": "World-model benchmark uses 90 hours of Black Myth gameplay",
-      "when": "AI Organizations \u00b7 7/19/2026 \u00b7 68%",
-      "url": "https://alignednews.com/signals/1567a573-94f0-4742-816e-4b569157ee19"
-    },
-    {
-      "badge": "ACTION",
-      "category": "robotics-policy",
-      "text": "Global guidelines for industrial embodied intelligence enter drafting",
-      "when": "AI Organizations \u00b7 7/19/2026 \u00b7 48%",
-      "url": "https://alignednews.com/signals/4cd1518d-6ee3-4dc5-961b-a9b02397d9dc"
-    },
-    {
-      "badge": "CRITICAL",
-      "category": "chips",
-      "text": "Nvidia GPU shortages force cloud providers to ration capacity",
-      "when": "AI Newsmakers \u00b7 7/19/2026 \u00b7 72%",
-      "url": "https://alignednews.com/signals/d6334cde-bce9-42b2-9cd4-6f8b5b5fb0e6"
-    },
-    {
-      "badge": "SIGNAL",
-      "category": "enterprise",
-      "text": "Enterprise buyers are adopting multiple competing AI models",
-      "when": "AI Investors \u00b7 7/19/2026 \u00b7 71%",
-      "url": "https://alignednews.com/signals/535149c2-e08b-44c6-a497-0c395878f496"
-    },
-    {
-      "badge": "CAUTION",
-      "category": "compute",
-      "text": "Anthropic's reported compute shortage turns access into a product constraint",
-      "when": "AI Investors \u00b7 7/19/2026 \u00b7 69%",
-      "url": "https://alignednews.com/signals/359c66aa-0078-463d-8bab-b6812cf57ca4"
-    },
-    {
-      "badge": "VC",
-      "category": "funding",
-      "text": "InStockRx raises $5 million after reaching 1,600 pharmacies",
-      "when": "VC Firms \u00b7 7/19/2026 \u00b7 62%",
-      "url": "https://alignednews.com/signals/a4151c7c-2bc3-4b96-b066-3fb665d1a5d6"
-    },
-    {
-      "badge": "SIGNAL",
-      "category": "infrastructure",
-      "text": "AI networking splits into three markets based on link distance",
-      "when": "VC Firms \u00b7 7/19/2026 \u00b7 76%",
-      "url": "https://alignednews.com/signals/b4d54945-14d5-4528-8643-4da9e986d5de"
-    },
-    {
-      "badge": "ACTION",
-      "category": "developer-tools",
-      "text": "Vercel releases a Python version of its AI SDK",
-      "when": "AI Investors \u00b7 7/19/2026 \u00b7 73%",
-      "url": "https://alignednews.com/signals/5944c7e8-3fe0-47dd-adea-0b54447722ee"
-    },
-    {
-      "badge": "VC",
-      "category": "acquisitions",
-      "text": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
-      "when": "AI Newsmakers \u00b7 7/19/2026 \u00b7 78%",
-      "url": "https://alignednews.com/signals/4bc3639a-4985-4c05-935a-446415cfff2f"
-    },
-    {
-      "badge": "BULLISH",
+      "badge": "signal",
       "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "AI Companies #1",
+      "engagement_score": 88,
+      "created_at": "2026-08-06T18:06:15.078866+00:00",
+      "source_url": "https://x.com/AIatMeta/status/2085388945148297322",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "bbcb8432-537b-474b-abc5-32ac5d46e63c",
+      "title": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "text": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "badge": "critical",
+      "category": "industry",
+      "section_key": "industry",
+      "section_label": "Industry",
+      "source_list": "Robots, AI Investors",
+      "engagement_score": 97,
+      "created_at": "2026-08-06T18:06:15.078283+00:00",
+      "source_url": "https://x.com/HadrianInc/status/2085327390033752461",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "1567a573-94f0-4742-816e-4b569157ee19",
+      "title": "World-model benchmark uses 90 hours of Black Myth gameplay",
+      "text": "World-model benchmark uses 90 hours of Black Myth gameplay",
+      "badge": "interview",
+      "category": "research",
+      "section_key": "research",
+      "section_label": "Research",
+      "source_list": "AI Organizations",
+      "engagement_score": 68,
+      "created_at": "2026-07-20T00:21:00.318043+00:00",
+      "source_url": "https://x.com/HuggingPapers/status/2078764006404427945",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "4cd1518d-6ee3-4dc5-961b-a9b02397d9dc",
+      "title": "Global guidelines for industrial embodied intelligence enter drafting",
+      "text": "Global guidelines for industrial embodied intelligence enter drafting",
+      "badge": "action",
+      "category": "robotics-policy",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "AI Organizations",
+      "engagement_score": 48,
+      "created_at": "2026-07-20T00:21:00.317993+00:00",
+      "source_url": "https://x.com/nordicinst/status/2078656191165530522",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "d6334cde-bce9-42b2-9cd4-6f8b5b5fb0e6",
+      "title": "Nvidia GPU shortages force cloud providers to ration capacity",
+      "text": "Nvidia GPU shortages force cloud providers to ration capacity",
+      "badge": "critical",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "AI Newsmakers",
+      "engagement_score": 72,
+      "created_at": "2026-07-20T00:21:00.317936+00:00",
+      "source_url": "https://x.com/theinformation/status/2078925348020932667",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "535149c2-e08b-44c6-a497-0c395878f496",
+      "title": "Enterprise buyers are adopting multiple competing AI models",
+      "text": "Enterprise buyers are adopting multiple competing AI models",
+      "badge": "signal",
+      "category": "enterprise",
+      "section_key": "enterprise",
+      "section_label": "Enterprise",
+      "source_list": "AI Investors",
+      "engagement_score": 71,
+      "created_at": "2026-07-20T00:21:00.317887+00:00",
+      "source_url": "https://x.com/chetanp/status/2078920861181169925",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "sig-41155784b054",
+      "title": "Anthropic's reported compute shortage turns access into a product constraint",
+      "text": "Anthropic's reported compute shortage turns access into a product constraint",
+      "badge": "caution",
+      "category": "compute",
+      "section_key": "compute",
+      "section_label": "Compute",
+      "source_list": null,
+      "engagement_score": null,
+      "created_at": "2026-07-19T18:00:00+00:00",
+      "source_url": "https://alignednews.com/signals/359c66aa-0078-463d-8bab-b6812cf57ca4",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "a4151c7c-2bc3-4b96-b066-3fb665d1a5d6",
+      "title": "InStockRx raises $5 million after reaching 1,600 pharmacies",
+      "text": "InStockRx raises $5 million after reaching 1,600 pharmacies",
+      "badge": "vc",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "VC Firms",
+      "engagement_score": 62,
+      "created_at": "2026-07-20T00:21:00.317783+00:00",
+      "source_url": "https://x.com/Techstars/status/2078857491086020650",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "b4d54945-14d5-4528-8643-4da9e986d5de",
+      "title": "AI networking splits into three markets based on link distance",
+      "text": "AI networking splits into three markets based on link distance",
+      "badge": "signal",
+      "category": "infrastructure",
+      "section_key": "compute",
+      "section_label": "Compute",
+      "source_list": "VC Firms",
+      "engagement_score": 76,
+      "created_at": "2026-07-20T00:21:00.317727+00:00",
+      "source_url": "https://x.com/PhotonCap/status/2078629661966573623",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "5944c7e8-3fe0-47dd-adea-0b54447722ee",
+      "title": "Vercel releases a Python version of its AI SDK",
+      "text": "Vercel releases a Python version of its AI SDK",
+      "badge": "action",
+      "category": "developer-tools",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "source_list": "AI Investors",
+      "engagement_score": 73,
+      "created_at": "2026-07-20T00:21:00.317666+00:00",
+      "source_url": "https://x.com/morganlinton/status/2078910387404378504",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "sig-2da3e7aa7468",
+      "title": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
+      "text": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
+      "badge": "vc",
+      "category": "acquisitions",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": null,
+      "engagement_score": null,
+      "created_at": "2026-07-19T18:00:00+00:00",
+      "source_url": "https://alignednews.com/signals/4bc3639a-4985-4c05-935a-446415cfff2f",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
+    },
+    {
+      "id": "3686e457-de57-4b30-9b89-67082f5513cf",
+      "title": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
       "text": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
-      "when": "AI Companies #1 \u00b7 7/19/2026 \u00b7 100%",
-      "url": "https://alignednews.com/signals/3686e457-de57-4b30-9b89-67082f5513cf"
+      "badge": "bullish",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "AI Companies #1",
+      "engagement_score": 100,
+      "created_at": "2026-07-20T00:21:00.316997+00:00",
+      "source_url": "https://x.com/Alibaba_Qwen/status/2078759124914098291",
+      "analysis": "",
+      "_from_live": true,
+      "_analysis_placeholder": true
     }
   ],
   "reports": [
     {
+      "id": "3360286d-3db2-427a-9323-94c75f8b31fe",
       "title": "Archive Report: Evening Run, August 9 2026",
       "summary": "Complete archive of the August 9 evening Aligned News refresh, including corpus collection, editorial validation, section publication, events, Ten Things, and Scoble coverage.",
-      "when": "8/9/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/3360286d-3db2-427a-9323-94c75f8b31fe"
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-09T23:48:17.793041+00:00",
+      "url": "https://alignednews.com/reports/3360286d-3db2-427a-9323-94c75f8b31fe",
+      "_from_live": true
     },
     {
+      "id": "1fc7dff2-ad60-407c-b46a-fe0f698fa265",
       "title": "Archive Report: Evening Run, August 8 2026",
       "summary": "The complete August 8 evening archive covering models, agents, robotics, infrastructure, events, and Robert Scoble's recoverable timeline activity.",
-      "when": "8/8/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/1fc7dff2-ad60-407c-b46a-fe0f698fa265"
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-08T23:44:06.920226+00:00",
+      "url": "https://alignednews.com/reports/1fc7dff2-ad60-407c-b46a-fe0f698fa265",
+      "_from_live": true
     },
     {
+      "id": "ed25565d-512c-483e-842a-dcf5c15dd6cb",
       "title": "Aligned News Morning Run August 6 2026",
-      "summary": "",
-      "when": "8/6/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/ed25565d-512c-483e-842a-dcf5c15dd6cb"
+      "summary": null,
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-06T14:35:04.341129+00:00",
+      "url": "https://alignednews.com/reports/ed25565d-512c-483e-842a-dcf5c15dd6cb",
+      "_from_live": true
     },
     {
+      "id": "8aa1cc2c-5a4b-43fd-8841-185ceb010c3d",
       "title": "Archive Report: Evening Run, August 5 2026",
-      "summary": "",
-      "when": "8/5/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/8aa1cc2c-5a4b-43fd-8841-185ceb010c3d"
+      "summary": null,
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-05T23:16:49.905393+00:00",
+      "url": "https://alignednews.com/reports/8aa1cc2c-5a4b-43fd-8841-185ceb010c3d",
+      "_from_live": true
     },
     {
+      "id": "735a33ab-6274-41db-abad-caef3d792185",
       "title": "Archive Report: Aligned News Evening Run, August 4 2026",
       "summary": "Evening publication archive covering 22 sections, 283 editorial stories, repair actions, and final live verification.",
-      "when": "8/4/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/735a33ab-6274-41db-abad-caef3d792185"
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-04T23:33:47.427461+00:00",
+      "url": "https://alignednews.com/reports/735a33ab-6274-41db-abad-caef3d792185",
+      "_from_live": true
     },
     {
+      "id": "476274f0-fddf-4fad-9089-2975498121da",
       "title": "Archive Report: Evening Run, August 3 2026",
       "summary": "The August 3 evening run analyzed 8,000 posts from 16 lists, refreshed the editorial framing and descriptions, audited 223 live stories, and repaired one dead X source.",
-      "when": "8/3/2026 \u00b7 weekly roundup \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/476274f0-fddf-4fad-9089-2975498121da"
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-03T23:49:39.727682+00:00",
+      "url": "https://alignednews.com/reports/476274f0-fddf-4fad-9089-2975498121da",
+      "_from_live": true
     },
     {
+      "id": "c52053d1-3024-41c5-8922-d52f83ff6a9a",
       "title": "Morning Report \u2014 August 3, 2026",
       "summary": "Completed August 3 morning intelligence run with 22 refreshed content sections, 223 validated stories, full Scoble coverage, updated essay and descriptions, and passing quality and live-link postflight checks.",
-      "when": "8/3/2026 \u00b7 trend report \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/c52053d1-3024-41c5-8922-d52f83ff6a9a"
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-03T15:37:10.03092+00:00",
+      "url": "https://alignednews.com/reports/c52053d1-3024-41c5-8922-d52f83ff6a9a",
+      "_from_live": true
     },
     {
+      "id": "3f1d91f8-2c6a-4019-b816-69b159df42bd",
       "title": "Archive Report: Aligned News Evening Edition for August 2, 2026",
       "summary": "A publication audit of 219 sourced stories across 22 sections, the evening essay, event coverage, and the exact Scoble window.",
-      "when": "8/2/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
-      "url": "https://alignednews.com/reports/3f1d91f8-2c6a-4019-b816-69b159df42bd"
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-02T23:48:26.439186+00:00",
+      "url": "https://alignednews.com/reports/3f1d91f8-2c6a-4019-b816-69b159df42bd",
+      "_from_live": true
     },
     {
+      "id": "9ece8d76-f832-47b2-b9a1-6a07f4c730e6",
       "title": "Archive Report: Morning Run, August 2 2026",
       "summary": "Audit archive for the August 2 morning edition: nineteen authorized core-list attempts, bounded recovery searches, 245 source-unique stories, exact special-section counts, publication controls, and the Scoble reshare API limitation.",
-      "when": "8/2/2026 \u00b7 weekly roundup \u00b7 Aligned News Research \u00b7 2 min read",
-      "url": "https://alignednews.com/reports/9ece8d76-f832-47b2-b9a1-6a07f4c730e6"
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-08-02T14:16:38.298673+00:00",
+      "url": "https://alignednews.com/reports/9ece8d76-f832-47b2-b9a1-6a07f4c730e6",
+      "_from_live": true
     },
     {
+      "id": "8ef32c56-2500-4d6d-b6db-e278fa42cf97",
       "title": "Archive Report: Evening Run, August 1 2026",
       "summary": "Audit archive for the August 1 evening edition: nineteen authorized core-list attempts, bounded recovery searches, 232 source-unique stories, exact special-section counts, publication controls, and the Scoble reshare API limitation.",
-      "when": "8/1/2026 \u00b7 weekly roundup \u00b7 Aligned News Research \u00b7 2 min read",
-      "url": "https://alignednews.com/reports/8ef32c56-2500-4d6d-b6db-e278fa42cf97"
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-08-01T23:14:47.178546+00:00",
+      "url": "https://alignednews.com/reports/8ef32c56-2500-4d6d-b6db-e278fa42cf97",
+      "_from_live": true
+    },
+    {
+      "id": "78a3cf1e-130d-4b19-9aba-34664d10b504",
+      "title": "Archive Report: Complete Run, August 1 2026",
+      "summary": "Audit archive for the August 1 complete edition: nineteen authorized core-list attempts, bounded recovery searches, 220 source-unique stories, exact special-section counts, publication controls, and the Scoble reshare API limitation.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-08-01T20:14:32.58065+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "34e7fbb3-790c-4c22-b4ef-139b00f7ce65",
+      "title": "Archive Report: Evening Run, July 31 2026",
+      "summary": "Audit archive for the July 31 evening edition: 220 unique sources, 22 complete sections, publication controls, source limitations, strict postflight, and the freshness-report discrepancy.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-07-31T23:59:02.859549+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "2194cd78-8a5b-4e7f-b90a-ccb089604897",
+      "title": "Archive Report: Complete Run, July 31 2026",
+      "summary": "Complete July 31 edition: 220 source-unique stories, 22 fully populated sections, descriptions, essay, utility sync, and archived postflight audits.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-31T19:35:44.239656+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "61ae1c4d-a0ed-4a5f-b83b-4a5a6c82181d",
+      "title": "Aligned News Evening Publication Report \u2014 July 30, 2026",
+      "summary": "Publication record for the July 30 11 PM edition: 22 sections, 272 section stories, updated descriptions and essay, with quality and postflight checks passed.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-30T23:31:48.794869+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "19645cf9-32a9-4663-a130-c037f1acc190",
+      "title": "Archive Report: Morning Run, July 27 2026",
+      "summary": "Audit archive for the July 27 morning edition: nineteen list pulls,  eight discovery searches, 216 source-unique stories, exact special-section counts, publication controls, and the Scoble reshare API limitation.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-07-27T14:21:29.498615+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "2dcf2eb0-e63b-44d8-9ae3-c54c703c7d32",
+      "title": "Archive Report: Evening Run, July 26 2026",
+      "summary": "Audit archive for the July 26 evening edition: sixteen list pulls, eight discovery searches, 218 source-unique stories, exact special-section counts, publication controls, and the Scoble reshare API limitation.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-07-26T23:54:48.406092+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "2ed34634-e021-425e-8826-eda694f2f767",
+      "title": "Aligned News Evening Research Archive, July 24 2026",
+      "summary": "A documented archive of the July 24 evening collection, analysis, source review, and publication workflow for Aligned News.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-24T23:33:55.284679+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "48d676e5-01bb-4381-8c3b-abd57bb70da1",
+      "title": "Aligned News Evening Run \u2014 July 24, 2026",
+      "summary": "Publication archive for the July 24 Aligned News evening run, covering the refreshed editorial sections, events, essay, descriptions, Ten Things, and Robert Scoble activity.",
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-24T07:13:39.019105+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "f4bb553c-6920-41ec-b8b3-b95ab8448a8c",
+      "title": "Archive: July 21, 2026 Morning \u2014 AI is starting to discover, build, and move in the same day",
+      "summary": "Complete July 21 morning snapshot covering 16 lists, 278 published section stories, all 68 Scoble timeline items, the HTML essay, updated descriptions, and strict postflight.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-21T14:35:42.259303+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "02f39400-cf42-499a-8ceb-bde0da4f05ff",
+      "title": "Aligned News Morning Intelligence Archive, July 20 2026",
+      "summary": "The complete July 20 morning run covering 19 authorized core X lists, 13,814 analyzed records, 74 Scobleizer posts, and 284 strictly validated stories across 22 sections.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-07-20T14:33:48.779657+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "0cab862d-fab9-471d-9abd-d567e3d4ad85",
+      "title": "Complete AI News Run \u2014 July 19, 2026",
+      "summary": "A complete 19-core-list run with 298 source-verified stories, simplified headlines, refreshed signals, and a new systems-focused essay.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-20T00:21:00.961458+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "cae613fd-bbdb-433e-8ad6-23a3748c4810",
+      "title": "Archive Report: Evening Run, July 19 2026",
+      "summary": "A complete record of the July 19 evening run across 19 core lists, 13,452 structured posts, 22 sections, and the exact Scobleizer account window.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-19T23:53:52.21158+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "e21977a3-837d-440a-be2f-512ca51dd123",
+      "title": "Aligned News Morning Archive \u2014 July 19, 2026",
+      "summary": "A source-backed archive of the July 19 morning run across models, agents, robotics, infrastructure, creative tools, policy, and Scoble\u2019s complete 24-hour activity window.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-19T14:37:58.566235+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "3a699463-3700-44ca-8fed-d4b78559b6b7",
+      "title": "Archive Report: Evening Run, July 18 2026",
+      "summary": "Complete archive of the July 18 evening Aligned News refresh, covering the 24 hour core list sweep, direct list review, source verification, section publication, essay update, and final quality controls.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-18T23:27:31.12629+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "f9ab9e47-af0b-4962-988e-f0c16d8da1ee",
+      "title": "Aligned News Morning Archive: AI Is Leaving the Chat Window",
+      "summary": "The July 18 morning archive tracks the shift from standalone model intelligence toward complete systems that can act through agents, tools, and robots. It records 234 source verified stories across all 22 Aligned News content sections.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-18T14:26:26.282592+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "16f223ee-8af8-4330-a098-8b17e3b965ef",
+      "title": "Archive Report: Evening Run, July 17 2026",
+      "summary": "The July 17 evening edition adds fresh cyber, agent, product, model, privacy, infrastructure, and complete Scoble timeline coverage to today\u2019s validated Aligned News base.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-17T23:23:33.994212+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "8fd42a0b-7797-4657-8f58-7303c7f17eca",
+      "title": "The Open Model Race Is Becoming a Systems Race",
+      "summary": "Kimi K3\u2019s rise shows that frontier capability is spreading, but model quality alone will not determine the winners. Cost per completed task, agent reliability, security, infrastructure, and deployment systems are becoming the real competitive stack.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-17T22:26:50.613059+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "9952315c-f817-42dc-8880-c8a89df27910",
+      "title": "Archive Report: Evening Run, July 16 2026",
+      "summary": "A complete archive of the July 16 evening AI news run, including 465 source-unique stories, the 171-item Scobleizer census, future event coverage, and strict editorial audit results.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-16T23:23:49.168227+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "f500334d-5917-4f15-b963-c2813f4e1c97",
+      "title": "Archive Report: Morning Run, July 16 2026",
+      "summary": "A complete archive of the July 16 morning AI news run, including 433 source-unique stories, the 138-item Scobleizer census, future event coverage, and strict editorial audit results.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-16T14:32:28.403552+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "d4e10b72-509e-4b78-824e-924e9fcc61a6",
+      "title": "Archive Report: Evening Run, July 15 2026",
+      "summary": "A complete archive of the July 15 evening AI news run, including 394 source-unique stories, the 99-item Scobleizer census, event coverage, and editorial audit results.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 4,
+      "published_at": "2026-07-15T23:59:41.266587+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "af42ce64-8a52-4e72-b07d-fb87fed74d6c",
+      "title": "Archive Report: Morning Run, July 15 2026",
+      "summary": "A provenance-backed archive of the July 15 morning AI news run, covering 367 distinct stories across 22 sections.",
+      "type": "deep_dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 5,
+      "published_at": "2026-07-15T15:24:47.646087+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "1079526d-56b6-4455-af6b-d4b08c35a91d",
+      "title": "Archive Report: Evening Run, July 14 2026",
+      "summary": "A provenance-backed archive of the July 14 morning AI news run, covering 346 distinct stories across 22 sections.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-14T23:33:20.496828+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "67ceb75c-3d68-451f-bff7-f069fb4367f3",
+      "title": "Archive Report: Morning Run, July 14 2026",
+      "summary": "A provenance-backed archive of the July 14 morning AI news run, covering 346 distinct stories across 22 content sections.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-14T15:20:52.838267+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "89054e13-16c9-40d3-9e4c-7393b0f8e1bf",
+      "title": "Archive Report: Evening Run, July 13 2026",
+      "summary": "Production archive for the July 13 evening run, covering source controls, section counts, cross-list findings, event verification, and publication audit evidence.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-07-13T23:49:11.703713+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "2680ea31-4c72-489c-986f-22e21a9636e1",
+      "title": "Archive: July 12 2026 Morning Run",
+      "summary": "Complete archive of the July 12 morning AI news run, covering 16 list pulls, broad discovery, the live essay, 22 CMS sections, events, Ten Things, source filtering and postflight results.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-12T14:13:50.216597+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "a96fc998-4f86-4cf9-910a-c01e287da104",
+      "title": "Archive Report: Morning Run, July 11 2026, The AI Race Is Now A Trust Race",
+      "summary": "Complete archive of the July 11 morning AI news run.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-11T14:15:07.694991+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "0a8b2a52-2736-447b-b3ab-4c44dd569705",
+      "title": "Archive Report: Evening Run, July 10 2026, The AI Race Moved From Models To Consequences",
+      "summary": "Complete archive of the July 10 evening AI news run.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-10T23:14:06.779081+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "571ca329-91bc-4951-9181-c52144a34837",
+      "title": "Archive: July 10, 2026 Morning Run \u2014 The Model War Became A Work War",
+      "summary": "Morning archive snapshot for the July 10 run.",
+      "type": "trend_report",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-10T14:09:00.244396+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "040b377c-30ff-4f50-b27b-e2994b62d136",
+      "title": "Archive Report: Evening Run, July 9 2026",
+      "summary": "A source-verified evening intelligence archive covering GPT-5.6, ChatGPT Work, AlphaEvolve, Muse media models, physical AI, and key organizational changes.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 2,
+      "published_at": "2026-07-09T23:05:36.948111+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "733e5987-f2d3-4076-81ef-d65f8bb3422b",
+      "title": "Archive Report: Morning Run, July 9 2026",
+      "summary": "Archive report for the July 9 morning run covering 16 list pulls, direct reads, broad discovery searches, CMS updates, quality pass, and postflight pass.",
+      "type": "weekly_roundup",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-07-09T14:16:19.35379+00:00",
+      "_from_live": true
     }
   ],
-  "ai_section_names": [
-    "Big Stuff Happening in AI Right Now",
-    "News From AI Companies",
-    "Robots",
-    "Tools for Creatives",
-    "Funding & Deals",
-    "Models & Benchmarks",
-    "Labs",
-    "Papers",
-    "AI Hardware & Chips",
-    "AI Agents",
-    "OpenClaw, Hermes, and Competitors",
-    "AI Infrastructure",
-    "AI in Science",
-    "Videos",
-    "AI Policy & Regulation",
-    "Jobs",
-    "Anomalies",
-    "Events"
+  "bundles": [
+    {
+      "id": "503066fb-a4f4-4cc3-95d6-83d9822d60e5",
+      "name": "The AI Regulation Wave",
+      "description": "EU AI Sovereignty Act, NVIDIA export pauses, and the growing tension between AI innovation and government oversight.",
+      "story_count": 0,
+      "updated_at": "2026-03-07T22:00:50.159519+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "ab522cff-5712-4c62-83c8-c869443338eb",
+      "name": "Frontier Model Wars \u2014 March 2026",
+      "description": "Claude 4.5 Opus, Llama 4, Mistral Large 3, and DeepSeek V4 \u2014 four major model releases reshape the competitive landscape in a single week.",
+      "story_count": 0,
+      "updated_at": "2026-03-07T22:00:50.159519+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "77586772-b425-48b1-a27d-fb12bbd18ab8",
+      "name": "Physical AI Goes Mainstream",
+      "description": "Figure 03 warehouse shifts, Waymo 10-city expansion, and Atlas running a 5K \u2014 humanoid robots and autonomous vehicles cross the viability threshold.",
+      "story_count": 0,
+      "updated_at": "2026-03-07T22:00:50.159519+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "fd539104-41b3-41ed-9d20-f3461a8066bf",
+      "name": "Top Stories - Feb 12",
+      "description": "Curated collection of the most important tech news today",
+      "story_count": 0,
+      "updated_at": "2026-02-13T17:08:38.523709+00:00",
+      "_from_live": true
+    },
+    {
+      "id": "d40ecfd1-52a0-4ddf-a410-00cbc62a970f",
+      "name": "AI Funding Round-up",
+      "description": "Latest funding announcements in the AI space",
+      "story_count": 0,
+      "updated_at": "2026-02-13T17:08:38.523709+00:00",
+      "_from_live": true
+    }
   ],
   "ai_sections": [
     {

@@ -10,6 +10,192 @@
     read: loadRead(),
   };
 
+
+  function mapSectionKey(name) {
+    var s = String(name || "").toLowerCase();
+    if (s.indexOf("robot") !== -1) return "robotics";
+    if (s.indexOf("fund") !== -1 || s.indexOf("deal") !== -1 || s.indexOf("acquisit") !== -1) return "funding";
+    if (s.indexOf("polic") !== -1 || s.indexOf("regulat") !== -1) return "policy";
+    if (s.indexOf("agent") !== -1 || s.indexOf("openclaw") !== -1) return "agents";
+    if (s.indexOf("model") !== -1 || s.indexOf("benchmark") !== -1 || s.indexOf("big stuff") !== -1) return "models";
+    if (s.indexOf("chip") !== -1 || s.indexOf("hardware") !== -1) return "chips";
+    if (s.indexOf("open-source") !== -1 || s.indexOf("open source") !== -1) return "open-source";
+    if (s.indexOf("creative") !== -1 || s.indexOf("video") !== -1) return "creative";
+    if (s.indexOf("event") !== -1) return "events";
+    if (s.indexOf("paper") !== -1 || s.indexOf("science") !== -1 || s.indexOf("research") !== -1) return "research";
+    if (s.indexOf("infra") !== -1 || s.indexOf("compute") !== -1) return "compute";
+    if (s.indexOf("lab") !== -1 || s.indexOf("compan") !== -1 || s.indexOf("industry") !== -1) return "industry";
+    if (s.indexOf("scoble") !== -1) return "scoble";
+    return s.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "general";
+  }
+
+  function labelFor(key, fallback) {
+    var map = {
+      models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
+      policy: "Policy", chips: "Chips", "open-source": "Open source", events: "Events",
+      research: "Research", creative: "Creative", compute: "Compute", industry: "Industry",
+      scoble: "Scoble", labs: "Labs", jobs: "Jobs"
+    };
+    return map[key] || fallback || key;
+  }
+
+  function simpleId(prefix, title) {
+    var h = 0; var str = String(title || "");
+    for (var i = 0; i < str.length; i++) h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+    return prefix + "-" + Math.abs(h).toString(16);
+  }
+
+  /** Accept app schema OR scraper-raw schema */
+  function normalizeData(data) {
+    if (!data) return data;
+    if (data.stories && data.stories.length && data.stories[0].headline && data.chips) return data;
+
+    var stories = [];
+    var seen = {};
+    function pushStory(s) {
+      var t = (s.headline || "").trim().toLowerCase();
+      if (!t || seen[t]) return;
+      seen[t] = 1;
+      stories.push(s);
+    }
+
+    (data.ai_sections || []).forEach(function (sec) {
+      var secName = sec.name || "AI";
+      var key = mapSectionKey(secName);
+      (sec.items || []).forEach(function (item) {
+        var title = item.title || "";
+        var excerpt = item.excerpt || item.summary || "";
+        pushStory({
+          id: simpleId("ai", title),
+          headline: title,
+          summary: excerpt,
+          section: key,
+          section_key: key,
+          section_label: labelFor(key, secName),
+          published_at: null,
+          author_name: item.source || "Aligned News",
+          source_url: item.url,
+          sources: item.url ? [{ url: item.url, name: item.source || "Source" }] : [],
+          body: excerpt + "\n\nFiled under " + secName + ".\n\n[Sample Pro body · from scraped /ai cards.]",
+          kind: "ai-item",
+          ai_section: secName,
+          _body_placeholder: true
+        });
+      });
+    });
+
+    var signals = (data.signals || []).map(function (sig) {
+      var text = sig.text || sig.title || "";
+      var badge = String(sig.badge || "signal").toLowerCase();
+      var cat = sig.category || "general";
+      var key = mapSectionKey(cat);
+      var id = sig.id || simpleId("sig", text);
+      var body = sig.analysis || (text + ".\n\n[Sample Pro body · signal from live site.]");
+      pushStory({
+        id: "sigstory-" + id,
+        headline: text,
+        summary: text,
+        section: cat,
+        section_key: key,
+        section_label: labelFor(key, cat),
+        published_at: sig.created_at || null,
+        signal_badge: badge,
+        source_list: sig.source_list || sig.when,
+        source_url: sig.source_url || sig.url,
+        sources: (sig.source_url || sig.url) ? [{ url: sig.source_url || sig.url, name: "Signal" }] : [],
+        body: body,
+        kind: "signal-story",
+        engagement_score: sig.engagement_score,
+        _body_placeholder: !sig.analysis
+      });
+      return {
+        id: id,
+        title: text,
+        text: text,
+        badge: badge,
+        category: cat,
+        section_key: key,
+        section_label: labelFor(key, cat),
+        source_list: sig.source_list,
+        engagement_score: sig.engagement_score,
+        created_at: sig.created_at || null,
+        source_url: sig.source_url || sig.url,
+        analysis: body,
+        _analysis_placeholder: !sig.analysis
+      };
+    });
+
+    (data.stories || []).forEach(function (s) {
+      if (s.headline && s.section_key) { pushStory(s); return; }
+      var title = s.title || s.headline || "";
+      var summary = s.summary || "";
+      var sec = s.section || "general";
+      var key = mapSectionKey(sec);
+      pushStory({
+        id: s.id || simpleId("story", title),
+        headline: title,
+        summary: summary,
+        section: sec,
+        section_key: key,
+        section_label: labelFor(key, sec),
+        published_at: s.published_at || null,
+        author_name: s.source || s.author_name || "Aligned News",
+        source_url: s.url || s.source_url,
+        sources: (s.url || s.source_url) ? [{ url: s.url || s.source_url, name: "Story" }] : [],
+        body: summary + "\n\n[Sample Pro body · from live site listing.]",
+        kind: "story",
+        _body_placeholder: true
+      });
+    });
+
+    var reports = (data.reports || []).map(function (r) {
+      if (r.title && (r.published_at || r.summary)) {
+        return {
+          id: r.id || simpleId("rep", r.title),
+          title: r.title,
+          summary: r.summary,
+          type: r.type || "report",
+          author: r.author || "Aligned News Research",
+          reading_time_min: r.reading_time_min,
+          published_at: r.published_at || null,
+          url: r.url
+        };
+      }
+      return r;
+    });
+
+    var chips = data.chips || [
+      { id: "all", label: "All" }, { id: "models", label: "Models" },
+      { id: "agents", label: "Agents" }, { id: "robotics", label: "Robotics" },
+      { id: "funding", label: "Funding" }, { id: "policy", label: "Policy" },
+      { id: "chips", label: "Chips" }, { id: "open-source", label: "Open source" },
+      { id: "events", label: "Events" }, { id: "research", label: "Research" }
+    ];
+
+    var forYou = data.forYou || signals.slice().sort(function (a, b) {
+      return (b.engagement_score || 0) - (a.engagement_score || 0);
+    }).slice(0, 3);
+
+    return {
+      meta: data.meta || {
+        mock: true,
+        placeholderNote: data.notes || "Normalized at runtime from live-data.json",
+        scrapedAt: data.scraped_at,
+        generatedAt: new Date().toISOString()
+      },
+      user: data.user || { name: "Asher", plan: "Pro" },
+      stats: data.stats || {},
+      chips: chips,
+      forYou: forYou,
+      stories: stories,
+      signals: signals,
+      reports: reports,
+      bundles: data.bundles || [],
+      ai_sections: data.ai_sections || []
+    };
+  }
+
+
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
 
@@ -70,6 +256,31 @@
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+
+  function cleanDisplayText(s) {
+    if (!s) return "";
+    return String(s)
+      .replace(/\[Sample Pro body[^\]]*\]/gi, "")
+      .replace(/\n*Signal type:[\s\S]*$/i, "")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+
+  function joinMeta(parts) {
+    return parts.filter(function (p) { return p != null && String(p).trim() !== ""; })
+      .map(function (p) { return String(p).trim(); })
+      .join(" · ");
+  }
+
+  function fallbackTime(iso) {
+    var t = fmtRelative(iso);
+    if (t) return t;
+    var meta = state.data && state.data.meta;
+    if (meta && meta.generatedAt) return fmtRelative(meta.generatedAt);
+    if (meta && meta.lastUpdatedTs) return fmtRelative(new Date(Number(meta.lastUpdatedTs)).toISOString());
+    return "";
   }
 
   function badgeClass(badge) {
@@ -174,15 +385,8 @@
 
   function storyMatches(story) {
     if (state.filter && state.filter !== "all") {
-      var key = story.section_key || "";
-      if (state.filter === "robotics") {
-        if (key !== "robotics" && key !== "policy" && (story.section || "").indexOf("robot") === -1) {
-          // allow robotics-policy via policy chip separately; robotics chip matches robotics*
-          if ((story.section || "").indexOf("robotics") === -1) return false;
-        }
-      } else if (key !== state.filter) {
-        return false;
-      }
+      var key = story.section_key || mapSectionKey(story.section || story.tag || "");
+      if (key !== state.filter) return false;
     }
     if (state.query) {
       var q = state.query.toLowerCase();
@@ -237,7 +441,10 @@
   function renderTodayFeed() {
     var list = $("#feed");
     if (!list || !state.data) return;
-    var stories = (state.data.stories || []).filter(storyMatches);
+    var stories = (state.data.stories || []).filter(function (s) {
+      if (s.kind === "signal-story") return false;
+      return storyMatches(s);
+    });
     if (!stories.length) {
       list.innerHTML = '<li class="empty">No stories match this filter.</li>';
       return;
@@ -246,9 +453,15 @@
       var badge = s.signal_badge
         ? '<span class="' + badgeClass(s.signal_badge) + '">' + escapeHtml(String(s.signal_badge).toUpperCase()) + "</span>"
         : "";
-      var excerpt = s.summary || "";
+      var excerpt = cleanDisplayText(s.summary || "");
       if (excerpt.length > 180) excerpt = excerpt.slice(0, 177).trim() + "…";
       var isRead = state.read.indexOf(s.id) !== -1;
+      var metaLine = joinMeta([
+        s.section_label || s.section || "",
+        fallbackTime(s.published_at),
+        (!s.signal_badge && s.author_name) ? s.author_name : "",
+        s.source_list || ""
+      ]);
       return (
         '<li class="feed-row' + (isRead ? " is-read" : "") + '">' +
           '<div class="rank">' + (i + 1) + "</div>" +
@@ -258,10 +471,7 @@
             (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               badge +
-              '<span class="section-pill">' + escapeHtml(s.section_label || s.section || "") + "</span>" +
-              '<span class="dot">' + escapeHtml(fmtRelative(s.published_at)) + "</span>" +
-              (s.source_list ? '<span class="dot">' + escapeHtml(s.source_list) + "</span>" : "") +
-              (s.author_name && !s.signal_badge ? '<span class="dot">' + escapeHtml(s.author_name) + "</span>" : "") +
+              '<span class="dot">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
         "</li>"
@@ -286,21 +496,33 @@
       return;
     }
     list.innerHTML = items.map(function (s, i) {
-      var excerpt = s.analysis || s.text || "";
+      var excerpt = cleanDisplayText(s.analysis || "");
+      if (!excerpt || excerpt.toLowerCase() === String(s.title || "").toLowerCase()) {
+        excerpt = "";
+      }
       if (excerpt.length > 200) excerpt = excerpt.slice(0, 197).trim() + "…";
+      var metaLine = joinMeta([
+        (s.badge || "signal").toUpperCase(),
+        s.section_label || s.category || "",
+        fallbackTime(s.created_at),
+        s.source_list || "",
+        (s.engagement_score != null ? s.engagement_score + "% conf." : "")
+      ]);
       return (
         '<li class="feed-row">' +
           '<div class="rank">' + (i + 1) + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '">' +
               escapeHtml(s.title) + "</a></h2>" +
-            '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" +
+            (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
-              '<span class="section-pill">' + escapeHtml(s.section_label || s.category || "") + "</span>" +
-              '<span class="dot">' + escapeHtml(fmtRelative(s.created_at)) + "</span>" +
-              (s.source_list ? '<span class="dot">' + escapeHtml(s.source_list) + "</span>" : "") +
-              (s.engagement_score != null ? '<span class="dot">' + s.engagement_score + "% conf.</span>" : "") +
+              '<span class="dot">' + escapeHtml(joinMeta([
+                s.section_label || s.category || "",
+                fallbackTime(s.created_at),
+                s.source_list || "",
+                (s.engagement_score != null ? s.engagement_score + "% conf." : "")
+              ])) + "</span>" +
             "</div>" +
           "</div>" +
         "</li>"
@@ -381,15 +603,18 @@
       persistRead();
     }
     var saved = state.saved.indexOf(story.id) !== -1;
-    var paragraphs = String(story.body || story.summary || "")
+    var paragraphs = cleanDisplayText(story.body || story.summary || "")
       .split(/\n\n+/)
       .map(function (p) { return p.trim(); })
-      .filter(Boolean);
+      .filter(function (p) {
+        if (!p) return false;
+        if (/^\[Sample/i.test(p)) return false;
+        if (/^\[/.test(p) && /placeholder/i.test(p)) return false;
+        return true;
+      });
+    if (!paragraphs.length && story.summary) paragraphs = [cleanDisplayText(story.summary)];
 
     var bodyHtml = paragraphs.map(function (p) {
-      if (/^\[Sample/i.test(p) || /placeholder/i.test(p) && /^\[/.test(p)) {
-        return '<p class="sample-note">' + escapeHtml(p) + "</p>";
-      }
       return "<p>" + escapeHtml(p) + "</p>";
     }).join("");
 
@@ -531,7 +756,7 @@
         return res.json();
       })
       .then(function (data) {
-        state.data = data;
+        state.data = normalizeData(data);
         var section = getParam("section");
         if (section) state.filter = section;
         renderChrome();
