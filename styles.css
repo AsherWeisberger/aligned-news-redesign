@@ -60,9 +60,9 @@ html[data-theme="dark"] {
 }
 
 html[data-density="compact"] {
-  --body-size: 14px;
+  --body-size: 13.5px;
   --title-size: 0.98rem;
-  --row-gap: 0.72rem;
+  --row-gap: 0;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -1730,48 +1730,93 @@ body[data-page="signals"] .feed-row {
   line-height: 1.25;
 }
 html[data-density="compact"] .feed-day-head {
-  margin: 0.45rem 0 0;
+  margin: 0.7rem 0 0.15rem;
+  padding: 0.35rem 0 0.2rem;
 }
 html[data-density="compact"] .feed-day-label {
-  font-size: 0.98rem;
+  font-size: 0.88rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
 }
 
-/* Compact = HN-adjacent density */
-html[data-density="compact"] .feed-row {
-  padding: 0.62rem 0.85rem 0.62rem 0.7rem;
-  gap: 0.5rem 0.65rem;
+/* Digg compact = dense headline + meta list (no photo / why / dek chrome) */
+html[data-density="compact"] .feed {
+  gap: 0;
 }
-html[data-density="compact"] .excerpt {
-  -webkit-line-clamp: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin-bottom: 0.35rem;
-  font-size: 0.86rem;
-}
+html[data-density="compact"] .lead-hero,
+html[data-density="compact"] .lead-why,
+html[data-density="compact"] .lead-dek,
+html[data-density="compact"] .excerpt,
 html[data-density="compact"] .row-thumb {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
+  display: none !important;
 }
-html[data-density="compact"] .row-thumb-label { display: none; }
-html[data-density="compact"] .row-thumb-glyph { transform: scale(0.92); }
-html[data-density="compact"] .lead-card { padding: 1.05rem 1.1rem 1rem; }
-html[data-density="compact"] .lead-dek {
-  -webkit-line-clamp: 2;
-  font-size: 0.95rem;
+html[data-density="compact"] .feed-row {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  padding: 0.48rem 0.35rem 0.48rem 0.15rem;
+  gap: 0.35rem 0.55rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-density="compact"] .feed-row:hover {
+  background: color-mix(in srgb, var(--chip-active) 55%, transparent);
+  border-color: var(--border);
+  box-shadow: none;
+  transform: none;
+}
+html[data-density="compact"] .lead-card {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  padding: 0.48rem 0.35rem 0.48rem 0.15rem;
+  gap: 0.35rem 0.55rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-density="compact"] .lead-card::before { display: none; }
+html[data-density="compact"] .lead-card:hover {
+  background: color-mix(in srgb, var(--chip-active) 55%, transparent);
+  border-color: var(--border);
+  box-shadow: none;
+  transform: none;
+}
+html[data-density="compact"] .lead-rank-row,
+html[data-density="compact"] .lead-meta {
+  display: none;
 }
 html[data-density="compact"] .lead-title {
-  font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+  font-size: 0.98rem;
+  line-height: 1.28;
+  letter-spacing: -0.022em;
+  font-weight: 700;
+  margin: 0 0 0.12rem;
 }
 html[data-density="compact"] .story-title {
   font-size: 0.98rem;
-  margin-bottom: 0.15rem;
+  line-height: 1.28;
+  margin-bottom: 0.12rem;
 }
-html[data-density="compact"] .meta { font-size: 0.74rem; gap: 0.3rem 0.5rem; }
-html[data-density="compact"] .rank { font-size: 0.86rem; padding-top: 0.12rem; }
-html[data-density="compact"] .chips { margin-bottom: 0.7rem; }
-html[data-density="compact"] .intel-strip { margin-bottom: 0.75rem; padding: 0.7rem 0.85rem 0.75rem; }
+html[data-density="compact"] .meta { font-size: 0.72rem; gap: 0.25rem 0.45rem; }
+html[data-density="compact"] .rank { font-size: 0.82rem; padding-top: 0.1rem; }
+html[data-density="compact"] .chips { margin-bottom: 0.55rem; }
+html[data-density="compact"] .intel-strip { margin-bottom: 0.55rem; padding: 0.55rem 0.7rem 0.6rem; }
+html[data-density="compact"] .feed-row-callout {
+  border-left: none;
+  background: transparent;
+}
+html[data-density="compact"][data-theme="dark"] .feed-row,
+html[data-density="compact"][data-theme="dark"] .lead-card {
+  border-bottom-color: color-mix(in srgb, var(--border) 85%, transparent);
+}
+html[data-density="compact"][data-theme="dark"] .feed-row:hover,
+html[data-density="compact"][data-theme="dark"] .lead-card:hover {
+  background: color-mix(in srgb, var(--chip-active) 35%, transparent);
+}
 
 /* Soft press on controls */
 .chip:active, .btn:active, .tool-toggle:active, .icon-btn:active {
@@ -2039,6 +2084,32 @@ body[data-page="signals"] .chips {
 body[data-page="signals"] .rail-card {
   padding: 0.9rem 0.95rem 0.95rem;
 }
+
+/* Digg compact wins over Signals comfortable row chrome */
+html[data-density="compact"] body[data-page="signals"] .feed {
+  gap: 0;
+}
+html[data-density="compact"] body[data-page="signals"] .feed-row {
+  grid-template-columns: 2rem minmax(0, 1fr);
+  padding: 0.48rem 0.35rem 0.48rem 0.15rem;
+  gap: 0.35rem 0.55rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-density="compact"] body[data-page="signals"] .excerpt {
+  display: none !important;
+}
+html[data-density="compact"] body[data-page="signals"] .story-title {
+  font-size: 0.98rem;
+  margin-bottom: 0.12rem;
+}
+html[data-density="compact"] body[data-page="signals"] .meta {
+  font-size: 0.72rem;
+}
+
 .rail-icon {
   width: 26px; height: 26px;
   font-size: 0.64rem;

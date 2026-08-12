@@ -825,6 +825,10 @@
     }
   }
 
+  function isCompactDensity() {
+    return document.documentElement.getAttribute("data-density") === "compact";
+  }
+
   function setDensityMode(next) {
     var root = document.documentElement;
     if (next === "compact") root.setAttribute("data-density", "compact");
@@ -834,6 +838,12 @@
     }
     try { localStorage.setItem("an-density", next); } catch (e) {}
     syncDensitySeg();
+    // Digg-style: compact vs expanded changes layout (no lead/hero/excerpts/thumbs), so re-render.
+    if (!state.data) return;
+    var page = pageName();
+    if (page === "today") renderTodayFeed();
+    else if (page === "signals") renderSignals();
+    else if (page === "reports") renderReports();
   }
 
   function ensureAuthCta() {
@@ -1846,6 +1856,7 @@
     }
 
     function renderStoryItem(s, i, allowLead) {
+      var compact = isCompactDensity();
       var badge = s.signal_badge
         ? '<span class="' + badgeClass(s.signal_badge) + '">' + escapeHtml(String(s.signal_badge).toUpperCase()) + "</span>"
         : "";
@@ -1856,7 +1867,8 @@
       var key = s.topic_key || s.section_key || mapSectionKey(s.section || s.tag || "");
       var headline = editorialTitle(s, 92);
 
-      if (allowLead && showLead && i === 0) {
+      // Digg compact = dense headline+meta list — no lead hero / why box / excerpts / thumbs.
+      if (!compact && allowLead && showLead && i === 0) {
         var leadHeadline = editorialTitle(s, 72);
         var dek = uniqueDek(s, leadHeadline, 170);
         var why = whyItMatters(s);
@@ -1885,8 +1897,8 @@
 
       rankCounter += 1;
       var rank = rankCounter;
-      var excerpt = uniqueDek(s, headline, 140);
-      var callout = (rank === 3 || rank === 8) && s.signal_badge;
+      var excerpt = compact ? "" : uniqueDek(s, headline, 140);
+      var callout = !compact && (rank === 3 || rank === 8) && s.signal_badge;
       return (
         '<li class="feed-row' + (isRead ? " is-read" : "") + (callout ? " feed-row-callout" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           '<div class="rank">' + rank + "</div>" +
@@ -1901,7 +1913,7 @@
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
-          rowThumbHtml(s, key, sectionPretty) +
+          (compact ? "" : rowThumbHtml(s, key, sectionPretty)) +
         "</li>"
       );
     }
@@ -1962,13 +1974,17 @@
       list.innerHTML = '<li class="empty">No signals match.</li>';
       return;
     }
+    var compact = isCompactDensity();
     list.innerHTML = items.map(function (s, i) {
       var title = editorialTitle(s, 100);
-      var excerpt = signalExcerpt(s);
-      if (excerpt) excerpt = firstSentence(excerpt, 180);
-      if (!excerpt) {
-        var a = displayText(s.analysis || "").trim();
-        if (a && a.toLowerCase() !== title.toLowerCase()) excerpt = firstSentence(a, 180);
+      var excerpt = "";
+      if (!compact) {
+        excerpt = signalExcerpt(s);
+        if (excerpt) excerpt = firstSentence(excerpt, 180);
+        if (!excerpt) {
+          var a = displayText(s.analysis || "").trim();
+          if (a && a.toLowerCase() !== title.toLowerCase()) excerpt = firstSentence(a, 180);
+        }
       }
       var metaLine = joinMeta([
         s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.category || ""),
