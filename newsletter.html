@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Signals · Aligned News</title>
-<meta name="description" content="Filterable AI signals — Aligned News Pro reader." />
+<title>Newsletter · Aligned News</title>
+<meta name="description" content="Unaligned Newsletter merging into Aligned News — industry analysis archive." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a73e8'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=focus11" />
 </head>
-<body data-page="signals">
+<body data-page="newsletter">
   <div class="load-bar" id="loadBar" hidden aria-hidden="true"><div class="load-bar-inner"></div></div>
   <div class="edge-glow" id="edgeGlow" hidden aria-hidden="true"><div class="edge-glow-aura" aria-hidden="true"></div></div>
 <div class="app">
@@ -30,7 +30,7 @@
       <div class="top-search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <label class="sr-only" for="searchInput">Search</label>
-        <input id="searchInput" type="search" placeholder="Search signals" autocomplete="off" />
+        <input id="searchInput" type="search" placeholder="Search newsletter" autocomplete="off" />
       </div>
       <div class="top-actions">
         <span class="build-stamp" id="buildStamp" title="Deploy stamp">focus11</span>
@@ -60,11 +60,11 @@
 
     <main class="main">
       <div class="page page-enter">
-        <section class="desk-hero desk-hero-compact" aria-label="Signals overview">
+        <section class="desk-hero desk-hero-compact" aria-label="Newsletter overview">
           <div class="desk-copy">
-            <p class="desk-kicker">Confidence-ranked movers</p>
-            <h1>Signals</h1>
-            <p class="desk-value">Cross-list spikes, keyword hits, and high-engagement posts from Scoble’s lists.</p>
+            <p class="desk-kicker">Unaligned × Aligned</p>
+            <h1>Newsletter</h1>
+            <p class="desk-value">Industry analysis from Unaligned — merging into the Aligned News desk.</p>
             <p class="page-meta" id="pageMeta"></p>
           </div>
           <div class="page-tools">
@@ -72,36 +72,45 @@
           </div>
         </section>
 
-        <div class="chips" id="chips" role="toolbar" aria-label="Filter by list"></div>
-        <p class="status" id="loadStatus">Loading signals…</p>
+        <section class="merge-strip" aria-label="Unaligned merge">
+          <div class="merge-mark-wrap">
+            <img class="merge-mark" src="unaligned-mark.png" width="72" height="72" alt="Unaligned" />
+          </div>
+          <div class="merge-copy">
+            <p class="merge-kicker">Merge path</p>
+            <h2 class="merge-title">Unaligned Newsletter → Aligned News</h2>
+            <p class="merge-body">The Unaligned Newsletter is coming onto the Aligned desk — same sharp industry analysis, now alongside Today, Signals, and Reports.</p>
+            <div class="merge-actions">
+              <a class="btn btn-primary" href="https://unaligned.io" target="_blank" rel="noopener noreferrer">Open unaligned.io</a>
+              <a class="btn" href="https://xaligned.beehiiv.com" target="_blank" rel="noopener noreferrer">Subscribe</a>
+            </div>
+          </div>
+        </section>
+
+        <p class="status" id="loadStatus">Loading newsletter…</p>
         <div class="page-layout">
           <div class="page-primary">
-            <ol class="feed" id="feed"></ol>
+            <div class="nl-section-head">
+              <h2 class="nl-section-title">Latest / Archive</h2>
+              <p class="nl-section-sub">Recent Unaligned issues — open on unaligned.io</p>
+            </div>
+            <ol class="nl-archive feed" id="newsletterArchive"></ol>
           </div>
           <aside class="page-rail" id="pageRail" aria-label="Sidebar modules">
             <section class="rail-card rail-card-why" id="whyMatters">
-              <h2 class="rail-title">Why this matters</h2>
-              <p class="vibe-body" id="whyCopy">Signals are the desk’s early-warning layer — engagement-weighted posts that crossed curated lists before they went mainstream.</p>
+              <h2 class="rail-title">Why this merge</h2>
+              <p class="vibe-body" id="whyCopy">Unaligned brings long-form industry analysis into Aligned News — a single desk for signals, stories, and the newsletter archive readers already trust.</p>
             </section>
-            <section class="rail-card" id="topSignals">
-              <h2 class="rail-title">Top Signals</h2>
-              <ul class="rail-list" id="topSignalsList"></ul>
-            </section>
-            <section class="rail-card" id="provenanceRail">
-              <h2 class="rail-title">List provenance</h2>
-              <p class="vibe-body" id="provenanceCopy">Filter by the Scoble list that surfaced each signal.</p>
-              <div class="section-cloud" id="sectionCloud"></div>
-            </section>
-            <section class="rail-card" id="vibeRail">
-              <h2 class="rail-title">Last 7 days</h2>
-              <p class="vibe-body" id="vibeCopy">Signal velocity across the desk — confidence-ranked movers first.</p>
-              <div id="vibeStats"></div>
+            <section class="rail-card rail-card-unaligned" id="fromUnaligned">
+              <h2 class="rail-title">From Unaligned</h2>
+              <p class="vibe-body">Sharp takes on AI timing, compute, trust, and the real economy. Archive cards here link out to unaligned.io until native issue pages ship.</p>
+              <a class="rail-ext-link" href="https://unaligned.io" target="_blank" rel="noopener noreferrer">Visit unaligned.io →</a>
             </section>
           </aside>
         </div>
         <footer class="site-footer">
           <span>Aligned News · Pro desk</span>
-          <span>Signal from Scoble’s X lists</span>
+          <span>Unaligned × Aligned</span>
         </footer>
       </div>
     </main>

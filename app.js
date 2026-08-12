@@ -1358,7 +1358,7 @@
     return document.body.getAttribute("data-page") || "today";
   }
 
-  var BUILD = "focus10";
+  var BUILD = "focus11";
 
   function renderChrome() {
     var stampEl = document.getElementById("buildStamp");
@@ -1375,6 +1375,7 @@
       { id: "today", href: "index.html", label: "Today", count: counts.stories },
       { id: "signals", href: "signals.html", label: "Signals", count: counts.signals },
       { id: "reports", href: "reports.html", label: "Reports", count: counts.reports },
+      { id: "newsletter", href: "newsletter.html", label: "Newsletter", count: NEWSLETTER_ISSUES.length },
       { id: "saved", href: "index.html?view=saved", label: "Saved", count: counts.saved },
     ];
 
@@ -1493,6 +1494,8 @@
         metaEl.textContent = counts.signals + " signals" + (lastUpdated ? " · Updated " + lastUpdated : "");
       } else if (page === "reports") {
         metaEl.textContent = counts.reports + " reports";
+      } else if (page === "newsletter") {
+        metaEl.textContent = NEWSLETTER_ISSUES.length + " archive issues · Unaligned × Aligned";
       }
     }
 
@@ -1817,6 +1820,74 @@
 
   }
 
+  var NEWSLETTER_ISSUES = [
+    { title: "AI Is Making Timing More Valuable Than Intelligence", date: "", blurb: "Why being early — and decisive — now compounds faster than raw IQ in the AI economy." },
+    { title: "The AI Experience Gap", date: "Aug 04, 2026", blurb: "Why human experience may become our greatest competitive advantage." },
+    { title: "AI Is Quietly Creating a New Digital Economy", date: "", blurb: "Agents, marketplaces, and new rails forming under the hype cycle." },
+    { title: "The AI Economy Is Running Out of Cheap Compute", date: "", blurb: "Power, chips, and capital constraints reshaping who can train and ship." },
+    { title: "The Rise of AI Reputation Management", date: "", blurb: "Brands and founders learn to manage what models say about them." },
+    { title: "AI Workers Enter the Real Economy", date: "", blurb: "From copilots to payroll — synthetic labor meets real workflows." },
+    { title: "The New Uncanny Valley", date: "Jul 07, 2026", blurb: "When AI outputs feel almost human — and why that almost matters." },
+    { title: "The AI Productivity Boom Is Becoming an AI Training Problem", date: "", blurb: "Gains at the desk collide with the data and eval debt behind them." },
+    { title: "The Humanoid Robot Safety Race", date: "", blurb: "Hardware startups race on trust as much as torque." },
+    { title: "The Public Trust Problem in AI", date: "", blurb: "Adoption stalls where institutions and users stop believing the pitch." },
+    { title: "The New AI Investment Race", date: "", blurb: "Capital piles into infrastructure, applications, and the picks-and-shovels in between." },
+    { title: "Why Governments Want a Stake in AI Companies", date: "Jun 09, 2026", blurb: "Industrial policy meets frontier models — equity, access, and control." },
+    { title: "The AI IPO Race", date: "", blurb: "Public markets prepare for the next wave of AI listings." },
+    { title: "AI Regulation Becomes a Moral Issue", date: "", blurb: "Rules shift from compliance checklists to questions of harm and agency." }
+  ];
+
+  function renderNewsletter() {
+    var list = $("#newsletterArchive");
+    if (!list) return;
+    flashLoadBar(520);
+    var items = NEWSLETTER_ISSUES.slice();
+    if (state.query) {
+      var q = state.query.toLowerCase();
+      items = items.filter(function (issue) {
+        return [issue.title, issue.blurb, issue.date, "unaligned"].join(" ").toLowerCase().indexOf(q) !== -1;
+      });
+    }
+    var metaEl = $("#pageMeta");
+    if (metaEl) {
+      metaEl.textContent = items.length + " archive issue" + (items.length === 1 ? "" : "s") + " · Unaligned × Aligned";
+    }
+    if (!items.length) {
+      list.innerHTML = '<li class="empty">No matching issues.</li>';
+      return;
+    }
+    list.innerHTML = items.map(function (issue, i) {
+      var featured = i === 0 && !state.query;
+      var href = "https://unaligned.io";
+      var metaBits = ["Unaligned"];
+      if (issue.date) metaBits.push(issue.date);
+      metaBits.push("Archive");
+      var metaLine = metaBits.join(" · ");
+      if (featured) {
+        return (
+          '<li class="nl-issue nl-issue-featured lead-card" ' + staggerStyle(i) + '>' +
+            '<div class="nl-issue-badge">Featured</div>' +
+            '<a class="nl-issue-link" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
+              '<h2 class="nl-issue-title lead-title">' + escapeHtml(issue.title) + "</h2>" +
+              (issue.blurb ? '<p class="nl-issue-blurb">' + escapeHtml(issue.blurb) + "</p>" : "") +
+              '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
+            "</a>" +
+          "</li>"
+        );
+      }
+      return (
+        '<li class="nl-issue feed-row" ' + staggerStyle(i) + '>' +
+          '<a class="nl-issue-link" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
+            '<h2 class="nl-issue-title story-title">' + escapeHtml(issue.title) + "</h2>" +
+            (issue.blurb ? '<p class="nl-issue-blurb">' + escapeHtml(issue.blurb) + "</p>" : "") +
+            '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
+          "</a>" +
+        "</li>"
+      );
+    }).join("");
+    list.classList.add("is-ready");
+  }
+
   function renderReports() {
     var list = $("#reportList");
     if (!list || !state.data) return;
@@ -2070,6 +2141,7 @@
           if (pageName() === "today") renderTodayFeed();
           if (pageName() === "signals") renderSignals();
           if (pageName() === "reports") renderReports();
+          if (pageName() === "newsletter") renderNewsletter();
         }, 120);
       });
     }
@@ -2080,6 +2152,7 @@
     if (page === "today") document.title = (getParam("view") === "saved" ? "Saved" : "Today") + " · " + base;
     else if (page === "signals") document.title = "Signals · " + base;
     else if (page === "reports") document.title = "Reports · " + base;
+    else if (page === "newsletter") document.title = "Newsletter · " + base;
     else if (page === "story") document.title = "Story · " + base;
   }
 
@@ -2119,6 +2192,8 @@
           renderSignals();
         } else if (page === "reports") {
           renderReports();
+        } else if (page === "newsletter") {
+          renderNewsletter();
         } else if (page === "story") {
           renderStory();
           if (state.data && findStory(getParam("id"))) {
