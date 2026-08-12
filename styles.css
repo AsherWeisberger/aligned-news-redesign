@@ -1090,6 +1090,23 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
     linear-gradient(135deg, #0b1220 0%, #1a73e8 42%, #6366f1 100%);
 }
 
+/* Digg-style photo-first top story */
+.lead-card-photo .lead-hero {
+  margin: 0.55rem 0 0.85rem;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  border-radius: 16px;
+}
+.lead-card-photo .lead-title {
+  margin-top: 0.15rem;
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  max-width: 22ch;
+}
+@media (max-width: 720px) {
+  .lead-card-photo .lead-hero { min-height: 180px; border-radius: 14px; }
+}
+
+
 /* Rows */
 .feed-row {
   display: grid;

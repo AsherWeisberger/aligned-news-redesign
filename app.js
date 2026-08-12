@@ -1825,7 +1825,7 @@
     var todayKey = localDayKey(new Date().toISOString());
 
     function pickLeadInGroup(items) {
-      if (!showLead || !items || items.length < 2) return items;
+      if (!showLead || !items || !items.length) return items;
       var bestIdx = -1;
       var best = -1e9;
       for (var bi = 0; bi < Math.min(items.length, 40); bi++) {
@@ -1861,19 +1861,19 @@
         var why = whyItMatters(s);
         rankCounter = 1;
         return (
-          '<li class="lead-card' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
+          '<li class="lead-card lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
             '<div class="lead-rank-row">' +
               '<div class="lead-eyebrow">Top Story</div>' +
               badge +
               (s.topic_label ? '<span class="badge badge-signal">' + escapeHtml(s.topic_label) + "</span>" : "") +
               whyRankedHtml(s) +
             "</div>" +
-            '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
-            (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
-            '<div class="lead-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
             '<div class="lead-hero">' +
               '<img src="lead-hero.png" alt="" loading="eager" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'lead-hero-fallback\')" />' +
             "</div>" +
+            '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
+            (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
+            '<div class="lead-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
             '<div class="lead-meta">' +
               avatarStackHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
@@ -1920,14 +1920,19 @@
       var groups = groupStoriesByDay(stories);
       groups.forEach(function (group, gi) {
         var items = group.items;
-        var isTodayGroup = group.key === todayKey;
-        if (isTodayGroup) items = pickLeadInGroup(items);
+        // Newest day with content gets Digg top-story hero (timezone-safe).
+        var isLeadDay = gi === 0;
+        if (isLeadDay) {
+          items = pickLeadInGroup(items);
+          // Always call the freshest bucket "Today's top stories" for desk UX
+          if (group.key !== todayKey) group.label = "Today's top stories";
+        }
         html +=
           '<li class="feed-day-head" role="presentation">' +
             '<h2 class="feed-day-label">' + escapeHtml(group.label) + "</h2>" +
           "</li>";
         items.forEach(function (s, i) {
-          html += renderStoryItem(s, i, isTodayGroup && gi === 0);
+          html += renderStoryItem(s, i, isLeadDay);
         });
       });
     }
