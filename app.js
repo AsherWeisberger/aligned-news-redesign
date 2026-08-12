@@ -950,6 +950,21 @@
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
+  /** Linkify http(s) URLs in already-escaped plain text (does not double-escape anchors). */
+  function linkifyHtml(escapedText) {
+    return String(escapedText == null ? "" : escapedText).replace(
+      /https?:\/\/[^\s<]+/gi,
+      function (raw) {
+        var trail = "";
+        var url = raw.replace(/([.,;:!?)]+)$/, function (_, t) {
+          trail = t;
+          return "";
+        });
+        if (!/^https?:\/\//i.test(url)) return raw;
+        return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + "</a>" + trail;
+      }
+    );
+  }
 
   function decodeEntities(s) {
     if (s == null) return "";
@@ -2258,7 +2273,7 @@
       '<div class="article-body">' +
         '<h2 class="article-section-label">Original post</h2>' +
         originalPost.split(/\n\n+/).map(function (p) {
-          return "<p>" + escapeHtml(p.trim()) + "</p>";
+          return "<p>" + linkifyHtml(escapeHtml(p.trim())) + "</p>";
         }).join("") +
       "</div>" +
       relatedHtml +
