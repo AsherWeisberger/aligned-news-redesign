@@ -591,7 +591,7 @@
 
   var loadBarHideTimer = null;
   var skelHideTimer = null;
-  var SKEL_CROSSFADE_MS = 380;
+  var SKEL_CROSSFADE_MS = 950;
 
   function prefersReducedMotion() {
     try {
@@ -792,8 +792,8 @@
       loadBarHideTimer = null;
     }
     showFeedSkeleton();
-    var requested = ms == null ? 420 : ms;
-    var dur = prefersReducedMotion() ? 0 : Math.min(520, Math.max(280, requested));
+    var requested = ms == null ? 900 : ms;
+    var dur = prefersReducedMotion() ? 0 : Math.min(1400, Math.max(900, requested));
     if (dur <= 0) {
       hideFeedSkeletonThen(null);
       return;
