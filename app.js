@@ -590,17 +590,8 @@
   }
 
   var loadBarHideTimer = null;
-  var glowHideTimer = null;
-  var glowShownAt = 0;
-  var GLOW_MIN_MS = 1600;
-  var thinkPhraseTimer = null;
-  var thinkPhraseIndex = 0;
-  var THINK_PHRASES = [
-    "Building your desk…",
-    "Listening to Scoble’s lists…",
-    "Ranking what matters…",
-    "Almost ready…"
-  ];
+  var skelHideTimer = null;
+  var SKEL_CROSSFADE_MS = 380;
 
   function prefersReducedMotion() {
     try {
@@ -610,97 +601,143 @@
     }
   }
 
-  function edgeGlowMarkup() {
-    return '<div class="edge-glow-ocean" aria-hidden="true"><div class="siri-edge siri-edge-top"><span class="siri-tide tide-magenta t1"></span><span class="siri-tide tide-cyan t2"></span><span class="siri-tide tide-violet t3"></span></div><div class="siri-edge siri-edge-right"><span class="siri-tide tide-coral t1"></span><span class="siri-tide tide-violet t2"></span><span class="siri-tide tide-cyan t3"></span></div><div class="siri-edge siri-edge-bot"><span class="siri-tide tide-teal t1"></span><span class="siri-tide tide-magenta t2"></span><span class="siri-tide tide-coral t3"></span></div><div class="siri-edge siri-edge-left"><span class="siri-tide tide-cyan t1"></span><span class="siri-tide tide-violet t2"></span><span class="siri-tide tide-magenta t3"></span></div></div><svg class="edge-glow-svg" aria-hidden="true" focusable="false"><filter id="siriOcean" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="7" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter></svg>';
-  }
-
-  function ensureEdgeGlow() {
+  function killEdgeGlowDom() {
     var glow = document.getElementById("edgeGlow");
-    if (glow) {
-      if (!glow.querySelector(".edge-glow-ocean")) {
-        glow.innerHTML = edgeGlowMarkup();
-      }
-      return glow;
+    if (glow && glow.parentNode) glow.parentNode.removeChild(glow);
+    document.body.classList.remove("siri-glow");
+  }
+
+  function feedHostEl() {
+    var page = pageName();
+    if (page === "reports") return document.getElementById("reportList");
+    if (page === "newsletter") return document.getElementById("newsletterArchive");
+    if (page === "story") return document.getElementById("article");
+    return document.getElementById("feed");
+  }
+
+  function skeletonMarkup(page) {
+    page = page || pageName();
+    var rows = "";
+    var n = (page === "today") ? 6 : 5;
+    for (var i = 0; i < n; i++) {
+      rows +=
+        '<div class="feed-skel-row" aria-hidden="true">' +
+          '<div class="feed-skel-rank skel-shimmer"></div>' +
+          '<div class="feed-skel-body">' +
+            '<div class="feed-skel-line skel-shimmer w90"></div>' +
+            '<div class="feed-skel-line skel-shimmer w72"></div>' +
+            '<div class="feed-skel-line skel-shimmer w48 thin"></div>' +
+          "</div>" +
+          '<div class="feed-skel-thumb skel-shimmer"></div>' +
+        "</div>";
     }
-    glow = document.createElement("div");
-    glow.id = "edgeGlow";
-    glow.className = "edge-glow";
-    glow.hidden = true;
-    glow.setAttribute("aria-hidden", "true");
-    glow.innerHTML = edgeGlowMarkup();
-    document.body.insertBefore(glow, document.body.firstChild);
-    return glow;
-  }
-
-  function ensureThinkStatus() {
-    var el = document.getElementById("thinkStatus");
-    if (el) return el;
-    var actions = document.querySelector(".top-actions");
-    if (!actions) return null;
-    el = document.createElement("div");
-    el.id = "thinkStatus";
-    el.className = "think-status";
-    el.hidden = true;
-    el.setAttribute("aria-live", "polite");
-    el.setAttribute("aria-hidden", "true");
-    el.innerHTML =
-      '<span class="think-status-dot" aria-hidden="true"></span>' +
-      '<span class="think-status-text" id="thinkStatusText">Loading…</span>';
-    var live = document.getElementById("livePill");
-    if (live && live.parentNode === actions) actions.insertBefore(el, live);
-    else actions.insertBefore(el, actions.firstChild);
-    return el;
-  }
-
-  function setThinkPhrase(phrase) {
-    var text = phrase || THINK_PHRASES[0] || "Loading…";
-    var textEl = document.getElementById("thinkStatusText");
-    if (!textEl) {
-      var wrap = ensureThinkStatus();
-      if (wrap) textEl = wrap.querySelector(".think-status-text") || document.getElementById("thinkStatusText");
+    if (page === "reports" || page === "newsletter" || page === "signals") {
+      return '<div class="feed-skel-stack feed-skel-' + page + '">' + rows + "</div>";
     }
-    if (textEl) textEl.textContent = text;
-  }
-
-  function stopThinkPhrases() {
-    if (thinkPhraseTimer) {
-      clearInterval(thinkPhraseTimer);
-      thinkPhraseTimer = null;
+    if (page === "story") {
+      return (
+        '<div class="feed-skel-stack feed-skel-story">' +
+          '<div class="feed-skel-story-kicker skel-shimmer"></div>' +
+          '<div class="feed-skel-story-title skel-shimmer"></div>' +
+          '<div class="feed-skel-story-title skel-shimmer w72"></div>' +
+          '<div class="feed-skel-story-hero skel-shimmer"></div>' +
+          '<div class="feed-skel-line skel-shimmer w90"></div>' +
+          '<div class="feed-skel-line skel-shimmer w84"></div>' +
+          '<div class="feed-skel-line skel-shimmer w76"></div>' +
+          '<div class="feed-skel-line skel-shimmer w64"></div>' +
+        "</div>"
+      );
     }
-    thinkPhraseIndex = 0;
+    // today — lead + rows
+    return (
+      '<div class="feed-skel-stack feed-skel-' + page + '">' +
+        '<div class="feed-skel-lead" aria-hidden="true">' +
+          '<div class="feed-skel-lead-photo skel-shimmer"></div>' +
+          '<div class="feed-skel-lead-lines">' +
+            '<div class="feed-skel-line skel-shimmer w40 thin"></div>' +
+            '<div class="feed-skel-line skel-shimmer w92 tall"></div>' +
+            '<div class="feed-skel-line skel-shimmer w78"></div>' +
+            '<div class="feed-skel-line skel-shimmer w66"></div>' +
+          "</div>" +
+        "</div>" +
+        rows +
+      "</div>"
+    );
   }
 
-  function startThinkPhrases() {
-    stopThinkPhrases();
-    setThinkPhrase(THINK_PHRASES[0]);
-    if (prefersReducedMotion()) return;
-    thinkPhraseTimer = setInterval(function () {
-      thinkPhraseIndex = (thinkPhraseIndex + 1) % THINK_PHRASES.length;
-      setThinkPhrase(THINK_PHRASES[thinkPhraseIndex]);
-    }, 2400);
+  function showFeedSkeleton(page) {
+    if (skelHideTimer) {
+      clearTimeout(skelHideTimer);
+      skelHideTimer = null;
+    }
+    page = page || pageName();
+    var host = feedHostEl();
+    if (!host) return null;
+    var parent = host.parentNode;
+    if (!parent) return null;
+
+    var sk = document.getElementById("feedSkeleton");
+    if (!sk) {
+      sk = document.createElement("div");
+      sk.id = "feedSkeleton";
+      sk.className = "feed-skel";
+      sk.setAttribute("aria-hidden", "true");
+      parent.insertBefore(sk, host);
+    }
+    sk.innerHTML = skeletonMarkup(page);
+    sk.hidden = false;
+    sk.classList.remove("is-out");
+    sk.classList.add("is-on");
+    host.classList.add("feed-waiting");
+    host.setAttribute("aria-busy", "true");
+    // Quiet load — never surface think/Siri chrome
+    var think = document.getElementById("thinkStatus");
+    if (think) {
+      think.hidden = true;
+      think.classList.remove("is-on");
+      think.setAttribute("aria-hidden", "true");
+    }
+    killEdgeGlowDom();
+    return sk;
   }
 
-  function showThinkStatus() {
-    var el = ensureThinkStatus();
-    if (!el) return;
-    el.hidden = false;
-    el.setAttribute("aria-hidden", "false");
-    el.classList.add("is-on");
-    startThinkPhrases();
-  }
+  function hideFeedSkeletonThen(renderFn) {
+    if (skelHideTimer) {
+      clearTimeout(skelHideTimer);
+      skelHideTimer = null;
+    }
+    var sk = document.getElementById("feedSkeleton");
+    var host = feedHostEl();
+    if (typeof renderFn === "function") {
+      try { renderFn(); } catch (e) { console.error(e); }
+    }
+    if (host) {
+      host.classList.remove("feed-waiting");
+      host.removeAttribute("aria-busy");
+    }
+    if (!sk) {
+      if (host) host.classList.add("is-ready");
+      return;
+    }
 
-  function hideThinkStatus() {
-    stopThinkPhrases();
-    var el = document.getElementById("thinkStatus");
-    if (!el) return;
-    el.classList.remove("is-on");
-    el.setAttribute("aria-hidden", "true");
-    var leaveMs = prefersReducedMotion() ? 0 : 180;
-    setTimeout(function () {
-      if (el.classList.contains("is-on")) return;
-      el.hidden = true;
-      setThinkPhrase(THINK_PHRASES[0]);
-    }, leaveMs);
+    var instant = prefersReducedMotion();
+    if (instant) {
+      if (sk.parentNode) sk.parentNode.removeChild(sk);
+      if (host) host.classList.add("is-ready");
+      return;
+    }
+
+    if (host) {
+      host.classList.add("feed-reveal");
+      host.classList.add("is-ready");
+    }
+    sk.classList.add("is-out");
+    sk.classList.remove("is-on");
+    skelHideTimer = setTimeout(function () {
+      skelHideTimer = null;
+      if (sk.parentNode) sk.parentNode.removeChild(sk);
+      if (host) host.classList.remove("feed-reveal");
+    }, SKEL_CROSSFADE_MS);
   }
 
   function showThinLoadBar() {
@@ -721,87 +758,49 @@
     bar.setAttribute("aria-hidden", "true");
   }
 
-  function showSiriGlow() {
-    if (glowHideTimer) {
-      clearTimeout(glowHideTimer);
-      glowHideTimer = null;
-    }
-    if (loadBarHideTimer) {
-      clearTimeout(loadBarHideTimer);
-      loadBarHideTimer = null;
-    }
-    document.documentElement.removeAttribute("data-revealed");
-    var glow = ensureEdgeGlow();
-    document.documentElement.setAttribute("data-loading", "1");
-    document.body.classList.add("siri-glow");
-    glow.hidden = false;
-    glow.setAttribute("aria-hidden", "false");
-    glow.classList.add("is-on");
-    glowShownAt = Date.now();
-    // Perimeter Siri rim + topbar think status only (no center overlay).
-    hideThinLoadBar();
-    showThinkStatus();
-  }
-
-  function hideSiriGlow(forceImmediate) {
-    if (glowHideTimer) {
-      clearTimeout(glowHideTimer);
-      glowHideTimer = null;
-    }
-    if (loadBarHideTimer) {
-      clearTimeout(loadBarHideTimer);
-      loadBarHideTimer = null;
-    }
-
-    function finishHide() {
-      var instant = !!forceImmediate || prefersReducedMotion();
-      hideThinLoadBar();
-      hideThinkStatus();
-      document.documentElement.removeAttribute("data-loading");
-      document.body.classList.remove("siri-glow");
-      var glow = document.getElementById("edgeGlow");
-      if (glow) {
-        glow.classList.remove("is-on");
-        var leaveMs = instant ? 0 : 280;
-        setTimeout(function () {
-          glow.hidden = true;
-          glow.setAttribute("aria-hidden", "true");
-        }, leaveMs);
-      }
-      document.documentElement.setAttribute("data-revealed", "1");
-    }
-
-    var elapsed = glowShownAt ? (Date.now() - glowShownAt) : GLOW_MIN_MS;
-    var wait = forceImmediate ? 0 : Math.max(0, GLOW_MIN_MS - elapsed);
-    if (wait > 0) {
-      glowHideTimer = setTimeout(function () {
-        glowHideTimer = null;
-        finishHide();
-      }, wait);
-    } else {
-      finishHide();
-    }
-  }
+  // Legacy no-ops — Siri/ocean edge glow retired in favor of feed skeleton
+  function showSiriGlow() { /* retired */ }
+  function hideSiriGlow() { /* retired */ }
 
   function showLoadBar() {
-    showSiriGlow();
+    if (loadBarHideTimer) {
+      clearTimeout(loadBarHideTimer);
+      loadBarHideTimer = null;
+    }
+    killEdgeGlowDom();
+    document.documentElement.removeAttribute("data-revealed");
+    document.documentElement.setAttribute("data-loading", "1");
+    hideThinLoadBar();
+    showFeedSkeleton();
   }
 
   function hideLoadBar() {
-    hideSiriGlow(false);
+    if (loadBarHideTimer) {
+      clearTimeout(loadBarHideTimer);
+      loadBarHideTimer = null;
+    }
+    document.documentElement.removeAttribute("data-loading");
+    document.documentElement.setAttribute("data-revealed", "1");
+    hideThinLoadBar();
+    // If a render already wrote the feed, just crossfade skeleton away
+    hideFeedSkeletonThen(null);
   }
 
   function flashLoadBar(ms) {
-    showSiriGlow();
-    var requested = ms == null ? 900 : ms;
-    var dur = prefersReducedMotion() ? 0 : Math.max(900, requested);
+    if (loadBarHideTimer) {
+      clearTimeout(loadBarHideTimer);
+      loadBarHideTimer = null;
+    }
+    showFeedSkeleton();
+    var requested = ms == null ? 420 : ms;
+    var dur = prefersReducedMotion() ? 0 : Math.min(520, Math.max(280, requested));
     if (dur <= 0) {
-      hideSiriGlow(true);
+      hideFeedSkeletonThen(null);
       return;
     }
     loadBarHideTimer = setTimeout(function () {
       loadBarHideTimer = null;
-      hideSiriGlow(false);
+      hideFeedSkeletonThen(null);
     }, dur);
   }
 
@@ -1640,10 +1639,12 @@
     $all(".chip", el).forEach(function (btn) {
       btn.addEventListener("click", function () {
         state.filter = btn.getAttribute("data-filter") || "all";
-        flashLoadBar(750);
         renderChips(containerId);
-        if (pageName() === "today") renderTodayFeed();
-        if (pageName() === "signals") renderSignals();
+        showFeedSkeleton();
+        hideFeedSkeletonThen(function () {
+          if (pageName() === "today") renderTodayFeed();
+          if (pageName() === "signals") renderSignals();
+        });
       });
     });
     bindChipsOverflowResize();
@@ -2014,7 +2015,6 @@
   function renderNewsletter() {
     var list = $("#newsletterArchive");
     if (!list) return;
-    flashLoadBar(520);
     var items = NEWSLETTER_ISSUES.slice();
     if (state.query) {
       var q = state.query.toLowerCase();
@@ -2342,6 +2342,7 @@
     applyPrefs();
     bindShell();
     setTitle(pageName());
+    killEdgeGlowDom();
     var status = $("#loadStatus");
     if (status) {
       status.hidden = false;
@@ -2365,23 +2366,25 @@
         renderChrome();
         renderChips("#chips");
         var page = pageName();
-        if (page === "today") {
-          var h = $("#pageTitle");
-          if (h) h.textContent = getParam("view") === "saved" ? "Saved" : "Today";
-          renderForYou();
-          renderTodayFeed();
-        } else if (page === "signals") {
-          renderSignals();
-        } else if (page === "reports") {
-          renderReports();
-        } else if (page === "newsletter") {
-          renderNewsletter();
-        } else if (page === "story") {
-          renderStory();
-          if (state.data && findStory(getParam("id"))) {
-            document.title = findStory(getParam("id")).headline + " · Aligned News";
+        hideFeedSkeletonThen(function () {
+          if (page === "today") {
+            var h = $("#pageTitle");
+            if (h) h.textContent = getParam("view") === "saved" ? "Saved" : "Today";
+            renderForYou();
+            renderTodayFeed();
+          } else if (page === "signals") {
+            renderSignals();
+          } else if (page === "reports") {
+            renderReports();
+          } else if (page === "newsletter") {
+            renderNewsletter();
+          } else if (page === "story") {
+            renderStory();
+            if (state.data && findStory(getParam("id"))) {
+              document.title = findStory(getParam("id")).headline + " · Aligned News";
+            }
           }
-        }
+        });
         if (status) {
           status.classList.remove("loading");
           status.classList.add("is-done");
@@ -2389,7 +2392,9 @@
           status.innerHTML = "";
           status.remove();
         }
-        hideLoadBar();
+        document.documentElement.removeAttribute("data-loading");
+        document.documentElement.setAttribute("data-revealed", "1");
+        hideThinLoadBar();
       })
       .catch(function (err) {
         if (status) {
@@ -2398,7 +2403,9 @@
           status.textContent = "Could not load live-data.json. Open this folder via a local static server (file:// may block fetch).";
         }
         console.error(err);
-        hideLoadBar();
+        document.documentElement.removeAttribute("data-loading");
+        hideFeedSkeletonThen(null);
+        hideThinLoadBar();
       });
   }
 
