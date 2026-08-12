@@ -1130,7 +1130,7 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
   color: rgba(255,255,255,0.88);
 }
 
-/* Photo-first top story (comfortable) */
+/* Photo-first top story (comfortable) — copy fills width under hero */
 .lead-card-photo .lead-hero {
   margin: 0.55rem 0 0.85rem;
   aspect-ratio: 16 / 9;
@@ -1140,7 +1140,13 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
 .lead-card-photo .lead-title {
   margin-top: 0.15rem;
   font-size: clamp(1.55rem, 2.8vw, 2.15rem);
-  max-width: 22ch;
+  max-width: none;
+}
+.lead-card-photo .lead-dek,
+.lead-card-photo .lead-why,
+.lead-card-photo .lead-meta {
+  max-width: none;
+  width: 100%;
 }
 @media (max-width: 720px) {
   .lead-card-photo .lead-hero { min-height: 180px; border-radius: 14px; }
