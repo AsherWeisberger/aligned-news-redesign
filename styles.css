@@ -2181,21 +2181,23 @@ html[data-chrome="compact"] .foryou:not([hidden]) {
   }
 }
 
-/* === Siri-style edge rim only (minimal — hugs the bezel, not the page) === */
+/* === Apple Intelligence / Siri edge light — perimeter only, NO radial circle === */
 .edge-glow {
   position: fixed;
   inset: 0;
   z-index: 56;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.35s ease;
-  --glow-a: #5b9dff;
-  --glow-b: #c084fc;
-  --glow-c: #ff7ab8;
-  --glow-d: #5eead4;
-  /* rim thickness — keep tiny like iPhone Siri */
-  --siri-rim: 2px;
-  --siri-bloom: 15px;
+  transition: opacity 0.4s ease;
+  /* iPhone Apple Intelligence palette */
+  --glow-a: #ff4fd8;
+  --glow-b: #7c6bff;
+  --glow-c: #4ecbff;
+  --glow-d: #ff6b4a;
+  --glow-e: #c084fc;
+  --siri-core: 2.5px;
+  --siri-mid: 10px;
+  --siri-soft: 22px;
 }
 .edge-glow[hidden] {
   display: none !important;
@@ -2206,75 +2208,68 @@ body.siri-glow .edge-glow {
   display: block !important;
   opacity: 1;
 }
-/* Soft colored bloom confined to the outermost ~14px */
-.edge-glow-aura {
+
+/* Shared: punch a rectangular hole so ONLY the bezel rim paints (never a circle) */
+.edge-glow-aura,
+.edge-glow::before,
+.edge-glow::after {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   border-radius: 0;
   background: conic-gradient(
     from var(--siri-angle, 0deg),
     var(--glow-a),
     var(--glow-b),
     var(--glow-c),
+    var(--glow-e),
     var(--glow-d),
     var(--glow-a)
   );
-  filter: blur(10px) saturate(1.35);
-  opacity: 0.72;
-  animation: siri-spin 6.2s linear infinite;
-  -webkit-mask-image: radial-gradient(
-    farthest-side at 50% 50%,
-    transparent calc(100% - var(--siri-bloom) - 6px),
-    #000 calc(100% - 1px)
-  );
-  mask-image: radial-gradient(
-    farthest-side at 50% 50%,
-    transparent calc(100% - var(--siri-bloom) - 6px),
-    #000 calc(100% - 1px)
-  );
-}
-/* Crisp traveling hairline on the absolute edge */
-.edge-glow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  padding: var(--siri-rim);
-  border-radius: 0;
-  background:
-    linear-gradient(#0000, #0000) content-box,
-    conic-gradient(
-      from var(--siri-angle, 0deg),
-      color-mix(in srgb, var(--glow-a) 85%, #fff),
-      color-mix(in srgb, var(--glow-b) 85%, #fff),
-      color-mix(in srgb, var(--glow-c) 85%, #fff),
-      color-mix(in srgb, var(--glow-d) 85%, #fff),
-      color-mix(in srgb, var(--glow-a) 85%, #fff)
-    ) border-box;
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-  mask:
+          mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  opacity: 0.95;
-  filter: blur(0.35px);
-  animation: siri-spin 6.2s linear infinite, siri-breathe 3.2s ease-in-out infinite alternate;
+          mask-composite: exclude;
 }
-/* Tiny inner bloom only — never wash the desk */
+
+/* Outer soft bloom — feathered edge light like the iPhone shot */
+.edge-glow-aura {
+  padding: var(--siri-soft);
+  filter: blur(28px) saturate(1.55);
+  opacity: 0.7;
+  animation: siri-spin 6.5s linear infinite;
+}
+
+/* Mid glow band */
 .edge-glow::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  box-shadow:
-    inset 0 0 8px 1px color-mix(in srgb, var(--glow-b) 35%, transparent),
-    inset 0 0 16px 2px color-mix(in srgb, var(--glow-a) 18%, transparent);
-  animation: siri-breathe 3.2s ease-in-out infinite alternate;
-  opacity: 0.85;
+  padding: var(--siri-mid);
+  filter: blur(14px) saturate(1.4);
+  opacity: 0.75;
+  animation: siri-spin 6.5s linear infinite, siri-breathe 3.4s ease-in-out infinite alternate;
 }
+
+/* Bright core hairline on the absolute edge */
+.edge-glow::after {
+  content: "";
+  padding: var(--siri-core);
+  filter: blur(3.5px) saturate(1.35);
+  opacity: 0.95;
+  animation: siri-spin 6.5s linear infinite reverse, siri-breathe 3.4s ease-in-out infinite alternate;
+  background: conic-gradient(
+    from var(--siri-angle, 0deg),
+    color-mix(in srgb, var(--glow-a) 70%, #fff),
+    color-mix(in srgb, var(--glow-c) 75%, #fff),
+    color-mix(in srgb, var(--glow-b) 70%, #fff),
+    color-mix(in srgb, var(--glow-d) 65%, #fff),
+    color-mix(in srgb, var(--glow-a) 70%, #fff)
+  );
+}
+
 @property --siri-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -2284,30 +2279,29 @@ body.siri-glow .edge-glow {
   to { --siri-angle: 360deg; }
 }
 @keyframes siri-breathe {
-  from { opacity: 0.65; }
-  to { opacity: 1; }
+  from { opacity: 0.55; }
+  to { opacity: 0.95; }
 }
+
 html[data-theme="dark"] .edge-glow-aura {
-  opacity: 0.85;
-  filter: blur(11px) saturate(1.45);
+  opacity: 0.82;
+  filter: blur(30px) saturate(1.65);
 }
-/* Don't also paint a top rainbow bar — edges are the cue */
+
 body.siri-glow .load-bar,
 html[data-loading="1"] .load-bar {
   opacity: 0 !important;
   visibility: hidden !important;
 }
+
 @media (max-width: 720px) {
   .edge-glow {
-    --siri-rim: 2.5px;
-    --siri-bloom: 16px;
-    /* slight phone-bezel softness */
-  }
-  .edge-glow-aura,
-  .edge-glow::after {
-    border-radius: 0;
+    --siri-core: 3px;
+    --siri-mid: 12px;
+    --siri-soft: 26px;
   }
 }
+
 @media (prefers-reduced-motion: reduce) {
   .edge-glow-aura,
   .edge-glow::before,
@@ -2318,9 +2312,13 @@ html[data-loading="1"] .load-bar {
     transition: opacity 0.15s ease;
   }
   .edge-glow::after {
-    background:
-      linear-gradient(#0000, #0000) content-box,
-      linear-gradient(90deg, var(--glow-a), var(--glow-b), var(--glow-c), var(--glow-d)) border-box;
+    background: linear-gradient(
+      120deg,
+      var(--glow-a),
+      var(--glow-c),
+      var(--glow-b),
+      var(--glow-d)
+    );
   }
 }
 
