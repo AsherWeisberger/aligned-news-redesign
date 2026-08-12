@@ -125,7 +125,7 @@
     return n || 1;
   }
 
-  function diggMetaLine(item) {
+  function storyMetaLine(item) {
     var parts = [];
     var n = sourceCount(item);
     parts.push(n + (n === 1 ? " source" : " sources"));
@@ -542,6 +542,7 @@
   }
 
   function onChromeScroll() {
+    syncTopbarSolid();
     var y = getScrollY();
     var dy = y - lastScrollY;
     var visualCompact = document.documentElement.getAttribute("data-chrome") === "compact";
@@ -549,7 +550,7 @@
     // Soft pin: auto-clear on clear downward motion.
     if (dy > 16) chromeScrollPinned = false;
 
-    // Digg-like: any downward scroll past ~40px always collapses desk chrome.
+    // Any downward scroll past ~40px always collapses desk chrome.
     if ((dy > 0 || y > lastScrollY) && y > 40) {
       chromeScrollPinned = false;
       if (!visualCompact) {
@@ -574,6 +575,14 @@
       chromeScrollRaf = 0;
       onChromeScroll();
     });
+  }
+
+  function syncTopbarSolid() {
+    var bar = document.querySelector(".topbar");
+    if (!bar) return;
+    var y = getScrollY();
+    if (y > 8) bar.classList.add("is-scrolled");
+    else bar.classList.remove("is-scrolled");
   }
 
   function bindChromeScrollListeners() {
@@ -838,7 +847,7 @@
     }
     try { localStorage.setItem("an-density", next); } catch (e) {}
     syncDensitySeg();
-    // Digg-style: compact vs expanded changes layout (no lead/hero/excerpts/thumbs), so re-render.
+    // Compact vs expanded changes layout (no lead/hero/excerpts/thumbs), so re-render.
     if (!state.data) return;
     var page = pageName();
     if (page === "today") renderTodayFeed();
@@ -1283,11 +1292,37 @@
     return '<svg class="row-thumb-icon" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + body + "</svg>";
   }
 
+
+  function storyMediaUrl(item) {
+    if (!item) return "";
+    return item.media_url || item.image_url || item.mediaUrl || item.imageUrl || "";
+  }
+
+  function leadHeroHtml(s, key, sectionPretty) {
+    var media = storyMediaUrl(s);
+    if (media) {
+      return (
+        '<div class="lead-hero">' +
+          '<img src="' + escapeHtml(String(media)) + '" alt="" loading="eager" ' +
+          "onerror=\"this.style.display='none';this.parentNode.classList.add('lead-hero-fallback');\" />" +
+        "</div>"
+      );
+    }
+    var label = String(s.topic_label || sectionPretty || "AI").split(" ")[0] || "AI";
+    var bg = sectionThumbStyle(key);
+    return (
+      '<div class="lead-hero lead-hero-topic" style="--lead-topic-bg:' + bg + '">' +
+        '<span class="lead-hero-glyph" aria-hidden="true">' + topicGlyphSvg(key) + "</span>" +
+        '<span class="lead-hero-topic-label">' + escapeHtml(label) + "</span>" +
+      "</div>"
+    );
+  }
+
   function rowThumbHtml(s, key, sectionPretty) {
     var label = String(s.topic_label || sectionPretty || "AI").split(" ")[0] || "AI";
     var author = s.author_name || s.source || s.source_list || "AN";
     var initial = initialsFrom(author).slice(0, 1);
-    var media = s.media_url || s.image_url || "";
+    var media = storyMediaUrl(s);
     var tile =
       '<div class="row-thumb-tile" style="background:' + sectionThumbStyle(key) + '">' +
         '<span class="row-thumb-glyph">' + topicGlyphSvg(key) + "</span>" +
@@ -1500,7 +1535,7 @@
       authCta.hidden = false;
       authCta.classList.add("is-on");
     }
-    // Remove legacy Upgrade CTA — Digg-style Sign up / Login is the primary action.
+    // Remove legacy Upgrade CTA — Sign up / Login is the primary action.
     var existingUp = $("#upgradeBtn");
     if (existingUp) existingUp.remove();
 
@@ -1516,7 +1551,7 @@
           '<span class="pro-badge">Pro</span>';
         pill.title = "Signed in · Pro";
       } else {
-        // Free mock: Digg pattern — Sign up / Login replaces the account chip.
+        // Free mock: Sign up / Login replaces the account chip.
         pill.hidden = true;
         pill.classList.remove("is-compact");
       }
@@ -1760,23 +1795,24 @@
     return new Date(d.getFullYear(), d.getMonth(), d.getDate());
   }
 
-  function diggDayLabel(dayKey) {
+  function daySectionLabel(dayKey) {
     var parts = String(dayKey || "").split("-");
-    if (parts.length !== 3) return "Earlier";
+    if (parts.length !== 3) return "Earlier top stories";
     var dayDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-    if (isNaN(dayDate.getTime())) return "Earlier";
+    if (isNaN(dayDate.getTime())) return "Earlier top stories";
     var today = startOfLocalDay(new Date());
     var yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     var sod = startOfLocalDay(dayDate);
     if (sod.getTime() === today.getTime()) return "Today's top stories";
-    if (sod.getTime() === yesterday.getTime()) return "Yesterday";
+    if (sod.getTime() === yesterday.getTime()) return "Yesterday's top stories";
     var ageDays = Math.round((today.getTime() - sod.getTime()) / 86400000);
     try {
       if (ageDays >= 0 && ageDays < 7) {
-        return dayDate.toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" });
+        var weekday = dayDate.toLocaleDateString(undefined, { weekday: "long" });
+        return weekday + "'s top stories";
       }
-      return dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      return dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + " top stories";
     } catch (e) {
       return dayKey;
     }
@@ -1802,7 +1838,7 @@
         if (rb !== ra) return rb - ra;
         return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
       });
-      return { key: key, label: diggDayLabel(key), items: items };
+      return { key: key, label: daySectionLabel(key), items: items };
     });
   }
 
@@ -1862,12 +1898,12 @@
         : "";
       var isRead = state.read.indexOf(s.id) !== -1;
       var sectionPretty = s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.section || "");
-      var metaLine = diggMetaLine(s);
+      var metaLine = storyMetaLine(s);
       var href = "story.html?id=" + encodeURIComponent(s.id);
       var key = s.topic_key || s.section_key || mapSectionKey(s.section || s.tag || "");
       var headline = editorialTitle(s, 92);
 
-      // Digg compact = dense headline+meta list — no lead hero / why box / excerpts / thumbs.
+      // Compact = dense headline+meta list — no lead hero / why box / excerpts / thumbs.
       if (!compact && allowLead && showLead && i === 0) {
         var leadHeadline = editorialTitle(s, 72);
         var dek = uniqueDek(s, leadHeadline, 170);
@@ -1881,9 +1917,7 @@
               (s.topic_label ? '<span class="badge badge-signal">' + escapeHtml(s.topic_label) + "</span>" : "") +
               whyRankedHtml(s) +
             "</div>" +
-            '<div class="lead-hero">' +
-              '<img src="lead-hero.png" alt="" loading="eager" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'lead-hero-fallback\')" />' +
-            "</div>" +
+            leadHeroHtml(s, key, sectionPretty) +
             '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
             (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
             '<div class="lead-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
@@ -1919,7 +1953,7 @@
     }
 
     if (isSaved) {
-      // Saved: flat ranked list, no Digg day sections
+      // Saved: flat ranked list, no day sections
       stories = stories.slice().sort(function (a, b) {
         var ra = rankScore(a);
         var rb = rankScore(b);
@@ -1933,12 +1967,10 @@
       var groups = groupStoriesByDay(stories);
       groups.forEach(function (group, gi) {
         var items = group.items;
-        // Newest day with content gets Digg top-story hero (timezone-safe).
-        var isLeadDay = gi === 0;
+        // Lead/hero only on Today's section (comfortable mode), timezone-correct.
+        var isLeadDay = group.key === todayKey;
         if (isLeadDay) {
           items = pickLeadInGroup(items);
-          // Always call the freshest bucket "Today's top stories" for desk UX
-          if (group.key !== todayKey) group.label = "Today's top stories";
         }
         html +=
           '<li class="feed-day-head" role="presentation">' +
@@ -2167,7 +2199,8 @@
       sources = [{ url: story.source_url, name: story.source_list || "Original source" }];
     }
 
-    var showHero = !!(story.kind === "story" || story.kind === "ai-item");
+    var storyMedia = storyMediaUrl(story);
+    var showHero = !!storyMedia;
     var title = editorialTitle(story, 110);
     var dek = firstSentence(story.summary || "", 220);
     if (dek && dek.toLowerCase() === title.toLowerCase()) dek = "";
@@ -2206,7 +2239,7 @@
         (story.topic_label ? '<span class="badge badge-signal">' + escapeHtml(story.topic_label) + "</span>" : "") +
         whyRankedHtml(story) +
         '<span class="meta-line">' + escapeHtml(joinMeta([
-          diggMetaLine(story),
+          storyMetaLine(story),
           fallbackTimeLong(story.published_at),
           (!story.signal_badge && story.author_name) ? decodeEntities(story.author_name) : ""
         ])) + "</span>" +
@@ -2215,7 +2248,7 @@
       (dekFinal ? '<p class="article-dek">' + escapeHtml(dekFinal) + "</p>" : "") +
       '<div class="article-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
       (showHero
-        ? '<div class="article-hero"><img src="lead-hero.png" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'" /></div>'
+        ? '<div class="article-hero"><img src="' + escapeHtml(String(storyMedia)) + '" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'" /></div>'
         : "") +
       '<div class="article-actions">' +
         '<button type="button" class="btn" id="saveBtn">' + (saved ? "Saved" : "Save for later") + "</button>" +
@@ -2310,6 +2343,7 @@
     }
 
     bindChromeScrollListeners();
+    syncTopbarSolid();
 
     var themeBtn = $("#themeToggle");
     if (themeBtn) {

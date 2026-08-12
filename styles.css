@@ -1,4 +1,4 @@
-/* Aligned News — beat-Digg Pro reader */
+/* Aligned News — Pro reader */
 :root {
   --bg: #f3f4f7;
   --bg-elev: #ffffff;
@@ -145,12 +145,21 @@ button:focus-visible {
   min-width: 0;
   max-width: 100%;
   width: 100%;
-  /* Digg-like seamless chrome — same canvas wash, no hairline split */
-  background: transparent;
+  /* Always solid — never let feed bleed through while sticky */
+  background: var(--bg);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-bottom: none;
   box-shadow: none;
+  overflow: visible;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.topbar.is-scrolled {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  box-shadow: 0 8px 24px rgba(12, 13, 16, 0.06);
+}
+html[data-theme="dark"] .topbar.is-scrolled {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 .brand {
   display: inline-flex;
@@ -162,7 +171,8 @@ button:focus-visible {
   letter-spacing: -0.04em;
   font-size: 1.12rem;
   flex-shrink: 0;
-  line-height: 1;
+  line-height: 1.25;
+  overflow: visible;
 }
 .brand:hover { text-decoration: none; color: var(--text); }
 .brand em { font-style: normal; font-weight: 550; color: var(--muted); margin-left: 0.18rem; letter-spacing: -0.03em; }
@@ -178,11 +188,12 @@ button:focus-visible {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   isolation: isolate;
-  overflow: hidden; /* clip half-snap so it never paints over News */
-  /* reserve layout size from one half */
+  /* Never clip descenders (g) — horizontal snap stays within letterforms */
+  overflow: visible;
+  padding-bottom: 0.15em;
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.25;
 }
 .brand-align-half {
   grid-area: 1 / 1;
@@ -190,13 +201,16 @@ button:focus-visible {
   white-space: nowrap;
   will-change: transform;
   backface-visibility: hidden;
+  line-height: 1.2;
+  padding-bottom: 0.08em;
 }
 .brand-align-top {
-  clip-path: inset(0 0 calc(50% - 0.5px) 0);
+  /* Bias split above baseline so bottom half owns the full g descender */
+  clip-path: inset(0 0 42% 0);
   animation: brand-align-in-top 0.82s cubic-bezier(0.22, 1.22, 0.36, 1) both;
 }
 .brand-align-bot {
-  clip-path: inset(calc(50% - 0.5px) 0 0 0);
+  clip-path: inset(42% 0 0 0);
   animation: brand-align-in-bot 0.82s cubic-bezier(0.22, 1.22, 0.36, 1) both;
 }
 .brand-align-sub {
@@ -550,7 +564,7 @@ body.siri-glow .live-pill {
 }
 
 
-/* Digg-style Sign up / Login CTA */
+/* Sign up / Login CTA */
 .auth-cta {
   display: inline-flex;
   align-items: center;
@@ -594,7 +608,7 @@ body.siri-glow .live-pill {
 }
 .user-pill[hidden] { display: none !important; }
 
-/* Digg-exact expand / compact segmented control */
+/* Expand / compact density segmented control */
 .density-seg {
   display: inline-flex;
   align-items: center;
@@ -1090,8 +1104,37 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
     radial-gradient(ellipse at 20% 30%, rgba(255,255,255,0.18), transparent 50%),
     linear-gradient(135deg, #0b1220 0%, #1a73e8 42%, #6366f1 100%);
 }
+.lead-hero.lead-hero-topic {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 22% 28%, rgba(255,255,255,0.16), transparent 52%),
+    var(--lead-topic-bg, linear-gradient(135deg, #0b1220 0%, #1a73e8 42%, #6366f1 100%));
+}
+.lead-hero.lead-hero-topic .lead-hero-glyph {
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255,0.92);
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.28));
+}
+.lead-hero.lead-hero-topic .lead-hero-glyph .row-thumb-icon {
+  width: 64px;
+  height: 64px;
+  stroke-width: 1.4;
+}
+.lead-hero.lead-hero-topic .lead-hero-topic-label {
+  position: absolute;
+  left: 1rem;
+  bottom: 0.9rem;
+  z-index: 1;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+}
 
-/* Digg-style photo-first top story */
+/* Photo-first top story (comfortable) */
 .lead-card-photo .lead-hero {
   margin: 0.55rem 0 0.85rem;
   aspect-ratio: 16 / 9;
@@ -1707,7 +1750,7 @@ body[data-page="signals"] .feed-row {
 .desk-hero-slim .desk-value { font-size: 0.86rem; }
 .desk-hero-slim h1 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
 
-/* Digg-style day section headers on Today feed */
+/* Day section headers on Today feed */
 .feed-day-head {
   list-style: none;
   margin: 0.65rem 0 0;
@@ -1739,7 +1782,7 @@ html[data-density="compact"] .feed-day-label {
   letter-spacing: -0.02em;
 }
 
-/* Digg compact = dense headline + meta list (no photo / why / dek chrome) */
+/* Compact density = dense headline + meta list (no photo / why / dek chrome) */
 html[data-density="compact"] .feed {
   gap: 0;
 }
@@ -2085,7 +2128,7 @@ body[data-page="signals"] .rail-card {
   padding: 0.9rem 0.95rem 0.95rem;
 }
 
-/* Digg compact wins over Signals comfortable row chrome */
+/* Compact density wins over Signals comfortable row chrome */
 html[data-density="compact"] body[data-page="signals"] .feed {
   gap: 0;
 }

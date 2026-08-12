@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Sign up / Login · Aligned News</title>
-<meta name="description" content="Sign up or log in to Aligned News — Digg redesign mock." />
+<meta name="description" content="Sign up or log in to Aligned News — Pro reader desk mock." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a73e8'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=an24" />
+<link rel="stylesheet" href="styles.css?v=an26" />
 </head>
 <body data-page="auth" class="auth-body">
   <div class="load-bar" id="loadBar" hidden aria-hidden="true"><div class="load-bar-inner"></div></div>
@@ -42,7 +42,7 @@
         <div class="auth-card" id="authCard">
           <p class="auth-card-kicker">Aligned News</p>
           <h1 class="auth-card-title" id="authTitle">Create your desk</h1>
-          <p class="auth-card-sub" id="authSub">Join the Digg-style redesign mock. Backend wiring comes later.</p>
+          <p class="auth-card-sub" id="authSub">Join the Aligned News Pro desk mock. Backend wiring comes later.</p>
 
           <div class="auth-tabs" role="tablist" aria-label="Auth mode">
             <button type="button" class="auth-tab is-active" id="tabSignup" role="tab" aria-selected="true" data-mode="signup">Sign up</button>
@@ -78,7 +78,7 @@
     </main>
   </div>
   <div class="auth-toast" id="authToast" role="status" aria-live="polite" hidden>You’re in — backend not wired yet</div>
-  <script src="app.js?v=an24"></script>
+  <script src="app.js?v=an26"></script>
   <script>
   (function () {
     var form = document.getElementById("authForm");
@@ -101,7 +101,7 @@
       tabLogin.setAttribute("aria-selected", signup ? "false" : "true");
       title.textContent = signup ? "Create your desk" : "Welcome back";
       sub.textContent = signup
-        ? "Join the Digg-style redesign mock. Backend wiring comes later."
+        ? "Join the Aligned News Pro desk mock. Backend wiring comes later."
         : "Log in to your Aligned News desk mock.";
       submit.textContent = signup ? "Create account" : "Log in";
       passwordInput.autocomplete = signup ? "new-password" : "current-password";
