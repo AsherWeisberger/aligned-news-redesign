@@ -54,13 +54,42 @@
     maxLen = maxLen || 88;
     var raw = cleanHeadline(item.headline || item.title || item.text || "", item.summary || item.body || item.analysis);
     raw = raw.replace(/https?:\/\/\S+/g, "").replace(/\s+/g, " ").trim();
-    // Prefer clause before em-dash / colon if long
-    if (raw.length > maxLen) {
-      var cut = raw.split(/\s+[—–-]\s+|:\s+/)[0];
-      if (cut && cut.length >= 24 && cut.length <= maxLen) return cut;
-      return firstSentence(raw, maxLen);
+    raw = raw.replace(/\s*[….]{2,}$/, "").trim();
+    if (raw.length <= maxLen) return raw;
+    // Prefer a complete short clause (em-dash / colon / comma before conjunction)
+    var cut = raw.split(/\s+[—–-]\s+|:\s+/)[0];
+    if (cut && cut.length >= 24 && cut.length <= maxLen) return cut;
+    var comma = raw.lastIndexOf(", ", maxLen - 1);
+    if (comma > Math.floor(maxLen * 0.45)) {
+      var c = raw.slice(0, comma).trim();
+      if (c.length >= 24) return c;
     }
-    return raw;
+    return softClamp(raw, maxLen);
+  }
+
+  /** Word-boundary clamp — never mid-word ellipsis */
+  function softClamp(s, maxLen) {
+    var t = String(s || "").replace(/\s+/g, " ").trim();
+    if (!t) return "";
+    if (t.length <= maxLen) return t;
+    var cut = t.slice(0, maxLen);
+    // never end mid-word
+    if (/\S$/.test(cut) && /\S/.test(t.charAt(maxLen) || "")) {
+      var sp = cut.lastIndexOf(" ");
+      if (sp > Math.floor(maxLen * 0.5)) cut = cut.slice(0, sp);
+    }
+    cut = cut.replace(/[,:;\-—–\s]+$/, "").trim();
+    // Prefer dropping trailing fragments like "in" / "and" / "the"
+    cut = cut.replace(/\s+(?:in|on|of|to|for|and|or|the|a|an|with|from|at|by)$/i, "").trim();
+    if (!cut) {
+      cut = t.slice(0, Math.max(24, maxLen - 1));
+      var sp2 = cut.lastIndexOf(" ");
+      if (sp2 > 20) cut = cut.slice(0, sp2);
+      cut = cut.replace(/[,:;\-—–\s]+$/, "").trim();
+    }
+    // If we kept a complete sentence, skip ellipsis
+    if (/[.!?]$/.test(cut)) return cut;
+    return cut + "…";
   }
 
   function whyItMatters(item) {
@@ -197,11 +226,11 @@
           s._analysis_placeholder = false;
         }
       });
-      var topicOrder2 = ["models","agents","robotics","funding","policy","chips","open-source","research","creative","industry"];
+      var topicOrder2 = ["models","agents","robotics","funding","companies","research","chips","open-source","policy","creative"];
       var topicLabels2 = {
         models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
         policy: "Policy", chips: "Chips", "open-source": "Open source", research: "Research",
-        creative: "Creative", industry: "Industry"
+        creative: "Creative", companies: "Companies", industry: "Companies"
       };
       var counts2 = {};
       data.stories.forEach(function (s) { counts2[s.topic_key] = (counts2[s.topic_key] || 0) + 1; });
@@ -325,11 +354,11 @@
       return r;
     });
 
-    var topicOrder = ["models","agents","robotics","funding","policy","chips","open-source","research","creative","industry"];
+    var topicOrder = ["models","agents","robotics","funding","companies","research","chips","open-source","policy","creative"];
     var topicLabels = {
       models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
       policy: "Policy", chips: "Chips", "open-source": "Open source", research: "Research",
-      creative: "Creative", industry: "Industry"
+      creative: "Creative", companies: "Companies", industry: "Companies"
     };
     var topicCounts = {};
     stories.forEach(function (s) {
@@ -478,10 +507,7 @@
     var m = t.match(/^(.+?[.!?])(\s|$)/);
     if (m && m[1].length >= 28 && m[1].length <= maxLen) return m[1];
     if (t.length <= maxLen) return t;
-    var cut = t.slice(0, maxLen - 1);
-    var sp = cut.lastIndexOf(" ");
-    if (sp > 40) cut = cut.slice(0, sp);
-    return cut.trim() + "…";
+    return softClamp(t, maxLen);
   }
 
   function cleanHeadline(s, fallback) {
@@ -500,15 +526,23 @@
     return t;
   }
 
-    function prettyChipLabel(id, label) {
+  function prettyChipLabel(id, label) {
+    var known = {
+      models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
+      companies: "Companies", research: "Research", chips: "Chips",
+      "open-source": "Open source", policy: "Policy", creative: "Creative", all: "All"
+    };
+    if (known[id]) return known[id];
+    if (known[label]) return known[label];
     var raw = String(label || id || "");
-    var m = raw.match(/AI\s+Companies\s*#?\s*(\d+)/i);
-    if (m) return "Companies #" + m[1];
-    m = raw.match(/AI\s+Community\s*#?\s*(\d+)/i);
-    if (m) return "Community #" + m[1];
+    if (known[raw.toLowerCase()]) return known[raw.toLowerCase()];
+    var m = raw.match(/AI\s+Companies/i);
+    if (m) return "Companies";
+    m = raw.match(/AI\s+Community/i);
+    if (m) return "Community";
     m = raw.match(/AI\s+Labs/i);
     if (m) return "Labs";
-    return raw.replace(/\s+of\s+\d+/i, "").trim() || raw;
+    return raw.replace(/\s+#?\d+\s+of\s+\d+/i, "").replace(/\s+#\d+/i, "").trim() || raw;
   }
 
   function engagementScore(item) {
@@ -593,8 +627,9 @@
   }
 
   function staggerStyle(i) {
-    var delay = Math.min(i, 12) * 0.045;
-    return 'style="animation-delay:' + delay.toFixed(3) + 's"';
+    /* Snappy stagger: max ~384ms across 12 steps */
+    var delay = Math.min(i, 12) * 0.032;
+    return 'style="--i:' + Math.min(i, 12) + ";animation-delay:" + delay.toFixed(3) + 's"';
   }
 
 
@@ -740,6 +775,7 @@
     research: "linear-gradient(145deg,#4338ca,#a5b4fc)",
     creative: "linear-gradient(145deg,#9d174d,#f9a8d4)",
     compute: "linear-gradient(145deg,#0e7490,#67e8f9)",
+    companies: "linear-gradient(145deg,#374151,#d1d5db)",
     industry: "linear-gradient(145deg,#374151,#d1d5db)",
     scoble: "linear-gradient(145deg,#7c2d12,#fdba74)",
     general: "linear-gradient(145deg,#334155,#93c5fd)"
@@ -783,7 +819,7 @@
       } else {
         list.innerHTML = items.map(function (s) {
           var href = "story.html?id=" + encodeURIComponent("sigstory-" + s.id);
-          var title = firstSentence(s.title || s.text || "", 96);
+          var title = editorialTitle(s, 96);
           return (
             '<li class="rail-item">' +
               '<span class="rail-icon" style="background:' + signalIconColor(s.badge) + '">' +
@@ -794,7 +830,7 @@
                 '<div class="rail-item-meta">' +
                   '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
                   '<span>' + escapeHtml(joinMeta([
-                    prettyChipLabel(s.section_key, s.section_label || s.source_list || ""),
+                    s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.source_list || ""),
                     fallbackTime(s.created_at)
                   ])) + "</span>" +
                 "</div>" +
@@ -830,8 +866,13 @@
     if (why && !why.getAttribute("data-locked")) {
       var storiesN = (state.data.stories || []).filter(isTodayFeedKind).length;
       var sigN = (state.data.signals || []).length;
-      why.textContent = "Aligned News watches Scoble’s curated X lists, ranks cross-list spikes, and puts " +
-        storiesN + " stories and " + sigN + " signals on your Pro desk — before the timeline does.";
+      var top = (state.data.stories || []).filter(isTodayFeedKind).slice().sort(function(a,b){return rankScore(b)-rankScore(a);})[0];
+      if (top) {
+        why.textContent = whyItMatters(top);
+      } else {
+        why.textContent = "Aligned News watches Scoble’s curated X lists, ranks cross-list spikes, and puts " +
+          storiesN + " stories and " + sigN + " signals on your Pro desk — before the timeline does.";
+      }
     }
 
     var vibeStats = $("#vibeStats");
@@ -897,7 +938,7 @@
           if (item.id === "stories") active = false; // stories fold into today feed
           if (item.id === "saved") active = page === "today" && getParam("view") === "saved";
           return (
-            '<li><a class="' + (active ? "active" : "") + '" href="' + item.href + '">' +
+            '<li><a class="nav-link' + (active ? " active" : "") + '" href="' + item.href + '">' +
             escapeHtml(item.label) +
             (item.count != null ? '<span class="count">' + item.count + "</span>" : "") +
             "</a></li>"
@@ -972,6 +1013,26 @@
     return true;
   }
 
+  function updateChipsOverflow(el) {
+    if (!el) return;
+    var overflowing = el.scrollWidth > el.clientWidth + 2;
+    el.classList.toggle("is-overflowing", overflowing);
+  }
+
+  var chipsOverflowBound = false;
+  function bindChipsOverflowResize() {
+    if (chipsOverflowBound) return;
+    chipsOverflowBound = true;
+    var timer = null;
+    window.addEventListener("resize", function () {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(function () {
+        var el = $("#chips");
+        if (el) updateChipsOverflow(el);
+      }, 100);
+    });
+  }
+
   function renderChips(containerId) {
     var el = $(containerId);
     if (!el || !state.data) return;
@@ -990,6 +1051,9 @@
         if (pageName() === "signals") renderSignals();
       });
     });
+    bindChipsOverflowResize();
+    // Measure after paint so clientWidth reflects layout
+    requestAnimationFrame(function () { updateChipsOverflow(el); });
   }
 
   function renderForYou() {
@@ -1005,17 +1069,56 @@
         return (
           '<a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '">' +
           '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
-          "<span>" + escapeHtml(s.title) + "</span></a>"
+          "<span>" + escapeHtml(editorialTitle(s, 72)) + "</span></a>"
         );
       }).join("");
+  }
+
+  function renderIntelStrip() {
+    var el = $("#intelStrip");
+    if (!el || !state.data) return;
+    if (pageName() !== "today" || getParam("view") === "saved") {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    var stories = (state.data.stories || []).filter(function (s) {
+      return isTodayFeedKind(s) && isAiRelevant(s) && !isRetweetNoise(s);
+    }).slice().sort(function (a, b) {
+      return rankScore(b) - rankScore(a);
+    }).slice(0, 5);
+    if (stories.length < 3) {
+      el.hidden = true;
+      return;
+    }
+    el.hidden = false;
+    el.innerHTML =
+      '<div class="intel-head"><span class="intel-kicker">Desk glance</span><span class="intel-sub">What moved across Scoble lists</span></div>' +
+      '<ol class="intel-list">' +
+      stories.map(function (s, i) {
+        var title = editorialTitle(s, 78);
+        var topic = s.topic_label || labelFor(s.topic_key || topicKeyFor(s));
+        return (
+          '<li style="--i:' + i + '">' +
+            '<a href="story.html?id=' + encodeURIComponent(s.id) + '">' +
+              '<span class="intel-num">' + (i + 1) + "</span>" +
+              '<span class="intel-title">' + escapeHtml(title) + "</span>" +
+              '<span class="intel-topic">' + escapeHtml(topic) + "</span>" +
+            "</a>" +
+          "</li>"
+        );
+      }).join("") +
+      "</ol>";
   }
 
   function renderTodayFeed() {
     var list = $("#feed");
     if (!list || !state.data) return;
     renderRightRail();
+    renderIntelStrip();
     var stories = (state.data.stories || []).filter(function (s) {
       if (!isTodayFeedKind(s)) return false;
+      if (isRetweetNoise(s)) return false;
       return storyMatches(s);
     }).slice().sort(function (a, b) {
       var ra = rankScore(a);
@@ -1034,10 +1137,11 @@
       var best = -1e9;
       for (var bi = 0; bi < Math.min(stories.length, 40); bi++) {
         var cand = stories[bi];
+        if (!isAiRelevant(cand)) continue;
         var rs = relevanceScore(cand);
-        if (rs < 12) continue; // clear AI signal required for lead
+        if (rs < 12) continue;
         var score = rankScore(cand) + rs * 2;
-        if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180; // prefer originals for hero
+        if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180;
         if (score > best) { best = score; bestIdx = bi; }
       }
       if (bestIdx >= 0) {
@@ -1051,28 +1155,28 @@
       var badge = s.signal_badge
         ? '<span class="' + badgeClass(s.signal_badge) + '">' + escapeHtml(String(s.signal_badge).toUpperCase()) + "</span>"
         : "";
-      var excerpt = firstSentence(s.summary || s.body || "", 180);
       var isRead = state.read.indexOf(s.id) !== -1;
       var sectionPretty = s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.section || "");
       var metaLine = diggMetaLine(s);
       var href = "story.html?id=" + encodeURIComponent(s.id);
-      var key = s.section_key || mapSectionKey(s.section || s.tag || "");
-      var headline = editorialTitle(s, 96);
+      var key = s.topic_key || s.section_key || mapSectionKey(s.section || s.tag || "");
+      var headline = editorialTitle(s, 92);
 
       if (showLead && i === 0) {
-        var dek = firstSentence(s.summary || s.body || "", 180);
-        var leadHeadline = editorialTitle(s, 78);
+        var leadHeadline = editorialTitle(s, 72);
+        var dek = uniqueDek(s, leadHeadline, 170);
         var why = whyItMatters(s);
         html +=
-          '<li class="lead-card' + (isRead ? " is-read" : "") + '" ' + staggerStyle(0) + '>' +
+          '<li class="lead-card' + (isRead ? " is-read" : "") + '" style="--i:0">' +
             '<div class="lead-rank-row">' +
               '<div class="lead-eyebrow">Top Story</div>' +
               badge +
               (s.topic_label ? '<span class="badge badge-signal">' + escapeHtml(s.topic_label) + "</span>" : "") +
+              whyRankedHtml(s) +
             "</div>" +
             '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
-            (dek && dek.toLowerCase() !== leadHeadline.toLowerCase() ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
-            '<p class="lead-why">' + escapeHtml(why) + "</p>" +
+            (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
+            '<div class="lead-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
             '<div class="lead-hero">' +
               '<img src="lead-hero.png" alt="" loading="eager" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'lead-hero-fallback\')" />' +
             "</div>" +
@@ -1085,17 +1189,19 @@
       }
 
       var rank = i + 1;
-      var rowHeadline = editorialTitle(s, 92);
+      var excerpt = uniqueDek(s, headline, 140);
+      var callout = (i === 3 || i === 8) && s.signal_badge;
       html +=
-        '<li class="feed-row' + (isRead ? " is-read" : "") + '" ' + staggerStyle(i) + '>' +
+        '<li class="feed-row' + (isRead ? " is-read" : "") + (callout ? " feed-row-callout" : "") + '" style="--i:' + Math.min(i, 12) + '">' +
           '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
-            '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(rowHeadline) + "</a></h2>" +
+            '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(headline) + "</a></h2>" +
             (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               avatarStackHtml(s) +
               badge +
               (s.topic_label ? '<span class="badge">' + escapeHtml(s.topic_label) + "</span>" : "") +
+              whyRankedHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
@@ -1114,30 +1220,34 @@
     if (!list || !state.data) return;
     renderRightRail();
     var items = (state.data.signals || []).filter(function (s) {
+      if (isRetweetNoise(s)) return false;
       if (state.filter && state.filter !== "all" && (s.topic_key || s.section_key || "") !== state.filter) return false;
       if (state.query) {
         var q = state.query.toLowerCase();
-        var hay = [s.title, s.text, s.category, s.badge, s.source_list].join(" ").toLowerCase();
+        var hay = [s.title, s.text, s.category, s.badge, s.source_list, s.analysis].join(" ").toLowerCase();
         if (hay.indexOf(q) === -1) return false;
       }
       return true;
     }).slice().sort(function (a, b) {
-      return (b.engagement_score || 0) - (a.engagement_score || 0);
+      return rankScore(b) - rankScore(a);
     });
     if (!items.length) {
       list.innerHTML = '<li class="empty">No signals match.</li>';
       return;
     }
     list.innerHTML = items.map(function (s, i) {
-      var excerpt = signalExcerpt(s);
-      if (excerpt) excerpt = firstSentence(excerpt, 200);
       var title = editorialTitle(s, 100);
+      var excerpt = signalExcerpt(s);
+      if (excerpt) excerpt = firstSentence(excerpt, 180);
+      if (!excerpt) {
+        var a = displayText(s.analysis || "").trim();
+        if (a && a.toLowerCase() !== title.toLowerCase()) excerpt = firstSentence(a, 180);
+      }
       var metaLine = joinMeta([
         s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.category || ""),
         fallbackTime(s.created_at),
         (s.engagement_score != null ? s.engagement_score + "% conf." : "")
       ]);
-      if (!excerpt) excerpt = firstSentence(s.analysis || "", 180);
       return (
         '<li class="feed-row" ' + staggerStyle(i) + '>' +
           '<div class="rank">' + (i + 1) + "</div>" +
@@ -1253,19 +1363,22 @@
     // Prefer desk take / unique body paras only
     var uniqueBody = paragraphs.filter(function (p) {
       var t = p.trim().toLowerCase();
-      return t && t !== title.toLowerCase() && t !== dek.toLowerCase();
+      return t && t !== title.toLowerCase() && (!dek || t !== dek.toLowerCase()) && t !== why.toLowerCase();
     });
-    if (!uniqueBody.length) {
-      uniqueBody = [deskTakeFor(story), "Source list: " + (story.source_list || story.section_label || "Scoble lists") + "."];
-    }
-    bodyHtml = uniqueBody.map(function (p) {
-      if (/^From the \/ai briefing/i.test(p) || /^From the Aligned News/i.test(p) || /^Desk take:/i.test(p)) {
-        return '<p class="sample-note">' + escapeHtml(p) + "</p>";
+    var originalPost = "";
+    if (uniqueBody.length) {
+      originalPost = uniqueBody.join("\n\n");
+    } else if (story.body || story.summary) {
+      originalPost = displayText(story.body || story.summary);
+      if (originalPost.toLowerCase().indexOf(title.toLowerCase()) === 0) {
+        originalPost = originalPost.slice(title.length).replace(/^[\s.:\-—–]+/, "");
       }
-      return "<p>" + escapeHtml(p) + "</p>";
-    }).join("");
+    }
+    if (!originalPost) {
+      originalPost = "Original post from " + (story.author_name || story.source_list || "Scoble lists") + ".";
+    }
     var related = (state.data.stories || []).filter(function (x) {
-      return x.id !== story.id && (x.topic_key || "") === (story.topic_key || topicKeyFor(story));
+      return x.id !== story.id && (x.topic_key || topicKeyFor(x)) === (story.topic_key || topicKeyFor(story));
     }).slice(0, 3);
     var relatedHtml = related.length ? (
       '<div class="related"><h2>Related on the desk</h2><ul>' +
@@ -1273,29 +1386,36 @@
         return '<li><a href="story.html?id=' + encodeURIComponent(r.id) + '">' + escapeHtml(editorialTitle(r, 80)) + "</a></li>";
       }).join("") + "</ul></div>"
     ) : "";
+    var dekFinal = dek || uniqueDek(story, title, 200);
     root.innerHTML =
       '<a class="back-link" href="index.html">← Back to Today</a>' +
       '<div class="article-kicker">' +
         (story.signal_badge ? '<span class="' + badgeClass(story.signal_badge) + '">' + escapeHtml(String(story.signal_badge).toUpperCase()) + "</span>" : "") +
-        (story.topic_label ? '<span class="badge">' + escapeHtml(story.topic_label) + "</span>" : "") +
+        (story.topic_label ? '<span class="badge badge-signal">' + escapeHtml(story.topic_label) + "</span>" : "") +
+        whyRankedHtml(story) +
         '<span class="meta-line">' + escapeHtml(joinMeta([
-          prettyChipLabel("", story.source_list || story.section_label || ""),
+          diggMetaLine(story),
           fallbackTimeLong(story.published_at),
           (!story.signal_badge && story.author_name) ? decodeEntities(story.author_name) : ""
         ])) + "</span>" +
       "</div>" +
       "<h1>" + escapeHtml(title) + "</h1>" +
-      (dek ? '<p class="article-dek">' + escapeHtml(dek) + "</p>" : "") +
-      '<p class="article-why">' + escapeHtml(why) + "</p>" +
+      (dekFinal ? '<p class="article-dek">' + escapeHtml(dekFinal) + "</p>" : "") +
+      '<div class="article-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
       (showHero
         ? '<div class="article-hero"><img src="lead-hero.png" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'" /></div>'
         : "") +
       '<div class="article-actions">' +
         '<button type="button" class="btn" id="saveBtn">' + (saved ? "Saved" : "Save for later") + "</button>" +
         '<button type="button" class="btn" id="readBtn">Mark unread</button>' +
-        (story.source_url ? '<a class="btn btn-primary" href="' + escapeHtml(story.source_url) + '" target="_blank" rel="noopener">Open on X</a>' : "") +
+        (story.source_url ? '<a class="btn btn-primary" href="' + escapeHtml(story.source_url) + '" target="_blank" rel="noopener">Open source</a>' : "") +
       "</div>" +
-      '<div class="article-body">' + bodyHtml + "</div>" +
+      '<div class="article-body">' +
+        '<h2 class="article-section-label">Original post</h2>' +
+        originalPost.split(/\n\n+/).map(function (p) {
+          return "<p>" + escapeHtml(p.trim()) + "</p>";
+        }).join("") +
+      "</div>" +
       relatedHtml +
       (sources.length
         ? '<div class="sources"><h2>Sources</h2><ul>' +
@@ -1406,7 +1526,14 @@
     bindShell();
     setTitle(pageName());
     var status = $("#loadStatus");
-    if (status) status.textContent = "Loading…";
+    if (status) {
+      status.hidden = false;
+      status.className = "status loading";
+      status.setAttribute("aria-busy", "true");
+      if (!status.querySelector(".feed-skeleton")) {
+        status.innerHTML = '<div class="feed-skeleton" aria-hidden="true"><span></span><span></span><span></span></div>';
+      }
+    }
 
     fetch(DATA_URL, { cache: "no-store" })
       .then(function (res) {
@@ -1435,7 +1562,13 @@
             document.title = findStory(getParam("id")).headline + " · Aligned News";
           }
         }
-        if (status) status.hidden = true;
+        if (status) {
+          status.classList.remove("loading");
+          status.classList.add("is-done");
+          status.removeAttribute("aria-busy");
+          status.innerHTML = "";
+          status.remove();
+        }
       })
       .catch(function (err) {
         if (status) {
