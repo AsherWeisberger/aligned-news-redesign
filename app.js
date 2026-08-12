@@ -1333,7 +1333,7 @@
     return SECTION_GRADIENTS.general;
   }
 
-  /** Crisp topic glyphs for CSS-gradient thumbs (no media URLs in live-data). */
+  /** Topic glyphs kept for rare non-feed uses; feed thumbs/heroes are media-only. */
   function topicGlyphSvg(key) {
     var k = String(key || "general");
     if (k.indexOf("compan") !== -1 || k === "industry") k = "companies";
@@ -1366,47 +1366,22 @@
 
   function leadHeroHtml(s, key, sectionPretty) {
     var media = storyMediaUrl(s);
-    if (media) {
-      return (
-        '<div class="lead-hero">' +
-          '<img src="' + escapeHtml(String(media)) + '" alt="" loading="eager" ' +
-          "onerror=\"this.style.display='none';this.parentNode.classList.add('lead-hero-fallback');\" />" +
-        "</div>"
-      );
-    }
-    var label = String(s.topic_label || sectionPretty || "AI").split(" ")[0] || "AI";
-    var bg = sectionThumbStyle(key);
+    if (!media) return "";
     return (
-      '<div class="lead-hero lead-hero-topic" style="--lead-topic-bg:' + bg + '">' +
-        '<span class="lead-hero-glyph" aria-hidden="true">' + topicGlyphSvg(key) + "</span>" +
-        '<span class="lead-hero-topic-label">' + escapeHtml(label) + "</span>" +
+      '<div class="lead-hero">' +
+        '<img src="' + escapeHtml(String(media)) + '" alt="" loading="eager" ' +
+        "onerror=\"var h=this.parentNode;if(h){h.remove();}\" />" +
       "</div>"
     );
   }
 
   function rowThumbHtml(s, key, sectionPretty) {
-    var label = String(s.topic_label || sectionPretty || "AI").split(" ")[0] || "AI";
-    var author = s.author_name || s.source || s.source_list || "AN";
-    var initial = initialsFrom(author).slice(0, 1);
     var media = storyMediaUrl(s);
-    var tile =
-      '<div class="row-thumb-tile" style="background:' + sectionThumbStyle(key) + '">' +
-        '<span class="row-thumb-glyph">' + topicGlyphSvg(key) + "</span>" +
-      "</div>";
-    var img = "";
-    if (media) {
-      img =
-        '<img class="row-thumb-img" src="' + escapeHtml(String(media)) + '" alt="" loading="lazy" ' +
-        "onerror=\"var p=this.parentNode;this.remove();if(p){p.classList.remove('has-media');}\" />";
-    }
+    if (!media) return "";
     return (
-      '<div class="row-thumb' + (media ? " has-media" : "") + '" aria-hidden="true">' +
-        tile +
-        img +
-        '<span class="row-thumb-label">' + escapeHtml(label) + "</span>" +
-        '<span class="row-thumb-author" style="background:' + avatarColor(author) + '" title="' + escapeHtml(String(author)) + '">' +
-          escapeHtml(initial) +
-        "</span>" +
+      '<div class="row-thumb has-media" aria-hidden="true">' +
+        '<img class="row-thumb-img" src="' + escapeHtml(String(media)) + '" alt="" loading="lazy" ' +
+        "onerror=\"var p=this.parentNode;if(p){p.remove();}\" />" +
       "</div>"
     );
   }
@@ -2028,16 +2003,17 @@
         var leadHeadline = editorialTitle(s, 72);
         var dek = uniqueDek(s, leadHeadline, 170);
         var why = whyItMatters(s);
+        var leadHero = leadHeroHtml(s, key, sectionPretty);
         rankCounter = 1;
         return (
-          '<li class="lead-card lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
+          '<li class="lead-card' + (leadHero ? " lead-card-photo" : "") + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
             '<div class="lead-rank-row">' +
               '<div class="lead-eyebrow">Top Story</div>' +
               badge +
               (s.topic_label ? '<span class="badge badge-signal">' + escapeHtml(s.topic_label) + "</span>" : "") +
               whyRankedHtml(s) +
             "</div>" +
-            leadHeroHtml(s, key, sectionPretty) +
+            leadHero +
             '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
             (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
             '<div class="lead-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
