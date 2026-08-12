@@ -726,8 +726,8 @@
     glow.setAttribute("aria-hidden", "false");
     glow.classList.add("is-on");
     glowShownAt = Date.now();
-    // Subtle secondary top bar; glow + thinkStatus are the loading treatment.
-    showThinLoadBar();
+    // Edges-only Siri rim + quiet Thinking pill (no top rainbow bar wash).
+    hideThinLoadBar();
     showThinkStatus();
   }
 
