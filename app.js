@@ -11,6 +11,137 @@
   };
 
 
+
+  function topicKeyFor(item) {
+    if (item.topic_key && /^(models|agents|robotics|funding|companies|research|chips|open-source|policy|creative)$/.test(item.topic_key)) {
+      return item.topic_key;
+    }
+    var hay = [
+      item.headline, item.title, item.text, item.summary, item.body,
+      item.section_label, item.section, item.category, item.source_list, item.tag
+    ].join(" ").toLowerCase();
+    if (/robot|humanoid|physical ai|openusd/.test(hay)) return "robotics";
+    if (/fund|raised|\$|series [a-d]|acquisition|ipo|valuation|invest/.test(hay)) return "funding";
+    if (/regulat|polic|congress|eu ai|white house|antitrust/.test(hay)) return "policy";
+    if (/agentic|\bagents?\b|openclaw|orchestrat|tool call/.test(hay)) return "agents";
+    if (/gpu|chip|semiconductor|tpu|hardware|inference chip/.test(hay)) return "chips";
+    if (/open[- ]?source|open.weight|hugging face|weights/.test(hay)) return "open-source";
+    if (/benchmark|paper|arxiv|research|eval|sota/.test(hay)) return "research";
+    if (/video|image gen|creative|midjourney|sora|flux/.test(hay)) return "creative";
+    if (/model|llm|gpt|claude|gemini|fireworks|muse|token|grok|\bxai\b/.test(hay)) return "models";
+    if (/nvidia/.test(hay)) return "chips";
+    if (/compan|startup|lab|industry|hiring/.test(hay)) return "companies";
+    var sl = String(item.section_label || item.source_list || item.section || "").toLowerCase();
+    if (sl.indexOf("compan") !== -1) return "companies";
+    return "companies";
+  }
+
+  function deskTakeFor(item) {
+    var title = displayText(item.title || item.text || item.headline || "").replace(/\s+/g, " ").trim();
+    var list = item.source_list || item.section_label || "Scoble lists";
+    var badge = String(item.badge || item.signal_badge || "signal").toLowerCase();
+    var eng = item.engagement_score != null ? (item.engagement_score + "% confidence") : null;
+    var why = "Desk take: this crossed " + list;
+    if (badge === "bullish") why += " with bullish momentum";
+    else if (badge === "critical") why += " as a critical watch";
+    else why += " as a ranked signal";
+    if (eng) why += " (" + eng + ")";
+    why += ". " + firstSentence(title, 140);
+    return why;
+  }
+
+  function editorialTitle(item, maxLen) {
+    maxLen = maxLen || 88;
+    var raw = cleanHeadline(item.headline || item.title || item.text || "", item.summary || item.body || item.analysis);
+    raw = raw.replace(/https?:\/\/\S+/g, "").replace(/\s+/g, " ").trim();
+    // Prefer clause before em-dash / colon if long
+    if (raw.length > maxLen) {
+      var cut = raw.split(/\s+[—–-]\s+|:\s+/)[0];
+      if (cut && cut.length >= 24 && cut.length <= maxLen) return cut;
+      return firstSentence(raw, maxLen);
+    }
+    return raw;
+  }
+
+  function whyItMatters(item) {
+    var canned = displayText(item.why_it_matters || "").trim();
+    if (canned && canned.length > 28 && !/^Surfaced from .+ — high-signal/i.test(canned)) {
+      return canned;
+    }
+    var topic = item.topic_label || labelFor(item.topic_key || topicKeyFor(item), "AI");
+    var title = editorialTitle(item, 64);
+    var map = {
+      models: " — a model move builders on Scoble’s lists are already amplifying.",
+      agents: " — agent tooling is compounding across curated builder lists.",
+      robotics: " — physical AI signal from Scoble robotics-adjacent lists.",
+      funding: " — capital or deal flow the desk is tracking before the wire.",
+      companies: " — company-side move from Scoble’s AI company lists.",
+      research: " — research signal worth filing before it becomes consensus.",
+      chips: " — hardware/compute signal with list momentum.",
+      policy: " — policy pressure that could reshape the stack.",
+      "open-source": " — open weights/tooling gaining list traction.",
+      creative: " — generative creative stack movement across lists."
+    };
+    var key = item.topic_key || topicKeyFor(item);
+    return title + (map[key] || (" — filed under " + topic + " from Scoble’s lists."));
+  }
+
+  function sourceCount(item) {
+    var n = 0;
+    if (item.sources && item.sources.length) n = item.sources.length;
+    else if (item.source_url) n = 1;
+    var eng = item.engagement || {};
+    var social = (eng.retweet_count || 0) + (eng.reply_count || 0) + (eng.quote_count || 0) + (eng.like_count || 0);
+    if (social > n) n = Math.max(n, Math.min(social, 64));
+    return n || 1;
+  }
+
+  function diggMetaLine(item) {
+    var parts = [];
+    var n = sourceCount(item);
+    parts.push(n + (n === 1 ? " source" : " sources"));
+    var listPretty = prettyChipLabel("", item.source_list || item.section_label || "");
+    if (listPretty && !/^(Models|Agents|Robotics|Funding|Companies|Research|Chips)$/i.test(listPretty)) {
+      parts.push(listPretty);
+    } else if (item.topic_label) {
+      parts.push(item.topic_label);
+    }
+    parts.push("first seen " + (fallbackTime(item.published_at || item.created_at) || "recently"));
+    return parts.join(" · ");
+  }
+
+  function whyRankedLabel(item) {
+    var hay = [item.headline, item.summary, item.body, item.title, item.text].join(" ");
+    var hits = 0;
+    try { hits = (hay.match(new RegExp(AI_RE.source, "gi")) || []).length; } catch (e) { hits = 0; }
+    if (item.signal_badge && String(item.signal_badge).toLowerCase() === "bullish") return "Rising";
+    if (hits >= 3) return "Keyword hit";
+    if ((item.engagement && (item.engagement.retweet_count || 0) >= 10) || (item.engagement_score || 0) >= 60) return "List spike";
+    return "Scoble list";
+  }
+
+  function whyRankedHtml(item) {
+    var label = whyRankedLabel(item);
+    return '<span class="why-ranked" title="Why this ranked">' + escapeHtml(label) + "</span>";
+  }
+
+  function uniqueDek(item, headline, maxLen) {
+    maxLen = maxLen || 160;
+    var body = displayText(item.summary || item.body || "").replace(/\s+/g, " ").trim();
+    var parts = body.split(/(?<=[.!?])\s+/).filter(Boolean);
+    var h = String(headline || "").toLowerCase();
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i].replace(/^RT\s+@[A-Za-z0-9_]+:\s*/i, "").trim();
+      if (!p) continue;
+      if (p.toLowerCase() === h) continue;
+      if (h && p.toLowerCase().indexOf(h.slice(0, Math.min(28, h.length))) === 0 && p.length < h.length + 12) continue;
+      return firstSentence(p, maxLen);
+    }
+    var why = whyItMatters(item);
+    if (why && why.toLowerCase().indexOf(h) !== 0) return firstSentence(why, maxLen);
+    return "";
+  }
+
   function mapSectionKey(name) {
     var s = String(name || "").toLowerCase();
     if (s.indexOf("robot") !== -1) return "robotics";
@@ -24,7 +155,7 @@
     if (s.indexOf("event") !== -1) return "events";
     if (s.indexOf("paper") !== -1 || s.indexOf("science") !== -1 || s.indexOf("research") !== -1) return "research";
     if (s.indexOf("infra") !== -1 || s.indexOf("compute") !== -1) return "compute";
-    if (s.indexOf("lab") !== -1 || s.indexOf("compan") !== -1 || s.indexOf("industry") !== -1) return "industry";
+    if (s.indexOf("lab") !== -1 || s.indexOf("compan") !== -1 || s.indexOf("industry") !== -1) return "companies";
     if (s.indexOf("scoble") !== -1) return "scoble";
     return s.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "general";
   }
@@ -34,7 +165,7 @@
       models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
       policy: "Policy", chips: "Chips", "open-source": "Open source", events: "Events",
       research: "Research", creative: "Creative", compute: "Compute", industry: "Industry",
-      scoble: "Scoble", labs: "Labs", jobs: "Jobs"
+      scoble: "Scoble", labs: "Labs", jobs: "Jobs", companies: "Companies", industry: "Companies"
     };
     return map[key] || fallback || key;
   }
@@ -48,7 +179,37 @@
   /** Accept app schema OR scraper-raw schema */
   function normalizeData(data) {
     if (!data) return data;
-    if (data.stories && data.stories.length && data.stories[0].headline && data.chips) return data;
+    if (data.stories && data.stories.length && data.stories[0].headline && data.chips) {
+      // Still enrich topics / signal takes on already-normalized payloads
+      data.stories.forEach(function (s) {
+        if (!s.topic_key) {
+          s.topic_key = topicKeyFor(s);
+          s.topic_label = labelFor(s.topic_key, s.section_label);
+        }
+      });
+      (data.signals || []).forEach(function (s) {
+        if (!s.topic_key) {
+          s.topic_key = topicKeyFor(s);
+          s.topic_label = labelFor(s.topic_key, s.section_label);
+        }
+        if (!s.analysis || !String(s.analysis).trim()) {
+          s.analysis = deskTakeFor(s);
+          s._analysis_placeholder = false;
+        }
+      });
+      var topicOrder2 = ["models","agents","robotics","funding","policy","chips","open-source","research","creative","industry"];
+      var topicLabels2 = {
+        models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
+        policy: "Policy", chips: "Chips", "open-source": "Open source", research: "Research",
+        creative: "Creative", industry: "Industry"
+      };
+      var counts2 = {};
+      data.stories.forEach(function (s) { counts2[s.topic_key] = (counts2[s.topic_key] || 0) + 1; });
+      data.chips = [{ id: "all", label: "All" }].concat(topicOrder2.filter(function (id) {
+        return counts2[id];
+      }).map(function (id) { return { id: id, label: topicLabels2[id] }; }));
+      return data;
+    }
 
     var stories = [];
     var seen = {};
@@ -164,13 +325,41 @@
       return r;
     });
 
-    var chips = data.chips || [
-      { id: "all", label: "All" }, { id: "models", label: "Models" },
-      { id: "agents", label: "Agents" }, { id: "robotics", label: "Robotics" },
-      { id: "funding", label: "Funding" }, { id: "policy", label: "Policy" },
-      { id: "chips", label: "Chips" }, { id: "open-source", label: "Open source" },
-      { id: "events", label: "Events" }, { id: "research", label: "Research" }
-    ];
+    var topicOrder = ["models","agents","robotics","funding","policy","chips","open-source","research","creative","industry"];
+    var topicLabels = {
+      models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
+      policy: "Policy", chips: "Chips", "open-source": "Open source", research: "Research",
+      creative: "Creative", industry: "Industry"
+    };
+    var topicCounts = {};
+    stories.forEach(function (s) {
+      var tk = topicKeyFor(s);
+      s.topic_key = tk;
+      s.topic_label = topicLabels[tk] || labelFor(tk, s.section_label);
+      topicCounts[tk] = (topicCounts[tk] || 0) + 1;
+    });
+    signals.forEach(function (s) {
+      var tk = topicKeyFor(s);
+      s.topic_key = tk;
+      s.section_key = s.section_key || tk;
+      s.topic_label = topicLabels[tk] || labelFor(tk, s.section_label);
+      // Fill empty analysis with a short desk take so Signals feels real
+      if (!s.analysis || !String(s.analysis).trim()) {
+        s.analysis = deskTakeFor(s);
+        s._analysis_placeholder = false;
+      }
+    });
+    var chips = [{ id: "all", label: "All" }].concat(topicOrder.filter(function (id) {
+      return topicCounts[id];
+    }).map(function (id) {
+      return { id: id, label: topicLabels[id] };
+    }));
+    // If nothing mapped, fall back to provided chips
+    if (chips.length <= 1 && data.chips && data.chips.length) {
+      chips = data.chips.map(function (c) {
+        return { id: c.id, label: prettyChipLabel(c.id, c.label) };
+      });
+    }
 
     var forYou = data.forYou || signals.slice().sort(function (a, b) {
       return (b.engagement_score || 0) - (a.engagement_score || 0);
@@ -259,6 +448,157 @@
   }
 
 
+  function decodeEntities(s) {
+    if (s == null) return "";
+    var str = String(s);
+    if (str.indexOf("&") === -1) return str;
+    try {
+      var ta = document.createElement("textarea");
+      ta.innerHTML = str;
+      return ta.value;
+    } catch (e) {
+      return str
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&nbsp;/g, " ");
+    }
+  }
+
+  function displayText(s) {
+    return cleanDisplayText(decodeEntities(s));
+  }
+
+  function firstSentence(s, maxLen) {
+    var t = displayText(s).replace(/\s+/g, " ").trim();
+    if (!t) return "";
+    maxLen = maxLen || 160;
+    var m = t.match(/^(.+?[.!?])(\s|$)/);
+    if (m && m[1].length >= 28 && m[1].length <= maxLen) return m[1];
+    if (t.length <= maxLen) return t;
+    var cut = t.slice(0, maxLen - 1);
+    var sp = cut.lastIndexOf(" ");
+    if (sp > 40) cut = cut.slice(0, sp);
+    return cut.trim() + "…";
+  }
+
+  function cleanHeadline(s, fallback) {
+    var t = displayText(s).replace(/\s+/g, " ").trim();
+    t = t.replace(/^RT\s+@[A-Za-z0-9_]+:\s*/i, "");
+    if (/…$|\.\.\.$/.test(t) && fallback) {
+      var fuller = displayText(fallback).replace(/\s+/g, " ").trim();
+      fuller = fuller.replace(/^RT\s+@[A-Za-z0-9_]+:\s*/i, "");
+      if (fuller.length > t.length + 8) {
+        var sentence = fuller.match(/^(.+?[.!?])(\s|$)/);
+        if (sentence && sentence[1].length >= 40) return sentence[1];
+        if (fuller.length <= 160) return fuller;
+        return firstSentence(fuller, 140);
+      }
+    }
+    return t;
+  }
+
+    function prettyChipLabel(id, label) {
+    var raw = String(label || id || "");
+    var m = raw.match(/AI\s+Companies\s*#?\s*(\d+)/i);
+    if (m) return "Companies #" + m[1];
+    m = raw.match(/AI\s+Community\s*#?\s*(\d+)/i);
+    if (m) return "Community #" + m[1];
+    m = raw.match(/AI\s+Labs/i);
+    if (m) return "Labs";
+    return raw.replace(/\s+of\s+\d+/i, "").trim() || raw;
+  }
+
+  function engagementScore(item) {
+    var e = item && item.engagement;
+    if (!e) return item && item.engagement_score != null ? Number(item.engagement_score) : 0;
+    return (e.like_count || 0) * 3 + (e.retweet_count || 0) * 4 + (e.reply_count || 0) * 2 + (e.quote_count || 0) * 3 + Math.round((e.impression_count || 0) / 100);
+  }
+
+  var AI_RE = /\b(ai|llm|gpt|claude|gemini|openai|anthropic|nvidia|model|agent|robot|chip|gpu|ml|neural|transformer|cursor|fireworks|scoble|aligned|startup|funding|benchmark|inference|open[- ]?source|agi|sota)\b/i;
+
+  
+  function isRetweetNoise(item) {
+    var h = String((item && (item.headline || item.title || item.text)) || "");
+    var body = String((item && (item.summary || item.body || item.text)) || "");
+    var t = (h + "\n" + body).trim();
+    if (/^RT\s+@/i.test(h) || /^RT\s+@/i.test(t)) {
+      // allow RT if clearly AI/tech
+      if (!/\b(AI|LLM|model|agent|robot|GPU|OpenAI|Anthropic|NVIDIA|Google|Meta|xAI|Claude|GPT|funding|launch|benchmark|SOTA)\b/i.test(t)) {
+        return true;
+      }
+    }
+    // entertainment / sports junk
+    if (/\b(Aegon|Game of Thrones|House of the Dragon|NFL|NBA|soccer|football|Taylor Swift|spoiler)\b/i.test(t) &&
+        !/\b(AI|model|agent|LLM|robot)\b/i.test(t)) {
+      return true;
+    }
+    return false;
+  }
+
+  function isAiRelevant(item) {
+    var t = [
+      item && item.headline,
+      item && item.title,
+      item && item.summary,
+      item && item.body,
+      item && item.text,
+      item && item.section_label,
+      item && item.source_list
+    ].join(" ");
+    return /\b(AI|A\.I\.|LLM|GPT|Claude|Grok|model|agent|robot|robotics|GPU|chip|semiconductor|OpenAI|Anthropic|NVIDIA|Google DeepMind|DeepMind|Meta Superintelligence|xAI|Mistral|funding|Series [ABC]|benchmark|SOTA|inference|transformer|diffusion|multimodal|MCP|Cursor)\b/i.test(t);
+  }
+
+  function relevanceScore(item) {
+    var hay = [item.headline, item.summary, item.body, item.section_label, item.source_list, item.author_name, item.title, item.text]
+      .join(" ");
+    var score = 0;
+    var m = hay.match(new RegExp(AI_RE.source, "gi"));
+    if (m) score += Math.min(m.length, 8) * 12;
+    if (/^RT\s+@/i.test(String(item.headline || item.title || ""))) score -= 25;
+    if (/\b(game of thrones|aegon|season\s+\d+|nba|nfl|soccer|football|celebrity|actor|actress|tv show)\b/i.test(hay)) score -= 220;
+    if (item.signal_badge) score += 8;
+    if (item._from_x_api) score += 2;
+    return score;
+  }
+
+  function rankScore(item) {
+    if (isRetweetNoise(item)) return -1e12;
+    var base = engagementScore(item) + relevanceScore(item) * 8;
+    if (!isAiRelevant(item)) base -= 5000;
+    if (/^RT\s+@/i.test(String((item && (item.headline || item.title)) || ""))) base -= 800;
+    return base;
+  }
+
+
+  function engagementPillHtml(item) {
+    var e = item && item.engagement;
+    if (!e) {
+      if (item && item.engagement_score != null) {
+        return '<span class="eng-pill" title="Confidence">' + escapeHtml(String(item.engagement_score)) + " conf.</span>";
+      }
+      return "";
+    }
+    var likes = e.like_count || 0;
+    var rts = e.retweet_count || 0;
+    var imp = e.impression_count || 0;
+    var bits = [];
+    if (likes) bits.push(likes + " likes");
+    if (rts) bits.push(rts + " rts");
+    if (!bits.length && imp) bits.push(imp + " views");
+    if (!bits.length) return "";
+    return '<span class="eng-pill" title="Engagement">' + escapeHtml(bits.join(" · ")) + "</span>";
+  }
+
+  function staggerStyle(i) {
+    var delay = Math.min(i, 12) * 0.045;
+    return 'style="animation-delay:' + delay.toFixed(3) + 's"';
+  }
+
+
+
   function cleanDisplayText(s) {
     if (!s) return "";
     return String(s)
@@ -309,8 +649,8 @@
   }
 
   function signalExcerpt(sig) {
-    var title = String(sig.title || sig.text || "").trim();
-    var cleaned = cleanDisplayText(sig.analysis || "");
+    var title = displayText(sig.title || sig.text || "").trim();
+    var cleaned = displayText(sig.analysis || "");
     if (!cleaned) return "";
     if (cleaned.toLowerCase() === title.toLowerCase()) return "";
     var first = cleaned.split(/\n/)[0].trim();
@@ -321,10 +661,10 @@
   function storyBodyParagraphs(story) {
     var raw = String(story.body || "");
     var hadPh = hasSamplePlaceholder(raw) || !!story._body_placeholder;
-    var cleaned = cleanDisplayText(raw);
+    var cleaned = displayText(raw);
     if (hadPh) {
       var paras = [];
-      var summary = cleanDisplayText(story.summary || "").trim();
+      var summary = displayText(story.summary || "").trim();
       if (summary) paras.push(summary);
       if (story.kind === "ai-item" || story.ai_section) paras.push("From the /ai briefing.");
       else if (story.signal_badge || story.kind === "signal-story") paras.push("From the Aligned News signals desk.");
@@ -406,7 +746,15 @@
   };
 
   function sectionThumbStyle(key) {
-    return SECTION_GRADIENTS[key] || SECTION_GRADIENTS.general;
+    var k = String(key || "");
+    if (SECTION_GRADIENTS[k]) return SECTION_GRADIENTS[k];
+    if (k.indexOf("compan") !== -1) return SECTION_GRADIENTS.industry;
+    if (k.indexOf("community") !== -1) {
+      var n = parseInt((k.match(/(\d+)/) || [])[1] || "1", 10);
+      var keys = ["models","agents","research","open-source","creative","compute","funding","chips"];
+      return SECTION_GRADIENTS[keys[(n - 1) % keys.length]];
+    }
+    return SECTION_GRADIENTS.general;
   }
 
   function signalIconColor(badge) {
@@ -424,27 +772,29 @@
     if (!state.data) return;
     var list = $("#topSignalsList");
     if (list) {
-      var items = (state.data.forYou && state.data.forYou.length)
-        ? state.data.forYou.slice(0, 5)
-        : (state.data.signals || []).slice().sort(function (a, b) {
+      var items = (state.data.signals || []).slice().sort(function (a, b) {
             return (b.engagement_score || 0) - (a.engagement_score || 0);
           }).slice(0, 5);
+      if (!items.length && state.data.forYou && state.data.forYou.length) {
+        items = state.data.forYou.slice(0, 5);
+      }
       if (!items.length) {
-        list.innerHTML = '<li class="empty" style="padding:0.5rem 0;text-align:left">No signals yet.</li>';
+        list.innerHTML = '<li class="empty" style="padding:0.5rem 0;text-align:left;opacity:1;animation:none">No signals yet.</li>';
       } else {
         list.innerHTML = items.map(function (s) {
           var href = "story.html?id=" + encodeURIComponent("sigstory-" + s.id);
+          var title = firstSentence(s.title || s.text || "", 96);
           return (
             '<li class="rail-item">' +
               '<span class="rail-icon" style="background:' + signalIconColor(s.badge) + '">' +
                 escapeHtml(String(s.badge || "sig").slice(0, 1).toUpperCase()) +
               "</span>" +
               "<div>" +
-                '<h3 class="rail-item-title"><a href="' + href + '">' + escapeHtml(s.title || s.text || "") + "</a></h3>" +
+                '<h3 class="rail-item-title"><a href="' + href + '">' + escapeHtml(title) + "</a></h3>" +
                 '<div class="rail-item-meta">' +
-                  avatarStackHtml(s) +
+                  '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
                   '<span>' + escapeHtml(joinMeta([
-                    (s.badge || "signal").toUpperCase(),
+                    prettyChipLabel(s.section_key, s.section_label || s.source_list || ""),
                     fallbackTime(s.created_at)
                   ])) + "</span>" +
                 "</div>" +
@@ -463,8 +813,25 @@
         var href = page === "signals"
           ? "signals.html?section=" + encodeURIComponent(c.id)
           : "index.html?section=" + encodeURIComponent(c.id);
-        return '<a href="' + href + '">' + escapeHtml(c.label) + "</a>";
+        return '<a href="' + href + '">' + escapeHtml(prettyChipLabel(c.id, c.label)) + "</a>";
       }).join("");
+    }
+
+    var provenance = $("#provenanceCopy");
+    if (provenance && state.data.meta) {
+      var lists = state.data.meta.lists_sampled || [];
+      var n = state.data.stats && state.data.stats.lists ? state.data.stats.lists : lists.length;
+      provenance.textContent = n
+        ? ("Live from @" + (state.data.meta.username || "Scobleizer") + " — " + n + " lists sampled this sweep.")
+        : "Live from @Scobleizer lists via X API.";
+    }
+
+    var why = $("#whyCopy");
+    if (why && !why.getAttribute("data-locked")) {
+      var storiesN = (state.data.stories || []).filter(isTodayFeedKind).length;
+      var sigN = (state.data.signals || []).length;
+      why.textContent = "Aligned News watches Scoble’s curated X lists, ranks cross-list spikes, and puts " +
+        storiesN + " stories and " + sigN + " signals on your Pro desk — before the timeline does.";
     }
 
     var vibeStats = $("#vibeStats");
@@ -476,6 +843,11 @@
         '<div class="vibe-stat"><span>Stories</span><strong>' + stories + "</strong></div>" +
         '<div class="vibe-stat"><span>Signals</span><strong>' + signals + "</strong></div>" +
         '<div class="vibe-stat"><span>Reports</span><strong>' + reports + "</strong></div>";
+      var vibeCopy = $("#vibeCopy");
+      if (vibeCopy) {
+        vibeCopy.textContent = stories + " stories and " + signals + " signals on the desk this sweep — " +
+          reports + " reports when you need depth.";
+      }
     }
   }
 
@@ -498,9 +870,8 @@
       saved: state.saved.length,
     };
     var nav = [
-      { id: "today", href: "index.html", label: "Today" },
+      { id: "today", href: "index.html", label: "Today", count: counts.stories },
       { id: "signals", href: "signals.html", label: "Signals", count: counts.signals },
-      { id: "stories", href: "index.html", label: "Stories", count: counts.stories },
       { id: "reports", href: "reports.html", label: "Reports", count: counts.reports },
       { id: "saved", href: "index.html?view=saved", label: "Saved", count: counts.saved },
     ];
@@ -533,7 +904,7 @@
           );
         }).join("") +
         "</ul>" +
-        '<div class="sidebar-foot">Asher · Pro<br>Preview mock</div>';
+        '<div class="sidebar-foot">Asher · Pro<br>63 curated X lists</div>';
     }
 
     var metaEl = $("#pageMeta");
@@ -542,12 +913,26 @@
         weekday: "long", month: "long", day: "numeric", year: "numeric"
       });
       if (page === "today") {
-        metaEl.textContent = todayLabel + (lastUpdated ? " · Last updated " + lastUpdated : "");
+        metaEl.textContent = todayLabel + (lastUpdated ? " · Updated " + lastUpdated : "");
       } else if (page === "signals") {
         metaEl.textContent = counts.signals + " signals" + (lastUpdated ? " · Updated " + lastUpdated : "");
       } else if (page === "reports") {
         metaEl.textContent = counts.reports + " reports";
       }
+    }
+
+    var liveTime = $("#liveTime");
+    if (liveTime) {
+      liveTime.textContent = lastUpdated ? ("Updated " + lastUpdated) : "Live desk";
+    }
+
+    var deskStats = $("#deskStats");
+    if (deskStats) {
+      var listCount = (data.stats && data.stats.lists) || (data.meta && data.meta.lists_sampled && data.meta.lists_sampled.length) || 63;
+      deskStats.innerHTML =
+        '<div class="desk-stat"><strong>' + counts.stories + '</strong><span>Stories</span></div>' +
+        '<div class="desk-stat"><strong>' + counts.signals + '</strong><span>Signals</span></div>' +
+        '<div class="desk-stat"><strong>' + listCount + '</strong><span>Lists</span></div>';
     }
 
     var densBtn = $("#densityToggle");
@@ -572,7 +957,7 @@
 
   function storyMatches(story) {
     if (state.filter && state.filter !== "all") {
-      var key = story.section_key || mapSectionKey(story.section || story.tag || "");
+      var key = story.topic_key || story.section_key || mapSectionKey(story.section || story.tag || "");
       if (key !== state.filter) return false;
     }
     if (state.query) {
@@ -594,7 +979,7 @@
     el.innerHTML = chips.map(function (c) {
       return (
         '<button type="button" class="chip" data-filter="' + escapeHtml(c.id) + '" aria-pressed="' +
-        (state.filter === c.id ? "true" : "false") + '">' + escapeHtml(c.label) + "</button>"
+        (state.filter === c.id ? "true" : "false") + '">' + escapeHtml(prettyChipLabel(c.id, c.label)) + "</button>"
       );
     }).join("");
     $all(".chip", el).forEach(function (btn) {
@@ -632,6 +1017,11 @@
     var stories = (state.data.stories || []).filter(function (s) {
       if (!isTodayFeedKind(s)) return false;
       return storyMatches(s);
+    }).slice().sort(function (a, b) {
+      var ra = rankScore(a);
+      var rb = rankScore(b);
+      if (rb !== ra) return rb - ra;
+      return Date.parse(b.published_at || 0) - Date.parse(a.published_at || 0);
     });
     if (!stories.length) {
       list.innerHTML = '<li class="empty">No stories match this filter.</li>';
@@ -639,59 +1029,79 @@
     }
 
     var showLead = getParam("view") !== "saved" && state.filter === "all" && !state.query;
+    if (showLead && stories.length > 1) {
+      var bestIdx = -1;
+      var best = -1e9;
+      for (var bi = 0; bi < Math.min(stories.length, 40); bi++) {
+        var cand = stories[bi];
+        var rs = relevanceScore(cand);
+        if (rs < 12) continue; // clear AI signal required for lead
+        var score = rankScore(cand) + rs * 2;
+        if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180; // prefer originals for hero
+        if (score > best) { best = score; bestIdx = bi; }
+      }
+      if (bestIdx >= 0) {
+        var lead = stories.splice(bestIdx, 1)[0];
+        stories.unshift(lead);
+      }
+    }
     var html = "";
 
     stories.forEach(function (s, i) {
       var badge = s.signal_badge
         ? '<span class="' + badgeClass(s.signal_badge) + '">' + escapeHtml(String(s.signal_badge).toUpperCase()) + "</span>"
         : "";
-      var excerpt = cleanDisplayText(s.summary || "");
-      if (excerpt.length > 180) excerpt = excerpt.slice(0, 177).trim() + "…";
+      var excerpt = firstSentence(s.summary || s.body || "", 180);
       var isRead = state.read.indexOf(s.id) !== -1;
-      var metaLine = joinMeta([
-        s.section_label || s.section || "",
-        fallbackTime(s.published_at),
-        (!s.signal_badge && s.author_name) ? s.author_name : "",
-        s.source_list || ""
-      ]);
+      var sectionPretty = s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.section || "");
+      var metaLine = diggMetaLine(s);
       var href = "story.html?id=" + encodeURIComponent(s.id);
       var key = s.section_key || mapSectionKey(s.section || s.tag || "");
+      var headline = editorialTitle(s, 96);
 
       if (showLead && i === 0) {
-        var dek = excerpt;
-        if (dek.length > 220) dek = dek.slice(0, 217).trim() + "…";
+        var dek = firstSentence(s.summary || s.body || "", 180);
+        var leadHeadline = editorialTitle(s, 78);
+        var why = whyItMatters(s);
         html +=
-          '<li class="lead-card' + (isRead ? " is-read" : "") + '">' +
-            '<div class="lead-eyebrow">Top Story</div>' +
-            '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(s.headline) + "</a></h2>" +
-            (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
+          '<li class="lead-card' + (isRead ? " is-read" : "") + '" ' + staggerStyle(0) + '>' +
+            '<div class="lead-rank-row">' +
+              '<div class="lead-eyebrow">Top Story</div>' +
+              badge +
+              (s.topic_label ? '<span class="badge badge-signal">' + escapeHtml(s.topic_label) + "</span>" : "") +
+            "</div>" +
+            '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
+            (dek && dek.toLowerCase() !== leadHeadline.toLowerCase() ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
+            '<p class="lead-why">' + escapeHtml(why) + "</p>" +
             '<div class="lead-hero">' +
               '<img src="lead-hero.png" alt="" loading="eager" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'lead-hero-fallback\')" />' +
             "</div>" +
-            '<div class="lead-meta" style="margin:0.95rem 0 0">' +
+            '<div class="lead-meta">' +
               avatarStackHtml(s) +
-              badge +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</li>";
         return;
       }
 
-      var rank = showLead ? (i + 1) : (i + 1);
+      var rank = i + 1;
+      var rowHeadline = editorialTitle(s, 92);
       html +=
-        '<li class="feed-row' + (isRead ? " is-read" : "") + '">' +
+        '<li class="feed-row' + (isRead ? " is-read" : "") + '" ' + staggerStyle(i) + '>' +
           '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
-            '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(s.headline) + "</a></h2>" +
+            '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(rowHeadline) + "</a></h2>" +
             (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               avatarStackHtml(s) +
               badge +
+              (s.topic_label ? '<span class="badge">' + escapeHtml(s.topic_label) + "</span>" : "") +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
           '<div class="row-thumb" aria-hidden="true">' +
             '<div class="row-thumb-tile" style="background:' + sectionThumbStyle(key) + '"></div>' +
+            '<span class="row-thumb-label">' + escapeHtml(String(s.topic_label || sectionPretty).split(" ")[0] || "AI") + "</span>" +
           "</div>" +
         "</li>";
     });
@@ -704,13 +1114,15 @@
     if (!list || !state.data) return;
     renderRightRail();
     var items = (state.data.signals || []).filter(function (s) {
-      if (state.filter && state.filter !== "all" && (s.section_key || "") !== state.filter) return false;
+      if (state.filter && state.filter !== "all" && (s.topic_key || s.section_key || "") !== state.filter) return false;
       if (state.query) {
         var q = state.query.toLowerCase();
         var hay = [s.title, s.text, s.category, s.badge, s.source_list].join(" ").toLowerCase();
         if (hay.indexOf(q) === -1) return false;
       }
       return true;
+    }).slice().sort(function (a, b) {
+      return (b.engagement_score || 0) - (a.engagement_score || 0);
     });
     if (!items.length) {
       list.innerHTML = '<li class="empty">No signals match.</li>';
@@ -718,19 +1130,20 @@
     }
     list.innerHTML = items.map(function (s, i) {
       var excerpt = signalExcerpt(s);
-      if (excerpt.length > 200) excerpt = excerpt.slice(0, 197).trim() + "…";
+      if (excerpt) excerpt = firstSentence(excerpt, 200);
+      var title = editorialTitle(s, 100);
       var metaLine = joinMeta([
-        s.section_label || s.category || "",
+        s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.category || ""),
         fallbackTime(s.created_at),
-        s.source_list || "",
         (s.engagement_score != null ? s.engagement_score + "% conf." : "")
       ]);
+      if (!excerpt) excerpt = firstSentence(s.analysis || "", 180);
       return (
-        '<li class="feed-row">' +
+        '<li class="feed-row" ' + staggerStyle(i) + '>' +
           '<div class="rank">' + (i + 1) + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '">' +
-              escapeHtml(s.title) + "</a></h2>" +
+              escapeHtml(title) + "</a></h2>" +
             (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               avatarStackHtml(s) +
@@ -758,11 +1171,11 @@
       list.innerHTML = '<li class="empty">No reports.</li>';
       return;
     }
-    list.innerHTML = items.map(function (r) {
+    list.innerHTML = items.map(function (r, i) {
       return (
-        '<li class="report-item">' +
-          "<h2>" + escapeHtml(r.title) + "</h2>" +
-          (r.summary ? "<p>" + escapeHtml(r.summary) + "</p>" : "") +
+        '<li class="report-item" ' + staggerStyle(i) + '>' +
+          "<h2>" + escapeHtml(displayText(r.title)) + "</h2>" +
+          (r.summary ? "<p>" + escapeHtml(firstSentence(r.summary, 200)) + "</p>" : "") +
           '<div class="meta"><span class="meta-line">' + escapeHtml(joinMeta([
             (r.type || "report").replace(/_/g, " "),
             r.reading_time_min ? (r.reading_time_min + " min") : "",
@@ -794,7 +1207,7 @@
           source_list: sig.source_list,
           source_url: sig.source_url,
           sources: sig.source_url ? [{ url: sig.source_url, name: sig.source_list || "Source" }] : [],
-          body: cleanDisplayText(sig.analysis || sig.text || ""),
+          body: displayText(sig.analysis || sig.text || ""),
           author_name: "Aligned News",
           kind: "signal-story",
           _body_placeholder: !!sig._analysis_placeholder || hasSamplePlaceholder(sig.analysis || ""),
@@ -832,30 +1245,63 @@
       sources = [{ url: story.source_url, name: story.source_list || "Original source" }];
     }
 
+    var showHero = !!(story.kind === "story" || story.kind === "ai-item");
+    var title = editorialTitle(story, 110);
+    var dek = firstSentence(story.summary || "", 220);
+    if (dek && dek.toLowerCase() === title.toLowerCase()) dek = "";
+    var why = whyItMatters(story);
+    // Prefer desk take / unique body paras only
+    var uniqueBody = paragraphs.filter(function (p) {
+      var t = p.trim().toLowerCase();
+      return t && t !== title.toLowerCase() && t !== dek.toLowerCase();
+    });
+    if (!uniqueBody.length) {
+      uniqueBody = [deskTakeFor(story), "Source list: " + (story.source_list || story.section_label || "Scoble lists") + "."];
+    }
+    bodyHtml = uniqueBody.map(function (p) {
+      if (/^From the \/ai briefing/i.test(p) || /^From the Aligned News/i.test(p) || /^Desk take:/i.test(p)) {
+        return '<p class="sample-note">' + escapeHtml(p) + "</p>";
+      }
+      return "<p>" + escapeHtml(p) + "</p>";
+    }).join("");
+    var related = (state.data.stories || []).filter(function (x) {
+      return x.id !== story.id && (x.topic_key || "") === (story.topic_key || topicKeyFor(story));
+    }).slice(0, 3);
+    var relatedHtml = related.length ? (
+      '<div class="related"><h2>Related on the desk</h2><ul>' +
+      related.map(function (r) {
+        return '<li><a href="story.html?id=' + encodeURIComponent(r.id) + '">' + escapeHtml(editorialTitle(r, 80)) + "</a></li>";
+      }).join("") + "</ul></div>"
+    ) : "";
     root.innerHTML =
-      '<a class="back-link" href="index.html">← Today</a>' +
+      '<a class="back-link" href="index.html">← Back to Today</a>' +
       '<div class="article-kicker">' +
         (story.signal_badge ? '<span class="' + badgeClass(story.signal_badge) + '">' + escapeHtml(String(story.signal_badge).toUpperCase()) + "</span>" : "") +
+        (story.topic_label ? '<span class="badge">' + escapeHtml(story.topic_label) + "</span>" : "") +
         '<span class="meta-line">' + escapeHtml(joinMeta([
-          story.section_label || story.section || "",
+          prettyChipLabel("", story.source_list || story.section_label || ""),
           fallbackTimeLong(story.published_at),
-          story.source_list || "",
-          (!story.signal_badge && story.author_name) ? story.author_name : ""
+          (!story.signal_badge && story.author_name) ? decodeEntities(story.author_name) : ""
         ])) + "</span>" +
       "</div>" +
-      "<h1>" + escapeHtml(story.headline) + "</h1>" +
-      (cleanDisplayText(story.summary) ? '<p class="article-dek">' + escapeHtml(cleanDisplayText(story.summary)) + "</p>" : "") +
+      "<h1>" + escapeHtml(title) + "</h1>" +
+      (dek ? '<p class="article-dek">' + escapeHtml(dek) + "</p>" : "") +
+      '<p class="article-why">' + escapeHtml(why) + "</p>" +
+      (showHero
+        ? '<div class="article-hero"><img src="lead-hero.png" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'" /></div>'
+        : "") +
       '<div class="article-actions">' +
-        '<button type="button" class="btn" id="saveBtn">' + (saved ? "Saved" : "Save") + "</button>" +
+        '<button type="button" class="btn" id="saveBtn">' + (saved ? "Saved" : "Save for later") + "</button>" +
         '<button type="button" class="btn" id="readBtn">Mark unread</button>' +
-        (story.source_url ? '<a class="btn btn-primary" href="' + escapeHtml(story.source_url) + '" target="_blank" rel="noopener">Open source</a>' : "") +
+        (story.source_url ? '<a class="btn btn-primary" href="' + escapeHtml(story.source_url) + '" target="_blank" rel="noopener">Open on X</a>' : "") +
       "</div>" +
       '<div class="article-body">' + bodyHtml + "</div>" +
+      relatedHtml +
       (sources.length
         ? '<div class="sources"><h2>Sources</h2><ul>' +
           sources.map(function (src) {
             return "<li><a href=\"" + escapeHtml(src.url) + "\" target=\"_blank\" rel=\"noopener\">" +
-              escapeHtml(src.name || src.url) + "</a></li>";
+              escapeHtml(decodeEntities(src.name || src.url)) + "</a></li>";
           }).join("") + "</ul></div>"
         : "");
 
