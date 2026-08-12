@@ -588,12 +588,9 @@
   }
 
   var loadBarHideTimer = null;
-  var clusterHideTimer = null;
-  var clusterAnimTimer = null;
-  var clusterShownAt = 0;
-  var clusterPctValue = 8;
-  var CLUSTER_TICK_COUNT = 32;
-  var CLUSTER_MIN_MS = 750;
+  var glowHideTimer = null;
+  var glowShownAt = 0;
+  var GLOW_MIN_MS = 420;
 
   function prefersReducedMotion() {
     try {
@@ -603,60 +600,17 @@
     }
   }
 
-  function ensureClusterTicks() {
-    var ticks = document.getElementById("clusterTicks");
-    if (!ticks) return null;
-    if (ticks.childElementCount !== CLUSTER_TICK_COUNT) {
-      var html = "";
-      var i;
-      for (i = 0; i < CLUSTER_TICK_COUNT; i++) {
-        html += '<span class="cluster-tick"></span>';
-      }
-      ticks.innerHTML = html;
-    }
-    return ticks;
-  }
-
-  function paintClusterPct(pct) {
-    clusterPctValue = Math.max(0, Math.min(100, Math.round(pct)));
-    var label = document.getElementById("clusterPct");
-    if (label) label.textContent = clusterPctValue + "% COMPLETE.";
-    var ticks = ensureClusterTicks();
-    if (!ticks) return;
-    var filled = Math.round((clusterPctValue / 100) * CLUSTER_TICK_COUNT);
-    var nodes = ticks.children;
-    var i;
-    for (i = 0; i < nodes.length; i++) {
-      if (i < filled) nodes[i].classList.add("is-filled");
-      else nodes[i].classList.remove("is-filled");
-    }
-  }
-
-  function stopClusterAnim() {
-    if (clusterAnimTimer) {
-      clearInterval(clusterAnimTimer);
-      clusterAnimTimer = null;
-    }
-  }
-
-  function startClusterAnim(fromPct, toPct, durationMs) {
-    stopClusterAnim();
-    var start = fromPct == null ? 8 : fromPct;
-    var end = toPct == null ? 92 : toPct;
-    var dur = prefersReducedMotion() ? 0 : (durationMs == null ? 2200 : durationMs);
-    paintClusterPct(start);
-    if (dur <= 0) {
-      paintClusterPct(end);
-      return;
-    }
-    var t0 = Date.now();
-    clusterAnimTimer = setInterval(function () {
-      var u = Math.min(1, (Date.now() - t0) / dur);
-      // Ease-out toward end so it feels like Digg clustering.
-      var eased = 1 - Math.pow(1 - u, 2.2);
-      paintClusterPct(start + (end - start) * eased);
-      if (u >= 1) stopClusterAnim();
-    }, 50);
+  function ensureEdgeGlow() {
+    var glow = document.getElementById("edgeGlow");
+    if (glow) return glow;
+    glow = document.createElement("div");
+    glow.id = "edgeGlow";
+    glow.className = "edge-glow";
+    glow.hidden = true;
+    glow.setAttribute("aria-hidden", "true");
+    glow.innerHTML = '<div class="edge-glow-aura" aria-hidden="true"></div>';
+    document.body.insertBefore(glow, document.body.firstChild);
+    return glow;
   }
 
   function showThinLoadBar() {
@@ -677,31 +631,30 @@
     bar.setAttribute("aria-hidden", "true");
   }
 
-  function showClusterProgress() {
-    var card = document.getElementById("clusterCard");
-    if (clusterHideTimer) {
-      clearTimeout(clusterHideTimer);
-      clusterHideTimer = null;
+  function showSiriGlow() {
+    if (glowHideTimer) {
+      clearTimeout(glowHideTimer);
+      glowHideTimer = null;
     }
     if (loadBarHideTimer) {
       clearTimeout(loadBarHideTimer);
       loadBarHideTimer = null;
     }
+    var glow = ensureEdgeGlow();
+    document.documentElement.setAttribute("data-loading", "1");
+    document.body.classList.add("siri-glow");
+    glow.hidden = false;
+    glow.setAttribute("aria-hidden", "false");
+    glow.classList.add("is-on");
+    glowShownAt = Date.now();
+    // Subtle secondary top bar; glow is the primary loading treatment.
     showThinLoadBar();
-    if (!card) return;
-    card.classList.remove("is-leaving");
-    card.hidden = false;
-    card.setAttribute("aria-hidden", "false");
-    clusterShownAt = Date.now();
-    ensureClusterTicks();
-    startClusterAnim(8, 92, 2400);
   }
 
-  function hideClusterProgress(forceImmediate) {
-    var card = document.getElementById("clusterCard");
-    if (clusterHideTimer) {
-      clearTimeout(clusterHideTimer);
-      clusterHideTimer = null;
+  function hideSiriGlow(forceImmediate) {
+    if (glowHideTimer) {
+      clearTimeout(glowHideTimer);
+      glowHideTimer = null;
     }
     if (loadBarHideTimer) {
       clearTimeout(loadBarHideTimer);
@@ -709,30 +662,24 @@
     }
 
     function finishHide() {
-      stopClusterAnim();
-      paintClusterPct(100);
-      var pause = prefersReducedMotion() || forceImmediate ? 0 : 320;
-      clusterHideTimer = setTimeout(function () {
-        clusterHideTimer = null;
-        hideThinLoadBar();
-        if (!card) return;
-        card.classList.add("is-leaving");
-        var leaveMs = prefersReducedMotion() ? 0 : 260;
-        setTimeout(function () {
-          card.hidden = true;
-          card.setAttribute("aria-hidden", "true");
-          card.classList.remove("is-leaving");
-          paintClusterPct(8);
-        }, leaveMs);
-      }, pause);
+      hideThinLoadBar();
+      document.documentElement.removeAttribute("data-loading");
+      document.body.classList.remove("siri-glow");
+      var glow = document.getElementById("edgeGlow");
+      if (!glow) return;
+      glow.classList.remove("is-on");
+      var leaveMs = prefersReducedMotion() || forceImmediate ? 0 : 280;
+      setTimeout(function () {
+        glow.hidden = true;
+        glow.setAttribute("aria-hidden", "true");
+      }, leaveMs);
     }
 
-    // Always show card briefly even when fetch is instant/cached.
-    var elapsed = clusterShownAt ? (Date.now() - clusterShownAt) : CLUSTER_MIN_MS;
-    var wait = forceImmediate ? 0 : Math.max(0, CLUSTER_MIN_MS - elapsed);
+    var elapsed = glowShownAt ? (Date.now() - glowShownAt) : GLOW_MIN_MS;
+    var wait = forceImmediate ? 0 : Math.max(0, GLOW_MIN_MS - elapsed);
     if (wait > 0) {
-      clusterHideTimer = setTimeout(function () {
-        clusterHideTimer = null;
+      glowHideTimer = setTimeout(function () {
+        glowHideTimer = null;
         finishHide();
       }, wait);
     } else {
@@ -741,28 +688,69 @@
   }
 
   function showLoadBar() {
-    showClusterProgress();
+    showSiriGlow();
   }
 
   function hideLoadBar() {
-    hideClusterProgress(false);
+    hideSiriGlow(false);
   }
 
   function flashLoadBar(ms) {
-    showClusterProgress();
-    var dur = prefersReducedMotion() ? 0 : (ms == null ? 700 : Math.max(ms, CLUSTER_MIN_MS));
+    showSiriGlow();
+    var dur = prefersReducedMotion() ? 0 : (ms == null ? 520 : ms);
     if (dur <= 0) {
-      hideClusterProgress(true);
+      hideSiriGlow(true);
       return;
     }
-    // Fast chip-filter pulse: climb toward ~70% then complete.
-    startClusterAnim(12, 78, Math.min(dur, 900));
     loadBarHideTimer = setTimeout(function () {
       loadBarHideTimer = null;
-      hideClusterProgress(false);
+      hideSiriGlow(false);
     }, dur);
   }
 
+  function enableCardNavigation(list) {
+    if (!list) return;
+    list.classList.add("is-ready");
+    var cards = list.querySelectorAll(".lead-card, .feed-row");
+    var i;
+    for (i = 0; i < cards.length; i++) {
+      (function (card) {
+        card.classList.add("is-ready");
+        card.style.setProperty("opacity", "1", "important");
+        var href = card.getAttribute("data-href");
+        if (!href) {
+          var link = card.querySelector(".story-title a, .lead-title a");
+          if (link && link.getAttribute("href")) {
+            href = link.getAttribute("href");
+            card.setAttribute("data-href", href);
+          }
+        }
+        if (!href) return;
+        card.style.cursor = "pointer";
+        if (!card.hasAttribute("tabindex")) card.setAttribute("tabindex", "0");
+        if (!card.getAttribute("role")) card.setAttribute("role", "link");
+        if (card.dataset.navBound === "1") return;
+        card.dataset.navBound = "1";
+
+        card.addEventListener("click", function (e) {
+          var t = e.target;
+          if (t && t.closest) {
+            if (t.closest("a, button, input, textarea, select, label")) return;
+          }
+          var dest = card.getAttribute("data-href");
+          if (dest) window.location.href = dest;
+        });
+
+        card.addEventListener("keydown", function (e) {
+          if (e.key !== "Enter" && e.key !== " ") return;
+          if (e.target !== card) return;
+          e.preventDefault();
+          var dest = card.getAttribute("data-href");
+          if (dest) window.location.href = dest;
+        });
+      })(cards[i]);
+    }
+  }
   function fmtRelative(iso) {
     if (!iso) return "";
     var t = Date.parse(iso);
@@ -1503,7 +1491,7 @@
         var dek = uniqueDek(s, leadHeadline, 170);
         var why = whyItMatters(s);
         html +=
-          '<li class="lead-card' + (isRead ? " is-read" : "") + '" style="--i:0">' +
+          '<li class="lead-card' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
             '<div class="lead-rank-row">' +
               '<div class="lead-eyebrow">Top Story</div>' +
               badge +
@@ -1528,7 +1516,7 @@
       var excerpt = uniqueDek(s, headline, 140);
       var callout = (i === 3 || i === 8) && s.signal_badge;
       html +=
-        '<li class="feed-row' + (isRead ? " is-read" : "") + (callout ? " feed-row-callout" : "") + '" style="--i:' + Math.min(i, 12) + '">' +
+        '<li class="feed-row' + (isRead ? " is-read" : "") + (callout ? " feed-row-callout" : "") + '" style="--i:' + Math.min(i, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(headline) + "</a></h2>" +
@@ -1549,6 +1537,7 @@
     });
 
     list.innerHTML = html;
+    enableCardNavigation(list);
   }
 
   function renderSignals() {
@@ -1585,7 +1574,7 @@
         (s.engagement_score != null ? s.engagement_score + "% conf." : "")
       ]);
       return (
-        '<li class="feed-row" ' + staggerStyle(i) + '>' +
+        '<li class="feed-row" ' + staggerStyle(i) + ' data-href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '" role="link" tabindex="0">' +
           '<div class="rank">' + (i + 1) + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '">' +
@@ -1600,6 +1589,8 @@
         "</li>"
       );
     }).join("");
+    enableCardNavigation(list);
+
   }
 
   function renderReports() {
