@@ -1,13 +1,12 @@
-# Aligned News — Redesign Preview
+# Aligned News — Pro reader mock
 
-A clickable **product redesign** of [alignednews.com](https://alignednews.com) — not a memo.
+A Digg-simple, logged-in **Pro** reader for Aligned News — not a marketing page.
 
-Built for Asher to show Robert Scoble what a sharper, more attractive Aligned News can feel like.
+**Live:** https://asherweisberger.github.io/aligned-news-redesign/
 
-**Live preview:** https://asherweisberger.github.io/aligned-news-redesign/
+- Today feed (ranked rows, filters, search)
+- Signals / Reports
+- Story detail (full text)
+- Data from `live-data.json` scraped from alignednews.com
 
-## Pages
-- `index.html` — homepage (signals first, stories, reports, API)
-- `ai.html` — /ai briefing view
-
-Banner on the site says “Redesign preview · Not the live site.”
+Quiet product UI. Asher · Pro.

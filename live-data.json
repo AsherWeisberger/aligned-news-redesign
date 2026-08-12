@@ -1,0 +1,349 @@
+{
+  "scraped_at": "2026-08-12T01:19:12.581406+00:00",
+  "notes": "Not paywalled; all content free. Homepage 'Latest Stories' rail renders only 5 items (all events-dinners, 2D old); extra story items below are taken from /ai section feed. Site content is dated Aug 2026. Feed order adjusted: AI stories first, events-dinners demoted for reader mock.",
+  "stories": [
+    {
+      "title": "OpenAI retires the standalone Atlas browser while moving its browsing functions into Codex and ChatGPT",
+      "summary": "Karthik Mahadevan reported OpenAI was retiring Atlas but moving the browser's work into Codex and ChatGPT, consolidating browser capability into its agent and assistant products.",
+      "section": "Big Stuff Happening in AI Right Now",
+      "when": "Sunday, August 9, 2026 \u2014 updated 4:48 PM",
+      "source": "Karthik Mahadevan",
+      "url": "https://alignednews.com/ai"
+    },
+    {
+      "title": "Kraken Technology raises $175 million at a $1 billion valuation to expand autonomous maritime systems and manufacturing",
+      "summary": "Series B funds uncrewed surface vessels for defense and security while scaling global manufacturing.",
+      "section": "Big Stuff Happening in AI Right Now",
+      "when": "Sunday, August 9, 2026",
+      "source": "OLogic",
+      "url": "https://alignednews.com/ai"
+    },
+    {
+      "title": "Robotics equity funding reaches roughly $40 billion in 2026, already exceeding all of 2025",
+      "summary": "Silicon Valley Robotics reports early-stage rounds remain healthy while larger later-stage financings become more prominent.",
+      "section": "Big Stuff Happening in AI Right Now",
+      "when": "Sunday, August 9, 2026",
+      "source": "Silicon Valley Robotics / FROM ROBOT AI",
+      "url": "https://alignednews.com/ai"
+    },
+    {
+      "title": "Slush evening program extends founder and investor meetings",
+      "summary": "Slush plans this dinner or evening networking event for 2026-11-18 in Helsinki, Finland, with a focus on startup financing, founder relationships, venture capital, product strategy, and European ecosystem networking.",
+      "section": "events-dinners",
+      "when": "2D",
+      "source": "Scoble Media Agent",
+      "url": "https://alignednews.com/stories/911c65d5-5150-49fb-968a-67346e55474e"
+    },
+    {
+      "title": "Web Summit opening-night networking begins Lisbon's technology week",
+      "summary": "Web Summit plans this dinner or evening networking event for 2026-11-09 in Lisbon, Portugal, with a focus on startups, global technology, investment, partnerships, policy, and cross-border business development.",
+      "section": "events-dinners",
+      "when": "2D",
+      "source": "Scoble Media Agent",
+      "url": "https://alignednews.com/stories/cc88601a-e58d-48e7-b99c-19830d86a83b"
+    },
+    {
+      "title": "HLTH evening program creates a healthcare innovation meeting point",
+      "summary": "HLTH plans this dinner or evening networking event for 2026-10-19 in Las Vegas, Nevada, with a focus on digital health, clinical operations, insurance, medical technology, AI deployment, and healthcare partnerships.",
+      "section": "events-dinners",
+      "when": "2D",
+      "source": "Scoble Media Agent",
+      "url": "https://alignednews.com/stories/03977541-bf5b-40e7-a567-5b27c6b97eac"
+    },
+    {
+      "title": "TechCrunch Disrupt evening networking connects founders and investors",
+      "summary": "TechCrunch plans this dinner or evening networking event for 2026-10-13 in San Francisco, California, with a focus on startup fundraising, product launches, founder relationships, venture capital, and technology partnerships.",
+      "section": "events-dinners",
+      "when": "2D",
+      "source": "Scoble Media Agent",
+      "url": "https://alignednews.com/stories/53dc9b32-3f5f-4a6a-9e98-be757a396ef5"
+    },
+    {
+      "title": "World Summit AI evening networking continues Amsterdam discussions",
+      "summary": "World Summit AI plans this dinner or evening networking event for 2026-10-07 in Amsterdam, Netherlands, with a focus on AI leadership, responsible deployment, investment, enterprise implementation, and international networking.",
+      "section": "events-dinners",
+      "when": "2D",
+      "source": "Scoble Media Agent",
+      "url": "https://alignednews.com/stories/c061b661-a814-4b52-9505-4dcff23c494d"
+    }
+  ],
+  "signals": [
+    {
+      "badge": "ACTION",
+      "category": "open-source",
+      "text": "Specialized generative pipelines are pushing useful 3D asset costs toward cents",
+      "when": "AI Community #1 \u00b7 8/6/2026 \u00b7 78%",
+      "url": "https://alignednews.com/signals/da5440d5-2d91-4c35-9d71-2bd629c2ddad"
+    },
+    {
+      "badge": "BULLISH",
+      "category": "creative",
+      "text": "AI video competition is shifting toward longer native clips and larger reference sets",
+      "when": "AI Companies #1, AI Companies #2 \u00b7 8/6/2026 \u00b7 86%",
+      "url": "https://alignednews.com/signals/28fda570-80c8-441b-a78b-fcc87dbaf20e"
+    },
+    {
+      "badge": "CAUTION",
+      "category": "agents",
+      "text": "Private messaging history is becoming a new context layer for personal AI assistants",
+      "when": "AI Leaders #1 \u00b7 8/6/2026 \u00b7 81%",
+      "url": "https://alignednews.com/signals/bf8d7c0e-009b-4faa-9f36-a60df3a6db94"
+    },
+    {
+      "badge": "SIGNAL",
+      "category": "models",
+      "text": "AI reasoning evaluation is moving from static benchmarks toward live academic competitions",
+      "when": "AI Companies #1 \u00b7 8/6/2026 \u00b7 88%",
+      "url": "https://alignednews.com/signals/a317c3c5-c88b-40ff-ac31-f60d4b54ae90"
+    },
+    {
+      "badge": "CRITICAL",
+      "category": "industry",
+      "text": "Industrial AI is converting technical capability into billion-dollar capital and contracts",
+      "when": "Robots, AI Investors \u00b7 8/6/2026 \u00b7 97%",
+      "url": "https://alignednews.com/signals/bbcb8432-537b-474b-abc5-32ac5d46e63c"
+    },
+    {
+      "badge": "INTERVIEW",
+      "category": "research",
+      "text": "World-model benchmark uses 90 hours of Black Myth gameplay",
+      "when": "AI Organizations \u00b7 7/19/2026 \u00b7 68%",
+      "url": "https://alignednews.com/signals/1567a573-94f0-4742-816e-4b569157ee19"
+    },
+    {
+      "badge": "ACTION",
+      "category": "robotics-policy",
+      "text": "Global guidelines for industrial embodied intelligence enter drafting",
+      "when": "AI Organizations \u00b7 7/19/2026 \u00b7 48%",
+      "url": "https://alignednews.com/signals/4cd1518d-6ee3-4dc5-961b-a9b02397d9dc"
+    },
+    {
+      "badge": "CRITICAL",
+      "category": "chips",
+      "text": "Nvidia GPU shortages force cloud providers to ration capacity",
+      "when": "AI Newsmakers \u00b7 7/19/2026 \u00b7 72%",
+      "url": "https://alignednews.com/signals/d6334cde-bce9-42b2-9cd4-6f8b5b5fb0e6"
+    },
+    {
+      "badge": "SIGNAL",
+      "category": "enterprise",
+      "text": "Enterprise buyers are adopting multiple competing AI models",
+      "when": "AI Investors \u00b7 7/19/2026 \u00b7 71%",
+      "url": "https://alignednews.com/signals/535149c2-e08b-44c6-a497-0c395878f496"
+    },
+    {
+      "badge": "CAUTION",
+      "category": "compute",
+      "text": "Anthropic's reported compute shortage turns access into a product constraint",
+      "when": "AI Investors \u00b7 7/19/2026 \u00b7 69%",
+      "url": "https://alignednews.com/signals/359c66aa-0078-463d-8bab-b6812cf57ca4"
+    },
+    {
+      "badge": "VC",
+      "category": "funding",
+      "text": "InStockRx raises $5 million after reaching 1,600 pharmacies",
+      "when": "VC Firms \u00b7 7/19/2026 \u00b7 62%",
+      "url": "https://alignednews.com/signals/a4151c7c-2bc3-4b96-b066-3fb665d1a5d6"
+    },
+    {
+      "badge": "SIGNAL",
+      "category": "infrastructure",
+      "text": "AI networking splits into three markets based on link distance",
+      "when": "VC Firms \u00b7 7/19/2026 \u00b7 76%",
+      "url": "https://alignednews.com/signals/b4d54945-14d5-4528-8643-4da9e986d5de"
+    },
+    {
+      "badge": "ACTION",
+      "category": "developer-tools",
+      "text": "Vercel releases a Python version of its AI SDK",
+      "when": "AI Investors \u00b7 7/19/2026 \u00b7 73%",
+      "url": "https://alignednews.com/signals/5944c7e8-3fe0-47dd-adea-0b54447722ee"
+    },
+    {
+      "badge": "VC",
+      "category": "acquisitions",
+      "text": "Netflix pays $587 million for Ben Affleck's AI filmmaking startup",
+      "when": "AI Newsmakers \u00b7 7/19/2026 \u00b7 78%",
+      "url": "https://alignednews.com/signals/4bc3639a-4985-4c05-935a-446415cfff2f"
+    },
+    {
+      "badge": "BULLISH",
+      "category": "models",
+      "text": "Qwen3.8 moves the open-weight frontier to 2.4 trillion parameters",
+      "when": "AI Companies #1 \u00b7 7/19/2026 \u00b7 100%",
+      "url": "https://alignednews.com/signals/3686e457-de57-4b30-9b89-67082f5513cf"
+    }
+  ],
+  "reports": [
+    {
+      "title": "Archive Report: Evening Run, August 9 2026",
+      "summary": "Complete archive of the August 9 evening Aligned News refresh, including corpus collection, editorial validation, section publication, events, Ten Things, and Scoble coverage.",
+      "when": "8/9/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/3360286d-3db2-427a-9323-94c75f8b31fe"
+    },
+    {
+      "title": "Archive Report: Evening Run, August 8 2026",
+      "summary": "The complete August 8 evening archive covering models, agents, robotics, infrastructure, events, and Robert Scoble's recoverable timeline activity.",
+      "when": "8/8/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/1fc7dff2-ad60-407c-b46a-fe0f698fa265"
+    },
+    {
+      "title": "Aligned News Morning Run August 6 2026",
+      "summary": "",
+      "when": "8/6/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/ed25565d-512c-483e-842a-dcf5c15dd6cb"
+    },
+    {
+      "title": "Archive Report: Evening Run, August 5 2026",
+      "summary": "",
+      "when": "8/5/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/8aa1cc2c-5a4b-43fd-8841-185ceb010c3d"
+    },
+    {
+      "title": "Archive Report: Aligned News Evening Run, August 4 2026",
+      "summary": "Evening publication archive covering 22 sections, 283 editorial stories, repair actions, and final live verification.",
+      "when": "8/4/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/735a33ab-6274-41db-abad-caef3d792185"
+    },
+    {
+      "title": "Archive Report: Evening Run, August 3 2026",
+      "summary": "The August 3 evening run analyzed 8,000 posts from 16 lists, refreshed the editorial framing and descriptions, audited 223 live stories, and repaired one dead X source.",
+      "when": "8/3/2026 \u00b7 weekly roundup \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/476274f0-fddf-4fad-9089-2975498121da"
+    },
+    {
+      "title": "Morning Report \u2014 August 3, 2026",
+      "summary": "Completed August 3 morning intelligence run with 22 refreshed content sections, 223 validated stories, full Scoble coverage, updated essay and descriptions, and passing quality and live-link postflight checks.",
+      "when": "8/3/2026 \u00b7 trend report \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/c52053d1-3024-41c5-8922-d52f83ff6a9a"
+    },
+    {
+      "title": "Archive Report: Aligned News Evening Edition for August 2, 2026",
+      "summary": "A publication audit of 219 sourced stories across 22 sections, the evening essay, event coverage, and the exact Scoble window.",
+      "when": "8/2/2026 \u00b7 deep dive \u00b7 Aligned News Research \u00b7 1 min read",
+      "url": "https://alignednews.com/reports/3f1d91f8-2c6a-4019-b816-69b159df42bd"
+    },
+    {
+      "title": "Archive Report: Morning Run, August 2 2026",
+      "summary": "Audit archive for the August 2 morning edition: nineteen authorized core-list attempts, bounded recovery searches, 245 source-unique stories, exact special-section counts, publication controls, and the Scoble reshare API limitation.",
+      "when": "8/2/2026 \u00b7 weekly roundup \u00b7 Aligned News Research \u00b7 2 min read",
+      "url": "https://alignednews.com/reports/9ece8d76-f832-47b2-b9a1-6a07f4c730e6"
+    },
+    {
+      "title": "Archive Report: Evening Run, August 1 2026",
+      "summary": "Audit archive for the August 1 evening edition: nineteen authorized core-list attempts, bounded recovery searches, 232 source-unique stories, exact special-section counts, publication controls, and the Scoble reshare API limitation.",
+      "when": "8/1/2026 \u00b7 weekly roundup \u00b7 Aligned News Research \u00b7 2 min read",
+      "url": "https://alignednews.com/reports/8ef32c56-2500-4d6d-b6db-e278fa42cf97"
+    }
+  ],
+  "ai_section_names": [
+    "Big Stuff Happening in AI Right Now",
+    "News From AI Companies",
+    "Robots",
+    "Tools for Creatives",
+    "Funding & Deals",
+    "Models & Benchmarks",
+    "Labs",
+    "Papers",
+    "AI Hardware & Chips",
+    "AI Agents",
+    "OpenClaw, Hermes, and Competitors",
+    "AI Infrastructure",
+    "AI in Science",
+    "Videos",
+    "AI Policy & Regulation",
+    "Jobs",
+    "Anomalies",
+    "Events"
+  ],
+  "ai_sections": [
+    {
+      "name": "Big Stuff Happening in AI Right Now",
+      "count": 12,
+      "description": "Urgent technology developments with direct source evidence and immediate consequence.",
+      "items": [
+        {
+          "title": "OpenAI retires the standalone Atlas browser while moving its browsing functions into Codex and ChatGPT",
+          "excerpt": "The change consolidates browser capabilities into OpenAI's agent and assistant products rather than ending its web-automation effort.",
+          "source": "Karthik Mahadevan"
+        },
+        {
+          "title": "An unreleased Qwen model called Kiana appears in an arena as a faster but weaker counterpart to Qwen3.8-Max",
+          "excerpt": "Kiana was faster than Qwen3.8-Max but less capable \u2014 an early signal of Qwen's next speed-versus-quality tradeoff.",
+          "source": "Tim Jayas"
+        },
+        {
+          "title": "ScanRobot 2.0 automates gentle book scanning at up to 2,500 pages per hour, targeting libraries and archives",
+          "excerpt": "TREVENTUS Mechatronics' machine auto-turns pages using a 60-degree V-shaped cradle for bound materials.",
+          "source": "CTO ROBOTICS Media (FROM ROBOT AI)"
+        }
+      ]
+    },
+    {
+      "name": "News From AI Companies",
+      "count": 15,
+      "description": "New products and feature releases that change what users and developers can do now.",
+      "items": [
+        {
+          "title": "Elephant Robotics demonstrates real-time teleoperation for the myArm M750",
+          "excerpt": "Six-axis myArm M750 twists a bottle cap under real-time teleoperation from the myController S570.",
+          "source": "Elephant Robotics (FROM ROBOT AI)"
+        },
+        {
+          "title": "CapCut demonstrates Design Studio through a conceptual product redesign",
+          "excerpt": "Sara Shakeel reinterprets a boxing glove as a symbol of beauty and healing.",
+          "source": "CapCut"
+        },
+        {
+          "title": "DomoAI adds Seedance 2.5 with up to 50 multimodal references",
+          "excerpt": "One generation can accept 30 images, 10 videos, and 10 audio clips.",
+          "source": "DomoAI"
+        }
+      ]
+    },
+    {
+      "name": "Robots",
+      "count": 11,
+      "description": "Robots, sensors, autonomy, and embodied intelligence moving toward useful real world work.",
+      "items": [
+        {
+          "title": "Reimagine Robotics says workers can teach new tasks in ten minutes",
+          "excerpt": "Company exited stealth on 3 August, founded by four co-authors of Google DeepMind's RoboCat.",
+          "source": "FROM ROBOT AI"
+        },
+        {
+          "title": "Humanoid security flaws reportedly enable rapid remote takeover",
+          "excerpt": "Researchers found 17 critical vulnerabilities in a leading humanoid robot allowing remote takeover in under 60 seconds.",
+          "source": ""
+        },
+        {
+          "title": "Low-cost robot arm learns autonomous sock pickup in hours",
+          "excerpt": "A 3D-printed SO-101 arm trained with LeRobot ACT succeeded in 38 of 50 trials after 3.5 hours on an RTX 5070 Ti.",
+          "source": "Walnut Sensei (FROM ROBOT AI)"
+        }
+      ]
+    },
+    {
+      "name": "Tools for Creatives",
+      "count": 11,
+      "description": "Tools and experiments changing how people make images, video, music, stories, and interactive media.",
+      "items": [
+        {
+          "title": "BubbleGraph visualizes MusicBrainz relationships as expandable nodes",
+          "excerpt": "Double-click expansion of related artist nodes; Spotify support absent because its Related Artists API is unavailable.",
+          "source": ""
+        },
+        {
+          "title": "Omniwork proposes a desktop operating system for creative agents",
+          "excerpt": "Presented as a Creative Agent OS for desktop creation, signalling cross-application agent workflows.",
+          "source": ""
+        },
+        {
+          "title": "Claude Design becomes the prototype stage in a one-day app workflow",
+          "excerpt": "Supplying a design system is the recommended defense against generic output.",
+          "source": ""
+        }
+      ]
+    }
+  ]
+}

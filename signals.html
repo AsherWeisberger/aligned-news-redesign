@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Today · Aligned News</title>
-<meta name="description" content="Aligned News — a calm Pro reader for AI stories and signals." />
+<title>Signals · Aligned News</title>
+<meta name="description" content="Filterable AI signals — Aligned News Pro reader." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d4ed8'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-page="today">
+<body data-page="signals">
   <div class="app">
     <header class="topbar">
       <button class="menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
@@ -28,7 +28,7 @@
       <div class="top-search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <label class="sr-only" for="searchInput">Search</label>
-        <input id="searchInput" type="search" placeholder="Search stories" autocomplete="off" />
+        <input id="searchInput" type="search" placeholder="Search signals" autocomplete="off" />
       </div>
       <div class="top-actions">
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Dark mode">
@@ -42,24 +42,21 @@
       </div>
     </header>
 
-    <div class="backdrop" id="backdrop" hidden></div>
+    <div class="backdrop" id="backdrop"></div>
     <aside class="sidebar" id="sidebar" aria-label="Primary"></aside>
 
     <main class="main">
       <div class="page">
         <div class="page-head">
-          <h1 id="pageTitle">Today</h1>
+          <h1>Signals</h1>
           <p class="page-meta" id="pageMeta"></p>
           <div class="page-tools">
             <button type="button" class="tool-toggle" id="densityToggle" aria-pressed="false">Comfortable</button>
           </div>
         </div>
-
-        <div class="chips" id="chips" role="toolbar" aria-label="Filter"></div>
-        <div class="foryou" id="forYou" hidden></div>
+        <div class="chips" id="chips" role="toolbar" aria-label="Filter by badge section"></div>
         <p class="status" id="loadStatus">Loading…</p>
         <ol class="feed" id="feed"></ol>
-
         <footer class="site-footer">
           <span>Preview mock · sample data</span>
           <span>Aligned News · Pro reader</span>
