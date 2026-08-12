@@ -466,6 +466,7 @@
     chromePref = getStoredChromePref();
     applyChromeVisual(chromePref);
     syncChromeToggle();
+    syncDensitySeg();
     lastScrollY = getScrollY();
   }
 
@@ -591,14 +592,15 @@
   var loadBarHideTimer = null;
   var glowHideTimer = null;
   var glowShownAt = 0;
-  var GLOW_MIN_MS = 420;
+  var GLOW_MIN_MS = 1600;
+  var MELT_FINISH_MS = 820;
   var thinkPhraseTimer = null;
   var thinkPhraseIndex = 0;
   var THINK_PHRASES = [
-    "Thinking…",
-    "Listening to lists…",
-    "Ranking signal…",
-    "Writing the desk…"
+    "Building your desk…",
+    "Listening to Scoble’s lists…",
+    "Ranking what matters…",
+    "Almost ready…"
   ];
 
   function prefersReducedMotion() {
@@ -622,6 +624,30 @@
     return glow;
   }
 
+  function ensureMeltVeil() {
+    var veil = document.getElementById("meltVeil");
+    if (veil) return veil;
+    veil = document.createElement("div");
+    veil.id = "meltVeil";
+    veil.className = "melt-veil";
+    veil.hidden = true;
+    veil.setAttribute("aria-live", "polite");
+    veil.setAttribute("aria-busy", "true");
+    veil.innerHTML =
+      '<div class="melt-veil-sheet" aria-hidden="true"></div>' +
+      '<div class="melt-veil-hud">' +
+        '<span class="melt-veil-kicker">Loading</span>' +
+        '<span class="melt-veil-phrase" id="meltPhrase">Building your desk…</span>' +
+      "</div>";
+    var edge = document.getElementById("edgeGlow");
+    if (edge && edge.parentNode === document.body) {
+      document.body.insertBefore(veil, edge.nextSibling);
+    } else {
+      document.body.insertBefore(veil, document.body.firstChild);
+    }
+    return veil;
+  }
+
   function ensureThinkStatus() {
     var el = document.getElementById("thinkStatus");
     if (el) return el;
@@ -635,7 +661,7 @@
     el.setAttribute("aria-hidden", "true");
     el.innerHTML =
       '<span class="think-status-dot" aria-hidden="true"></span>' +
-      '<span class="think-status-text" id="thinkStatusText">Thinking…</span>';
+      '<span class="think-status-text" id="thinkStatusText">Loading…</span>';
     var live = document.getElementById("livePill");
     if (live && live.parentNode === actions) actions.insertBefore(el, live);
     else actions.insertBefore(el, actions.firstChild);
@@ -643,12 +669,19 @@
   }
 
   function setThinkPhrase(phrase) {
+    var text = phrase || THINK_PHRASES[0] || "Loading…";
     var textEl = document.getElementById("thinkStatusText");
     if (!textEl) {
       var wrap = ensureThinkStatus();
       if (wrap) textEl = wrap.querySelector(".think-status-text") || document.getElementById("thinkStatusText");
     }
-    if (textEl) textEl.textContent = phrase || "Thinking…";
+    if (textEl) textEl.textContent = text;
+    var meltEl = document.getElementById("meltPhrase");
+    if (!meltEl) {
+      ensureMeltVeil();
+      meltEl = document.getElementById("meltPhrase");
+    }
+    if (meltEl) meltEl.textContent = text;
   }
 
   function stopThinkPhrases() {
@@ -666,7 +699,7 @@
     thinkPhraseTimer = setInterval(function () {
       thinkPhraseIndex = (thinkPhraseIndex + 1) % THINK_PHRASES.length;
       setThinkPhrase(THINK_PHRASES[thinkPhraseIndex]);
-    }, 1600);
+    }, 2400);
   }
 
   function showThinkStatus() {
@@ -690,6 +723,38 @@
       el.hidden = true;
       setThinkPhrase(THINK_PHRASES[0]);
     }, leaveMs);
+  }
+
+  function showMeltVeil() {
+    var veil = ensureMeltVeil();
+    veil.classList.remove("is-finishing");
+    veil.hidden = false;
+    veil.setAttribute("aria-busy", "true");
+    veil.setAttribute("aria-hidden", "false");
+    // force reflow so is-on transitions apply
+    void veil.offsetWidth;
+    veil.classList.add("is-on");
+  }
+
+  function hideMeltVeil(forceImmediate, done) {
+    var veil = document.getElementById("meltVeil") || ensureMeltVeil();
+    function afterGone() {
+      veil.classList.remove("is-on", "is-finishing");
+      veil.hidden = true;
+      veil.setAttribute("aria-busy", "false");
+      veil.setAttribute("aria-hidden", "true");
+      if (typeof done === "function") done();
+    }
+    if (!veil.classList.contains("is-on") && veil.hidden) {
+      afterGone();
+      return;
+    }
+    if (forceImmediate || prefersReducedMotion()) {
+      afterGone();
+      return;
+    }
+    veil.classList.add("is-finishing");
+    setTimeout(afterGone, MELT_FINISH_MS);
   }
 
   function showThinLoadBar() {
@@ -719,15 +784,18 @@
       clearTimeout(loadBarHideTimer);
       loadBarHideTimer = null;
     }
+    document.documentElement.removeAttribute("data-revealed");
     var glow = ensureEdgeGlow();
+    ensureMeltVeil();
     document.documentElement.setAttribute("data-loading", "1");
     document.body.classList.add("siri-glow");
     glow.hidden = false;
     glow.setAttribute("aria-hidden", "false");
     glow.classList.add("is-on");
     glowShownAt = Date.now();
-    // Edges-only Siri rim + quiet Thinking pill (no top rainbow bar wash).
+    // Edges-only Siri rim + melt veil HUD (no top rainbow bar wash).
     hideThinLoadBar();
+    showMeltVeil();
     showThinkStatus();
   }
 
@@ -742,18 +810,23 @@
     }
 
     function finishHide() {
+      var instant = !!forceImmediate || prefersReducedMotion();
       hideThinLoadBar();
       hideThinkStatus();
-      document.documentElement.removeAttribute("data-loading");
-      document.body.classList.remove("siri-glow");
-      var glow = document.getElementById("edgeGlow");
-      if (!glow) return;
-      glow.classList.remove("is-on");
-      var leaveMs = prefersReducedMotion() || forceImmediate ? 0 : 280;
-      setTimeout(function () {
-        glow.hidden = true;
-        glow.setAttribute("aria-hidden", "true");
-      }, leaveMs);
+      hideMeltVeil(instant, function () {
+        document.documentElement.removeAttribute("data-loading");
+        document.body.classList.remove("siri-glow");
+        var glow = document.getElementById("edgeGlow");
+        if (glow) {
+          glow.classList.remove("is-on");
+          var leaveMs = instant ? 0 : 280;
+          setTimeout(function () {
+            glow.hidden = true;
+            glow.setAttribute("aria-hidden", "true");
+          }, leaveMs);
+        }
+        document.documentElement.setAttribute("data-revealed", "1");
+      });
     }
 
     var elapsed = glowShownAt ? (Date.now() - glowShownAt) : GLOW_MIN_MS;
@@ -778,7 +851,8 @@
 
   function flashLoadBar(ms) {
     showSiriGlow();
-    var dur = prefersReducedMotion() ? 0 : (ms == null ? 520 : ms);
+    var requested = ms == null ? 900 : ms;
+    var dur = prefersReducedMotion() ? 0 : Math.max(900, requested);
     if (dur <= 0) {
       hideSiriGlow(true);
       return;
@@ -789,7 +863,58 @@
     }, dur);
   }
 
+  function syncDensitySeg() {
+    var root = document.documentElement;
+    var compact = root.getAttribute("data-density") === "compact";
+    var seg = document.getElementById("densityToggle");
+    if (!seg) return;
+    var buttons = seg.querySelectorAll("[data-density-mode]");
+    if (!buttons.length) {
+      // legacy single button
+      seg.setAttribute("aria-pressed", compact ? "true" : "false");
+      if (seg.tagName === "BUTTON") seg.textContent = compact ? "Compact" : "Comfortable";
+      return;
+    }
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = buttons[i];
+      var mode = btn.getAttribute("data-density-mode");
+      var on = compact ? mode === "compact" : mode === "comfortable";
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    }
+  }
+
+  function setDensityMode(next) {
+    var root = document.documentElement;
+    if (next === "compact") root.setAttribute("data-density", "compact");
+    else {
+      root.removeAttribute("data-density");
+      next = "comfortable";
+    }
+    try { localStorage.setItem("an-density", next); } catch (e) {}
+    syncDensitySeg();
+  }
+
+  function ensureAuthCta() {
+    var actions = document.querySelector(".top-actions");
+    if (!actions) return null;
+    var el = document.getElementById("authCta");
+    if (el) return el;
+    el = document.createElement("a");
+    el.id = "authCta";
+    el.className = "auth-cta";
+    el.href = "https://alignednews.com/account";
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+    el.textContent = "Sign up / Login";
+    var pill = actions.querySelector(".user-pill");
+    if (pill) actions.insertBefore(el, pill);
+    else actions.appendChild(el);
+    return el;
+  }
+
   function enableCardNavigation(list) {
+
     if (!list) return;
     list.classList.add("is-ready");
     var cards = list.querySelectorAll(".lead-card, .feed-row");
@@ -1418,34 +1543,30 @@
         "<br>" + (pro ? "63 curated X lists · interests first" : "Free desk · Upgrade for interests-first ranking");
     }
 
+    var authCta = ensureAuthCta();
+    if (authCta) {
+      authCta.hidden = false;
+      authCta.classList.add("is-on");
+    }
+    // Remove legacy Upgrade CTA — Digg-style Sign up / Login is the primary action.
+    var existingUp = $("#upgradeBtn");
+    if (existingUp) existingUp.remove();
+
     var pill = $(".user-pill");
     if (pill) {
-      var av = initialsFrom(uname).slice(0, 1);
-      pill.innerHTML =
-        '<span class="avatar" aria-hidden="true">' + escapeHtml(av) + "</span>" +
-        '<span class="user-name">' + escapeHtml(uname) + "</span>" +
-        (pro ? '<span class="pro-badge">Pro</span>' : '<span class="plan-badge plan-free">Free</span>');
-      pill.title = pro ? "Signed in · Pro" : "Signed in · Free";
-    }
-
-    var actions = $(".top-actions");
-    if (actions) {
-      var existingUp = $("#upgradeBtn");
-      if (!pro) {
-        if (!existingUp) {
-          var a = document.createElement("a");
-          a.id = "upgradeBtn";
-          a.className = "btn btn-primary upgrade-btn";
-          a.href = "https://alignednews.com/pricing";
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          a.textContent = "Upgrade";
-          var before = pill || $("#themeToggle") || actions.lastElementChild;
-          if (before && before.parentNode === actions) actions.insertBefore(a, before);
-          else actions.appendChild(a);
-        }
-      } else if (existingUp) {
-        existingUp.remove();
+      if (pro) {
+        pill.hidden = false;
+        pill.classList.add("is-compact");
+        var av = initialsFrom(uname).slice(0, 1);
+        pill.innerHTML =
+          '<span class="avatar" aria-hidden="true">' + escapeHtml(av) + "</span>" +
+          '<span class="user-name">' + escapeHtml(uname) + "</span>" +
+          '<span class="pro-badge">Pro</span>';
+        pill.title = "Signed in · Pro";
+      } else {
+        // Free mock: Digg pattern — Sign up / Login replaces the account chip.
+        pill.hidden = true;
+        pill.classList.remove("is-compact");
       }
     }
 
@@ -1510,12 +1631,7 @@
         '<div class="desk-stat"><strong>' + listCount + '</strong><span>Lists</span></div>';
     }
 
-    var densBtn = $("#densityToggle");
-    if (densBtn) {
-      var compact = document.documentElement.getAttribute("data-density") === "compact";
-      densBtn.setAttribute("aria-pressed", compact ? "true" : "false");
-      densBtn.textContent = compact ? "Compact" : "Comfortable";
-    }
+    syncDensitySeg();
     syncChromeToggle();
     var themeBtn = $("#themeToggle");
     if (themeBtn) {
@@ -2086,18 +2202,26 @@
     }
     if (backdrop) backdrop.addEventListener("click", closeNav);
 
-    var densBtn = $("#densityToggle");
-    if (densBtn) {
-      densBtn.addEventListener("click", function () {
-        var root = document.documentElement;
-        var next = root.getAttribute("data-density") === "compact" ? "comfortable" : "compact";
-        if (next === "compact") root.setAttribute("data-density", "compact");
-        else root.removeAttribute("data-density");
-        try { localStorage.setItem("an-density", next); } catch (e) {}
-        densBtn.setAttribute("aria-pressed", next === "compact" ? "true" : "false");
-        densBtn.textContent = next === "compact" ? "Compact" : "Comfortable";
+    var densSeg = $("#densityToggle");
+    if (densSeg) {
+      densSeg.addEventListener("click", function (ev) {
+        var t = ev.target;
+        while (t && t !== densSeg && !(t.getAttribute && t.getAttribute("data-density-mode"))) {
+          t = t.parentNode;
+        }
+        if (t && t !== densSeg && t.getAttribute) {
+          setDensityMode(t.getAttribute("data-density-mode") || "comfortable");
+          return;
+        }
+        // Legacy single-button toggle fallback
+        if (densSeg.tagName === "BUTTON") {
+          var next = document.documentElement.getAttribute("data-density") === "compact" ? "comfortable" : "compact";
+          setDensityMode(next);
+        }
       });
+      syncDensitySeg();
     }
+    ensureAuthCta();
 
     var chromeBtn = $("#chromeToggle");
     if (chromeBtn) {
