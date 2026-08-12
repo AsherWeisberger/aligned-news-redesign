@@ -1553,3 +1553,58 @@ html[data-theme="dark"] .read-progress {
 @media (prefers-reduced-motion: reduce) {
   .read-progress > span { animation: none; transform: scaleX(0.15); opacity: 0.5; }
 }
+
+/* === mobile fit containment (device-width) === */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+.app, .main, .page, .topbar, .page-layout, .page-primary, .desk-hero, .intel-strip, .lead-card {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+/* Flex/grid child scrollport trick: chips must not expand ancestors */
+.chips {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+@media (max-width: 860px) {
+  .app {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .brand-tagline { display: none !important; }
+  .top-search { display: none !important; }
+  .desk-hero,
+  .desk-hero-slim,
+  .desk-hero-compact {
+    grid-template-columns: 1fr !important;
+  }
+  .desk-stats {
+    width: 100%;
+    max-width: 100%;
+    justify-content: stretch;
+  }
+  .desk-stat {
+    flex: 1 1 0;
+    min-width: 0 !important;
+  }
+  .page-tools { justify-self: start; }
+  .top-actions { flex-shrink: 1; min-width: 0; }
+  .main, .page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+}
+@media (max-width: 520px) {
+  .pro-badge { display: none !important; }
+  .brand em { display: none; }
+}
