@@ -1486,6 +1486,58 @@
   }
 
 
+
+  function dockIcon(id) {
+    var icons = {
+      today: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>',
+      signals: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h2M9.5 8v8M14.5 5v14M19 9v6"/></svg>',
+      reports: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 19V9M12 19V5M18 19v-7"/><path d="M4 19h16"/></svg>',
+      newsletter: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>',
+      saved: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-3.5L6 20V5a1 1 0 0 1 1-1z"/></svg>'
+    };
+    return icons[id] || icons.today;
+  }
+
+  function renderMobileDock(page) {
+    if (page === "auth") {
+      var old = $("#mobileDock");
+      if (old) old.remove();
+      document.documentElement.classList.remove("has-mobile-dock");
+      return;
+    }
+    // Primary destinations (not topic chips). Saved stays in hamburger/sidebar.
+    var items = [
+      { id: "today", href: "index.html", label: "Today" },
+      { id: "signals", href: "signals.html", label: "Signals" },
+      { id: "reports", href: "reports.html", label: "Reports" },
+      { id: "newsletter", href: "newsletter.html", label: "News" }
+    ];
+    var dock = $("#mobileDock");
+    if (!dock) {
+      dock = document.createElement("nav");
+      dock.id = "mobileDock";
+      dock.className = "mobile-dock";
+      dock.setAttribute("aria-label", "Primary");
+      var appEl = document.querySelector(".app") || document.body;
+      appEl.appendChild(dock);
+    }
+    document.documentElement.classList.add("has-mobile-dock");
+    dock.innerHTML =
+      '<div class="mobile-dock-inner">' +
+      items.map(function (item) {
+        var active = item.id === page || (page === "story" && item.id === "today");
+        if (item.id === "today") active = (page === "today" && getParam("view") !== "saved") || page === "story";
+        return (
+          '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
+          (active ? ' aria-current="page"' : "") + ">" +
+          '<span class="mobile-dock-ico">' + dockIcon(item.id) + "</span>" +
+          '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
+          "</a>"
+        );
+      }).join("") +
+      "</div>";
+  }
+
   function renderChrome() {
     var data = state.data;
     var page = pageName();
@@ -1533,6 +1585,8 @@
         "</ul>" +
         '<div class="sidebar-foot" id="sidebarFoot"></div>';
     }
+
+    renderMobileDock(page);
 
     var user = resolvePlan(data.user || { name: "Asher", plan: "Pro" });
     data.user = user;
@@ -2306,6 +2360,34 @@
   }
 
   function bindShell() {
+
+    // Mobile dock: hide on scroll down, reveal on scroll up
+    (function bindDockScroll() {
+      if (window.__anDockScrollBound) return;
+      window.__anDockScrollBound = true;
+      var lastY = window.scrollY || 0;
+      var ticking = false;
+      window.addEventListener("scroll", function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          ticking = false;
+          var dock = $("#mobileDock");
+          if (!dock) return;
+          var y = window.scrollY || 0;
+          var dy = y - lastY;
+          if (y < 24) {
+            dock.classList.remove("is-hidden");
+          } else if (dy > 8) {
+            dock.classList.add("is-hidden");
+          } else if (dy < -6) {
+            dock.classList.remove("is-hidden");
+          }
+          lastY = y;
+        });
+      }, { passive: true });
+    })();
+
     var menuBtn = $("#menuToggle");
     var sidebar = $("#sidebar");
     var backdrop = $("#backdrop");
