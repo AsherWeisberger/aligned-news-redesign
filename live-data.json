@@ -15,7 +15,28 @@
       "AI Community #6 of 8"
     ],
     "note": "Relevance-gated Scoble list desk — topics mapped, RT noise dropped, why_it_matters filled.",
-    "cleanedAt": "2026-08-12T03:00:00+00:00"
+    "cleanedAt": "2026-08-12T03:00:00+00:00",
+    "mediaEnrichedAt": "2026-08-12T21:08:01+00:00",
+    "mediaEnrichment": {
+      "unique_ids": 62,
+      "with_media": 26,
+      "empty_no_media": 35,
+      "failed": 1,
+      "by_kind": {
+        "photo": 15,
+        "card": 3,
+        "video": 8
+      },
+      "by_source": {
+        "syndication": 26
+      },
+      "method": "syndication+fxtwitter (X API bearer 401)",
+      "with_media_after_fx_pass": 32,
+      "stories_with_media": 32,
+      "signals_with_media": 9,
+      "forYou_with_media": 2,
+      "extra_from_fxtwitter": 6
+    }
   },
   "user": {
     "name": "Asher",
@@ -81,7 +102,9 @@
       "analysis": "Startups & builders in RuntimeWire LIVE today: @river_ai_inc / @ibab… — capital or deal flow the desk is tracking before the wire.",
       "_from_x_api": true,
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://pbs.twimg.com/card_img/2082852639969026048/0vs8AxCP?format=jpg&name=orig",
+      "image_url": "https://pbs.twimg.com/card_img/2082852639969026048/0vs8AxCP?format=jpg&name=orig"
     },
     {
       "id": "2087353524976029877",
@@ -98,7 +121,9 @@
       "analysis": "Muse Glimmer is live on Fireworks. — agent tooling is compounding; this crossed curated builder lists first.",
       "_from_x_api": true,
       "topic_key": "agents",
-      "topic_label": "Agents"
+      "topic_label": "Agents",
+      "media_url": "https://pbs.twimg.com/media/HPfEgVAa8AAP3P8.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfEgVAa8AAP3P8.jpg?name=large"
     },
     {
       "id": "2087356228615688557",
@@ -151,7 +176,9 @@
       "signal_badge": "SIGNAL",
       "why_it_matters": "NVIDIA is literally handing out certifications in Agentic AI… — physical AI signal from Scoble robotics-adjacent lists.",
       "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "topic_label": "Robotics",
+      "media_url": "https://pbs.twimg.com/media/HPWjLCAbgAAT0do.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPWjLCAbgAAT0do.jpg?name=large"
     },
     {
       "id": "x-2087353435804864533",
@@ -185,7 +212,9 @@
       "signal_badge": "SIGNAL",
       "why_it_matters": "Who's *actually* winning the AI race? — research signal worth filing before it becomes consensus.",
       "topic_key": "research",
-      "topic_label": "Research"
+      "topic_label": "Research",
+      "media_url": "https://pbs.twimg.com/media/HPc7chgXIAEdzH7.png?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPc7chgXIAEdzH7.png?name=large"
     },
     {
       "id": "x-2087353524976029877",
@@ -219,7 +248,9 @@
       "signal_badge": "SIGNAL",
       "why_it_matters": "Muse Glimmer is live on Fireworks. — agent tooling is compounding; this crossed curated builder lists first.",
       "topic_key": "agents",
-      "topic_label": "Agents"
+      "topic_label": "Agents",
+      "media_url": "https://pbs.twimg.com/media/HPfEgVAa8AAP3P8.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfEgVAa8AAP3P8.jpg?name=large"
     },
     {
       "id": "x-2087356193714889085",
@@ -253,7 +284,9 @@
       "signal_badge": "BULLISH",
       "why_it_matters": "xAI just launched Grok Bot in early beta AI teammates that get their… — a model move builders on Scoble’s lists are already amplifying.",
       "topic_key": "models",
-      "topic_label": "Models"
+      "topic_label": "Models",
+      "media_url": "https://pbs.twimg.com/media/HPfHY7uXwAA9zru.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfHY7uXwAA9zru.jpg?name=large"
     },
     {
       "id": "x-2087351593578676484",
@@ -454,7 +487,9 @@
       "_from_x_api": true,
       "why_it_matters": "We worked with @nvidia to understand how Nemotron 3.5 Lightning… — hardware/compute signal with list momentum.",
       "topic_key": "chips",
-      "topic_label": "Chips"
+      "topic_label": "Chips",
+      "media_url": "https://pbs.twimg.com/media/HPeq_lIWEAAdlME.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPeq_lIWEAAdlME.jpg?name=large"
     },
     {
       "id": "x-2087347729760698633",
@@ -488,7 +523,9 @@
       "signal_badge": "SIGNAL",
       "why_it_matters": "Startups & builders in RuntimeWire LIVE today: @river_ai_inc / @ibab… — capital or deal flow the desk is tracking before the wire.",
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://pbs.twimg.com/card_img/2082852639969026048/0vs8AxCP?format=jpg&name=orig",
+      "image_url": "https://pbs.twimg.com/card_img/2082852639969026048/0vs8AxCP?format=jpg&name=orig"
     },
     {
       "id": "x-2087355420922859910",
@@ -522,7 +559,9 @@
       "signal_badge": "SIGNAL",
       "why_it_matters": "For a local agent to be practical, generation latency must be low… — agent tooling is compounding; this crossed curated builder lists first.",
       "topic_key": "agents",
-      "topic_label": "Agents"
+      "topic_label": "Agents",
+      "media_url": "https://pbs.twimg.com/media/HPWk3-KbAAAmQbp.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPWk3-KbAAAmQbp.jpg?name=large"
     },
     {
       "id": "x-2087352262268170319",
@@ -555,7 +594,9 @@
       "_from_x_api": true,
       "why_it_matters": "You can now use Ollama as a provider in GitHub Copilot for JetBrains. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPfA7hPaoAAb_ln.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfA7hPaoAAb_ln.jpg?name=large"
     },
     {
       "id": "x-2087355169952735655",
@@ -588,7 +629,9 @@
       "_from_x_api": true,
       "why_it_matters": "Very big warning from this paper. — research signal worth filing before it becomes consensus.",
       "topic_key": "research",
-      "topic_label": "Research"
+      "topic_label": "Research",
+      "media_url": "https://pbs.twimg.com/media/HPeQRKEbUAA4HK5.png?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPeQRKEbUAA4HK5.png?name=large"
     },
     {
       "id": "x-2087351203193655318",
@@ -622,7 +665,9 @@
       "signal_badge": "SIGNAL",
       "why_it_matters": "The next frontier of Recursive Self-Improvement is Physical AI. — physical AI signal from Scoble robotics-adjacent lists.",
       "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "topic_label": "Robotics",
+      "media_url": "https://pbs.twimg.com/card_img/2084483238739742720/hodL_9BH?format=jpg&name=orig",
+      "image_url": "https://pbs.twimg.com/card_img/2084483238739742720/hodL_9BH?format=jpg&name=orig"
     },
     {
       "id": "x-2087353392700264921",
@@ -655,7 +700,9 @@
       "_from_x_api": true,
       "why_it_matters": "thanks @jackclarkSF for a very kind plug for this story in the… — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPfE2WZbQAEQ0ad.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfE2WZbQAEQ0ad.jpg?name=large"
     },
     {
       "id": "x-2087344389899124924",
@@ -788,7 +835,9 @@
       "_from_x_api": true,
       "why_it_matters": "Excited to be at Google I/O Connect in Shanghai this week. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPfCalEaoAAgDux.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfCalEaoAAgDux.jpg?name=large"
     },
     {
       "id": "x-2087351701992866191",
@@ -855,7 +904,9 @@
       "_from_x_api": true,
       "why_it_matters": "Decomposing a flat poster like this used to take hours. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2087353553937682432/img/sbOIQAkZQbIMB_AU.jpg",
+      "image_url": "https://pbs.twimg.com/amplify_video_thumb/2087353553937682432/img/sbOIQAkZQbIMB_AU.jpg"
     },
     {
       "id": "x-2087354997680070810",
@@ -921,7 +972,9 @@
       "_from_x_api": true,
       "why_it_matters": "Steady Steps, Steady Progress. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2087351287688118272/img/P9HW260AY5ph8UK2.jpg",
+      "image_url": "https://pbs.twimg.com/amplify_video_thumb/2087351287688118272/img/P9HW260AY5ph8UK2.jpg"
     },
     {
       "id": "x-2087354161436504101",
@@ -954,7 +1007,9 @@
       "_from_x_api": true,
       "why_it_matters": "ChatGPT Work Mode is injecting a little language learning into my day. — a model move builders on Scoble’s lists are already amplifying.",
       "topic_key": "models",
-      "topic_label": "Models"
+      "topic_label": "Models",
+      "media_url": "https://pbs.twimg.com/media/HPfFikDaoAA9CJX.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfFikDaoAA9CJX.jpg?name=large"
     },
     {
       "id": "x-2087351062697226241",
@@ -1086,7 +1141,9 @@
       "_from_x_api": true,
       "why_it_matters": "A special thanks to the lead maintainer, @gabrielmfern, who has… — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2087344396090101760/img/pXq4uuiIUDack9PW.jpg",
+      "image_url": "https://pbs.twimg.com/amplify_video_thumb/2087344396090101760/img/pXq4uuiIUDack9PW.jpg"
     },
     {
       "id": "x-2087351845467603253",
@@ -1185,7 +1242,9 @@
       "_from_x_api": true,
       "why_it_matters": "Rust devs feel this pain! — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPZhNpXbsAAn_-G.jpg?name=orig",
+      "image_url": "https://pbs.twimg.com/media/HPZhNpXbsAAn_-G.jpg?name=orig"
     },
     {
       "id": "x-2087356009539043592",
@@ -1252,7 +1311,9 @@
       "_from_x_api": true,
       "why_it_matters": "e v e r y w h e r e — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPfHbN9WcAA6sQS.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfHbN9WcAA6sQS.jpg?name=large"
     },
     {
       "id": "x-2087354908282679638",
@@ -1285,7 +1346,9 @@
       "_from_x_api": true,
       "why_it_matters": "I just created the Harry Potter Wizard Chess version. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2087354770143281153/img/hfpWNqgNF4A_iauQ.jpg",
+      "image_url": "https://pbs.twimg.com/amplify_video_thumb/2087354770143281153/img/hfpWNqgNF4A_iauQ.jpg"
     },
     {
       "id": "x-2087354986267038025",
@@ -1318,7 +1381,9 @@
       "_from_x_api": true,
       "why_it_matters": "Spoken like a victim. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPfGQ5-WcAARGI-.png?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfGQ5-WcAARGI-.png?name=large"
     },
     {
       "id": "x-2087356012625846500",
@@ -1384,7 +1449,9 @@
       "_from_x_api": true,
       "why_it_matters": " — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://img.youtube.com/vi/yszUr3s75UM/maxresdefault.jpg",
+      "image_url": "https://img.youtube.com/vi/yszUr3s75UM/maxresdefault.jpg"
     },
     {
       "id": "x-2087355597851390220",
@@ -1451,7 +1518,9 @@
       "_from_x_api": true,
       "why_it_matters": "Very well deserved! @tqchenml — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPXWq6na0AAVZWV.jpg?name=orig",
+      "image_url": "https://pbs.twimg.com/media/HPXWq6na0AAVZWV.jpg?name=orig"
     },
     {
       "id": "x-2087351798034227254",
@@ -1584,7 +1653,9 @@
       "_from_x_api": true,
       "why_it_matters": "👇 — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPaipBnaAAAh2Vh.jpg?name=orig",
+      "image_url": "https://pbs.twimg.com/media/HPaipBnaAAAh2Vh.jpg?name=orig"
     },
     {
       "id": "x-2087353374224400746",
@@ -1618,7 +1689,9 @@
       "signal_badge": "SIGNAL",
       "why_it_matters": "I didn't know our MCP could do this. — research signal worth filing before it becomes consensus.",
       "topic_key": "research",
-      "topic_label": "Research"
+      "topic_label": "Research",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2087187843663753216/img/zoamBLQgVSJue1FZ.jpg",
+      "image_url": "https://pbs.twimg.com/amplify_video_thumb/2087187843663753216/img/zoamBLQgVSJue1FZ.jpg"
     },
     {
       "id": "x-2087353790588485713",
@@ -1651,7 +1724,9 @@
       "_from_x_api": true,
       "why_it_matters": "Interesting but I don’t recognize the journal. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPcIwakXsAAoEod.jpg?name=orig",
+      "image_url": "https://pbs.twimg.com/media/HPcIwakXsAAoEod.jpg?name=orig"
     },
     {
       "id": "x-2087353827133665710",
@@ -1685,7 +1760,9 @@
       "signal_badge": "BULLISH",
       "why_it_matters": "🚨𝗦𝗢𝗨𝗧𝗛 𝗞𝗢𝗥𝗘𝗔 𝗖𝗘𝗡𝗧𝗥𝗔𝗟 𝗕𝗔𝗡𝗞 𝗢𝗙𝗙𝗘𝗥𝗦 𝟭‑𝗬𝗘𝗔𝗥 𝗦𝗧𝗔𝗕𝗜𝗟𝗜𝗭𝗔𝗧𝗜𝗢𝗡 𝗕𝗢𝗡𝗗𝗦 𝗔𝗧 𝟯.𝟯𝟱%… — capital or deal flow the desk is tracking before the wire.",
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087353816488595456/pu/img/1nvkj_PbDbHdyH9y.jpg",
+      "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087353816488595456/pu/img/1nvkj_PbDbHdyH9y.jpg"
     },
     {
       "id": "x-2087353828584690118",
@@ -1884,7 +1961,9 @@
       "_from_x_api": true,
       "why_it_matters": "Go check your Base44 account right now! #greenscreen — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087354749418930176/pu/img/IhPpaDYWZns-XyQo.jpg",
+      "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087354749418930176/pu/img/IhPpaDYWZns-XyQo.jpg"
     },
     {
       "id": "x-2087354800598094206",
@@ -1917,7 +1996,9 @@
       "_from_x_api": true,
       "why_it_matters": "haha i see what you did here — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPfGEr5a8AAeBdY.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfGEr5a8AAeBdY.jpg?name=large"
     },
     {
       "id": "x-2087354910350491907",
@@ -1950,7 +2031,9 @@
       "_from_x_api": true,
       "why_it_matters": "Command the pieces yourself 🧙🏻‍♂️ — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/card_img/2087286824482025472/Id5SiH0v?format=jpg&name=orig",
+      "image_url": "https://pbs.twimg.com/card_img/2087286824482025472/Id5SiH0v?format=jpg&name=orig"
     },
     {
       "id": "x-2087354985780490418",
@@ -2051,7 +2134,9 @@
       "_from_x_api": true,
       "why_it_matters": "🚨𝗠𝗔𝗝𝗢𝗥 𝗣𝗟𝗔𝗬𝗘𝗥 𝗟𝗢𝗖𝗞𝗦 $𝟯𝟬𝟬𝗠 𝗘𝗧𝗛! — capital or deal flow the desk is tracking before the wire.",
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087355243667525632/pu/img/p4mB7APLb9J44pKH.jpg",
+      "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087355243667525632/pu/img/p4mB7APLb9J44pKH.jpg"
     },
     {
       "id": "x-2087355293172994219",
@@ -2084,7 +2169,9 @@
       "_from_x_api": true,
       "why_it_matters": "\" 責任ある開示の後、プロバイダーは報告された攻撃をパッチし、2026年8月までに正確なエクスプロイトは再現されなくなりました。 \" — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPeQRKEbUAA4HK5.png?name=orig",
+      "image_url": "https://pbs.twimg.com/media/HPeQRKEbUAA4HK5.png?name=orig"
     },
     {
       "id": "x-2087355417244426262",
@@ -2117,7 +2204,9 @@
       "_from_x_api": true,
       "why_it_matters": "I have been ahead of the voice game for years. — company-side move from Scoble’s AI company lists.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://pbs.twimg.com/media/HPfGrZ7XMAAqJoi.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfGrZ7XMAAqJoi.jpg?name=large"
     },
     {
       "id": "x-2087356049800216769",
@@ -2204,7 +2293,9 @@
       "analysis": "Startups & builders in RuntimeWire LIVE today: @river_ai_inc / @ibab… — capital or deal flow the desk is tracking before the wire.",
       "_from_x_api": true,
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://pbs.twimg.com/card_img/2082852639969026048/0vs8AxCP?format=jpg&name=orig",
+      "image_url": "https://pbs.twimg.com/card_img/2082852639969026048/0vs8AxCP?format=jpg&name=orig"
     },
     {
       "id": "2087353524976029877",
@@ -2221,7 +2312,9 @@
       "analysis": "Muse Glimmer is live on Fireworks. — agent tooling is compounding; this crossed curated builder lists first.",
       "_from_x_api": true,
       "topic_key": "agents",
-      "topic_label": "Agents"
+      "topic_label": "Agents",
+      "media_url": "https://pbs.twimg.com/media/HPfEgVAa8AAP3P8.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfEgVAa8AAP3P8.jpg?name=large"
     },
     {
       "id": "2087356228615688557",
@@ -2272,7 +2365,9 @@
       "analysis": "The next frontier of Recursive Self-Improvement is Physical AI. — physical AI signal from Scoble robotics-adjacent lists.",
       "_from_x_api": true,
       "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "topic_label": "Robotics",
+      "media_url": "https://pbs.twimg.com/card_img/2084483238739742720/hodL_9BH?format=jpg&name=orig",
+      "image_url": "https://pbs.twimg.com/card_img/2084483238739742720/hodL_9BH?format=jpg&name=orig"
     },
     {
       "id": "2087351364800467068",
@@ -2340,7 +2435,9 @@
       "analysis": "I didn't know our MCP could do this. — research signal worth filing before it becomes consensus.",
       "_from_x_api": true,
       "topic_key": "research",
-      "topic_label": "Research"
+      "topic_label": "Research",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2087187843663753216/img/zoamBLQgVSJue1FZ.jpg",
+      "image_url": "https://pbs.twimg.com/amplify_video_thumb/2087187843663753216/img/zoamBLQgVSJue1FZ.jpg"
     },
     {
       "id": "2087353435804864533",
@@ -2357,7 +2454,9 @@
       "analysis": "Who's *actually* winning the AI race? — research signal worth filing before it becomes consensus.",
       "_from_x_api": true,
       "topic_key": "research",
-      "topic_label": "Research"
+      "topic_label": "Research",
+      "media_url": "https://pbs.twimg.com/media/HPc7chgXIAEdzH7.png?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPc7chgXIAEdzH7.png?name=large"
     },
     {
       "id": "2087353827133665710",
@@ -2374,7 +2473,9 @@
       "analysis": "🚨𝗦𝗢𝗨𝗧𝗛 𝗞𝗢𝗥𝗘𝗔 𝗖𝗘𝗡𝗧𝗥𝗔𝗟 𝗕𝗔𝗡𝗞 𝗢𝗙𝗙𝗘𝗥𝗦 𝟭‑𝗬𝗘𝗔𝗥 𝗦𝗧𝗔𝗕𝗜𝗟𝗜𝗭𝗔𝗧𝗜𝗢𝗡 𝗕𝗢𝗡𝗗𝗦 𝗔𝗧 𝟯.𝟯𝟱%… — capital or deal flow the desk is tracking before the wire.",
       "_from_x_api": true,
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087353816488595456/pu/img/1nvkj_PbDbHdyH9y.jpg",
+      "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/2087353816488595456/pu/img/1nvkj_PbDbHdyH9y.jpg"
     },
     {
       "id": "2087353934088401404",
@@ -2408,7 +2509,9 @@
       "analysis": "NVIDIA is literally handing out certifications in Agentic AI… — physical AI signal from Scoble robotics-adjacent lists.",
       "_from_x_api": true,
       "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "topic_label": "Robotics",
+      "media_url": "https://pbs.twimg.com/media/HPWjLCAbgAAT0do.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPWjLCAbgAAT0do.jpg?name=large"
     },
     {
       "id": "2087354985780490418",
@@ -2459,7 +2562,9 @@
       "analysis": "For a local agent to be practical, generation latency must be low… — agent tooling is compounding; this crossed curated builder lists first.",
       "_from_x_api": true,
       "topic_key": "agents",
-      "topic_label": "Agents"
+      "topic_label": "Agents",
+      "media_url": "https://pbs.twimg.com/media/HPWk3-KbAAAmQbp.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPWk3-KbAAAmQbp.jpg?name=large"
     },
     {
       "id": "2087355597851390220",
@@ -2561,7 +2666,9 @@
       "analysis": "xAI just launched Grok Bot in early beta AI teammates that get their… — a model move builders on Scoble’s lists are already amplifying.",
       "_from_x_api": true,
       "topic_key": "models",
-      "topic_label": "Models"
+      "topic_label": "Models",
+      "media_url": "https://pbs.twimg.com/media/HPfHY7uXwAA9zru.jpg?name=large",
+      "image_url": "https://pbs.twimg.com/media/HPfHY7uXwAA9zru.jpg?name=large"
     }
   ],
   "reports": [
