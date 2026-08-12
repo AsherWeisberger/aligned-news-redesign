@@ -401,6 +401,7 @@
         scrapedAt: data.scraped_at,
         generatedAt: new Date().toISOString()
       },
+      // Mock default plan is Pro. Demo free Upgrade CTA with ?plan=free
       user: data.user || { name: "Asher", plan: "Pro" },
       stats: data.stats || {},
       chips: chips,
@@ -591,6 +592,14 @@
   var glowHideTimer = null;
   var glowShownAt = 0;
   var GLOW_MIN_MS = 420;
+  var thinkPhraseTimer = null;
+  var thinkPhraseIndex = 0;
+  var THINK_PHRASES = [
+    "Thinking…",
+    "Listening to lists…",
+    "Ranking signal…",
+    "Writing the desk…"
+  ];
 
   function prefersReducedMotion() {
     try {
@@ -611,6 +620,76 @@
     glow.innerHTML = '<div class="edge-glow-aura" aria-hidden="true"></div>';
     document.body.insertBefore(glow, document.body.firstChild);
     return glow;
+  }
+
+  function ensureThinkStatus() {
+    var el = document.getElementById("thinkStatus");
+    if (el) return el;
+    var actions = document.querySelector(".top-actions");
+    if (!actions) return null;
+    el = document.createElement("div");
+    el.id = "thinkStatus";
+    el.className = "think-status";
+    el.hidden = true;
+    el.setAttribute("aria-live", "polite");
+    el.setAttribute("aria-hidden", "true");
+    el.innerHTML =
+      '<span class="think-status-dot" aria-hidden="true"></span>' +
+      '<span class="think-status-text" id="thinkStatusText">Thinking…</span>';
+    var live = document.getElementById("livePill");
+    if (live && live.parentNode === actions) actions.insertBefore(el, live);
+    else actions.insertBefore(el, actions.firstChild);
+    return el;
+  }
+
+  function setThinkPhrase(phrase) {
+    var textEl = document.getElementById("thinkStatusText");
+    if (!textEl) {
+      var wrap = ensureThinkStatus();
+      if (wrap) textEl = wrap.querySelector(".think-status-text") || document.getElementById("thinkStatusText");
+    }
+    if (textEl) textEl.textContent = phrase || "Thinking…";
+  }
+
+  function stopThinkPhrases() {
+    if (thinkPhraseTimer) {
+      clearInterval(thinkPhraseTimer);
+      thinkPhraseTimer = null;
+    }
+    thinkPhraseIndex = 0;
+  }
+
+  function startThinkPhrases() {
+    stopThinkPhrases();
+    setThinkPhrase(THINK_PHRASES[0]);
+    if (prefersReducedMotion()) return;
+    thinkPhraseTimer = setInterval(function () {
+      thinkPhraseIndex = (thinkPhraseIndex + 1) % THINK_PHRASES.length;
+      setThinkPhrase(THINK_PHRASES[thinkPhraseIndex]);
+    }, 1600);
+  }
+
+  function showThinkStatus() {
+    var el = ensureThinkStatus();
+    if (!el) return;
+    el.hidden = false;
+    el.setAttribute("aria-hidden", "false");
+    el.classList.add("is-on");
+    startThinkPhrases();
+  }
+
+  function hideThinkStatus() {
+    stopThinkPhrases();
+    var el = document.getElementById("thinkStatus");
+    if (!el) return;
+    el.classList.remove("is-on");
+    el.setAttribute("aria-hidden", "true");
+    var leaveMs = prefersReducedMotion() ? 0 : 180;
+    setTimeout(function () {
+      if (el.classList.contains("is-on")) return;
+      el.hidden = true;
+      setThinkPhrase(THINK_PHRASES[0]);
+    }, leaveMs);
   }
 
   function showThinLoadBar() {
@@ -647,8 +726,9 @@
     glow.setAttribute("aria-hidden", "false");
     glow.classList.add("is-on");
     glowShownAt = Date.now();
-    // Subtle secondary top bar; glow is the primary loading treatment.
+    // Subtle secondary top bar; glow + thinkStatus are the loading treatment.
     showThinLoadBar();
+    showThinkStatus();
   }
 
   function hideSiriGlow(forceImmediate) {
@@ -663,6 +743,7 @@
 
     function finishHide() {
       hideThinLoadBar();
+      hideThinkStatus();
       document.documentElement.removeAttribute("data-loading");
       document.body.classList.remove("siri-glow");
       var glow = document.getElementById("edgeGlow");
@@ -1100,6 +1181,75 @@
     return SECTION_GRADIENTS.general;
   }
 
+  /** Crisp topic glyphs for CSS-gradient thumbs (no media URLs in live-data). */
+  function topicGlyphSvg(key) {
+    var k = String(key || "general");
+    if (k.indexOf("compan") !== -1 || k === "industry") k = "companies";
+    if (k.indexOf("open") !== -1) k = "open-source";
+    var paths = {
+      models: '<circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4l1.4-1.4M17 7l1.4-1.4"/><path d="M8 12h8"/>',
+      agents: '<rect x="4" y="7" width="7" height="10" rx="1.5"/><rect x="13" y="7" width="7" height="10" rx="1.5"/><path d="M11 12h2M7 4v3M17 4v3"/>',
+      robotics: '<rect x="7" y="9" width="10" height="9" rx="2"/><circle cx="10" cy="13" r="1.2"/><circle cx="14" cy="13" r="1.2"/><path d="M12 4v5M9 4h6M8 18v2M16 18v2"/>',
+      funding: '<path d="M12 3v18M16.5 7.5c0-1.7-2-3-4.5-3s-4.5 1.3-4.5 3 2 3 4.5 3 4.5 1.3 4.5 3-2 3-4.5 3-4.5-1.3-4.5-3"/>',
+      companies: '<path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6M9 11h.01M15 11h.01M12 11h.01"/>',
+      research: '<path d="M9 4h6v6l-3 2-3-2V4z"/><path d="M9 10v8a3 3 0 006 0v-8"/><path d="M8 20h8"/>',
+      chips: '<rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 9h6v6H9zM3 10h3M3 14h3M18 10h3M18 14h3M10 3v3M14 3v3M10 18v3M14 18v3"/>',
+      "open-source": '<circle cx="12" cy="12" r="3"/><path d="M12 5a7 7 0 017 7M12 19a7 7 0 01-7-7M5.5 8.5A7 7 0 0112 5"/><circle cx="12" cy="5" r="1.3"/><circle cx="18.2" cy="15.5" r="1.3"/><circle cx="5.8" cy="15.5" r="1.3"/>',
+      policy: '<path d="M6 4h9l3 3v13H6V4z"/><path d="M14 4v4h4M9 12h6M9 16h6"/>',
+      creative: '<path d="M12 3l2.2 6.5L21 12l-6.8 2.5L12 21l-2.2-6.5L3 12l6.8-2.5L12 3z"/>',
+      compute: '<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>',
+      events: '<rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 3v4M16 3v4M4 11h16"/>',
+      scoble: '<path d="M8 19V8l4-3 4 3v11"/><path d="M10 12h4M10 15h4"/>',
+      general: '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/>'
+    };
+    var body = paths[k] || paths.general;
+    return '<svg class="row-thumb-icon" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + body + "</svg>";
+  }
+
+  function rowThumbHtml(s, key, sectionPretty) {
+    var label = String(s.topic_label || sectionPretty || "AI").split(" ")[0] || "AI";
+    var author = s.author_name || s.source || s.source_list || "AN";
+    var initial = initialsFrom(author).slice(0, 1);
+    var media = s.media_url || s.image_url || "";
+    var tile =
+      '<div class="row-thumb-tile" style="background:' + sectionThumbStyle(key) + '">' +
+        '<span class="row-thumb-glyph">' + topicGlyphSvg(key) + "</span>" +
+      "</div>";
+    var img = "";
+    if (media) {
+      img =
+        '<img class="row-thumb-img" src="' + escapeHtml(String(media)) + '" alt="" loading="lazy" ' +
+        "onerror=\"var p=this.parentNode;this.remove();if(p){p.classList.remove('has-media');}\" />";
+    }
+    return (
+      '<div class="row-thumb' + (media ? " has-media" : "") + '" aria-hidden="true">' +
+        tile +
+        img +
+        '<span class="row-thumb-label">' + escapeHtml(label) + "</span>" +
+        '<span class="row-thumb-author" style="background:' + avatarColor(author) + '" title="' + escapeHtml(String(author)) + '">' +
+          escapeHtml(initial) +
+        "</span>" +
+      "</div>"
+    );
+  }
+
+  function isProPlan(user) {
+    var p = String((user && user.plan) || "Pro").toLowerCase();
+    return p !== "free";
+  }
+
+  function resolvePlan(user) {
+    // Mock default: Pro. Pass ?plan=free to demo Upgrade CTA in topbar.
+    var q = getParam("plan");
+    var u = user || { name: "Asher", plan: "Pro" };
+    if (q) {
+      u.plan = /^free$/i.test(String(q)) ? "Free" : "Pro";
+    } else if (!u.plan) {
+      u.plan = "Pro";
+    }
+    return u;
+  }
+
   function signalIconColor(badge) {
     var b = String(badge || "signal").toLowerCase();
     if (b === "bullish") return "#16a34a";
@@ -1252,8 +1402,81 @@
           );
         }).join("") +
         "</ul>" +
-        '<div class="sidebar-foot">Asher · Pro<br>63 curated X lists</div>';
+        '<div class="sidebar-foot" id="sidebarFoot"></div>';
     }
+
+    var user = resolvePlan(data.user || { name: "Asher", plan: "Pro" });
+    data.user = user;
+    var pro = isProPlan(user);
+    var uname = user.name || "Asher";
+
+    var foot = $("#sidebarFoot");
+    if (foot) {
+      foot.innerHTML = escapeHtml(uname) + " · " + (pro ? "Pro" : "Free") +
+        "<br>" + (pro ? "63 curated X lists · interests first" : "Free desk · Upgrade for interests-first ranking");
+    }
+
+    var pill = $(".user-pill");
+    if (pill) {
+      var av = initialsFrom(uname).slice(0, 1);
+      pill.innerHTML =
+        '<span class="avatar" aria-hidden="true">' + escapeHtml(av) + "</span>" +
+        '<span class="user-name">' + escapeHtml(uname) + "</span>" +
+        (pro ? '<span class="pro-badge">Pro</span>' : '<span class="plan-badge plan-free">Free</span>');
+      pill.title = pro ? "Signed in · Pro" : "Signed in · Free";
+    }
+
+    var actions = $(".top-actions");
+    if (actions) {
+      var existingUp = $("#upgradeBtn");
+      if (!pro) {
+        if (!existingUp) {
+          var a = document.createElement("a");
+          a.id = "upgradeBtn";
+          a.className = "btn btn-primary upgrade-btn";
+          a.href = "https://alignednews.com/pricing";
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.textContent = "Upgrade";
+          var before = pill || $("#themeToggle") || actions.lastElementChild;
+          if (before && before.parentNode === actions) actions.insertBefore(a, before);
+          else actions.appendChild(a);
+        }
+      } else if (existingUp) {
+        existingUp.remove();
+      }
+    }
+
+    var kicker = $(".desk-kicker");
+    if (kicker) {
+      kicker.textContent = pro ? "Scoble’s lists · Pro desk" : "Scoble’s lists · Free desk";
+    }
+
+    var siteFoot = $(".site-footer");
+    if (siteFoot) {
+      var spans = siteFoot.querySelectorAll("span");
+      if (spans[0]) spans[0].textContent = "Aligned News · " + (pro ? "Pro desk" : "Free desk");
+    }
+
+    // Compact Pro rail / desk note — interests first, then the rest of the desk.
+    var rail = $("#pageRail");
+    var note = $("#proDeskNote");
+    if (rail) {
+      if (pro) {
+        if (!note) {
+          note = document.createElement("section");
+          note.id = "proDeskNote";
+          note.className = "rail-card rail-card-pro-note";
+          note.innerHTML = '<p class="pro-desk-note">Curated to you — interests first, then the rest of the desk.</p>';
+          rail.insertBefore(note, rail.firstChild);
+        } else {
+          note.hidden = false;
+        }
+      } else if (note) {
+        note.hidden = true;
+      }
+    }
+
 
     var metaEl = $("#pageMeta");
     if (metaEl) {
@@ -1529,10 +1752,7 @@
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
-          '<div class="row-thumb" aria-hidden="true">' +
-            '<div class="row-thumb-tile" style="background:' + sectionThumbStyle(key) + '"></div>' +
-            '<span class="row-thumb-label">' + escapeHtml(String(s.topic_label || sectionPretty).split(" ")[0] || "AI") + "</span>" +
-          "</div>" +
+          rowThumbHtml(s, key, sectionPretty) +
         "</li>";
     });
 
