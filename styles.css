@@ -2701,43 +2701,8 @@ html[data-theme="dark"] .skel-shimmer {
   }
 }
 
-/* Thin ink line draws down the left as cards land */
-.feed.feed-reveal::before,
-.report-list.feed-reveal::before,
-.nl-archive.feed-reveal::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1.5px;
-  height: 0;
-  border-radius: 2px;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 55%, transparent),
-    color-mix(in srgb, var(--accent) 18%, transparent) 70%,
-    transparent
-  );
-  opacity: 0.55;
-  pointer-events: none;
-  z-index: 4;
-  animation: feed-ink-draw 1.2s cubic-bezier(0.22, 0.8, 0.2, 1) 80ms forwards;
-}
-html[data-theme="dark"] .feed.feed-reveal::before,
-html[data-theme="dark"] .report-list.feed-reveal::before,
-html[data-theme="dark"] .nl-archive.feed-reveal::before {
-  opacity: 0.7;
-  background: linear-gradient(
-    180deg,
-    rgba(125, 211, 252, 0.55),
-    rgba(192, 132, 252, 0.28) 65%,
-    transparent
-  );
-}
-@keyframes feed-ink-draw {
-  from { height: 0; opacity: 0.15; }
-  to { height: 100%; opacity: 0.55; }
-}
+/* feed-ink-draw removed (an33): no left ink line flash on load */
+
 
 @media (prefers-reduced-motion: reduce) {
   .feed-skel {
@@ -2770,11 +2735,6 @@ html[data-theme="dark"] .nl-archive.feed-reveal::before {
     filter: none !important;
     transform: none !important;
     opacity: 1 !important;
-  }
-  .feed.feed-reveal::before,
-  .report-list.feed-reveal::before,
-  .nl-archive.feed-reveal::before {
-    display: none !important;
   }
 }
 

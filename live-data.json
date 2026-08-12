@@ -16,26 +16,25 @@
     ],
     "note": "Relevance-gated Scoble list desk — topics mapped, RT noise dropped, why_it_matters filled.",
     "cleanedAt": "2026-08-12T03:00:00+00:00",
-    "mediaEnrichedAt": "2026-08-12T21:08:01+00:00",
+    "mediaEnrichedAt": "2026-08-12T21:14:34.605637Z",
     "mediaEnrichment": {
       "unique_ids": 62,
-      "with_media": 26,
-      "empty_no_media": 35,
-      "failed": 1,
-      "by_kind": {
-        "photo": 15,
-        "card": 3,
-        "video": 8
-      },
-      "by_source": {
-        "syndication": 26
-      },
-      "method": "syndication+fxtwitter (X API bearer 401)",
-      "with_media_after_fx_pass": 32,
+      "api_auth": true,
+      "api_status": 200,
+      "tweets_returned": 61,
+      "with_media_from_api": 18,
       "stories_with_media": 32,
       "signals_with_media": 9,
       "forYou_with_media": 2,
-      "extra_from_fxtwitter": 6
+      "updated_fields": 0,
+      "kept_existing_pbs": 42,
+      "cleared_weak": 0,
+      "by_kind": {
+        "photo": 13,
+        "video": 10
+      },
+      "method": "x-api-v2 tweets lookup (alignednewsingest)",
+      "app": "alignednewsingest"
     }
   },
   "user": {
