@@ -964,7 +964,7 @@
 
     var liveTime = $("#liveTime");
     if (liveTime) {
-      liveTime.textContent = lastUpdated ? ("Updated " + lastUpdated) : "Live desk";
+      liveTime.textContent = lastUpdated || "desk";
     }
 
     var deskStats = $("#deskStats");
@@ -1127,7 +1127,15 @@
       return Date.parse(b.published_at || 0) - Date.parse(a.published_at || 0);
     });
     if (!stories.length) {
-      list.innerHTML = '<li class="empty">No stories match this filter.</li>';
+      if (getParam("view") === "saved") {
+        list.innerHTML =
+          '<li class="empty empty-premium">' +
+            '<p class="empty-premium-title">Nothing saved yet</p>' +
+            '<p class="empty-premium-copy">Save stories from Today or Signals to build a shortlist worth revisiting — your private desk list.</p>' +
+          "</li>";
+      } else {
+        list.innerHTML = '<li class="empty">No stories match this filter.</li>';
+      }
       return;
     }
 
