@@ -3841,36 +3841,42 @@
     if (q.length < 3) return [];
     const wantHouse = parseHouseNumber(q);
     const syn = syntheticSuggestRow(q);
-    const buckets = await Promise.all([
-      (async function () {
-        try { return await settleTimeout(fetchGoogleSuggests(q), 1800, []); } catch (e) { return []; }
-      })(),
-      (async function () {
-        try {
-          const res = await fetchWithTimeout("https://photon.komoot.io/api/?q=" + encodeURIComponent(q) + "&limit=6&lang=en", { headers: { Accept: "application/json" } }, 1800);
-          if (!(res && res.ok)) return [];
-          const data = await res.json();
-          const feats = (data && data.features) || [];
-          const rows = [];
-          for (let i = 0; i < feats.length; i++) {
-            const row = photonSuggestRow(feats[i], q);
-            if (row) rows.push(row);
-          }
-          return rows;
-        } catch (e) { return []; }
-      })(),
-      (async function () {
-        try {
-          const noms = await settleTimeout(fetchNominatim({ q: q, limit: "6" }), 1800, []);
-          const rows = [];
-          for (let i = 0; i < (noms || []).length; i++) {
-            const row = nominatimSuggestRow(noms[i], q);
-            if (row) rows.push(row);
-          }
-          return rows;
-        } catch (e) { return []; }
-      })(),
-    ]);
+    const googleP = (async function () {
+      try { return await settleTimeout(fetchGoogleSuggests(q), 2500, []); } catch (e) { return []; }
+    })();
+    const photonP = (async function () {
+      try {
+        const res = await fetchWithTimeout("https://photon.komoot.io/api/?q=" + encodeURIComponent(q) + "&limit=6&lang=en", { headers: { Accept: "application/json" } }, 1800);
+        if (!(res && res.ok)) return [];
+        const data = await res.json();
+        const feats = (data && data.features) || [];
+        const rows = [];
+        for (let i = 0; i < feats.length; i++) {
+          const row = photonSuggestRow(feats[i], q);
+          if (row) rows.push(row);
+        }
+        return rows;
+      } catch (e) { return []; }
+    })();
+    const nomP = (async function () {
+      try {
+        const noms = await settleTimeout(fetchNominatim({ q: q, limit: "6" }), 1800, []);
+        const rows = [];
+        for (let i = 0; i < (noms || []).length; i++) {
+          const row = nominatimSuggestRow(noms[i], q);
+          if (row) rows.push(row);
+        }
+        return rows;
+      } catch (e) { return []; }
+    })();
+    const osm = await Promise.all([photonP, nomP]);
+    var gRows = [];
+    try {
+      var marker = { __gmPending: 1 };
+      var raced = await Promise.race([googleP, Promise.resolve(marker)]);
+      if (!(raced && raced.__gmPending)) gRows = raced || [];
+    } catch (eG) { gRows = []; }
+    const buckets = [gRows, osm[0], osm[1]];
     let rows = [];
     for (let b = 0; b < buckets.length; b++) {
       const part = buckets[b] || [];
