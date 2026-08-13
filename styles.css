@@ -2709,7 +2709,7 @@ html[data-theme="dark"] .skel-shimmer {
 
 /* feed-ink-draw removed (an33): no left ink line flash on load */
 
-/* === an42: analog film-grain on feed reveal (God Mode NVG-style, brief) === */
+/* === an43: analog film-grain on feed reveal (God Mode NVG-style, brief) === */
 /* Fade children, not the host — host opacity < 1 would isolate mix-blend. */
 .feed-grain {
   position: fixed;
@@ -3665,7 +3665,7 @@ html[data-density="compact"] .meta {
   min-height: 220px;
 }
 
-/* === an41: God Mode Cesium export + Esri imagery (no globe.gl blob on desktop) === */
+/* === an43: God Mode Cesium export + Esri imagery (no globe.gl blob on desktop) === */
 .gm-widget {
   position: relative;
   flex-shrink: 0;

@@ -434,11 +434,12 @@
   }
 
 
-  const SAT_TILE_MAX_LEVEL = 10;
+  const SAT_TILE_MAX_LEVEL = 13;
   const OPENSKY_STATES_URL = 'https://opensky-network.org/api/states/all';
   const RAINVIEWER_META_URL = 'https://api.rainviewer.com/public/weather-maps.json';
   function satTileUrl(x, y, l) {
-    return 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/' + l + '/' + y + '/' + x;
+    const z = Math.max(0, Math.min(SAT_TILE_MAX_LEVEL, Number(l) || 0));
+    return 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/' + z + '/' + y + '/' + x;
   }
   function corsProxyUrls(url) {
     return [
@@ -473,13 +474,20 @@
   function applySatelliteTiles(g) {
     try { g.showAtmosphere(false); } catch (e) {}
     try { g.atmosphereAltitude(0); } catch (e) {}
-    try {
-      if (typeof g.globeTileEngineUrl === 'function') {
-        g.globeTileEngineUrl(satTileUrl);
-        try { g.globeTileEngineMaxLevel(SAT_TILE_MAX_LEVEL); } catch (e2) {}
-      }
-    } catch (e) {}
-    try { g.globeImageUrl(EARTH_IMG); } catch (e) {}
+    const hasTiles = !!(g && typeof g.globeTileEngineUrl === 'function');
+    if (hasTiles) {
+      // Slippy tiles replace the baked marble mesh. Do NOT set globeImageUrl
+      // afterward — that paints earth-blue-marble.jpg and zoom looks like a blob.
+      try { g.globeImageUrl(null); } catch (e) {}
+      try { g.globeTileEngineUrl(satTileUrl); } catch (e) {}
+      try { g.globeTileEngineMaxLevel(SAT_TILE_MAX_LEVEL); } catch (e2) {}
+      try {
+        const cam = g.camera && g.camera();
+        if (cam && typeof g.updatePov === 'function') g.updatePov(cam);
+      } catch (e3) {}
+    } else {
+      try { g.globeImageUrl(EARTH_IMG); } catch (e) {}
+    }
   }
   function configurePhoneControls(g) {
     const controls = g.controls();
@@ -492,10 +500,10 @@
     controls.enableRotate = true;
     controls.enablePan = false;
     controls.enableZoom = true;
-    controls.zoomSpeed = 1.35;
+    controls.zoomSpeed = 1.4;
     controls.rotateSpeed = 0.7;
-    controls.minDistance = radius * 1.12;
-    controls.maxDistance = radius * 8;
+    controls.minDistance = radius * 1.018;
+    controls.maxDistance = radius * 10;
     try {
       const T = global.THREE;
       if (T && T.TOUCH && controls.touches) {
@@ -510,6 +518,8 @@
         canvas.style.msTouchAction = 'none';
         canvas.style.webkitUserSelect = 'none';
         canvas.style.userSelect = 'none';
+        canvas.style.webkitTransform = 'none';
+        canvas.style.transform = 'none';
       }
     } catch (e) {}
     return controls;
@@ -517,88 +527,123 @@
   function clampAltitude(alt) {
     const n = Number(alt);
     if (!Number.isFinite(n)) return 2.15;
-    return Math.min(6.8, Math.max(0.12, n));
+    return Math.min(8.5, Math.max(0.018, n));
+  }
+  function cameraDistance(globe) {
+    try {
+      const cam = globe && globe.camera && globe.camera();
+      if (!cam || !cam.position) return 0;
+      const p = cam.position;
+      return Math.hypot(p.x, p.y, p.z);
+    } catch (e) { return 0; }
+  }
+  function setCameraDistance(globe, dist) {
+    try {
+      const cam = globe && globe.camera && globe.camera();
+      if (!cam || !cam.position) return;
+      const radius = globeRadiusOf(globe);
+      const minD = radius * 1.018;
+      const maxD = radius * 10;
+      const d = Math.min(maxD, Math.max(minD, Number(dist) || minD));
+      const p = cam.position;
+      const len = Math.hypot(p.x, p.y, p.z) || 1;
+      const s = d / len;
+      p.x *= s;
+      p.y *= s;
+      p.z *= s;
+      try {
+        const controls = globe.controls && globe.controls();
+        if (controls) {
+          controls.minDistance = minD;
+          controls.maxDistance = maxD;
+          if (typeof controls.update === 'function') controls.update();
+        }
+      } catch (e2) {}
+      try {
+        if (typeof globe.updatePov === 'function') globe.updatePov(cam);
+      } catch (e3) {}
+    } catch (e) {}
   }
   function bindPhoneGlobeGestures(globe, rootEl) {
     const el = rootEl || null;
     if (!el || el.__godModeGestures) return function () {};
     el.__godModeGestures = true;
     let pinchStartDist = 0;
-    let pinchStartAlt = 2.15;
-    const readPov = function () {
-      try { return globe.pointOfView && globe.pointOfView(); } catch (e) { return null; }
-    };
-    const applyAlt = function (alt) {
-      const p = readPov() || {};
-      try {
-        globe.pointOfView({
-          lat: Number.isFinite(Number(p.lat)) ? Number(p.lat) : 28,
-          lng: Number.isFinite(Number(p.lng)) ? Number(p.lng) : -20,
-          altitude: clampAltitude(alt),
-        }, 0);
-      } catch (e) {}
-    };
+    let pinchStartCamDist = 0;
     const pinchDist = function (e) {
       if (!e.touches || e.touches.length < 2) return 0;
       const a = e.touches[0];
       const b = e.touches[1];
       return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
     };
+    const stopPageZoom = function (e) {
+      if (e && e.cancelable) e.preventDefault();
+    };
     const onStart = function (e) {
       if (!e.touches || e.touches.length !== 2) return;
       pinchStartDist = pinchDist(e);
-      const p = readPov();
-      pinchStartAlt = clampAltitude(p && p.altitude);
-      try { const c = globe.controls(); if (c) c.autoRotate = false; } catch (err) {}
+      pinchStartCamDist = cameraDistance(globe) || (globeRadiusOf(globe) * 3.15);
+      try {
+        const c = globe.controls();
+        if (c) {
+          c.autoRotate = false;
+          c.enableDamping = false;
+        }
+      } catch (err) {}
     };
     const onMove = function (e) {
       if (!e.touches || e.touches.length !== 2 || !(pinchStartDist > 0)) return;
-      if (e.cancelable) e.preventDefault();
+      stopPageZoom(e);
       try { e.stopPropagation(); } catch (err) {}
       const d = pinchDist(e);
       if (!(d > 0)) return;
-      applyAlt(pinchStartAlt * (pinchStartDist / d));
+      setCameraDistance(globe, pinchStartCamDist * (pinchStartDist / d));
     };
     const onEnd = function (e) {
-      if (!e.touches || e.touches.length < 2) pinchStartDist = 0;
+      if (!e.touches || e.touches.length < 2) {
+        pinchStartDist = 0;
+        try {
+          const c = globe.controls();
+          if (c) c.enableDamping = true;
+        } catch (err) {}
+      }
     };
     const onWheel = function (e) {
-      if (e.cancelable) e.preventDefault();
+      stopPageZoom(e);
       try { e.stopPropagation(); } catch (err) {}
-      const p = readPov();
-      const alt = clampAltitude(p && p.altitude);
-      applyAlt(alt * (e.deltaY > 0 ? 1.1 : 0.9));
+      const dist = cameraDistance(globe) || (globeRadiusOf(globe) * 3.15);
+      setCameraDistance(globe, dist * (e.deltaY > 0 ? 1.12 : 0.88));
       try { const c = globe.controls(); if (c) c.autoRotate = false; } catch (err) {}
     };
-    const killGesture = function (e) { if (e.cancelable) e.preventDefault(); };
     const opts = { passive: false, capture: true };
-    el.addEventListener('touchstart', onStart, opts);
-    el.addEventListener('touchmove', onMove, opts);
-    el.addEventListener('touchend', onEnd, opts);
-    el.addEventListener('touchcancel', onEnd, opts);
-    el.addEventListener('wheel', onWheel, opts);
-    ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (type) {
-      el.addEventListener(type, killGesture, opts);
-    });
+    const targets = [el];
     const overlay = el.closest ? el.closest('.v4-gm-phone') : null;
-    if (overlay && overlay !== el) {
+    if (overlay && overlay !== el) targets.push(overlay);
+    if (typeof document !== 'undefined') targets.push(document);
+    targets.forEach(function (node) {
+      if (!node || !node.addEventListener) return;
+      node.addEventListener('touchstart', onStart, opts);
+      node.addEventListener('touchmove', onMove, opts);
+      node.addEventListener('touchend', onEnd, opts);
+      node.addEventListener('touchcancel', onEnd, opts);
       ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (type) {
-        overlay.addEventListener(type, killGesture, opts);
+        node.addEventListener(type, stopPageZoom, opts);
       });
-      overlay.addEventListener('touchmove', function (e) {
-        if (e.touches && e.touches.length > 1 && e.cancelable) e.preventDefault();
-      }, opts);
-    }
+    });
+    el.addEventListener('wheel', onWheel, opts);
     return function () {
       el.__godModeGestures = false;
-      el.removeEventListener('touchstart', onStart, opts);
-      el.removeEventListener('touchmove', onMove, opts);
-      el.removeEventListener('touchend', onEnd, opts);
-      el.removeEventListener('touchcancel', onEnd, opts);
-      el.removeEventListener('wheel', onWheel, opts);
-      ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (type) {
-        el.removeEventListener(type, killGesture, opts);
+      targets.forEach(function (node) {
+        if (!node || !node.removeEventListener) return;
+        node.removeEventListener('touchstart', onStart, opts);
+        node.removeEventListener('touchmove', onMove, opts);
+        node.removeEventListener('touchend', onEnd, opts);
+        node.removeEventListener('touchcancel', onEnd, opts);
+        ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (type) {
+          node.removeEventListener(type, stopPageZoom, opts);
+        });
       });
+      el.removeEventListener('wheel', onWheel, opts);
     };
   }
   async function fetchOpenSkyDirect() {
@@ -2556,9 +2601,9 @@
 
   const PHONE_CSS = [
     '.v4-gm-phone{position:absolute;inset:0;z-index:1;width:100%;height:100%;background:#05070c;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;overflow:hidden;pointer-events:auto;touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;}',
-    'body.v4-godmode-phone{touch-action:none;overscroll-behavior:none;overflow:hidden;}',
+    'html.v4-godmode-phone,html.v4-godmode-phone body,body.v4-godmode-phone{touch-action:none;overscroll-behavior:none;overflow:hidden;height:100%;}',
     'body.v4-godmode-phone .hd,body.v4-godmode-phone .v6-gnav,body.v4-godmode-phone .mobile-nav-layer{visibility:hidden!important;pointer-events:none!important;}',
-    '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;}',
+    '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;-webkit-user-select:none;user-select:none;transform:none;-webkit-transform:none;}',
     '.v4-gm-phone-globe canvas{display:block;width:100%!important;height:100%!important;}',
     '.v4-gm-phone-top{position:absolute;top:env(safe-area-inset-top,0px);left:env(safe-area-inset-left,0px);right:env(safe-area-inset-right,0px);z-index:2;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);display:flex;align-items:center;justify-content:space-between;padding:8px 10px;pointer-events:none;}',
     '.v4-gm-phone-live{display:flex;align-items:center;gap:8px;background:#0b0d12;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 12px;font-size:12px;letter-spacing:.08em;font-weight:700;color:#f2f5fa;pointer-events:none;}',
@@ -2702,14 +2747,21 @@
       window.addEventListener('keydown', onKey);
       document.body.classList.add('v4-godmode-open');
       document.body.classList.add('v4-godmode-phone');
+      document.documentElement.classList.add('v4-godmode-phone');
       const prevOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
+      const meta = document.querySelector('meta[name="viewport"]');
+      const prevMeta = meta ? meta.getAttribute('content') : '';
+      if (meta) meta.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover');
       const clock = window.setInterval(function () { setUtc(fmtUtc(new Date())); }, 1000);
       return function () {
         window.removeEventListener('keydown', onKey);
         document.body.classList.remove('v4-godmode-open');
         document.body.classList.remove('v4-godmode-phone');
+        document.documentElement.classList.remove('v4-godmode-phone');
+        document.documentElement.classList.remove('v4-godmode-phone');
         document.body.style.overflow = prevOverflow;
+        if (meta && prevMeta != null) meta.setAttribute('content', prevMeta);
         window.clearInterval(clock);
       };
     }, [open, onClose]);
