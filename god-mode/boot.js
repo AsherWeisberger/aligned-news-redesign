@@ -5,7 +5,7 @@
 (function (global) {
   "use strict";
 
-  var VERSION = "an37";
+  var VERSION = "an38";
   var BASE = (function () {
     try {
       var scripts = document.getElementsByTagName("script");
@@ -46,35 +46,40 @@
     });
   }
 
+  // Desktop Mac/Safari must get Cesium — never globe.gl's baked marble blob.
+  // Safari exposes ontouchstart and some Macs report maxTouchPoints; that is NOT a phone.
   function isPhoneGodMode() {
     try {
       var g = new URLSearchParams(location.search).get("god");
       if (g === "phone") return true;
-      if (g === "legacy" || g === "desktop") return false;
+      if (g === "legacy" || g === "desktop" || g === "cesium") return false;
     } catch (e) {}
-    try {
-      if (navigator.userAgentData && navigator.userAgentData.mobile) return true;
-    } catch (e) {}
+
     var ua = String(navigator.userAgent || "");
     var platform = String(navigator.platform || "");
     var touchPoints = Number(navigator.maxTouchPoints || 0);
-    var touch = touchPoints > 0 || ("ontouchstart" in window);
-    var coarse = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
-    var hoverNone = !!(window.matchMedia && window.matchMedia("(hover: none)").matches);
-    var narrow = !!(window.matchMedia && (
-      window.matchMedia("(max-width: 1100px)").matches ||
-      window.matchMedia("(max-device-width: 1100px)").matches
-    ));
-    var minDim = Math.min(
-      Number(window.innerWidth) || 9999,
-      Number(window.innerHeight) || 9999,
-      Number(screen && screen.width) || 9999,
-      Number(screen && screen.height) || 9999
-    );
-    var ios = /iPhone|iPod|iPad/i.test(ua) || /iPhone|iPod|iPad/i.test(platform) ||
-      ((touch || coarse) && /Macintosh|Mac OS X/i.test(ua));
-    var android = /Android/i.test(ua);
-    return ios || android || coarse || (hoverNone && touch) || (touch && (narrow || minDim <= 1100));
+    var coarse = false;
+    var hoverNone = false;
+    var fineHover = false;
+    try { coarse = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches); } catch (e) {}
+    try { hoverNone = !!(window.matchMedia && window.matchMedia("(hover: none)").matches); } catch (e) {}
+    try { fineHover = !!(window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches); } catch (e) {}
+
+    if (/iPhone|iPod/i.test(ua)) return true;
+    if (/Android/i.test(ua) && /Mobile/i.test(ua)) return true;
+    try {
+      if (navigator.userAgentData && navigator.userAgentData.mobile) return true;
+    } catch (e) {}
+
+    // iPadOS 13+ can spoof Macintosh; require coarse pointer / no-hover plus multi-touch.
+    var ipad = /iPad/i.test(ua) || /iPad/i.test(platform) ||
+      ((platform === "MacIntel" || /Macintosh|Mac OS X/i.test(ua)) && touchPoints > 1 && (coarse || hoverNone) && !fineHover);
+    if (ipad) return true;
+    if (/Android/i.test(ua) && (coarse || hoverNone) && !fineHover) return true;
+
+    // Real desktop (Mac included): mouse/trackpad hover. Do not treat ontouchstart as phone.
+    if (fineHover) return false;
+    return false;
   }
 
   function loadReact() {
@@ -98,6 +103,7 @@
     }
     if (loadPromise && engineWant === want) return loadPromise;
     engineWant = want;
+    loadPromise = null;
     var src = BASE + (want === "phone" ? "god-mode-mobile.js" : "god-mode-cesium.js") + "?v=" + VERSION;
     loadPromise = loadScript(src, "an-godmode-" + want).then(function () {
       if (typeof global.V4GodModeEarth !== "function") {

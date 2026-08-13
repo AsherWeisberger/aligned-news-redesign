@@ -245,7 +245,9 @@
       '.v4-gm2 .v4-godmode-shell{position:relative;z-index:2;display:flex;flex-direction:column;width:100%;height:100%;background:#05070c;color:var(--gm2-text);overflow:hidden;border:0;box-shadow:none;pointer-events:auto}',
       '.v4-gm2 .v4-godmode-body{position:relative;flex:1;min-height:0;display:flex}',
       '.v4-gm2 .v4-gm2-stage{position:relative;flex:1;min-width:0;min-height:0;background:#02040a}',
-      '.v4-gm2 .v4-gm2-cesium,.v4-gm2 .v4-gm2-cesium .cesium-viewer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-cesiumWidgetContainer,.v4-gm2 .v4-gm2-cesium .cesium-widget,.v4-gm2 .v4-gm2-cesium canvas{width:100%!important;height:100%!important}',
+      '.v4-gm2 .v4-gm2-cesium-host{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;transform:none!important;zoom:normal!important}',
+      '.v4-gm2 .v4-gm2-cesium,.v4-gm2 .v4-gm2-cesium .cesium-viewer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-cesiumWidgetContainer,.v4-gm2 .v4-gm2-cesium .cesium-widget,.v4-gm2 .v4-gm2-cesium canvas{position:absolute;inset:0;width:100%!important;height:100%!important;transform:none!important;zoom:normal!important}',
+',
       '.v4-gm2 .v4-gm2-cesium .cesium-viewer-bottom,.v4-gm2 .v4-gm2-cesium .cesium-viewer-animationContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-timelineContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-fullscreenContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-vrContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-toolbar{display:none!important}',
       '.v4-gm2 .v4-gm2-cesium .cesium-credit-logoContainer,.v4-gm2 .v4-gm2-cesium .cesium-credit-expand-link{filter:invert(1) brightness(1.2);opacity:.55}',
       '.v4-gm2 .v4-godmode-head{display:flex;align-items:center;gap:16px;padding:10px 14px;border-bottom:1px solid var(--gm2-border);background:linear-gradient(180deg,rgba(10,18,32,.95),rgba(6,10,18,.88));z-index:5}',
@@ -474,6 +476,46 @@
     finally { global.clearTimeout(timer); }
   }
 
+  function corsProxyUrls(url) {
+    const u = String(url || '');
+    return [
+      u,
+      'https://corsproxy.io/?' + encodeURIComponent(u),
+      'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+    ];
+  }
+
+  async function fetchJsonCors(url, ms) {
+    let lastErr = null;
+    const attempts = corsProxyUrls(url);
+    for (let i = 0; i < attempts.length; i++) {
+      try {
+        const res = await fetchWithTimeout(attempts[i], { headers: { Accept: 'application/json, text/plain, */*' } }, ms || FETCH_TIMEOUT_MS);
+        if (!res || !res.ok) { lastErr = new Error('http ' + (res && res.status)); continue; }
+        const body = await res.text();
+        if (!body) continue;
+        if (/^\s*[{\[]/.test(body)) {
+          try { return JSON.parse(body); } catch (e) { lastErr = e; continue; }
+        }
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr || new Error('cors json failed');
+  }
+
+  async function fetchTextCors(url, ms) {
+    let lastErr = null;
+    const attempts = corsProxyUrls(url);
+    for (let i = 0; i < attempts.length; i++) {
+      try {
+        const res = await fetchWithTimeout(attempts[i], { headers: { Accept: 'text/plain, */*' } }, ms || FETCH_TIMEOUT_MS);
+        if (!res || !res.ok) { lastErr = new Error('http ' + (res && res.status)); continue; }
+        const body = await res.text();
+        if (body) return body;
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr || new Error('cors text failed');
+  }
+
   function godModeServiceBases() {
     const bases = [];
     const host = String(global.location?.hostname || '').toLowerCase();
@@ -658,9 +700,8 @@
       + '?latitude=' + lats + '&longitude=' + lngs
       + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m'
       + '&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=UTC';
-    const res = await fetchWithTimeout(url, { headers: { Accept: 'application/json' } }, 12000);
-    if (!res.ok) throw new Error('open-meteo ' + res.status);
-    const data = await res.json();
+    const data = await fetchJsonCors(url, 12000);
+    if (!data) throw new Error('open-meteo empty');
     const rows = Array.isArray(data) ? data : [data];
     const out = [];
     rows.forEach((row, i) => {
@@ -802,7 +843,7 @@
         rows.forEach((r) => { if (!r.source) r.source = "OpenSky proxy"; });
         return rows;
       }
-    } catch (e) { console.warn("[god-mode-cesium] flight proxy failed, trying ADS-B", e); }
+    } catch (e) { console.warn("[god-mode-cesium] flight proxy failed, trying public ADS-B / OpenSky", e); }
     try {
       const rows = await fetchAdsbFlightsMerged();
       if (rows.length) {
@@ -810,6 +851,14 @@
         return rows;
       }
     } catch (e) { console.warn("[god-mode-cesium] ADS-B failed", e); }
+    try {
+      const data = await fetchJsonCors("https://opensky-network.org/api/states/all", 16000);
+      const rows = parseFlightStates(data && data.states);
+      if (rows.length) {
+        rows.forEach((r) => { r.source = "OpenSky"; });
+        return rows;
+      }
+    } catch (e) { console.warn("[god-mode-cesium] OpenSky failed", e); }
     return [];
   }
 
@@ -1193,9 +1242,7 @@
       } catch (e) {}
     }
     if (!text) {
-      const res = await fetchWithTimeout(CELESTRAK_TLE + encodeURIComponent(group) + '&FORMAT=tle', {}, 30000);
-      if (!res.ok) throw new Error(group + ' TLE feed ' + res.status);
-      text = await res.text();
+      text = await fetchTextCors(CELESTRAK_TLE + encodeURIComponent(group) + '&FORMAT=tle', 30000);
     }
     if (!/^1 /m.test(text)) throw new Error(group + ' TLE feed malformed');
     try { global.localStorage.setItem(cacheKey, JSON.stringify({ text, savedAt: Date.now() })); } catch (e) {}
@@ -1972,9 +2019,8 @@
 
   async function fetchRadarMeta() {
     try {
-      const res = await fetchWithTimeout('https://api.rainviewer.com/public/weather-maps.json');
-      if (!res.ok) return null;
-      const data = await res.json();
+      const data = await fetchJsonCors('https://api.rainviewer.com/public/weather-maps.json', 12000);
+      if (!data) return null;
       const host = String(data?.host || 'https://tilecache.rainviewer.com');
       const past = Array.isArray(data?.radar?.past) ? data.radar.past : [];
       const nowcast = Array.isArray(data?.radar?.nowcast) ? data.radar.nowcast : [];
@@ -2884,7 +2930,7 @@
       if (ent && !isDestroyedEnt(ent)) {
         try {
           ent.__gm2LayerOn = !!visible;
-          if (!visible) ent.show = false;
+          ent.show = !!visible;
         } catch (e) {}
       }
     });
@@ -3286,22 +3332,32 @@
     if (typeof state.runHorizonCull === 'function') state.runHorizonCull();
   }
 
+  function addUrlImagery(Cesium, viewer, url, credit, maxLevel) {
+    try {
+      return viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
+        url: url,
+        maximumLevel: maxLevel || 19,
+        enablePickFeatures: false,
+        credit: credit || '',
+      }));
+    } catch (e) { return null; }
+  }
+
   function createImageryLayers(Cesium, viewer, state) {
     try { if (viewer.imageryLayers) viewer.imageryLayers.removeAll(true); } catch (e) {}
-    let esri = null;
-    try {
-      esri = viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        maximumLevel: 19, credit: 'Esri World Imagery',
-      }));
-    } catch (e) {}
+    let esri = addUrlImagery(Cesium, viewer,
+      'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      'Esri World Imagery', 19);
     if (!esri) {
-      try {
-        esri = viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
-          url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          maximumLevel: 19, credit: 'OpenStreetMap',
-        }));
-      } catch (e) {}
+      esri = addUrlImagery(Cesium, viewer,
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        'Esri World Imagery', 19);
+    }
+    if (!esri) {
+      esri = addUrlImagery(Cesium, viewer, 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', 'OpenStreetMap', 19);
+    }
+    if (!esri) {
+      esri = addUrlImagery(Cesium, viewer, 'https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', 'Carto', 19);
     }
     state.esriLayer = esri;
     try {
@@ -3784,6 +3840,7 @@
     } catch (e) {}
     state.bloomStage = null;
     state.fxaaStage = null;
+    try { if (state._resizeObserver) { state._resizeObserver.disconnect(); state._resizeObserver = null; } } catch (e) {}
     try { if (state.viewer && !state.viewer.isDestroyed?.()) state.viewer.destroy(); } catch (e) {}
     state.viewer = null;
     state.entityById = new Map();
@@ -4039,13 +4096,29 @@
         try {
           const Cesium = await ensureCesium();
           if (cancelled || bootGen !== state._bootGen || !stageRef.current) return;
-          try { /* keep Cesium default ion token if present; empty token reads as fog/blank */ } catch (e) {}
+          try {
+            if (Cesium.Ion && !Cesium.Ion.defaultAccessToken) {
+              Cesium.Ion.defaultAccessToken = 'not-used';
+            }
+          } catch (e) {}
 
           const container = stageRef.current;
           container.innerHTML = '';
           const cesiumDiv = document.createElement('div');
           cesiumDiv.className = 'v4-gm2-cesium';
+          cesiumDiv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;transform:none;zoom:normal;';
           container.appendChild(cesiumDiv);
+
+          let esriBase = false;
+          try {
+            const esriProvider = new Cesium.UrlTemplateImageryProvider({
+              url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+              maximumLevel: 19,
+              enablePickFeatures: false,
+              credit: 'Esri World Imagery',
+            });
+            esriBase = new Cesium.ImageryLayer(esriProvider);
+          } catch (e) { esriBase = false; }
 
           const viewerOpts = {
             animation: false, timeline: false, baseLayerPicker: false,
@@ -4055,16 +4128,21 @@
             creditContainer: document.createElement('div'),
             terrainProvider: new Cesium.EllipsoidTerrainProvider(),
             shouldAnimate: true,
+            requestRenderMode: false,
+            scene3DOnly: true,
+            baseLayer: esriBase,
           };
-          try { viewerOpts.baseLayer = false; } catch (e) {}
-          try { viewerOpts.imageryProvider = false; } catch (e) {}
 
           try {
             viewer = new Cesium.Viewer(cesiumDiv, viewerOpts);
           } catch (e) {
-            delete viewerOpts.baseLayer;
-            delete viewerOpts.imageryProvider;
-            viewer = new Cesium.Viewer(cesiumDiv, viewerOpts);
+            try {
+              viewerOpts.baseLayer = false;
+              viewer = new Cesium.Viewer(cesiumDiv, viewerOpts);
+            } catch (e2) {
+              delete viewerOpts.baseLayer;
+              viewer = new Cesium.Viewer(cesiumDiv, viewerOpts);
+            }
           }
           if (cancelled || bootGen !== state._bootGen || state.destroyed) {
             try { if (viewer && !viewer.isDestroyed?.()) viewer.destroy(); } catch (e2) {}
@@ -4082,7 +4160,10 @@
           applySensorSkin(state, skinRef.current);
           applyClock(Cesium, viewer, clockRef.current.mode, clockRef.current.speed);
           try {
+            viewer.scene.globe.show = true;
             viewer.scene.globe.depthTestAgainstTerrain = true;
+            try { viewer.scene.requestRenderMode = false; } catch (e2) {}
+            try { viewer.useDefaultRenderLoop = true; } catch (e2) {}
             const ssc = viewer.scene.screenSpaceCameraController;
             ssc.enableInputs = true;
             ssc.enableZoom = true;
@@ -4094,6 +4175,18 @@
             ssc.maximumZoomDistance = 4.5e7;
             try { viewer.scene.canvas.style.pointerEvents = 'auto'; } catch (e2) {}
             try { viewer.scene.canvas.style.touchAction = 'none'; } catch (e2) {}
+            try { viewer.scene.canvas.style.transform = 'none'; } catch (e2) {}
+            try { viewer.resize(); } catch (e2) {}
+            try { viewer.scene.requestRender(); } catch (e2) {}
+            try {
+              if (typeof ResizeObserver === 'function') {
+                const ro = new ResizeObserver(function () {
+                  try { viewer.resize(); viewer.scene.requestRender(); } catch (e3) {}
+                });
+                ro.observe(cesiumDiv);
+                state._resizeObserver = ro;
+              }
+            } catch (e2) {}
           } catch (e) {}
           attachHorizonCull(Cesium, viewer, state);
 

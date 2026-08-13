@@ -3592,7 +3592,7 @@ html[data-density="compact"] .meta {
   min-height: 220px;
 }
 
-/* === an37: God Mode live globe widget + in-page Cesium HUD === */
+/* === an38: God Mode Cesium + Esri imagery (no globe.gl blob on desktop) === */
 .gm-widget {
   position: relative;
   flex-shrink: 0;
@@ -3765,6 +3765,11 @@ html.gm-overlay-open body {
 .gm-overlay .v4-gm-phone-globe,
 .gm-overlay .v4-gm-phone-globe canvas {
   pointer-events: auto !important;
+  transform: none !important;
+  zoom: normal !important;
+}
+.gm-overlay {
+  zoom: normal;
 }
 .gm-overlay .v4-godmode-layers,
 .gm-overlay .v4-gm2-hud-right,
