@@ -54,21 +54,21 @@
   const TLE_GROUP_TTL_MS = 6 * 60 * 60 * 1000;
   const SHIP_META_TTL_MS = 12 * 60 * 1000;
 
-  const MAX_FLIGHT_POINTS = 420;
-  const MAX_SHIP_POINTS = 1100;
-  const STARLINK_MAX_ALL = 720;
-  const STARLINK_MAX_FOCUS = 1100;
+  const MAX_FLIGHT_POINTS = 280;
+  const MAX_SHIP_POINTS = 480;
+  const STARLINK_MAX_ALL = 400;
+  const STARLINK_MAX_FOCUS = 560;
   const GPS_MAX = 64;
   const WXSAT_MAX = 80;
   const STATION_MAX = 24;
-  const ONEWEB_MAX = 280;
-  const GEO_MAX = 180;
+  const ONEWEB_MAX = 140;
+  const GEO_MAX = 90;
   const VISUAL_MAX = 80;
   const MILSAT_MAX = 24;
-  const KUIPER_MAX = 180;
-  const GPSJAM_ORBIT_CAP = 1200;
-  const GPSJAM_REGIONAL_CAP = 2500;
-  const GPSJAM_CITY_CAP = 4000;
+  const KUIPER_MAX = 90;
+  const GPSJAM_ORBIT_CAP = 600;
+  const GPSJAM_REGIONAL_CAP = 1200;
+  const GPSJAM_CITY_CAP = 1800;
   const GPSJAM_HEX_M = 22000;
   const USGS_POLL_MS = 10 * 60 * 1000;
   const LOD_CITY_M = 80e3;
@@ -3723,7 +3723,7 @@
   function tuneGoogleTileset(tileset, heightM) {
     if (!tileset) return;
     const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
-    try { tileset.maximumScreenSpaceError = GOOGLE_TILES_SSE; } catch (e) {}
+    try { tileset.maximumScreenSpaceError = Math.max(1, Number(GOOGLE_TILES_SSE) || 1); } catch (e) {}
     try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
     try { tileset.skipLevelOfDetail = false; } catch (e) {}
     try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
@@ -4080,6 +4080,60 @@
     try { if (viewer && viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (e) {}
   }
 
+
+  function installSafeRenderLoop(viewer, state) {
+    if (!viewer || !state) return;
+    try { viewer.useDefaultRenderLoop = false; if (viewer.scene) viewer.scene.rethrowRenderErrors = false; } catch (e) {}
+    try {
+      if (viewer.scene) {
+        viewer.scene.rethrowRenderErrors = false;
+        if (typeof viewer.scene.renderError !== "undefined" && viewer.scene.renderError && viewer.scene.renderError.addEventListener && !state._renderErrHook) {
+          state._renderErrHook = true;
+          viewer.scene.renderError.addEventListener(function () {
+            try { if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (e2) {}
+          });
+        }
+      }
+    } catch (e) {}
+    if (state._safeRenderRaf) return;
+    const tick = function () {
+      if (state.destroyed) {
+        state._safeRenderRaf = 0;
+        return;
+      }
+      try {
+        if (!viewer || (viewer.isDestroyed && viewer.isDestroyed())) {
+          state._safeRenderRaf = 0;
+          return;
+        }
+      } catch (eD) {
+        state._safeRenderRaf = 0;
+        return;
+      }
+      state._safeRenderRaf = (global.requestAnimationFrame || function (fn) { return global.setTimeout(fn, 16); })(tick);
+      try { if (viewer.resize) viewer.resize(); } catch (eR) {}
+      try {
+        viewer.render();
+      } catch (eX) {
+        const msg = String((eX && eX.message) || eX || "");
+        if (/Invalid array length|potentiallyVisibleSet|createPotentiallyVisibleSet|Failed to set the 'length'/i.test(msg)) {
+          try { if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (e2) {}
+        }
+      }
+    };
+    state._safeRenderRaf = (global.requestAnimationFrame || function (fn) { return global.setTimeout(fn, 16); })(tick);
+  }
+
+  function stopSafeRenderLoop(state) {
+    if (!state) return;
+    const id = state._safeRenderRaf;
+    state._safeRenderRaf = 0;
+    if (!id) return;
+    try { if (global.cancelAnimationFrame) global.cancelAnimationFrame(id); } catch (e) {}
+    try { global.clearTimeout(id); } catch (e2) {}
+  }
+
+
   function enableDesktopRotate(Cesium, viewer) {
     try {
       const scene = viewer && viewer.scene;
@@ -4097,7 +4151,7 @@
       const KEM = Cesium && Cesium.KeyboardEventModifier;
       if (CET) {
         try { ssc.translateEventTypes = CET.LEFT_DRAG; } catch (e) {}
-        try { ssc.zoomEventTypes = [CET.WHEEL, CET.PINCH]; } catch (e) {}
+        try { ssc.zoomEventTypes = [CET.PINCH]; } catch (e) {}
         try { ssc.rotateEventTypes = CET.RIGHT_DRAG; } catch (e) {}
         try {
           ssc.tiltEventTypes = CET.PINCH;
@@ -4115,8 +4169,7 @@
           canvas.addEventListener("wheel", function (ev) {
             const dx = Number(ev.deltaX) || 0;
             const dy = Number(ev.deltaY) || 0;
-            if (!(Math.abs(dx) > Math.abs(dy))) return;
-            try { ev.preventDefault(); } catch (eP) {}
+            const horiz = Math.abs(dx) > Math.abs(dy) * 1.15;
             try {
               const cam = viewer && viewer.camera;
               if (!cam) return;
@@ -4125,9 +4178,17 @@
               if (!Number.isFinite(h) || h < 80) h = 80;
               const mode = Number(ev.deltaMode) || 0;
               const unit = mode === 1 ? 16 : (mode === 2 ? 800 : 1);
-              const mag = h * 0.0012 * unit;
-              cam.moveRight(dx * mag);
-              cam.moveUp(-dy * mag);
+              if (horiz) {
+                try { ev.preventDefault(); } catch (eP) {}
+                const mag = h * 0.0012 * unit;
+                cam.moveRight(dx * mag);
+                cam.moveUp(-dy * mag);
+              } else if (Math.abs(dy) > 0.01) {
+                try { ev.preventDefault(); } catch (eP2) {}
+                const zoom = dy * unit * Math.max(h, 120) * 0.0022;
+                if (zoom > 0) cam.zoomOut(zoom);
+                else cam.zoomIn(-zoom);
+              }
             } catch (eW) {}
             try { if (viewer && viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eR) {}
           }, { passive: false });
@@ -4505,26 +4566,26 @@
   function searchPinDataUrl() {
     if (_searchPinDataUrl) return _searchPinDataUrl;
     const c = document.createElement("canvas");
-    c.width = 36;
-    c.height = 48;
+    c.width = 56;
+    c.height = 80;
     const ctx = c.getContext("2d");
-    const cx = 18;
-    const cy = 16;
-    const r = 13;
+    const cx = 28;
+    const cy = 24;
+    const r = 18;
     ctx.beginPath();
-    ctx.moveTo(cx, 47);
-    ctx.bezierCurveTo(cx - 4, 36, cx - r, cy + r - 1, cx - r, cy);
+    ctx.moveTo(cx, 76);
+    ctx.bezierCurveTo(cx - 6, 56, cx - r, cy + r, cx - r, cy);
     ctx.arc(cx, cy, r, Math.PI, 0, false);
-    ctx.bezierCurveTo(cx + r, cy + r - 1, cx + 4, 36, cx, 47);
+    ctx.bezierCurveTo(cx + r, cy + r, cx + 6, 56, cx, 76);
     ctx.closePath();
     ctx.fillStyle = "#ffbf00";
     ctx.fill();
     ctx.lineJoin = "round";
-    ctx.lineWidth = 2.25;
-    ctx.strokeStyle = "#3a2a00";
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#1a1200";
     ctx.stroke();
     ctx.beginPath();
-    ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
     ctx.fillStyle = "#ffffff";
     ctx.fill();
     _searchPinDataUrl = c.toDataURL("image/png");
@@ -4550,22 +4611,38 @@
     const lat = Number(hit.lat);
     const lng = Number(hit.lng);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+    const pinH = 36;
     let ent = null;
     try {
+      const billboard = {
+        image: searchPinDataUrl(),
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
+        disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        heightReference: Cesium.HeightReference.NONE,
+        pixelOffset: new Cesium.Cartesian2(0, 0),
+        eyeOffset: new Cesium.Cartesian3(0, 0, -80),
+        scale: 1.35,
+        sizeInMeters: false,
+        scaleByDistance: new Cesium.NearFarScalar(80, 1.55, 6.0e6, 0.95),
+      };
+      const point = {
+        pixelSize: 16,
+        color: Cesium.Color.fromCssColorString("#ffbf00"),
+        outlineColor: Cesium.Color.fromCssColorString("#1a1200"),
+        outlineWidth: 3,
+        disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        heightReference: Cesium.HeightReference.NONE,
+        scaleByDistance: new Cesium.NearFarScalar(80, 1.4, 6.0e6, 0.85),
+      };
       ent = viewer.entities.add({
         id: "gm2-search-pin",
-        position: Cesium.Cartesian3.fromDegrees(lng, lat, 3),
-        billboard: {
-          image: searchPinDataUrl(),
-          verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-          disableDepthTestDistance: Number.POSITIVE_INFINITY,
-          heightReference: Cesium.HeightReference.NONE,
-          pixelOffset: new Cesium.Cartesian2(0, 0),
-          scale: 1,
-          scaleByDistance: new Cesium.NearFarScalar(200, 1.15, 2.5e6, 0.55),
-        },
+        position: Cesium.Cartesian3.fromDegrees(lng, lat, pinH),
+        billboard: billboard,
+        point: point,
       });
       ent.__gm2Decor = true;
+      try { ent.show = true; } catch (eS) {}
     } catch (e) { ent = null; }
     state._searchPin = { lat: lat, lng: lng, name: hit.name || "", kind: hit.kind || "", entity: ent };
     try { if (ent && state.entityById && typeof state.entityById.set === "function") state.entityById.set("search-pin", ent); } catch (e4) {}
@@ -4782,7 +4859,7 @@
     if (ensureGoogleMapsJs._p) return ensureGoogleMapsJs._p;
     ensureGoogleMapsJs._p = new Promise(function (resolve) {
       const s = document.createElement("script");
-      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key);
+      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&libraries=places";
       s.async = true;
       s.onload = function () { resolve(!!(global.google && global.google.maps && global.google.maps.Geocoder)); };
       s.onerror = function () { resolve(false); };
@@ -4851,6 +4928,101 @@
     return null;
   }
 
+
+  function syntheticSuggestRow(q) {
+    const s = String(q || "").trim();
+    return {
+      title: s,
+      sub: "Search this address",
+      name: s,
+      kind: "address",
+      source: "typed",
+      house: parseHouseNumber(s),
+      lat: NaN,
+      lng: NaN,
+    };
+  }
+
+  function queryHasLocality(q) {
+    const parsed = parseUsStreetQuery(q);
+    if (parsed && parsed.city && String(parsed.city).trim().length > 1) return true;
+    if (parsed && parsed.state) return true;
+    if (parsed && parsed.zip) return true;
+    return false;
+  }
+
+  function hitsAreAmbiguous(hits, q) {
+    const wantHouse = parseHouseNumber(q);
+    if (!wantHouse || queryHasLocality(q)) return false;
+    const list = (hits || []).filter(function (h) { return h && Number.isFinite(Number(h.lat)) && Number.isFinite(Number(h.lng)); });
+    if (list.length < 2) return false;
+    let minLat = 90, maxLat = -90, minLng = 180, maxLng = -180;
+    for (let i = 0; i < list.length; i++) {
+      minLat = Math.min(minLat, Number(list[i].lat));
+      maxLat = Math.max(maxLat, Number(list[i].lat));
+      minLng = Math.min(minLng, Number(list[i].lng));
+      maxLng = Math.max(maxLng, Number(list[i].lng));
+    }
+    return (maxLat - minLat) > 0.12 || (maxLng - minLng) > 0.12;
+  }
+
+  function suggestKey(r) {
+    if (!r) return "";
+    if (Number.isFinite(Number(r.lat)) && Number.isFinite(Number(r.lng))) {
+      return Number(r.lat).toFixed(5) + "," + Number(r.lng).toFixed(5);
+    }
+    return "typed:" + String(r.name || r.title || "").toLowerCase();
+  }
+
+  function mergeSuggestRows(syn, rows) {
+    const out = [];
+    const seen = {};
+    const push = function (r) {
+      if (!r) return;
+      const key = suggestKey(r);
+      if (seen[key]) return;
+      seen[key] = 1;
+      out.push(r);
+    };
+    if (syn) push(syn);
+    const list = Array.isArray(rows) ? rows : [];
+    for (let i = 0; i < list.length; i++) push(list[i]);
+    return out.slice(0, 8);
+  }
+
+  function googleRowFromResult(row, q) {
+    if (!row) return null;
+    const loc = row.geometry && row.geometry.location;
+    if (!loc) return null;
+    const lat = Number(typeof loc.lat === "function" ? loc.lat() : loc.lat);
+    const lng = Number(typeof loc.lng === "function" ? loc.lng() : loc.lng);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    const types = Array.isArray(row.types) ? row.types : [];
+    let kind = "address";
+    if (types.indexOf("locality") >= 0 || types.indexOf("administrative_area_level_1") >= 0 || types.indexOf("country") >= 0) kind = "city";
+    else if (types.indexOf("route") >= 0) kind = "street";
+    const name = String(row.formatted_address || q);
+    const parts = name.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+    const title = parts[0] || String(q);
+    const sub = parts.slice(1, 3).join(", ");
+    const hn = parseHouseNumber(title) || parseHouseNumber(q);
+    return {
+      lat: lat, lng: lng, title: title, sub: sub, name: name,
+      kind: kind, source: "google", house: hn,
+      locationType: String((row.geometry && row.geometry.location_type) || ""),
+    };
+  }
+
+  function googleRowsFromResults(results, q) {
+    const list = Array.isArray(results) ? results : [];
+    const out = [];
+    for (let i = 0; i < list.length; i++) {
+      const row = googleRowFromResult(list[i], q);
+      if (row) out.push(row);
+    }
+    return out;
+  }
+
   function photonSuggestRow(feat, q) {
     const coords = feat && feat.geometry && feat.geometry.coordinates;
     if (!coords || coords.length < 2) return null;
@@ -4885,122 +5057,172 @@
     };
   }
 
+  async function fetchGoogleSuggests(query) {
+    const q = String(query || "").trim();
+    if (!q) return [];
+    try {
+      const rows = await geocodeGoogleJsAll(q);
+      if (rows && rows.length) return rows;
+    } catch (e) {}
+    try {
+      const hit = await geocodeGoogle(q);
+      if (hit) return [hit];
+    } catch (e2) {}
+    return [];
+  }
+
+  async function geocodeGoogleJsAll(query) {
+    const q = String(query || "").trim();
+    if (!q) return [];
+    const ok = await ensureGoogleMapsJs();
+    if (!ok) return [];
+    return new Promise(function (resolve) {
+      try {
+        const geo = new global.google.maps.Geocoder();
+        geo.geocode({ address: q }, function (results, status) {
+          if (String(status) !== "OK" || !results || !results.length) return resolve([]);
+          resolve(googleRowsFromResults(results, q));
+        });
+      } catch (e) { resolve([]); }
+    });
+  }
+
   async function fetchSearchSuggests(query) {
     const q = String(query || "").trim();
     if (q.length < 3) return [];
     const wantHouse = parseHouseNumber(q);
+    const syn = syntheticSuggestRow(q);
+    const buckets = await Promise.all([
+      (async function () {
+        try { return await fetchGoogleSuggests(q); } catch (e) { return []; }
+      })(),
+      (async function () {
+        try {
+          const res = await fetchWithTimeout("https://photon.komoot.io/api/?q=" + encodeURIComponent(q) + "&limit=6&lang=en", { headers: { Accept: "application/json" } }, 1800);
+          if (!(res && res.ok)) return [];
+          const data = await res.json();
+          const feats = (data && data.features) || [];
+          const rows = [];
+          for (let i = 0; i < feats.length; i++) {
+            const row = photonSuggestRow(feats[i], q);
+            if (row) rows.push(row);
+          }
+          return rows;
+        } catch (e) { return []; }
+      })(),
+      (async function () {
+        try {
+          const noms = await fetchNominatim({ q: q, limit: "6" });
+          const rows = [];
+          for (let i = 0; i < (noms || []).length; i++) {
+            const row = nominatimSuggestRow(noms[i], q);
+            if (row) rows.push(row);
+          }
+          return rows;
+        } catch (e) { return []; }
+      })(),
+    ]);
+    let rows = [];
+    for (let b = 0; b < buckets.length; b++) {
+      const part = buckets[b] || [];
+      for (let i = 0; i < part.length; i++) rows.push(part[i]);
+    }
+    if (wantHouse) {
+      rows.sort(function (a, b) {
+        const ah = housesEqual(a.house, wantHouse) ? 1 : 0;
+        const bh = housesEqual(b.house, wantHouse) ? 1 : 0;
+        const ag = a.source === "google" ? 1 : 0;
+        const bg = b.source === "google" ? 1 : 0;
+        return (bh - ah) || (bg - ag);
+      });
+    } else {
+      rows.sort(function (a, b) {
+        const ag = a.source === "google" ? 1 : 0;
+        const bg = b.source === "google" ? 1 : 0;
+        return bg - ag;
+      });
+    }
+    return mergeSuggestRows(syn, rows);
+  }
+
+  async function geocodeAddressAll(query) {
+    const q = String(query || "").trim();
+    if (!q) return [];
+    const wantHouse = parseHouseNumber(q);
+    const looksAddr = !!wantHouse || /\d/.test(q);
+    const parsed = parseUsStreetQuery(q);
+    const noCity = !!(wantHouse && !queryHasLocality(q));
     let rows = [];
     try {
-      const res = await fetchWithTimeout("https://photon.komoot.io/api/?q=" + encodeURIComponent(q) + "&limit=6&lang=en", { headers: { Accept: "application/json" } }, 6000);
-      if (res && res.ok) {
-        const data = await res.json();
-        const feats = (data && data.features) || [];
-        for (let i = 0; i < feats.length; i++) {
-          const row = photonSuggestRow(feats[i], q);
-          if (row) rows.push(row);
-        }
-      }
+      const g = await geocodeGoogleJsAll(q);
+      if (g && g.length) rows = rows.concat(g);
     } catch (e) {}
-    const hasHouseHit = !!(wantHouse && rows.some(function (r) { return housesEqual(r.house, wantHouse); }));
-    if (rows.length < 3 || (wantHouse && !hasHouseHit)) {
+    if (!rows.length) {
       try {
-        const noms = await fetchNominatim({ q: q, limit: "5" });
-        for (let i = 0; i < noms.length; i++) {
+        const hit = await geocodeGoogle(q);
+        if (hit) rows.push(hit);
+      } catch (e) {}
+    }
+    if (noCity && hitsAreAmbiguous(rows, q)) return mergeSuggestRows(syntheticSuggestRow(q), rows);
+    if (rows.length && !(noCity && hitsAreAmbiguous(rows, q))) {
+      if (!noCity || rows.length === 1 || !hitsAreAmbiguous(rows, q)) {
+        if (!noCity) return rows;
+      }
+    }
+    if (!noCity) {
+      try {
+        if (parsed && parsed.street) {
+          const params = { street: parsed.street, country: "US" };
+          if (parsed.city) params.city = parsed.city;
+          if (parsed.state) params.state = parsed.state;
+          if (parsed.zip) params.postalcode = parsed.zip;
+          const noms = await fetchNominatim(params);
+          for (let i = 0; i < (noms || []).length; i++) {
+            const row = nominatimSuggestRow(noms[i], q);
+            if (row) rows.push(row);
+          }
+        }
+      } catch (e) {}
+    } else {
+      try {
+        const noms = await fetchNominatim({ q: q, limit: "6" });
+        for (let i = 0; i < (noms || []).length; i++) {
           const row = nominatimSuggestRow(noms[i], q);
           if (row) rows.push(row);
         }
       } catch (e) {}
+      try {
+        const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&lang=en&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 2500);
+        if (res && res.ok) {
+          const data = await res.json();
+          const feats = (data && data.features) || [];
+          for (let i = 0; i < feats.length; i++) {
+            const row = photonSuggestRow(feats[i], q);
+            if (row) rows.push(row);
+          }
+        }
+      } catch (e) {}
     }
-    const seen = {};
-    const out = [];
-    for (let i = 0; i < rows.length; i++) {
-      const r = rows[i];
-      const key = Number(r.lat).toFixed(5) + "," + Number(r.lng).toFixed(5);
-      if (seen[key]) continue;
-      seen[key] = 1;
-      out.push(r);
+    if (!rows.length && !looksAddr) {
+      try {
+        if (typeof geocodeDealCity === "function") {
+          const city = q.split(",")[0].trim();
+          const geo = await geocodeDealCity(city, {});
+          if (geo) rows.push({ lat: geo.lat, lng: geo.lng, name: geo.name || q, kind: "city", title: geo.name || q, source: "city" });
+        }
+      } catch (e) {}
     }
-    if (wantHouse) {
-      const hasHouse = out.some(function (r) { return housesEqual(r.house, wantHouse); });
-      if (!hasHouse && out.length) {
-        const base = out[0];
-        const streetName = String(base.title || base.name || q);
-        const title = wantHouse + " " + streetName.replace(/^\d+[A-Za-z]?\s+/, "");
-        out.unshift({
-          lat: base.lat, lng: base.lng,
-          title: title,
-          sub: base.sub,
-          name: q,
-          kind: "address",
-          source: "typed",
-          house: wantHouse,
-        });
-      }
-      out.sort(function (a, b) {
-        const ah = housesEqual(a.house, wantHouse) ? 1 : 0;
-        const bh = housesEqual(b.house, wantHouse) ? 1 : 0;
-        return bh - ah;
-      });
-    }
-    return out.slice(0, 8);
+    return mergeSuggestRows(null, rows);
   }
 
   async function geocodeAddress(query) {
     const q = String(query || "").trim();
     if (!q) return null;
-    const wantHouse = parseHouseNumber(q);
-    const looksAddr = !!wantHouse || /\d/.test(q);
-    const parsed = parseUsStreetQuery(q);
-
-    try {
-      const hit = await geocodeGoogle(q);
-      if (hit) return hit;
-    } catch (e) {}
-
-    try {
-      if (parsed && parsed.street) {
-        const params = { street: parsed.street, country: "US" };
-        if (parsed.city) params.city = parsed.city;
-        if (parsed.state) params.state = parsed.state;
-        if (parsed.zip) params.postalcode = parsed.zip;
-        const hit = pickNominatimHit(await fetchNominatim(params), q);
-        if (hit) return hit;
-      }
-    } catch (e) {}
-    try {
-      const hit = pickNominatimHit(await fetchNominatim({ q: q }), q);
-      if (hit) return hit;
-    } catch (e) {}
-
-    try {
-      const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&lang=en&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 8000);
-      if (res && res.ok) {
-        const hit = pickPhotonHit(await res.json(), q);
-        if (hit) return hit;
-      }
-    } catch (e) {}
-
-    if (!looksAddr) {
-      try {
-        if (typeof geocodeDealCity === "function") {
-          const city = q.split(",")[0].trim();
-          const geo = await geocodeDealCity(city, {});
-          if (geo) return { lat: geo.lat, lng: geo.lng, name: geo.name || q, kind: "city" };
-        }
-      } catch (e) {}
-      try {
-        const city = q.split(",")[0].trim();
-        const res = await fetchWithTimeout("https://geocoding-api.open-meteo.com/v1/search?name=" + encodeURIComponent(city) + "&count=1&language=en&format=json", {}, 8000);
-        if (res && res.ok) {
-          const data = await res.json();
-          const om = Array.isArray(data && data.results) ? data.results[0] : null;
-          if (om && Number.isFinite(om.latitude)) {
-            return { lat: om.latitude, lng: om.longitude, name: [om.name, om.admin1, om.country].filter(Boolean).join(", ") || q, kind: "city" };
-          }
-        }
-      } catch (e) {}
-    }
-    return null;
+    const rows = await geocodeAddressAll(q);
+    const real = (rows || []).filter(function (r) { return r && Number.isFinite(Number(r.lat)); });
+    if (!real.length) return null;
+    if (hitsAreAmbiguous(real, q)) return { ambiguous: true, rows: mergeSuggestRows(syntheticSuggestRow(q), real) };
+    return real[0];
   }
 
 
@@ -5090,6 +5312,7 @@
   }
 
   function destroyViewer(state) {
+    try { stopSafeRenderLoop(state); } catch (eStop) {}
     stopRadarAnim(state);
     try { if (state._moveEndTimer) { global.clearTimeout(state._moveEndTimer); state._moveEndTimer = null; } } catch (e) {}
     try { if (state._photorealSyncTimer) { global.clearTimeout(state._photorealSyncTimer); state._photorealSyncTimer = null; } } catch (e) {}
@@ -5248,7 +5471,19 @@
       const state = stateRef.current;
       const viewer = state.viewer;
       if (!Cesium || !viewer || !hit) return;
+      if (!Number.isFinite(Number(hit.lat)) || !Number.isFinite(Number(hit.lng))) return;
       setSearchPin(Cesium, viewer, state, hit);
+      try {
+        setSelected({
+          type: 'place',
+          id: 'search-pin',
+          name: hit.name || hit.title || '',
+          lat: Number(hit.lat),
+          lng: Number(hit.lng),
+          label: hit.name || hit.title || '',
+          source: hit.source || 'Search',
+        });
+      } catch (eSel) {}
       const alt = searchFlyAltM(hit);
       try {
         viewer.camera.flyTo({
@@ -5261,23 +5496,46 @@
       requestSceneRender(viewer);
     }, []);
 
+    const applySearchRows = React.useCallback((q, rows, opts) => {
+      opts = opts || {};
+      const list = Array.isArray(rows) ? rows : [];
+      const real = list.filter(function (r) { return r && Number.isFinite(Number(r.lat)); });
+      if (hitsAreAmbiguous(real, q) || (opts.forceList && real.length > 1)) {
+        const shown = mergeSuggestRows(syntheticSuggestRow(q), real);
+        setSearchSuggests(shown);
+        setSuggestHi(0);
+        setSearchMsg('Pick a city — several matches');
+        return true;
+      }
+      if (real[0]) {
+        setSearchSuggests([]);
+        setSuggestHi(-1);
+        setSearchMsg(real[0].name || q);
+        flySearchHit(real[0]);
+        return true;
+      }
+      return false;
+    }, [flySearchHit]);
+
     const pickSuggest = React.useCallback((row) => {
-      if (!row || !Number.isFinite(Number(row.lat))) return;
+      if (!row) return;
       const typed = String(searchQ || '').trim();
       const q = String(row.name || row.title || typed).trim();
-      const refineQ = (parseHouseNumber(typed) && !housesEqual(row.house, parseHouseNumber(typed))) ? typed : q;
-      setSearchQ(refineQ);
-      setSearchSuggests([]);
-      setSuggestHi(-1);
-      setSearchMsg(refineQ);
-      flySearchHit(row);
-      geocodeGoogle(refineQ).then(function (hit) {
-        if (hit) {
-          setSearchMsg(hit.name || q);
-          flySearchHit(hit);
-        }
-      }).catch(function () {});
-    }, [flySearchHit, searchQ]);
+      if (Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lng))) {
+        const refineQ = (parseHouseNumber(typed) && !housesEqual(row.house, parseHouseNumber(typed))) ? typed : q;
+        setSearchQ(refineQ);
+        setSearchSuggests([]);
+        setSuggestHi(-1);
+        setSearchMsg(refineQ);
+        flySearchHit(row);
+        return;
+      }
+      setSearchQ(q);
+      setSearchMsg('Searching…');
+      geocodeAddressAll(q).then(function (rows) {
+        if (!applySearchRows(q, rows, { forceList: true })) setSearchMsg('No match');
+      }).catch(function () { setSearchMsg('Search failed'); });
+    }, [flySearchHit, searchQ, applySearchRows]);
 
     React.useEffect(() => {
       const q = String(searchQ || '').trim();
@@ -5286,31 +5544,39 @@
         setSuggestHi(-1);
         return undefined;
       }
+      const syn = syntheticSuggestRow(q);
+      setSearchSuggests([syn]);
+      setSuggestHi(0);
       const tmr = global.setTimeout(function () {
         const gen = ++suggestGenRef.current;
         fetchSearchSuggests(q).then(function (rows) {
           if (gen !== suggestGenRef.current) return;
-          const list = Array.isArray(rows) ? rows : [];
+          const list = mergeSuggestRows(syn, Array.isArray(rows) ? rows : []);
           setSearchSuggests(list);
           setSuggestHi(list.length ? 0 : -1);
         }).catch(function () {
           if (gen !== suggestGenRef.current) return;
-          setSearchSuggests([]);
-          setSuggestHi(-1);
+          setSearchSuggests([syn]);
+          setSuggestHi(0);
         });
-      }, 200);
+      }, 60);
       return function () { global.clearTimeout(tmr); };
     }, [searchQ]);
 
     const runSearch = React.useCallback(async () => {
       const q = String(searchQ || '').trim();
       if (!q || searching) return;
-      setSearchSuggests([]);
       setSearching(true);
       setSearchMsg('Searching…');
       try {
-        const hit = await geocodeAddress(q);
+        const rows = await geocodeAddressAll(q);
+        const hit = (rows || []).find(function (r) { return r && Number.isFinite(Number(r.lat)); });
+        if (hitsAreAmbiguous(rows, q) || (parseHouseNumber(q) && !queryHasLocality(q) && (rows || []).filter(function (r) { return r && Number.isFinite(Number(r.lat)); }).length > 1)) {
+          applySearchRows(q, rows, { forceList: true });
+          return;
+        }
         if (!hit) { setSearchMsg('No match'); return; }
+        setSearchSuggests([]);
         setSearchMsg(hit.name || q);
         flySearchHit(hit);
       } catch (e) {
@@ -5318,7 +5584,7 @@
       } finally {
         setSearching(false);
       }
-    }, [searchQ, searching, flySearchHit]);
+    }, [searchQ, searching, flySearchHit, applySearchRows]);
 
     global.__gmCesiumStreetState = function () { return stateRef.current; };
     const goStreetView = React.useCallback(() => {
@@ -5514,13 +5780,13 @@
           }
 
           try { killSkyAtmosphere(viewer); } catch (e) {}
-          try { viewer.useDefaultRenderLoop = false; } catch (e) {}
+          try { viewer.useDefaultRenderLoop = false; if (viewer.scene) viewer.scene.rethrowRenderErrors = false; } catch (e) {}
           state.viewer = viewer;
           state.entityById = new Map();
           state.groups = new Map();
           createImageryLayers(Cesium, viewer, state);
           configureAtmosphere(Cesium, viewer);
-          try { viewer.useDefaultRenderLoop = true; } catch (e) {}
+          try { installSafeRenderLoop(viewer, state); } catch (e) {}
           ensureCityLabels(Cesium, viewer, state);
           addSensorStages(Cesium, viewer, state);
           addBloomFxaa(Cesium, viewer, state);
@@ -5530,7 +5796,7 @@
             viewer.scene.globe.show = true;
             viewer.scene.globe.depthTestAgainstTerrain = false;
             try { viewer.scene.requestRenderMode = true; viewer.scene.maximumRenderTimeChange = 2.0; } catch (e2) {}
-            try { viewer.useDefaultRenderLoop = true; } catch (e2) {}
+            try { installSafeRenderLoop(viewer, state); } catch (e2) {}
             const ssc = viewer.scene.screenSpaceCameraController;
             ssc.enableInputs = true;
             ssc.enableZoom = true;
@@ -5568,7 +5834,8 @@
 
           const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
           handler.setInputAction((click) => {
-            const picked = viewer.scene.pick(click.position);
+            let picked = null;
+            try { picked = viewer.scene.pick(click.position); } catch (ePick) { picked = null; }
             let row = null;
             if (Cesium.defined(picked) && picked.id && !picked.id.__gm2Decor) {
               row = picked.id.__gm2 || null;
@@ -5878,7 +6145,7 @@
           const Cesium = global.Cesium;
           const st = stateRef.current;
           if (Cesium && st.viewer && (layerRef.current === 'all' || layerRef.current === 'ships')) {
-            syncGroup(Cesium, st.viewer, st, 'ship', dataRef.current.ships, () => ({ pixelSize: 7 }));
+            syncGroup(Cesium, st.viewer, st, 'ship', capCraftRows(Cesium, st.viewer, st, 'ship', dataRef.current.ships), () => ({ pixelSize: 7 }));
           }
           refreshStats();
         } catch (e) {}
@@ -6020,11 +6287,17 @@
                 onChange: (e) => {
                   const v = e.target.value;
                   setSearchQ(v);
-                  if (!String(v || '').trim()) {
+                  const q = String(v || '').trim();
+                  if (!q) {
                     setSearchMsg('');
                     setSearchSuggests([]);
                     setSuggestHi(-1);
                     clearSearchPin(global.Cesium, stateRef.current.viewer, stateRef.current);
+                    try { setSelected(null); } catch (eSel) {}
+                  } else if (q.length >= 3) {
+                    const syn = syntheticSuggestRow(q);
+                    setSearchSuggests([syn]);
+                    setSuggestHi(0);
                   }
                 },
                 onKeyDown: (e) => {
