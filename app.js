@@ -601,8 +601,12 @@
   var loadBarHideTimer = null;
   var skelHideTimer = null;
   var revealClearTimer = null;
+  var grainHoldTimer = null;
+  var grainFadeTimer = null;
   var SKEL_CROSSFADE_MS = 520;
   var FEED_REVEAL_MS = 1950;
+  var FEED_GRAIN_HOLD_MS = 1000;
+  var FEED_GRAIN_FADE_MS = 480;
   /* Load-whisper corner UI retired — feed morph is the load effect */
   var loadWhisperTimer = null;
 
@@ -741,6 +745,66 @@
     return sk;
   }
 
+
+  function ensureFeedGrain() {
+    var el = document.getElementById("feedGrain");
+    if (el) return el;
+    el = document.createElement("div");
+    el.id = "feedGrain";
+    el.className = "feed-grain";
+    el.setAttribute("aria-hidden", "true");
+    el.innerHTML = '<div class="feed-grain-veil"></div><div class="feed-grain-layer"></div>';
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function stopFeedGrain(immediate) {
+    var html = document.documentElement;
+    if (grainHoldTimer) {
+      clearTimeout(grainHoldTimer);
+      grainHoldTimer = null;
+    }
+    if (grainFadeTimer) {
+      clearTimeout(grainFadeTimer);
+      grainFadeTimer = null;
+    }
+    if (immediate) {
+      html.classList.remove("is-feed-grain", "is-feed-grain-out");
+      return;
+    }
+    if (!html.classList.contains("is-feed-grain") && !html.classList.contains("is-feed-grain-out")) return;
+    html.classList.remove("is-feed-grain");
+    html.classList.add("is-feed-grain-out");
+    grainFadeTimer = setTimeout(function () {
+      grainFadeTimer = null;
+      html.classList.remove("is-feed-grain-out");
+    }, FEED_GRAIN_FADE_MS);
+  }
+
+  function startFeedGrain() {
+    if (prefersReducedMotion()) {
+      stopFeedGrain(true);
+      return;
+    }
+    var el = ensureFeedGrain();
+    var html = document.documentElement;
+    if (grainHoldTimer) {
+      clearTimeout(grainHoldTimer);
+      grainHoldTimer = null;
+    }
+    if (grainFadeTimer) {
+      clearTimeout(grainFadeTimer);
+      grainFadeTimer = null;
+    }
+    html.classList.remove("is-feed-grain-out");
+    void el.offsetWidth;
+    html.classList.add("is-feed-grain");
+    grainHoldTimer = setTimeout(function () {
+      grainHoldTimer = null;
+      stopFeedGrain(false);
+    }, FEED_GRAIN_HOLD_MS);
+  }
+
   function hideFeedSkeletonThen(renderFn) {
     if (skelHideTimer) {
       clearTimeout(skelHideTimer);
@@ -753,6 +817,8 @@
     var sk = document.getElementById("feedSkeleton");
     var host = feedHostEl();
     var motionOk = !prefersReducedMotion();
+    if (motionOk) startFeedGrain();
+    else stopFeedGrain(true);
 
     // Attach feed-reveal BEFORE render so cards never get opacity:1 !important
     // inline styles that would cancel the unfair-style morph.

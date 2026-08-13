@@ -2709,12 +2709,85 @@ html[data-theme="dark"] .skel-shimmer {
 
 /* feed-ink-draw removed (an33): no left ink line flash on load */
 
+/* === an42: analog film-grain on feed reveal (God Mode NVG-style, brief) === */
+/* Fade children, not the host — host opacity < 1 would isolate mix-blend. */
+.feed-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  pointer-events: none;
+  overflow: hidden;
+}
+.feed-grain-veil,
+.feed-grain-layer {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 0.8, 0.2, 1);
+}
+html.is-feed-grain .feed-grain-veil,
+html.is-feed-grain .feed-grain-layer {
+  transition-duration: 0.12s;
+}
+html.is-feed-grain-out .feed-grain-veil,
+html.is-feed-grain-out .feed-grain-layer {
+  opacity: 0;
+  transition-duration: 0.55s;
+}
+.feed-grain-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 46%, rgba(5, 7, 12, 0.28) 100%),
+    rgba(5, 7, 12, 0.07);
+  mix-blend-mode: multiply;
+}
+html.is-feed-grain .feed-grain-veil { opacity: 0.7; }
+html[data-theme="dark"] .feed-grain-veil {
+  background:
+    radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.45) 100%),
+    rgba(5, 7, 12, 0.14);
+  mix-blend-mode: overlay;
+}
+html[data-theme="dark"].is-feed-grain .feed-grain-veil { opacity: 0.55; }
+.feed-grain-layer {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.62 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+html.is-feed-grain .feed-grain-layer {
+  opacity: 0.48;
+  animation: feed-grain-shift 0.14s steps(2) infinite;
+}
+html[data-theme="dark"] .feed-grain-layer {
+  mix-blend-mode: overlay;
+}
+html[data-theme="dark"].is-feed-grain .feed-grain-layer { opacity: 0.34; }
+@keyframes feed-grain-shift {
+  0% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(-1.6%, 1.1%, 0); }
+  50% { transform: translate3d(1.3%, -1.5%, 0); }
+  75% { transform: translate3d(-0.9%, 1.4%, 0); }
+  100% { transform: translate3d(0.7%, -0.8%, 0); }
+}
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
   .feed-skel {
     transition: none !important;
     filter: none !important;
     transform: none !important;
+  }
+  .feed-grain,
+  .feed-grain-layer,
+  .feed-grain-veil {
+    display: none !important;
+    animation: none !important;
+    opacity: 0 !important;
   }
   .feed.feed-reveal,
   .report-list.feed-reveal,
