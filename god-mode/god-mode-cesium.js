@@ -2663,11 +2663,142 @@
     return issIconUrl;
   }
 
+  function isCraftType(type) {
+    return type === 'flight' || type === 'military' || type === 'ship';
+  }
+  var craftIconCache = Object.create(null);
+  function getCraftIcon(kind) {
+    var key = kind === 'ship' ? 'chevron' : 'tick';
+    if (craftIconCache[key]) return craftIconCache[key];
+    try {
+      var c = document.createElement('canvas');
+      var g = c.getContext('2d');
+      g.fillStyle = '#ffffff';
+      if (kind === 'ship') {
+        c.width = 48; c.height = 64;
+        g.beginPath();
+        g.moveTo(24, 4); g.lineTo(40, 52); g.lineTo(24, 42); g.lineTo(8, 52);
+        g.closePath(); g.fill();
+      } else {
+        c.width = 64; c.height = 64;
+        g.beginPath();
+        g.moveTo(32, 4); g.lineTo(36, 28); g.lineTo(58, 36); g.lineTo(36, 34);
+        g.lineTo(36, 50); g.lineTo(44, 58); g.lineTo(32, 52); g.lineTo(20, 58);
+        g.lineTo(28, 50); g.lineTo(28, 34); g.lineTo(6, 36); g.lineTo(28, 28);
+        g.closePath(); g.fill();
+      }
+      craftIconCache[key] = c.toDataURL();
+    } catch (e) { craftIconCache[key] = ''; }
+    return craftIconCache[key];
+  }
+  function craftHeadingRad(row) {
+    var h = Number(row && row.heading);
+    if (!Number.isFinite(h)) h = Number(row && row.cog);
+    if (!Number.isFinite(h)) h = 0;
+    return -((((h % 360) + 360) % 360) * Math.PI / 180);
+  }
+  function craftTrailCartesian(Cesium, row) {
+    var hist = trailHistory.get(row.id) || [];
+    var alt = Number(row.altM) || 0;
+    var pts;
+    if (hist.length >= 2) pts = hist.slice(row.type === 'ship' ? -16 : -10);
+    else {
+      var spd = row.type === 'ship' ? row.sog : row.speedKts;
+      var hdg = row.heading != null ? row.heading : row.cog;
+      pts = projectHeadingPath(row.lat, row.lng, hdg, spd, alt, row.type === 'ship' ? 18 : 3, 0.5, 5);
+    }
+    var out = [];
+    for (var i = 0; i < pts.length; i++) {
+      var p = pts[i];
+      if (!p || !validLatLng(p.lat, p.lng)) continue;
+      var c = Cesium.Cartesian3.fromDegrees(p.lng, p.lat, Number.isFinite(p.altM) ? p.altM : alt);
+      if (cartesianFinite(Cesium, c)) out.push(c);
+    }
+    return out;
+  }
+  function applyCraftVisual(Cesium, state, ent, row, color, selected) {
+    var ship = row.type === 'ship';
+    var rot = craftHeadingRad(row);
+    var icon = getCraftIcon(ship ? 'ship' : 'air');
+    var heightRef = ship ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE;
+    var scaleNear = selected ? 1.25 : 1.0;
+    try { if (ent.ellipse) ent.ellipse = undefined; } catch (e) {}
+    if (ent.point) {
+      try {
+        ent.point.show = true;
+        ent.point.pixelSize = selected ? 4 : 2.2;
+        ent.point.color = color;
+        ent.point.outlineWidth = 0;
+        ent.point.heightReference = heightRef;
+        ent.point.disableDepthTestDistance = 0;
+        ent.point.scaleByDistance = new Cesium.NearFarScalar(2.5e5, 0.15, 1.2e7, 1.15);
+        ent.point.translucencyByDistance = new Cesium.NearFarScalar(8e6, 0.85, 2.4e7, 0.2);
+      } catch (e) {}
+    }
+    if (icon) {
+      var bb = {
+        image: icon,
+        width: ship ? 11 : 16,
+        height: ship ? 16 : 16,
+        color: color,
+        rotation: rot,
+        alignedAxis: Cesium.Cartesian3.UNIT_Z,
+        verticalOrigin: Cesium.VerticalOrigin.CENTER,
+        horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
+        heightReference: heightRef,
+        disableDepthTestDistance: 0,
+        sizeInMeters: false,
+        scale: scaleNear,
+        scaleByDistance: new Cesium.NearFarScalar(5.0e4, 1.12, 8.0e6, 0.16),
+        translucencyByDistance: new Cesium.NearFarScalar(5.5e6, 1.0, 1.6e7, 0.2),
+        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 7.5e6)
+      };
+      try {
+        if (ent.billboard) {
+          ent.billboard.image = bb.image;
+          ent.billboard.width = bb.width;
+          ent.billboard.height = bb.height;
+          ent.billboard.color = color;
+          ent.billboard.rotation = rot;
+          ent.billboard.alignedAxis = Cesium.Cartesian3.UNIT_Z;
+          ent.billboard.scale = scaleNear;
+          ent.billboard.heightReference = heightRef;
+          ent.billboard.scaleByDistance = bb.scaleByDistance;
+          ent.billboard.translucencyByDistance = bb.translucencyByDistance;
+          ent.billboard.distanceDisplayCondition = bb.distanceDisplayCondition;
+        } else {
+          ent.billboard = new Cesium.BillboardGraphics(bb);
+        }
+      } catch (e) {}
+    }
+    var trail = craftTrailCartesian(Cesium, row);
+    var wantTrail = !!(selected || craftTrailNearby(state, row));
+    if (wantTrail && trail.length >= 2) {
+      try {
+        var mat = color.withAlpha(ship ? 0.36 : 0.45);
+        if (ent.polyline) {
+          ent.polyline.positions = trail;
+          ent.polyline.width = ship ? 1.15 : 1.05;
+          ent.polyline.material = mat;
+          ent.polyline.show = true;
+          try { ent.polyline.clampToGround = !!ship; } catch (e2) {}
+        } else {
+          ent.polyline = new Cesium.PolylineGraphics({
+            positions: trail, width: ship ? 1.15 : 1.05, material: mat,
+            clampToGround: !!ship, disableDepthTestDistance: 0
+          });
+        }
+      } catch (e) {}
+    } else if (ent.polyline) {
+      try { ent.polyline.show = false; } catch (e) {}
+    }
+  }
+
   function defaultPointSize(type) {
     if (type === 'starlink' || type === 'oneweb' || type === 'kuiper') return 3;
-    if (type === 'flight') return 6;
-    if (type === 'military') return 7;
-    if (type === 'ship') return 7;
+    if (type === 'flight') return 2.4;
+    if (type === 'military') return 2.6;
+    if (type === 'ship') return 2.2;
     if (type === 'gps') return 5;
     if (type === 'wxsat' || type === 'visual') return 6;
     if (type === 'geo') return 5;
@@ -2684,29 +2815,42 @@
   }
 
   function cityLabelTypes() {
-    return { flight: 1, military: 1, ship: 1, deal: 1, launch: 1, storm: 1 };
+    return { deal: 1, launch: 1, storm: 1 };
   }
 
-  function makeLabelOpts(Cesium, row, lod, layer) {
+  function makeLabelOpts(Cesium, row, lod, layer, state) {
     if (row.kind === 'cone' || row.kind === 'track' || row.kind === 'past') return undefined;
     const type = row.type;
+    const craft = isCraftType(type);
     const always = type === 'satellite' || (layer === 'launches' && type === 'launch')
       || (layer === 'deals' && type === 'deal') || (layer === 'weather' && type === 'weather');
-    const cityOnly = !!cityLabelTypes()[type];
-    const show = always || (lod === 'City' && cityOnly) || (layer === type + 's' && type !== 'starlink' && type !== 'oneweb' && type !== 'kuiper');
-    const text = String(row.name || row.callsign || row.label || '').slice(0, 28);
+    const cityOnly = !!cityLabelTypes()[type] && !craft;
+    let text = String(row.name || row.callsign || row.label || '').slice(0, 28);
+    if (type === 'flight' || type === 'military') {
+      const cs = String(row.callsign || row.name || row.label || '').trim().slice(0, 12);
+      const alt = Number(row.altitudeFt);
+      text = cs || 'Flight';
+      if (Number.isFinite(alt)) text += ' · ' + Math.round(alt).toLocaleString() + ' ft';
+    } else if (type === 'ship') {
+      const nm = String(row.name || row.label || '').trim().slice(0, 22);
+      const imo = String(row.imo || '').trim();
+      text = nm || ('MMSI ' + String(row.mmsi || ''));
+      if (imo) text += ' · IMO ' + imo;
+    }
     if (!text) return undefined;
-    const cond = cityOnly && !always
+    const on = !!(state && row.id && (state.selectedId === row.id || state.hoveredId === row.id));
+    const show = craft ? on : (always || (lod === 'City' && cityOnly) || (layer === type + 's' && type !== 'starlink' && type !== 'oneweb' && type !== 'kuiper'));
+    const cond = cityOnly && !always && !craft
       ? new Cesium.DistanceDisplayCondition(0, CITY_LABEL_DIST_M)
       : undefined;
     return {
       text,
-      font: '11px monospace',
+      font: craft ? '10px monospace' : '11px monospace',
       fillColor: Cesium.Color.WHITE.withAlpha(0.92),
       outlineColor: Cesium.Color.BLACK, outlineWidth: 2,
       style: Cesium.LabelStyle.FILL_AND_OUTLINE,
       verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-      pixelOffset: new Cesium.Cartesian2(0, type === 'satellite' ? -18 : -12),
+      pixelOffset: new Cesium.Cartesian2(0, type === 'satellite' ? -18 : (craft ? -14 : -12)),
       disableDepthTestDistance: 0,
       show: !!show,
       distanceDisplayCondition: cond,
@@ -2717,25 +2861,38 @@
     const oldId = state.selectedId;
     if (oldId && oldId !== newId) {
       const old = state.entityById.get(oldId);
-      if (old && old.point && old.__gm2) {
+      if (old && old.__gm2) {
         try {
-          old.point.pixelSize = defaultPointSize(old.__gm2.type);
-          old.point.outlineWidth = 1;
+          const t = old.__gm2.type;
+          if (isCraftType(t)) {
+            if (old.billboard) old.billboard.scale = 1;
+            if (old.point) { old.point.pixelSize = 2.2; old.point.outlineWidth = 0; }
+            if (old.label && oldId !== state.hoveredId) old.label.show = false;
+          } else if (old.point) {
+            old.point.pixelSize = defaultPointSize(t);
+            old.point.outlineWidth = 1;
+          }
         } catch (e) {}
       }
     }
     state.selectedId = newId || '';
     if (newId) {
       const ent = state.entityById.get(newId);
-      if (ent && ent.point && ent.__gm2) {
+      if (ent && ent.__gm2) {
         try {
-          ent.point.pixelSize = defaultPointSize(ent.__gm2.type) + 5;
-          ent.point.outlineWidth = 2;
+          const t = ent.__gm2.type;
+          if (isCraftType(t)) {
+            if (ent.billboard) ent.billboard.scale = 1.25;
+            if (ent.point) ent.point.pixelSize = 4;
+            if (ent.label) ent.label.show = true;
+          } else if (ent.point) {
+            ent.point.pixelSize = defaultPointSize(t) + 5;
+            ent.point.outlineWidth = 2;
+          }
         } catch (e) {}
       }
     }
   }
-
 
   function cameraOccluder(Cesium, viewer, state) {
     try {
@@ -2822,13 +2979,15 @@
     }
     const lod = state.lastLod || 'Orbit';
     const layer = state.layer || 'all';
-    const labelOpts = makeLabelOpts(Cesium, row, lod, layer);
+    const labelOpts = makeLabelOpts(Cesium, row, lod, layer, state);
     const heightRef = height > 50 ? Cesium.HeightReference.NONE : Cesium.HeightReference.CLAMP_TO_GROUND;
     if (ent && !isDestroyedEnt(ent)) {
       try { ent.position = pos; } catch (e) {}
       ent.__gm2 = row;
       try {
-        if (ent.point) {
+        if (isCraftType(row.type)) {
+          applyCraftVisual(Cesium, state, ent, row, color, selected);
+        } else if (ent.point) {
           ent.point.color = color;
           ent.point.pixelSize = selected ? pixelSize + 5 : pixelSize;
           ent.point.outlineWidth = selected ? 2 : (opts?.outline === false ? 0 : 1);
@@ -2891,6 +3050,7 @@
       ent = viewer.entities.add(entityDef);
     } catch (e) { return null; }
     ent.__gm2 = row;
+    if (isCraftType(row.type)) applyCraftVisual(Cesium, state, ent, row, color, selected);
     state.entityById.set(id, ent);
     return ent;
   }
@@ -2982,7 +3142,7 @@
     state.entityById.forEach((ent, id) => {
       const row = ent?.__gm2;
       if (!row || !ent.label) return;
-      const opts = makeLabelOpts(Cesium, row, lod, layer);
+      const opts = makeLabelOpts(Cesium, row, lod, layer, state);
       if (!opts) return;
       try {
         ent.label.show = opts.show;
@@ -3048,7 +3208,7 @@
         const fwd = projectHeadingPath(row.lat, row.lng, row.heading || row.cog, spd, row.altM || 0, 0, 5, 8);
         pts = pts.concat(fwd.slice(1));
       }
-      upsertPolyline(Cesium, viewer, state, 'trailEntity', cartesianPath(Cesium, pts), row.type === 'ship' ? '#64d2ff' : (row.type === 'military' ? '#ff9f0a' : '#ffd60a'), 3);
+      upsertPolyline(Cesium, viewer, state, 'trailEntity', cartesianPath(Cesium, pts), row.type === 'ship' ? '#64d2ff' : (row.type === 'military' ? '#ff9f0a' : '#ffd60a'), 1.35);
       upsertPolyline(Cesium, viewer, state, 'selOrbitEntity', null);
       return;
     }
@@ -3300,7 +3460,7 @@
     } else setGroupShow(state, 'storm', false);
 
     if (showFlights) {
-      if ((data.flights || []).length) syncGroup(Cesium, viewer, state, 'flight', data.flights.slice(0, MAX_FLIGHT_POINTS), () => ({ pixelSize: 6 }));
+      if ((data.flights || []).length) syncGroup(Cesium, viewer, state, 'flight', capCraftRows(Cesium, viewer, state, 'flight', data.flights), () => ({ pixelSize: 6 }));
       syncGroup(Cesium, viewer, state, 'military', data.milFlights || [], () => ({ pixelSize: 7 }));
     } else {
       setGroupShow(state, 'flight', false);
@@ -3331,7 +3491,7 @@
     else { setGroupShow(state, 'deal', false); setGroupShow(state, 'deal-arc', false); }
 
     if (showShips) {
-      if ((data.ships || []).length) syncGroup(Cesium, viewer, state, 'ship', data.ships, () => ({ pixelSize: 7 }));
+      if ((data.ships || []).length) syncGroup(Cesium, viewer, state, 'ship', capCraftRows(Cesium, viewer, state, 'ship', data.ships), () => ({ pixelSize: 7 }));
     } else setGroupShow(state, 'ship', false);
 
     if (state.selectedId) {
@@ -3496,7 +3656,8 @@
 
   const GOOGLE_TILES_CACHE_BYTES = 1024 * 1024 * 1024;
   const GOOGLE_TILES_SSE = 1;
-  const PHOTOREAL_PREFETCH_M = 80000;
+  const PHOTOREAL_PREFETCH_M = 12000;
+  const PHOTOREAL_UNLOAD_M = 25000;
   const PHOTOREAL_SHOW_M = 1200;
   const PHOTOREAL_HIDE_M = 2200;
 
@@ -3506,9 +3667,9 @@
       skipLevelOfDetail: false,
       immediatelyLoadDesiredLevelOfDetail: true,
       dynamicScreenSpaceError: false,
-      loadSiblings: true,
-      preloadWhenHidden: true,
-      cullRequestsWhileMoving: false,
+      loadSiblings: false,
+      preloadWhenHidden: false,
+      cullRequestsWhileMoving: true,
       enableCollision: false,
       cacheBytes: GOOGLE_TILES_CACHE_BYTES,
       maximumCacheOverflowBytes: GOOGLE_TILES_CACHE_BYTES,
@@ -3553,15 +3714,17 @@
     return false;
   }
 
-  function tuneGoogleTileset(tileset) {
+  function tuneGoogleTileset(tileset, heightM) {
     if (!tileset) return;
+    const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
     try { tileset.maximumScreenSpaceError = GOOGLE_TILES_SSE; } catch (e) {}
     try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
     try { tileset.skipLevelOfDetail = false; } catch (e) {}
     try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
-    try { tileset.loadSiblings = true; } catch (e) {}
-    try { tileset.preloadWhenHidden = true; } catch (e) {}
-    try { tileset.cullRequestsWhileMoving = false; } catch (e) {}
+    try { tileset.loadSiblings = !!street; } catch (e) {}
+    try { tileset.preloadWhenHidden = !street; } catch (e) {}
+    try { tileset.cullRequestsWhileMoving = !street; } catch (e) {}
+    try { tileset.immediatelyLoadDesiredLevelOfDetail = !!street; } catch (e) {}
     try { tileset.enableCollision = false; } catch (e) {}
     try { tileset.cacheBytes = GOOGLE_TILES_CACHE_BYTES; } catch (e) {}
     try { tileset.maximumCacheOverflowBytes = GOOGLE_TILES_CACHE_BYTES; } catch (e) {}
@@ -3624,8 +3787,11 @@
         keepEsriGround(viewer, state);
         return false;
       }
-      tuneGoogleTileset(state.googleTileset);
-      try { state.googleTileset.preloadWhenHidden = true; } catch (e) {}
+      tuneGoogleTileset(state.googleTileset, cameraHeightM(viewer));
+      try { state.googleTileset.preloadWhenHidden = !wantShow; } catch (e) {}
+      try { state.googleTileset.loadSiblings = !!wantShow; } catch (e) {}
+      try { state.googleTileset.cullRequestsWhileMoving = !wantShow; } catch (e) {}
+      try { state.googleTileset.immediatelyLoadDesiredLevelOfDetail = !!wantShow; } catch (e) {}
       try { state.googleTileset.show = !!wantShow; } catch (e) {}
       keepEsriGround(viewer, state);
       if (wantShow) {
@@ -3677,10 +3843,13 @@
         try { tileset.destroy?.(); } catch (e) {}
         return showExisting();
       }
-      tuneGoogleTileset(tileset);
-      keepEsriGround(viewer, state);
       const stillShow = photorealWantShow(state, cameraHeightM(viewer));
-      try { tileset.preloadWhenHidden = true; } catch (e) {}
+      tuneGoogleTileset(tileset, cameraHeightM(viewer));
+      keepEsriGround(viewer, state);
+      try { tileset.preloadWhenHidden = !stillShow; } catch (e) {}
+      try { tileset.loadSiblings = !!stillShow; } catch (e) {}
+      try { tileset.cullRequestsWhileMoving = !stillShow; } catch (e) {}
+      try { tileset.immediatelyLoadDesiredLevelOfDetail = !!stillShow; } catch (e) {}
       try { tileset.show = !!stillShow; } catch (e) {}
       viewer.scene.primitives.add(tileset);
       state.googleTileset = tileset;
@@ -3735,7 +3904,8 @@
       return false;
     }
     state._photorealShown = false;
-    disableGooglePhotoreal(state);
+    if (Number.isFinite(h) && h > PHOTOREAL_UNLOAD_M) unloadGooglePhotoreal(state, viewer);
+    else disableGooglePhotoreal(state);
     return false;
   }
 
@@ -3894,6 +4064,252 @@
     return undefined;
   }
 
+
+  function requestSceneRender(viewer) {
+    try { if (viewer && viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (e) {}
+  }
+
+  function enableDesktopRotate(Cesium, viewer) {
+    try {
+      const scene = viewer && viewer.scene;
+      const ssc = scene && scene.screenSpaceCameraController;
+      if (!ssc) return;
+      try { ssc.enableInputs = true; } catch (e) {}
+      try { ssc.enableRotate = true; } catch (e) {}
+      try { ssc.enableTilt = true; } catch (e) {}
+      try { ssc.enableLook = true; } catch (e) {}
+      try { ssc.enableTranslate = true; } catch (e) {}
+      try { ssc.enableZoom = true; } catch (e) {}
+      const CET = Cesium && Cesium.CameraEventType;
+      const KEM = Cesium && Cesium.KeyboardEventModifier;
+      if (CET) {
+        try { ssc.translateEventTypes = CET.LEFT_DRAG; } catch (e) {}
+        try { ssc.zoomEventTypes = [CET.WHEEL, CET.PINCH]; } catch (e) {}
+        try { ssc.rotateEventTypes = [CET.RIGHT_DRAG, CET.MIDDLE_DRAG]; } catch (e) {}
+        try {
+          ssc.tiltEventTypes = [
+            CET.RIGHT_DRAG,
+            CET.MIDDLE_DRAG,
+            CET.PINCH,
+            KEM ? { eventType: CET.LEFT_DRAG, modifier: KEM.CTRL } : CET.LEFT_DRAG,
+            KEM ? { eventType: CET.LEFT_DRAG, modifier: KEM.SHIFT } : CET.MIDDLE_DRAG,
+          ];
+        } catch (e) {}
+        try {
+          ssc.lookEventTypes = KEM
+            ? { eventType: CET.LEFT_DRAG, modifier: KEM.SHIFT }
+            : CET.MIDDLE_DRAG;
+        } catch (e) {}
+      }
+      try {
+        const canvas = scene.canvas;
+        if (canvas && !canvas.__gm2CtxMenu) {
+          canvas.__gm2CtxMenu = true;
+          canvas.addEventListener("contextmenu", function (ev) { ev.preventDefault(); }, true);
+        }
+      } catch (e) {}
+    } catch (e) {}
+  }
+
+  function searchFlyAltM(hit) {
+    const kind = String((hit && hit.kind) || "");
+    if (kind === "city" || kind === "region") return 12000;
+    if (kind === "street") return 1400;
+    return 900;
+  }
+
+  function geocodeKindFromNominatim(hit) {
+    const t = String((hit && (hit.addresstype || hit.type)) || "").toLowerCase();
+    const cls = String((hit && hit.class) || "").toLowerCase();
+    const addr = (hit && hit.address) || {};
+    if (addr.house_number || t === "house" || t === "building" || t === "residential" || cls === "building") return "address";
+    if (cls === "highway" || t === "road" || t === "pedestrian" || t === "living_street") return "street";
+    if (t === "city" || t === "town" || t === "village" || t === "hamlet" || t === "suburb" || t === "state" || t === "country" || t === "administrative" || t === "municipality") return "city";
+    return "place";
+  }
+
+  function geocodeKindFromPhoton(props) {
+    props = props || {};
+    const osmKey = String(props.osm_key || "").toLowerCase();
+    const osmVal = String(props.osm_value || "").toLowerCase();
+    if (props.housenumber || osmKey === "building") return "address";
+    if (osmKey === "highway") return props.housenumber ? "address" : "street";
+    if (osmKey === "place" && /city|town|village|hamlet|state|country|county|municipality/.test(osmVal)) return "city";
+    if (osmKey === "boundary") return "city";
+    return props.street ? "street" : "place";
+  }
+
+  function pickNominatimHit(rows, q) {
+    const list = Array.isArray(rows) ? rows : [];
+    if (!list.length) return null;
+    const wantAddr = /\d/.test(String(q || ""));
+    let best = list[0];
+    let bestRank = -1;
+    const rank = { address: 4, street: 3, place: 2, city: 1 };
+    for (let i = 0; i < list.length; i++) {
+      const k = geocodeKindFromNominatim(list[i]);
+      let r = rank[k] || 2;
+      if (wantAddr && k === "city") r = 0;
+      if (r > bestRank) { bestRank = r; best = list[i]; }
+    }
+    const lat = Number(best && best.lat);
+    const lng = Number(best && best.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    return {
+      lat: lat,
+      lng: lng,
+      name: String((best && (best.display_name || best.name)) || q),
+      kind: geocodeKindFromNominatim(best),
+    };
+  }
+
+  function pickPhotonHit(data, q) {
+    const feats = data && data.features;
+    if (!feats || !feats.length) return null;
+    const wantAddr = /\d/.test(String(q || ""));
+    let best = null;
+    let bestRank = -1;
+    const rank = { address: 4, street: 3, place: 2, city: 1 };
+    for (let i = 0; i < feats.length; i++) {
+      const hit = feats[i];
+      const coords = hit && hit.geometry && hit.geometry.coordinates;
+      if (!coords || coords.length < 2) continue;
+      const props = hit.properties || {};
+      const kind = geocodeKindFromPhoton(props);
+      let r = rank[kind] || 2;
+      if (wantAddr && kind === "city") r = 0;
+      if (r > bestRank) {
+        bestRank = r;
+        const name = props.name || props.street || q;
+        const streetLine = props.housenumber && props.street ? (props.housenumber + " " + props.street) : name;
+        const bits = [streetLine, props.city || props.town || props.village, props.state, props.country].filter(Boolean);
+        best = { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(", "), kind: kind };
+      }
+    }
+    if (!best || !Number.isFinite(best.lat) || !Number.isFinite(best.lng)) return null;
+    return best;
+  }
+
+  function clearSearchPin(Cesium, viewer, state) {
+    if (!state) return;
+    try {
+      if (state._searchPin && state._searchPin.entity && viewer && viewer.entities) {
+        viewer.entities.remove(state._searchPin.entity);
+      }
+    } catch (e) {}
+    state._searchPin = null;
+    requestSceneRender(viewer);
+  }
+
+  function setSearchPin(Cesium, viewer, state, hit) {
+    if (!Cesium || !viewer || !state || !hit) return;
+    clearSearchPin(Cesium, viewer, state);
+    const lat = Number(hit.lat);
+    const lng = Number(hit.lng);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+    let ent = null;
+    try {
+      ent = viewer.entities.add({
+        id: "gm2-search-pin",
+        position: Cesium.Cartesian3.fromDegrees(lng, lat, 6),
+        point: {
+          pixelSize: 10,
+          color: Cesium.Color.fromCssColorString("#ffbf00"),
+          outlineColor: Cesium.Color.fromCssColorString("#3a2a00"),
+          outlineWidth: 2,
+          heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+          disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        },
+      });
+      ent.__gm2Decor = true;
+    } catch (e) { ent = null; }
+    state._searchPin = { lat: lat, lng: lng, name: hit.name || "", kind: hit.kind || "", entity: ent };
+    requestSceneRender(viewer);
+  }
+
+  function streetViewLookAt(Cesium, viewer, lat, lng) {
+    let heading = 0;
+    try { heading = viewer.camera.heading; } catch (e) {}
+    if (!Number.isFinite(heading)) heading = 0;
+    const target = Cesium.Cartesian3.fromDegrees(lng, lat, 8);
+    const pitch = Cesium.Math.toRadians(-35);
+    const range = 190;
+    return { target: target, heading: heading, pitch: pitch, range: range };
+  }
+
+  function capCraftRows(Cesium, viewer, state, type, rows) {
+    const list = Array.isArray(rows) ? rows : [];
+    const lod = (state && state.lastLod) || "Orbit";
+    let cap = type === "ship" ? MAX_SHIP_POINTS : MAX_FLIGHT_POINTS;
+    if (lod === "Orbit") cap = type === "ship" ? 240 : 200;
+    else if (lod === "Regional") cap = type === "ship" ? 480 : 300;
+    if (list.length <= cap) return list;
+    const rect = viewRectDeg(Cesium, viewer);
+    const sel = state && state.selectedId;
+    const inV = [];
+    const outV = [];
+    for (let i = 0; i < list.length; i++) {
+      const row = list[i];
+      if (sel && String(row && row.id) === String(sel)) { inV.unshift(row); continue; }
+      if (rect && inViewRect(rect, Number(row.lat), Number(row.lng))) inV.push(row);
+      else outV.push(row);
+    }
+    return inV.concat(outV).slice(0, cap);
+  }
+
+  function craftTrailNearby(state, row) {
+    if (!state || !row) return false;
+    if (state.selectedId && String(row.id) === String(state.selectedId)) return true;
+    const viewer = state.viewer;
+    const h = cameraHeightM(viewer);
+    if (!Number.isFinite(h) || h > 7.5e5) return false;
+    try {
+      const cam = viewer.camera.positionCartographic;
+      if (!cam) return false;
+      const C = global.Cesium;
+      const lat = C.Math.toDegrees(cam.latitude);
+      const lng = C.Math.toDegrees(cam.longitude);
+      const dlat = Number(row.lat) - lat;
+      const dlng = Number(row.lng) - lng;
+      return (dlat * dlat + dlng * dlng) < (2.8 * 2.8);
+    } catch (e) { return false; }
+  }
+
+  function syncEsriZoomCap(state, heightM) {
+    const h = Number(heightM);
+    let maxL = 19;
+    if (Number.isFinite(h)) {
+      if (h > 2e6) maxL = 6;
+      else if (h > 2.5e5) maxL = 10;
+      else if (h > 8e3) maxL = 15;
+      else maxL = 19;
+    }
+    try {
+      const p = state && state.esriLayer && state.esriLayer.imageryProvider;
+      if (p) p.maximumLevel = maxL;
+    } catch (e) {}
+    try {
+      const globe = state && state.viewer && state.viewer.scene && state.viewer.scene.globe;
+      if (!globe) return;
+      if (Number.isFinite(h) && h > 1.5e6) globe.maximumScreenSpaceError = 3.2;
+      else if (Number.isFinite(h) && h > 2e4) globe.maximumScreenSpaceError = 2.2;
+      else globe.maximumScreenSpaceError = 1.6;
+    } catch (e) {}
+  }
+
+  function unloadGooglePhotoreal(state, viewer) {
+    if (!state) return;
+    if (state.googleTileset && !state.googleTileset.isDestroyed?.()) {
+      try { viewer && viewer.scene && viewer.scene.primitives && viewer.scene.primitives.remove(state.googleTileset); } catch (e) {}
+      try { state.googleTileset.destroy?.(); } catch (e) {}
+    }
+    state.googleTileset = null;
+    if (state.googleTiles !== "error" && state.googleTiles !== "missing-key") state.googleTiles = "idle";
+    state._photorealShown = false;
+    keepEsriGround(viewer || (state && state.viewer), state);
+    setOsmContrast(state, false);
+  }
+
   function tuneCameraFeel(viewer) {
     try {
       const scene = viewer && viewer.scene;
@@ -3908,6 +4324,7 @@
       try { ssc.bounceAnimationTime = 0; } catch (e) {}
       try { ssc.minimumZoomDistance = 80; } catch (e) {}
       try { ssc.maximumZoomDistance = 4.5e7; } catch (e) {}
+      enableDesktopRotate(global.Cesium, viewer);
     } catch (e) {}
   }
 
@@ -3932,15 +4349,27 @@
       applySensorSkin(state, 'eo');
     };
     try {
-      const flyOpts = {
-        destination: Cesium.Cartesian3.fromDegrees(b, a, 160),
-        orientation: { heading: 0, pitch: Cesium.Math.toRadians(-38), roll: 0 },
-        duration: 2.4,
-        complete: finishStreet,
-      };
+      const look = streetViewLookAt(Cesium, viewer, a, b);
+      const finish = function () { finishStreet(); requestSceneRender(viewer); };
       const ease = streetFlyEasing(Cesium);
-      if (ease) flyOpts.easingFunction = ease;
-      viewer.camera.flyTo(flyOpts);
+      if (Cesium.BoundingSphere && typeof viewer.camera.flyToBoundingSphere === "function") {
+        const bsOpts = {
+          offset: new Cesium.HeadingPitchRange(look.heading, look.pitch, look.range),
+          duration: 2.4,
+          complete: finish,
+        };
+        if (ease) bsOpts.easingFunction = ease;
+        viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(look.target, 12), bsOpts);
+      } else {
+        const flyOpts = {
+          destination: Cesium.Cartesian3.fromDegrees(b, a, 120),
+          orientation: { heading: look.heading, pitch: look.pitch, roll: 0 },
+          duration: 2.4,
+          complete: finish,
+        };
+        if (ease) flyOpts.easingFunction = ease;
+        viewer.camera.flyTo(flyOpts);
+      }
     } catch (e) {
       finishStreet();
     }
@@ -3968,37 +4397,30 @@
   async function geocodeAddress(query) {
     const q = String(query || '').trim();
     if (!q) return null;
+    const looksAddr = /\d/.test(q);
     try {
-      const res = await fetchWithTimeout('https://photon.komoot.io/api/?limit=1&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
+      const res = await fetchWithTimeout('https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=5&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
       if (res && res.ok) {
-        const data = await res.json();
-        const hit = data && data.features && data.features[0];
-        const coords = hit && hit.geometry && hit.geometry.coordinates;
-        if (coords && coords.length >= 2 && Number.isFinite(Number(coords[1])) && Number.isFinite(Number(coords[0]))) {
-          const props = hit.properties || {};
-          const name = props.name || props.street || q;
-          const bits = [props.city || props.town || props.village, props.state, props.country].filter(Boolean);
-          return { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.length ? (name + ', ' + bits.join(', ')) : name };
-        }
+        const hit = pickNominatimHit(await res.json(), q);
+        if (hit && !(looksAddr && hit.kind === 'city')) return hit;
+        if (hit && !looksAddr) return hit;
       }
     } catch (e) {}
     try {
-      const res = await fetchWithTimeout('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
+      const res = await fetchWithTimeout('https://photon.komoot.io/api/?limit=5&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
       if (res && res.ok) {
-        const rows = await res.json();
-        const hit = Array.isArray(rows) ? rows[0] : null;
-        const lat = Number(hit && hit.lat);
-        const lng = Number(hit && hit.lon);
-        if (Number.isFinite(lat) && Number.isFinite(lng)) {
-          return { lat: lat, lng: lng, name: String((hit && (hit.display_name || hit.name)) || q) };
-        }
+        const hit = pickPhotonHit(await res.json(), q);
+        if (hit && !(looksAddr && hit.kind === 'city')) return hit;
+        if (hit && !looksAddr) return hit;
       }
     } catch (e) {}
-    try {
-      const city = q.split(',')[0].trim();
-      const geo = await geocodeDealCity(city, {});
-      if (geo) return { lat: geo.lat, lng: geo.lng, name: geo.name || q };
-    } catch (e) {}
+    if (!looksAddr) {
+      try {
+        const city = q.split(',')[0].trim();
+        const geo = await geocodeDealCity(city, {});
+        if (geo) return { lat: geo.lat, lng: geo.lng, name: geo.name || q, kind: 'city' };
+      } catch (e) {}
+    }
     return null;
   }
 
@@ -4096,6 +4518,7 @@
     try { if (state._eezAbort) { state._eezAbort.abort(); state._eezAbort = null; } } catch (e) {}
     try { state._roadGen = (state._roadGen || 0) + 1; } catch (e) {}
     try { state._eezGen = (state._eezGen || 0) + 1; } catch (e) {}
+    try { clearSearchPin(global.Cesium, state.viewer, state); } catch (e) {}
     try { if (state._onWheelFollow && state.viewer?.scene?.canvas) state.viewer.scene.canvas.removeEventListener('wheel', state._onWheelFollow); } catch (e) {}
     try { state.roadEntities = clearDecorEntities(state.viewer, state.roadEntities); } catch (e) {}
     try { state.eezEntities = clearDecorEntities(state.viewer, state.eezEntities); } catch (e) {}
@@ -4239,14 +4662,20 @@
 
     const flySearchHit = React.useCallback((hit) => {
       const Cesium = global.Cesium;
-      const viewer = stateRef.current.viewer;
+      const state = stateRef.current;
+      const viewer = state.viewer;
       if (!Cesium || !viewer || !hit) return;
+      setSearchPin(Cesium, viewer, state, hit);
+      const alt = searchFlyAltM(hit);
       try {
         viewer.camera.flyTo({
-          destination: Cesium.Cartesian3.fromDegrees(hit.lng, hit.lat, 12000),
-          duration: 1.4,
+          destination: Cesium.Cartesian3.fromDegrees(hit.lng, hit.lat, alt),
+          orientation: { heading: 0, pitch: Cesium.Math.toRadians(alt <= 2500 ? -72 : -89), roll: 0 },
+          duration: 1.55,
+          complete: function () { requestSceneRender(viewer); },
         });
       } catch (e) {}
+      requestSceneRender(viewer);
     }, []);
 
     const runSearch = React.useCallback(async () => {
@@ -4272,9 +4701,11 @@
       const state = stateRef.current;
       const viewer = state.viewer;
       let lat = null, lng = null;
-      const row = selected;
-      if (row && Number.isFinite(Number(row.lat))) {
-        lat = Number(row.lat); lng = Number(row.lng);
+      const pin = state._searchPin;
+      if (pin && Number.isFinite(Number(pin.lat)) && Number.isFinite(Number(pin.lng))) {
+        lat = Number(pin.lat); lng = Number(pin.lng);
+      } else if (selected && Number.isFinite(Number(selected.lat))) {
+        lat = Number(selected.lat); lng = Number(selected.lng);
       } else {
         try {
           const carto = viewer && viewer.camera && viewer.camera.positionCartographic;
@@ -4310,6 +4741,12 @@
         if (e.key === 'Escape') {
           e.preventDefault();
           if (keysOpenRef.current) { setKeysOpen(false); return; }
+          if (stateRef.current._searchPin) {
+            setSearchQ('');
+            setSearchMsg('');
+            clearSearchPin(global.Cesium, stateRef.current.viewer, stateRef.current);
+            return;
+          }
           if (stateRef.current.selectedId) {
             setSelected(null);
             setFollow(false);
@@ -4348,6 +4785,7 @@
       const Cesium = global.Cesium;
       if (!state.viewer || !Cesium || state.destroyed) return;
       syncAllEntities(Cesium, state.viewer, state, dataRef.current, layerRef.current);
+      requestSceneRender(state.viewer);
     }, []);
 
     const refreshStats = React.useCallback(() => {
@@ -4426,7 +4864,8 @@
             creditContainer: document.createElement('div'),
             terrainProvider: new Cesium.EllipsoidTerrainProvider(),
             shouldAnimate: true,
-            requestRenderMode: false,
+            requestRenderMode: true,
+            maximumRenderTimeChange: 2.0,
             scene3DOnly: true,
             skyAtmosphere: false,
             useDefaultRenderLoop: false,
@@ -4465,7 +4904,7 @@
           try {
             viewer.scene.globe.show = true;
             viewer.scene.globe.depthTestAgainstTerrain = false;
-            try { viewer.scene.requestRenderMode = false; } catch (e2) {}
+            try { viewer.scene.requestRenderMode = true; viewer.scene.maximumRenderTimeChange = 2.0; } catch (e2) {}
             try { viewer.useDefaultRenderLoop = true; } catch (e2) {}
             const ssc = viewer.scene.screenSpaceCameraController;
             ssc.enableInputs = true;
@@ -4517,8 +4956,37 @@
               highlightSelected(state, row.id);
               setSelected(row);
               showSelectionTrail(Cesium, viewer, state, row);
+              try {
+                if (isCraftType(row.type) && picked && picked.id) {
+                  viewer.trackedEntity = picked.id;
+                  state.follow = true;
+                  followRef.current = true;
+                  setFollow(true);
+                } else {
+                  viewer.trackedEntity = undefined;
+                }
+              } catch (eT) {}
+            } else {
+              try { viewer.trackedEntity = undefined; } catch (eU) {}
             }
           }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+          handler.setInputAction((movement) => {
+            try {
+              const picked = viewer.scene.pick(movement.endPosition);
+              let hid = '';
+              if (Cesium.defined(picked) && picked.id && picked.id.__gm2) {
+                const r = picked.id.__gm2;
+                if (r && isCraftType(r.type)) hid = String(r.id || '');
+              }
+              if (hid === state.hoveredId) return;
+              const prev = state.hoveredId;
+              state.hoveredId = hid;
+              const pe = prev && state.entityById.get(prev);
+              if (pe && pe.label && prev !== state.selectedId) { try { pe.label.show = false; } catch (e) {} }
+              const ne = hid && state.entityById.get(hid);
+              if (ne && ne.label) { try { ne.label.show = true; } catch (e) {} }
+            } catch (e) {}
+          }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
           const stopFollow = function () {
             if (!followRef.current && !state.follow) return;
             followRef.current = false;
@@ -4537,8 +5005,10 @@
           const onMoveEndImmediate = async () => {
             try {
               if (state.destroyed || bootGen !== state._bootGen || !viewer || viewer.isDestroyed?.()) return;
+              state._camMoving = false;
               if (state._streetFlying) return;
               const h = viewer.camera.positionCartographic?.height;
+              try { syncEsriZoomCap(state, h); } catch (eEs) {}
               const band = lodFromHeight(h);
               const prevLod = state.lastLod;
               state.lastLod = band;
@@ -4577,6 +5047,8 @@
             viewer.camera.percentageChanged = 0.02;
             const onCamChanged = function () {
               if (state.destroyed || state._streetFlying) return;
+              state._camMoving = true;
+              requestSceneRender(viewer);
               if (state._photorealSyncTimer) return;
               state._photorealSyncTimer = global.setTimeout(function () {
                 state._photorealSyncTimer = null;
@@ -4631,7 +5103,10 @@
                 }
               }
             } catch (e) {}
-            if (followRef.current) lerpFollow(Cesium, viewer, state);
+            if (followRef.current) {
+              lerpFollow(Cesium, viewer, state);
+              requestSceneRender(viewer);
+            }
           };
           viewer.clock.onTick.addEventListener(onTick);
           state._onTick = onTick;
@@ -4734,20 +5209,20 @@
       })();
 
       const flightTimer = window.setInterval(async () => {
-        if (cancelled || clockRef.current.mode !== 'live') return;
+        if (cancelled || clockRef.current.mode !== 'live' || stateRef.current._camMoving) return;
         try {
           dataRef.current.flights = await fetchFlights();
           const Cesium = global.Cesium;
           const st = stateRef.current;
           if (Cesium && st.viewer && (layerRef.current === 'all' || layerRef.current === 'flights')) {
-            syncGroup(Cesium, st.viewer, st, 'flight', dataRef.current.flights.slice(0, MAX_FLIGHT_POINTS), () => ({ pixelSize: 6 }));
+            syncGroup(Cesium, st.viewer, st, 'flight', capCraftRows(Cesium, st.viewer, st, 'flight', dataRef.current.flights), () => ({ pixelSize: 6 }));
           }
           refreshStats();
         } catch (e) {}
       }, FLIGHT_POLL_MS);
 
       const milTimer = window.setInterval(async () => {
-        if (cancelled || clockRef.current.mode !== 'live') return;
+        if (cancelled || clockRef.current.mode !== 'live' || stateRef.current._camMoving) return;
         try {
           const mil = await fetchMilFlights();
           dataRef.current.milFlights = mil;
@@ -4763,7 +5238,7 @@
       }, MIL_POLL_MS);
 
       const shipTimer = window.setInterval(async () => {
-        if (cancelled || clockRef.current.mode !== 'live') return;
+        if (cancelled || clockRef.current.mode !== 'live' || stateRef.current._camMoving) return;
         try {
           const v = await fetchShips();
           dataRef.current.ships = v.rows || [];
@@ -4785,7 +5260,7 @@
       }, SHIP_POLL_MS);
 
       const issTimer = window.setInterval(async () => {
-        if (cancelled || clockRef.current.mode !== 'live') return;
+        if (cancelled || clockRef.current.mode !== 'live' || stateRef.current._camMoving) return;
         try {
           if (!findIssRec()) {
             const sats = await fetchIssLive();
@@ -4914,7 +5389,23 @@
                 type: 'search',
                 placeholder: 'Search city or address',
                 value: searchQ,
-                onChange: (e) => setSearchQ(e.target.value),
+                onChange: (e) => {
+                  const v = e.target.value;
+                  setSearchQ(v);
+                  if (!String(v || '').trim()) {
+                    setSearchMsg('');
+                    clearSearchPin(global.Cesium, stateRef.current.viewer, stateRef.current);
+                  }
+                },
+                onKeyDown: (e) => {
+                  if (e.key === 'Escape') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setSearchQ('');
+                    setSearchMsg('');
+                    clearSearchPin(global.Cesium, stateRef.current.viewer, stateRef.current);
+                  }
+                },
                 'aria-label': 'Search',
               }),
               React.createElement('button', { type: 'submit', className: 'v4-gm2-btn' }, searching ? '…' : 'Go'),

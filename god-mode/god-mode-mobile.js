@@ -439,6 +439,7 @@
   const MIN_CAMERA_ALT_M = 80;
   const STREET_CAMERA_ALT_M = 160;
   const SEARCH_CAMERA_ALT_M = 12000;
+  const SEARCH_ADDRESS_ALT_M = 900;
   const MIN_ALT_RADII = MIN_CAMERA_ALT_M / EARTH_RADIUS_M;
   const STREET_ALT_RADII = STREET_CAMERA_ALT_M / EARTH_RADIUS_M;
   const SEARCH_ALT_RADII = SEARCH_CAMERA_ALT_M / EARTH_RADIUS_M;
@@ -717,6 +718,31 @@
       if (state && state._googleTilesPending === pending) state._googleTilesPending = null;
     }
   }
+
+  var phoneCraftIconCache = Object.create(null);
+  function getPhoneCraftIcon(kind) {
+    var key = kind === 'ship' ? 'ship' : 'plane';
+    if (phoneCraftIconCache[key]) return phoneCraftIconCache[key];
+    try {
+      var c = document.createElement('canvas');
+      var g = c.getContext('2d');
+      g.fillStyle = '#ffffff';
+      if (kind === 'ship') {
+        c.width = 40; c.height = 56;
+        g.beginPath(); g.moveTo(20, 3); g.lineTo(33, 48); g.lineTo(20, 40); g.lineTo(7, 48); g.closePath(); g.fill();
+      } else {
+        c.width = 56; c.height = 56;
+        g.beginPath();
+        g.moveTo(28, 4); g.lineTo(31, 24); g.lineTo(50, 30); g.lineTo(31, 29);
+        g.lineTo(31, 42); g.lineTo(38, 50); g.lineTo(28, 44); g.lineTo(18, 50);
+        g.lineTo(25, 42); g.lineTo(25, 29); g.lineTo(6, 30); g.lineTo(25, 24);
+        g.closePath(); g.fill();
+      }
+      phoneCraftIconCache[key] = c.toDataURL();
+    } catch (e) { phoneCraftIconCache[key] = ''; }
+    return phoneCraftIconCache[key];
+  }
+
   function makeCesiumPhoneAdapter(Cesium, viewer, state) {
     const pointEntities = [];
     const fakeControls = {
@@ -791,25 +817,55 @@
           const lat = Number(row.lat);
           const lng = Number(row.lng);
           if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+          const kind = String(row.type || '');
+          const craft = kind === 'flight' || kind === 'military' || kind === 'ship';
           let height = Number(row.altM);
           if (!Number.isFinite(height)) {
             const alt = Number(row.alt);
-            height = Number.isFinite(alt) ? alt * EARTH_RADIUS_M : 0;
+            if (Number.isFinite(alt) && alt > 0 && alt < 50) height = alt * EARTH_RADIUS_M;
+            else if (Number.isFinite(alt) && alt >= 50) height = alt;
+            else height = 0;
+          }
+          if (kind === 'ship') height = 0;
+          if ((kind === 'flight' || kind === 'military') && (!Number.isFinite(height) || height > 20000 || height < 0)) {
+            const ft = Number(row.altitudeFt);
+            height = Number.isFinite(ft) ? Math.max(0, ft * 0.3048) : 10000;
           }
           if (!Number.isFinite(height) || height < 0) height = 0;
-          if (height > 2.5e6) height = 2.5e6;
+          if (height > 2.0e5) height = 2.0e5;
           let color = Cesium.Color.WHITE;
           try { color = Cesium.Color.fromCssColorString(String(row.color || '#d0d6e0')); } catch (e) {}
-          const ent = viewer.entities.add({
-            position: Cesium.Cartesian3.fromDegrees(lng, lat, height),
-            point: {
-              pixelSize: row.type === 'starlink' ? 5 : 9,
-              color: color,
-              outlineColor: Cesium.Color.BLACK,
-              outlineWidth: 1,
-              disableDepthTestDistance: 500000,
-            },
-          });
+          let heading = Number(row.heading);
+          if (!Number.isFinite(heading)) heading = Number(row.cog);
+          if (!Number.isFinite(heading)) heading = 0;
+          const rot = -(((heading % 360) + 360) % 360) * Math.PI / 180;
+          const def = { position: Cesium.Cartesian3.fromDegrees(lng, lat, height) };
+          if (craft) {
+            def.point = {
+              pixelSize: 2.2, color: color, outlineWidth: 0,
+              disableDepthTestDistance: 0,
+              heightReference: kind === 'ship' ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE,
+              scaleByDistance: new Cesium.NearFarScalar(2.5e5, 0.15, 1.2e7, 1.15)
+            };
+            const icon = getPhoneCraftIcon(kind === 'ship' ? 'ship' : 'plane');
+            if (icon) {
+              def.billboard = {
+                image: icon, width: kind === 'ship' ? 11 : 15, height: kind === 'ship' ? 16 : 15,
+                color: color, rotation: rot, alignedAxis: Cesium.Cartesian3.UNIT_Z,
+                disableDepthTestDistance: 0, sizeInMeters: false,
+                scaleByDistance: new Cesium.NearFarScalar(5.0e4, 1.12, 8.0e6, 0.16),
+                distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 7.5e6),
+                heightReference: kind === 'ship' ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE
+              };
+            }
+          } else {
+            def.point = {
+              pixelSize: kind === 'starlink' ? 3 : 6, color: color, outlineWidth: 0,
+              disableDepthTestDistance: 0,
+              scaleByDistance: new Cesium.NearFarScalar(8.0e5, 1.1, 2.2e7, 0.28)
+            };
+          }
+          const ent = viewer.entities.add(def);
           ent.__gmPhone = row;
           pointEntities.push(ent);
         });
@@ -1569,7 +1625,8 @@
 
     if (lat < -90 || lat > 90 || lng < -180 || lng > 180) return null;
 
-    const altKm = Number.isFinite(altM) ? Math.max(0.002, altM / 100000) : 0.01;
+    const altMSafe = Number.isFinite(altM) ? Math.max(0, altM) : 10000;
+    const altKm = Math.min(0.0022, Math.max(0.0004, altMSafe / 6371000));
 
     const cs = String(callsign || '').trim();
 
@@ -1581,7 +1638,9 @@
 
       lng,
 
-      alt: Math.min(altKm, 0.35),
+      alt: altKm,
+      altM: altMSafe,
+      color: (typeof flightAltColor === 'function') ? flightAltColor(Number.isFinite(altMSafe) ? altMSafe * 3.281 : null) : '#ffd60a',
 
       heading: Number.isFinite(heading) ? heading : 0,
 
@@ -3138,35 +3197,60 @@
       if (typeof global.__gmPhoneStreetView === 'function') global.__gmPhoneStreetView(lat, lng);
     } catch (e) {}
   }
+  function mobileGeocodeKindNom(hit) {
+    const t = String((hit && (hit.addresstype || hit.type)) || '').toLowerCase();
+    const cls = String((hit && hit.class) || '').toLowerCase();
+    const addr = (hit && hit.address) || {};
+    if (addr.house_number || t === 'house' || t === 'building' || cls === 'building') return 'address';
+    if (cls === 'highway' || t === 'road') return 'street';
+    if (t === 'city' || t === 'town' || t === 'village' || t === 'state' || t === 'country' || t === 'administrative') return 'city';
+    return 'place';
+  }
   async function geocodeAddress(query) {
     const q = String(query || '').trim();
     if (!q) return null;
+    const looksAddr = /\d/.test(q);
     try {
-      const res = await fetchWithTimeout('https://photon.komoot.io/api/?limit=1&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
-      if (res && res.ok) {
-        const data = await res.json();
-        const hit = data && data.features && data.features[0];
-        const coords = hit && hit.geometry && hit.geometry.coordinates;
-        if (coords && coords.length >= 2 && Number.isFinite(Number(coords[1])) && Number.isFinite(Number(coords[0]))) {
-          const props = hit.properties || {};
-          const name = props.name || props.street || q;
-          const bits = [props.city || props.town || props.village, props.state, props.country].filter(Boolean);
-          return { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.length ? (name + ', ' + bits.join(', ')) : name };
-        }
-      }
-    } catch (e) {}
-    try {
-      const res = await fetchWithTimeout('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
+      const res = await fetchWithTimeout('https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=5&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
       if (res && res.ok) {
         const rows = await res.json();
-        const hit = Array.isArray(rows) ? rows[0] : null;
-        const lat = Number(hit && hit.lat);
-        const lng = Number(hit && hit.lon);
-        if (Number.isFinite(lat) && Number.isFinite(lng)) {
-          return { lat: lat, lng: lng, name: String((hit && (hit.display_name || hit.name)) || q) };
+        const list = Array.isArray(rows) ? rows : [];
+        let best = list[0];
+        let bestRank = -1;
+        const rank = { address: 4, street: 3, place: 2, city: 1 };
+        for (let i = 0; i < list.length; i++) {
+          const k = mobileGeocodeKindNom(list[i]);
+          let r = rank[k] || 2;
+          if (looksAddr && k === 'city') r = 0;
+          if (r > bestRank) { bestRank = r; best = list[i]; }
+        }
+        const lat = Number(best && best.lat);
+        const lng = Number(best && best.lon);
+        if (Number.isFinite(lat) && Number.isFinite(lng) && !(looksAddr && mobileGeocodeKindNom(best) === 'city')) {
+          return { lat: lat, lng: lng, name: String((best && (best.display_name || best.name)) || q), kind: mobileGeocodeKindNom(best) };
         }
       }
     } catch (e) {}
+    try {
+      const res = await fetchWithTimeout('https://photon.komoot.io/api/?limit=5&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
+      if (res && res.ok) {
+        const data = await res.json();
+        const feats = (data && data.features) || [];
+        for (let i = 0; i < feats.length; i++) {
+          const hit = feats[i];
+          const coords = hit && hit.geometry && hit.geometry.coordinates;
+          const props = (hit && hit.properties) || {};
+          if (coords && coords.length >= 2 && Number.isFinite(Number(coords[1]))) {
+            const kind = props.housenumber ? 'address' : (props.osm_key === 'place' ? 'city' : 'place');
+            if (looksAddr && kind === 'city') continue;
+            const name = props.housenumber && props.street ? (props.housenumber + ' ' + props.street) : (props.name || props.street || q);
+            const bits = [name, props.city || props.town || props.village, props.state, props.country].filter(Boolean);
+            return { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(', '), kind: kind };
+          }
+        }
+      }
+    } catch (e) {}
+    if (looksAddr) return null;
     try {
       const city = q.split(',')[0].trim();
       const res = await fetchWithTimeout('https://geocoding-api.open-meteo.com/v1/search?name=' + encodeURIComponent(city) + '&count=1&language=en&format=json', {}, 8000);
@@ -3267,8 +3351,9 @@
         const lng = Number(item.lng);
         if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
         if (allow && allow.indexOf(item.type) === -1) return;
-        if (item.alt == null && item.altM != null) item.alt = Math.min(0.05, (Number(item.altM) || 0) / 100000);
-        if (item.size == null) item.size = item.type === 'starlink' ? 0.14 : 0.28;
+        var craftPt = item.type === 'flight' || item.type === 'military' || item.type === 'ship';
+        if (item.alt == null && item.altM != null) item.alt = craftPt ? Math.min(0.0022, (Number(item.altM) || 0) / 6371000) : Math.min(0.02, (Number(item.altM) || 0) / 100000);
+        if (item.size == null) item.size = item.type === 'starlink' ? STARLINK_POINT_SIZE : (craftPt ? 0.035 : 0.10);
         if (!item.color) item.color = '#d0d6e0';
         rows.push(item);
       };
@@ -3299,14 +3384,21 @@
       pointsFpRef.current = fp;
       try {
         globe.pointsData(rows).pointLat("lat").pointLng("lng")
-          .pointAltitude(function (d) { return Number(d.alt) || 0.01; })
-          .pointRadius(function (d) { return Number(d.size) || 0.22; })
+          .pointAltitude(function (d) {
+            if (d.type === 'flight' || d.type === 'military' || d.type === 'ship') return 0.0012;
+            return Math.min(0.02, Number(d.alt) || 0.008);
+          })
+          .pointRadius(function (d) {
+            if (d.type === 'starlink') return STARLINK_POINT_SIZE;
+            if (d.type === 'flight' || d.type === 'military' || d.type === 'ship') return 0.035;
+            return Number(d.size) || 0.10;
+          })
           .pointColor(function (d) {
             const g = globeInstRef.current;
             if (g && !isNearSide(g, d.lat, d.lng)) return "rgba(0,0,0,0)";
             return d.color || "#d0d6e0";
           })
-          .pointResolution(6).pointsMerge(false).pointsTransitionDuration(0)
+          .pointResolution(12).pointsMerge(false).pointsTransitionDuration(0)
           .pointLabel(function (d) { return d.label || d.name || ""; })
           .onPointClick(function (pt) {
             setSelected(pt || null);
@@ -3498,6 +3590,36 @@
       if (onLayerChange) onLayerChange(id);
       setSelected(null);
     };
+    const clearMobileSearchPin = function (g) {
+      g = g || globeInstRef.current;
+      try {
+        if (g && g._searchPinEntity && g._viewer) g._viewer.entities.remove(g._searchPinEntity);
+      } catch (e) {}
+      try { if (g) { g._searchPinEntity = null; g._searchPin = null; } } catch (e2) {}
+    };
+    const setMobileSearchPin = function (g, hit) {
+      g = g || globeInstRef.current;
+      clearMobileSearchPin(g);
+      if (!g || !hit || !Number.isFinite(Number(hit.lat))) return;
+      g._searchPin = { lat: Number(hit.lat), lng: Number(hit.lng), name: hit.name || '' };
+      if (g.__cesium && g._viewer && g._cesium) {
+        try {
+          const Cesium = g._cesium;
+          const ent = g._viewer.entities.add({
+            position: Cesium.Cartesian3.fromDegrees(Number(hit.lng), Number(hit.lat), 6),
+            point: {
+              pixelSize: 10,
+              color: Cesium.Color.fromCssColorString('#ffbf00'),
+              outlineColor: Cesium.Color.fromCssColorString('#3a2a00'),
+              outlineWidth: 2,
+              heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+              disableDepthTestDistance: Number.POSITIVE_INFINITY,
+            },
+          });
+          g._searchPinEntity = ent;
+        } catch (e) {}
+      }
+    };
     const flyTo = function (lat, lng, altitude) {
       const g = globeInstRef.current;
       if (!g || !Number.isFinite(Number(lat)) || !Number.isFinite(Number(lng))) return;
@@ -3515,13 +3637,17 @@
         focusRef.current = hit;
         setSearchMsg(hit.name || q);
         setSelected({ type: 'place', name: hit.name || q, lat: hit.lat, lng: hit.lng, label: hit.name || q, source: 'Search' });
-        flyTo(hit.lat, hit.lng, SEARCH_ALT_RADII);
+        const altM = (hit.kind === 'city' || hit.kind === 'region') ? SEARCH_CAMERA_ALT_M : SEARCH_ADDRESS_ALT_M;
+        setMobileSearchPin(globeInstRef.current, hit);
+        flyTo(hit.lat, hit.lng, altM / EARTH_RADIUS_M);
       }).catch(function () {
         setSearching(false);
         setSearchMsg('Search failed');
       });
     };
     const currentFocus = function () {
+      const g = globeInstRef.current;
+      if (g && g._searchPin && Number.isFinite(g._searchPin.lat)) return g._searchPin;
       if (focusRef.current && Number.isFinite(focusRef.current.lat)) return focusRef.current;
       if (selected && Number.isFinite(Number(selected.lat))) return { lat: Number(selected.lat), lng: Number(selected.lng) };
       try {
@@ -3544,11 +3670,21 @@
         try { g._streetPrev = viewer.camera.position.clone(); } catch (e) {}
         try {
           viewer.scene.screenSpaceCameraController.minimumZoomDistance = MIN_CAMERA_ALT_M;
-          viewer.camera.flyTo({
-            destination: Cesium.Cartesian3.fromDegrees(b, a, STREET_CAMERA_ALT_M),
-            orientation: { heading: 0, pitch: Cesium.Math.toRadians(-38), roll: 0 },
-            duration: 1.55,
-          });
+          let heading = 0;
+          try { heading = viewer.camera.heading; } catch (eH) {}
+          const target = Cesium.Cartesian3.fromDegrees(b, a, 8);
+          if (Cesium.BoundingSphere && viewer.camera.flyToBoundingSphere) {
+            viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(target, 12), {
+              offset: new Cesium.HeadingPitchRange(heading, Cesium.Math.toRadians(-35), 190),
+              duration: 1.55,
+            });
+          } else {
+            viewer.camera.flyTo({
+              destination: Cesium.Cartesian3.fromDegrees(b, a, STREET_CAMERA_ALT_M),
+              orientation: { heading: heading, pitch: Cesium.Math.toRadians(-35), roll: 0 },
+              duration: 1.55,
+            });
+          }
         } catch (e) {}
         enablePhonePhotoreal(Cesium, viewer, g._state, { show: true, force: true });
       } else {
@@ -3647,7 +3783,21 @@
           autoCorrect: 'off',
           placeholder: 'Search address or city',
           value: searchQ,
-          onChange: function (e) { setSearchQ(e.target.value); }
+          onChange: function (e) {
+            const v = e.target.value;
+            setSearchQ(v);
+            if (!String(v || '').trim()) {
+              setSearchMsg('');
+              clearMobileSearchPin(globeInstRef.current);
+            }
+          },
+          onKeyDown: function (e) {
+            if (e && e.key === 'Escape') {
+              setSearchQ('');
+              setSearchMsg('');
+              clearMobileSearchPin(globeInstRef.current);
+            }
+          }
         }),
         el('button', goProps, searching ? '…' : 'Go'),
         el('button', svProps, 'SV')
