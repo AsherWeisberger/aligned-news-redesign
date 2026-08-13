@@ -433,6 +433,199 @@
 
   }
 
+
+  const SAT_TILE_MAX_LEVEL = 10;
+  const OPENSKY_STATES_URL = 'https://opensky-network.org/api/states/all';
+  const RAINVIEWER_META_URL = 'https://api.rainviewer.com/public/weather-maps.json';
+  function satTileUrl(x, y, l) {
+    return 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/' + l + '/' + y + '/' + x;
+  }
+  function corsProxyUrls(url) {
+    return [
+      'https://corsproxy.io/?' + encodeURIComponent(url),
+      'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
+    ];
+  }
+  async function fetchCorsFirst(url, options, ms) {
+    const timeout = Number(ms) || FETCH_TIMEOUT_MS;
+    try {
+      const res = await fetchWithTimeout(url, options, timeout);
+      if (res && res.ok) return res;
+    } catch (e) {}
+    const proxies = corsProxyUrls(url);
+    for (let i = 0; i < proxies.length; i++) {
+      try {
+        const res = await fetchWithTimeout(proxies[i], options || {}, timeout);
+        if (res && res.ok) return res;
+      } catch (e) {}
+    }
+    throw new Error('cors fetch failed');
+  }
+  function globeRadiusOf(g) {
+    try {
+      if (g && typeof g.getGlobeRadius === 'function') {
+        const r = Number(g.getGlobeRadius());
+        if (Number.isFinite(r) && r > 10) return r;
+      }
+    } catch (e) {}
+    return 100;
+  }
+  function applySatelliteTiles(g) {
+    try { g.showAtmosphere(false); } catch (e) {}
+    try { g.atmosphereAltitude(0); } catch (e) {}
+    try {
+      if (typeof g.globeTileEngineUrl === 'function') {
+        g.globeTileEngineUrl(satTileUrl);
+        try { g.globeTileEngineMaxLevel(SAT_TILE_MAX_LEVEL); } catch (e2) {}
+      }
+    } catch (e) {}
+    try { g.globeImageUrl(EARTH_IMG); } catch (e) {}
+  }
+  function configurePhoneControls(g) {
+    const controls = g.controls();
+    if (!controls) throw new Error('Globe controls unavailable');
+    const radius = globeRadiusOf(g);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.28;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.enableRotate = true;
+    controls.enablePan = false;
+    controls.enableZoom = true;
+    controls.zoomSpeed = 1.35;
+    controls.rotateSpeed = 0.7;
+    controls.minDistance = radius * 1.12;
+    controls.maxDistance = radius * 8;
+    try {
+      const T = global.THREE;
+      if (T && T.TOUCH && controls.touches) {
+        controls.touches.ONE = T.TOUCH.ROTATE;
+        controls.touches.TWO = T.TOUCH.DOLLY_ROTATE;
+      }
+    } catch (e) {}
+    try {
+      const canvas = g.renderer && g.renderer() && g.renderer().domElement;
+      if (canvas) {
+        canvas.style.touchAction = 'none';
+        canvas.style.msTouchAction = 'none';
+        canvas.style.webkitUserSelect = 'none';
+        canvas.style.userSelect = 'none';
+      }
+    } catch (e) {}
+    return controls;
+  }
+  function clampAltitude(alt) {
+    const n = Number(alt);
+    if (!Number.isFinite(n)) return 2.15;
+    return Math.min(6.8, Math.max(0.12, n));
+  }
+  function bindPhoneGlobeGestures(globe, rootEl) {
+    const el = rootEl || null;
+    if (!el || el.__godModeGestures) return function () {};
+    el.__godModeGestures = true;
+    let pinchStartDist = 0;
+    let pinchStartAlt = 2.15;
+    const readPov = function () {
+      try { return globe.pointOfView && globe.pointOfView(); } catch (e) { return null; }
+    };
+    const applyAlt = function (alt) {
+      const p = readPov() || {};
+      try {
+        globe.pointOfView({
+          lat: Number.isFinite(Number(p.lat)) ? Number(p.lat) : 28,
+          lng: Number.isFinite(Number(p.lng)) ? Number(p.lng) : -20,
+          altitude: clampAltitude(alt),
+        }, 0);
+      } catch (e) {}
+    };
+    const pinchDist = function (e) {
+      if (!e.touches || e.touches.length < 2) return 0;
+      const a = e.touches[0];
+      const b = e.touches[1];
+      return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+    };
+    const onStart = function (e) {
+      if (!e.touches || e.touches.length !== 2) return;
+      pinchStartDist = pinchDist(e);
+      const p = readPov();
+      pinchStartAlt = clampAltitude(p && p.altitude);
+      try { const c = globe.controls(); if (c) c.autoRotate = false; } catch (err) {}
+    };
+    const onMove = function (e) {
+      if (!e.touches || e.touches.length !== 2 || !(pinchStartDist > 0)) return;
+      if (e.cancelable) e.preventDefault();
+      try { e.stopPropagation(); } catch (err) {}
+      const d = pinchDist(e);
+      if (!(d > 0)) return;
+      applyAlt(pinchStartAlt * (pinchStartDist / d));
+    };
+    const onEnd = function (e) {
+      if (!e.touches || e.touches.length < 2) pinchStartDist = 0;
+    };
+    const onWheel = function (e) {
+      if (e.cancelable) e.preventDefault();
+      try { e.stopPropagation(); } catch (err) {}
+      const p = readPov();
+      const alt = clampAltitude(p && p.altitude);
+      applyAlt(alt * (e.deltaY > 0 ? 1.1 : 0.9));
+      try { const c = globe.controls(); if (c) c.autoRotate = false; } catch (err) {}
+    };
+    const killGesture = function (e) { if (e.cancelable) e.preventDefault(); };
+    const opts = { passive: false, capture: true };
+    el.addEventListener('touchstart', onStart, opts);
+    el.addEventListener('touchmove', onMove, opts);
+    el.addEventListener('touchend', onEnd, opts);
+    el.addEventListener('touchcancel', onEnd, opts);
+    el.addEventListener('wheel', onWheel, opts);
+    ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (type) {
+      el.addEventListener(type, killGesture, opts);
+    });
+    const overlay = el.closest ? el.closest('.v4-gm-phone') : null;
+    if (overlay && overlay !== el) {
+      ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (type) {
+        overlay.addEventListener(type, killGesture, opts);
+      });
+      overlay.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches.length > 1 && e.cancelable) e.preventDefault();
+      }, opts);
+    }
+    return function () {
+      el.__godModeGestures = false;
+      el.removeEventListener('touchstart', onStart, opts);
+      el.removeEventListener('touchmove', onMove, opts);
+      el.removeEventListener('touchend', onEnd, opts);
+      el.removeEventListener('touchcancel', onEnd, opts);
+      el.removeEventListener('wheel', onWheel, opts);
+      ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (type) {
+        el.removeEventListener(type, killGesture, opts);
+      });
+    };
+  }
+  async function fetchOpenSkyDirect() {
+    const res = await fetchCorsFirst(OPENSKY_STATES_URL, { headers: { Accept: 'application/json' } }, 14000);
+    const data = await res.json();
+    const rows = parseFlightStates(data && data.states);
+    if (!rows.length) throw new Error('opensky empty');
+    rows.forEach(function (r) { if (!r.source) r.source = 'OpenSky'; });
+    return rows;
+  }
+  async function fetchRainViewerMeta() {
+    try {
+      const res = await fetchWithTimeout(RAINVIEWER_META_URL, { headers: { Accept: 'application/json' } }, 8000);
+      if (!res || !res.ok) return null;
+      const data = await res.json();
+      const host = String((data && data.host) || 'https://tilecache.rainviewer.com');
+      const past = Array.isArray(data && data.radar && data.radar.past) ? data.radar.past : [];
+      const nowcast = Array.isArray(data && data.radar && data.radar.nowcast) ? data.radar.nowcast : [];
+      const frames = past.length ? past : nowcast;
+      if (!frames.length) return null;
+      const last = frames[frames.length - 1] || {};
+      return { host: host, path: last.path, time: last.time, frames: frames };
+    } catch (e) {
+      return null;
+    }
+  }
+
   function tempColor(f) {
 
     const t = Number(f);
@@ -631,13 +824,14 @@
 
   function godModeServiceBases() {
     const bases = [];
-    const host = String(global.location?.hostname || '').toLowerCase();
+    const loc = global.location || window.location;
+    const host = String(loc && loc.hostname || '').toLowerCase();
     const onPublic = /github\.io$/.test(host);
     try {
-      const origin = String(global.location?.origin || '').replace(/\/$/, '');
-      if (origin && !onPublic) bases.push(origin);
+      const origin = String(loc && loc.origin || '').replace(/\/$/, '');
+      if (origin && !onPublic && !host.includes('127.0.0.1') && !host.includes('localhost')) bases.push(origin);
     } catch (e) {}
-    if (!onPublic && !host.includes('127.0.0.1') && !host.includes('localhost')) {
+    if (!host.includes('127.0.0.1') && !host.includes('localhost')) {
       bases.push('https://mac-studio.tail50d3a2.ts.net');
     }
     if (host.includes('127.0.0.1') || host.includes('localhost')) {
@@ -711,6 +905,7 @@
       lng,
 
       temp: tempRounded,
+      precip: Number.isFinite(Number(row?.precip)) ? Number(row.precip) : 0,
 
       wind: Number.isFinite(wind) ? Math.round(wind) : null,
 
@@ -756,7 +951,7 @@
 
       + `?latitude=${lats}&longitude=${lngs}`
 
-      + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m'
+      + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,precipitation'
 
       + '&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=UTC';
 
@@ -789,6 +984,7 @@
         lng: city[2],
 
         temp: cur.temperature_2m,
+        precip: cur.precipitation,
 
         wind: cur.wind_speed_10m,
 
@@ -811,27 +1007,29 @@
   }
 
   async function fetchWeatherGrid() {
-
+    let cities = null;
     try {
-
-      return await fetchOpenMeteoGrid();
-
+      cities = await fetchOpenMeteoGrid();
     } catch (e) {
-
       console.warn('[god-mode] open-meteo failed, trying Mac proxy', e);
-
     }
-
-    const data = await fetchGodModeProxy('/god-mode/weather', WEATHER_PROXY_TIMEOUT_MS);
-
-    if (data?.ok && Array.isArray(data.cities) && data.cities.length) {
-
-      return data.cities.map(mapWeatherRow).filter((row) => row.name && Number.isFinite(row.lat));
-
+    if (!cities || !cities.length) {
+      const data = await fetchGodModeProxy('/god-mode/weather', WEATHER_PROXY_TIMEOUT_MS);
+      if (data?.ok && Array.isArray(data.cities) && data.cities.length) {
+        cities = data.cities.map(mapWeatherRow).filter((row) => row.name && Number.isFinite(row.lat));
+      }
     }
-
-    throw new Error('weather grid failed');
-
+    if (!cities || !cities.length) throw new Error('weather grid failed');
+    try {
+      const radar = await fetchRainViewerMeta();
+      if (radar) {
+        cities.forEach(function (row) {
+          row.radar = radar.path || '';
+          if (!row.source) row.source = 'Open-Meteo + RainViewer';
+        });
+      }
+    } catch (e) {}
+    return cities;
   }
 
   function flightRowFromCoords(lat, lng, altM, vel, heading, callsign, country, key) {
@@ -1014,14 +1212,20 @@
 
     async function fetchFlights() {
     try {
-      const data = await fetchGodModeProxy("/god-mode/flights", 15000);
+      const data = await fetchGodModeProxy("/god-mode/flights", 8000);
       const rows = parseFlightsPayload(data);
       if (rows.length) {
         rows.forEach((r) => { if (!r.source) r.source = "OpenSky proxy"; });
         return rows;
       }
     } catch (e) {
-      console.warn("[god-mode-phone] Mac flight proxy failed, trying browser ADS-B", e);
+      console.warn("[god-mode-phone] Mac flight proxy failed, trying OpenSky", e);
+    }
+    try {
+      const rows = await fetchOpenSkyDirect();
+      if (rows.length) return rows;
+    } catch (e) {
+      console.warn("[god-mode-phone] OpenSky failed, trying ADS-B", e);
     }
     try {
       const rows = await fetchAdsbFlightsMerged();
@@ -1164,13 +1368,15 @@
     } catch (e) {}
 
     if (!text) {
-
+      try {
+        const res = await fetchCorsFirst(STARLINK_TLE_URL, {}, 30000);
+        if (res && res.ok) text = await res.text();
+      } catch (e) {}
+    }
+    if (!text) {
       const res = await fetchWithTimeout(STARLINK_TLE_URL, {}, 30000);
-
       if (!res.ok) throw new Error('starlink TLE feed ' + res.status);
-
       text = await res.text();
-
     }
 
     if (!/^1 /m.test(text)) throw new Error('starlink TLE feed malformed');
@@ -2349,7 +2555,8 @@
   }
 
   const PHONE_CSS = [
-    '.v4-gm-phone{position:absolute;inset:0;z-index:1;width:100%;height:100%;background:#05070c;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;overflow:hidden;pointer-events:auto;}',
+    '.v4-gm-phone{position:absolute;inset:0;z-index:1;width:100%;height:100%;background:#05070c;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;overflow:hidden;pointer-events:auto;touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;}',
+    'body.v4-godmode-phone{touch-action:none;overscroll-behavior:none;overflow:hidden;}',
     'body.v4-godmode-phone .hd,body.v4-godmode-phone .v6-gnav,body.v4-godmode-phone .mobile-nav-layer{visibility:hidden!important;pointer-events:none!important;}',
     '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;}',
     '.v4-gm-phone-globe canvas{display:block;width:100%!important;height:100%!important;}',
@@ -2368,9 +2575,9 @@
     '.v4-gm-phone-card-type{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-top:3px;}',
     '.v4-gm-phone-card-stat{font-size:14px;margin-top:6px;opacity:.95;}',
     '.v4-gm-phone-hint{padding:0 16px 8px;font-size:11px;opacity:.7;color:#e8edf5;pointer-events:none;}',
-    '.v4-gm-phone-search{position:absolute;top:calc(env(safe-area-inset-top,0px) + 56px);left:10px;right:10px;z-index:2;display:flex;gap:8px;pointer-events:auto;}',
-    '.v4-gm-phone-search input{flex:1;min-height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(11,13,18,.94);color:#f2f5fa;font-size:16px;padding:0 12px;outline:none;}',
-    '.v4-gm-phone-search-go,.v4-gm-phone-sv{min-height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:13px;font-weight:700;touch-action:manipulation;}',
+    '.v4-gm-phone-search{position:absolute;top:calc(env(safe-area-inset-top,0px) + 56px);left:10px;right:10px;z-index:2;display:flex;gap:8px;pointer-events:none;}',
+    '.v4-gm-phone-search input{flex:1;min-height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(11,13,18,.94);color:#f2f5fa;font-size:16px;padding:0 12px;outline:none;pointer-events:auto;}',
+    '.v4-gm-phone-search-go,.v4-gm-phone-sv{min-height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:13px;font-weight:700;touch-action:manipulation;pointer-events:auto;}',
     '.v4-gm-phone-sv-card{margin-top:10px;min-height:44px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:14px;font-weight:700;touch-action:manipulation;}',
     '.v4-gm-phone-search-msg{padding:6px 16px 0;font-size:12px;opacity:.75;}',
   ].join('');
@@ -2583,6 +2790,7 @@
       let resizeObs = null;
       let globe = null;
       let onControls = null;
+      let unbindGestures = null;
       const resizeGlobe = function () {
         const g = globeInstRef.current;
         const node = globeRef.current;
@@ -2598,18 +2806,9 @@
         if (cancelled || !globeRef.current || globeInstRef.current) return null;
         const v = viewer || {};
         const g = initGlobeInstance(GlobeFactory, globeRef.current);
-        g.globeImageUrl(EARTH_IMG).showAtmosphere(false).atmosphereAltitude(0);
-        try { g.showAtmosphere(false); g.atmosphereAltitude(0); } catch (e) {}
+        applySatelliteTiles(g);
         try { g.backgroundImageUrl(SKY_IMG); } catch (e) {}
-        const controls = g.controls();
-        if (!controls) throw new Error('Globe controls unavailable');
-        controls.autoRotate = true;
-        controls.autoRotateSpeed = 0.28;
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.08;
-        controls.enableZoom = true;
-        controls.minDistance = 101.2;
-        controls.maxDistance = 420;
+        configurePhoneControls(g);
         const lat = Number(v.lat);
         const lng = Number(v.lng != null ? v.lng : v.lon);
         g.pointOfView({ lat: Number.isFinite(lat) ? lat : 28, lng: Number.isFinite(lng) ? lng : -20, altitude: 2.15 }, 0);
@@ -2668,6 +2867,7 @@
               }, 400);
             };
             globe.controls().addEventListener("end", onControls);
+            unbindGestures = bindPhoneGlobeGestures(globe, globeRef.current);
             window.requestAnimationFrame(function () { resizeGlobe(); applyRef.current(); });
             if (typeof ResizeObserver !== 'undefined' && globeRef.current) {
               resizeObs = new ResizeObserver(function () { resizeGlobe(); });
@@ -2687,6 +2887,7 @@
         cancelled = true;
         window.removeEventListener('resize', resizeGlobe);
         if (resizeObs) resizeObs.disconnect();
+        if (unbindGestures) { try { unbindGestures(); } catch (e) {} }
         if (globe && onControls) { try { globe.controls().removeEventListener('end', onControls); } catch (e) {} }
         disposeGlobeInstance(globeInstRef.current);
         globeInstRef.current = null;
