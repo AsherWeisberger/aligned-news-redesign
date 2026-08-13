@@ -748,6 +748,17 @@
       delete viewerOpts.baseLayer;
       viewer = new Cesium.Viewer(host, viewerOpts);
     }
+    try {
+      if (viewer.imageryLayers) {
+        try { viewer.imageryLayers.removeAll(true); } catch (e0) {}
+        viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
+          url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+          maximumLevel: 19,
+          enablePickFeatures: false,
+          credit: 'Esri World Imagery',
+        }));
+      }
+    } catch (eImg) {}
     killPhoneAtmosphere(viewer);
     try {
       const globe = viewer.scene.globe;
@@ -767,6 +778,9 @@
       ssc.minimumZoomDistance = MIN_CAMERA_ALT_M;
       ssc.maximumZoomDistance = 4.5e7;
       ssc.inertiaZoom = 0.4;
+      try {
+        ssc.zoomEventTypes = [Cesium.CameraEventType.PINCH, Cesium.CameraEventType.WHEEL, Cesium.CameraEventType.RIGHT_DRAG];
+      } catch (eZ) {}
     } catch (e) {}
     try {
       const canvas = viewer.scene.canvas;

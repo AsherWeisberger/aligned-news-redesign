@@ -574,7 +574,7 @@
     return '';
   }
 
-  function readGoogleTilesKey() { return readKey('UNALIGNED_GOOGLE_MAPS_TILES_KEY'); }
+  function readGoogleTilesKey() { return readKey('UNALIGNED_GOOGLE_MAPS_TILES_KEY') || 'AIzaSyAdikDP3IFcWhm-p-FVq49GHUoLqg18s64'; }
   function readAisstreamKey() { return readKey('UNALIGNED_AISSTREAM_KEY'); }
 
   function validLatLng(lat, lng, allowZeroZero) {
