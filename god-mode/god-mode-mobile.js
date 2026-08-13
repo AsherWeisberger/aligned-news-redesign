@@ -597,7 +597,7 @@
       try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
       try {
         if (scene.globe) {
-          scene.globe.show = true;
+          scene.globe.show = false;
           scene.globe.showGroundAtmosphere = false;
           scene.globe.atmosphereLightIntensity = 0;
           scene.globe.depthTestAgainstTerrain = false;
@@ -626,6 +626,7 @@
         try { state.googleTileset.show = false; } catch (e) {}
       }
       if (state) state._photorealShown = false;
+      try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (eG) {}
       return false;
     }
     if (wantShow) applyPhoneStreetClarity(viewer);
@@ -639,7 +640,7 @@
           tunePhoneTileset(state.googleTileset);
           try { state.googleTileset.show = !!wantShow; } catch (eT) {}
           if (state) state._photorealShown = !!wantShow;
-          try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (eG) {}
+          try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = !wantShow; } catch (eG) {}
           return true;
         }
       }
@@ -690,13 +691,13 @@
         return false;
       }
       tunePhoneTileset(tileset);
-      try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (e) {}
       const stillShow = (opts.show !== undefined) ? !!opts.show : (function () {
         try {
           const hh = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
           return Number.isFinite(hh) && hh < PHOTOREAL_SHOW_M;
         } catch (eH) { return !!wantShow; }
       })();
+      try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = !stillShow; } catch (e) {}
       try { tileset.preloadWhenHidden = true; } catch (e) {}
       try { tileset.show = !!stillShow; } catch (e) {}
       if (stillShow) applyPhoneStreetClarity(viewer);
@@ -962,14 +963,18 @@
       ssc.enableInputs = true;
       ssc.enableZoom = true;
       ssc.enableRotate = true;
-      ssc.enableTilt = true;
+      ssc.enableTilt = false;
       ssc.enableLook = true;
       ssc.enableTranslate = true;
       ssc.minimumZoomDistance = MIN_CAMERA_ALT_M;
       ssc.maximumZoomDistance = 4.5e7;
       ssc.inertiaZoom = 0.4;
       try {
-        ssc.zoomEventTypes = [Cesium.CameraEventType.PINCH, Cesium.CameraEventType.WHEEL, Cesium.CameraEventType.RIGHT_DRAG];
+        const CET = Cesium.CameraEventType;
+        ssc.translateEventTypes = CET.LEFT_DRAG;
+        ssc.zoomEventTypes = [CET.PINCH, CET.WHEEL];
+        ssc.rotateEventTypes = CET.RIGHT_DRAG;
+        ssc.tiltEventTypes = [];
       } catch (eZ) {}
     } catch (e) {}
     try {
@@ -3172,6 +3177,11 @@
     '.v4-gm-phone-back{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:44px;padding:0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:13px;font-weight:700;}',
     '.v4-gm-phone-globe .cesium-viewer,.v4-gm-phone-globe .cesium-viewer-cesiumWidgetContainer,.v4-gm-phone-globe .cesium-widget,.v4-gm-phone-globe .cesium-widget canvas,.v4-gm-phone-cesium{position:absolute;inset:0;width:100%!important;height:100%!important;}',
     '.v4-gm-phone-globe .cesium-viewer-toolbar,.v4-gm-phone-globe .cesium-viewer-animationContainer,.v4-gm-phone-globe .cesium-viewer-timelineContainer,.v4-gm-phone-globe .cesium-viewer-fullscreenContainer{display:none!important;}',
+    '.v4-gm-phone-suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:4;max-height:240px;overflow:auto;background:rgba(11,13,18,.96);border:1px solid rgba(255,255,255,.22);border-radius:12px;pointer-events:auto;}',
+    '.v4-gm-phone-suggest button{display:block;width:100%;text-align:left;appearance:none;border:0;background:transparent;color:#f2f5fa;padding:10px 12px;font:inherit;pointer-events:auto;}',
+    '.v4-gm-phone-suggest button.is-active,.v4-gm-phone-suggest button:hover{background:rgba(232,237,245,.12);}',
+    '.v4-gm-phone-suggest-name{display:block;font-size:14px;font-weight:600;}',
+    '.v4-gm-phone-suggest-sub{display:block;font-size:11px;opacity:.7;margin-top:2px;}',
     '.v4-gm-phone-search-msg{padding:6px 16px 0;font-size:12px;opacity:.75;}',
   ].join('');
   function injectPhoneCss() {
@@ -3339,20 +3349,9 @@
         if (data && (data.result || data.addressMatches || Number.isFinite(Number(data.lat)))) return data;
       }
     } catch (e) {}
-    const proxies = [
-      "https://corsproxy.io/?" + encodeURIComponent(url),
-      "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-    ];
-    for (let i = 0; i < proxies.length; i++) {
-      try {
-        const res = await fetchWithTimeout(proxies[i], { headers: { Accept: "application/json, text/plain, */*" } }, 10000);
-        if (!res || !res.ok) continue;
-        const body = await res.text();
-        if (body && /^\s*\{/.test(body)) return JSON.parse(body);
-      } catch (e) {}
-    }
     return null;
   }
+
 
   function pickCensusMatch(data, wantHouse) {
     const matches = data && data.result && Array.isArray(data.result.addressMatches)
@@ -3412,16 +3411,17 @@
     }
     const match = pickCensusMatch(data, wantHouse);
     if (!match) return null;
-    const off = await offsetCensusToParcel(match);
-    if (!off) return null;
+    const pt = censusPoint(match);
+    if (!pt) return null;
     return {
-      lat: off.lat,
-      lng: off.lng,
+      lat: pt.lat,
+      lng: pt.lng,
       name: String(match.matchedAddress || query),
       kind: "address",
       source: "census",
     };
   }
+
 
   function nominatimHeaders() {
     // Nominatim requires a valid User-Agent; browsers send one and forbid overriding it.
@@ -3461,27 +3461,23 @@
     const list = Array.isArray(rows) ? rows : [];
     if (!list.length) return null;
     const wantHouse = parseHouseNumber(q);
-    const wantAddr = !!wantHouse || /\d/.test(String(q || ""));
     let best = null;
     let bestRank = -1;
+    const rank = { address: 4, street: 3, place: 2, city: 1 };
     for (let i = 0; i < list.length; i++) {
       const hit = list[i];
       const k = geocodeKindFromNominatim(hit);
       const hn = ((hit && hit.address) || {}).house_number;
-      let r = 2;
+      let r = rank[k] || 2;
       if (wantHouse) {
-        if (housesEqual(hn, wantHouse)) r = 10;
-        else if (k === "street" || k === "city") r = 0;
+        if (housesEqual(hn, wantHouse)) r = 20;
+        else if (k === "address" || k === "place") r = 8 + r;
+        else if (k === "street") r = 3;
         else r = 1;
-      } else {
-        const rank = { address: 4, street: 3, place: 2, city: 1 };
-        r = rank[k] || 2;
-        if (wantAddr && k === "city") r = 0;
       }
       if (r > bestRank) { bestRank = r; best = hit; }
     }
     if (!best) return null;
-    if (wantHouse && bestRank < 10) return null;
     const lat = Number(best && best.lat);
     const lng = Number(best && best.lon);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
@@ -3491,8 +3487,10 @@
       name: String((best && (best.display_name || best.name)) || q),
       kind: geocodeKindFromNominatim(best),
       source: "nominatim",
+      house: ((best.address) || {}).house_number || "",
     };
   }
+
 
   function pickPhotonHit(data, q) {
     const feats = data && data.features;
@@ -3507,22 +3505,229 @@
       if (!coords || coords.length < 2) continue;
       const props = hit.properties || {};
       const kind = geocodeKindFromPhoton(props);
-      if (wantHouse) {
-        if (!housesEqual(props.housenumber, wantHouse)) continue;
-        if (kind === "street") continue;
-      }
       let r = rank[kind] || 2;
-      if (wantHouse && kind === "city") r = 0;
+      if (wantHouse) {
+        if (housesEqual(props.housenumber, wantHouse)) r = 20;
+        else if (kind === "address" || kind === "place") r = 8 + r;
+        else if (kind === "street") r = 3;
+        else r = 1;
+      }
       if (r > bestRank) {
         bestRank = r;
         const name = props.name || props.street || q;
         const streetLine = props.housenumber && props.street ? (props.housenumber + " " + props.street) : name;
         const bits = [streetLine, props.city || props.town || props.village, props.state, props.country].filter(Boolean);
-        best = { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(", "), kind: kind, source: "photon" };
+        best = { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(", "), kind: kind, source: "photon", house: props.housenumber || "" };
       }
     }
     if (!best || !Number.isFinite(best.lat) || !Number.isFinite(best.lng)) return null;
     return best;
+  }
+
+
+  function googleLocationTypeRank(t) {
+    const x = String(t || "").toUpperCase();
+    if (x === "ROOFTOP") return 40;
+    if (x === "RANGE_INTERPOLATED") return 20;
+    if (x === "GEOMETRIC_CENTER") return 10;
+    return 5;
+  }
+
+  function pickGoogleGeocode(data, q) {
+    const results = data && Array.isArray(data.results) ? data.results : [];
+    if (!results.length) return null;
+    let best = null;
+    let bestRank = -1;
+    for (let i = 0; i < results.length; i++) {
+      const row = results[i];
+      const loc = row && row.geometry && row.geometry.location;
+      if (!loc) continue;
+      const lat = Number(loc.lat);
+      const lng = Number(loc.lng);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+      const lt = String((row.geometry && row.geometry.location_type) || "");
+      const types = Array.isArray(row.types) ? row.types : [];
+      let r = googleLocationTypeRank(lt);
+      if (types.indexOf("street_address") >= 0 || types.indexOf("premise") >= 0 || types.indexOf("subpremise") >= 0) r += 5;
+      if (r > bestRank) {
+        bestRank = r;
+        let kind = "address";
+        if (types.indexOf("locality") >= 0 || types.indexOf("administrative_area_level_1") >= 0 || types.indexOf("country") >= 0) kind = "city";
+        else if (types.indexOf("route") >= 0) kind = "street";
+        best = { lat: lat, lng: lng, name: String(row.formatted_address || q), kind: kind, source: "google", locationType: lt };
+      }
+    }
+    return best;
+  }
+
+  function ensureGoogleMapsJs() {
+    if (global.google && global.google.maps && global.google.maps.Geocoder) return Promise.resolve(true);
+    const key = (typeof readGoogleTilesKey === "function" && readGoogleTilesKey()) || "";
+    if (!key) return Promise.resolve(false);
+    if (ensureGoogleMapsJs._p) return ensureGoogleMapsJs._p;
+    ensureGoogleMapsJs._p = new Promise(function (resolve) {
+      const s = document.createElement("script");
+      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key);
+      s.async = true;
+      s.onload = function () { resolve(!!(global.google && global.google.maps && global.google.maps.Geocoder)); };
+      s.onerror = function () { resolve(false); };
+      document.head.appendChild(s);
+    });
+    return ensureGoogleMapsJs._p;
+  }
+
+  async function geocodeGoogleJs(query) {
+    const q = String(query || "").trim();
+    if (!q) return null;
+    const ok = await ensureGoogleMapsJs();
+    if (!ok) return null;
+    return new Promise(function (resolve) {
+      try {
+        const geo = new global.google.maps.Geocoder();
+        geo.geocode({ address: q }, function (results, status) {
+          if (String(status) !== "OK" || !results || !results.length) return resolve(null);
+          const mapped = [];
+          for (let i = 0; i < results.length; i++) {
+            const r = results[i];
+            const loc = r && r.geometry && r.geometry.location;
+            const lat = loc && (typeof loc.lat === "function" ? loc.lat() : loc.lat);
+            const lng = loc && (typeof loc.lng === "function" ? loc.lng() : loc.lng);
+            mapped.push({
+              formatted_address: r.formatted_address,
+              types: r.types,
+              geometry: {
+                location: { lat: lat, lng: lng },
+                location_type: r.geometry && r.geometry.location_type,
+              },
+            });
+          }
+          resolve(pickGoogleGeocode({ results: mapped }, q));
+        });
+      } catch (e) { resolve(null); }
+    });
+  }
+
+  async function geocodeGoogle(query) {
+    const q = String(query || "").trim();
+    if (!q) return null;
+    const key = (typeof readGoogleTilesKey === "function" && readGoogleTilesKey()) || "";
+    const qs = "address=" + encodeURIComponent(q) + (key ? "&key=" + encodeURIComponent(key) : "");
+    try {
+      const res = await fetchWithTimeout("https://maps.googleapis.com/maps/api/geocode/json?" + qs, { headers: { Accept: "application/json" } }, 8000);
+      if (res && res.ok) {
+        const hit = pickGoogleGeocode(await res.json(), q);
+        if (hit) return hit;
+      }
+    } catch (e) {}
+    try {
+      const hit = await geocodeGoogleJs(q);
+      if (hit) return hit;
+    } catch (e) {}
+    try {
+      if (typeof fetchGodModeProxy === "function") {
+        const data = await fetchGodModeProxy("/god-mode/google-geocode?address=" + encodeURIComponent(q), 10000);
+        const hit = pickGoogleGeocode(data, q);
+        if (hit) return hit;
+        if (data && Number.isFinite(Number(data.lat)) && Number.isFinite(Number(data.lng))) {
+          return { lat: Number(data.lat), lng: Number(data.lng), name: data.name || q, kind: data.kind || "address", source: "google" };
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function photonSuggestRow(feat, q) {
+    const coords = feat && feat.geometry && feat.geometry.coordinates;
+    if (!coords || coords.length < 2) return null;
+    const lat = Number(coords[1]);
+    const lng = Number(coords[0]);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    const p = (feat && feat.properties) || {};
+    const title = p.housenumber && p.street ? (p.housenumber + " " + p.street) : (p.name || p.street || q);
+    const city = p.city || p.town || p.village || "";
+    const state = p.state || "";
+    const sub = [city, state].filter(Boolean).join(", ");
+    const bits = [title, sub, p.country].filter(Boolean);
+    return {
+      lat: lat, lng: lng, title: String(title || q), sub: sub,
+      name: bits.join(", "), kind: geocodeKindFromPhoton(p), source: "photon", house: p.housenumber || "",
+    };
+  }
+
+  function nominatimSuggestRow(hit, q) {
+    if (!hit) return null;
+    const lat = Number(hit.lat);
+    const lng = Number(hit.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    const addr = hit.address || {};
+    const title = addr.house_number && addr.road ? (addr.house_number + " " + addr.road) : (hit.name || addr.road || "");
+    const city = addr.city || addr.town || addr.village || addr.hamlet || "";
+    const state = addr.state || "";
+    const sub = [city, state].filter(Boolean).join(", ");
+    return {
+      lat: lat, lng: lng, title: String(title || hit.display_name || q), sub: sub,
+      name: String(hit.display_name || title || q), kind: geocodeKindFromNominatim(hit), source: "nominatim", house: addr.house_number || "",
+    };
+  }
+
+  async function fetchSearchSuggests(query) {
+    const q = String(query || "").trim();
+    if (q.length < 3) return [];
+    const wantHouse = parseHouseNumber(q);
+    let rows = [];
+    try {
+      const res = await fetchWithTimeout("https://photon.komoot.io/api/?q=" + encodeURIComponent(q) + "&limit=6&lang=en", { headers: { Accept: "application/json" } }, 6000);
+      if (res && res.ok) {
+        const data = await res.json();
+        const feats = (data && data.features) || [];
+        for (let i = 0; i < feats.length; i++) {
+          const row = photonSuggestRow(feats[i], q);
+          if (row) rows.push(row);
+        }
+      }
+    } catch (e) {}
+    const hasHouseHit = !!(wantHouse && rows.some(function (r) { return housesEqual(r.house, wantHouse); }));
+    if (rows.length < 3 || (wantHouse && !hasHouseHit)) {
+      try {
+        const noms = await fetchNominatim({ q: q, limit: "5" });
+        for (let i = 0; i < noms.length; i++) {
+          const row = nominatimSuggestRow(noms[i], q);
+          if (row) rows.push(row);
+        }
+      } catch (e) {}
+    }
+    const seen = {};
+    const out = [];
+    for (let i = 0; i < rows.length; i++) {
+      const r = rows[i];
+      const key = Number(r.lat).toFixed(5) + "," + Number(r.lng).toFixed(5);
+      if (seen[key]) continue;
+      seen[key] = 1;
+      out.push(r);
+    }
+    if (wantHouse) {
+      const hasHouse = out.some(function (r) { return housesEqual(r.house, wantHouse); });
+      if (!hasHouse && out.length) {
+        const base = out[0];
+        const streetName = String(base.title || base.name || q);
+        const title = wantHouse + " " + streetName.replace(/^\d+[A-Za-z]?\s+/, "");
+        out.unshift({
+          lat: base.lat, lng: base.lng,
+          title: title,
+          sub: base.sub,
+          name: q,
+          kind: "address",
+          source: "typed",
+          house: wantHouse,
+        });
+      }
+      out.sort(function (a, b) {
+        const ah = housesEqual(a.house, wantHouse) ? 1 : 0;
+        const bh = housesEqual(b.house, wantHouse) ? 1 : 0;
+        return bh - ah;
+      });
+    }
+    return out.slice(0, 8);
   }
 
   async function geocodeAddress(query) {
@@ -3531,21 +3736,11 @@
     const wantHouse = parseHouseNumber(q);
     const looksAddr = !!wantHouse || /\d/.test(q);
     const parsed = parseUsStreetQuery(q);
-    const us = looksUsQuery(q) || !!(wantHouse && STREET_SUF_RE.test(q));
 
-    if (wantHouse && us) {
-      try {
-        const hit = await geocodeCensus(q, wantHouse);
-        if (hit) return hit;
-      } catch (e) {}
-    }
-
-    const acceptNom = function (hit) {
-      if (!hit) return null;
-      if (wantHouse && (hit.kind === "street" || hit.kind === "city")) return null;
-      if (looksAddr && hit.kind === "city") return null;
-      return hit;
-    };
+    try {
+      const hit = await geocodeGoogle(q);
+      if (hit) return hit;
+    } catch (e) {}
 
     try {
       if (parsed && parsed.street) {
@@ -3553,20 +3748,20 @@
         if (parsed.city) params.city = parsed.city;
         if (parsed.state) params.state = parsed.state;
         if (parsed.zip) params.postalcode = parsed.zip;
-        const hit = acceptNom(pickNominatimHit(await fetchNominatim(params), q));
+        const hit = pickNominatimHit(await fetchNominatim(params), q);
         if (hit) return hit;
       }
     } catch (e) {}
     try {
-      const hit = acceptNom(pickNominatimHit(await fetchNominatim({ q: q }), q));
+      const hit = pickNominatimHit(await fetchNominatim({ q: q }), q);
       if (hit) return hit;
     } catch (e) {}
 
     try {
-      const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 8000);
+      const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&lang=en&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 8000);
       if (res && res.ok) {
         const hit = pickPhotonHit(await res.json(), q);
-        if (hit && !(looksAddr && hit.kind === "city") && !(wantHouse && hit.kind === "street")) return hit;
+        if (hit) return hit;
       }
     } catch (e) {}
 
@@ -3593,6 +3788,7 @@
     return null;
   }
 
+
   function V4GodModeEarth(props) {
     const open = !!(props && props.open);
     const activeLayer = (props && props.layer) || 'all';
@@ -3614,6 +3810,9 @@
     const [searchQ, setSearchQ] = React.useState('');
     const [searchMsg, setSearchMsg] = React.useState('');
     const [searching, setSearching] = React.useState(false);
+    const [searchSuggests, setSearchSuggests] = React.useState([]);
+    const [suggestHi, setSuggestHi] = React.useState(-1);
+    const suggestGenRef = React.useRef(0);
     const [streetMode, setStreetMode] = React.useState(false);
     const focusRef = React.useRef(null);
     const globeRef = React.useRef(null);
@@ -3987,20 +4186,58 @@
       try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
       try { g.pointOfView({ lat: Number(lat), lng: Number(lng), altitude: altitude == null ? SEARCH_ALT_RADII : altitude }, 900); } catch (e) {}
     };
+    const applyMobileHit = function (hit) {
+      if (!hit || !Number.isFinite(Number(hit.lat))) return;
+      focusRef.current = hit;
+      setSearchMsg(hit.name || searchQ);
+      setSelected({ type: 'place', name: hit.name || searchQ, lat: hit.lat, lng: hit.lng, label: hit.name || searchQ, source: 'Search' });
+      const altM = (hit.kind === 'city' || hit.kind === 'region') ? SEARCH_CAMERA_ALT_M : SEARCH_ADDRESS_ALT_M;
+      setMobileSearchPin(globeInstRef.current, hit);
+      flyTo(hit.lat, hit.lng, altM / EARTH_RADIUS_M);
+    };
+    const pickSuggest = function (row) {
+      if (!row || !Number.isFinite(Number(row.lat))) return;
+      const typed = String(searchQ || '').trim();
+      const q = String(row.name || row.title || typed).trim();
+      const refineQ = (parseHouseNumber(typed) && !housesEqual(row.house, parseHouseNumber(typed))) ? typed : q;
+      setSearchQ(refineQ);
+      setSearchSuggests([]);
+      setSuggestHi(-1);
+      applyMobileHit(Object.assign({}, row, { name: refineQ }));
+      geocodeGoogle(refineQ).then(function (hit) { if (hit) applyMobileHit(hit); }).catch(function () {});
+    };
+    React.useEffect(function () {
+      const q = String(searchQ || '').trim();
+      if (q.length < 3) {
+        setSearchSuggests([]);
+        setSuggestHi(-1);
+        return undefined;
+      }
+      const tmr = window.setTimeout(function () {
+        const gen = ++suggestGenRef.current;
+        fetchSearchSuggests(q).then(function (rows) {
+          if (gen !== suggestGenRef.current) return;
+          const list = Array.isArray(rows) ? rows : [];
+          setSearchSuggests(list);
+          setSuggestHi(list.length ? 0 : -1);
+        }).catch(function () {
+          if (gen !== suggestGenRef.current) return;
+          setSearchSuggests([]);
+          setSuggestHi(-1);
+        });
+      }, 200);
+      return function () { window.clearTimeout(tmr); };
+    }, [searchQ]);
     const runSearch = function () {
       const q = String(searchQ || '').trim();
       if (!q || searching) return;
+      setSearchSuggests([]);
       setSearching(true);
       setSearchMsg('Searching…');
       geocodeAddress(q).then(function (hit) {
         setSearching(false);
         if (!hit) { setSearchMsg('No match'); return; }
-        focusRef.current = hit;
-        setSearchMsg(hit.name || q);
-        setSelected({ type: 'place', name: hit.name || q, lat: hit.lat, lng: hit.lng, label: hit.name || q, source: 'Search' });
-        const altM = (hit.kind === 'city' || hit.kind === 'region') ? SEARCH_CAMERA_ALT_M : SEARCH_ADDRESS_ALT_M;
-        setMobileSearchPin(globeInstRef.current, hit);
-        flyTo(hit.lat, hit.lng, altM / EARTH_RADIUS_M);
+        applyMobileHit(hit);
       }).catch(function () {
         setSearching(false);
         setSearchMsg('Search failed');
@@ -4149,6 +4386,8 @@
             setSearchQ(v);
             if (!String(v || '').trim()) {
               setSearchMsg('');
+              setSearchSuggests([]);
+              setSuggestHi(-1);
               clearMobileSearchPin(globeInstRef.current);
             }
           },
@@ -4156,12 +4395,45 @@
             if (e && e.key === 'Escape') {
               setSearchQ('');
               setSearchMsg('');
+              setSearchSuggests([]);
+              setSuggestHi(-1);
               clearMobileSearchPin(globeInstRef.current);
+              return;
+            }
+            if (searchSuggests.length) {
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setSuggestHi(function (i) { return (i + 1) % searchSuggests.length; });
+                return;
+              }
+              if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setSuggestHi(function (i) { return (i - 1 + searchSuggests.length) % searchSuggests.length; });
+                return;
+              }
+              if (e.key === 'Enter' && suggestHi >= 0 && searchSuggests[suggestHi]) {
+                e.preventDefault();
+                pickSuggest(searchSuggests[suggestHi]);
+              }
             }
           }
         }),
         el('button', goProps, searching ? '…' : 'Go'),
-        el('button', svProps, 'SV')
+        el('button', svProps, 'SV'),
+        searchSuggests.length ? el('div', { className: 'v4-gm-phone-suggest', role: 'listbox' },
+          searchSuggests.map(function (row, idx) {
+            return el('button', {
+              key: (row.name || '') + idx,
+              type: 'button',
+              className: idx === suggestHi ? 'is-active' : '',
+              role: 'option',
+              onMouseDown: function (ev) { if (ev && ev.preventDefault) ev.preventDefault(); pickSuggest(row); }
+            },
+              el('span', { className: 'v4-gm-phone-suggest-name' }, row.title || row.name),
+              row.sub ? el('span', { className: 'v4-gm-phone-suggest-sub' }, row.sub) : null
+            );
+          })
+        ) : null
       ),
       globeError ? el('div', { className: 'v4-gm-phone-err' }, globeError) : null,
       el('div', { className: 'v4-gm-phone-sheet' },

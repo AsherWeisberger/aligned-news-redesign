@@ -333,6 +333,11 @@
       '.v4-gm2 .v4-gm2-search{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:8;display:flex;gap:6px;align-items:center;padding:6px 8px;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:6px;backdrop-filter:blur(10px);max-width:min(520px,70vw);width:min(520px,70vw)}',
       '.v4-gm2 .v4-gm2-search input{flex:1;min-width:0;height:32px;border:1px solid var(--gm2-border);background:rgba(8,12,20,.85);color:#e8eef8;border-radius:4px;padding:0 10px;font:inherit;font-size:12px;letter-spacing:.04em}',
       '.v4-gm2 .v4-gm2-search-msg{position:absolute;left:50%;top:52px;transform:translateX(-50%);z-index:8;padding:4px 10px;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:4px;font-size:11px;color:var(--gm2-cyan);pointer-events:none;white-space:nowrap}',
+      '.v4-gm2 .v4-gm2-suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:12;max-height:260px;overflow:auto;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:6px;backdrop-filter:blur(12px);padding:4px 0;box-shadow:0 12px 40px rgba(0,0,0,.45)}',
+      '.v4-gm2 .v4-gm2-suggest button{display:block;width:100%;text-align:left;appearance:none;border:0;background:transparent;color:#e8eef8;padding:8px 12px;font:inherit;cursor:pointer}',
+      '.v4-gm2 .v4-gm2-suggest button.is-active,.v4-gm2 .v4-gm2-suggest button:hover{background:rgba(100,210,255,.14)}',
+      '.v4-gm2 .v4-gm2-suggest-name{display:block;font-size:12px;letter-spacing:.03em}',
+      '.v4-gm2 .v4-gm2-suggest-sub{display:block;font-size:10px;color:var(--gm2-muted);letter-spacing:.04em;margin-top:2px}',
     ].join('\n');
     const style = document.createElement('style');
     style.id = 'v4-gm2-styles';
@@ -3634,7 +3639,8 @@
       try { if (scene.globe) scene.globe.atmosphereLightIntensity = 0; } catch (e) {}
       try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
       try { if (scene.globe) scene.globe.translucency.enabled = false; } catch (e) {}
-      keepEsriGround(viewer, state);
+      if (state && state._photorealShown) setEllipsoidGlobeVisible(viewer, state, false);
+      else keepEsriGround(viewer, state);
       try {
         const stages = scene.postProcessStages;
         if (stages && stages.bloom) stages.bloom.enabled = false;
@@ -3735,17 +3741,22 @@
     } catch (e) {}
   }
 
-  function keepEsriGround(viewer, state) {
+  function setEllipsoidGlobeVisible(viewer, state, showGlobe) {
     try {
-      if (viewer && viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true;
+      if (viewer && viewer.scene && viewer.scene.globe) viewer.scene.globe.show = !!showGlobe;
     } catch (e) {}
     try {
       if (state && state.esriLayer) {
-        state.esriLayer.show = true;
-        state.esriLayer.alpha = 1;
+        state.esriLayer.show = !!showGlobe;
+        state.esriLayer.alpha = showGlobe ? 1 : 0;
       }
     } catch (e) {}
   }
+
+  function keepEsriGround(viewer, state) {
+    setEllipsoidGlobeVisible(viewer, state, true);
+  }
+
 
   function photorealWantShow(state, heightM) {
     if (state && state._streetMode) return true;
@@ -3793,7 +3804,7 @@
       try { state.googleTileset.cullRequestsWhileMoving = !wantShow; } catch (e) {}
       try { state.googleTileset.immediatelyLoadDesiredLevelOfDetail = !!wantShow; } catch (e) {}
       try { state.googleTileset.show = !!wantShow; } catch (e) {}
-      keepEsriGround(viewer, state);
+      setEllipsoidGlobeVisible(viewer, state, !wantShow);
       if (wantShow) {
         state.googleTiles = 'active';
         state._photorealShown = true;
@@ -3845,7 +3856,7 @@
       }
       const stillShow = photorealWantShow(state, cameraHeightM(viewer));
       tuneGoogleTileset(tileset, cameraHeightM(viewer));
-      keepEsriGround(viewer, state);
+      setEllipsoidGlobeVisible(viewer, state, !stillShow);
       try { tileset.preloadWhenHidden = !stillShow; } catch (e) {}
       try { tileset.loadSiblings = !!stillShow; } catch (e) {}
       try { tileset.cullRequestsWhileMoving = !stillShow; } catch (e) {}
@@ -4089,9 +4100,7 @@
         try { ssc.zoomEventTypes = [CET.WHEEL, CET.PINCH]; } catch (e) {}
         try { ssc.rotateEventTypes = CET.RIGHT_DRAG; } catch (e) {}
         try {
-          const tilt = [CET.PINCH];
-          if (KEM) tilt.push({ eventType: CET.LEFT_DRAG, modifier: KEM.CTRL });
-          ssc.tiltEventTypes = tilt;
+          ssc.tiltEventTypes = CET.PINCH;
         } catch (e) {}
         try { ssc.lookEventTypes = CET.MIDDLE_DRAG; } catch (e) {}
       }
@@ -4317,20 +4326,9 @@
         if (data && (data.result || data.addressMatches || Number.isFinite(Number(data.lat)))) return data;
       }
     } catch (e) {}
-    const proxies = [
-      "https://corsproxy.io/?" + encodeURIComponent(url),
-      "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-    ];
-    for (let i = 0; i < proxies.length; i++) {
-      try {
-        const res = await fetchWithTimeout(proxies[i], { headers: { Accept: "application/json, text/plain, */*" } }, 10000);
-        if (!res || !res.ok) continue;
-        const body = await res.text();
-        if (body && /^\s*\{/.test(body)) return JSON.parse(body);
-      } catch (e) {}
-    }
     return null;
   }
+
 
   function pickCensusMatch(data, wantHouse) {
     const matches = data && data.result && Array.isArray(data.result.addressMatches)
@@ -4390,16 +4388,17 @@
     }
     const match = pickCensusMatch(data, wantHouse);
     if (!match) return null;
-    const off = await offsetCensusToParcel(match);
-    if (!off) return null;
+    const pt = censusPoint(match);
+    if (!pt) return null;
     return {
-      lat: off.lat,
-      lng: off.lng,
+      lat: pt.lat,
+      lng: pt.lng,
       name: String(match.matchedAddress || query),
       kind: "address",
       source: "census",
     };
   }
+
 
   function nominatimHeaders() {
     // Nominatim requires a valid User-Agent; browsers send one and forbid overriding it.
@@ -4439,27 +4438,23 @@
     const list = Array.isArray(rows) ? rows : [];
     if (!list.length) return null;
     const wantHouse = parseHouseNumber(q);
-    const wantAddr = !!wantHouse || /\d/.test(String(q || ""));
     let best = null;
     let bestRank = -1;
+    const rank = { address: 4, street: 3, place: 2, city: 1 };
     for (let i = 0; i < list.length; i++) {
       const hit = list[i];
       const k = geocodeKindFromNominatim(hit);
       const hn = ((hit && hit.address) || {}).house_number;
-      let r = 2;
+      let r = rank[k] || 2;
       if (wantHouse) {
-        if (housesEqual(hn, wantHouse)) r = 10;
-        else if (k === "street" || k === "city") r = 0;
+        if (housesEqual(hn, wantHouse)) r = 20;
+        else if (k === "address" || k === "place") r = 8 + r;
+        else if (k === "street") r = 3;
         else r = 1;
-      } else {
-        const rank = { address: 4, street: 3, place: 2, city: 1 };
-        r = rank[k] || 2;
-        if (wantAddr && k === "city") r = 0;
       }
       if (r > bestRank) { bestRank = r; best = hit; }
     }
     if (!best) return null;
-    if (wantHouse && bestRank < 10) return null;
     const lat = Number(best && best.lat);
     const lng = Number(best && best.lon);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
@@ -4469,8 +4464,10 @@
       name: String((best && (best.display_name || best.name)) || q),
       kind: geocodeKindFromNominatim(best),
       source: "nominatim",
+      house: ((best.address) || {}).house_number || "",
     };
   }
+
 
   function pickPhotonHit(data, q) {
     const feats = data && data.features;
@@ -4485,23 +4482,25 @@
       if (!coords || coords.length < 2) continue;
       const props = hit.properties || {};
       const kind = geocodeKindFromPhoton(props);
-      if (wantHouse) {
-        if (!housesEqual(props.housenumber, wantHouse)) continue;
-        if (kind === "street") continue;
-      }
       let r = rank[kind] || 2;
-      if (wantHouse && kind === "city") r = 0;
+      if (wantHouse) {
+        if (housesEqual(props.housenumber, wantHouse)) r = 20;
+        else if (kind === "address" || kind === "place") r = 8 + r;
+        else if (kind === "street") r = 3;
+        else r = 1;
+      }
       if (r > bestRank) {
         bestRank = r;
         const name = props.name || props.street || q;
         const streetLine = props.housenumber && props.street ? (props.housenumber + " " + props.street) : name;
         const bits = [streetLine, props.city || props.town || props.village, props.state, props.country].filter(Boolean);
-        best = { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(", "), kind: kind, source: "photon" };
+        best = { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(", "), kind: kind, source: "photon", house: props.housenumber || "" };
       }
     }
     if (!best || !Number.isFinite(best.lat) || !Number.isFinite(best.lng)) return null;
     return best;
   }
+
 
   function searchPinDataUrl() {
     if (_searchPinDataUrl) return _searchPinDataUrl;
@@ -4741,27 +4740,222 @@
     enterStreetView(Cesium, viewer, state || {}, lat, lng);
   }
 
+  function googleLocationTypeRank(t) {
+    const x = String(t || "").toUpperCase();
+    if (x === "ROOFTOP") return 40;
+    if (x === "RANGE_INTERPOLATED") return 20;
+    if (x === "GEOMETRIC_CENTER") return 10;
+    return 5;
+  }
+
+  function pickGoogleGeocode(data, q) {
+    const results = data && Array.isArray(data.results) ? data.results : [];
+    if (!results.length) return null;
+    let best = null;
+    let bestRank = -1;
+    for (let i = 0; i < results.length; i++) {
+      const row = results[i];
+      const loc = row && row.geometry && row.geometry.location;
+      if (!loc) continue;
+      const lat = Number(loc.lat);
+      const lng = Number(loc.lng);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+      const lt = String((row.geometry && row.geometry.location_type) || "");
+      const types = Array.isArray(row.types) ? row.types : [];
+      let r = googleLocationTypeRank(lt);
+      if (types.indexOf("street_address") >= 0 || types.indexOf("premise") >= 0 || types.indexOf("subpremise") >= 0) r += 5;
+      if (r > bestRank) {
+        bestRank = r;
+        let kind = "address";
+        if (types.indexOf("locality") >= 0 || types.indexOf("administrative_area_level_1") >= 0 || types.indexOf("country") >= 0) kind = "city";
+        else if (types.indexOf("route") >= 0) kind = "street";
+        best = { lat: lat, lng: lng, name: String(row.formatted_address || q), kind: kind, source: "google", locationType: lt };
+      }
+    }
+    return best;
+  }
+
+  function ensureGoogleMapsJs() {
+    if (global.google && global.google.maps && global.google.maps.Geocoder) return Promise.resolve(true);
+    const key = (typeof readGoogleTilesKey === "function" && readGoogleTilesKey()) || "";
+    if (!key) return Promise.resolve(false);
+    if (ensureGoogleMapsJs._p) return ensureGoogleMapsJs._p;
+    ensureGoogleMapsJs._p = new Promise(function (resolve) {
+      const s = document.createElement("script");
+      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key);
+      s.async = true;
+      s.onload = function () { resolve(!!(global.google && global.google.maps && global.google.maps.Geocoder)); };
+      s.onerror = function () { resolve(false); };
+      document.head.appendChild(s);
+    });
+    return ensureGoogleMapsJs._p;
+  }
+
+  async function geocodeGoogleJs(query) {
+    const q = String(query || "").trim();
+    if (!q) return null;
+    const ok = await ensureGoogleMapsJs();
+    if (!ok) return null;
+    return new Promise(function (resolve) {
+      try {
+        const geo = new global.google.maps.Geocoder();
+        geo.geocode({ address: q }, function (results, status) {
+          if (String(status) !== "OK" || !results || !results.length) return resolve(null);
+          const mapped = [];
+          for (let i = 0; i < results.length; i++) {
+            const r = results[i];
+            const loc = r && r.geometry && r.geometry.location;
+            const lat = loc && (typeof loc.lat === "function" ? loc.lat() : loc.lat);
+            const lng = loc && (typeof loc.lng === "function" ? loc.lng() : loc.lng);
+            mapped.push({
+              formatted_address: r.formatted_address,
+              types: r.types,
+              geometry: {
+                location: { lat: lat, lng: lng },
+                location_type: r.geometry && r.geometry.location_type,
+              },
+            });
+          }
+          resolve(pickGoogleGeocode({ results: mapped }, q));
+        });
+      } catch (e) { resolve(null); }
+    });
+  }
+
+  async function geocodeGoogle(query) {
+    const q = String(query || "").trim();
+    if (!q) return null;
+    const key = (typeof readGoogleTilesKey === "function" && readGoogleTilesKey()) || "";
+    const qs = "address=" + encodeURIComponent(q) + (key ? "&key=" + encodeURIComponent(key) : "");
+    try {
+      const res = await fetchWithTimeout("https://maps.googleapis.com/maps/api/geocode/json?" + qs, { headers: { Accept: "application/json" } }, 8000);
+      if (res && res.ok) {
+        const hit = pickGoogleGeocode(await res.json(), q);
+        if (hit) return hit;
+      }
+    } catch (e) {}
+    try {
+      const hit = await geocodeGoogleJs(q);
+      if (hit) return hit;
+    } catch (e) {}
+    try {
+      if (typeof fetchGodModeProxy === "function") {
+        const data = await fetchGodModeProxy("/god-mode/google-geocode?address=" + encodeURIComponent(q), 10000);
+        const hit = pickGoogleGeocode(data, q);
+        if (hit) return hit;
+        if (data && Number.isFinite(Number(data.lat)) && Number.isFinite(Number(data.lng))) {
+          return { lat: Number(data.lat), lng: Number(data.lng), name: data.name || q, kind: data.kind || "address", source: "google" };
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function photonSuggestRow(feat, q) {
+    const coords = feat && feat.geometry && feat.geometry.coordinates;
+    if (!coords || coords.length < 2) return null;
+    const lat = Number(coords[1]);
+    const lng = Number(coords[0]);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    const p = (feat && feat.properties) || {};
+    const title = p.housenumber && p.street ? (p.housenumber + " " + p.street) : (p.name || p.street || q);
+    const city = p.city || p.town || p.village || "";
+    const state = p.state || "";
+    const sub = [city, state].filter(Boolean).join(", ");
+    const bits = [title, sub, p.country].filter(Boolean);
+    return {
+      lat: lat, lng: lng, title: String(title || q), sub: sub,
+      name: bits.join(", "), kind: geocodeKindFromPhoton(p), source: "photon", house: p.housenumber || "",
+    };
+  }
+
+  function nominatimSuggestRow(hit, q) {
+    if (!hit) return null;
+    const lat = Number(hit.lat);
+    const lng = Number(hit.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    const addr = hit.address || {};
+    const title = addr.house_number && addr.road ? (addr.house_number + " " + addr.road) : (hit.name || addr.road || "");
+    const city = addr.city || addr.town || addr.village || addr.hamlet || "";
+    const state = addr.state || "";
+    const sub = [city, state].filter(Boolean).join(", ");
+    return {
+      lat: lat, lng: lng, title: String(title || hit.display_name || q), sub: sub,
+      name: String(hit.display_name || title || q), kind: geocodeKindFromNominatim(hit), source: "nominatim", house: addr.house_number || "",
+    };
+  }
+
+  async function fetchSearchSuggests(query) {
+    const q = String(query || "").trim();
+    if (q.length < 3) return [];
+    const wantHouse = parseHouseNumber(q);
+    let rows = [];
+    try {
+      const res = await fetchWithTimeout("https://photon.komoot.io/api/?q=" + encodeURIComponent(q) + "&limit=6&lang=en", { headers: { Accept: "application/json" } }, 6000);
+      if (res && res.ok) {
+        const data = await res.json();
+        const feats = (data && data.features) || [];
+        for (let i = 0; i < feats.length; i++) {
+          const row = photonSuggestRow(feats[i], q);
+          if (row) rows.push(row);
+        }
+      }
+    } catch (e) {}
+    const hasHouseHit = !!(wantHouse && rows.some(function (r) { return housesEqual(r.house, wantHouse); }));
+    if (rows.length < 3 || (wantHouse && !hasHouseHit)) {
+      try {
+        const noms = await fetchNominatim({ q: q, limit: "5" });
+        for (let i = 0; i < noms.length; i++) {
+          const row = nominatimSuggestRow(noms[i], q);
+          if (row) rows.push(row);
+        }
+      } catch (e) {}
+    }
+    const seen = {};
+    const out = [];
+    for (let i = 0; i < rows.length; i++) {
+      const r = rows[i];
+      const key = Number(r.lat).toFixed(5) + "," + Number(r.lng).toFixed(5);
+      if (seen[key]) continue;
+      seen[key] = 1;
+      out.push(r);
+    }
+    if (wantHouse) {
+      const hasHouse = out.some(function (r) { return housesEqual(r.house, wantHouse); });
+      if (!hasHouse && out.length) {
+        const base = out[0];
+        const streetName = String(base.title || base.name || q);
+        const title = wantHouse + " " + streetName.replace(/^\d+[A-Za-z]?\s+/, "");
+        out.unshift({
+          lat: base.lat, lng: base.lng,
+          title: title,
+          sub: base.sub,
+          name: q,
+          kind: "address",
+          source: "typed",
+          house: wantHouse,
+        });
+      }
+      out.sort(function (a, b) {
+        const ah = housesEqual(a.house, wantHouse) ? 1 : 0;
+        const bh = housesEqual(b.house, wantHouse) ? 1 : 0;
+        return bh - ah;
+      });
+    }
+    return out.slice(0, 8);
+  }
+
   async function geocodeAddress(query) {
     const q = String(query || "").trim();
     if (!q) return null;
     const wantHouse = parseHouseNumber(q);
     const looksAddr = !!wantHouse || /\d/.test(q);
     const parsed = parseUsStreetQuery(q);
-    const us = looksUsQuery(q) || !!(wantHouse && STREET_SUF_RE.test(q));
 
-    if (wantHouse && us) {
-      try {
-        const hit = await geocodeCensus(q, wantHouse);
-        if (hit) return hit;
-      } catch (e) {}
-    }
-
-    const acceptNom = function (hit) {
-      if (!hit) return null;
-      if (wantHouse && (hit.kind === "street" || hit.kind === "city")) return null;
-      if (looksAddr && hit.kind === "city") return null;
-      return hit;
-    };
+    try {
+      const hit = await geocodeGoogle(q);
+      if (hit) return hit;
+    } catch (e) {}
 
     try {
       if (parsed && parsed.street) {
@@ -4769,20 +4963,20 @@
         if (parsed.city) params.city = parsed.city;
         if (parsed.state) params.state = parsed.state;
         if (parsed.zip) params.postalcode = parsed.zip;
-        const hit = acceptNom(pickNominatimHit(await fetchNominatim(params), q));
+        const hit = pickNominatimHit(await fetchNominatim(params), q);
         if (hit) return hit;
       }
     } catch (e) {}
     try {
-      const hit = acceptNom(pickNominatimHit(await fetchNominatim({ q: q }), q));
+      const hit = pickNominatimHit(await fetchNominatim({ q: q }), q);
       if (hit) return hit;
     } catch (e) {}
 
     try {
-      const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 8000);
+      const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&lang=en&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 8000);
       if (res && res.ok) {
         const hit = pickPhotonHit(await res.json(), q);
-        if (hit && !(looksAddr && hit.kind === "city") && !(wantHouse && hit.kind === "street")) return hit;
+        if (hit) return hit;
       }
     } catch (e) {}
 
@@ -4808,6 +5002,7 @@
     }
     return null;
   }
+
 
   function flyToEntity(Cesium, viewer, row) {
     if (!viewer || !row) return;
@@ -5023,6 +5218,9 @@
     const [searchQ, setSearchQ] = React.useState('');
     const [searchMsg, setSearchMsg] = React.useState('');
     const [searching, setSearching] = React.useState(false);
+    const [searchSuggests, setSearchSuggests] = React.useState([]);
+    const [suggestHi, setSuggestHi] = React.useState(-1);
+    const suggestGenRef = React.useRef(0);
     const [streetMode, setStreetMode] = React.useState(false);
 
     React.useEffect(() => { setLayer(activeLayer); layerRef.current = activeLayer; }, [activeLayer]);
@@ -5063,9 +5261,51 @@
       requestSceneRender(viewer);
     }, []);
 
+    const pickSuggest = React.useCallback((row) => {
+      if (!row || !Number.isFinite(Number(row.lat))) return;
+      const typed = String(searchQ || '').trim();
+      const q = String(row.name || row.title || typed).trim();
+      const refineQ = (parseHouseNumber(typed) && !housesEqual(row.house, parseHouseNumber(typed))) ? typed : q;
+      setSearchQ(refineQ);
+      setSearchSuggests([]);
+      setSuggestHi(-1);
+      setSearchMsg(refineQ);
+      flySearchHit(row);
+      geocodeGoogle(refineQ).then(function (hit) {
+        if (hit) {
+          setSearchMsg(hit.name || q);
+          flySearchHit(hit);
+        }
+      }).catch(function () {});
+    }, [flySearchHit, searchQ]);
+
+    React.useEffect(() => {
+      const q = String(searchQ || '').trim();
+      if (q.length < 3) {
+        setSearchSuggests([]);
+        setSuggestHi(-1);
+        return undefined;
+      }
+      const tmr = global.setTimeout(function () {
+        const gen = ++suggestGenRef.current;
+        fetchSearchSuggests(q).then(function (rows) {
+          if (gen !== suggestGenRef.current) return;
+          const list = Array.isArray(rows) ? rows : [];
+          setSearchSuggests(list);
+          setSuggestHi(list.length ? 0 : -1);
+        }).catch(function () {
+          if (gen !== suggestGenRef.current) return;
+          setSearchSuggests([]);
+          setSuggestHi(-1);
+        });
+      }, 200);
+      return function () { global.clearTimeout(tmr); };
+    }, [searchQ]);
+
     const runSearch = React.useCallback(async () => {
       const q = String(searchQ || '').trim();
       if (!q || searching) return;
+      setSearchSuggests([]);
       setSearching(true);
       setSearchMsg('Searching…');
       try {
@@ -5774,11 +6014,16 @@
                 type: 'search',
                 placeholder: 'Search city or address',
                 value: searchQ,
+                autoComplete: 'off',
+                autoCorrect: 'off',
+                spellCheck: false,
                 onChange: (e) => {
                   const v = e.target.value;
                   setSearchQ(v);
                   if (!String(v || '').trim()) {
                     setSearchMsg('');
+                    setSearchSuggests([]);
+                    setSuggestHi(-1);
                     clearSearchPin(global.Cesium, stateRef.current.viewer, stateRef.current);
                   }
                 },
@@ -5788,7 +6033,27 @@
                     e.stopPropagation();
                     setSearchQ('');
                     setSearchMsg('');
+                    setSearchSuggests([]);
+                    setSuggestHi(-1);
                     clearSearchPin(global.Cesium, stateRef.current.viewer, stateRef.current);
+                    return;
+                  }
+                  if (searchSuggests.length) {
+                    if (e.key === 'ArrowDown') {
+                      e.preventDefault();
+                      setSuggestHi((i) => (i + 1) % searchSuggests.length);
+                      return;
+                    }
+                    if (e.key === 'ArrowUp') {
+                      e.preventDefault();
+                      setSuggestHi((i) => (i - 1 + searchSuggests.length) % searchSuggests.length);
+                      return;
+                    }
+                    if (e.key === 'Enter' && suggestHi >= 0 && searchSuggests[suggestHi]) {
+                      e.preventDefault();
+                      pickSuggest(searchSuggests[suggestHi]);
+                      return;
+                    }
                   }
                 },
                 'aria-label': 'Search',
@@ -5801,9 +6066,24 @@
               streetMode ? React.createElement('button', {
                 type: 'button', className: 'v4-gm2-btn is-active', title: 'Back to globe', 'aria-label': 'Back to globe',
                 onClick: leaveStreetViewHud,
-              }, 'Globe') : null
+              }, 'Globe') : null,
+              searchSuggests.length ? React.createElement('div', { className: 'v4-gm2-suggest', role: 'listbox' },
+                searchSuggests.map((row, idx) =>
+                  React.createElement('button', {
+                    key: (row.name || '') + idx,
+                    type: 'button',
+                    className: 'v4-gm2-suggest-row' + (idx === suggestHi ? ' is-active' : ''),
+                    role: 'option',
+                    onMouseEnter: () => setSuggestHi(idx),
+                    onMouseDown: (ev) => { ev.preventDefault(); pickSuggest(row); },
+                  },
+                    React.createElement('span', { className: 'v4-gm2-suggest-name' }, row.title || row.name),
+                    row.sub ? React.createElement('span', { className: 'v4-gm2-suggest-sub' }, row.sub) : null
+                  )
+                )
+              ) : null
             ),
-            searchMsg ? React.createElement('div', { className: 'v4-gm2-search-msg' }, searchMsg) : null,
+            (searchMsg && !searchSuggests.length) ? React.createElement('div', { className: 'v4-gm2-search-msg' }, searchMsg) : null,
             React.createElement('div', { className: 'v4-gm2-vignette', 'aria-hidden': 'true' }),
             React.createElement('div', { className: 'v4-gm2-scan', 'aria-hidden': 'true' }),
             React.createElement('div', { className: 'v4-gm2-sensor-fx', 'aria-hidden': 'true' }),
