@@ -4013,7 +4013,7 @@
       if (!Cesium || !viewer || !hit) return;
       try {
         viewer.camera.flyTo({
-          destination: Cesium.Cartesian3.fromDegrees(hit.lng, hit.lat, 18000),
+          destination: Cesium.Cartesian3.fromDegrees(hit.lng, hit.lat, 12000),
           duration: 1.4,
         });
       } catch (e) {}
