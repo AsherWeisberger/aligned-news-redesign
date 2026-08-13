@@ -552,68 +552,169 @@
       try { if (scene.fog) { scene.fog.enabled = false; scene.fog.density = 0; } } catch (e) {}
     } catch (e) {}
   }
-  async function enablePhonePhotoreal(Cesium, viewer, state) {
+  const PHOTOREAL_PREFETCH_M = 80000;
+  const PHOTOREAL_SHOW_M = 1200;
+  const PHOTOREAL_HIDE_M = 2200;
+  const GOOGLE_TILES_SSE = 1;
+  function googleTilesetUrlOf(tileset) {
+    try {
+      const r = tileset && (tileset.resource || tileset._resource);
+      if (r) {
+        if (typeof r.getUrlComponent === 'function') {
+          const u = r.getUrlComponent(true);
+          if (u) return String(u);
+        }
+        if (r.url) return String(r.url);
+        if (r._url) return String(r._url);
+      }
+      if (tileset && tileset.url) return String(tileset.url);
+      if (tileset && tileset._url) return String(tileset._url);
+    } catch (e) {}
+    return '';
+  }
+  function isGooglePhotorealUrl(url) {
+    return /tile\.googleapis\.com/i.test(String(url || ''));
+  }
+  function tunePhoneTileset(tileset) {
+    if (!tileset) return;
+    try { tileset.maximumScreenSpaceError = GOOGLE_TILES_SSE; } catch (e) {}
+    try { tileset.skipLevelOfDetail = false; } catch (e) {}
+    try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
+    try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
+    try { tileset.loadSiblings = true; } catch (e) {}
+    try { tileset.preloadWhenHidden = true; } catch (e) {}
+    try { tileset.cullRequestsWhileMoving = false; } catch (e) {}
+    try { tileset.enableCollision = false; } catch (e) {}
+    try { tileset.cacheBytes = 1024 * 1024 * 1024; } catch (e) {}
+    try { tileset.maximumCacheOverflowBytes = 1024 * 1024 * 1024; } catch (e) {}
+  }
+  function applyPhoneStreetClarity(viewer) {
+    try {
+      const scene = viewer && viewer.scene;
+      if (!scene) return;
+      try { if (scene.fog) { scene.fog.enabled = false; scene.fog.density = 0; } } catch (e) {}
+      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
+      try {
+        if (scene.globe) {
+          scene.globe.show = true;
+          scene.globe.showGroundAtmosphere = false;
+          scene.globe.atmosphereLightIntensity = 0;
+          scene.globe.depthTestAgainstTerrain = false;
+        }
+      } catch (e) {}
+      try {
+        const stages = scene.postProcessStages;
+        if (stages && stages.bloom) stages.bloom.enabled = false;
+        if (stages && stages.fxaa) stages.fxaa.enabled = true;
+      } catch (e) {}
+    } catch (e) {}
+  }
+  async function enablePhonePhotoreal(Cesium, viewer, state, opts) {
+    opts = opts || {};
+    const h = (function () {
+      try { return viewer && viewer.camera && viewer.camera.positionCartographic && viewer.camera.positionCartographic.height; }
+      catch (e) { return NaN; }
+    })();
+    const shown = !!(state && state._photorealShown);
+    const wantShow = (opts.show !== undefined) ? !!opts.show : (Number.isFinite(h) && h < (shown ? PHOTOREAL_HIDE_M : PHOTOREAL_SHOW_M));
+    const wantPrefetch = wantShow || (Number.isFinite(h) && h < PHOTOREAL_PREFETCH_M) || !!opts.force;
     const key = readGoogleTilesKey();
     if (!key || !Cesium || !viewer) return false;
+    if (!wantPrefetch) {
+      if (state && state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
+        try { state.googleTileset.show = false; } catch (e) {}
+      }
+      if (state) state._photorealShown = false;
+      return false;
+    }
+    if (wantShow) applyPhoneStreetClarity(viewer);
     try {
       if (state && state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
-        state.googleTileset.show = true;
-        try { state.googleTileset.maximumScreenSpaceError = 2; } catch (eT) {}
-        try { state.googleTileset.skipLevelOfDetail = false; } catch (eT) {}
-        try { state.googleTileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (eT) {}
-        try { state.googleTileset.cacheBytes = 1024 * 1024 * 1024; } catch (eT) {}
-        try {
-          const stages = viewer.scene && viewer.scene.postProcessStages;
-          if (stages && stages.bloom) stages.bloom.enabled = false;
-          if (stages && stages.fxaa) stages.fxaa.enabled = true;
-        } catch (eFx) {}
-        try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (eG) {}
-        return true;
+        if (!isGooglePhotorealUrl(googleTilesetUrlOf(state.googleTileset))) {
+          try { viewer.scene.primitives.remove(state.googleTileset); } catch (eR) {}
+          try { state.googleTileset.destroy(); } catch (eD) {}
+          state.googleTileset = null;
+        } else {
+          tunePhoneTileset(state.googleTileset);
+          try { state.googleTileset.show = !!wantShow; } catch (eT) {}
+          if (state) state._photorealShown = !!wantShow;
+          try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (eG) {}
+          return true;
+        }
       }
     } catch (e) {}
-    try { if (Cesium.GoogleMaps) Cesium.GoogleMaps.defaultApiKey = key; } catch (e) {}
-    let tileset = null;
-    try {
+    if (state && state._googleTilesPending) {
+      try { await state._googleTilesPending; } catch (eP) {}
+      if (state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
+        tunePhoneTileset(state.googleTileset);
+        try { state.googleTileset.show = !!wantShow; } catch (eT) {}
+        state._photorealShown = !!wantShow;
+        return true;
+      }
+    }
+    const pending = (async function () {
+      try { if (Cesium.GoogleMaps) Cesium.GoogleMaps.defaultApiKey = key; } catch (e) {}
+      let tileset = null;
       const tileOpts = {
-        key: key,
-        maximumScreenSpaceError: 2,
+        maximumScreenSpaceError: GOOGLE_TILES_SSE,
         skipLevelOfDetail: false,
         immediatelyLoadDesiredLevelOfDetail: true,
+        dynamicScreenSpaceError: false,
+        loadSiblings: true,
+        preloadWhenHidden: true,
+        cullRequestsWhileMoving: false,
+        enableCollision: false,
         cacheBytes: 1024 * 1024 * 1024,
         maximumCacheOverflowBytes: 1024 * 1024 * 1024,
         showCreditsOnScreen: true,
       };
+      const apiOpts = { key: key, onlyUsingWithGoogleGeocoder: true };
       if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
-        try { tileset = await Cesium.createGooglePhotorealistic3DTileset(tileOpts); }
+        try { tileset = await Cesium.createGooglePhotorealistic3DTileset(apiOpts, tileOpts); }
         catch (e1) {
-          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, cacheBytes: tileOpts.cacheBytes, maximumCacheOverflowBytes: tileOpts.maximumCacheOverflowBytes }); }
-          catch (e1b) { tileset = await Cesium.createGooglePhotorealistic3DTileset(key); }
+          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, onlyUsingWithGoogleGeocoder: true }, tileOpts); }
+          catch (e1b) { tileset = null; }
         }
-      } else if (Cesium.Cesium3DTileset && Cesium.Cesium3DTileset.fromUrl) {
+      }
+      if (!tileset && Cesium.Cesium3DTileset && Cesium.Cesium3DTileset.fromUrl) {
         tileset = await Cesium.Cesium3DTileset.fromUrl(
           'https://tile.googleapis.com/v1/3dtiles/root.json?key=' + encodeURIComponent(key),
           tileOpts
         );
       }
       if (!tileset) return false;
-      try { tileset.maximumScreenSpaceError = 2; } catch (e) {}
-      try { tileset.skipLevelOfDetail = false; } catch (e) {}
-      try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
-      try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
-      try { tileset.cacheBytes = 1024 * 1024 * 1024; } catch (e) {}
-      try { tileset.maximumCacheOverflowBytes = 1024 * 1024 * 1024; } catch (e) {}
+      if (!isGooglePhotorealUrl(googleTilesetUrlOf(tileset))) {
+        try { tileset.destroy && tileset.destroy(); } catch (e) {}
+        console.warn('[god-mode-phone] photoreal tileset was not Google; keeping Esri ground');
+        return false;
+      }
+      tunePhoneTileset(tileset);
       try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (e) {}
-      try {
-        const stages = viewer.scene && viewer.scene.postProcessStages;
-        if (stages && stages.bloom) stages.bloom.enabled = false;
-        if (stages && stages.fxaa) stages.fxaa.enabled = true;
-      } catch (e) {}
+      const stillShow = (opts.show !== undefined) ? !!opts.show : (function () {
+        try {
+          const hh = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
+          return Number.isFinite(hh) && hh < PHOTOREAL_SHOW_M;
+        } catch (eH) { return !!wantShow; }
+      })();
+      try { tileset.preloadWhenHidden = true; } catch (e) {}
+      try { tileset.show = !!stillShow; } catch (e) {}
+      if (stillShow) applyPhoneStreetClarity(viewer);
       viewer.scene.primitives.add(tileset);
-      if (state) state.googleTileset = tileset;
+      if (state) {
+        state.googleTileset = tileset;
+        state._photorealShown = !!stillShow;
+      }
       return true;
+    })();
+    if (state) state._googleTilesPending = pending;
+    try {
+      return await pending;
     } catch (e) {
       console.warn('[god-mode-phone] photoreal tiles failed', e);
+      try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (eG) {}
       return false;
+    } finally {
+      if (state && state._googleTilesPending === pending) state._googleTilesPending = null;
     }
   }
   function makeCesiumPhoneAdapter(Cesium, viewer, state) {
@@ -798,7 +899,7 @@
       globe.enableLighting = true;
       globe.showGroundAtmosphere = false;
       globe.atmosphereLightIntensity = 0;
-      globe.depthTestAgainstTerrain = true;
+      globe.depthTestAgainstTerrain = false;
     } catch (e) {}
     try {
       const ssc = viewer.scene.screenSpaceCameraController;
@@ -834,10 +935,22 @@
     const onMoveEnd = function () {
       try {
         const h = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
-        if (Number.isFinite(h) && h < 80000) enablePhonePhotoreal(Cesium, viewer, state);
+        enablePhonePhotoreal(Cesium, viewer, state);
       } catch (e) {}
     };
     try { viewer.camera.moveEnd.addEventListener(onMoveEnd); } catch (e) {}
+    try {
+      viewer.camera.percentageChanged = 0.02;
+      const onCamChanged = function () {
+        if (state._photorealSyncTimer) return;
+        state._photorealSyncTimer = global.setTimeout(function () {
+          state._photorealSyncTimer = null;
+          enablePhonePhotoreal(Cesium, viewer, state);
+        }, 140);
+      };
+      viewer.camera.changed.addEventListener(onCamChanged);
+      state._onCamChanged = onCamChanged;
+    } catch (e) {}
     try { viewer.resize(); } catch (e) {}
     return makeCesiumPhoneAdapter(Cesium, viewer, state);
   }
@@ -3437,7 +3550,7 @@
             duration: 1.55,
           });
         } catch (e) {}
-        enablePhonePhotoreal(Cesium, viewer, g._state);
+        enablePhonePhotoreal(Cesium, viewer, g._state, { show: true, force: true });
       } else {
         try { g.pointOfView({ lat: a, lng: b, altitude: STREET_ALT_RADII }, 1100); } catch (e) {}
         syncGlobeCameraNear(g);

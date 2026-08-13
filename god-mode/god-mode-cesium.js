@@ -3420,7 +3420,7 @@
           scene.globe.atmosphereLightIntensity = 0;
         }
       } catch (e) {}
-      try { if (scene.fog) scene.fog.enabled = false; } catch (e) {}
+      try { if (scene.fog) { scene.fog.enabled = false; scene.fog.density = 0; } } catch (e) {}
     } catch (e) {}
   }
 
@@ -3458,6 +3458,7 @@
       if (scene.sun) scene.sun.show = true;
       if (scene.moon) scene.moon.show = true;
       scene.fog.enabled = false;
+      try { scene.fog.density = 0; } catch (e) {}
       scene.backgroundColor = Cesium.Color.fromCssColorString('#02040a');
       try { scene.highDynamicRange = true; } catch (e) {}
     } catch (e) {}
@@ -3494,13 +3495,21 @@
   }
 
   const GOOGLE_TILES_CACHE_BYTES = 1024 * 1024 * 1024;
+  const GOOGLE_TILES_SSE = 1;
+  const PHOTOREAL_PREFETCH_M = 80000;
+  const PHOTOREAL_SHOW_M = 1200;
+  const PHOTOREAL_HIDE_M = 2200;
 
   function googleTilesetCreateOptions(extra) {
     const opts = {
-      maximumScreenSpaceError: 2,
+      maximumScreenSpaceError: GOOGLE_TILES_SSE,
       skipLevelOfDetail: false,
       immediatelyLoadDesiredLevelOfDetail: true,
       dynamicScreenSpaceError: false,
+      loadSiblings: true,
+      preloadWhenHidden: true,
+      cullRequestsWhileMoving: false,
+      enableCollision: false,
       cacheBytes: GOOGLE_TILES_CACHE_BYTES,
       maximumCacheOverflowBytes: GOOGLE_TILES_CACHE_BYTES,
       showCreditsOnScreen: true,
@@ -3511,15 +3520,56 @@
     return opts;
   }
 
+  function googleTilesetUrlOf(tileset) {
+    try {
+      const r = tileset && (tileset.resource || tileset._resource);
+      if (r) {
+        if (typeof r.getUrlComponent === 'function') {
+          const u = r.getUrlComponent(true);
+          if (u) return String(u);
+        }
+        if (r.url) return String(r.url);
+        if (r._url) return String(r._url);
+      }
+      if (tileset && tileset.url) return String(tileset.url);
+      if (tileset && tileset._url) return String(tileset._url);
+    } catch (e) {}
+    return '';
+  }
+
+  function isGooglePhotorealUrl(url) {
+    return /tile\.googleapis\.com/i.test(String(url || ''));
+  }
+
+  function rejectNonGoogleTileset(tileset, state, viewer) {
+    try { tileset && tileset.destroy && tileset.destroy(); } catch (e) {}
+    if (state) {
+      state.googleTiles = 'error';
+      state.googleTilesError = 'not-google-photoreal';
+      state.googleTileset = null;
+      state._photorealShown = false;
+    }
+    keepEsriGround(viewer, state);
+    return false;
+  }
+
   function tuneGoogleTileset(tileset) {
     if (!tileset) return;
-    try { tileset.maximumScreenSpaceError = 2; } catch (e) {}
+    try { tileset.maximumScreenSpaceError = GOOGLE_TILES_SSE; } catch (e) {}
     try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
     try { tileset.skipLevelOfDetail = false; } catch (e) {}
     try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
+    try { tileset.loadSiblings = true; } catch (e) {}
+    try { tileset.preloadWhenHidden = true; } catch (e) {}
+    try { tileset.cullRequestsWhileMoving = false; } catch (e) {}
+    try { tileset.enableCollision = false; } catch (e) {}
     try { tileset.cacheBytes = GOOGLE_TILES_CACHE_BYTES; } catch (e) {}
     try { tileset.maximumCacheOverflowBytes = GOOGLE_TILES_CACHE_BYTES; } catch (e) {}
     try { tileset.maximumMemoryUsage = 1024; } catch (e) {}
+    try {
+      const C = global.Cesium;
+      if (C && C.ShadowMode && tileset.shadows !== undefined) tileset.shadows = C.ShadowMode.DISABLED;
+    } catch (e) {}
   }
 
   function keepEsriGround(viewer, state) {
@@ -3534,57 +3584,94 @@
     } catch (e) {}
   }
 
-  function streetClarityActive(state) {
-    return !!(state && (state._streetMode || state.lastLod === 'City'));
+  function photorealWantShow(state, heightM) {
+    if (state && state._streetMode) return true;
+    const h = Number(heightM);
+    if (!Number.isFinite(h)) return false;
+    const hideAt = (state && state._photorealShown) ? PHOTOREAL_HIDE_M : PHOTOREAL_SHOW_M;
+    return h < hideAt;
   }
 
-  async function tryEnableGooglePhotoreal(Cesium, viewer, state) {
+  function photorealWantPrefetch(heightM) {
+    const h = Number(heightM);
+    return Number.isFinite(h) && h < PHOTOREAL_PREFETCH_M;
+  }
+
+  function streetClarityActive(state) {
+    return !!(state && (state._streetMode || state._photorealShown || photorealWantShow(state, state._cameraH)));
+  }
+
+  async function tryEnableGooglePhotoreal(Cesium, viewer, state, opts) {
+    opts = opts || {};
+    const wantShow = (opts.show !== undefined) ? !!opts.show : photorealWantShow(state, cameraHeightM(viewer));
     const key = readGoogleTilesKey();
-    if (!key) { state.googleTiles = 'missing-key'; return false; }
+    if (!key) {
+      state.googleTiles = 'missing-key';
+      state._photorealShown = false;
+      keepEsriGround(viewer, state);
+      return false;
+    }
     const showExisting = function () {
       if (!state.googleTileset || state.googleTileset.isDestroyed?.()) return false;
-      state.googleTiles = 'active';
-      try { state.googleTileset.show = true; } catch (e) {}
+      if (!isGooglePhotorealUrl(googleTilesetUrlOf(state.googleTileset))) {
+        try { state.googleTileset.show = false; } catch (e) {}
+        try { viewer && viewer.scene && viewer.scene.primitives && viewer.scene.primitives.remove(state.googleTileset); } catch (e) {}
+        try { state.googleTileset.destroy?.(); } catch (e) {}
+        state.googleTileset = null;
+        state.googleTiles = 'error';
+        state.googleTilesError = 'not-google-photoreal';
+        state._photorealShown = false;
+        keepEsriGround(viewer, state);
+        return false;
+      }
       tuneGoogleTileset(state.googleTileset);
+      try { state.googleTileset.preloadWhenHidden = true; } catch (e) {}
+      try { state.googleTileset.show = !!wantShow; } catch (e) {}
       keepEsriGround(viewer, state);
-      setOsmContrast(state, false);
+      if (wantShow) {
+        state.googleTiles = 'active';
+        state._photorealShown = true;
+        setOsmContrast(state, false);
+      } else {
+        state.googleTiles = 'prefetch';
+        state._photorealShown = false;
+      }
       return true;
     };
     if (showExisting()) return true;
     if (state._googleTilesPending) {
       try { await state._googleTilesPending; } catch (e) {}
-      if (state.destroyed || state.lastLod !== 'City' || viewer.isDestroyed?.()) {
+      if (state.destroyed || !viewer || viewer.isDestroyed?.()) {
         disableGooglePhotoreal(state);
         return false;
       }
       return showExisting();
     }
     const pending = (async function () {
-      if (Cesium.GoogleMaps) Cesium.GoogleMaps.defaultApiKey = key;
+      try { if (Cesium.GoogleMaps) Cesium.GoogleMaps.defaultApiKey = key; } catch (e) {}
       let tileset = null;
-      const tileOpts = googleTilesetCreateOptions({ key: key });
+      const tileOpts = googleTilesetCreateOptions();
+      const apiOpts = { key: key, onlyUsingWithGoogleGeocoder: true };
       if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
-        try { tileset = await Cesium.createGooglePhotorealistic3DTileset(tileOpts); }
+        try { tileset = await Cesium.createGooglePhotorealistic3DTileset(apiOpts, tileOpts); }
         catch (e1) {
-          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, cacheBytes: GOOGLE_TILES_CACHE_BYTES, maximumCacheOverflowBytes: GOOGLE_TILES_CACHE_BYTES }); }
-          catch (e1b) {
-            try { tileset = await Cesium.createGooglePhotorealistic3DTileset(key); }
-            catch (e2) { throw e1; }
-          }
+          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, onlyUsingWithGoogleGeocoder: true }, tileOpts); }
+          catch (e1b) { tileset = null; }
         }
-      } else if (Cesium.Cesium3DTileset?.fromUrl) {
+      }
+      if (!tileset && Cesium.Cesium3DTileset && Cesium.Cesium3DTileset.fromUrl) {
         tileset = await Cesium.Cesium3DTileset.fromUrl(
           'https://tile.googleapis.com/v1/3dtiles/root.json?key=' + encodeURIComponent(key),
-          googleTilesetCreateOptions()
+          tileOpts
         );
-      } else {
-        tileset = new Cesium.Cesium3DTileset(Object.assign({
-          url: 'https://tile.googleapis.com/v1/3dtiles/root.json?key=' + encodeURIComponent(key),
-        }, googleTilesetCreateOptions()));
       }
+      if (!tileset) throw new Error('google-photoreal-construct-failed');
       if (state.destroyed || !viewer || viewer.isDestroyed?.()) {
         try { tileset.destroy?.(); } catch (e) {}
         return false;
+      }
+      if (!isGooglePhotorealUrl(googleTilesetUrlOf(tileset))) {
+        return rejectNonGoogleTileset(tileset, state, viewer);
       }
       if (state.googleTileset && !state.googleTileset.isDestroyed?.()) {
         try { tileset.destroy?.(); } catch (e) {}
@@ -3592,14 +3679,22 @@
       }
       tuneGoogleTileset(tileset);
       keepEsriGround(viewer, state);
+      const stillShow = photorealWantShow(state, cameraHeightM(viewer));
+      try { tileset.preloadWhenHidden = true; } catch (e) {}
+      try { tileset.show = !!stillShow; } catch (e) {}
       viewer.scene.primitives.add(tileset);
       state.googleTileset = tileset;
-      if (state.lastLod !== 'City') {
-        try { tileset.show = false; } catch (e) {}
-        state.googleTiles = 'idle';
-        return false;
+      if (!isGooglePhotorealUrl(googleTilesetUrlOf(tileset))) {
+        try { viewer.scene.primitives.remove(tileset); } catch (e) {}
+        return rejectNonGoogleTileset(tileset, state, viewer);
+      }
+      if (!stillShow) {
+        state.googleTiles = 'prefetch';
+        state._photorealShown = false;
+        return true;
       }
       state.googleTiles = 'active';
+      state._photorealShown = true;
       setOsmContrast(state, false);
       return true;
     })();
@@ -3609,7 +3704,9 @@
     } catch (e) {
       console.warn('[god-mode-cesium] Google Photorealistic 3D Tiles failed', e);
       state.googleTiles = 'error';
-      state.googleTilesError = String(e?.message || e);
+      state.googleTilesError = String((e && e.message) || e);
+      state._photorealShown = false;
+      keepEsriGround(viewer, state);
       setOsmContrast(state, true);
       return false;
     } finally {
@@ -3617,21 +3714,49 @@
     }
   }
 
+  async function syncPhotorealForHeight(Cesium, viewer, state, heightM) {
+    if (!Cesium || !viewer || !state || state.destroyed || viewer.isDestroyed?.()) return false;
+    const h = Number(heightM);
+    state._cameraH = h;
+    const wantShow = photorealWantShow(state, h);
+    const wantPrefetch = photorealWantPrefetch(h) || wantShow || !!(state && state._streetMode);
+    if (wantShow) {
+      applyStreetClarity(Cesium, viewer, 'City', state);
+      try { applySensorSkin(state, 'eo'); } catch (e) {}
+      const ok = await tryEnableGooglePhotoreal(Cesium, viewer, state, { show: true });
+      if (!ok) {
+        state._photorealShown = false;
+        keepEsriGround(viewer, state);
+      }
+      return ok;
+    }
+    if (wantPrefetch) {
+      await tryEnableGooglePhotoreal(Cesium, viewer, state, { show: false });
+      return false;
+    }
+    state._photorealShown = false;
+    disableGooglePhotoreal(state);
+    return false;
+  }
+
   function disableGooglePhotoreal(state) {
     if (state.googleTileset && !state.googleTileset.isDestroyed?.()) {
       try { state.googleTileset.show = false; } catch (e) {}
     }
+    state._photorealShown = false;
+    if (state.googleTiles === 'active') state.googleTiles = 'prefetch';
     keepEsriGround(state && state.viewer, state);
     setOsmContrast(state, false);
   }
 
   function tilesChipFromState(state, lod) {
-    if (lod !== 'City') return { text: 'TILES · IMAGERY', kind: '' };
-    if (state.googleTiles === 'active') return { text: 'TILES · PHOTOREAL', kind: 'ok' };
-    if (state.googleTiles === 'error') return { text: 'TILES · ERROR', kind: 'err' };
-    if (state.googleTiles === 'missing-key') return { text: 'TILES · IMAGERY', kind: 'warn' };
-    return { text: 'TILES · IMAGERY', kind: 'warn' };
+    const shown = !!(state && state.googleTiles === 'active' && state.googleTileset && state.googleTileset.show);
+    if (shown) return { text: 'TILES · PHOTOREAL', kind: 'ok' };
+    if (state && state.googleTiles === 'error') return { text: 'TILES · ERROR', kind: 'err' };
+    if (state && state.googleTiles === 'missing-key') return { text: 'TILES · IMAGERY', kind: 'warn' };
+    return { text: 'TILES · IMAGERY', kind: lod === 'City' ? 'warn' : '' };
   }
+
 
   function addSensorStages(Cesium, viewer, state) {
     state.sensorStages = { nvg: null, flir: null, crt: null };
@@ -3965,6 +4090,7 @@
   function destroyViewer(state) {
     stopRadarAnim(state);
     try { if (state._moveEndTimer) { global.clearTimeout(state._moveEndTimer); state._moveEndTimer = null; } } catch (e) {}
+    try { if (state._photorealSyncTimer) { global.clearTimeout(state._photorealSyncTimer); state._photorealSyncTimer = null; } } catch (e) {}
     try { if (state._aliveTimer) { global.clearTimeout(state._aliveTimer); state._aliveTimer = null; } } catch (e) {}
     try { if (state._roadAbort) { state._roadAbort.abort(); state._roadAbort = null; } } catch (e) {}
     try { if (state._eezAbort) { state._eezAbort.abort(); state._eezAbort = null; } } catch (e) {}
@@ -4016,6 +4142,7 @@
     state.esriLayer = null;
     state.cityLabels = false;
     state._onMoveEnd = null;
+    state._onCamChanged = null;
     state._onTick = null;
     state._onWheelFollow = null;
     state.roadBboxKey = '';
@@ -4416,27 +4543,16 @@
               const prevLod = state.lastLod;
               state.lastLod = band;
               setLod(band);
-              if (band === 'City' && prevLod !== 'City') {
-                applyStreetClarity(Cesium, viewer, band, state);
-                applySensorSkin(state, 'eo');
-              }
               syncNightLights(state, band);
               syncSeamark(state, band);
               ensureRadar(Cesium, viewer, state, dataRef.current.radar, layerRef.current === 'all' || layerRef.current === 'weather');
               applyStarlinkLod(Cesium, viewer, state, layerRef.current, band);
               syncGpsjamLayer(Cesium, viewer, state, dataRef.current, layerRef.current);
               if (typeof state.runHorizonCull === 'function') state.runHorizonCull();
+              await syncPhotorealForHeight(Cesium, viewer, state, h);
+              if (state.destroyed || bootGen !== state._bootGen || viewer.isDestroyed?.()) return;
               if (band !== prevLod) {
-                if (band === 'City') {
-                  const ok = await tryEnableGooglePhotoreal(Cesium, viewer, state);
-                  if (state.destroyed || bootGen !== state._bootGen || viewer.isDestroyed?.()) return;
-                  if (state.lastLod !== 'City') {
-                    disableGooglePhotoreal(state);
-                  } else if (!ok && state.googleTiles !== 'active') {
-                    setOsmContrast(state, true);
-                  }
-                } else {
-                  disableGooglePhotoreal(state);
+                if (band !== 'City' && !photorealWantShow(state, h)) {
                   applySensorSkin(state, skinRef.current);
                 }
                 setTilesChip(tilesChipFromState(state, band));
@@ -4457,6 +4573,22 @@
           };
           viewer.camera.moveEnd.addEventListener(onMoveEnd);
           state._onMoveEnd = onMoveEnd;
+          try {
+            viewer.camera.percentageChanged = 0.02;
+            const onCamChanged = function () {
+              if (state.destroyed || state._streetFlying) return;
+              if (state._photorealSyncTimer) return;
+              state._photorealSyncTimer = global.setTimeout(function () {
+                state._photorealSyncTimer = null;
+                try {
+                  const hh = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
+                  syncPhotorealForHeight(Cesium, viewer, state, hh);
+                } catch (eCam) {}
+              }, 140);
+            };
+            viewer.camera.changed.addEventListener(onCamChanged);
+            state._onCamChanged = onCamChanged;
+          } catch (e) {}
           onMoveEndImmediate();
 
           const onTick = () => {
