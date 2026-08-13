@@ -3695,17 +3695,47 @@
     }
   }
 
-  function streetViewUrl(lat, lng) {
+  function enterStreetView(Cesium, viewer, state, lat, lng) {
     const a = Number(lat);
     const b = Number(lng);
-    if (!Number.isFinite(a) || !Number.isFinite(b)) return '';
-    return 'https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + encodeURIComponent(a + ',' + b);
+    if (!Cesium || !viewer || !Number.isFinite(a) || !Number.isFinite(b)) return false;
+    try {
+      state._streetPrev = viewer.camera.position.clone();
+      state._streetMode = true;
+    } catch (e) {}
+    try { state.lastLod = 'City'; } catch (e) {}
+    try { viewer.scene.screenSpaceCameraController.minimumZoomDistance = 80; } catch (e) {}
+    try {
+      viewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(b, a, 160),
+        orientation: { heading: 0, pitch: Cesium.Math.toRadians(-38), roll: 0 },
+        duration: 1.55,
+        complete: function () {
+          tryEnableGooglePhotoreal(Cesium, viewer, state);
+          applyStreetClarity(Cesium, viewer, 'City');
+        },
+      });
+    } catch (e) {}
+    tryEnableGooglePhotoreal(Cesium, viewer, state);
+    applyStreetClarity(Cesium, viewer, 'City');
+    return true;
+  }
+
+  function exitStreetView(Cesium, viewer, state) {
+    if (!viewer || !state) return;
+    const prev = state._streetPrev;
+    state._streetMode = false;
+    state._streetPrev = null;
+    if (prev && Cesium) {
+      try { viewer.camera.flyTo({ destination: prev, duration: 1.25 }); } catch (e) {}
+    }
   }
 
   function openStreetView(lat, lng) {
-    const url = streetViewUrl(lat, lng);
-    if (!url) return;
-    try { global.open(url, '_blank', 'noopener,noreferrer'); } catch (e) { global.location.href = url; }
+    const Cesium = global.Cesium;
+    const state = (global.__gmCesiumStreetState && global.__gmCesiumStreetState()) || null;
+    const viewer = state && state.viewer;
+    enterStreetView(Cesium, viewer, state || {}, lat, lng);
   }
 
   async function geocodeAddress(query) {
@@ -3955,6 +3985,7 @@
     const [searchQ, setSearchQ] = React.useState('');
     const [searchMsg, setSearchMsg] = React.useState('');
     const [searching, setSearching] = React.useState(false);
+    const [streetMode, setStreetMode] = React.useState(false);
 
     React.useEffect(() => { setLayer(activeLayer); layerRef.current = activeLayer; }, [activeLayer]);
     React.useEffect(() => { injectStyles(); }, []);
@@ -4005,21 +4036,30 @@
       }
     }, [searchQ, searching, flySearchHit]);
 
+    global.__gmCesiumStreetState = function () { return stateRef.current; };
     const goStreetView = React.useCallback(() => {
+      const Cesium = global.Cesium;
+      const state = stateRef.current;
+      const viewer = state.viewer;
+      let lat = null, lng = null;
       const row = selected;
       if (row && Number.isFinite(Number(row.lat))) {
-        openStreetView(row.lat, row.lng);
-        return;
+        lat = Number(row.lat); lng = Number(row.lng);
+      } else {
+        try {
+          const carto = viewer && viewer.camera && viewer.camera.positionCartographic;
+          if (Cesium && carto) {
+            lat = Cesium.Math.toDegrees(carto.latitude);
+            lng = Cesium.Math.toDegrees(carto.longitude);
+          }
+        } catch (e) {}
       }
-      const Cesium = global.Cesium;
-      const viewer = stateRef.current.viewer;
-      try {
-        const carto = viewer && viewer.camera && viewer.camera.positionCartographic;
-        if (Cesium && carto) {
-          openStreetView(Cesium.Math.toDegrees(carto.latitude), Cesium.Math.toDegrees(carto.longitude));
-        }
-      } catch (e) {}
+      if (enterStreetView(Cesium, viewer, state, lat, lng)) setStreetMode(true);
     }, [selected]);
+    const leaveStreetViewHud = React.useCallback(() => {
+      exitStreetView(global.Cesium, stateRef.current.viewer, stateRef.current);
+      setStreetMode(false);
+    }, []);
 
     const setSkinAndApply = React.useCallback((id) => {
       setSkin(id);
@@ -4204,7 +4244,7 @@
             ssc.enableTilt = true;
             ssc.enableLook = true;
             ssc.enableTranslate = true;
-            ssc.minimumZoomDistance = 200;
+            ssc.minimumZoomDistance = 80;
             ssc.maximumZoomDistance = 4.5e7;
             try { viewer.scene.canvas.style.pointerEvents = 'auto'; } catch (e2) {}
             try { viewer.scene.canvas.style.touchAction = 'none'; } catch (e2) {}
@@ -4630,9 +4670,13 @@
               }),
               React.createElement('button', { type: 'submit', className: 'v4-gm2-btn' }, searching ? '…' : 'Go'),
               React.createElement('button', {
-                type: 'button', className: 'v4-gm2-btn', title: 'Street View', 'aria-label': 'Street View',
+                type: 'button', className: 'v4-gm2-btn', title: 'Street height on this globe', 'aria-label': 'Street View',
                 onClick: goStreetView,
-              }, 'SV')
+              }, 'SV'),
+              streetMode ? React.createElement('button', {
+                type: 'button', className: 'v4-gm2-btn is-active', title: 'Back to globe', 'aria-label': 'Back to globe',
+                onClick: leaveStreetViewHud,
+              }, 'Globe') : null
             ),
             searchMsg ? React.createElement('div', { className: 'v4-gm2-search-msg' }, searchMsg) : null,
             React.createElement('div', { className: 'v4-gm2-vignette', 'aria-hidden': 'true' }),
@@ -4698,7 +4742,11 @@
                   }, 'TRACK'),
                   React.createElement('button', {
                     type: 'button', className: 'v4-gm2-btn',
-                    onClick: () => openStreetView(selected && selected.lat, selected && selected.lng),
+                    onClick: () => {
+                      const Cesium = global.Cesium;
+                      const st = stateRef.current;
+                      if (enterStreetView(Cesium, st.viewer, st, selected && selected.lat, selected && selected.lng)) setStreetMode(true);
+                    },
                   }, 'STREET VIEW'),
                   React.createElement('button', {
                     type: 'button', className: 'v4-gm2-btn',

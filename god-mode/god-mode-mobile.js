@@ -2,7 +2,7 @@
  * God Mode Mobile -- phone globe for Aligned News / God Mode.
  * Browser IIFE. Exposes window.V4GodModeEarth with props
  * { open, layer, viewer, onClose, onLayerChange }.
- * React is a global. Engine is globe.gl (not Cesium).
+ * React is a global. Phone HUD + Cesium camera/photoreal (globe.gl fallback).
  * Desktop Cesium stays on its own module.
  */
 (function (global) {
@@ -434,7 +434,18 @@
   }
 
 
-  const SAT_TILE_MAX_LEVEL = 13;
+  const SAT_TILE_MAX_LEVEL = 19;
+  const EARTH_RADIUS_M = 6371000;
+  const MIN_CAMERA_ALT_M = 80;
+  const STREET_CAMERA_ALT_M = 160;
+  const SEARCH_CAMERA_ALT_M = 12000;
+  const MIN_ALT_RADII = MIN_CAMERA_ALT_M / EARTH_RADIUS_M;
+  const STREET_ALT_RADII = STREET_CAMERA_ALT_M / EARTH_RADIUS_M;
+  const SEARCH_ALT_RADII = SEARCH_CAMERA_ALT_M / EARTH_RADIUS_M;
+  const CESIUM_VERSION = '1.125';
+  const CESIUM_BASE = 'https://cesium.com/downloads/cesiumjs/releases/' + CESIUM_VERSION + '/Build/Cesium/';
+  const CESIUM_JS = CESIUM_BASE + 'Cesium.js';
+  const DEFAULT_GOOGLE_TILES_KEY = 'AIzaSyAdikDP3IFcWhm-p-FVq49GHUoLqg18s64';
   const OPENSKY_STATES_URL = 'https://opensky-network.org/api/states/all';
   const RAINVIEWER_META_URL = 'https://api.rainviewer.com/public/weather-maps.json';
   function satTileUrl(x, y, l) {
@@ -489,6 +500,316 @@
       try { g.globeImageUrl(EARTH_IMG); } catch (e) {}
     }
   }
+
+  let cesiumLibPromise = null;
+  function loadCss(href, id) {
+    return new Promise(function (resolve) {
+      if (id && document.getElementById(id)) return resolve();
+      const l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = href;
+      if (id) l.id = id;
+      l.onload = function () { resolve(); };
+      l.onerror = function () { resolve(); };
+      document.head.appendChild(l);
+    });
+  }
+  function readGoogleTilesKey() {
+    try {
+      const w = global.UNALIGNED_GOOGLE_MAPS_TILES_KEY;
+      if (w && String(w).trim()) return String(w).trim();
+    } catch (e) {}
+    try {
+      const ls = global.localStorage && global.localStorage.getItem('UNALIGNED_GOOGLE_MAPS_TILES_KEY');
+      if (ls && String(ls).trim()) return String(ls).trim();
+    } catch (e) {}
+    return DEFAULT_GOOGLE_TILES_KEY;
+  }
+  async function ensureCesiumPhone() {
+    if (global.Cesium && global.Cesium.Viewer) return global.Cesium;
+    if (!cesiumLibPromise) {
+      cesiumLibPromise = (async function () {
+        await loadCss(CESIUM_BASE + 'Widgets/widgets.css', 'cesium-widgets-css');
+        if (!global.CESIUM_BASE_URL) global.CESIUM_BASE_URL = CESIUM_BASE;
+        await loadExternalScript(CESIUM_JS, 'cesium-' + CESIUM_VERSION);
+        if (!global.Cesium || !global.Cesium.Viewer) throw new Error('Cesium Viewer missing');
+        return global.Cesium;
+      })();
+    }
+    return cesiumLibPromise;
+  }
+  function killPhoneAtmosphere(viewer) {
+    try {
+      const scene = viewer && viewer.scene;
+      if (!scene) return;
+      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
+      try {
+        if (scene.globe) {
+          scene.globe.showGroundAtmosphere = false;
+          scene.globe.atmosphereLightIntensity = 0;
+        }
+      } catch (e) {}
+      try { if (scene.fog) { scene.fog.enabled = false; scene.fog.density = 0; } } catch (e) {}
+    } catch (e) {}
+  }
+  async function enablePhonePhotoreal(Cesium, viewer, state) {
+    const key = readGoogleTilesKey();
+    if (!key || !Cesium || !viewer) return false;
+    try {
+      if (state && state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
+        state.googleTileset.show = true;
+        return true;
+      }
+    } catch (e) {}
+    try { if (Cesium.GoogleMaps) Cesium.GoogleMaps.defaultApiKey = key; } catch (e) {}
+    let tileset = null;
+    try {
+      if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
+        try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key }); }
+        catch (e1) { tileset = await Cesium.createGooglePhotorealistic3DTileset(key); }
+      } else if (Cesium.Cesium3DTileset && Cesium.Cesium3DTileset.fromUrl) {
+        tileset = await Cesium.Cesium3DTileset.fromUrl(
+          'https://tile.googleapis.com/v1/3dtiles/root.json?key=' + encodeURIComponent(key),
+          { showCreditsOnScreen: true }
+        );
+      }
+      if (!tileset) return false;
+      try { tileset.maximumScreenSpaceError = 4; } catch (e) {}
+      viewer.scene.primitives.add(tileset);
+      if (state) state.googleTileset = tileset;
+      return true;
+    } catch (e) {
+      console.warn('[god-mode-phone] photoreal tiles failed', e);
+      return false;
+    }
+  }
+  function makeCesiumPhoneAdapter(Cesium, viewer, state) {
+    const pointEntities = [];
+    const fakeControls = {
+      autoRotate: false,
+      addEventListener: function () {},
+      removeEventListener: function () {},
+    };
+    const adapter = {
+      __cesium: true,
+      _cesium: Cesium,
+      _viewer: viewer,
+      _state: state,
+      _onPointClick: null,
+      _streetPrev: null,
+      renderer: function () {
+        try { return { domElement: viewer.scene.canvas, setPixelRatio: function () {} }; }
+        catch (e) { return { setPixelRatio: function () {} }; }
+      },
+      controls: function () { return fakeControls; },
+      camera: function () { return null; },
+      width: function () { try { viewer.resize(); } catch (e) {} return adapter; },
+      height: function () { try { viewer.resize(); } catch (e) {} return adapter; },
+      showAtmosphere: function () { killPhoneAtmosphere(viewer); return adapter; },
+      atmosphereAltitude: function () { return adapter; },
+      globeTileEngineUrl: function () { return adapter; },
+      globeTileEngineMaxLevel: function () { return adapter; },
+      globeImageUrl: function () { return adapter; },
+      backgroundImageUrl: function () { return adapter; },
+      pauseAnimation: function () {},
+      getGlobeRadius: function () { return EARTH_RADIUS_M; },
+      _destructor: function () {
+        try { if (state && state.handler && state.handler.destroy) state.handler.destroy(); } catch (e) {}
+        try {
+          if (state && state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
+            state.googleTileset.destroy();
+          }
+        } catch (e) {}
+        try { if (viewer && !(viewer.isDestroyed && viewer.isDestroyed())) viewer.destroy(); } catch (e) {}
+      },
+      pointOfView: function (pov, ms) {
+        if (!pov) {
+          try {
+            const c = viewer.camera.positionCartographic;
+            return {
+              lat: Cesium.Math.toDegrees(c.latitude),
+              lng: Cesium.Math.toDegrees(c.longitude),
+              altitude: Math.max(MIN_ALT_RADII, c.height / EARTH_RADIUS_M),
+            };
+          } catch (e) { return { lat: 28, lng: -20, altitude: 2.15 }; }
+        }
+        const lat = Number(pov.lat);
+        const lng = Number(pov.lng);
+        if (!Number.isFinite(lat) || !Number.isFinite(lng)) return adapter;
+        let altM = Number(pov.altitude);
+        if (Number.isFinite(altM) && altM > 0 && altM < 50) altM = altM * EARTH_RADIUS_M;
+        if (!Number.isFinite(altM)) altM = SEARCH_CAMERA_ALT_M;
+        altM = Math.max(MIN_CAMERA_ALT_M, Math.min(4.5e7, altM));
+        const dest = Cesium.Cartesian3.fromDegrees(lng, lat, altM);
+        const dur = (Number(ms) || 0) / 1000;
+        try {
+          if (dur > 0.05) viewer.camera.flyTo({ destination: dest, duration: dur });
+          else viewer.camera.setView({ destination: dest });
+        } catch (e) {}
+        return adapter;
+      },
+      pointsData: function (rows) {
+        for (let i = 0; i < pointEntities.length; i++) {
+          try { viewer.entities.remove(pointEntities[i]); } catch (e) {}
+        }
+        pointEntities.length = 0;
+        (rows || []).forEach(function (row) {
+          const lat = Number(row.lat);
+          const lng = Number(row.lng);
+          if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+          let height = Number(row.altM);
+          if (!Number.isFinite(height)) {
+            const alt = Number(row.alt);
+            height = Number.isFinite(alt) ? alt * EARTH_RADIUS_M : 0;
+          }
+          if (!Number.isFinite(height) || height < 0) height = 0;
+          if (height > 2.5e6) height = 2.5e6;
+          let color = Cesium.Color.WHITE;
+          try { color = Cesium.Color.fromCssColorString(String(row.color || '#d0d6e0')); } catch (e) {}
+          const ent = viewer.entities.add({
+            position: Cesium.Cartesian3.fromDegrees(lng, lat, height),
+            point: {
+              pixelSize: row.type === 'starlink' ? 5 : 9,
+              color: color,
+              outlineColor: Cesium.Color.BLACK,
+              outlineWidth: 1,
+              disableDepthTestDistance: 500000,
+            },
+          });
+          ent.__gmPhone = row;
+          pointEntities.push(ent);
+        });
+        return adapter;
+      },
+      pointLat: function () { return adapter; },
+      pointLng: function () { return adapter; },
+      pointAltitude: function () { return adapter; },
+      pointRadius: function () { return adapter; },
+      pointColor: function () { return adapter; },
+      pointResolution: function () { return adapter; },
+      pointsMerge: function () { return adapter; },
+      pointsTransitionDuration: function () { return adapter; },
+      pointLabel: function () { return adapter; },
+      onPointClick: function (fn) { adapter._onPointClick = fn; return adapter; },
+    };
+    try {
+      const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+      handler.setInputAction(function (click) {
+        try {
+          const picked = viewer.scene.pick(click.position);
+          if (Cesium.defined(picked) && picked.id && picked.id.__gmPhone && adapter._onPointClick) {
+            adapter._onPointClick(picked.id.__gmPhone);
+          }
+        } catch (e) {}
+      }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+      state.handler = handler;
+    } catch (e) {}
+    return adapter;
+  }
+  async function mountPhoneCesium(el, viewerProp) {
+    if (!el) return null;
+    try {
+      if (!global.UNALIGNED_GOOGLE_MAPS_TILES_KEY) {
+        global.UNALIGNED_GOOGLE_MAPS_TILES_KEY = DEFAULT_GOOGLE_TILES_KEY;
+      }
+    } catch (e) {}
+    const Cesium = await ensureCesiumPhone();
+    el.innerHTML = '';
+    const host = document.createElement('div');
+    host.className = 'v4-gm-phone-cesium';
+    host.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
+    el.appendChild(host);
+    let esriBase = false;
+    try {
+      const esriProvider = new Cesium.UrlTemplateImageryProvider({
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        maximumLevel: 19,
+        enablePickFeatures: false,
+        credit: 'Esri World Imagery',
+      });
+      esriBase = new Cesium.ImageryLayer(esriProvider);
+    } catch (e) { esriBase = false; }
+    const viewerOpts = {
+      animation: false, timeline: false, baseLayerPicker: false,
+      fullscreenButton: false, vrButton: false, geocoder: false,
+      homeButton: false, infoBox: false, sceneModePicker: false,
+      selectionIndicator: false, navigationHelpButton: false,
+      creditContainer: document.createElement('div'),
+      terrainProvider: new Cesium.EllipsoidTerrainProvider(),
+      shouldAnimate: true,
+      scene3DOnly: true,
+      skyAtmosphere: false,
+      useDefaultRenderLoop: true,
+    };
+    if (esriBase) viewerOpts.baseLayer = esriBase;
+    let viewer;
+    try { viewer = new Cesium.Viewer(host, viewerOpts); }
+    catch (e) {
+      delete viewerOpts.baseLayer;
+      viewer = new Cesium.Viewer(host, viewerOpts);
+    }
+    killPhoneAtmosphere(viewer);
+    try {
+      const globe = viewer.scene.globe;
+      globe.enableLighting = true;
+      globe.showGroundAtmosphere = false;
+      globe.atmosphereLightIntensity = 0;
+      globe.depthTestAgainstTerrain = true;
+    } catch (e) {}
+    try {
+      const ssc = viewer.scene.screenSpaceCameraController;
+      ssc.enableInputs = true;
+      ssc.enableZoom = true;
+      ssc.enableRotate = true;
+      ssc.enableTilt = true;
+      ssc.enableLook = true;
+      ssc.enableTranslate = true;
+      ssc.minimumZoomDistance = MIN_CAMERA_ALT_M;
+      ssc.maximumZoomDistance = 4.5e7;
+      ssc.inertiaZoom = 0.4;
+    } catch (e) {}
+    try {
+      const canvas = viewer.scene.canvas;
+      canvas.style.touchAction = 'none';
+      canvas.style.pointerEvents = 'auto';
+    } catch (e) {}
+    const v = viewerProp || {};
+    const lat = Number(v.lat);
+    const lng = Number(v.lng != null ? v.lng : v.lon);
+    viewer.camera.setView({
+      destination: Cesium.Cartesian3.fromDegrees(
+        Number.isFinite(lng) ? lng : -20,
+        Number.isFinite(lat) ? lat : 28,
+        1.37e7
+      ),
+    });
+    const state = { googleTileset: null, handler: null };
+    const onMoveEnd = function () {
+      try {
+        const h = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
+        if (Number.isFinite(h) && h < 80000) enablePhonePhotoreal(Cesium, viewer, state);
+      } catch (e) {}
+    };
+    try { viewer.camera.moveEnd.addEventListener(onMoveEnd); } catch (e) {}
+    try { viewer.resize(); } catch (e) {}
+    return makeCesiumPhoneAdapter(Cesium, viewer, state);
+  }
+  function syncGlobeCameraNear(g) {
+    if (!g || g.__cesium) return;
+    try {
+      const cam = g.camera && g.camera();
+      if (!cam) return;
+      const radius = globeRadiusOf(g);
+      const dist = cam.position ? Math.hypot(cam.position.x, cam.position.y, cam.position.z) : (radius * 2.15);
+      const alt = Math.max(1e-6, dist - radius);
+      cam.near = Math.max(0.00001, alt * 0.08);
+      cam.far = Math.max(dist + radius * 4, 8000);
+      if (typeof cam.updateProjectionMatrix === 'function') cam.updateProjectionMatrix();
+      const controls = g.controls && g.controls();
+      if (controls) controls.minDistance = radius * (1 + MIN_ALT_RADII);
+    } catch (e) {}
+  }
+
   function configurePhoneControls(g) {
     const controls = g.controls();
     if (!controls) throw new Error('Globe controls unavailable');
@@ -502,7 +823,7 @@
     controls.enableZoom = true;
     controls.zoomSpeed = 1.4;
     controls.rotateSpeed = 0.7;
-    controls.minDistance = radius * 1.018;
+    controls.minDistance = radius * (1 + MIN_ALT_RADII);
     controls.maxDistance = radius * 10;
     try {
       const T = global.THREE;
@@ -527,7 +848,7 @@
   function clampAltitude(alt) {
     const n = Number(alt);
     if (!Number.isFinite(n)) return 2.15;
-    return Math.min(8.5, Math.max(0.018, n));
+    return Math.min(8.5, Math.max(MIN_ALT_RADII, n));
   }
   function cameraDistance(globe) {
     try {
@@ -542,7 +863,7 @@
       const cam = globe && globe.camera && globe.camera();
       if (!cam || !cam.position) return;
       const radius = globeRadiusOf(globe);
-      const minD = radius * 1.018;
+      const minD = radius * (1 + MIN_ALT_RADII);
       const maxD = radius * 10;
       const d = Math.min(maxD, Math.max(minD, Number(dist) || minD));
       const p = cam.position;
@@ -551,6 +872,11 @@
       p.x *= s;
       p.y *= s;
       p.z *= s;
+      try {
+        cam.near = Math.max(0.00001, (d - radius) * 0.08);
+        cam.far = Math.max(d + radius * 4, 8000);
+        if (typeof cam.updateProjectionMatrix === 'function') cam.updateProjectionMatrix();
+      } catch (eNear) {}
       try {
         const controls = globe.controls && globe.controls();
         if (controls) {
@@ -2624,6 +2950,9 @@
     '.v4-gm-phone-search input{flex:1;min-height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(11,13,18,.94);color:#f2f5fa;font-size:16px;padding:0 12px;outline:none;pointer-events:auto;}',
     '.v4-gm-phone-search-go,.v4-gm-phone-sv{min-height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:13px;font-weight:700;touch-action:manipulation;pointer-events:auto;}',
     '.v4-gm-phone-sv-card{margin-top:10px;min-height:44px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:14px;font-weight:700;touch-action:manipulation;}',
+    '.v4-gm-phone-back{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:44px;padding:0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:13px;font-weight:700;}',
+    '.v4-gm-phone-globe .cesium-viewer,.v4-gm-phone-globe .cesium-viewer-cesiumWidgetContainer,.v4-gm-phone-globe .cesium-widget,.v4-gm-phone-globe .cesium-widget canvas,.v4-gm-phone-cesium{position:absolute;inset:0;width:100%!important;height:100%!important;}',
+    '.v4-gm-phone-globe .cesium-viewer-toolbar,.v4-gm-phone-globe .cesium-viewer-animationContainer,.v4-gm-phone-globe .cesium-viewer-timelineContainer,.v4-gm-phone-globe .cesium-viewer-fullscreenContainer{display:none!important;}',
     '.v4-gm-phone-search-msg{padding:6px 16px 0;font-size:12px;opacity:.75;}',
   ].join('');
   function injectPhoneCss() {
@@ -2642,15 +2971,12 @@
     };
   }
   function streetViewUrl(lat, lng) {
-    const a = Number(lat);
-    const b = Number(lng);
-    if (!Number.isFinite(a) || !Number.isFinite(b)) return '';
-    return 'https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + encodeURIComponent(a + ',' + b);
+    return '';
   }
   function openStreetView(lat, lng) {
-    const url = streetViewUrl(lat, lng);
-    if (!url) return;
-    try { window.open(url, '_blank', 'noopener,noreferrer'); } catch (e) { window.location.href = url; }
+    try {
+      if (typeof global.__gmPhoneStreetView === 'function') global.__gmPhoneStreetView(lat, lng);
+    } catch (e) {}
   }
   async function geocodeAddress(query) {
     const q = String(query || '').trim();
@@ -2716,6 +3042,7 @@
     const [searchQ, setSearchQ] = React.useState('');
     const [searchMsg, setSearchMsg] = React.useState('');
     const [searching, setSearching] = React.useState(false);
+    const [streetMode, setStreetMode] = React.useState(false);
     const focusRef = React.useRef(null);
     const globeRef = React.useRef(null);
     const globeInstRef = React.useRef(null);
@@ -2800,7 +3127,7 @@
       const which = layerRef.current || "all";
       const skipHorizon = !!(opts && opts.skipHorizon);
       let rows = collectPoints(which);
-      if (!skipHorizon) {
+      if (!skipHorizon && !globe.__cesium) {
         rows = rows.filter(function (row) {
           return isNearSide(globe, row.lat, row.lng);
         });
@@ -2824,7 +3151,7 @@
           .onPointClick(function (pt) {
             setSelected(pt || null);
             if (pt && Number.isFinite(Number(pt.lat))) {
-              try { globe.pointOfView({ lat: Number(pt.lat), lng: Number(pt.lng), altitude: 1.55 }, 700); } catch (e) {}
+              try { globe.pointOfView({ lat: Number(pt.lat), lng: Number(pt.lng), altitude: SEARCH_ALT_RADII }, 700); } catch (e) {}
             }
           });
       } catch (e) {
@@ -2849,18 +3176,29 @@
         if (!g || !node) return;
         const w = Math.max(240, node.clientWidth || node.offsetWidth || 0);
         const h = Math.max(240, node.clientHeight || node.offsetHeight || 0);
-        if (w > 0 && h > 0) g.width(w).height(h);
+        if (w > 0 && h > 0) {
+          if (typeof g.width === 'function') g.width(w);
+          if (typeof g.height === 'function') g.height(h);
+        }
       };
       const buildGlobe = async function () {
         await waitForGlobeContainer(globeRef.current);
         if (cancelled || !globeRef.current || globeInstRef.current) return null;
+        const v = viewer || {};
+        try {
+          const cesiumGlobe = await mountPhoneCesium(globeRef.current, v);
+          if (cesiumGlobe && !cancelled) return cesiumGlobe;
+        } catch (eCesium) {
+          console.warn('[god-mode-phone] Cesium unavailable, globe.gl fallback', eCesium);
+        }
+        if (cancelled || !globeRef.current || globeInstRef.current) return null;
         const GlobeFactory = await ensureGlobeLibrary();
         if (cancelled || !globeRef.current || globeInstRef.current) return null;
-        const v = viewer || {};
         const g = initGlobeInstance(GlobeFactory, globeRef.current);
         applySatelliteTiles(g);
         try { g.backgroundImageUrl(SKY_IMG); } catch (e) {}
         configurePhoneControls(g);
+        syncGlobeCameraNear(g);
         const lat = Number(v.lat);
         const lng = Number(v.lng != null ? v.lng : v.lon);
         g.pointOfView({ lat: Number.isFinite(lat) ? lat : 28, lng: Number.isFinite(lng) ? lng : -20, altitude: 2.15 }, 0);
@@ -2918,8 +3256,10 @@
                 } catch (e) {}
               }, 400);
             };
-            globe.controls().addEventListener("end", onControls);
-            unbindGestures = bindPhoneGlobeGestures(globe, globeRef.current);
+            if (globe.controls && globe.controls() && globe.controls().addEventListener) {
+              globe.controls().addEventListener("end", onControls);
+            }
+            if (!globe.__cesium) unbindGestures = bindPhoneGlobeGestures(globe, globeRef.current);
             window.requestAnimationFrame(function () { resizeGlobe(); applyRef.current(); });
             if (typeof ResizeObserver !== 'undefined' && globeRef.current) {
               resizeObs = new ResizeObserver(function () { resizeGlobe(); });
@@ -3002,7 +3342,7 @@
       const g = globeInstRef.current;
       if (!g || !Number.isFinite(Number(lat)) || !Number.isFinite(Number(lng))) return;
       try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
-      try { g.pointOfView({ lat: Number(lat), lng: Number(lng), altitude: altitude == null ? 0.55 : altitude }, 900); } catch (e) {}
+      try { g.pointOfView({ lat: Number(lat), lng: Number(lng), altitude: altitude == null ? SEARCH_ALT_RADII : altitude }, 900); } catch (e) {}
     };
     const runSearch = function () {
       const q = String(searchQ || '').trim();
@@ -3015,7 +3355,7 @@
         focusRef.current = hit;
         setSearchMsg(hit.name || q);
         setSelected({ type: 'place', name: hit.name || q, lat: hit.lat, lng: hit.lng, label: hit.name || q, source: 'Search' });
-        flyTo(hit.lat, hit.lng, 0.55);
+        flyTo(hit.lat, hit.lng, SEARCH_ALT_RADII);
       }).catch(function () {
         setSearching(false);
         setSearchMsg('Search failed');
@@ -3031,10 +3371,56 @@
       } catch (e) {}
       return null;
     };
+    const enterStreet = function (lat, lng) {
+      const a = Number(lat);
+      const b = Number(lng);
+      if (!Number.isFinite(a) || !Number.isFinite(b)) { setSearchMsg('Search or tap a point first'); return; }
+      const g = globeInstRef.current;
+      if (!g) return;
+      try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
+      if (g.__cesium) {
+        const Cesium = g._cesium;
+        const viewer = g._viewer;
+        try { g._streetPrev = viewer.camera.position.clone(); } catch (e) {}
+        try {
+          viewer.scene.screenSpaceCameraController.minimumZoomDistance = MIN_CAMERA_ALT_M;
+          viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(b, a, STREET_CAMERA_ALT_M),
+            orientation: { heading: 0, pitch: Cesium.Math.toRadians(-38), roll: 0 },
+            duration: 1.55,
+          });
+        } catch (e) {}
+        enablePhonePhotoreal(Cesium, viewer, g._state);
+      } else {
+        try { g.pointOfView({ lat: a, lng: b, altitude: STREET_ALT_RADII }, 1100); } catch (e) {}
+        syncGlobeCameraNear(g);
+      }
+      setStreetMode(true);
+      setSearchMsg('Street height · stay on globe');
+    };
+    global.__gmPhoneStreetView = enterStreet;
+    const leaveStreetView = function () {
+      const g = globeInstRef.current;
+      if (g && g.__cesium && g._streetPrev) {
+        try { g._viewer.camera.flyTo({ destination: g._streetPrev, duration: 1.2 }); } catch (e) {}
+        g._streetPrev = null;
+      } else if (g) {
+        try {
+          const p = g.pointOfView && g.pointOfView();
+          g.pointOfView({
+            lat: p && Number.isFinite(Number(p.lat)) ? Number(p.lat) : 28,
+            lng: p && Number.isFinite(Number(p.lng)) ? Number(p.lng) : -20,
+            altitude: 2.15,
+          }, 1000);
+        } catch (e) {}
+      }
+      setStreetMode(false);
+      setSearchMsg('');
+    };
     const goStreetView = function () {
       const f = currentFocus();
       if (!f) { setSearchMsg('Search or tap a point first'); return; }
-      openStreetView(f.lat, f.lng);
+      enterStreet(f.lat, f.lng);
     };
     const dismiss = function () { setSelected(null); };
     const onCardTouchStart = function (e) {
@@ -3066,7 +3452,7 @@
       Number.isFinite(Number(selected.lat)) ? el('button', Object.assign({
         type: 'button',
         className: 'v4-gm-phone-sv-card'
-      }, bindTap(function () { openStreetView(selected.lat, selected.lng); })), 'Street View') : null
+      }, bindTap(function () { enterStreet(selected.lat, selected.lng); })), 'Street View') : null
     ) : null;
     const chipEls = LAYERS.map(function (row) {
       return el('button', Object.assign({
@@ -3085,7 +3471,10 @@
           el('span', null, 'LIVE'),
           el('span', { className: 'v4-gm-phone-utc' }, utc)
         ),
-        el('button', closeProps, '\u00d7')
+        el('div', { style: { display: 'flex', alignItems: 'center', pointerEvents: 'auto', gap: '8px' } },
+          streetMode ? el('button', Object.assign({ type: 'button', className: 'v4-gm-phone-back', 'aria-label': 'Back to globe' }, bindTap(leaveStreetView)), 'Globe') : null,
+          el('button', closeProps, '\u00d7')
+        )
       ),
       el('form', {
         className: 'v4-gm-phone-search',
