@@ -3695,6 +3695,32 @@
     }
   }
 
+  function streetFlyEasing(Cesium) {
+    try {
+      if (Cesium && Cesium.EasingFunction && Cesium.EasingFunction.CUBIC_IN_OUT) {
+        return Cesium.EasingFunction.CUBIC_IN_OUT;
+      }
+    } catch (e) {}
+    return undefined;
+  }
+
+  function tuneCameraFeel(viewer) {
+    try {
+      const scene = viewer && viewer.scene;
+      if (!scene) return;
+      try { if (scene.globe) scene.globe.depthTestAgainstTerrain = false; } catch (e) {}
+      const ssc = scene.screenSpaceCameraController;
+      if (!ssc) return;
+      try { ssc.enableCollisionDetection = false; } catch (e) {}
+      try { ssc.inertiaZoom = 0.6; } catch (e) {}
+      try { ssc.inertiaTranslate = 0.7; } catch (e) {}
+      try { ssc.zoomFactor = 2.2; } catch (e) {}
+      try { ssc.bounceAnimationTime = 0; } catch (e) {}
+      try { ssc.minimumZoomDistance = 80; } catch (e) {}
+      try { ssc.maximumZoomDistance = 4.5e7; } catch (e) {}
+    } catch (e) {}
+  }
+
   function enterStreetView(Cesium, viewer, state, lat, lng) {
     const a = Number(lat);
     const b = Number(lng);
@@ -3702,22 +3728,31 @@
     try {
       state._streetPrev = viewer.camera.position.clone();
       state._streetMode = true;
+      state._streetFlying = true;
     } catch (e) {}
     try { state.lastLod = 'City'; } catch (e) {}
     try { viewer.scene.screenSpaceCameraController.minimumZoomDistance = 80; } catch (e) {}
+    try { if (viewer.scene.fog) { viewer.scene.fog.enabled = false; viewer.scene.fog.density = 0; } } catch (e) {}
+    try { if (viewer.scene.skyAtmosphere) viewer.scene.skyAtmosphere.show = false; } catch (e) {}
+    try { if (viewer.scene.globe) { viewer.scene.globe.showGroundAtmosphere = false; viewer.scene.globe.atmosphereLightIntensity = 0; } } catch (e) {}
+    const finishStreet = function () {
+      try { state._streetFlying = false; } catch (e) {}
+      tryEnableGooglePhotoreal(Cesium, viewer, state);
+      applyStreetClarity(Cesium, viewer, 'City');
+    };
     try {
-      viewer.camera.flyTo({
+      const flyOpts = {
         destination: Cesium.Cartesian3.fromDegrees(b, a, 160),
         orientation: { heading: 0, pitch: Cesium.Math.toRadians(-38), roll: 0 },
-        duration: 1.55,
-        complete: function () {
-          tryEnableGooglePhotoreal(Cesium, viewer, state);
-          applyStreetClarity(Cesium, viewer, 'City');
-        },
-      });
-    } catch (e) {}
-    tryEnableGooglePhotoreal(Cesium, viewer, state);
-    applyStreetClarity(Cesium, viewer, 'City');
+        duration: 2.4,
+        complete: finishStreet,
+      };
+      const ease = streetFlyEasing(Cesium);
+      if (ease) flyOpts.easingFunction = ease;
+      viewer.camera.flyTo(flyOpts);
+    } catch (e) {
+      finishStreet();
+    }
     return true;
   }
 
@@ -3725,6 +3760,7 @@
     if (!viewer || !state) return;
     const prev = state._streetPrev;
     state._streetMode = false;
+    state._streetFlying = false;
     state._streetPrev = null;
     if (prev && Cesium) {
       try { viewer.camera.flyTo({ destination: prev, duration: 1.25 }); } catch (e) {}
@@ -3862,6 +3898,7 @@
 
   function destroyViewer(state) {
     stopRadarAnim(state);
+    try { if (state._moveEndTimer) { global.clearTimeout(state._moveEndTimer); state._moveEndTimer = null; } } catch (e) {}
     try { if (state._aliveTimer) { global.clearTimeout(state._aliveTimer); state._aliveTimer = null; } } catch (e) {}
     try { if (state._roadAbort) { state._roadAbort.abort(); state._roadAbort = null; } } catch (e) {}
     try { if (state._eezAbort) { state._eezAbort.abort(); state._eezAbort = null; } } catch (e) {}
@@ -4234,7 +4271,7 @@
           applyClock(Cesium, viewer, clockRef.current.mode, clockRef.current.speed);
           try {
             viewer.scene.globe.show = true;
-            viewer.scene.globe.depthTestAgainstTerrain = true;
+            viewer.scene.globe.depthTestAgainstTerrain = false;
             try { viewer.scene.requestRenderMode = false; } catch (e2) {}
             try { viewer.useDefaultRenderLoop = true; } catch (e2) {}
             const ssc = viewer.scene.screenSpaceCameraController;
@@ -4246,6 +4283,7 @@
             ssc.enableTranslate = true;
             ssc.minimumZoomDistance = 80;
             ssc.maximumZoomDistance = 4.5e7;
+            tuneCameraFeel(viewer);
             try { viewer.scene.canvas.style.pointerEvents = 'auto'; } catch (e2) {}
             try { viewer.scene.canvas.style.touchAction = 'none'; } catch (e2) {}
             try { viewer.scene.canvas.style.transform = 'none'; } catch (e2) {}
@@ -4303,15 +4341,18 @@
           } catch (e) {}
           state.handler = handler;
 
-          const onMoveEnd = async () => {
+          const onMoveEndImmediate = async () => {
             try {
               if (state.destroyed || bootGen !== state._bootGen || !viewer || viewer.isDestroyed?.()) return;
+              if (state._streetFlying) return;
               const h = viewer.camera.positionCartographic?.height;
               const band = lodFromHeight(h);
               const prevLod = state.lastLod;
               state.lastLod = band;
               setLod(band);
-              applyStreetClarity(Cesium, viewer, band);
+              if (band === 'City' && prevLod !== 'City') {
+                applyStreetClarity(Cesium, viewer, band);
+              }
               syncNightLights(state, band);
               syncSeamark(state, band);
               ensureRadar(Cesium, viewer, state, dataRef.current.radar, layerRef.current === 'all' || layerRef.current === 'weather');
@@ -4338,9 +4379,17 @@
               scheduleCityAlive(Cesium, viewer, state);
             } catch (e) {}
           };
+          const onMoveEnd = function () {
+            if (state._streetFlying) return;
+            if (state._moveEndTimer) global.clearTimeout(state._moveEndTimer);
+            state._moveEndTimer = global.setTimeout(function () {
+              state._moveEndTimer = null;
+              onMoveEndImmediate();
+            }, 480);
+          };
           viewer.camera.moveEnd.addEventListener(onMoveEnd);
           state._onMoveEnd = onMoveEnd;
-          onMoveEnd();
+          onMoveEndImmediate();
 
           const onTick = () => {
             if (state.destroyed || !viewer || viewer.isDestroyed?.()) return;

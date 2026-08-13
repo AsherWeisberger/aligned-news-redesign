@@ -2453,7 +2453,7 @@
   }
 
 
-  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an45";
+  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an47";
   var godModeBootPromise = null;
 
   function ensureGodModeWidget() {
