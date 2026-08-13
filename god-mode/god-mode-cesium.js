@@ -3407,15 +3407,33 @@
     } catch (e) {}
   }
 
+  function killSkyAtmosphere(viewer) {
+    try {
+      const scene = viewer && viewer.scene;
+      if (!scene) return;
+      try {
+        if (scene.skyAtmosphere) scene.skyAtmosphere.show = false;
+      } catch (e) {}
+      try {
+        if (scene.globe) {
+          scene.globe.showGroundAtmosphere = false;
+          scene.globe.atmosphereLightIntensity = 0;
+        }
+      } catch (e) {}
+      try { if (scene.fog) scene.fog.enabled = false; } catch (e) {}
+    } catch (e) {}
+  }
+
   function configureAtmosphere(Cesium, viewer) {
     try {
       const scene = viewer.scene;
       const globe = scene.globe;
+      killSkyAtmosphere(viewer);
       globe.enableLighting = true;
       try { globe.dynamicAtmosphereLighting = true; } catch (e) {}
       try { globe.dynamicAtmosphereLightingFromSun = true; } catch (e) {}
       try { globe.showGroundAtmosphere = false; } catch (e) {}
-      try { globe.atmosphereLightIntensity = 18; } catch (e) {}
+      try { globe.atmosphereLightIntensity = 0; } catch (e) {}
       try { globe.lambertDiffuseMultiplier = 1.65; } catch (e) {}
       try { globe.lightingFadeOutDistance = 6.0e7; } catch (e) {}
       try { globe.lightingFadeInDistance = 9.0e7; } catch (e) {}
@@ -3449,11 +3467,11 @@
     try {
       const scene = viewer && viewer.scene;
       if (!scene) return;
-      const close = lod === 'City' || lod === 'Regional';
       try { scene.fog.enabled = false; } catch (e) {}
       try { if (scene.fog) scene.fog.density = 0; } catch (e) {}
       try { scene.globe.showGroundAtmosphere = false; } catch (e) {}
-      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = !close; } catch (e) {}
+      try { if (scene.globe) scene.globe.atmosphereLightIntensity = 0; } catch (e) {}
+      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
       try { if (scene.globe) scene.globe.translucency.enabled = false; } catch (e) {}
     } catch (e) {}
   }
@@ -4140,6 +4158,8 @@
             shouldAnimate: true,
             requestRenderMode: false,
             scene3DOnly: true,
+            skyAtmosphere: false,
+            useDefaultRenderLoop: false,
             baseLayer: esriBase,
           };
 
@@ -4159,11 +4179,14 @@
             return;
           }
 
+          try { killSkyAtmosphere(viewer); } catch (e) {}
+          try { viewer.useDefaultRenderLoop = false; } catch (e) {}
           state.viewer = viewer;
           state.entityById = new Map();
           state.groups = new Map();
           createImageryLayers(Cesium, viewer, state);
           configureAtmosphere(Cesium, viewer);
+          try { viewer.useDefaultRenderLoop = true; } catch (e) {}
           ensureCityLabels(Cesium, viewer, state);
           addSensorStages(Cesium, viewer, state);
           addBloomFxaa(Cesium, viewer, state);

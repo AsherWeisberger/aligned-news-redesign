@@ -5,7 +5,7 @@
 (function (global) {
   "use strict";
 
-  var VERSION = "an39";
+  var VERSION = "an40";
   var BASE = (function () {
     try {
       var scripts = document.getElementsByTagName("script");
@@ -54,7 +54,22 @@
 
   // Desktop Mac/Safari must get Cesium — never globe.gl's baked marble blob.
   // Safari exposes ontouchstart and some Macs report maxTouchPoints; that is NOT a phone.
+  function isMacDesktopGodMode() {
+    var ua = String(navigator.userAgent || "");
+    var platform = String(navigator.platform || "");
+    if (!(/Macintosh|Mac OS X/i.test(ua) || /MacIntel|MacPPC|Mac68K/i.test(platform))) return false;
+    var touchPoints = Number(navigator.maxTouchPoints || 0);
+    var coarse = false, hoverNone = false, fineHover = false;
+    try { coarse = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches); } catch (e) {}
+    try { hoverNone = !!(window.matchMedia && window.matchMedia("(hover: none)").matches); } catch (e) {}
+    try { fineHover = !!(window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches); } catch (e) {}
+    var ipadSpoof = touchPoints > 1 && (coarse || hoverNone) && !fineHover;
+    return !ipadSpoof;
+  }
+
   function isPhoneGodMode() {
+    // Macintosh + trackpad is always Cesium. Ignore leftover ?god=phone.
+    if (isMacDesktopGodMode()) return false;
     try {
       var g = new URLSearchParams(location.search).get("god");
       if (g === "phone") return true;
