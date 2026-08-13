@@ -3590,11 +3590,41 @@
       if (onLayerChange) onLayerChange(id);
       setSelected(null);
     };
+    let _mobileSearchPinDataUrl = null;
+    const mobileSearchPinDataUrl = function () {
+      if (_mobileSearchPinDataUrl) return _mobileSearchPinDataUrl;
+      const c = document.createElement('canvas');
+      c.width = 36;
+      c.height = 48;
+      const ctx = c.getContext('2d');
+      const cx = 18;
+      const cy = 16;
+      const r = 13;
+      ctx.beginPath();
+      ctx.moveTo(cx, 47);
+      ctx.bezierCurveTo(cx - 4, 36, cx - r, cy + r - 1, cx - r, cy);
+      ctx.arc(cx, cy, r, Math.PI, 0, false);
+      ctx.bezierCurveTo(cx + r, cy + r - 1, cx + 4, 36, cx, 47);
+      ctx.closePath();
+      ctx.fillStyle = '#ffbf00';
+      ctx.fill();
+      ctx.lineJoin = 'round';
+      ctx.lineWidth = 2.25;
+      ctx.strokeStyle = '#3a2a00';
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+      _mobileSearchPinDataUrl = c.toDataURL('image/png');
+      return _mobileSearchPinDataUrl;
+    };
     const clearMobileSearchPin = function (g) {
       g = g || globeInstRef.current;
       try {
         if (g && g._searchPinEntity && g._viewer) g._viewer.entities.remove(g._searchPinEntity);
       } catch (e) {}
+      try { if (g && g._viewer && g._viewer.entities && g._viewer.entities.removeById) g._viewer.entities.removeById('gm2-search-pin'); } catch (e1) {}
       try { if (g) { g._searchPinEntity = null; g._searchPin = null; } } catch (e2) {}
     };
     const setMobileSearchPin = function (g, hit) {
@@ -3606,16 +3636,19 @@
         try {
           const Cesium = g._cesium;
           const ent = g._viewer.entities.add({
-            position: Cesium.Cartesian3.fromDegrees(Number(hit.lng), Number(hit.lat), 6),
-            point: {
-              pixelSize: 10,
-              color: Cesium.Color.fromCssColorString('#ffbf00'),
-              outlineColor: Cesium.Color.fromCssColorString('#3a2a00'),
-              outlineWidth: 2,
-              heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+            id: 'gm2-search-pin',
+            position: Cesium.Cartesian3.fromDegrees(Number(hit.lng), Number(hit.lat), 18),
+            billboard: {
+              image: mobileSearchPinDataUrl(),
+              verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
               disableDepthTestDistance: Number.POSITIVE_INFINITY,
+              heightReference: Cesium.HeightReference.NONE,
+              pixelOffset: new Cesium.Cartesian2(0, 0),
+              scale: 1,
+              scaleByDistance: new Cesium.NearFarScalar(200, 1.15, 2.5e6, 0.55),
             },
           });
+          ent.__gm2Decor = true;
           g._searchPinEntity = ent;
         } catch (e) {}
       }

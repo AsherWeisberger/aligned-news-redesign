@@ -4080,32 +4080,89 @@
       try { ssc.enableLook = true; } catch (e) {}
       try { ssc.enableTranslate = true; } catch (e) {}
       try { ssc.enableZoom = true; } catch (e) {}
+      try { ssc.enableCollisionDetection = false; } catch (e) {}
+      try { ssc.inertiaTranslate = 0.7; } catch (e) {}
       const CET = Cesium && Cesium.CameraEventType;
       const KEM = Cesium && Cesium.KeyboardEventModifier;
       if (CET) {
         try { ssc.translateEventTypes = CET.LEFT_DRAG; } catch (e) {}
         try { ssc.zoomEventTypes = [CET.WHEEL, CET.PINCH]; } catch (e) {}
-        try { ssc.rotateEventTypes = [CET.RIGHT_DRAG, CET.MIDDLE_DRAG]; } catch (e) {}
+        try { ssc.rotateEventTypes = CET.RIGHT_DRAG; } catch (e) {}
         try {
-          ssc.tiltEventTypes = [
-            CET.RIGHT_DRAG,
-            CET.MIDDLE_DRAG,
-            CET.PINCH,
-            KEM ? { eventType: CET.LEFT_DRAG, modifier: KEM.CTRL } : CET.LEFT_DRAG,
-            KEM ? { eventType: CET.LEFT_DRAG, modifier: KEM.SHIFT } : CET.MIDDLE_DRAG,
-          ];
+          const tilt = [CET.PINCH];
+          if (KEM) tilt.push({ eventType: CET.LEFT_DRAG, modifier: KEM.CTRL });
+          ssc.tiltEventTypes = tilt;
         } catch (e) {}
-        try {
-          ssc.lookEventTypes = KEM
-            ? { eventType: CET.LEFT_DRAG, modifier: KEM.SHIFT }
-            : CET.MIDDLE_DRAG;
-        } catch (e) {}
+        try { ssc.lookEventTypes = CET.MIDDLE_DRAG; } catch (e) {}
       }
       try {
         const canvas = scene.canvas;
         if (canvas && !canvas.__gm2CtxMenu) {
           canvas.__gm2CtxMenu = true;
           canvas.addEventListener("contextmenu", function (ev) { ev.preventDefault(); }, true);
+        }
+        if (canvas && !canvas.__gm2WheelPan) {
+          canvas.__gm2WheelPan = true;
+          canvas.addEventListener("wheel", function (ev) {
+            const dx = Number(ev.deltaX) || 0;
+            const dy = Number(ev.deltaY) || 0;
+            if (!(Math.abs(dx) > Math.abs(dy))) return;
+            try { ev.preventDefault(); } catch (eP) {}
+            try {
+              const cam = viewer && viewer.camera;
+              if (!cam) return;
+              let h = 1000;
+              try { h = cam.positionCartographic.height; } catch (eH) {}
+              if (!Number.isFinite(h) || h < 80) h = 80;
+              const mode = Number(ev.deltaMode) || 0;
+              const unit = mode === 1 ? 16 : (mode === 2 ? 800 : 1);
+              const mag = h * 0.0012 * unit;
+              cam.moveRight(dx * mag);
+              cam.moveUp(-dy * mag);
+            } catch (eW) {}
+            try { if (viewer && viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eR) {}
+          }, { passive: false });
+        }
+        if (canvas && !canvas.__gm2LeftPan) {
+          canvas.__gm2LeftPan = true;
+          let armed = false;
+          let panning = false;
+          let lastX = 0;
+          let lastY = 0;
+          canvas.addEventListener("pointerdown", function (ev) {
+            if (ev.button !== 0) return;
+            if (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey) return;
+            armed = true;
+            panning = false;
+            lastX = ev.clientX;
+            lastY = ev.clientY;
+            try { canvas.setPointerCapture(ev.pointerId); } catch (eC) {}
+          });
+          canvas.addEventListener("pointermove", function (ev) {
+            if (!armed) return;
+            const dx = ev.clientX - lastX;
+            const dy = ev.clientY - lastY;
+            if (!panning) {
+              if ((dx * dx + dy * dy) < 9) return;
+              panning = true;
+            }
+            lastX = ev.clientX;
+            lastY = ev.clientY;
+            try {
+              const cam = viewer && viewer.camera;
+              if (!cam) return;
+              let h = 1000;
+              try { h = cam.positionCartographic.height; } catch (eH) {}
+              if (!Number.isFinite(h) || h < 80) h = 80;
+              const mag = h * 0.0015;
+              cam.moveRight(-dx * mag);
+              cam.moveUp(dy * mag);
+            } catch (eM) {}
+            try { if (viewer && viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eR) {}
+          });
+          const endPan = function () { armed = false; panning = false; };
+          canvas.addEventListener("pointerup", endPan);
+          canvas.addEventListener("pointercancel", endPan);
         }
       } catch (e) {}
     } catch (e) {}
@@ -4190,6 +4247,36 @@
     return best;
   }
 
+  let _searchPinDataUrl = null;
+  function searchPinDataUrl() {
+    if (_searchPinDataUrl) return _searchPinDataUrl;
+    const c = document.createElement("canvas");
+    c.width = 36;
+    c.height = 48;
+    const ctx = c.getContext("2d");
+    const cx = 18;
+    const cy = 16;
+    const r = 13;
+    ctx.beginPath();
+    ctx.moveTo(cx, 47);
+    ctx.bezierCurveTo(cx - 4, 36, cx - r, cy + r - 1, cx - r, cy);
+    ctx.arc(cx, cy, r, Math.PI, 0, false);
+    ctx.bezierCurveTo(cx + r, cy + r - 1, cx + 4, 36, cx, 47);
+    ctx.closePath();
+    ctx.fillStyle = "#ffbf00";
+    ctx.fill();
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 2.25;
+    ctx.strokeStyle = "#3a2a00";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    _searchPinDataUrl = c.toDataURL("image/png");
+    return _searchPinDataUrl;
+  }
+
   function clearSearchPin(Cesium, viewer, state) {
     if (!state) return;
     try {
@@ -4197,6 +4284,8 @@
         viewer.entities.remove(state._searchPin.entity);
       }
     } catch (e) {}
+    try { if (viewer && viewer.entities && viewer.entities.removeById) viewer.entities.removeById("gm2-search-pin"); } catch (e2) {}
+    try { if (state.entityById && typeof state.entityById.delete === "function") state.entityById.delete("search-pin"); } catch (e3) {}
     state._searchPin = null;
     requestSceneRender(viewer);
   }
@@ -4211,19 +4300,21 @@
     try {
       ent = viewer.entities.add({
         id: "gm2-search-pin",
-        position: Cesium.Cartesian3.fromDegrees(lng, lat, 6),
-        point: {
-          pixelSize: 10,
-          color: Cesium.Color.fromCssColorString("#ffbf00"),
-          outlineColor: Cesium.Color.fromCssColorString("#3a2a00"),
-          outlineWidth: 2,
-          heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+        position: Cesium.Cartesian3.fromDegrees(lng, lat, 18),
+        billboard: {
+          image: searchPinDataUrl(),
+          verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
           disableDepthTestDistance: Number.POSITIVE_INFINITY,
+          heightReference: Cesium.HeightReference.NONE,
+          pixelOffset: new Cesium.Cartesian2(0, 0),
+          scale: 1,
+          scaleByDistance: new Cesium.NearFarScalar(200, 1.15, 2.5e6, 0.55),
         },
       });
       ent.__gm2Decor = true;
     } catch (e) { ent = null; }
     state._searchPin = { lat: lat, lng: lng, name: hit.name || "", kind: hit.kind || "", entity: ent };
+    try { if (ent && state.entityById && typeof state.entityById.set === "function") state.entityById.set("search-pin", ent); } catch (e4) {}
     requestSceneRender(viewer);
   }
 
@@ -4344,6 +4435,7 @@
     try { if (viewer.scene.globe) { viewer.scene.globe.showGroundAtmosphere = false; viewer.scene.globe.atmosphereLightIntensity = 0; } } catch (e) {}
     const finishStreet = function () {
       try { state._streetFlying = false; } catch (e) {}
+      enableDesktopRotate(Cesium, viewer);
       tryEnableGooglePhotoreal(Cesium, viewer, state);
       applyStreetClarity(Cesium, viewer, 'City', state);
       applySensorSkin(state, 'eo');
@@ -4383,7 +4475,7 @@
     state._streetFlying = false;
     state._streetPrev = null;
     if (prev && Cesium) {
-      try { viewer.camera.flyTo({ destination: prev, duration: 1.25 }); } catch (e) {}
+      try { viewer.camera.flyTo({ destination: prev, duration: 1.25, complete: function () { enableDesktopRotate(Cesium, viewer); } }); } catch (e) {}
     }
   }
 
@@ -4672,7 +4764,7 @@
           destination: Cesium.Cartesian3.fromDegrees(hit.lng, hit.lat, alt),
           orientation: { heading: 0, pitch: Cesium.Math.toRadians(alt <= 2500 ? -72 : -89), roll: 0 },
           duration: 1.55,
-          complete: function () { requestSceneRender(viewer); },
+          complete: function () { enableDesktopRotate(Cesium, viewer); requestSceneRender(viewer); },
         });
       } catch (e) {}
       requestSceneRender(viewer);
