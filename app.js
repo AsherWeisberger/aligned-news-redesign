@@ -1579,7 +1579,7 @@
 
 
 
-  function dockIcon(id) {
+  function dockIcon(id, filled) {
     var icons = {
       today: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>',
       signals: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h2M9.5 8v8M14.5 5v14M19 9v6"/></svg>',
@@ -1587,6 +1587,9 @@
       newsletter: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>',
       saved: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-3.5L6 20V5a1 1 0 0 1 1-1z"/></svg>'
     };
+    if (filled && id === "today") {
+      return '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>';
+    }
     return icons[id] || icons.today;
   }
 
@@ -1622,7 +1625,7 @@
         return (
           '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
           (active ? ' aria-current="page"' : "") + ">" +
-          '<span class="mobile-dock-ico">' + dockIcon(item.id) + "</span>" +
+          '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
           '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
           "</a>"
         );
@@ -2762,32 +2765,7 @@
 
   function bindShell() {
 
-    // Mobile dock: hide on scroll down, reveal on scroll up
-    (function bindDockScroll() {
-      if (window.__anDockScrollBound) return;
-      window.__anDockScrollBound = true;
-      var lastY = window.scrollY || 0;
-      var ticking = false;
-      window.addEventListener("scroll", function () {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () {
-          ticking = false;
-          var dock = $("#mobileDock");
-          if (!dock) return;
-          var y = window.scrollY || 0;
-          var dy = y - lastY;
-          if (y < 24) {
-            dock.classList.remove("is-hidden");
-          } else if (dy > 8) {
-            dock.classList.add("is-hidden");
-          } else if (dy < -6) {
-            dock.classList.remove("is-hidden");
-          }
-          lastY = y;
-        });
-      }, { passive: true });
-    })();
+    // an57: floating capsule stays visible — no hide-on-scroll
 
     var menuBtn = $("#menuToggle");
     var sidebar = $("#sidebar");
