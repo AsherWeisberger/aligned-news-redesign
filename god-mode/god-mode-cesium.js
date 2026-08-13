@@ -3463,7 +3463,7 @@
     } catch (e) {}
   }
 
-  function applyStreetClarity(Cesium, viewer, lod) {
+  function applyStreetClarity(Cesium, viewer, lod, state) {
     try {
       const scene = viewer && viewer.scene;
       if (!scene) return;
@@ -3473,17 +3473,69 @@
       try { if (scene.globe) scene.globe.atmosphereLightIntensity = 0; } catch (e) {}
       try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
       try { if (scene.globe) scene.globe.translucency.enabled = false; } catch (e) {}
+      keepEsriGround(viewer, state);
+      try {
+        const stages = scene.postProcessStages;
+        if (stages && stages.bloom) stages.bloom.enabled = false;
+        if (stages && stages.fxaa) stages.fxaa.enabled = true;
+        try { if (stages && typeof stages.fxaaEnabled !== 'undefined') stages.fxaaEnabled = true; } catch (eFx) {}
+      } catch (e) {}
+      if (state) {
+        try { if (state.bloomStage) state.bloomStage.enabled = false; } catch (e) {}
+        try { if (state.fxaaStage) state.fxaaStage.enabled = true; } catch (e) {}
+        const sensors = state.sensorStages || {};
+        ['nvg', 'flir', 'crt'].forEach(function (k) {
+          if (sensors[k]) {
+            try { sensors[k].enabled = false; } catch (e2) {}
+          }
+        });
+      }
     } catch (e) {}
+  }
+
+  const GOOGLE_TILES_CACHE_BYTES = 1024 * 1024 * 1024;
+
+  function googleTilesetCreateOptions(extra) {
+    const opts = {
+      maximumScreenSpaceError: 2,
+      skipLevelOfDetail: false,
+      immediatelyLoadDesiredLevelOfDetail: true,
+      dynamicScreenSpaceError: false,
+      cacheBytes: GOOGLE_TILES_CACHE_BYTES,
+      maximumCacheOverflowBytes: GOOGLE_TILES_CACHE_BYTES,
+      showCreditsOnScreen: true,
+    };
+    if (extra) {
+      Object.keys(extra).forEach(function (k) { opts[k] = extra[k]; });
+    }
+    return opts;
   }
 
   function tuneGoogleTileset(tileset) {
     if (!tileset) return;
-    try { tileset.maximumScreenSpaceError = 4; } catch (e) {}
-    try { tileset.dynamicScreenSpaceError = true; } catch (e) {}
-    try { tileset.skipLevelOfDetail = true; } catch (e) {}
-    try { tileset.immediatelyLoadDesiredLevelOfDetail = false; } catch (e) {}
-    try { tileset.baseScreenSpaceError = 1024; } catch (e) {}
-    try { tileset.skipScreenSpaceErrorFactor = 16; } catch (e) {}
+    try { tileset.maximumScreenSpaceError = 2; } catch (e) {}
+    try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
+    try { tileset.skipLevelOfDetail = false; } catch (e) {}
+    try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
+    try { tileset.cacheBytes = GOOGLE_TILES_CACHE_BYTES; } catch (e) {}
+    try { tileset.maximumCacheOverflowBytes = GOOGLE_TILES_CACHE_BYTES; } catch (e) {}
+    try { tileset.maximumMemoryUsage = 1024; } catch (e) {}
+  }
+
+  function keepEsriGround(viewer, state) {
+    try {
+      if (viewer && viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true;
+    } catch (e) {}
+    try {
+      if (state && state.esriLayer) {
+        state.esriLayer.show = true;
+        state.esriLayer.alpha = 1;
+      }
+    } catch (e) {}
+  }
+
+  function streetClarityActive(state) {
+    return !!(state && (state._streetMode || state.lastLod === 'City'));
   }
 
   async function tryEnableGooglePhotoreal(Cesium, viewer, state) {
@@ -3494,6 +3546,7 @@
       state.googleTiles = 'active';
       try { state.googleTileset.show = true; } catch (e) {}
       tuneGoogleTileset(state.googleTileset);
+      keepEsriGround(viewer, state);
       setOsmContrast(state, false);
       return true;
     };
@@ -3509,22 +3562,25 @@
     const pending = (async function () {
       if (Cesium.GoogleMaps) Cesium.GoogleMaps.defaultApiKey = key;
       let tileset = null;
+      const tileOpts = googleTilesetCreateOptions({ key: key });
       if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
-        try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key }); }
+        try { tileset = await Cesium.createGooglePhotorealistic3DTileset(tileOpts); }
         catch (e1) {
-          try { tileset = await Cesium.createGooglePhotorealistic3DTileset(key); }
-          catch (e2) { throw e1; }
+          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, cacheBytes: GOOGLE_TILES_CACHE_BYTES, maximumCacheOverflowBytes: GOOGLE_TILES_CACHE_BYTES }); }
+          catch (e1b) {
+            try { tileset = await Cesium.createGooglePhotorealistic3DTileset(key); }
+            catch (e2) { throw e1; }
+          }
         }
       } else if (Cesium.Cesium3DTileset?.fromUrl) {
         tileset = await Cesium.Cesium3DTileset.fromUrl(
           'https://tile.googleapis.com/v1/3dtiles/root.json?key=' + encodeURIComponent(key),
-          { showCreditsOnScreen: true }
+          googleTilesetCreateOptions()
         );
       } else {
-        tileset = new Cesium.Cesium3DTileset({
+        tileset = new Cesium.Cesium3DTileset(Object.assign({
           url: 'https://tile.googleapis.com/v1/3dtiles/root.json?key=' + encodeURIComponent(key),
-          showCreditsOnScreen: true,
-        });
+        }, googleTilesetCreateOptions()));
       }
       if (state.destroyed || !viewer || viewer.isDestroyed?.()) {
         try { tileset.destroy?.(); } catch (e) {}
@@ -3535,6 +3591,7 @@
         return showExisting();
       }
       tuneGoogleTileset(tileset);
+      keepEsriGround(viewer, state);
       viewer.scene.primitives.add(tileset);
       state.googleTileset = tileset;
       if (state.lastLod !== 'City') {
@@ -3564,6 +3621,7 @@
     if (state.googleTileset && !state.googleTileset.isDestroyed?.()) {
       try { state.googleTileset.show = false; } catch (e) {}
     }
+    keepEsriGround(state && state.viewer, state);
     setOsmContrast(state, false);
   }
 
@@ -3661,16 +3719,23 @@
   }
 
   function applySensorSkin(state, skin) {
+    const street = streetClarityActive(state);
     const stages = state.sensorStages || {};
     Object.keys(stages).forEach((k) => {
       if (k === 'bloom' || k === 'fxaa') return;
       if (stages[k]) {
-        try { stages[k].enabled = (k === skin); } catch (e) {}
+        try { stages[k].enabled = street ? false : (k === skin); } catch (e) {}
       }
     });
     if (state.bloomStage) {
-      try { state.bloomStage.enabled = true; } catch (e) {}
+      try { state.bloomStage.enabled = !street; } catch (e) {}
     }
+    try {
+      const pps = state.viewer && state.viewer.scene && state.viewer.scene.postProcessStages;
+      if (pps && pps.bloom) pps.bloom.enabled = !street;
+      if (pps && pps.fxaa) pps.fxaa.enabled = true;
+      try { if (pps && typeof pps.fxaaEnabled !== 'undefined') pps.fxaaEnabled = true; } catch (eFx) {}
+    } catch (e) {}
     if (state.fxaaStage) {
       try { state.fxaaStage.enabled = true; } catch (e) {}
     }
@@ -3738,7 +3803,8 @@
     const finishStreet = function () {
       try { state._streetFlying = false; } catch (e) {}
       tryEnableGooglePhotoreal(Cesium, viewer, state);
-      applyStreetClarity(Cesium, viewer, 'City');
+      applyStreetClarity(Cesium, viewer, 'City', state);
+      applySensorSkin(state, 'eo');
     };
     try {
       const flyOpts = {
@@ -4351,7 +4417,8 @@
               state.lastLod = band;
               setLod(band);
               if (band === 'City' && prevLod !== 'City') {
-                applyStreetClarity(Cesium, viewer, band);
+                applyStreetClarity(Cesium, viewer, band, state);
+                applySensorSkin(state, 'eo');
               }
               syncNightLights(state, band);
               syncSeamark(state, band);
@@ -4370,6 +4437,7 @@
                   }
                 } else {
                   disableGooglePhotoreal(state);
+                  applySensorSkin(state, skinRef.current);
                 }
                 setTilesChip(tilesChipFromState(state, band));
                 refreshCityLabels(Cesium, state, band, layerRef.current);
@@ -4655,7 +4723,7 @@
 
     return React.createElement(
       'div',
-      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + skin, role: 'dialog', 'aria-label': 'Aligned News God Mode' },
+      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + ((streetMode || lod === 'City') ? 'eo' : skin), role: 'dialog', 'aria-label': 'Aligned News God Mode' },
       React.createElement('div', { className: 'v4-godmode-backdrop', onClick: onClose }),
       React.createElement(
         'div',

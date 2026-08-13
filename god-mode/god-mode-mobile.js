@@ -558,23 +558,56 @@
     try {
       if (state && state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
         state.googleTileset.show = true;
+        try { state.googleTileset.maximumScreenSpaceError = 2; } catch (eT) {}
+        try { state.googleTileset.skipLevelOfDetail = false; } catch (eT) {}
+        try { state.googleTileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (eT) {}
+        try { state.googleTileset.cacheBytes = 1024 * 1024 * 1024; } catch (eT) {}
+        try {
+          const stages = viewer.scene && viewer.scene.postProcessStages;
+          if (stages && stages.bloom) stages.bloom.enabled = false;
+          if (stages && stages.fxaa) stages.fxaa.enabled = true;
+        } catch (eFx) {}
+        try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (eG) {}
         return true;
       }
     } catch (e) {}
     try { if (Cesium.GoogleMaps) Cesium.GoogleMaps.defaultApiKey = key; } catch (e) {}
     let tileset = null;
     try {
+      const tileOpts = {
+        key: key,
+        maximumScreenSpaceError: 2,
+        skipLevelOfDetail: false,
+        immediatelyLoadDesiredLevelOfDetail: true,
+        cacheBytes: 1024 * 1024 * 1024,
+        maximumCacheOverflowBytes: 1024 * 1024 * 1024,
+        showCreditsOnScreen: true,
+      };
       if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
-        try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key }); }
-        catch (e1) { tileset = await Cesium.createGooglePhotorealistic3DTileset(key); }
+        try { tileset = await Cesium.createGooglePhotorealistic3DTileset(tileOpts); }
+        catch (e1) {
+          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, cacheBytes: tileOpts.cacheBytes, maximumCacheOverflowBytes: tileOpts.maximumCacheOverflowBytes }); }
+          catch (e1b) { tileset = await Cesium.createGooglePhotorealistic3DTileset(key); }
+        }
       } else if (Cesium.Cesium3DTileset && Cesium.Cesium3DTileset.fromUrl) {
         tileset = await Cesium.Cesium3DTileset.fromUrl(
           'https://tile.googleapis.com/v1/3dtiles/root.json?key=' + encodeURIComponent(key),
-          { showCreditsOnScreen: true }
+          tileOpts
         );
       }
       if (!tileset) return false;
-      try { tileset.maximumScreenSpaceError = 4; } catch (e) {}
+      try { tileset.maximumScreenSpaceError = 2; } catch (e) {}
+      try { tileset.skipLevelOfDetail = false; } catch (e) {}
+      try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
+      try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
+      try { tileset.cacheBytes = 1024 * 1024 * 1024; } catch (e) {}
+      try { tileset.maximumCacheOverflowBytes = 1024 * 1024 * 1024; } catch (e) {}
+      try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (e) {}
+      try {
+        const stages = viewer.scene && viewer.scene.postProcessStages;
+        if (stages && stages.bloom) stages.bloom.enabled = false;
+        if (stages && stages.fxaa) stages.fxaa.enabled = true;
+      } catch (e) {}
       viewer.scene.primitives.add(tileset);
       if (state) state.googleTileset = tileset;
       return true;
