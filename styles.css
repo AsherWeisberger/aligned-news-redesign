@@ -3770,6 +3770,10 @@ html.gm-overlay-open,
 html.gm-overlay-open body {
   overflow: hidden !important;
 }
+html.gm-overlay-open .mobile-dock {
+  display: none !important;
+  pointer-events: none !important;
+}
 .gm-overlay-boot {
   position: absolute;
   inset: 0;

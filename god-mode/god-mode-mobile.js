@@ -964,18 +964,18 @@
       ssc.enableInputs = true;
       ssc.enableZoom = true;
       ssc.enableRotate = true;
-      ssc.enableTilt = false;
-      ssc.enableLook = true;
-      ssc.enableTranslate = true;
+      ssc.enableTilt = true;
+      ssc.enableLook = false;
+      ssc.enableTranslate = false;
       ssc.minimumZoomDistance = MIN_CAMERA_ALT_M;
       ssc.maximumZoomDistance = 4.5e7;
       ssc.inertiaZoom = 0.4;
       try {
         const CET = Cesium.CameraEventType;
-        ssc.translateEventTypes = CET.LEFT_DRAG;
         ssc.zoomEventTypes = [CET.PINCH, CET.WHEEL];
-        ssc.rotateEventTypes = CET.RIGHT_DRAG;
-        ssc.tiltEventTypes = [];
+        ssc.rotateEventTypes = CET.LEFT_DRAG;
+        ssc.tiltEventTypes = CET.PINCH;
+        ssc.translateEventTypes = [];
       } catch (eZ) {}
     } catch (e) {}
     try {
@@ -1014,6 +1014,11 @@
       state._onCamChanged = onCamChanged;
     } catch (e) {}
     try { viewer.resize(); } catch (e) {}
+    try {
+      global.setTimeout(function () {
+        try { viewer.resize(); } catch (eR) {}
+      }, 300);
+    } catch (eT) {}
     return makeCesiumPhoneAdapter(Cesium, viewer, state);
   }
   function syncGlobeCameraNear(g) {
@@ -1113,6 +1118,7 @@
     } catch (e) {}
   }
   function bindPhoneGlobeGestures(globe, rootEl) {
+    if (globe && (globe.__cesium || globe._viewer || globe.viewer)) return function () {};
     const el = rootEl || null;
     if (!el || el.__godModeGestures) return function () {};
     el.__godModeGestures = true;
@@ -3154,8 +3160,8 @@
     '.v4-gm-phone{position:absolute;inset:0;z-index:1;width:100%;height:100%;background:#05070c;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;overflow:hidden;pointer-events:auto;touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;}',
     'html.v4-godmode-phone,html.v4-godmode-phone body,body.v4-godmode-phone{touch-action:none;overscroll-behavior:none;overflow:hidden;height:100%;}',
     'body.v4-godmode-phone .hd,body.v4-godmode-phone .v6-gnav,body.v4-godmode-phone .mobile-nav-layer{visibility:hidden!important;pointer-events:none!important;}',
-    '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;-webkit-user-select:none;user-select:none;transform:none;-webkit-transform:none;}',
-    '.v4-gm-phone-globe canvas{display:block;width:100%!important;height:100%!important;}',
+    '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;pointer-events:auto;-webkit-user-select:none;user-select:none;transform:none;-webkit-transform:none;}',
+    '.v4-gm-phone-globe canvas{display:block;width:100%!important;height:100%!important;touch-action:none;pointer-events:auto;}',
     '.v4-gm-phone-top{position:absolute;top:env(safe-area-inset-top,0px);left:env(safe-area-inset-left,0px);right:env(safe-area-inset-right,0px);z-index:2;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);display:flex;align-items:center;justify-content:space-between;padding:8px 10px;pointer-events:none;}',
     '.v4-gm-phone-live{display:flex;align-items:center;gap:8px;background:#0b0d12;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 12px;font-size:12px;letter-spacing:.08em;font-weight:700;color:#f2f5fa;pointer-events:none;}',
     '.v4-gm-phone-dot{width:7px;height:7px;border-radius:50%;background:#34c759;box-shadow:0 0 8px #34c759;}',
@@ -3176,7 +3182,7 @@
     '.v4-gm-phone-search-go,.v4-gm-phone-sv{min-height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:13px;font-weight:700;touch-action:manipulation;pointer-events:auto;}',
     '.v4-gm-phone-sv-card{margin-top:10px;min-height:44px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:14px;font-weight:700;touch-action:manipulation;}',
     '.v4-gm-phone-back{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:44px;padding:0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:13px;font-weight:700;}',
-    '.v4-gm-phone-globe .cesium-viewer,.v4-gm-phone-globe .cesium-viewer-cesiumWidgetContainer,.v4-gm-phone-globe .cesium-widget,.v4-gm-phone-globe .cesium-widget canvas,.v4-gm-phone-cesium{position:absolute;inset:0;width:100%!important;height:100%!important;}',
+    '.v4-gm-phone-globe .cesium-viewer,.v4-gm-phone-globe .cesium-viewer-cesiumWidgetContainer,.v4-gm-phone-globe .cesium-widget,.v4-gm-phone-globe .cesium-widget canvas,.v4-gm-phone-cesium{position:absolute;inset:0;width:100%!important;height:100%!important;touch-action:none;pointer-events:auto;}',
     '.v4-gm-phone-globe .cesium-viewer-toolbar,.v4-gm-phone-globe .cesium-viewer-animationContainer,.v4-gm-phone-globe .cesium-viewer-timelineContainer,.v4-gm-phone-globe .cesium-viewer-fullscreenContainer{display:none!important;}',
     '.v4-gm-phone-suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:4;max-height:240px;overflow:auto;background:rgba(11,13,18,.96);border:1px solid rgba(255,255,255,.22);border-radius:12px;pointer-events:auto;}',
     '.v4-gm-phone-suggest button{display:block;width:100%;text-align:left;appearance:none;border:0;background:transparent;color:#f2f5fa;padding:10px 12px;font:inherit;pointer-events:auto;}',
