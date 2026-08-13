@@ -3156,6 +3156,22 @@
     return '';
   }
 
+  function dockLayerIcon(id, filled) {
+    const common = 'viewBox="0 0 24 24" width="22" height="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+    const stroke = filled
+      ? 'fill="currentColor" stroke="currentColor" stroke-width="1.4"'
+      : 'fill="none" stroke="currentColor" stroke-width="1.85"';
+    const icons = {
+      all: '<svg ' + common + ' ' + stroke + '><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9"/><path d="M12 3c-2.4 2.6-3.6 5.6-3.6 9s1.2 6.4 3.6 9"/></svg>',
+      weather: '<svg ' + common + ' ' + stroke + '><path d="M7.4 18h9.2a3.8 3.8 0 0 0 .5-7.6 5.8 5.8 0 0 0-11.1-1.6A3.4 3.4 0 0 0 7.4 18z"/></svg>',
+      flights: '<svg ' + common + ' ' + stroke + '><path d="M21 15.5v-1.6l-8-5V4.4a1.5 1.5 0 0 0-3 0v4.5l-8 5v1.6l8-2.5V19l-2 1.4V22l3.5-1 3.5 1v-1.6L13 19v-6l8 2.5z"/></svg>',
+      satellites: '<svg ' + common + ' ' + stroke + '><rect x="9.2" y="9.2" width="5.6" height="5.6" rx="1" transform="rotate(45 12 12)"/><path d="M7 7l2.6 2.6M17 17l-2.6-2.6M7 17l2.6-2.6M17 7l-2.6 2.6"/><path d="M15.2 8.8l3.6-3.6M8.8 15.2l-3.6 3.6"/></svg>',
+      ships: '<svg ' + common + ' ' + stroke + '><path d="M4 15.5l1.6 3.2h12.8L20 15.5H4z"/><path d="M6.5 15.5V10l5.5-4 5.5 4v5.5"/><path d="M12 6.2V15"/></svg>',
+      events: '<svg ' + common + ' ' + stroke + '><path d="M13 2L5 13.5h6.2L10 22l8-11.5h-6.2L13 2z"/></svg>'
+    };
+    return icons[id] || icons.all;
+  }
+
   const PHONE_CSS = [
     '.v4-gm-phone{position:absolute;inset:0;z-index:1;width:100%;height:100%;background:#05070c;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;overflow:hidden;pointer-events:auto;touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;}',
     'html.v4-godmode-phone,html.v4-godmode-phone body,body.v4-godmode-phone{touch-action:none;overscroll-behavior:none;overflow:hidden;height:100%;}',
@@ -3168,10 +3184,18 @@
     '.v4-gm-phone-utc{opacity:.9;font-variant-numeric:tabular-nums;letter-spacing:.04em;pointer-events:none;}',
     '.v4-gm-phone-close{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;width:44px;height:44px;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:#0b0d12;color:#fff;font-size:22px;line-height:1;}',
     '.v4-gm-phone-err{position:absolute;top:calc(env(safe-area-inset-top,0px) + 64px);left:12px;right:12px;z-index:2;pointer-events:none;text-align:center;padding:8px 12px;background:#1a0c0c;border:1px solid rgba(255,80,80,.45);border-radius:10px;color:#ffd0d0;font-size:13px;font-weight:600;}',
-    '.v4-gm-phone-sheet{position:absolute;left:0;right:0;bottom:0;z-index:2;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);pointer-events:auto;padding-bottom:env(safe-area-inset-bottom,0px);background:#0b0d12;}',
-    '.v4-gm-phone-chips{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:8px;padding:10px 12px 12px;background:#0b0d12;border-top:1px solid rgba(255,255,255,.16);}',
-    '.v4-gm-phone-chip{flex:1 1 calc(33.33% - 8px);min-width:96px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:14px;font-weight:700;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}',
-    '.v4-gm-phone-chip.is-on{background:#e8edf5;color:#0b0d12;border-color:#e8edf5;}',
+    '.v4-gm-phone-sheet{position:absolute;left:0;right:0;bottom:0;z-index:2;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);pointer-events:none;background:transparent;padding:0;}',
+    '.v4-gm-phone-dock{pointer-events:none;padding:0;}',
+    '.v4-gm-phone-dock-inner{pointer-events:auto;display:flex;align-items:center;justify-content:space-around;gap:2px;margin:0 18px calc(10px + env(safe-area-inset-bottom,0px));padding:6px 8px;border-radius:28px;border:1px solid rgba(255,255,255,0.1);border-top-color:rgba(255,255,255,0.16);background:rgba(18,20,26,0.82);backdrop-filter:saturate(1.4) blur(22px);-webkit-backdrop-filter:saturate(1.4) blur(22px);box-shadow:0 1px 0 rgba(255,255,255,0.08) inset,0 22px 52px rgba(0,0,0,0.55),0 8px 20px rgba(0,0,0,0.28);}',
+    '.v4-gm-phone-dock-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-height:44px;min-width:44px;padding:6px 8px;border:0;border-radius:999px;background:transparent;color:rgba(232,237,245,0.55);appearance:none;-webkit-appearance:none;font:inherit;cursor:pointer;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:color .18s cubic-bezier(.2,.8,.2,1),background .18s cubic-bezier(.2,.8,.2,1),transform .18s cubic-bezier(.22,1.4,.36,1);}',
+    '.v4-gm-phone-dock-item:active{transform:scale(0.96);}',
+    '.v4-gm-phone-dock-ico{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;color:inherit;}',
+    '.v4-gm-phone-dock-ico svg{display:block;width:22px;height:22px;}',
+    '.v4-gm-phone-dock-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}',
+    '.v4-gm-phone-dock-item.is-on{background:rgba(232,237,245,0.16);color:#e8edf5;border-radius:999px;padding:6px 12px;flex-direction:column;gap:1px;min-width:64px;transform:translateY(-1px);}',
+    '.v4-gm-phone-dock-item.is-on:active{transform:translateY(-1px) scale(0.96);}',
+    '.v4-gm-phone-dock-item.is-on .v4-gm-phone-dock-label{position:static;width:auto;height:auto;overflow:visible;clip:auto;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.1;}',
+    '.v4-gm-phone-dock-item.is-on .v4-gm-phone-dock-ico svg{fill:currentColor;stroke:currentColor;}',
     '.v4-gm-phone-card{margin:0 12px 10px;padding:14px 16px;border-radius:16px;background:#121826;border:1px solid rgba(255,255,255,.14);pointer-events:auto;}',
     '.v4-gm-phone-card-name{font-size:16px;font-weight:700;line-height:1.25;color:#f2f5fa;}',
     '.v4-gm-phone-card-type{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-top:3px;}',
@@ -4654,12 +4678,21 @@
         className: 'v4-gm-phone-sv-card'
       }, bindTap(function () { enterStreet(selected.lat, selected.lng); })), 'Street View') : null
     ) : null;
-    const chipEls = LAYERS.map(function (row) {
+    const dockEls = LAYERS.map(function (row) {
+      const on = layer === row.id;
       return el('button', Object.assign({
         key: row.id,
         type: 'button',
-        className: 'v4-gm-phone-chip' + (layer === row.id ? ' is-on' : '')
-      }, bindTap(function () { pickLayer(row.id); })), row.label);
+        className: 'v4-gm-phone-dock-item' + (on ? ' is-on' : ''),
+        'aria-label': row.label,
+        'aria-pressed': on ? 'true' : 'false'
+      }, bindTap(function () { pickLayer(row.id); })),
+        el('span', {
+          className: 'v4-gm-phone-dock-ico',
+          dangerouslySetInnerHTML: { __html: dockLayerIcon(row.id, on) }
+        }),
+        el('span', { className: 'v4-gm-phone-dock-label' }, row.label)
+      );
     });
     const goProps = Object.assign({ type: 'button', className: 'v4-gm-phone-search-go', 'aria-label': 'Search' }, bindTap(runSearch));
     const svProps = Object.assign({ type: 'button', className: 'v4-gm-phone-sv', 'aria-label': 'Street View' }, bindTap(goStreetView));
@@ -4752,7 +4785,9 @@
         searchMsg ? el('div', { className: 'v4-gm-phone-search-msg' }, searchMsg) : null,
         selectedCard,
         feedsLoading ? el('div', { className: 'v4-gm-phone-hint' }, 'Loading live data') : (!flights.length ? el('div', { className: 'v4-gm-phone-hint' }, 'Flights offline') : null),
-        el.apply(null, ['div', { className: 'v4-gm-phone-chips' }].concat(chipEls))
+        el('nav', { className: 'v4-gm-phone-dock', 'aria-label': 'Layers' },
+          el.apply(null, ['div', { className: 'v4-gm-phone-dock-inner' }].concat(dockEls))
+        )
       )
     );
   }
