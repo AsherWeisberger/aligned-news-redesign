@@ -5,7 +5,7 @@
 (function (global) {
   "use strict";
 
-  var VERSION = "an52";
+  var VERSION = "an53";
   var BASE = (function () {
     try {
       var scripts = document.getElementsByTagName("script");

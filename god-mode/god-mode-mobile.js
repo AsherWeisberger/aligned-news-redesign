@@ -3197,71 +3197,399 @@
       if (typeof global.__gmPhoneStreetView === 'function') global.__gmPhoneStreetView(lat, lng);
     } catch (e) {}
   }
-  function mobileGeocodeKindNom(hit) {
-    const t = String((hit && (hit.addresstype || hit.type)) || '').toLowerCase();
-    const cls = String((hit && hit.class) || '').toLowerCase();
-    const addr = (hit && hit.address) || {};
-    if (addr.house_number || t === 'house' || t === 'building' || cls === 'building') return 'address';
-    if (cls === 'highway' || t === 'road') return 'street';
-    if (t === 'city' || t === 'town' || t === 'village' || t === 'state' || t === 'country' || t === 'administrative') return 'city';
-    return 'place';
+  function parseHouseNumber(q) {
+    const m = String(q || "").trim().match(/^(\d+[A-Za-z]?)\b/);
+    return m ? String(m[1]) : "";
   }
-  async function geocodeAddress(query) {
-    const q = String(query || '').trim();
-    if (!q) return null;
-    const looksAddr = /\d/.test(q);
+
+  function normHouse(h) {
+    return String(h || "").trim().toUpperCase().replace(/^0+(?=\d)/, "");
+  }
+
+  function housesEqual(a, b) {
+    const x = normHouse(a);
+    const y = normHouse(b);
+    return !!(x && y && x === y);
+  }
+
+  const US_STATE_MAP = {
+    al: "Alabama", alabama: "Alabama", ak: "Alaska", alaska: "Alaska",
+    az: "Arizona", arizona: "Arizona", ar: "Arkansas", arkansas: "Arkansas",
+    ca: "California", california: "California", co: "Colorado", colorado: "Colorado",
+    ct: "Connecticut", connecticut: "Connecticut", de: "Delaware", delaware: "Delaware",
+    fl: "Florida", florida: "Florida", ga: "Georgia", georgia: "Georgia",
+    hi: "Hawaii", hawaii: "Hawaii", id: "Idaho", idaho: "Idaho",
+    il: "Illinois", illinois: "Illinois", in: "Indiana", indiana: "Indiana",
+    ia: "Iowa", iowa: "Iowa", ks: "Kansas", kansas: "Kansas",
+    ky: "Kentucky", kentucky: "Kentucky", la: "Louisiana", louisiana: "Louisiana",
+    me: "Maine", maine: "Maine", md: "Maryland", maryland: "Maryland",
+    ma: "Massachusetts", massachusetts: "Massachusetts", mi: "Michigan", michigan: "Michigan",
+    mn: "Minnesota", minnesota: "Minnesota", ms: "Mississippi", mississippi: "Mississippi",
+    mo: "Missouri", missouri: "Missouri", mt: "Montana", montana: "Montana",
+    ne: "Nebraska", nebraska: "Nebraska", nv: "Nevada", nevada: "Nevada",
+    nh: "New Hampshire", "new hampshire": "New Hampshire",
+    nj: "New Jersey", "new jersey": "New Jersey",
+    nm: "New Mexico", "new mexico": "New Mexico",
+    ny: "New York", "new york": "New York",
+    nc: "North Carolina", "north carolina": "North Carolina",
+    nd: "North Dakota", "north dakota": "North Dakota",
+    oh: "Ohio", ohio: "Ohio", ok: "Oklahoma", oklahoma: "Oklahoma",
+    or: "Oregon", oregon: "Oregon", pa: "Pennsylvania", pennsylvania: "Pennsylvania",
+    ri: "Rhode Island", "rhode island": "Rhode Island",
+    sc: "South Carolina", "south carolina": "South Carolina",
+    sd: "South Dakota", "south dakota": "South Dakota",
+    tn: "Tennessee", tennessee: "Tennessee", tx: "Texas", texas: "Texas",
+    ut: "Utah", utah: "Utah", vt: "Vermont", vermont: "Vermont",
+    va: "Virginia", virginia: "Virginia", wa: "Washington", washington: "Washington",
+    wv: "West Virginia", "west virginia": "West Virginia",
+    wi: "Wisconsin", wisconsin: "Wisconsin", wy: "Wyoming", wyoming: "Wyoming",
+    dc: "District of Columbia", "district of columbia": "District of Columbia",
+  };
+  const STREET_SUF_RE = /\b(ave(?:nue)?|blvd|boulevard|cir(?:cle)?|ct|court|dr(?:ive)?|hwy|highway|ln|lane|pkwy|parkway|pl(?:ace)?|rd|road|st(?:reet)?|ter(?:race)?|trl|trail|way|wy)\b/i;
+
+  function looksUsQuery(q) {
+    const s = String(q || "");
+    if (/\b\d{5}(?:-\d{4})?\b/.test(s)) return true;
+    if (/\b(united states|u\.?s\.?a\.?)\b/i.test(s)) return true;
+    if (/\b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming|district of columbia)\b/i.test(s)) return true;
+    if (/\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b/.test(s)) return true;
+    return false;
+  }
+
+  function parseUsStreetQuery(q) {
+    let s = String(q || "").replace(/[.,]/g, " ").replace(/\s+/g, " ").trim();
+    if (!s) return null;
+    s = s.replace(/\b(united states|u s a|usa|u s)\s*$/i, "").trim();
+    const house = parseHouseNumber(s);
+    const zipM = s.match(/\b(\d{5})(?:-\d{4})?\b/);
+    const zip = zipM ? zipM[1] : "";
+    if (zipM) s = (s.slice(0, zipM.index) + " " + s.slice(zipM.index + zipM[0].length)).replace(/\s+/g, " ").trim();
+    const tokens = s.split(" ").filter(Boolean);
+    let state = "";
+    for (let n = 2; n >= 1; n--) {
+      if (tokens.length < n) continue;
+      const tail = tokens.slice(-n).join(" ").toLowerCase();
+      if (US_STATE_MAP[tail]) {
+        state = US_STATE_MAP[tail];
+        tokens.splice(-n, n);
+        break;
+      }
+    }
+    s = tokens.join(" ");
+    let street = "";
+    let city = "";
+    const suf = s.match(new RegExp("^(.+?\\b(?:ave(?:nue)?|blvd|boulevard|cir(?:cle)?|ct|court|dr(?:ive)?|hwy|highway|ln|lane|pkwy|parkway|pl(?:ace)?|rd|road|st(?:reet)?|ter(?:race)?|trl|trail|way|wy))\\b(.*)$", "i"));
+    if (suf) {
+      street = suf[1].trim();
+      city = suf[2].trim();
+    } else {
+      street = s;
+    }
+    return { house: house, street: street, city: city, state: state, zip: zip };
+  }
+
+  function destMeters(lat, lng, bearingDeg, distM) {
+    const rad = Math.PI / 180;
+    const br = Number(bearingDeg) * rad;
+    const north = Number(distM) * Math.cos(br);
+    const east = Number(distM) * Math.sin(br);
+    const dLat = north / 111320;
+    const cosLat = Math.cos(Number(lat) * rad);
+    const denom = 111320 * (Math.abs(cosLat) < 0.15 ? (cosLat < 0 ? -0.15 : 0.15) : cosLat);
+    const dLng = east / denom;
+    return { lat: Number(lat) + dLat, lng: Number(lng) + dLng };
+  }
+
+  function bearingDeg(lat1, lng1, lat2, lng2) {
+    const p1 = Number(lat1) * Math.PI / 180;
+    const p2 = Number(lat2) * Math.PI / 180;
+    const dl = (Number(lng2) - Number(lng1)) * Math.PI / 180;
+    const y = Math.sin(dl) * Math.cos(p2);
+    const x = Math.cos(p1) * Math.sin(p2) - Math.sin(p1) * Math.cos(p2) * Math.cos(dl);
+    return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+  }
+
+  function censusUrl(address) {
+    return "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address="
+      + encodeURIComponent(address) + "&benchmark=Public_AR_Current&format=json";
+  }
+
+  function censusLineAddress(comp, houseOverride) {
+    comp = comp || {};
+    const bits = [
+      houseOverride != null ? String(houseOverride) : "",
+      comp.preDirection, comp.preType, comp.preQualifier,
+      comp.streetName, comp.suffixType, comp.suffixDirection, comp.suffixQualifier,
+      comp.city, comp.state, comp.zip,
+    ].map(function (x) { return String(x || "").trim(); }).filter(Boolean);
+    return bits.join(" ");
+  }
+
+  async function fetchCensusJson(address) {
+    const addr = String(address || "").trim();
+    if (!addr) return null;
+    const url = censusUrl(addr);
     try {
-      const res = await fetchWithTimeout('https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=5&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
-      if (res && res.ok) {
-        const rows = await res.json();
-        const list = Array.isArray(rows) ? rows : [];
-        let best = list[0];
-        let bestRank = -1;
+      const res = await fetchWithTimeout(url, { headers: { Accept: "application/json" } }, 8000);
+      if (res && res.ok) return await res.json();
+    } catch (e) {}
+    try {
+      if (typeof fetchGodModeProxy === "function") {
+        const data = await fetchGodModeProxy("/god-mode/census-geocode?address=" + encodeURIComponent(addr), 10000);
+        if (data && (data.result || data.addressMatches || Number.isFinite(Number(data.lat)))) return data;
+      }
+    } catch (e) {}
+    const proxies = [
+      "https://corsproxy.io/?" + encodeURIComponent(url),
+      "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
+    ];
+    for (let i = 0; i < proxies.length; i++) {
+      try {
+        const res = await fetchWithTimeout(proxies[i], { headers: { Accept: "application/json, text/plain, */*" } }, 10000);
+        if (!res || !res.ok) continue;
+        const body = await res.text();
+        if (body && /^\s*\{/.test(body)) return JSON.parse(body);
+      } catch (e) {}
+    }
+    return null;
+  }
+
+  function pickCensusMatch(data, wantHouse) {
+    const matches = data && data.result && Array.isArray(data.result.addressMatches)
+      ? data.result.addressMatches
+      : (data && Array.isArray(data.addressMatches) ? data.addressMatches : []);
+    if (!matches.length) return null;
+    if (wantHouse) {
+      for (let i = 0; i < matches.length; i++) {
+        const matched = String((matches[i] && matches[i].matchedAddress) || "");
+        const mHouse = (matched.match(/^(\d+)/) || [])[1] || "";
+        if (housesEqual(mHouse, wantHouse)) return matches[i];
+      }
+    }
+    return matches[0];
+  }
+
+  function censusPoint(match) {
+    const coords = (match && match.coordinates) || {};
+    const lat = Number(coords.y);
+    const lng = Number(coords.x);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    return { lat: lat, lng: lng };
+  }
+
+  async function offsetCensusToParcel(match) {
+    const pt = censusPoint(match);
+    if (!pt) return null;
+    const side = String(((match && match.tigerLine) || {}).side || "").toUpperCase();
+    const comp = (match && match.addressComponents) || {};
+    const fromA = String(comp.fromAddress || "").trim();
+    const toA = String(comp.toAddress || "").trim();
+    let heading = null;
+    if (fromA && toA && fromA !== toA) {
+      try {
+        const pair = await Promise.all([
+          fetchCensusJson(censusLineAddress(comp, fromA)),
+          fetchCensusJson(censusLineAddress(comp, toA)),
+        ]);
+        const pa = censusPoint(pickCensusMatch(pair[0], fromA));
+        const pb = censusPoint(pickCensusMatch(pair[1], toA));
+        if (pa && pb) {
+          const dx = pb.lng - pa.lng;
+          const dy = pb.lat - pa.lat;
+          if ((dx * dx + dy * dy) > 1e-14) heading = bearingDeg(pa.lat, pa.lng, pb.lat, pb.lng);
+        }
+      } catch (e) {}
+    }
+    if (heading == null || !side) return { lat: pt.lat, lng: pt.lng };
+    const br = side === "R" ? ((heading + 90) % 360) : ((heading - 90 + 360) % 360);
+    return destMeters(pt.lat, pt.lng, br, 20);
+  }
+
+  async function geocodeCensus(query, wantHouse) {
+    const data = await fetchCensusJson(query);
+    if (data && Number.isFinite(Number(data.lat)) && Number.isFinite(Number(data.lng))) {
+      return { lat: Number(data.lat), lng: Number(data.lng), name: data.name || query, kind: "address", source: "census" };
+    }
+    const match = pickCensusMatch(data, wantHouse);
+    if (!match) return null;
+    const off = await offsetCensusToParcel(match);
+    if (!off) return null;
+    return {
+      lat: off.lat,
+      lng: off.lng,
+      name: String(match.matchedAddress || query),
+      kind: "address",
+      source: "census",
+    };
+  }
+
+  function nominatimHeaders() {
+    // Nominatim requires a valid User-Agent; browsers send one and forbid overriding it.
+    return { Accept: "application/json" };
+  }
+
+  async function fetchNominatim(params) {
+    const u = new URLSearchParams(Object.assign({ format: "jsonv2", addressdetails: "1", limit: "8" }, params || {}));
+    const res = await fetchWithTimeout("https://nominatim.openstreetmap.org/search?" + u.toString(), { headers: nominatimHeaders() }, 8000);
+    if (!res || !res.ok) return [];
+    const rows = await res.json();
+    return Array.isArray(rows) ? rows : [];
+  }
+
+  function geocodeKindFromNominatim(hit) {
+    const t = String((hit && (hit.addresstype || hit.type)) || "").toLowerCase();
+    const cls = String((hit && hit.class) || "").toLowerCase();
+    const addr = (hit && hit.address) || {};
+    if (addr.house_number || t === "house" || t === "building" || t === "residential" || cls === "building") return "address";
+    if (cls === "highway" || t === "road" || t === "pedestrian" || t === "living_street") return "street";
+    if (t === "city" || t === "town" || t === "village" || t === "hamlet" || t === "suburb" || t === "state" || t === "country" || t === "administrative" || t === "municipality") return "city";
+    return "place";
+  }
+
+  function geocodeKindFromPhoton(props) {
+    props = props || {};
+    const osmKey = String(props.osm_key || "").toLowerCase();
+    const osmVal = String(props.osm_value || "").toLowerCase();
+    if (props.housenumber || osmKey === "building") return "address";
+    if (osmKey === "highway") return props.housenumber ? "address" : "street";
+    if (osmKey === "place" && /city|town|village|hamlet|state|country|county|municipality/.test(osmVal)) return "city";
+    if (osmKey === "boundary") return "city";
+    return props.street ? "street" : "place";
+  }
+
+  function pickNominatimHit(rows, q) {
+    const list = Array.isArray(rows) ? rows : [];
+    if (!list.length) return null;
+    const wantHouse = parseHouseNumber(q);
+    const wantAddr = !!wantHouse || /\d/.test(String(q || ""));
+    let best = null;
+    let bestRank = -1;
+    for (let i = 0; i < list.length; i++) {
+      const hit = list[i];
+      const k = geocodeKindFromNominatim(hit);
+      const hn = ((hit && hit.address) || {}).house_number;
+      let r = 2;
+      if (wantHouse) {
+        if (housesEqual(hn, wantHouse)) r = 10;
+        else if (k === "street" || k === "city") r = 0;
+        else r = 1;
+      } else {
         const rank = { address: 4, street: 3, place: 2, city: 1 };
-        for (let i = 0; i < list.length; i++) {
-          const k = mobileGeocodeKindNom(list[i]);
-          let r = rank[k] || 2;
-          if (looksAddr && k === 'city') r = 0;
-          if (r > bestRank) { bestRank = r; best = list[i]; }
-        }
-        const lat = Number(best && best.lat);
-        const lng = Number(best && best.lon);
-        if (Number.isFinite(lat) && Number.isFinite(lng) && !(looksAddr && mobileGeocodeKindNom(best) === 'city')) {
-          return { lat: lat, lng: lng, name: String((best && (best.display_name || best.name)) || q), kind: mobileGeocodeKindNom(best) };
-        }
+        r = rank[k] || 2;
+        if (wantAddr && k === "city") r = 0;
+      }
+      if (r > bestRank) { bestRank = r; best = hit; }
+    }
+    if (!best) return null;
+    if (wantHouse && bestRank < 10) return null;
+    const lat = Number(best && best.lat);
+    const lng = Number(best && best.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    return {
+      lat: lat,
+      lng: lng,
+      name: String((best && (best.display_name || best.name)) || q),
+      kind: geocodeKindFromNominatim(best),
+      source: "nominatim",
+    };
+  }
+
+  function pickPhotonHit(data, q) {
+    const feats = data && data.features;
+    if (!feats || !feats.length) return null;
+    const wantHouse = parseHouseNumber(q);
+    let best = null;
+    let bestRank = -1;
+    const rank = { address: 4, street: 3, place: 2, city: 1 };
+    for (let i = 0; i < feats.length; i++) {
+      const hit = feats[i];
+      const coords = hit && hit.geometry && hit.geometry.coordinates;
+      if (!coords || coords.length < 2) continue;
+      const props = hit.properties || {};
+      const kind = geocodeKindFromPhoton(props);
+      if (wantHouse) {
+        if (!housesEqual(props.housenumber, wantHouse)) continue;
+        if (kind === "street") continue;
+      }
+      let r = rank[kind] || 2;
+      if (wantHouse && kind === "city") r = 0;
+      if (r > bestRank) {
+        bestRank = r;
+        const name = props.name || props.street || q;
+        const streetLine = props.housenumber && props.street ? (props.housenumber + " " + props.street) : name;
+        const bits = [streetLine, props.city || props.town || props.village, props.state, props.country].filter(Boolean);
+        best = { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(", "), kind: kind, source: "photon" };
+      }
+    }
+    if (!best || !Number.isFinite(best.lat) || !Number.isFinite(best.lng)) return null;
+    return best;
+  }
+
+  async function geocodeAddress(query) {
+    const q = String(query || "").trim();
+    if (!q) return null;
+    const wantHouse = parseHouseNumber(q);
+    const looksAddr = !!wantHouse || /\d/.test(q);
+    const parsed = parseUsStreetQuery(q);
+    const us = looksUsQuery(q) || !!(wantHouse && STREET_SUF_RE.test(q));
+
+    if (wantHouse && us) {
+      try {
+        const hit = await geocodeCensus(q, wantHouse);
+        if (hit) return hit;
+      } catch (e) {}
+    }
+
+    const acceptNom = function (hit) {
+      if (!hit) return null;
+      if (wantHouse && (hit.kind === "street" || hit.kind === "city")) return null;
+      if (looksAddr && hit.kind === "city") return null;
+      return hit;
+    };
+
+    try {
+      if (parsed && parsed.street) {
+        const params = { street: parsed.street, country: "US" };
+        if (parsed.city) params.city = parsed.city;
+        if (parsed.state) params.state = parsed.state;
+        if (parsed.zip) params.postalcode = parsed.zip;
+        const hit = acceptNom(pickNominatimHit(await fetchNominatim(params), q));
+        if (hit) return hit;
       }
     } catch (e) {}
     try {
-      const res = await fetchWithTimeout('https://photon.komoot.io/api/?limit=5&q=' + encodeURIComponent(q), { headers: { Accept: 'application/json' } }, 8000);
+      const hit = acceptNom(pickNominatimHit(await fetchNominatim({ q: q }), q));
+      if (hit) return hit;
+    } catch (e) {}
+
+    try {
+      const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 8000);
       if (res && res.ok) {
-        const data = await res.json();
-        const feats = (data && data.features) || [];
-        for (let i = 0; i < feats.length; i++) {
-          const hit = feats[i];
-          const coords = hit && hit.geometry && hit.geometry.coordinates;
-          const props = (hit && hit.properties) || {};
-          if (coords && coords.length >= 2 && Number.isFinite(Number(coords[1]))) {
-            const kind = props.housenumber ? 'address' : (props.osm_key === 'place' ? 'city' : 'place');
-            if (looksAddr && kind === 'city') continue;
-            const name = props.housenumber && props.street ? (props.housenumber + ' ' + props.street) : (props.name || props.street || q);
-            const bits = [name, props.city || props.town || props.village, props.state, props.country].filter(Boolean);
-            return { lat: Number(coords[1]), lng: Number(coords[0]), name: bits.join(', '), kind: kind };
+        const hit = pickPhotonHit(await res.json(), q);
+        if (hit && !(looksAddr && hit.kind === "city") && !(wantHouse && hit.kind === "street")) return hit;
+      }
+    } catch (e) {}
+
+    if (!looksAddr) {
+      try {
+        if (typeof geocodeDealCity === "function") {
+          const city = q.split(",")[0].trim();
+          const geo = await geocodeDealCity(city, {});
+          if (geo) return { lat: geo.lat, lng: geo.lng, name: geo.name || q, kind: "city" };
+        }
+      } catch (e) {}
+      try {
+        const city = q.split(",")[0].trim();
+        const res = await fetchWithTimeout("https://geocoding-api.open-meteo.com/v1/search?name=" + encodeURIComponent(city) + "&count=1&language=en&format=json", {}, 8000);
+        if (res && res.ok) {
+          const data = await res.json();
+          const om = Array.isArray(data && data.results) ? data.results[0] : null;
+          if (om && Number.isFinite(om.latitude)) {
+            return { lat: om.latitude, lng: om.longitude, name: [om.name, om.admin1, om.country].filter(Boolean).join(", ") || q, kind: "city" };
           }
         }
-      }
-    } catch (e) {}
-    if (looksAddr) return null;
-    try {
-      const city = q.split(',')[0].trim();
-      const res = await fetchWithTimeout('https://geocoding-api.open-meteo.com/v1/search?name=' + encodeURIComponent(city) + '&count=1&language=en&format=json', {}, 8000);
-      if (res && res.ok) {
-        const data = await res.json();
-        const hit = Array.isArray(data && data.results) ? data.results[0] : null;
-        if (hit && Number.isFinite(hit.latitude)) {
-          return { lat: hit.latitude, lng: hit.longitude, name: [hit.name, hit.admin1, hit.country].filter(Boolean).join(', ') || q };
-        }
-      }
-    } catch (e) {}
+      } catch (e) {}
+    }
     return null;
   }
 
@@ -3637,7 +3965,7 @@
           const Cesium = g._cesium;
           const ent = g._viewer.entities.add({
             id: 'gm2-search-pin',
-            position: Cesium.Cartesian3.fromDegrees(Number(hit.lng), Number(hit.lat), 18),
+            position: Cesium.Cartesian3.fromDegrees(Number(hit.lng), Number(hit.lat), 3),
             billboard: {
               image: mobileSearchPinDataUrl(),
               verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
