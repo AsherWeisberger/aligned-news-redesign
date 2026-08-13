@@ -1,0 +1,144 @@
+/**
+ * Aligned News / God Mode boot — self-contained overlay.
+ * Loads React + Cesium (desktop) or globe.gl HUD (phone). Never navigates to UNIFY/ops.
+ */
+(function (global) {
+  "use strict";
+
+  var VERSION = "an37";
+  var BASE = (function () {
+    try {
+      var scripts = document.getElementsByTagName("script");
+      for (var i = scripts.length - 1; i >= 0; i--) {
+        var src = scripts[i].src || "";
+        if (/god-mode\/boot\.js/.test(src)) return src.replace(/boot\.js(?:\?.*)?$/, "");
+      }
+    } catch (e) {}
+    return "god-mode/";
+  })();
+
+  // Public Google Photorealistic 3D Tiles key already shipped on the ops frontend.
+  try {
+    if (!global.UNALIGNED_GOOGLE_MAPS_TILES_KEY) {
+      global.UNALIGNED_GOOGLE_MAPS_TILES_KEY = "AIzaSyAdikDP3IFcWhm-p-FVq49GHUoLqg18s64";
+    }
+  } catch (e) {}
+
+  function loadScript(src, id) {
+    return new Promise(function (resolve, reject) {
+      if (id) {
+        var existing = document.getElementById(id);
+        if (existing) {
+          if (existing.dataset && existing.dataset.loaded === "1") return resolve();
+          existing.addEventListener("load", function () { resolve(); }, { once: true });
+          existing.addEventListener("error", function () { reject(new Error("Failed " + src)); }, { once: true });
+          return;
+        }
+      }
+      var s = document.createElement("script");
+      if (id) s.id = id;
+      s.src = src;
+      s.async = true;
+      s.crossOrigin = "anonymous";
+      s.onload = function () { try { s.dataset.loaded = "1"; } catch (e) {} resolve(); };
+      s.onerror = function () { reject(new Error("Failed " + src)); };
+      document.head.appendChild(s);
+    });
+  }
+
+  function isPhoneGodMode() {
+    try {
+      var g = new URLSearchParams(location.search).get("god");
+      if (g === "phone") return true;
+      if (g === "legacy" || g === "desktop") return false;
+    } catch (e) {}
+    try {
+      if (navigator.userAgentData && navigator.userAgentData.mobile) return true;
+    } catch (e) {}
+    var ua = String(navigator.userAgent || "");
+    var platform = String(navigator.platform || "");
+    var touchPoints = Number(navigator.maxTouchPoints || 0);
+    var touch = touchPoints > 0 || ("ontouchstart" in window);
+    var coarse = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+    var hoverNone = !!(window.matchMedia && window.matchMedia("(hover: none)").matches);
+    var narrow = !!(window.matchMedia && (
+      window.matchMedia("(max-width: 1100px)").matches ||
+      window.matchMedia("(max-device-width: 1100px)").matches
+    ));
+    var minDim = Math.min(
+      Number(window.innerWidth) || 9999,
+      Number(window.innerHeight) || 9999,
+      Number(screen && screen.width) || 9999,
+      Number(screen && screen.height) || 9999
+    );
+    var ios = /iPhone|iPod|iPad/i.test(ua) || /iPhone|iPod|iPad/i.test(platform) ||
+      ((touch || coarse) && /Macintosh|Mac OS X/i.test(ua));
+    var android = /Android/i.test(ua);
+    return ios || android || coarse || (hoverNone && touch) || (touch && (narrow || minDim <= 1100));
+  }
+
+  function loadReact() {
+    if (global.React && global.ReactDOM) return Promise.resolve();
+    return loadScript("https://unpkg.com/react@18.3.1/umd/react.production.min.js", "an-react").then(function () {
+      return loadScript("https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js", "an-react-dom");
+    });
+  }
+
+  var engineWant = null;
+  var loadPromise = null;
+  var reactRoot = null;
+  var layer = "all";
+  var openFlag = false;
+  var closeCb = null;
+
+  function loadEngine() {
+    var want = isPhoneGodMode() ? "phone" : "cesium";
+    if (typeof global.V4GodModeEarth === "function" && global.V4GodModeEarth.engine === want) {
+      return Promise.resolve(global.V4GodModeEarth);
+    }
+    if (loadPromise && engineWant === want) return loadPromise;
+    engineWant = want;
+    var src = BASE + (want === "phone" ? "god-mode-mobile.js" : "god-mode-cesium.js") + "?v=" + VERSION;
+    loadPromise = loadScript(src, "an-godmode-" + want).then(function () {
+      if (typeof global.V4GodModeEarth !== "function") {
+        throw new Error("God Mode module loaded but V4GodModeEarth missing (React required)");
+      }
+      if (!global.V4GodModeEarth.engine) global.V4GodModeEarth.engine = want;
+      return global.V4GodModeEarth;
+    });
+    return loadPromise;
+  }
+
+  function render() {
+    var Cmp = global.V4GodModeEarth;
+    var mount = document.getElementById("godModeMount");
+    if (!Cmp || !mount || !global.React || !global.ReactDOM) return;
+    var el = global.React.createElement(Cmp, {
+      open: openFlag,
+      layer: layer,
+      viewer: {},
+      onClose: function () { if (typeof closeCb === "function") closeCb(); },
+      onLayerChange: function (id) { layer = id; }
+    });
+    if (global.ReactDOM.createRoot) {
+      if (!reactRoot) reactRoot = global.ReactDOM.createRoot(mount);
+      reactRoot.render(el);
+    } else {
+      global.ReactDOM.render(el, mount);
+    }
+  }
+
+  global.AlignedNewsGodMode = {
+    open: function (opts) {
+      opts = opts || {};
+      if (opts.onClose) closeCb = opts.onClose;
+      openFlag = true;
+      return loadReact().then(loadEngine).then(function () { render(); });
+    },
+    close: function () {
+      openFlag = false;
+      try { render(); } catch (e) {}
+    },
+    isOpen: function () { return openFlag; }
+  };
+})(window);

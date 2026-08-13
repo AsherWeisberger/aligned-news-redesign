@@ -2387,7 +2387,8 @@
   }
 
 
-  var GOD_MODE_OPS_URL = "https://agentdashboard.cloud/ops";
+  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an37";
+  var godModeBootPromise = null;
 
   function ensureGodModeWidget() {
     var actions = document.querySelector(".top-actions");
@@ -2421,26 +2422,20 @@
     overlay.className = "gm-overlay";
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", "God Mode");
+    overlay.setAttribute("aria-label", "Aligned News God Mode");
     overlay.hidden = true;
     overlay.innerHTML =
-      '<div class="gm-overlay-bar">' +
-        '<div class="gm-overlay-copy">' +
-          '<span class="gm-overlay-title">God Mode</span>' +
-          '<span class="gm-overlay-sub">Live Earth · weather, flights, sats, ships</span>' +
+      '<div class="gm-overlay-boot" id="godModeBoot">' +
+        '<div class="gm-overlay-boot-copy">' +
+          '<span class="gm-overlay-title">Aligned News / God Mode</span>' +
+          '<span class="gm-overlay-sub" id="godModeBootSub">Starting live globe…</span>' +
         "</div>" +
-        '<span class="gm-overlay-spacer"></span>' +
-        '<a class="gm-overlay-open-tab" id="godModeOpenTab" href="' + GOD_MODE_OPS_URL + '" target="_blank" rel="noopener noreferrer">Open in tab</a>' +
         '<button type="button" class="gm-overlay-close" id="godModeClose" aria-label="Close God Mode">' +
           '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
         "</button>" +
       "</div>" +
-      '<iframe class="gm-overlay-frame" id="godModeFrame" title="God Mode" allow="geolocation; fullscreen; clipboard-read; clipboard-write" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
-      '<div class="gm-overlay-fallback" id="godModeFallback">' +
-        "<h2>Open the live globe</h2>" +
-        "<p>This browser blocked embedding God Mode (frame headers). The live mini globe stays in the corner — open the full desk in a new tab.</p>" +
-        '<a href="' + GOD_MODE_OPS_URL + '" target="_blank" rel="noopener noreferrer">Open God Mode</a>' +
-      "</div>";
+      '<div class="gm-overlay-mount" id="godModeMount"></div>' +
+      '<div class="gm-overlay-error" id="godModeError" hidden></div>';
     document.body.appendChild(overlay);
     return overlay;
   }
@@ -2618,70 +2613,60 @@
     };
   }
 
-  function probeGodModeFrame(iframe, onBlocked) {
-    var settled = false;
-    var timer = null;
-    function done(blocked) {
-      if (settled) return;
-      settled = true;
-      if (timer) clearTimeout(timer);
-      iframe._gmProbeTimer = null;
-      if (blocked && typeof onBlocked === "function") onBlocked();
-    }
-    function inspect() {
-      try {
-        var loc = iframe.contentWindow && iframe.contentWindow.location && iframe.contentWindow.location.href;
-        if (!loc || loc === "about:blank") return false;
-        return true;
-      } catch (err) {
-        return true;
-      }
-    }
-    iframe.addEventListener("load", function () {
-      if (inspect()) done(false);
-    }, { once: true });
-    iframe.addEventListener("error", function () { done(true); }, { once: true });
-    timer = setTimeout(function () {
-      if (inspect()) done(false);
-      else done(true);
-    }, 4200);
-    iframe._gmProbeTimer = timer;
+  function loadGodModeBoot() {
+    if (window.AlignedNewsGodMode) return Promise.resolve(window.AlignedNewsGodMode);
+    if (godModeBootPromise) return godModeBootPromise;
+    godModeBootPromise = new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = GOD_MODE_BOOT_SRC;
+      s.async = true;
+      s.onload = function () {
+        if (window.AlignedNewsGodMode) resolve(window.AlignedNewsGodMode);
+        else reject(new Error("God Mode boot missing"));
+      };
+      s.onerror = function () { reject(new Error("God Mode boot failed to load")); };
+      document.head.appendChild(s);
+    });
+    return godModeBootPromise;
   }
 
   function closeGodModeOverlay() {
     var overlay = document.getElementById("godModeOverlay");
-    var frame = document.getElementById("godModeFrame");
     var widget = document.getElementById("godModeWidget");
     if (overlay) {
-      overlay.classList.remove("is-open", "is-blocked");
+      overlay.classList.remove("is-open", "is-blocked", "is-ready");
       overlay.hidden = true;
     }
     document.documentElement.classList.remove("gm-overlay-open");
-    if (frame) {
-      if (frame._gmProbeTimer) clearTimeout(frame._gmProbeTimer);
-      frame.removeAttribute("src");
-    }
     if (widget) widget.setAttribute("aria-expanded", "false");
+    try { if (window.AlignedNewsGodMode) window.AlignedNewsGodMode.close(); } catch (e) {}
     var canvas = widget && widget.querySelector("canvas");
     if (canvas && canvas._gmResume) canvas._gmResume();
   }
 
   function openGodModeOverlay() {
     var overlay = ensureGodModeOverlay();
-    var frame = document.getElementById("godModeFrame");
     var widget = document.getElementById("godModeWidget");
+    var errEl = document.getElementById("godModeError");
+    var bootSub = document.getElementById("godModeBootSub");
     overlay.hidden = false;
     overlay.classList.add("is-open");
-    overlay.classList.remove("is-blocked");
+    overlay.classList.remove("is-blocked", "is-ready");
     document.documentElement.classList.add("gm-overlay-open");
     if (widget) widget.setAttribute("aria-expanded", "true");
-    if (frame) {
-      if (frame._gmProbeTimer) clearTimeout(frame._gmProbeTimer);
-      probeGodModeFrame(frame, function () {
+    if (errEl) { errEl.hidden = true; errEl.textContent = ""; }
+    if (bootSub) bootSub.textContent = "Starting live globe…";
+    loadGodModeBoot()
+      .then(function (api) { return api.open({ onClose: closeGodModeOverlay }); })
+      .then(function () { overlay.classList.add("is-ready"); })
+      .catch(function (err) {
         overlay.classList.add("is-blocked");
+        if (bootSub) bootSub.textContent = "God Mode failed to start";
+        if (errEl) {
+          errEl.hidden = false;
+          errEl.textContent = String((err && err.message) || err || "God Mode failed");
+        }
       });
-      frame.src = GOD_MODE_OPS_URL;
-    }
   }
 
   function initGodModeChrome() {

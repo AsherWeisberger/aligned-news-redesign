@@ -3592,7 +3592,7 @@ html[data-density="compact"] .meta {
   min-height: 220px;
 }
 
-/* === an36: God Mode live globe widget (top-right chrome) === */
+/* === an37: God Mode live globe widget + in-page Cesium HUD === */
 .gm-widget {
   position: relative;
   flex-shrink: 0;
@@ -3667,28 +3667,31 @@ html[data-density="compact"] .meta {
 .gm-overlay {
   position: fixed;
   inset: 0;
-  z-index: 240;
+  z-index: 400;
   display: none;
-  flex-direction: column;
   background: #05070c;
   color: #f4f4f5;
+  pointer-events: auto;
 }
-.gm-overlay.is-open { display: flex; }
+.gm-overlay.is-open { display: block; }
 html.gm-overlay-open,
 html.gm-overlay-open body {
   overflow: hidden !important;
 }
-.gm-overlay-bar {
-  flex: 0 0 auto;
+.gm-overlay-boot {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 0.7rem;
-  min-height: 48px;
-  padding: 0.35rem 0.7rem 0.35rem 1rem;
-  background: #0b0d14;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.7rem 0.8rem;
+  background: #05070c;
+  pointer-events: auto;
 }
-.gm-overlay-copy { min-width: 0; }
+.gm-overlay.is-ready .gm-overlay-boot { display: none; }
+.gm-overlay-boot-copy { min-width: 0; }
 .gm-overlay-title {
   display: block;
   font-weight: 750;
@@ -3703,72 +3706,95 @@ html.gm-overlay-open body {
   font-weight: 550;
   letter-spacing: 0.01em;
 }
-.gm-overlay-spacer { flex: 1; }
-.gm-overlay-open-tab,
 .gm-overlay-close {
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  color: #e5e7eb;
-  border-radius: 999px;
-  cursor: pointer;
-  font: 650 0.75rem/1 var(--font);
-}
-.gm-overlay-open-tab {
-  padding: 0.38rem 0.72rem;
-  text-decoration: none;
-}
-.gm-overlay-open-tab:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-.gm-overlay-close {
   width: 34px;
   height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5e7eb;
+  border-radius: 999px;
+  cursor: pointer;
 }
 .gm-overlay-close:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
-.gm-overlay-frame {
-  flex: 1 1 auto;
+.gm-overlay-mount {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   width: 100%;
-  border: 0;
-  background: #05070c;
-  min-height: 0;
+  height: 100%;
+  pointer-events: auto;
 }
-.gm-overlay-fallback {
+.gm-overlay .v4-godmode,
+.gm-overlay .v4-gm-phone {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: auto !important;
+}
+.gm-overlay .v4-godmode-shell {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border: 0 !important;
+  pointer-events: auto;
+}
+/* Kill leftover fog / click eaters — globe + HUD must receive pointer events */
+.gm-overlay .v4-godmode-backdrop,
+.gm-overlay .gm-fog,
+.gm-overlay [data-gm-fog] {
+  display: none !important;
+  pointer-events: none !important;
+}
+.gm-overlay .v4-gm2-vignette,
+.gm-overlay .v4-gm2-scan,
+.gm-overlay .v4-gm2-sensor-fx {
+  pointer-events: none !important;
+}
+.gm-overlay .v4-gm2-cesium,
+.gm-overlay .v4-gm2-cesium canvas,
+.gm-overlay .cesium-widget,
+.gm-overlay .cesium-widget canvas,
+.gm-overlay .v4-gm-phone-globe,
+.gm-overlay .v4-gm-phone-globe canvas {
+  pointer-events: auto !important;
+}
+.gm-overlay .v4-godmode-layers,
+.gm-overlay .v4-gm2-hud-right,
+.gm-overlay .v4-gm2-timeline,
+.gm-overlay .v4-gm2-search,
+.gm-overlay .v4-godmode-head,
+.gm-overlay .v4-gm-phone-top,
+.gm-overlay .v4-gm-phone-search,
+.gm-overlay .v4-gm-phone-sheet {
+  pointer-events: auto !important;
+}
+.gm-overlay-error {
   display: none;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.25rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  max-width: 28rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(255, 69, 58, 0.4);
+  border-radius: 10px;
+  background: rgba(20, 8, 10, 0.92);
+  color: #fecaca;
+  font-size: 0.9rem;
+  line-height: 1.45;
   text-align: center;
 }
-.gm-overlay.is-blocked .gm-overlay-frame { display: none; }
-.gm-overlay.is-blocked .gm-overlay-fallback { display: flex; flex-direction: column; gap: 0.75rem; }
-.gm-overlay-fallback h2 {
-  margin: 0;
-  font-size: 1.15rem;
-  letter-spacing: -0.03em;
-}
-.gm-overlay-fallback p {
-  margin: 0;
-  max-width: 28rem;
-  color: #a1a1aa;
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-.gm-overlay-fallback a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.35rem;
-  padding: 0.55rem 1rem;
-  border-radius: 999px;
-  background: #f4f4f5;
-  color: #09090b;
-  font-weight: 700;
-  text-decoration: none;
-}
+.gm-overlay.is-blocked .gm-overlay-error { display: block; }
+.gm-overlay.is-blocked .gm-overlay-boot { display: flex; }
 
 @media (max-width: 860px) {
   .gm-widget {
@@ -3786,7 +3812,6 @@ html.gm-overlay-open body {
 }
 @media (max-width: 520px) {
   .gm-overlay-sub { display: none; }
-  .gm-overlay-open-tab { font-size: 0.7rem; padding: 0.34rem 0.62rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .gm-widget-atm,

@@ -1,7 +1,9 @@
-# Aligned News — Digg-beater Pro desk
+# Aligned News — Pro desk
 
-Overnight rebuild: ranked AI signal from Scoble’s X lists.
+Ranked AI signal from Scoble’s X lists.
 
-**Live:** https://asherweisberger.github.io/aligned-news-redesign/
+**Live:** https://asherweisberger.github.io/aligned-news-redesign/?bust=an37
+
+God Mode (top-right globe) runs in-page — not UNIFY/ops.
 
 Hard-refresh (Cmd-Shift-R) after pulls.
