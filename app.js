@@ -2386,6 +2386,329 @@
     }
   }
 
+
+  var GOD_MODE_OPS_URL = "https://agentdashboard.cloud/ops";
+
+  function ensureGodModeWidget() {
+    var actions = document.querySelector(".top-actions");
+    if (!actions) return null;
+    var el = document.getElementById("godModeWidget");
+    if (!el) {
+      el = document.createElement("button");
+      el.type = "button";
+      el.className = "gm-widget";
+      el.id = "godModeWidget";
+      el.setAttribute("aria-label", "Open God Mode");
+      el.title = "God Mode";
+      el.innerHTML =
+        '<span class="gm-widget-atm" aria-hidden="true"></span>' +
+        '<canvas class="gm-widget-globe" width="72" height="72" aria-hidden="true"></canvas>' +
+        '<span class="gm-widget-pulse" aria-hidden="true"></span>';
+      var theme = document.getElementById("themeToggle");
+      var focus = document.getElementById("chromeToggle");
+      if (theme) actions.insertBefore(el, theme);
+      else if (focus) actions.insertBefore(el, focus.nextSibling);
+      else actions.appendChild(el);
+    }
+    return el;
+  }
+
+  function ensureGodModeOverlay() {
+    var overlay = document.getElementById("godModeOverlay");
+    if (overlay) return overlay;
+    overlay = document.createElement("div");
+    overlay.id = "godModeOverlay";
+    overlay.className = "gm-overlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "God Mode");
+    overlay.hidden = true;
+    overlay.innerHTML =
+      '<div class="gm-overlay-bar">' +
+        '<div class="gm-overlay-copy">' +
+          '<span class="gm-overlay-title">God Mode</span>' +
+          '<span class="gm-overlay-sub">Live Earth · weather, flights, sats, ships</span>' +
+        "</div>" +
+        '<span class="gm-overlay-spacer"></span>' +
+        '<a class="gm-overlay-open-tab" id="godModeOpenTab" href="' + GOD_MODE_OPS_URL + '" target="_blank" rel="noopener noreferrer">Open in tab</a>' +
+        '<button type="button" class="gm-overlay-close" id="godModeClose" aria-label="Close God Mode">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+        "</button>" +
+      "</div>" +
+      '<iframe class="gm-overlay-frame" id="godModeFrame" title="God Mode" allow="geolocation; fullscreen; clipboard-read; clipboard-write" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+      '<div class="gm-overlay-fallback" id="godModeFallback">' +
+        "<h2>Open the live globe</h2>" +
+        "<p>This browser blocked embedding God Mode (frame headers). The live mini globe stays in the corner — open the full desk in a new tab.</p>" +
+        '<a href="' + GOD_MODE_OPS_URL + '" target="_blank" rel="noopener noreferrer">Open God Mode</a>' +
+      "</div>";
+    document.body.appendChild(overlay);
+    return overlay;
+  }
+
+  function startMiniGlobe(canvas) {
+    if (!canvas || canvas.dataset.gmBound === "1") return;
+    canvas.dataset.gmBound = "1";
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    var reduce = false;
+    try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+    var rot = 1.15;
+    var t0 = 0;
+    var running = true;
+    var visible = true;
+    var lands = [
+      [42, -98, 0.42, 0.24],
+      [58, -110, 0.28, 0.14],
+      [15, -88, 0.12, 0.16],
+      [-8, -58, 0.22, 0.38],
+      [8, 18, 0.28, 0.38],
+      [48, 10, 0.18, 0.14],
+      [58, 40, 0.28, 0.14],
+      [32, 88, 0.42, 0.22],
+      [62, 100, 0.36, 0.16],
+      [0, 114, 0.18, 0.12],
+      [-22, 134, 0.18, 0.14],
+      [-42, 172, 0.1, 0.12]
+    ];
+    var sats = [
+      { inc: 0.55, speed: 0.62, phase: 0.2, r: 1.18 },
+      { inc: -0.35, speed: -0.48, phase: 1.4, r: 1.26 },
+      { inc: 0.18, speed: 0.9, phase: 2.1, r: 1.12 }
+    ];
+
+    function project(lat, lon, radius) {
+      var la = lat * Math.PI / 180;
+      var lo = lon * Math.PI / 180 + rot;
+      var x = Math.cos(la) * Math.sin(lo);
+      var y = Math.sin(la);
+      var z = Math.cos(la) * Math.cos(lo);
+      return { x: x * radius, y: -y * radius, z: z };
+    }
+
+    function draw(ts) {
+      if (!running) return;
+      if (!t0) t0 = ts;
+      var dt = Math.min(48, (ts - t0) || 16);
+      t0 = ts;
+      if (!reduce && visible) rot += dt * 0.00022;
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      var css = canvas.clientWidth || 32;
+      var size = Math.round(css * dpr);
+      if (canvas.width !== size || canvas.height !== size) {
+        canvas.width = size;
+        canvas.height = size;
+      }
+      var w = canvas.width;
+      var cx = w / 2;
+      var r = w * 0.46;
+      ctx.clearRect(0, 0, w, w);
+
+      ctx.beginPath();
+      ctx.arc(cx, cx, r, 0, Math.PI * 2);
+      var ocean = ctx.createRadialGradient(cx - r * 0.35, cx - r * 0.4, r * 0.1, cx, cx, r);
+      ocean.addColorStop(0, "#4aa3e8");
+      ocean.addColorStop(0.45, "#1b6cb3");
+      ocean.addColorStop(1, "#082445");
+      ctx.fillStyle = ocean;
+      ctx.fill();
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cx, r, 0, Math.PI * 2);
+      ctx.clip();
+
+      var i, land, p, prx, pry;
+      ctx.fillStyle = "rgba(164, 214, 122, 0.92)";
+      for (i = 0; i < lands.length; i++) {
+        land = lands[i];
+        p = project(land[0], land[1], r);
+        if (p.z <= 0.08) continue;
+        prx = r * land[2] * (0.45 + p.z * 0.55);
+        pry = r * land[3];
+        ctx.beginPath();
+        ctx.ellipse(cx + p.x, cx + p.y, prx, pry, 0, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.strokeStyle = "rgba(226, 246, 255, 0.16)";
+      ctx.lineWidth = Math.max(0.6, w / 90);
+      var mer, par, a, prev, pt;
+      for (mer = -180; mer < 180; mer += 30) {
+        prev = null;
+        ctx.beginPath();
+        for (a = -88; a <= 88; a += 6) {
+          pt = project(a, mer, r);
+          if (pt.z <= 0) { prev = null; continue; }
+          if (!prev) ctx.moveTo(cx + pt.x, cx + pt.y);
+          else ctx.lineTo(cx + pt.x, cx + pt.y);
+          prev = pt;
+        }
+        ctx.stroke();
+      }
+      for (par = -60; par <= 60; par += 30) {
+        prev = null;
+        ctx.beginPath();
+        for (a = -180; a <= 180; a += 8) {
+          pt = project(par, a, r);
+          if (pt.z <= 0) { prev = null; continue; }
+          if (!prev) ctx.moveTo(cx + pt.x, cx + pt.y);
+          else ctx.lineTo(cx + pt.x, cx + pt.y);
+          prev = pt;
+        }
+        ctx.stroke();
+      }
+
+      var night = ctx.createLinearGradient(cx - r, cx, cx + r, cx);
+      night.addColorStop(0, "rgba(2, 6, 18, 0.55)");
+      night.addColorStop(0.42, "rgba(2, 6, 18, 0.08)");
+      night.addColorStop(1, "rgba(2, 6, 18, 0)");
+      ctx.fillStyle = night;
+      ctx.fillRect(0, 0, w, w);
+
+      var spec = ctx.createRadialGradient(cx - r * 0.32, cx - r * 0.38, 0, cx - r * 0.32, cx - r * 0.38, r * 0.7);
+      spec.addColorStop(0, "rgba(255, 255, 255, 0.28)");
+      spec.addColorStop(0.35, "rgba(186, 230, 253, 0.08)");
+      spec.addColorStop(1, "rgba(255, 255, 255, 0)");
+      ctx.fillStyle = spec;
+      ctx.beginPath();
+      ctx.arc(cx, cx, r, 0, Math.PI * 2);
+      ctx.fill();
+
+      var s, ang, sx, sy, sz;
+      for (i = 0; i < sats.length; i++) {
+        s = sats[i];
+        ang = rot * s.speed * 6 + s.phase;
+        sx = Math.cos(ang) * s.r * r;
+        sy = Math.sin(ang) * s.inc * r;
+        sz = Math.sin(ang + 0.4);
+        if (sz < -0.15) continue;
+        ctx.beginPath();
+        ctx.arc(cx + sx * 0.72, cx + sy, Math.max(1.1, w * 0.018), 0, Math.PI * 2);
+        ctx.fillStyle = sz > 0.2 ? "#fde68a" : "rgba(253, 230, 138, 0.55)";
+        ctx.fill();
+      }
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.arc(cx, cx, r, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(186, 230, 253, 0.35)";
+      ctx.lineWidth = Math.max(1, w / 70);
+      ctx.stroke();
+
+      if (!reduce && visible) requestAnimationFrame(draw);
+    }
+
+    requestAnimationFrame(draw);
+    document.addEventListener("visibilitychange", function () {
+      visible = !document.hidden && !document.documentElement.classList.contains("gm-overlay-open");
+      if (visible) { t0 = 0; requestAnimationFrame(draw); }
+    });
+    if (typeof IntersectionObserver === "function") {
+      var io = new IntersectionObserver(function (entries) {
+        visible = !!(entries[0] && entries[0].isIntersecting) && !document.hidden &&
+          !document.documentElement.classList.contains("gm-overlay-open");
+        if (visible) { t0 = 0; requestAnimationFrame(draw); }
+      });
+      io.observe(canvas);
+    }
+    canvas._gmResume = function () {
+      visible = true;
+      t0 = 0;
+      requestAnimationFrame(draw);
+    };
+  }
+
+  function probeGodModeFrame(iframe, onBlocked) {
+    var settled = false;
+    var timer = null;
+    function done(blocked) {
+      if (settled) return;
+      settled = true;
+      if (timer) clearTimeout(timer);
+      iframe._gmProbeTimer = null;
+      if (blocked && typeof onBlocked === "function") onBlocked();
+    }
+    function inspect() {
+      try {
+        var loc = iframe.contentWindow && iframe.contentWindow.location && iframe.contentWindow.location.href;
+        if (!loc || loc === "about:blank") return false;
+        return true;
+      } catch (err) {
+        return true;
+      }
+    }
+    iframe.addEventListener("load", function () {
+      if (inspect()) done(false);
+    }, { once: true });
+    iframe.addEventListener("error", function () { done(true); }, { once: true });
+    timer = setTimeout(function () {
+      if (inspect()) done(false);
+      else done(true);
+    }, 4200);
+    iframe._gmProbeTimer = timer;
+  }
+
+  function closeGodModeOverlay() {
+    var overlay = document.getElementById("godModeOverlay");
+    var frame = document.getElementById("godModeFrame");
+    var widget = document.getElementById("godModeWidget");
+    if (overlay) {
+      overlay.classList.remove("is-open", "is-blocked");
+      overlay.hidden = true;
+    }
+    document.documentElement.classList.remove("gm-overlay-open");
+    if (frame) {
+      if (frame._gmProbeTimer) clearTimeout(frame._gmProbeTimer);
+      frame.removeAttribute("src");
+    }
+    if (widget) widget.setAttribute("aria-expanded", "false");
+    var canvas = widget && widget.querySelector("canvas");
+    if (canvas && canvas._gmResume) canvas._gmResume();
+  }
+
+  function openGodModeOverlay() {
+    var overlay = ensureGodModeOverlay();
+    var frame = document.getElementById("godModeFrame");
+    var widget = document.getElementById("godModeWidget");
+    overlay.hidden = false;
+    overlay.classList.add("is-open");
+    overlay.classList.remove("is-blocked");
+    document.documentElement.classList.add("gm-overlay-open");
+    if (widget) widget.setAttribute("aria-expanded", "true");
+    if (frame) {
+      if (frame._gmProbeTimer) clearTimeout(frame._gmProbeTimer);
+      probeGodModeFrame(frame, function () {
+        overlay.classList.add("is-blocked");
+      });
+      frame.src = GOD_MODE_OPS_URL;
+    }
+  }
+
+  function initGodModeChrome() {
+    var widget = ensureGodModeWidget();
+    if (!widget) return;
+    widget.setAttribute("aria-expanded", "false");
+    widget.setAttribute("aria-haspopup", "dialog");
+    var canvas = widget.querySelector("canvas");
+    if (canvas) startMiniGlobe(canvas);
+    if (widget.dataset.gmBound === "1") return;
+    widget.dataset.gmBound = "1";
+    widget.addEventListener("click", function () {
+      openGodModeOverlay();
+    });
+    var overlay = ensureGodModeOverlay();
+    var closeBtn = document.getElementById("godModeClose");
+    if (closeBtn) closeBtn.addEventListener("click", closeGodModeOverlay);
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closeGodModeOverlay();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.documentElement.classList.contains("gm-overlay-open")) {
+        closeGodModeOverlay();
+      }
+    });
+  }
+
   function bindShell() {
 
     // Mobile dock: hide on scroll down, reveal on scroll up
@@ -2501,6 +2824,8 @@
         }, 120);
       });
     }
+
+    initGodModeChrome();
   }
 
   function setTitle(page) {

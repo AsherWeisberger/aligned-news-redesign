@@ -3591,3 +3591,204 @@ html[data-density="compact"] .meta {
   border-radius: 14px;
   min-height: 220px;
 }
+
+/* === an36: God Mode live globe widget (top-right chrome) === */
+.gm-widget {
+  position: relative;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  margin: 0 0.05rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.gm-widget:hover .gm-widget-globe,
+.gm-widget:focus-visible .gm-widget-globe {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #60a5fa 55%, transparent),
+    0 0 16px rgba(56, 189, 248, 0.35),
+    inset -6px -4px 10px rgba(0, 0, 0, 0.45);
+}
+.gm-widget:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.gm-widget-atm {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, transparent 54%, rgba(96, 165, 250, 0.38) 66%, transparent 76%);
+  animation: gm-atm-pulse 3.4s ease-in-out infinite;
+}
+.gm-widget-globe {
+  position: relative;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: block;
+  background: #04101f;
+  box-shadow:
+    0 0 0 1px rgba(125, 211, 252, 0.28),
+    0 4px 10px rgba(8, 47, 73, 0.28),
+    inset -7px -5px 12px rgba(0, 0, 0, 0.5),
+    inset 3px 2px 6px rgba(186, 230, 253, 0.18);
+  transition: transform 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
+}
+.gm-widget-pulse {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  z-index: 2;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--live);
+  border: 1.5px solid var(--bg);
+  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.45);
+  animation: live-pulse 2.6s var(--ease-soft) infinite;
+  pointer-events: none;
+}
+@keyframes gm-atm-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.gm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  display: none;
+  flex-direction: column;
+  background: #05070c;
+  color: #f4f4f5;
+}
+.gm-overlay.is-open { display: flex; }
+html.gm-overlay-open,
+html.gm-overlay-open body {
+  overflow: hidden !important;
+}
+.gm-overlay-bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 48px;
+  padding: 0.35rem 0.7rem 0.35rem 1rem;
+  background: #0b0d14;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.gm-overlay-copy { min-width: 0; }
+.gm-overlay-title {
+  display: block;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  font-size: 0.92rem;
+  line-height: 1.15;
+}
+.gm-overlay-sub {
+  display: block;
+  color: #9ca3af;
+  font-size: 0.68rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+}
+.gm-overlay-spacer { flex: 1; }
+.gm-overlay-open-tab,
+.gm-overlay-close {
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5e7eb;
+  border-radius: 999px;
+  cursor: pointer;
+  font: 650 0.75rem/1 var(--font);
+}
+.gm-overlay-open-tab {
+  padding: 0.38rem 0.72rem;
+  text-decoration: none;
+}
+.gm-overlay-open-tab:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.gm-overlay-close {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.gm-overlay-close:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.gm-overlay-frame {
+  flex: 1 1 auto;
+  width: 100%;
+  border: 0;
+  background: #05070c;
+  min-height: 0;
+}
+.gm-overlay-fallback {
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  text-align: center;
+}
+.gm-overlay.is-blocked .gm-overlay-frame { display: none; }
+.gm-overlay.is-blocked .gm-overlay-fallback { display: flex; flex-direction: column; gap: 0.75rem; }
+.gm-overlay-fallback h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+.gm-overlay-fallback p {
+  margin: 0;
+  max-width: 28rem;
+  color: #a1a1aa;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.gm-overlay-fallback a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.35rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: #f4f4f5;
+  color: #09090b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .gm-widget {
+    width: 36px;
+    height: 36px;
+  }
+  .gm-widget-globe {
+    width: 30px;
+    height: 30px;
+  }
+  /* Stay in topbar — never sit on the phone dock */
+  html.has-mobile-dock .gm-widget {
+    display: inline-flex;
+  }
+}
+@media (max-width: 520px) {
+  .gm-overlay-sub { display: none; }
+  .gm-overlay-open-tab { font-size: 0.7rem; padding: 0.34rem 0.62rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gm-widget-atm,
+  .gm-widget-pulse { animation: none !important; }
+}
