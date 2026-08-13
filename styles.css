@@ -3389,3 +3389,205 @@ body[data-page="auth"] .app {
     transition: none !important;
   }
 }
+
+/* === an35: photo-first lead + GitHub-like rows === */
+
+/* Unbox Why it matters — left accent, not a leftover card */
+.lead-why,
+.article-why {
+  margin: 0.2rem 0 0.2rem;
+  padding: 0.1rem 0 0.1rem 0.85rem;
+  border: none;
+  border-left: 2.5px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.48;
+  max-width: none;
+  width: 100%;
+}
+.article-why {
+  margin: 0.15rem 0 1.05rem;
+  max-width: var(--measure);
+}
+.lead-why p,
+.article-why p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 500;
+}
+.lead-why-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.18rem;
+}
+html[data-theme="dark"] .lead-why,
+html[data-theme="dark"] .article-why {
+  background: transparent;
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .lead-why p,
+html[data-theme="dark"] .article-why p {
+  color: var(--text-secondary);
+}
+
+/* Photo-first top story: hero flush of the feed column */
+.lead-card-photo {
+  padding: 0.85rem 0 1.2rem;
+}
+.lead-card-photo .lead-rank-row {
+  margin-bottom: 0.6rem;
+}
+.lead-card-photo .lead-hero {
+  margin: 0 0 0.9rem;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 240px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: none;
+}
+.lead-card-photo .lead-hero::after {
+  background: linear-gradient(180deg, transparent 62%, rgba(12,13,16,0.12));
+}
+html[data-theme="dark"] .lead-card-photo .lead-hero::after {
+  background: linear-gradient(180deg, transparent 62%, rgba(0,0,0,0.28));
+}
+.lead-card-photo .lead-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.62rem, 2.9vw, 2.22rem);
+  font-weight: 750;
+  letter-spacing: -0.034em;
+  line-height: 1.16;
+  max-width: none;
+  width: 100%;
+}
+.lead-card-photo .lead-dek {
+  margin: 0 0 0.8rem;
+  font-size: 1.06rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: none;
+  width: 100%;
+}
+.lead-card-photo .lead-why,
+.lead-card-photo .lead-meta {
+  max-width: none;
+  width: 100%;
+}
+.lead-card-photo .lead-meta {
+  margin-top: 0.75rem;
+  gap: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .lead-card-photo .lead-hero {
+    min-height: 180px;
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+  }
+  .lead-card-photo .lead-title {
+    font-size: 1.48rem;
+  }
+}
+
+/* Numbered rows: GitHub-like type, quieter meta, keep ranks */
+.feed-row {
+  padding: 0.88rem 0.05rem 0.88rem 0;
+  gap: 0.5rem 0.7rem;
+}
+.rank {
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: color-mix(in srgb, var(--muted) 92%, transparent);
+  padding-top: 0.22rem;
+}
+.story-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.32;
+  margin: 0 0 0.18rem;
+}
+.excerpt {
+  margin: 0 0 0.38rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--muted);
+  -webkit-line-clamp: 2;
+}
+.meta {
+  font-size: 0.72rem;
+  gap: 0.28rem 0.5rem;
+  color: color-mix(in srgb, var(--muted) 88%, var(--text));
+}
+.feed-row .row-thumb {
+  width: 88px;
+  height: 88px;
+  border-radius: 10px;
+  border-color: color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+body[data-page="signals"] .story-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.18rem;
+}
+body[data-page="signals"] .excerpt {
+  font-size: 0.875rem;
+  color: var(--muted);
+  -webkit-line-clamp: 2;
+}
+body[data-page="signals"] .meta {
+  font-size: 0.72rem;
+}
+
+/* Compact must win over comfortable an35 row chrome */
+html[data-density="compact"] .feed-row {
+  padding: 0.48rem 0.05rem 0.48rem 0;
+  gap: 0.35rem 0.55rem;
+}
+html[data-density="compact"] .story-title,
+html[data-density="compact"] .lead-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.28;
+  margin-bottom: 0.12rem;
+}
+html[data-density="compact"] .rank {
+  font-size: 0.82rem;
+  padding-top: 0.1rem;
+}
+html[data-density="compact"] .meta {
+  font-size: 0.72rem;
+  gap: 0.25rem 0.45rem;
+}
+
+/* Match skeleton to flat feed — no card flash on load */
+.feed-skel-lead,
+.feed-skel-row {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  border-radius: 0;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.feed-skel-lead {
+  padding: 0.85rem 0 1.1rem;
+  gap: 0.75rem;
+}
+.feed-skel-lead-photo {
+  border-radius: 14px;
+  min-height: 220px;
+}
