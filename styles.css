@@ -3592,7 +3592,7 @@ html[data-density="compact"] .meta {
   min-height: 220px;
 }
 
-/* === an38: God Mode Cesium + Esri imagery (no globe.gl blob on desktop) === */
+/* === an39: God Mode Cesium export + Esri imagery (no globe.gl blob on desktop) === */
 .gm-widget {
   position: relative;
   flex-shrink: 0;

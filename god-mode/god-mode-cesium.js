@@ -7,8 +7,18 @@
 (function (global) {
   'use strict';
 
-  const React = global.React;
-  if (!React) return;
+  // Live React binding — never abort this IIFE. boot.js loads UMD React first,
+  // but a parse/load race must still export V4GodModeEarth for Cesium.
+  let React = global.React;
+  function bindReact() {
+    const R = global.React;
+    if (R && R.createElement && R.useRef) {
+      React = R;
+      return true;
+    }
+    return false;
+  }
+  bindReact();
 
   const CESIUM_VERSION = '1.125';
   const CESIUM_BASE = 'https://cesium.com/downloads/cesiumjs/releases/' + CESIUM_VERSION + '/Build/Cesium/';
@@ -247,7 +257,6 @@
       '.v4-gm2 .v4-gm2-stage{position:relative;flex:1;min-width:0;min-height:0;background:#02040a}',
       '.v4-gm2 .v4-gm2-cesium-host{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;transform:none!important;zoom:normal!important}',
       '.v4-gm2 .v4-gm2-cesium,.v4-gm2 .v4-gm2-cesium .cesium-viewer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-cesiumWidgetContainer,.v4-gm2 .v4-gm2-cesium .cesium-widget,.v4-gm2 .v4-gm2-cesium canvas{position:absolute;inset:0;width:100%!important;height:100%!important;transform:none!important;zoom:normal!important}',
-',
       '.v4-gm2 .v4-gm2-cesium .cesium-viewer-bottom,.v4-gm2 .v4-gm2-cesium .cesium-viewer-animationContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-timelineContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-fullscreenContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-vrContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-toolbar{display:none!important}',
       '.v4-gm2 .v4-gm2-cesium .cesium-credit-logoContainer,.v4-gm2 .v4-gm2-cesium .cesium-credit-expand-link{filter:invert(1) brightness(1.2);opacity:.55}',
       '.v4-gm2 .v4-godmode-head{display:flex;align-items:center;gap:16px;padding:10px 14px;border-bottom:1px solid var(--gm2-border);background:linear-gradient(180deg,rgba(10,18,32,.95),rgba(6,10,18,.88));z-index:5}',
@@ -3866,6 +3875,7 @@
   }
 
   function V4GodModeEarth(props) {
+    bindReact();
     const open = !!props.open;
     const activeLayer = String(props.layer || 'all');
     const viewerProp = props.viewer || {};
@@ -4724,5 +4734,7 @@
 
   V4GodModeEarth.engine = 'cesium';
   global.V4GodModeEarth = V4GodModeEarth;
+  global.V4GodMode = V4GodModeEarth;
+  global.GodModeEarth = V4GodModeEarth;
   if (typeof module !== 'undefined' && module.exports) module.exports = V4GodModeEarth;
 })(typeof window !== 'undefined' ? window : globalThis);

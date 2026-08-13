@@ -5,7 +5,7 @@
 (function (global) {
   "use strict";
 
-  var VERSION = "an38";
+  var VERSION = "an39";
   var BASE = (function () {
     try {
       var scripts = document.getElementsByTagName("script");
@@ -39,11 +39,17 @@
       if (id) s.id = id;
       s.src = src;
       s.async = true;
-      s.crossOrigin = "anonymous";
       s.onload = function () { try { s.dataset.loaded = "1"; } catch (e) {} resolve(); };
       s.onerror = function () { reject(new Error("Failed " + src)); };
       document.head.appendChild(s);
     });
+  }
+
+  function removeScript(id) {
+    try {
+      var el = document.getElementById(id);
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    } catch (e) {}
   }
 
   // Desktop Mac/Safari must get Cesium — never globe.gl's baked marble blob.
@@ -82,10 +88,17 @@
     return false;
   }
 
+  function hasReact() {
+    return !!(global.React && global.React.createElement && global.React.useRef &&
+      global.ReactDOM && (global.ReactDOM.createRoot || global.ReactDOM.render));
+  }
+
   function loadReact() {
-    if (global.React && global.ReactDOM) return Promise.resolve();
+    if (hasReact()) return Promise.resolve();
     return loadScript("https://unpkg.com/react@18.3.1/umd/react.production.min.js", "an-react").then(function () {
       return loadScript("https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js", "an-react-dom");
+    }).then(function () {
+      if (!hasReact()) throw new Error("React UMD failed to load");
     });
   }
 
@@ -96,6 +109,38 @@
   var openFlag = false;
   var closeCb = null;
 
+  function grabEarth() {
+    var cmp = global.V4GodModeEarth || global.V4GodMode || global.GodModeEarth;
+    if (typeof cmp === "function") {
+      if (typeof global.V4GodModeEarth !== "function") global.V4GodModeEarth = cmp;
+      return cmp;
+    }
+    return null;
+  }
+
+  function waitForEarth(ms) {
+    return new Promise(function (resolve, reject) {
+      var now = grabEarth();
+      if (now) return resolve(now);
+      var t0 = Date.now();
+      var id = setInterval(function () {
+        var cmp = grabEarth();
+        if (cmp) { clearInterval(id); resolve(cmp); return; }
+        if (Date.now() - t0 > ms) {
+          clearInterval(id);
+          reject(new Error("God Mode module loaded but V4GodModeEarth missing (React required)"));
+        }
+      }, 40);
+    });
+  }
+
+  function unloadEngine(want) {
+    removeScript("an-godmode-" + want);
+    try {
+      try { delete global.V4GodModeEarth; } catch (e) { global.V4GodModeEarth = undefined; }
+    } catch (e2) {}
+  }
+
   function loadEngine() {
     var want = isPhoneGodMode() ? "phone" : "cesium";
     if (typeof global.V4GodModeEarth === "function" && global.V4GodModeEarth.engine === want) {
@@ -103,22 +148,33 @@
     }
     if (loadPromise && engineWant === want) return loadPromise;
     engineWant = want;
-    loadPromise = null;
-    var src = BASE + (want === "phone" ? "god-mode-mobile.js" : "god-mode-cesium.js") + "?v=" + VERSION;
-    loadPromise = loadScript(src, "an-godmode-" + want).then(function () {
-      if (typeof global.V4GodModeEarth !== "function") {
-        throw new Error("God Mode module loaded but V4GodModeEarth missing (React required)");
-      }
-      if (!global.V4GodModeEarth.engine) global.V4GodModeEarth.engine = want;
-      return global.V4GodModeEarth;
+    var srcBase = BASE + (want === "phone" ? "god-mode-mobile.js" : "god-mode-cesium.js") + "?v=" + VERSION;
+    function attempt(isRetry) {
+      return loadReact().then(function () {
+        if (!hasReact()) throw new Error("React UMD failed to load");
+        if (isRetry) unloadEngine(want);
+        return loadScript(srcBase + (isRetry ? "&retry=1" : ""), "an-godmode-" + want);
+      }).then(function () {
+        return waitForEarth(isRetry ? 2500 : 200);
+      }).then(function (Cmp) {
+        if (!Cmp.engine) Cmp.engine = want;
+        return Cmp;
+      }).catch(function (err) {
+        if (!isRetry) return attempt(true);
+        throw err;
+      });
+    }
+    loadPromise = attempt(false).then(function (Cmp) { return Cmp; }, function (err) {
+      loadPromise = null;
+      throw err;
     });
     return loadPromise;
   }
 
   function render() {
-    var Cmp = global.V4GodModeEarth;
+    var Cmp = grabEarth();
     var mount = document.getElementById("godModeMount");
-    if (!Cmp || !mount || !global.React || !global.ReactDOM) return;
+    if (!Cmp || !mount || !hasReact()) return;
     var el = global.React.createElement(Cmp, {
       open: openFlag,
       layer: layer,
