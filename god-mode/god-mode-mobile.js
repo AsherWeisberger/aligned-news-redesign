@@ -3561,17 +3561,53 @@
     return best;
   }
 
+
+  function settleTimeout(promise, ms, fallback) {
+    return new Promise(function (resolve) {
+      var done = false;
+      var timer = global.setTimeout(function () {
+        if (done) return;
+        done = true;
+        resolve(fallback);
+      }, ms);
+      Promise.resolve(promise).then(function (value) {
+        if (done) return;
+        done = true;
+        global.clearTimeout(timer);
+        resolve(value);
+      }, function () {
+        if (done) return;
+        done = true;
+        global.clearTimeout(timer);
+        resolve(fallback);
+      });
+    });
+  }
+
   function ensureGoogleMapsJs() {
     if (global.google && global.google.maps && global.google.maps.Geocoder) return Promise.resolve(true);
     const key = (typeof readGoogleTilesKey === "function" && readGoogleTilesKey()) || "";
     if (!key) return Promise.resolve(false);
     if (ensureGoogleMapsJs._p) return ensureGoogleMapsJs._p;
     ensureGoogleMapsJs._p = new Promise(function (resolve) {
+      var settled = false;
+      function finish(ok) {
+        if (settled) return;
+        settled = true;
+        resolve(!!ok);
+      }
+      var timer = global.setTimeout(function () { finish(false); }, 2500);
       const s = document.createElement("script");
       s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&libraries=places";
       s.async = true;
-      s.onload = function () { resolve(!!(global.google && global.google.maps && global.google.maps.Geocoder)); };
-      s.onerror = function () { resolve(false); };
+      s.onload = function () {
+        global.clearTimeout(timer);
+        finish(!!(global.google && global.google.maps && global.google.maps.Geocoder));
+      };
+      s.onerror = function () {
+        global.clearTimeout(timer);
+        finish(false);
+      };
       document.head.appendChild(s);
     });
     return ensureGoogleMapsJs._p;
@@ -3580,6 +3616,7 @@
   async function geocodeGoogleJs(query) {
     const q = String(query || "").trim();
     if (!q) return null;
+    return settleTimeout((async function () {
     const ok = await ensureGoogleMapsJs();
     if (!ok) return null;
     return new Promise(function (resolve) {
@@ -3606,6 +3643,7 @@
         });
       } catch (e) { resolve(null); }
     });
+    })(), 2500, null);
   }
 
   async function geocodeGoogle(query) {
@@ -3783,17 +3821,19 @@
   async function geocodeGoogleJsAll(query) {
     const q = String(query || "").trim();
     if (!q) return [];
-    const ok = await ensureGoogleMapsJs();
-    if (!ok) return [];
-    return new Promise(function (resolve) {
-      try {
-        const geo = new global.google.maps.Geocoder();
-        geo.geocode({ address: q }, function (results, status) {
-          if (String(status) !== "OK" || !results || !results.length) return resolve([]);
-          resolve(googleRowsFromResults(results, q));
-        });
-      } catch (e) { resolve([]); }
-    });
+    return settleTimeout((async function () {
+      const ok = await ensureGoogleMapsJs();
+      if (!ok) return [];
+      return new Promise(function (resolve) {
+        try {
+          const geo = new global.google.maps.Geocoder();
+          geo.geocode({ address: q }, function (results, status) {
+            if (String(status) !== "OK" || !results || !results.length) return resolve([]);
+            resolve(googleRowsFromResults(results, q));
+          });
+        } catch (e) { resolve([]); }
+      });
+    })(), 2500, []);
   }
 
   async function fetchSearchSuggests(query) {
@@ -3803,7 +3843,7 @@
     const syn = syntheticSuggestRow(q);
     const buckets = await Promise.all([
       (async function () {
-        try { return await fetchGoogleSuggests(q); } catch (e) { return []; }
+        try { return await settleTimeout(fetchGoogleSuggests(q), 1800, []); } catch (e) { return []; }
       })(),
       (async function () {
         try {
@@ -3821,7 +3861,7 @@
       })(),
       (async function () {
         try {
-          const noms = await fetchNominatim({ q: q, limit: "6" });
+          const noms = await settleTimeout(fetchNominatim({ q: q, limit: "6" }), 1800, []);
           const rows = [];
           for (let i = 0; i < (noms || []).length; i++) {
             const row = nominatimSuggestRow(noms[i], q);
@@ -3844,6 +3884,15 @@
         const bg = b.source === "google" ? 1 : 0;
         return (bh - ah) || (bg - ag);
       });
+      var diverse = [];
+      var rest = [];
+      var seenCity = {};
+      for (var di = 0; di < rows.length; di++) {
+        var cityKey = String(rows[di].sub || "").toLowerCase() || suggestKey(rows[di]);
+        if (!seenCity[cityKey]) { seenCity[cityKey] = 1; diverse.push(rows[di]); }
+        else rest.push(rows[di]);
+      }
+      rows = diverse.concat(rest);
     } else {
       rows.sort(function (a, b) {
         const ag = a.source === "google" ? 1 : 0;
@@ -3854,52 +3903,29 @@
     return mergeSuggestRows(syn, rows);
   }
 
-  async function geocodeAddressAll(query) {
-    const q = String(query || "").trim();
-    if (!q) return [];
-    const wantHouse = parseHouseNumber(q);
-    const looksAddr = !!wantHouse || /\d/.test(q);
-    const parsed = parseUsStreetQuery(q);
-    const noCity = !!(wantHouse && !queryHasLocality(q));
-    let rows = [];
-    try {
-      const g = await geocodeGoogleJsAll(q);
-      if (g && g.length) rows = rows.concat(g);
-    } catch (e) {}
-    if (!rows.length) {
+  async function fetchOsmHits(q, parsed, noCity) {
+    const nomP = (async function () {
+      const rows = [];
       try {
-        const hit = await geocodeGoogle(q);
-        if (hit) rows.push(hit);
-      } catch (e) {}
-    }
-    if (noCity && hitsAreAmbiguous(rows, q)) return mergeSuggestRows(syntheticSuggestRow(q), rows);
-    if (rows.length && !(noCity && hitsAreAmbiguous(rows, q))) {
-      if (!noCity || rows.length === 1 || !hitsAreAmbiguous(rows, q)) {
-        if (!noCity) return rows;
-      }
-    }
-    if (!noCity) {
-      try {
-        if (parsed && parsed.street) {
+        let noms;
+        if (!noCity && parsed && parsed.street) {
           const params = { street: parsed.street, country: "US" };
           if (parsed.city) params.city = parsed.city;
           if (parsed.state) params.state = parsed.state;
           if (parsed.zip) params.postalcode = parsed.zip;
-          const noms = await fetchNominatim(params);
-          for (let i = 0; i < (noms || []).length; i++) {
-            const row = nominatimSuggestRow(noms[i], q);
-            if (row) rows.push(row);
-          }
+          noms = await fetchNominatim(params);
+        } else {
+          noms = await fetchNominatim({ q: q, limit: "6" });
         }
-      } catch (e) {}
-    } else {
-      try {
-        const noms = await fetchNominatim({ q: q, limit: "6" });
         for (let i = 0; i < (noms || []).length; i++) {
           const row = nominatimSuggestRow(noms[i], q);
           if (row) rows.push(row);
         }
       } catch (e) {}
+      return rows;
+    })();
+    const phoP = (async function () {
+      const rows = [];
       try {
         const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&lang=en&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 2500);
         if (res && res.ok) {
@@ -3911,6 +3937,52 @@
           }
         }
       } catch (e) {}
+      return rows;
+    })();
+    const pair = await Promise.all([settleTimeout(nomP, 2500, []), settleTimeout(phoP, 2500, [])]);
+    return [].concat(pair[0] || [], pair[1] || []);
+  }
+
+  function firstLatLngHits(aP, bP) {
+    return new Promise(function (resolve) {
+      var pending = 2;
+      var acc = [];
+      var sent = false;
+      function one(rows) {
+        var list = Array.isArray(rows) ? rows : [];
+        if (!sent && list.length) {
+          sent = true;
+          resolve(list);
+          return;
+        }
+        acc = acc.concat(list);
+        pending -= 1;
+        if (!sent && pending <= 0) {
+          sent = true;
+          resolve(acc);
+        }
+      }
+      aP.then(one, function () { one([]); });
+      bP.then(one, function () { one([]); });
+    });
+  }
+
+  async function geocodeAddressAll(query) {
+    const q = String(query || "").trim();
+    if (!q) return [];
+    const wantHouse = parseHouseNumber(q);
+    const looksAddr = !!wantHouse || /\d/.test(q);
+    const parsed = parseUsStreetQuery(q);
+    const noCity = !!(wantHouse && !queryHasLocality(q));
+    const googleP = settleTimeout(geocodeGoogleJsAll(q).catch(function () { return []; }), 2500, []);
+    const osmP = settleTimeout(fetchOsmHits(q, parsed, noCity).catch(function () { return []; }), 2500, []);
+    let rows = [];
+    if (noCity) {
+      const pair = await Promise.all([googleP, osmP]);
+      rows = [].concat(pair[0] || [], pair[1] || []);
+      if (hitsAreAmbiguous(rows, q)) return mergeSuggestRows(syntheticSuggestRow(q), rows);
+    } else {
+      rows = await firstLatLngHits(googleP, osmP);
     }
     if (!rows.length && !looksAddr) {
       try {
@@ -3959,6 +4031,7 @@
     const [searchSuggests, setSearchSuggests] = React.useState([]);
     const [suggestHi, setSuggestHi] = React.useState(-1);
     const suggestGenRef = React.useRef(0);
+    const searchingSinceRef = React.useRef(0);
     const [streetMode, setStreetMode] = React.useState(false);
     const focusRef = React.useRef(null);
     const globeRef = React.useRef(null);
@@ -3983,6 +4056,16 @@
       if (!open) return undefined;
       injectPhoneCss();
       const onKey = function (e) {
+        const active = (typeof document !== 'undefined' && document.activeElement) || (e && e.target);
+        const tag = String((active && active.tagName) || (e && e.target && e.target.tagName) || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || tag === 'select') {
+          if (e.key !== 'Escape') return;
+        } else {
+          try {
+            if (active && (active.isContentEditable || String(active.contentEditable || '').toLowerCase() === 'true')) { if (e.key !== 'Escape') return; }
+            if (e.target && e.target.closest && e.target.closest('.v4-gm2-search, .v4-gm-phone-search')) { if (e.key !== 'Escape') return; }
+          } catch (eType) {}
+        }
         if (e.key === 'Escape') {
           if (selectedRef.current) { setSelected(null); return; }
           if (onClose) onClose();
@@ -4425,13 +4508,18 @@
       }, 60);
       return function () { window.clearTimeout(tmr); };
     }, [searchQ]);
-    const runSearch = function () {
+    const runSearch = async function () {
       const q = String(searchQ || '').trim();
-      if (!q || searching) return;
+      if (!q) return;
+      if (searching) {
+        const since = searchingSinceRef.current || 0;
+        if (since && (Date.now() - since) < 5000) return;
+      }
+      searchingSinceRef.current = Date.now();
       setSearching(true);
       setSearchMsg('Searching…');
-      geocodeAddressAll(q).then(function (rows) {
-        setSearching(false);
+      try {
+        const rows = await settleTimeout(geocodeAddressAll(q), 4000, []);
         const real = (rows || []).filter(function (r) { return r && Number.isFinite(Number(r.lat)); });
         if (hitsAreAmbiguous(real, q) || (parseHouseNumber(q) && !queryHasLocality(q) && real.length > 1)) {
           setSearchSuggests(mergeSuggestRows(syntheticSuggestRow(q), real));
@@ -4442,10 +4530,12 @@
         if (!real[0]) { setSearchMsg('No match'); return; }
         setSearchSuggests([]);
         applyMobileHit(real[0]);
-      }).catch(function () {
-        setSearching(false);
+      } catch (e) {
         setSearchMsg('Search failed');
-      });
+      } finally {
+        searchingSinceRef.current = 0;
+        setSearching(false);
+      }
     };
     const currentFocus = function () {
       const g = globeInstRef.current;
@@ -4583,6 +4673,8 @@
           enterKeyHint: 'search',
           autoComplete: 'off',
           autoCorrect: 'off',
+          autoCapitalize: 'off',
+          name: 'gm-addr-no-fill',
           placeholder: 'Search address or city',
           value: searchQ,
           onChange: function (e) {
