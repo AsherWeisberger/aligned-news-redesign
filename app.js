@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json?v=an80";
+  var DATA_URL = "live-data.json?v=an81";
   var state = {
     data: null,
     filter: "all",
@@ -1585,8 +1585,13 @@
 
   function renderRightRail() {
     if (!state.data) return;
+    var topSignals = document.getElementById("topSignals");
+    // Today already has a main-column Signals module — don't repeat it in the rail.
+    if (pageName() === "today" && topSignals) {
+      topSignals.hidden = true;
+    }
     var list = $("#topSignalsList");
-    if (list) {
+    if (list && !(topSignals && topSignals.hidden)) {
       var items = (state.data.signals || []).slice().sort(function (a, b) {
             return (b.engagement_score || 0) - (a.engagement_score || 0);
           }).slice(0, 5);

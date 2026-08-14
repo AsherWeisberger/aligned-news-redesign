@@ -4412,7 +4412,7 @@ body[data-page="today"] .intel-strip {
   transform: none;
 }
 
-/* Right rail: keep Why + Top Signals; hide duplicate Topics / Last 7 days */
+/* Right rail: keep Why + Partners; hide duplicate Topics / Last 7 days */
 #provenanceRail,
 #vibeRail {
   display: none !important;
@@ -4791,10 +4791,10 @@ html[data-density="compact"] .feed-row {
 }
 
 .desk-mod {
-  background: var(--bg-elev);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 0.7rem 1rem 0.45rem;
+  padding: 0.85rem 1rem 0.55rem;
   margin-top: 0.85rem;
 }
 .desk-mod .module-label a {
@@ -4860,4 +4860,9 @@ html[data-density="compact"] .feed-row {
     border-radius: 12px;
   }
   .desk-mod-title { font-size: 1.02rem; }
+}
+
+/* === an81: Today rail drops Top Signals; Signals/Reports as paper areas === */
+body[data-page="today"] #topSignals {
+  display: none !important;
 }
