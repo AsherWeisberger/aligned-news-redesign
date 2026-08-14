@@ -774,23 +774,18 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
   gap: 0.65rem 1rem;
   align-items: center;
   margin-bottom: 0.85rem;
-  padding: 0.85rem 1.05rem 0.9rem;
-  border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--accent-soft) 70%, var(--bg-elev)), var(--bg-elev) 55%),
-    var(--bg-elev);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  padding: 0.55rem 0 0.85rem;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .desk-hero::before {
-  content: "";
-  position: absolute;
-  inset: auto -20% -60% 40%;
-  height: 180%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--sand) 22%, transparent), transparent 60%);
-  pointer-events: none;
+  content: none;
+  display: none;
 }
 .desk-hero-compact {
   grid-template-columns: minmax(0, 1fr) auto;
@@ -1785,7 +1780,7 @@ body[data-page="signals"] .feed-row {
 .lead-why p { margin: 0; color: var(--accent-deep); font-weight: 550; }
 
 .desk-hero-slim {
-  padding: 0.75rem 1rem 0.8rem;
+  padding: 0.55rem 0 0.85rem;
   margin-bottom: 0.75rem;
 }
 .desk-hero-slim .desk-value { font-size: 0.86rem; }
@@ -2363,12 +2358,12 @@ html[data-chrome="compact"] .foryou:not([hidden]) {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 1px;
   z-index: 58;
   pointer-events: none;
   overflow: hidden;
   background: transparent;
-  opacity: 0.55;
+  opacity: 1;
 }
 .load-bar[hidden] {
   display: none !important;
@@ -2379,16 +2374,18 @@ html[data-chrome="compact"] .foryou:not([hidden]) {
   left: 0;
   height: 100%;
   width: 35%;
-  border-radius: 0 2px 2px 0;
-  background: linear-gradient(90deg, #7dd3fc, #c084fc, #f9a8d4);
-  box-shadow: 0 0 10px rgba(192, 132, 252, 0.35);
+  border-radius: 0;
+  background: var(--text);
+  opacity: 0.35;
+  box-shadow: none;
   transform-origin: left center;
   animation: load-bar-slide 1.05s var(--ease-soft) infinite;
 }
 .load-bar.is-static .load-bar-inner {
   animation: none;
   width: 100%;
-  opacity: 0.85;
+  opacity: 0.35;
+  box-shadow: none;
 }
 @keyframes load-bar-slide {
   0% { transform: translateX(-120%) scaleX(0.45); }
@@ -4076,4 +4073,20 @@ html[data-theme="dark"] .desk-kicker {
     animation: none !important;
     opacity: 1 !important;
   }
+}
+
+/* === an62: newspaper masthead — unbox desk-hero, kill rainbow load bar === */
+.desk-hero,
+.desk-hero-slim,
+.desk-hero-compact {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+.desk-hero::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
 }
