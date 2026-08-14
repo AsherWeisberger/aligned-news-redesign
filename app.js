@@ -1393,7 +1393,7 @@
     return SECTION_GRADIENTS.general;
   }
 
-  /** Topic glyphs kept for rare non-feed uses; feed thumbs/heroes are media-only. */
+  /** Topic glyphs for designed row tiles when a story has no media. */
   function topicGlyphSvg(key) {
     var k = String(key || "general");
     if (k.indexOf("compan") !== -1 || k === "industry") k = "companies";
@@ -1436,14 +1436,101 @@
   }
 
   function rowThumbHtml(s, key, sectionPretty) {
+    var label = String((s && s.topic_label) || sectionPretty || "AI").split(" ")[0] || "AI";
     var media = storyMediaUrl(s);
-    if (!media) return "";
-    return (
-      '<div class="row-thumb has-media" aria-hidden="true">' +
+    var tile =
+      '<div class="row-thumb-tile" style="background:' + sectionThumbStyle(key) + '">' +
+        '<span class="row-thumb-glyph">' + topicGlyphSvg(key) + "</span>" +
+      "</div>";
+    var img = "";
+    if (media) {
+      img =
         '<img class="row-thumb-img" src="' + escapeHtml(String(media)) + '" alt="" loading="lazy" ' +
-        "onerror=\"var p=this.parentNode;if(p){p.remove();}\" />" +
+        "onerror=\"var p=this.parentNode;this.remove();if(p){p.classList.remove('has-media');}\" />";
+    }
+    return (
+      '<div class="row-thumb' + (media ? " has-media" : "") + '" aria-hidden="true">' +
+        tile +
+        img +
+        '<span class="row-thumb-label">' + escapeHtml(label) + "</span>" +
       "</div>"
     );
+  }
+
+  function nlEmailStored() {
+    try { return String(localStorage.getItem("an-nl-email") || "").trim(); } catch (e) { return ""; }
+  }
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
+  }
+
+  function newsletterBannerHtml() {
+    var saved = nlEmailStored();
+    var inBar = isValidEmail(saved);
+    return (
+      '<li class="nl-subscribe' + (inBar ? " is-in" : "") + '">' +
+        '<div class="nl-subscribe-inner">' +
+          '<div class="nl-subscribe-copy">' +
+            '<p class="nl-subscribe-kicker">Newsletter</p>' +
+            '<p class="nl-subscribe-headline">Today\u2019s top stories. In your inbox.</p>' +
+          "</div>" +
+          (inBar
+            ? '<p class="nl-subscribe-done">You\u2019re in</p>'
+            : '<form class="nl-subscribe-form" action="#" method="post" novalidate>' +
+                '<input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" />' +
+                '<button type="submit">Subscribe</button>' +
+              "</form>") +
+        "</div>" +
+      "</li>"
+    );
+  }
+
+  function bindNewsletterSubscribe() {
+    if (document.documentElement.dataset.nlBound === "1") return;
+    document.documentElement.dataset.nlBound = "1";
+    document.addEventListener("submit", function (e) {
+      var form = e.target;
+      if (!form || !form.closest || !form.closest(".nl-subscribe")) return;
+      e.preventDefault();
+      var input = form.querySelector('input[type="email"]');
+      var email = input ? String(input.value || "").trim() : "";
+      if (!isValidEmail(email)) {
+        if (input) input.focus();
+        return;
+      }
+      try { localStorage.setItem("an-nl-email", email); } catch (err) {}
+      var bar = form.closest(".nl-subscribe");
+      if (!bar) return;
+      bar.classList.add("is-in");
+      var done = document.createElement("p");
+      done.className = "nl-subscribe-done";
+      done.textContent = "You\u2019re in";
+      form.parentNode.replaceChild(done, form);
+    });
+  }
+
+  function ensurePartnersRail() {
+    var rail = document.getElementById("pageRail");
+    if (!rail) return;
+    if (pageName() === "newsletter") return;
+    var el = document.getElementById("partnersRail");
+    if (el) return;
+    el = document.createElement("section");
+    el.id = "partnersRail";
+    el.className = "rail-card rail-card-partners";
+    el.innerHTML =
+      '<h2 class="rail-title">Partners</h2>' +
+      '<p class="partners-kicker">UNALIGNED \u00d7 Scoble</p>' +
+      '<p class="partners-line">Reach the lists that rank this desk.</p>' +
+      '<a class="partners-link" href="https://unaligned.io" target="_blank" rel="noopener noreferrer">Open unaligned.io</a>';
+    var top = document.getElementById("topSignals");
+    if (top && top.parentNode === rail) {
+      if (top.nextSibling) rail.insertBefore(el, top.nextSibling);
+      else rail.appendChild(el);
+    } else {
+      rail.appendChild(el);
+    }
   }
 
   function isProPlan(user) {
@@ -1560,6 +1647,8 @@
           reports + " reports when you need depth.";
       }
     }
+
+    ensurePartnersRail();
   }
 
   function badgeClass(badge) {
@@ -2027,6 +2116,16 @@
     var showLead = !isSaved && state.filter === "all" && !state.query;
     var html = "";
     var rankCounter = 0;
+    var storyCount = 0;
+    var bannerDone = false;
+
+    function takeBanner() {
+      storyCount += 1;
+      if (bannerDone || isSaved || isCompactDensity()) return "";
+      if (storyCount !== 5) return "";
+      bannerDone = true;
+      return newsletterBannerHtml();
+    }
 
     function pickLeadInGroup(items) {
       if (!showLead || !items || !items.length) return items;
@@ -2108,6 +2207,7 @@
       });
       stories.forEach(function (s, i) {
         html += renderStoryItem(s, i, false);
+        storyCount += 1;
       });
     } else {
       var groups = groupStoriesByDay(stories);
@@ -2125,6 +2225,7 @@
           "</li>";
         items.forEach(function (s, i) {
           html += renderStoryItem(s, i, allowLead);
+          html += takeBanner();
         });
       });
     }
@@ -2837,6 +2938,7 @@
     }
 
     initGodModeChrome();
+    bindNewsletterSubscribe();
   }
 
   function setTitle(page) {

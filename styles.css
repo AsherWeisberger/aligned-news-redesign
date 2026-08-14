@@ -4465,3 +4465,128 @@ html[data-density="compact"] .lead-card .lead-title {
   margin: 0 0 0.12rem;
   max-width: none;
 }
+
+
+/* an75 — paper/ink newsletter strip + Partners rail (structure, not Digg costume) */
+.nl-subscribe {
+  list-style: none;
+  padding: 0.55rem 0 0.85rem;
+  margin: 0;
+}
+.nl-subscribe-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.15rem 1.5rem;
+  background: #0D0F14;
+  color: #F0EFEC;
+  border-radius: 14px;
+  padding: 1.15rem 1.4rem;
+}
+.nl-subscribe-copy { min-width: 0; flex: 1; }
+.nl-subscribe-kicker {
+  margin: 0 0 0.22rem;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(240, 239, 236, 0.68);
+}
+.nl-subscribe-headline {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #F0EFEC;
+}
+.nl-subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex: 0 1 22rem;
+  min-width: 15.5rem;
+  background: #F0EFEC;
+  border-radius: 8px;
+  padding: 0.28rem 0.28rem 0.28rem 0.75rem;
+}
+.nl-subscribe-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: #0D0F14;
+  font-size: 0.9rem;
+  padding: 0.48rem 0.2rem;
+  outline: none;
+}
+.nl-subscribe-form input[type="email"]::placeholder {
+  color: rgba(13, 15, 20, 0.45);
+}
+.nl-subscribe-form button {
+  flex-shrink: 0;
+  border: 0;
+  background: #0D0F14;
+  color: #F0EFEC;
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  padding: 0.52rem 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.nl-subscribe-form button:hover {
+  background: #1c1f27;
+}
+.nl-subscribe-done {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  color: #F0EFEC;
+  white-space: nowrap;
+}
+html[data-density="compact"] .nl-subscribe {
+  display: none;
+}
+@media (max-width: 720px) {
+  .nl-subscribe-inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.05rem 1.1rem;
+    border-radius: 14px;
+  }
+  .nl-subscribe-form {
+    min-width: 0;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+.rail-card-partners .partners-kicker {
+  margin: 0 0 0.35rem;
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.rail-card-partners .partners-line {
+  margin: 0 0 0.7rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.rail-card-partners .partners-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 28%, transparent);
+  padding-bottom: 0.08rem;
+}
+.rail-card-partners .partners-link:hover {
+  border-bottom-color: var(--text);
+}
