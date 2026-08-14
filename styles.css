@@ -3944,6 +3944,38 @@ html.gm-overlay-open .mobile-dock {
 .gm-overlay .v4-gm-phone-sheet {
   pointer-events: auto !important;
 }
+/* Host adapter: keep search off the right HUD; do not restyle MASTER engines */
+.gm-overlay .v4-gm2-search {
+  left: 220px !important;
+  right: 320px !important;
+  width: auto !important;
+  max-width: none !important;
+  transform: none !important;
+  z-index: 8 !important;
+}
+.gm-overlay .v4-gm2-search-msg {
+  left: 220px !important;
+  right: 320px !important;
+  transform: none !important;
+  width: auto !important;
+  text-align: center;
+}
+.gm-overlay .v4-gm2-hud-right {
+  z-index: 10 !important;
+  max-width: min(280px, 32vw) !important;
+}
+.gm-overlay .v4-gm2-suggest {
+  z-index: 12 !important;
+  pointer-events: auto !important;
+}
+.gm-overlay .v4-gm2-search .v4-gm2-btn,
+.gm-overlay .v4-gm-phone-sv {
+  pointer-events: auto !important;
+}
+.gm-overlay .v4-gm-phone-search {
+  pointer-events: auto !important;
+  z-index: 12000 !important;
+}
 .gm-overlay-error {
   display: none;
   position: absolute;

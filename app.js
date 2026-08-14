@@ -2612,7 +2612,7 @@
   }
 
 
-  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an72";
+  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an74";
   var godModeBootPromise = null;
 
   function ensureGodModeWidget() {

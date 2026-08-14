@@ -5,7 +5,13 @@
 (function (global) {
   "use strict";
 
-  var VERSION = "an72";
+  var VERSION = "an74";
+  // GitHub Pages has no /god-mode proxy. Engines that read this hit Unify.
+  try {
+    if (!global.UNALIGNED_GOD_MODE_PROXY) {
+      global.UNALIGNED_GOD_MODE_PROXY = "https://mac-studio.tail50d3a2.ts.net";
+    }
+  } catch (e) {}
   var BASE = (function () {
     try {
       var scripts = document.getElementsByTagName("script");
