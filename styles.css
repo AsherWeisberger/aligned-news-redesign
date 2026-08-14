@@ -601,19 +601,20 @@ body.siri-glow .live-pill {
 }
 .user-pill[hidden] { display: none !important; }
 
-/* Expand / compact density segmented control */
+/* Expand / compact density segmented control — lives in topbar */
 .density-seg {
   display: inline-flex;
   align-items: center;
   gap: 0;
   padding: 2px;
   border-radius: 10px;
-  background: #e6e7eb;
-  border: none;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
   box-shadow: none;
+  flex-shrink: 0;
 }
 html[data-theme="dark"] .density-seg {
-  background: color-mix(in srgb, var(--bg-soft) 80%, #000);
+  background: color-mix(in srgb, var(--bg-soft) 88%, #000);
 }
 .density-seg-btn {
   display: inline-flex;
@@ -624,7 +625,7 @@ html[data-theme="dark"] .density-seg {
   border: 0;
   border-radius: 8px;
   background: transparent;
-  color: #8b8d97;
+  color: var(--muted);
   cursor: pointer;
   padding: 0;
   transition: background 0.14s ease, color 0.14s ease, box-shadow 0.14s ease;
@@ -637,13 +638,13 @@ html[data-theme="dark"] .density-seg {
 }
 .density-seg-btn.is-active,
 .density-seg-btn[aria-pressed="true"] {
-  background: #fff;
-  color: #1a1b1f;
-  box-shadow: 0 1px 2px rgba(12, 13, 16, 0.12);
+  background: var(--bg-elev);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgba(13, 15, 20, 0.08);
 }
 html[data-theme="dark"] .density-seg-btn.is-active,
 html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
-  background: color-mix(in srgb, var(--bg-elev) 92%, #fff);
+  background: color-mix(in srgb, var(--bg-elev) 88%, #fff);
   color: var(--text);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
@@ -4202,5 +4203,29 @@ body[data-page="signals"] .rail-card {
     border-radius: 0;
     box-shadow: none;
     transform: none;
+  }
+}
+
+/* === an65: density toggle in topbar — survives Focus + mobile dock === */
+.top-actions .density-seg {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+html[data-chrome="compact"] .density-seg,
+html.has-mobile-dock .density-seg {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+@media (max-width: 520px) {
+  .top-actions .density-seg {
+    padding: 1px;
+    border-radius: 8px;
+  }
+  .top-actions .density-seg-btn {
+    width: 1.7rem;
+    height: 1.45rem;
+    border-radius: 6px;
   }
 }
