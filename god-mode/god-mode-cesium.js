@@ -4602,7 +4602,7 @@
     ctx.arc(cx, cy, r, Math.PI, 0, false);
     ctx.bezierCurveTo(cx + r, cy + r, cx + 6, 56, cx, 76);
     ctx.closePath();
-    ctx.fillStyle = "#ffbf00";
+    ctx.fillStyle = "#ffd60a";
     ctx.fill();
     ctx.lineJoin = "round";
     ctx.lineWidth = 3;
@@ -4635,7 +4635,7 @@
     const lat = Number(hit.lat);
     const lng = Number(hit.lng);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
-    const pinH = 36;
+    const pinH = 90;
     let ent = null;
     try {
       const billboard = {
@@ -4645,13 +4645,13 @@
         disableDepthTestDistance: Number.POSITIVE_INFINITY,
         heightReference: Cesium.HeightReference.NONE,
         pixelOffset: new Cesium.Cartesian2(0, 0),
-        eyeOffset: new Cesium.Cartesian3(0, 0, -80),
-        scale: 1.35,
+        eyeOffset: new Cesium.Cartesian3(0, 0, -140),
+        scale: 1.75,
         sizeInMeters: false,
-        scaleByDistance: new Cesium.NearFarScalar(80, 1.55, 6.0e6, 0.95),
+        scaleByDistance: new Cesium.NearFarScalar(80, 1.8, 6.0e6, 1.05),
       };
       const point = {
-        pixelSize: 16,
+        pixelSize: 18,
         color: Cesium.Color.fromCssColorString("#ffbf00"),
         outlineColor: Cesium.Color.fromCssColorString("#1a1200"),
         outlineWidth: 3,
@@ -4659,12 +4659,28 @@
         heightReference: Cesium.HeightReference.NONE,
         scaleByDistance: new Cesium.NearFarScalar(80, 1.4, 6.0e6, 0.85),
       };
-      ent = viewer.entities.add({
+      const pinName = String(hit.name || "").trim();
+      const entityOpts = {
         id: "gm2-search-pin",
         position: Cesium.Cartesian3.fromDegrees(lng, lat, pinH),
         billboard: billboard,
         point: point,
-      });
+      };
+      if (pinName) {
+        entityOpts.label = {
+          text: pinName,
+          fillColor: Cesium.Color.fromCssColorString("#ffd60a"),
+          outlineColor: Cesium.Color.fromCssColorString("#1a1200"),
+          outlineWidth: 3,
+          style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+          font: "14px sans-serif",
+          verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+          pixelOffset: new Cesium.Cartesian2(0, -86),
+          disableDepthTestDistance: Number.POSITIVE_INFINITY,
+          show: true,
+        };
+      }
+      ent = viewer.entities.add(entityOpts);
       ent.__gm2Decor = true;
       try { ent.show = true; } catch (eS) {}
     } catch (e) { ent = null; }

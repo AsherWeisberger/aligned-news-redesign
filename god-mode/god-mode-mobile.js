@@ -4577,7 +4577,7 @@
       ctx.arc(cx, cy, r, Math.PI, 0, false);
       ctx.bezierCurveTo(cx + r, cy + r, cx + 6, 56, cx, 76);
       ctx.closePath();
-      ctx.fillStyle = '#ffbf00';
+      ctx.fillStyle = '#ffd60a';
       ctx.fill();
       ctx.lineJoin = 'round';
       ctx.lineWidth = 2.25;
@@ -4607,9 +4607,10 @@
       if (g.__cesium && g._viewer && g._cesium) {
         try {
           const Cesium = g._cesium;
-          const ent = g._viewer.entities.add({
+          const pinName = String(hit.name || '').trim();
+          const entityOpts = {
             id: 'gm2-search-pin',
-            position: Cesium.Cartesian3.fromDegrees(Number(hit.lng), Number(hit.lat), 36),
+            position: Cesium.Cartesian3.fromDegrees(Number(hit.lng), Number(hit.lat), 90),
             billboard: {
               image: mobileSearchPinDataUrl(),
               verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
@@ -4617,20 +4618,35 @@
               disableDepthTestDistance: Number.POSITIVE_INFINITY,
               heightReference: Cesium.HeightReference.NONE,
               pixelOffset: new Cesium.Cartesian2(0, 0),
-              eyeOffset: new Cesium.Cartesian3(0, 0, -80),
-              scale: 1.35,
+              eyeOffset: new Cesium.Cartesian3(0, 0, -140),
+              scale: 1.75,
               sizeInMeters: false,
-              scaleByDistance: new Cesium.NearFarScalar(80, 1.55, 6.0e6, 0.95),
+              scaleByDistance: new Cesium.NearFarScalar(80, 1.8, 6.0e6, 1.05),
             },
             point: {
-              pixelSize: 16,
+              pixelSize: 18,
               color: Cesium.Color.fromCssColorString('#ffbf00'),
               outlineColor: Cesium.Color.fromCssColorString('#1a1200'),
               outlineWidth: 3,
               disableDepthTestDistance: Number.POSITIVE_INFINITY,
               heightReference: Cesium.HeightReference.NONE,
             },
-          });
+          };
+          if (pinName) {
+            entityOpts.label = {
+              text: pinName,
+              fillColor: Cesium.Color.fromCssColorString('#ffd60a'),
+              outlineColor: Cesium.Color.fromCssColorString('#1a1200'),
+              outlineWidth: 3,
+              style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+              font: '14px sans-serif',
+              verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+              pixelOffset: new Cesium.Cartesian2(0, -86),
+              disableDepthTestDistance: Number.POSITIVE_INFINITY,
+              show: true,
+            };
+          }
+          const ent = g._viewer.entities.add(entityOpts);
           ent.__gm2Decor = true;
           try { ent.show = true; } catch (eS) {}
           g._searchPinEntity = ent;
@@ -4643,7 +4659,14 @@
               .htmlLat('lat').htmlLng('lng').htmlAltitude('alt')
               .htmlElement(function () {
                 const wrap = document.createElement('div');
-                wrap.style.cssText = 'pointer-events:none;transform:translate(-50%,-100%);';
+                wrap.style.cssText = 'pointer-events:none;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;';
+                const nm = String(hit.name || '').trim();
+                if (nm) {
+                  const lab = document.createElement('div');
+                  lab.textContent = nm;
+                  lab.style.cssText = 'font:14px sans-serif;color:#ffd60a;-webkit-text-stroke:1px #1a1200;paint-order:stroke fill;text-shadow:0 1px 0 #1a1200;white-space:nowrap;margin-bottom:4px;';
+                  wrap.appendChild(lab);
+                }
                 const img = document.createElement('img');
                 img.src = mobileSearchPinDataUrl();
                 img.width = 36;
