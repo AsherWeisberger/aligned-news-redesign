@@ -659,9 +659,9 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
 }
 
 .rail-card-pro-note {
-  padding: 0.7rem 0.85rem;
-  background: linear-gradient(135deg, var(--accent-soft), color-mix(in srgb, var(--bg-elev) 80%, var(--accent-soft)));
-  border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+  padding: 0.85rem 0;
+  background: transparent;
+  border-color: var(--border);
 }
 .pro-desk-note {
   margin: 0;
@@ -762,7 +762,7 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.95rem;
+  gap: 0;
   position: sticky;
   top: calc(var(--topbar-h) + 1rem);
 }
@@ -1364,34 +1364,37 @@ html[data-theme="dark"] .badge-interview { background: #500724; color: #f9a8d4; 
   animation: none;
 }
 
-/* Right rail */
+/* Right rail — GitHub-clean sections, not SaaS cards */
 .rail-card {
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1rem 1.05rem 1.05rem;
-  transition: transform 0.2s var(--ease-soft), box-shadow 0.2s var(--ease-soft);
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.85rem 0;
+  transition: none;
 }
-.rail-card:hover { box-shadow: var(--shadow-hover); }
+.rail-card:first-child { border-top: none; }
+.rail-card:hover {
+  box-shadow: none;
+  transform: none;
+  background: transparent;
+}
 .rail-card-why {
   position: relative;
-  background:
-    linear-gradient(160deg, color-mix(in srgb, var(--accent-soft) 42%, var(--bg-elev)), var(--bg-elev));
-  border-color: color-mix(in srgb, var(--accent) 16%, var(--border));
-  box-shadow:
-    inset 3px 0 0 color-mix(in srgb, var(--accent) 55%, transparent),
-    var(--shadow);
+  background: transparent;
+  border-color: var(--border);
+  box-shadow: none;
 }
 .rail-card-why .rail-title {
-  color: var(--accent);
-  letter-spacing: 0.07em;
+  color: var(--muted);
+  letter-spacing: 0.16em;
 }
 .rail-title {
   margin: 0 0 0.8rem;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -1400,22 +1403,22 @@ html[data-theme="dark"] .badge-interview { background: #500724; color: #f9a8d4; 
   display: grid;
   grid-template-columns: 26px minmax(0, 1fr);
   gap: 0.5rem;
-  padding: 0.48rem 0.35rem;
-  margin: 0 -0.35rem;
+  padding: 0.48rem 0;
+  margin: 0;
   border-top: 1px solid transparent;
-  border-radius: 10px;
-  transition: background 0.15s var(--ease-soft);
+  border-radius: 0;
+  transition: none;
 }
 .rail-item + .rail-item {
-  border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-  border-radius: 0 0 10px 10px;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
 }
 .rail-item:first-child { padding-top: 0.35rem; }
 .rail-item:last-child { padding-bottom: 0.35rem; }
 .rail-item:hover {
-  background: color-mix(in srgb, var(--accent-soft) 45%, transparent);
+  background: transparent;
 }
-.rail-item:hover .rail-item-title a { color: var(--link); }
+.rail-item:hover .rail-item-title a { color: inherit; }
 .rail-icon {
   width: 28px; height: 28px; border-radius: 999px;
   display: grid; place-items: center;
@@ -1434,8 +1437,20 @@ html[data-theme="dark"] .badge-interview { background: #500724; color: #f9a8d4; 
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.rail-item-title a { color: inherit; text-decoration: none; }
-.rail-item-title a:hover { color: var(--link); }
+.rail-item-title a {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1px;
+  background-position: 0 calc(100% - 1px);
+  background-repeat: no-repeat;
+  transition: background-size 280ms var(--ease-story);
+}
+.rail-item-title a:hover {
+  color: inherit;
+  text-decoration: none;
+  background-size: 100% 1px;
+}
 .rail-item-meta {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
   color: var(--muted); font-size: 0.76rem;
@@ -1638,7 +1653,7 @@ body[data-page="signals"] .feed-row {
     position: static;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0.9rem;
+    gap: 0 1.35rem;
   }
   .brand-tagline { display: none; }
   .desk-hero {
@@ -1912,13 +1927,14 @@ html[data-density="compact"][data-theme="dark"] .lead-card:hover {
   transition: transform .14s cubic-bezier(.34,1.56,.64,1);
 }
 
-/* Rail hover match brief */
+/* Rail hover: no lift, no card chrome (matches feed) */
 .rail-card {
-  transition: transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s ease;
+  transition: none;
 }
 .rail-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  transform: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 /* Brief skeleton shimmer while live-data loads */
@@ -2170,7 +2186,7 @@ body[data-page="signals"] .chips {
   margin-bottom: 0.85rem;
 }
 body[data-page="signals"] .rail-card {
-  padding: 0.9rem 0.95rem 0.95rem;
+  padding: 0.85rem 0;
 }
 
 /* Compact density wins over Signals comfortable row chrome */
@@ -2208,9 +2224,8 @@ html[data-density="compact"] body[data-page="signals"] .meta {
 }
 
 html[data-theme="dark"] .rail-card-why {
-  box-shadow:
-    inset 3px 0 0 color-mix(in srgb, var(--accent) 65%, transparent),
-    var(--shadow);
+  background: transparent;
+  box-shadow: none;
 }
 html[data-theme="dark"] .read-progress {
   background: rgba(255,255,255,0.08);
@@ -2308,7 +2323,7 @@ html[data-chrome="compact"] .desk-hero {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
-  box-shadow: none !important;
+  box-shadow: none;
   pointer-events: none !important;
   visibility: hidden !important;
 }
@@ -2323,7 +2338,7 @@ html[data-chrome="compact"] .intel-strip[hidden] {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
-  box-shadow: none !important;
+  box-shadow: none;
   pointer-events: none !important;
   visibility: hidden !important;
 }
@@ -3121,12 +3136,11 @@ html[data-theme="dark"] {
 }
 
 .rail-card-unaligned {
-  border-color: color-mix(in srgb, var(--unaligned-accent) 22%, var(--border));
-  background:
-    linear-gradient(160deg, var(--unaligned-soft), var(--bg-elev));
+  border-color: var(--border);
+  background: transparent;
 }
 .rail-card-unaligned .rail-title {
-  color: color-mix(in srgb, var(--unaligned-accent) 70%, var(--muted));
+  color: var(--muted);
 }
 .rail-ext-link {
   display: inline-block;
@@ -4089,4 +4103,104 @@ html[data-theme="dark"] .desk-kicker {
   content: none !important;
   display: none !important;
   background: none !important;
+}
+
+/* === an63: unbox right rail — GitHub-clean sections, no SaaS cards === */
+.page-rail {
+  gap: 0;
+}
+.rail-card,
+.rail-card-why,
+.rail-card-unaligned,
+.rail-card-pro-note {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.85rem 0;
+  transform: none;
+  transition: none;
+}
+.rail-card:first-child {
+  border-top: none;
+}
+.rail-card:hover,
+.rail-card-why:hover,
+.rail-card-unaligned:hover,
+.rail-card-pro-note:hover,
+html[data-density="compact"] .rail-card:hover,
+html[data-theme="dark"] .rail-card:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  border-radius: 0;
+}
+.rail-title,
+.rail-card-why .rail-title,
+.rail-card-unaligned .rail-title {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rail-item {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+  background: transparent;
+  transition: none;
+}
+.rail-item + .rail-item {
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+}
+.rail-item:hover {
+  background: transparent;
+  border-radius: 0;
+}
+.rail-item-title a {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1px;
+  background-position: 0 calc(100% - 1px);
+  background-repeat: no-repeat;
+  transition: background-size 280ms var(--ease-story);
+}
+.rail-item-title a:hover,
+.rail-item:hover .rail-item-title a {
+  color: inherit;
+  text-decoration: none;
+  background-size: 100% 1px;
+}
+html[data-theme="dark"] .rail-item-title a {
+  background-image: linear-gradient(var(--sand), var(--sand));
+}
+html[data-theme="dark"] .rail-card-why,
+html[data-density="compact"] .rail-card,
+html[data-density="compact"] .rail-card-why,
+html[data-density="compact"] .rail-card-unaligned,
+html[data-density="compact"] .rail-card-pro-note {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  border-radius: 0;
+}
+body[data-page="signals"] .rail-card {
+  padding: 0.85rem 0;
+}
+@media (max-width: 860px) {
+  .rail-card,
+  .rail-card-why,
+  .rail-card-unaligned,
+  .rail-card-pro-note,
+  .rail-card:hover {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+  }
 }
