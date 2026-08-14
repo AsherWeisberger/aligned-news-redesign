@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json?v=an78";
+  var DATA_URL = "live-data.json?v=an80";
   var state = {
     data: null,
     filter: "all",
@@ -125,11 +125,25 @@
     return n || 1;
   }
 
+  function xHandleFrom(item) {
+    if (!item) return "";
+    var url = String(item.source_url || "");
+    if (!url && item.sources && item.sources[0]) url = String(item.sources[0].url || "");
+    var m = String(url).match(/(?:x\.com|twitter\.com)\/([A-Za-z0-9_]{1,15})(?:\/|$)/i);
+    if (m && m[1] && !/^(status|i|intent|share|search|home|explore|settings)$/i.test(m[1])) return m[1];
+    var author = String(item.author_name || "").trim().replace(/^@/, "");
+    if (/^[A-Za-z0-9_]{1,15}$/.test(author) && /(?:x\.com|twitter\.com)\//i.test(url)) return author;
+    return "";
+  }
+
   function storyMetaLine(item) {
+    var when = fallbackTime(item.published_at || item.created_at) || "recently";
+    var handle = xHandleFrom(item);
+    if (handle) return "@" + handle + " · " + when;
     var parts = [];
     var n = sourceCount(item);
     parts.push(n + (n === 1 ? " source" : " sources"));
-    parts.push(fallbackTime(item.published_at || item.created_at) || "recently");
+    parts.push(when);
     return parts.join(" · ");
   }
 

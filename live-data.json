@@ -70,7 +70,8 @@
       "section_label": "Latest Stories",
       "source_list": "Latest Stories",
       "topic_label": "Models",
-      "analysis": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process."
+      "analysis": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
+      "media_url": "https://unavatar.io/twitter/Zai_org"
     },
     {
       "id": "78489e0f-33b0-43a5-8066-1872e0b9f176",
@@ -84,7 +85,8 @@
       "section_label": "Latest Stories",
       "source_list": "Latest Stories",
       "topic_label": "Policy",
-      "analysis": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail."
+      "analysis": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
+      "media_url": "https://unavatar.io/twitter/Gizmodo"
     },
     {
       "id": "20608399-a743-4c1c-9619-319e96cc462c",
@@ -98,7 +100,8 @@
       "section_label": "Latest Stories",
       "source_list": "Latest Stories",
       "topic_label": "Policy",
-      "analysis": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain."
+      "analysis": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
+      "media_url": "https://unavatar.io/twitter/Techmeme"
     },
     {
       "id": "0725e2fb-908e-410c-9ad0-1c016bfd960f",
@@ -112,7 +115,8 @@
       "section_label": "Latest Stories",
       "source_list": "Latest Stories",
       "topic_label": "Models",
-      "analysis": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark."
+      "analysis": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
+      "media_url": "https://unavatar.io/twitter/bernhardsson"
     },
     {
       "id": "b69a9f55-f7c3-41bb-bd26-e0dd53532127",
@@ -126,7 +130,8 @@
       "section_label": "Latest Stories",
       "source_list": "Latest Stories",
       "topic_label": "Policy",
-      "analysis": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge."
+      "analysis": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
+      "media_url": "https://unavatar.io/twitter/Techmeme"
     }
   ],
   "stories": [
@@ -160,7 +165,8 @@
       },
       "why_it_matters": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
       "topic_key": "models",
-      "topic_label": "Models"
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/Zai_org"
     },
     {
       "id": "78489e0f-33b0-43a5-8066-1872e0b9f176",
@@ -192,7 +198,8 @@
       },
       "why_it_matters": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
       "topic_key": "policy",
-      "topic_label": "Policy"
+      "topic_label": "Policy",
+      "media_url": "https://unavatar.io/twitter/Gizmodo"
     },
     {
       "id": "20608399-a743-4c1c-9619-319e96cc462c",
@@ -224,7 +231,8 @@
       },
       "why_it_matters": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
       "topic_key": "policy",
-      "topic_label": "Policy"
+      "topic_label": "Policy",
+      "media_url": "https://unavatar.io/twitter/Techmeme"
     },
     {
       "id": "0725e2fb-908e-410c-9ad0-1c016bfd960f",
@@ -256,7 +264,8 @@
       },
       "why_it_matters": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
       "topic_key": "models",
-      "topic_label": "Models"
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/bernhardsson"
     },
     {
       "id": "b69a9f55-f7c3-41bb-bd26-e0dd53532127",
@@ -288,7 +297,8 @@
       },
       "why_it_matters": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
       "topic_key": "policy",
-      "topic_label": "Policy"
+      "topic_label": "Policy",
+      "media_url": "https://unavatar.io/twitter/Techmeme"
     },
     {
       "id": "de773a40-f1fe-4397-a14c-d3c557351135",
@@ -320,7 +330,8 @@
       },
       "why_it_matters": "Futurism highlights the statement “Privacy is a fundamental right,” but its social post provides no additional context about the speaker, dispute, or underlying event.",
       "topic_key": "policy",
-      "topic_label": "Policy"
+      "topic_label": "Policy",
+      "media_url": "https://unavatar.io/twitter/futurism"
     },
     {
       "id": "ae63f758-e90f-45be-b960-c19f305cdb41",
@@ -352,7 +363,8 @@
       },
       "why_it_matters": "CodeRabbit says rule-based scanners cover attacks already conceived, while CodeRabbit Security is designed to address attacks that have not yet been written into rules.",
       "topic_key": "companies",
-      "topic_label": "Companies"
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/coderabbitai"
     },
     {
       "id": "ac89eeb5-3e8e-40e7-96a9-3dc4db82aeb3",
@@ -384,7 +396,8 @@
       },
       "why_it_matters": "Illia Polosukhin says Intel ITA independent attestation will be added to all NEAR AI inference, separating verification from the hardware operator and giving users machine-checkable proof.",
       "topic_key": "chips",
-      "topic_label": "Chips"
+      "topic_label": "Chips",
+      "media_url": "https://unavatar.io/twitter/ilblackdragon"
     },
     {
       "id": "6c56e578-57d9-4220-a954-1efecffbb059",
@@ -416,7 +429,8 @@
       },
       "why_it_matters": "Bloomberg sources say Alibaba is close to selling Lingxi Games to private-equity firm Trustar Capital at a potential valuation exceeding $1.5 billion as Alibaba continues reorganizing.",
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://unavatar.io/twitter/Techmeme"
     },
     {
       "id": "5c86c460-8dbd-4b69-8456-68814e77303d",
@@ -448,7 +462,8 @@
       },
       "why_it_matters": "Reuters reports that Silver Lake is in talks to acquire Workday in a transaction that could rank among the largest software buyouts ever. The talks do not establish that a deal will be reached.",
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://unavatar.io/twitter/ReutersTech"
     }
   ],
   "signals": [

@@ -104,6 +104,28 @@ def parse_pub(raw: str) -> str:
         return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 
+
+X_HANDLE_RE = re.compile(r"(?:x\.com|twitter\.com)/([A-Za-z0-9_]{1,15})(?:/|$)", re.I)
+X_RESERVED = {"status", "i", "intent", "share", "search", "home", "explore", "settings"}
+
+
+def x_handle(url: str, author: str = "") -> str:
+    m = X_HANDLE_RE.search(url or "")
+    if m:
+        handle = m.group(1)
+        if handle.lower() not in X_RESERVED:
+            return handle
+    a = (author or "").strip().lstrip("@")
+    if re.fullmatch(r"[A-Za-z0-9_]{1,15}", a) and re.search(r"(?:x\.com|twitter\.com)/", url or "", re.I):
+        return a
+    return ""
+
+
+def x_avatar_url(handle: str) -> str:
+    if not handle:
+        return ""
+    return f"https://unavatar.io/twitter/{handle}"
+
 def host_name(url: str) -> str:
     try:
         host = urlparse(url).netloc.lower()
@@ -204,7 +226,7 @@ def item_to_story(item) -> dict | None:
     host = host_name(link)
     author_name = author or host
     body = desc or title
-    return {
+    story = {
         "id": guid,
         "headline": title,
         "summary": clamp(body, 240),
@@ -231,10 +253,15 @@ def item_to_story(item) -> dict | None:
         "topic_key": topic_key,
         "topic_label": topic_label,
     }
+    handle = x_handle(link, author_name)
+    media = x_avatar_url(handle)
+    if media:
+        story["media_url"] = media
+    return story
 
 
 def story_to_foryou(story: dict) -> dict:
-    return {
+    card = {
         "id": story["id"],
         "title": story["headline"],
         "text": story["body"],
@@ -248,6 +275,9 @@ def story_to_foryou(story: dict) -> dict:
         "topic_label": story["topic_label"],
         "analysis": story.get("why_it_matters") or story["summary"],
     }
+    if story.get("media_url"):
+        card["media_url"] = story["media_url"]
+    return card
 
 
 def main() -> int:
