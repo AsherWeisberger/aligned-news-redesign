@@ -5086,33 +5086,47 @@
       if (state && state._streetGen !== gen) return;
       try {
         const sv = new g.maps.StreetViewService();
-        sv.getPanorama({ location: { lat: lat, lng: lng }, radius: 500 }, function (data, status) {
+        const outdoor = (g.maps.StreetViewSource && g.maps.StreetViewSource.OUTDOOR) || 'outdoor';
+        const radii = [200, 500, 1200];
+        function ask(i) {
           if (state && state._streetGen !== gen) return;
-          if (String(status) !== 'OK' || !data) {
+          if (i >= radii.length) {
             done(false, 'No Street View coverage');
             return;
           }
-          try {
-            inner.innerHTML = '';
-            const pano = new g.maps.StreetViewPanorama(inner, {
-              pano: data.location.pano,
-              position: data.location.latLng,
-              pov: { heading: 0, pitch: 0 },
-              zoom: 1,
-              visible: true,
-              addressControl: true,
-              fullscreenControl: false,
-              motionTracking: false,
-              motionTrackingControl: false,
-              enableCloseButton: false,
-            });
-            try { el.classList.add('is-live'); } catch (eLive) {}
-            if (state) state._streetPano = pano;
-            done(true, '');
-          } catch (eP) {
-            done(false, 'Street View failed');
-          }
-        });
+          sv.getPanorama({
+            location: { lat: lat, lng: lng },
+            radius: radii[i],
+            source: outdoor,
+          }, function (data, status) {
+            if (state && state._streetGen !== gen) return;
+            if (String(status) !== 'OK' || !data || !data.location) {
+              ask(i + 1);
+              return;
+            }
+            try {
+              inner.innerHTML = '';
+              const pano = new g.maps.StreetViewPanorama(inner, {
+                pano: data.location.pano,
+                position: data.location.latLng,
+                pov: { heading: 0, pitch: 0 },
+                zoom: 1,
+                visible: true,
+                addressControl: true,
+                fullscreenControl: false,
+                motionTracking: false,
+                motionTrackingControl: false,
+                enableCloseButton: false,
+              });
+              try { el.classList.add('is-live'); } catch (eLive) {}
+              if (state) state._streetPano = pano;
+              done(true, '');
+            } catch (eP) {
+              done(false, 'Street View failed');
+            }
+          });
+        }
+        ask(0);
       } catch (eS) {
         done(false, 'Street View failed');
       }
@@ -6167,6 +6181,8 @@
         if (!ok) {
           setStreetMode(false);
           setSearchMsg(msg || 'Street View unavailable');
+        } else {
+          setSearchMsg('');
         }
       })) {
         setStreetMode(true);
