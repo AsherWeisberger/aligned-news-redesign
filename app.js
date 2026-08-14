@@ -2027,7 +2027,6 @@
     var showLead = !isSaved && state.filter === "all" && !state.query;
     var html = "";
     var rankCounter = 0;
-    var todayKey = localDayKey(new Date().toISOString());
 
     function pickLeadInGroup(items) {
       if (!showLead || !items || !items.length) return items;
@@ -2114,9 +2113,10 @@
       var groups = groupStoriesByDay(stories);
       groups.forEach(function (group, gi) {
         var items = group.items;
-        // Lead/hero only on Today's section (comfortable mode), timezone-correct.
-        var isLeadDay = group.key === todayKey;
-        if (isLeadDay) {
+        // Comfortable: first story in the whole feed is the Digg lead,
+        // even when that group is Yesterday (no stories dated today).
+        var allowLead = gi === 0;
+        if (allowLead) {
           items = pickLeadInGroup(items);
         }
         html +=
@@ -2124,7 +2124,7 @@
             '<h2 class="feed-day-label">' + escapeHtml(group.label) + "</h2>" +
           "</li>";
         items.forEach(function (s, i) {
-          html += renderStoryItem(s, i, isLeadDay);
+          html += renderStoryItem(s, i, allowLead);
         });
       });
     }
