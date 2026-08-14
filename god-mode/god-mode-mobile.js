@@ -158,7 +158,7 @@
   const STARLINK_MAX_POINTS_ALL = 180;
   const STARLINK_MAX_POINTS_FOCUS = 180;
   const MAX_SHIP_POINTS = 120;
-  const MAX_SHIPS = 120;
+  const MAX_SHIPS = 480;
   const MAX_WEATHER = 24;
   const MAX_EVENTS = 20;
   const MAX_LAUNCHES = 12;
@@ -1114,27 +1114,38 @@
           const def = { position: Cesium.Cartesian3.fromDegrees(lng, lat, height) };
           if (craft) {
             def.point = {
-              pixelSize: 2.2, color: color, outlineWidth: 0,
-              disableDepthTestDistance: 0,
+              pixelSize: kind === 'ship' ? 7 : 2.6, color: color,
+              outlineWidth: kind === 'ship' ? 1 : 0,
+              disableDepthTestDistance: Number.POSITIVE_INFINITY,
               heightReference: kind === 'ship' ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE,
-              scaleByDistance: new Cesium.NearFarScalar(2.5e5, 0.15, 1.2e7, 1.15)
+              scaleByDistance: new Cesium.NearFarScalar(8.0e5, 0.95, 2.8e7, 1.35)
             };
             const icon = getPhoneCraftIcon(kind === 'ship' ? 'ship' : 'plane');
             if (icon) {
               def.billboard = {
-                image: icon, width: kind === 'ship' ? 11 : 15, height: kind === 'ship' ? 16 : 15,
+                image: icon, width: kind === 'ship' ? 14 : 15, height: kind === 'ship' ? 20 : 15,
                 color: color, rotation: rot, alignedAxis: Cesium.Cartesian3.UNIT_Z,
-                disableDepthTestDistance: 0, sizeInMeters: false,
-                scaleByDistance: new Cesium.NearFarScalar(5.0e4, 1.12, 8.0e6, 0.16),
-                distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 7.5e6),
+                disableDepthTestDistance: Number.POSITIVE_INFINITY, sizeInMeters: false,
+                scaleByDistance: new Cesium.NearFarScalar(8.0e4, 1.25, 2.8e7, 0.95),
                 heightReference: kind === 'ship' ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE
               };
             }
           } else {
+            const ground = kind === 'deal' || kind === 'launch' || kind === 'event' || kind === 'gpsjam' || kind === 'weather' || kind === 'place';
+            let px = 6;
+            if (kind === 'starlink') px = 3;
+            else if (kind === 'launch') px = 12;
+            else if (kind === 'deal') px = 10;
+            else if (kind === 'event') px = 10;
+            else if (kind === 'gpsjam') px = 8;
+            else if (kind === 'weather') px = 8;
             def.point = {
-              pixelSize: kind === 'starlink' ? 3 : 6, color: color, outlineWidth: 0,
-              disableDepthTestDistance: 0,
-              scaleByDistance: new Cesium.NearFarScalar(8.0e5, 1.1, 2.2e7, 0.28)
+              pixelSize: px, color: color,
+              outlineColor: Cesium.Color.BLACK,
+              outlineWidth: ground ? 1 : 0,
+              disableDepthTestDistance: ground ? Number.POSITIVE_INFINITY : 0,
+              heightReference: ground ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE,
+              scaleByDistance: new Cesium.NearFarScalar(8.0e5, 1.15, 2.2e7, ground ? 0.6 : 0.28)
             };
           }
           const ent = viewer.entities.add(def);
@@ -2436,102 +2447,80 @@
 
   }
 
+  function launchColor(provider, rocket) {
+    const hay = String(provider || '') + ' ' + String(rocket || '');
+    if (/SpaceX|Falcon|Starship/i.test(hay)) return '#e8e8e8';
+    if (/ULA|Atlas|Vulcan|Delta/i.test(hay)) return '#5ac8fa';
+    if (/Rocket Lab|Electron/i.test(hay)) return '#ff375f';
+    if (/Arianespace|Ariane|Vega/i.test(hay)) return '#64d2ff';
+    if (/CASC|Long March|China/i.test(hay)) return '#ff9f0a';
+    if (/Roscosmos|Soyuz/i.test(hay)) return '#bf5af2';
+    if (/ISRO/i.test(hay)) return '#ffd60a';
+    return '#ffd60a';
+  }
+
+  function mapLaunchRows(rows, source) {
+    const markers = [];
+    const list = [];
+    (Array.isArray(rows) ? rows : []).forEach(function (launch) {
+      if (!launch) return;
+      const pad = launch.pad || {};
+      const lat = Number(launch.lat != null ? launch.lat : pad.latitude);
+      const lng = Number(launch.lng != null ? launch.lng : (launch.lon != null ? launch.lon : pad.longitude));
+      const name = String(launch.name || 'Launch').trim();
+      const provider = providerName(launch);
+      const when = String(launch.net || launch.when || '');
+      const status = String((launch.status && launch.status.name) || launch.status || 'Scheduled');
+      const rocket = String((launch.rocket && launch.rocket.configuration && (launch.rocket.configuration.full_name || launch.rocket.configuration.name)) || launch.rocket || '').trim();
+      const loc = String((pad.location && pad.location.name) || pad.name || launch.loc || '').trim();
+      const color = launch.color || launchColor(provider, rocket);
+      list.push({ id: launch.id, name: name, provider: provider, when: when, status: status, rocket: rocket, loc: loc, lat: lat, lng: lng });
+      if (Number.isFinite(lat) && Number.isFinite(lng)) {
+        markers.push({
+          lat: lat, lng: lng, altM: 0, alt: 0.008, size: 0.16,
+          label: provider + ' · ' + name, name: name, provider: provider, when: when,
+          type: 'launch', id: 'lnch-' + String(launch.id || name),
+          color: color, source: source || 'Launch Library 2', rocket: rocket, loc: loc, status: status
+        });
+      }
+    });
+    return { markers: markers, list: list };
+  }
+
   async function fetchLaunches() {
-
     const cached = readLaunchCache();
-
     if (cached && Date.now() - Number(cached.savedAt || 0) < LAUNCH_CACHE_TTL_MS) {
-
-      return { markers: cached.markers, list: cached.list };
-
+      return { markers: cached.markers || [], list: cached.list || [] };
     }
-
     try {
-
       const fresh = await fetchLaunchesLive();
-
-      writeLaunchCache(fresh);
-
-      return fresh;
-
-    } catch (e) {
-
-      if (cached) return { markers: cached.markers, list: cached.list };
-
-      throw e;
-
-    }
-
+      if (fresh && (fresh.markers || []).length) writeLaunchCache(fresh);
+      if (fresh && ((fresh.markers || []).length || (fresh.list || []).length)) return fresh;
+    } catch (e) {}
+    if (cached) return { markers: cached.markers || [], list: cached.list || [] };
+    return { markers: [], list: [] };
   }
 
   async function fetchLaunchesLive() {
-
-    const url = 'https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=12&mode=detailed';
-
-    const res = await fetchWithTimeout(url);
-
-    if (!res.ok) throw new Error('launches ' + res.status);
-
-    const data = await res.json();
-
-    const rows = Array.isArray(data?.results) ? data.results : [];
-
-    const markers = [];
-
-    const list = [];
-
-    rows.forEach((launch) => {
-
-      const pad = launch?.pad || {};
-
-      const lat = Number(pad.latitude);
-
-      const lng = Number(pad.longitude);
-
-      const name = String(launch?.name || 'Launch').trim();
-
-      const provider = providerName(launch);
-
-      const when = String(launch?.net || '');
-
-      const status = String(launch?.status?.name || 'Scheduled');
-
-      const rocket = String(launch?.rocket?.configuration?.full_name || launch?.rocket?.configuration?.name || '').trim();
-
-      const loc = String(pad?.location?.name || pad?.name || '').trim();
-
-      const image = String(launch?.image || launch?.infographic || '').trim();
-
-      list.push({ id: launch.id, name, provider, when, status, rocket, loc, image, lat, lng });
-
-      if (Number.isFinite(lat) && Number.isFinite(lng)) {
-
-        markers.push({
-
-          lat,
-
-          lng,
-
-          alt: 0.03,
-
-          label: `${provider} · ${name}`,
-
-          name,
-
-          provider,
-
-          when,
-
-          type: 'launch',
-
-        });
-
+    try {
+      const proxied = await fetchGodModeProxy('/god-mode/launches', 8000);
+      if (proxied && proxied.ok !== false) {
+        if (Array.isArray(proxied.markers) && proxied.markers.length && proxied.markers[0] && Number.isFinite(Number(proxied.markers[0].lat))) {
+          const markers = proxied.markers.map(function (m) {
+            return Object.assign({ type: 'launch', altM: 0, size: 0.16, color: m.color || '#ffd60a' }, m, { type: 'launch' });
+          });
+          return { markers: markers, list: proxied.list || markers };
+        }
+        const rows = proxied.results || proxied.launches || proxied.rows || [];
+        const mapped = mapLaunchRows(rows, 'god-mode launches');
+        if (mapped.markers.length) return mapped;
       }
-
-    });
-
-    return { markers, list };
-
+    } catch (eP) {}
+    const url = 'https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=12&mode=detailed';
+    const res = await fetchCorsFirst(url, {}, 12000);
+    if (!res || !res.ok) throw new Error('launches ' + ((res && res.status) || 'fail'));
+    const data = await res.json();
+    return mapLaunchRows(data && data.results, 'Launch Library 2');
   }
 
   function readEventCache() {
@@ -3401,6 +3390,14 @@
     if (cache[key]) return cache[key].miss ? null : cache[key];
     const city = String(query).split(',')[0].trim();
     try {
+      const known = typeof knownCityHit === 'function' ? knownCityHit(city) : null;
+      if (known && Number.isFinite(known.lat) && Number.isFinite(known.lng)) {
+        cache[key] = { lat: known.lat, lng: known.lng, name: known.name || city };
+        try { global.localStorage.setItem(DEAL_GEO_CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
+        return cache[key];
+      }
+    } catch (eK) {}
+    try {
       const res = await fetchWithTimeout(
         'https://geocoding-api.open-meteo.com/v1/search?name=' + encodeURIComponent(city) + '&count=1&language=en&format=json',
         {}, 8000);
@@ -3418,29 +3415,88 @@
     try { global.localStorage.setItem(DEAL_GEO_CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
     return null;
   }
+  function collectDealLeads(viewer) {
+    const seen = {};
+    const out = [];
+    const pushAll = function (arr) {
+      (Array.isArray(arr) ? arr : []).forEach(function (l) {
+        if (!l) return;
+        const id = String(l.id || l.leadId || l.brand || l.contactName || l.name || '') + '|' + String(l.location || l.loc || '');
+        if (seen[id]) return;
+        seen[id] = true;
+        out.push(l);
+      });
+    };
+    try { pushAll(global.V3 && global.V3.LEADS); } catch (e) {}
+    try { pushAll(viewer && (viewer.leads || viewer.LEADS || viewer.deals)); } catch (e2) {}
+    return out;
+  }
+
+  function leadToDealPoint(lead, geo) {
+    const loc = String(lead.location || lead.loc || '').trim();
+    const color = DEAL_STAGE_COLORS[String(lead.stage)] || lead.color || '#8e9dff';
+    const name = lead.brand || lead.contactName || lead.name || 'Deal';
+    return {
+      lat: geo.lat, lng: geo.lng, altM: 0, size: 0.16,
+      name: name, color: color, type: 'deal',
+      id: 'deal-' + String(lead.id || name),
+      stage: lead.stage, loc: loc, source: 'UNIFY deals',
+      label: name + (loc ? ' · ' + loc : ''),
+    };
+  }
+
   async function fetchDealMarkers(viewer) {
     try {
-      const leads = (global.V3 && global.V3.LEADS) || [];
-      if (!leads.length) return [];
-      const active = leads.filter(function (l) {
-        return DEAL_ACTIVE_STAGES.indexOf(String(l.stage || '')) >= 0 && String(l.location || '').trim() && !l.isRobertBrief;
+      let leads = collectDealLeads(viewer);
+      if (!leads.length) {
+        try {
+          const proxied = await fetchGodModeProxy('/god-mode/deals', 8000);
+          if (proxied && proxied.ok !== false) {
+            const pts = proxied.points || proxied.deals || proxied.rows || [];
+            const ready = [];
+            (Array.isArray(pts) ? pts : []).forEach(function (p) {
+              if (!p) return;
+              const lat = Number(p.lat);
+              const lng = Number(p.lng != null ? p.lng : p.lon);
+              if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+              ready.push({
+                lat: lat, lng: lng, altM: 0, size: 0.16,
+                name: p.name || p.brand || 'Deal', color: p.color || DEAL_STAGE_COLORS[String(p.stage)] || '#8e9dff',
+                type: 'deal', id: 'deal-' + String(p.id || p.name || lat),
+                stage: p.stage, loc: p.loc || p.location, source: 'UNIFY deals',
+                label: p.label || p.name || 'Deal',
+              });
+            });
+            if (ready.length) return ready;
+            leads = proxied.leads || [];
+          }
+        } catch (eP) {}
+      }
+      const active = (leads || []).filter(function (l) {
+        if (!l || l.isRobertBrief) return false;
+        const stage = String(l.stage || '');
+        const loc = String(l.location || l.loc || '').trim();
+        const lat = Number(l.lat);
+        const lng = Number(l.lng != null ? l.lng : l.lon);
+        const hasGeo = Number.isFinite(lat) && Number.isFinite(lng);
+        if (stage && DEAL_ACTIVE_STAGES.indexOf(stage) === -1 && !hasGeo) return false;
+        return !!(loc || hasGeo);
       });
       const cache = readDealGeoCache();
+      const slice = active.slice(0, 40);
       const points = [];
-      for (let i = 0; i < active.length && points.length < 40; i++) {
-        const lead = active[i];
-        const loc = String(lead.location).trim();
-        const geo = await geocodeDealCity(loc, cache);
+      for (let i = 0; i < slice.length; i++) {
+        const lead = slice[i];
+        let geo = null;
+        const lat = Number(lead.lat);
+        const lng = Number(lead.lng != null ? lead.lng : lead.lon);
+        if (Number.isFinite(lat) && Number.isFinite(lng)) geo = { lat: lat, lng: lng };
+        else {
+          const loc = String(lead.location || lead.loc || '').trim();
+          if (loc) geo = await geocodeDealCity(loc, cache).catch(function () { return null; });
+        }
         if (!geo) continue;
-        const color = DEAL_STAGE_COLORS[String(lead.stage)] || '#d0d6e0';
-        const name = lead.brand || lead.contactName || 'Deal';
-        points.push({
-          lat: geo.lat, lng: geo.lng, altM: 0, size: 0.11,
-          name: name, color: color, type: 'deal',
-          id: 'deal-' + String(lead.id || name),
-          stage: lead.stage, loc: loc, source: 'UNIFY deals',
-          label: name + ' · ' + loc,
-        });
+        points.push(leadToDealPoint(lead, geo));
       }
       return points;
     } catch (e) {
@@ -3541,7 +3597,7 @@
       weather: '<svg ' + common + ' ' + stroke + '><path d="M7.4 18h9.2a3.8 3.8 0 0 0 .5-7.6 5.8 5.8 0 0 0-11.1-1.6A3.4 3.4 0 0 0 7.4 18z"/></svg>',
       flights: '<svg ' + common + ' ' + stroke + '><path d="M21 15.5v-1.6l-8-5V4.4a1.5 1.5 0 0 0-3 0v4.5l-8 5v1.6l8-2.5V19l-2 1.4V22l3.5-1 3.5 1v-1.6L13 19v-6l8 2.5z"/></svg>',
       satellites: '<svg ' + common + ' ' + stroke + '><rect x="9.2" y="9.2" width="5.6" height="5.6" rx="1" transform="rotate(45 12 12)"/><path d="M7 7l2.6 2.6M17 17l-2.6-2.6M7 17l2.6-2.6M17 7l-2.6 2.6"/><path d="M15.2 8.8l3.6-3.6M8.8 15.2l-3.6 3.6"/></svg>',
-      ships: '<svg ' + common + ' ' + stroke + '><path d="M4 15.5l1.6 3.2h12.8L20 15.5H4z"/><path d="M6.5 15.5V10l5.5-4 5.5 4v5.5"/><path d="M12 6.2V15"/></svg>',
+      ships: '<svg ' + common + ' fill="none" stroke="currentColor" stroke-width="1.85"><path d="M3 16.4l2.4 3.4h13.2L21 16.4H3z"/><path d="M8 16.4V12h8v4.4"/><path d="M13 12V8.2h3.2V12"/><path d="M10 8v8.4"/></svg>',
       events: '<svg ' + common + ' ' + stroke + '><path d="M13 2L5 13.5h6.2L10 22l8-11.5h-6.2L13 2z"/></svg>'
     };
     return icons[id] || icons.all;
@@ -3553,13 +3609,13 @@
     'body.v4-godmode-phone .hd,body.v4-godmode-phone .v6-gnav,body.v4-godmode-phone .mobile-nav-layer{visibility:hidden!important;pointer-events:none!important;}',
     '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;pointer-events:auto;-webkit-user-select:none;user-select:none;transform:none;-webkit-transform:none;}',
     '.v4-gm-phone-globe canvas{display:block;width:100%!important;height:100%!important;touch-action:none;pointer-events:auto;}',
-    '.v4-gm-phone-top{position:absolute;top:env(safe-area-inset-top,0px);left:env(safe-area-inset-left,0px);right:env(safe-area-inset-right,0px);z-index:2;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);display:flex;align-items:center;justify-content:space-between;padding:8px 10px;pointer-events:none;}',
+    '.v4-gm-phone-top{position:absolute;top:env(safe-area-inset-top,0px);left:env(safe-area-inset-left,0px);right:env(safe-area-inset-right,0px);z-index:12;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);display:flex;align-items:center;justify-content:space-between;padding:8px 10px;pointer-events:none;}',
     '.v4-gm-phone-live{display:flex;align-items:center;gap:8px;background:#0b0d12;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 12px;font-size:12px;letter-spacing:.08em;font-weight:700;color:#f2f5fa;pointer-events:none;}',
     '.v4-gm-phone-dot{width:7px;height:7px;border-radius:50%;background:#34c759;box-shadow:0 0 8px #34c759;}',
     '.v4-gm-phone-utc{opacity:.9;font-variant-numeric:tabular-nums;letter-spacing:.04em;pointer-events:none;}',
     '.v4-gm-phone-close{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;width:44px;height:44px;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:#0b0d12;color:#fff;font-size:22px;line-height:1;}',
     '.v4-gm-phone-err{position:absolute;top:calc(env(safe-area-inset-top,0px) + 64px);left:12px;right:12px;z-index:2;pointer-events:none;text-align:center;padding:8px 12px;background:#1a0c0c;border:1px solid rgba(255,80,80,.45);border-radius:10px;color:#ffd0d0;font-size:13px;font-weight:600;}',
-    '.v4-gm-phone-sheet{position:absolute;left:0;right:0;bottom:0;z-index:2;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);pointer-events:none;background:transparent;padding:0;}',
+    '.v4-gm-phone-sheet{position:absolute;left:0;right:0;bottom:0;z-index:5;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);pointer-events:none;background:transparent;padding:0;}',
     '.v4-gm-phone-dock{pointer-events:none;padding:0;}',
     '.v4-gm-phone-dock-inner{pointer-events:auto;display:flex;align-items:center;justify-content:space-around;gap:2px;margin:0 18px calc(10px + env(safe-area-inset-bottom,0px));padding:6px 8px;border-radius:28px;border:1px solid rgba(255,255,255,0.1);border-top-color:rgba(255,255,255,0.16);background:rgba(18,20,26,0.82);backdrop-filter:saturate(1.4) blur(22px);-webkit-backdrop-filter:saturate(1.4) blur(22px);box-shadow:0 1px 0 rgba(255,255,255,0.08) inset,0 22px 52px rgba(0,0,0,0.55),0 8px 20px rgba(0,0,0,0.28);}',
     '.v4-gm-phone-dock-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-height:44px;min-width:44px;padding:6px 8px;border:0;border-radius:999px;background:transparent;color:rgba(232,237,245,0.55);appearance:none;-webkit-appearance:none;font:inherit;cursor:pointer;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:color .18s cubic-bezier(.2,.8,.2,1),background .18s cubic-bezier(.2,.8,.2,1),transform .18s cubic-bezier(.22,1.4,.36,1);}',
@@ -3592,11 +3648,18 @@
     '.v4-gm-phone-extra{pointer-events:auto;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 12px 8px;}',
     '.v4-gm-phone-chip{min-height:36px;min-width:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(18,20,26,.88);color:#e8edf5;font-size:12px;font-weight:700;letter-spacing:.04em;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}',
     '.v4-gm-phone-chip.is-on{background:rgba(232,237,245,.18);border-color:rgba(255,255,255,.4);color:#fff;}',
-    '.v4-gm-phone-settings{pointer-events:auto;margin:0 12px 8px;max-height:min(52vh,420px);overflow:auto;background:rgba(11,13,18,.96);border:1px solid rgba(255,255,255,.16);border-radius:16px;}',
+    '.v4-gm-phone-chip.is-empty{border-color:rgba(255,214,10,.5);color:#ffd60a;}',
+    '.v4-gm-phone-settings{position:relative;z-index:6;isolation:isolate;transform:translateZ(0);pointer-events:auto;margin:0 12px 8px;min-height:88px;max-height:min(52vh,420px);overflow:auto;background:rgba(11,13,18,.96);border:1px solid rgba(255,255,255,.22);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.55);}',
     '.v4-gm-phone-settings-row{display:flex;align-items:center;justify-content:space-between;min-height:44px;width:100%;padding:0 16px;border:0;border-bottom:1px solid rgba(255,255,255,.08);background:transparent;color:#e8edf5;font:inherit;font-size:15px;font-weight:600;text-align:left;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}',
     '.v4-gm-phone-settings-row:last-child{border-bottom:0;}',
     '.v4-gm-phone-settings-row.is-on{background:rgba(232,237,245,.12);}',
-    '.v4-gm-phone-settings-mark{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}',
+    '.v4-gm-phone-settings-title{padding:12px 16px 8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:700;}','.v4-gm-phone-settings-mark{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}',
+    '.v4-gm-phone-pano{position:absolute;inset:0;z-index:8;background:#0b0d12;display:none;}',
+    '.v4-gm-phone-pano.is-on{display:block;}',
+    '.v4-gm-phone-pano-inner,.v4-gm-phone-pano iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}',
+    '.v4-gm-phone-pano-miss{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#e8edf5;text-align:center;padding:16px;letter-spacing:.08em;}',
+    '.v4-gm-phone-search{z-index:9;}',
+    '.v4-gm-phone-suggest{z-index:10;}',
   ].join('');
   function injectPhoneCss() {
     let style = document.getElementById('v4-gm-phone-css');
@@ -3607,14 +3670,37 @@
     }
     style.textContent = PHONE_CSS;
   }
+  var TAP_GUARD_MS = 450;
+  var tapGuardAt = 0;
   function bindTap(fn) {
     return {
-      onPointerUp: function (e) { e.preventDefault(); e.stopPropagation(); fn(); },
-      onClick: function (e) { e.preventDefault(); e.stopPropagation(); fn(); }
+      onPointerUp: function (e) {
+        if (e && e.pointerType === 'mouse' && e.button != null && e.button !== 0) return;
+        if (e && e.preventDefault) e.preventDefault();
+        if (e && e.stopPropagation) e.stopPropagation();
+        var now = Date.now();
+        if (now - tapGuardAt < TAP_GUARD_MS) return;
+        tapGuardAt = now;
+        fn();
+      },
+      onClick: function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+        if (e && e.stopPropagation) e.stopPropagation();
+        var now = Date.now();
+        if (now - tapGuardAt < TAP_GUARD_MS) return;
+        tapGuardAt = now;
+        fn();
+      }
     };
   }
+  var STREET_PANO_TIMEOUT_MS = 8000;
+  var phoneStreetState = { gen: 0, timer: 0, el: null, pano: null };
+
   function streetViewUrl(lat, lng) {
-    return '';
+    const a = Number(lat);
+    const b = Number(lng);
+    if (!Number.isFinite(a) || !Number.isFinite(b)) return '';
+    return 'https://www.google.com/maps?layer=c&cbll=' + a.toFixed(6) + ',' + b.toFixed(6) + '&cbp=12,0,0,0,0&output=svembed';
   }
   function openStreetView(lat, lng) {
     try {
@@ -3877,7 +3963,7 @@
     const wantHouse = parseHouseNumber(q);
     let best = null;
     let bestRank = -1;
-    const rank = { address: 4, street: 3, place: 2, city: 1 };
+    const rank = wantHouse ? { address: 4, street: 3, place: 2, city: 1 } : { city: 10, place: 6, street: 2, address: 1 };
     for (let i = 0; i < list.length; i++) {
       const hit = list[i];
       const k = geocodeKindFromNominatim(hit);
@@ -3912,7 +3998,7 @@
     const wantHouse = parseHouseNumber(q);
     let best = null;
     let bestRank = -1;
-    const rank = { address: 4, street: 3, place: 2, city: 1 };
+    const rank = wantHouse ? { address: 4, street: 3, place: 2, city: 1 } : { city: 10, place: 6, street: 2, address: 1 };
     for (let i = 0; i < feats.length; i++) {
       const hit = feats[i];
       const coords = hit && hit.geometry && hit.geometry.coordinates;
@@ -4089,7 +4175,23 @@
   }
 
 
-  function syntheticSuggestRow(q) {
+  function knownCityHit(q) {
+    const s = String(q || "").trim().toLowerCase().replace(/\s+/g, " ");
+    if (!s) return null;
+    const cities = [
+      ['Tokyo', 35.68, 139.69], ['Chicago', 41.88, -87.63], ['London', 51.51, -0.13],
+      ['Paris', 48.86, 2.35], ['New York', 40.71, -74.01], ['Los Angeles', 34.05, -118.24],
+      ['Singapore', 1.35, 103.82], ['Seoul', 37.57, 126.98], ['Sydney', -33.87, 151.21],
+      ['Berlin', 52.52, 13.41], ['Dubai', 25.20, 55.27], ['Mumbai', 19.08, 72.88],
+    ];
+    for (let i = 0; i < cities.length; i++) {
+      if (String(cities[i][0]).toLowerCase() === s) {
+        return { lat: cities[i][1], lng: cities[i][2], name: cities[i][0], title: cities[i][0], sub: 'City', kind: 'city', source: 'known-city', house: '' };
+      }
+    }
+    return null;
+  }
+    function syntheticSuggestRow(q) {
     const s = String(q || "").trim();
     return {
       title: s,
@@ -4314,11 +4416,15 @@
       rows = diverse.concat(rest);
     } else {
       rows.sort(function (a, b) {
+        const ac = a.kind === "city" ? 1 : 0;
+        const bc = b.kind === "city" ? 1 : 0;
         const ag = a.source === "google" ? 1 : 0;
         const bg = b.source === "google" ? 1 : 0;
-        return bg - ag;
+        return (bc - ac) || (bg - ag);
       });
     }
+    const known = knownCityHit(q);
+    if (known) rows.unshift(known);
     return mergeSuggestRows(syn, rows);
   }
 
@@ -4532,7 +4638,13 @@
         if (allow && allow.indexOf(item.type) === -1) return;
         var craftPt = item.type === 'flight' || item.type === 'military' || item.type === 'ship';
         if (item.alt == null && item.altM != null) item.alt = craftPt ? Math.min(0.0022, (Number(item.altM) || 0) / 6371000) : Math.min(0.02, (Number(item.altM) || 0) / 100000);
-        if (item.size == null) item.size = item.type === 'starlink' ? STARLINK_POINT_SIZE : (craftPt ? 0.035 : 0.10);
+        if (item.size == null) {
+          if (item.type === 'starlink') item.size = STARLINK_POINT_SIZE;
+          else if (craftPt) item.size = 0.035;
+          else if (item.type === 'deal') item.size = 0.22;
+          else if (item.type === 'launch') item.size = 0.16;
+          else item.size = 0.10;
+        }
         if (!item.color) item.color = '#d0d6e0';
         rows.push(item);
       };
@@ -4731,6 +4843,7 @@
         }
       };
       setFeedsLoading(true);
+      var loadTimer = setTimeout(function () { if (!cancelled) setFeedsLoading(false); }, 8000);
       Promise.all([
         loadFeed('weather', fetchWeatherGrid, setWeather),
         loadFeed('flights', loadFlights, setFlights),
@@ -4738,12 +4851,12 @@
         loadFeed('starlink', loadStarlink, setStarlink),
         loadFeed('ships', function () { return fetchShips().then(function (v) { return (v && v.rows) || []; }); }, setShips),
         loadFeed('events', loadEvents, setEarthEvents),
-        loadFeed('launches', fetchLaunches, setLaunches),
-        loadFeed('deals', function () { return fetchDealMarkers(viewer); }, setDeals),
+        loadFeed('launches', function () { return settleTimeout(fetchLaunches(), 10000, { markers: [], list: [] }); }, setLaunches),
+        loadFeed('deals', function () { return settleTimeout(fetchDealMarkers(viewer), 10000, []); }, setDeals),
         loadFeed('gpsjam', function () {
           return fetchGpsjam().then(function (v) { return (v && v.rows) || []; });
         }, setGpsjam),
-      ]).then(function () { if (!cancelled) setFeedsLoading(false); });
+      ]).then(function () { if (!cancelled) { clearTimeout(loadTimer); setFeedsLoading(false); } });
       const flightTimer = setInterval(function () {
         loadFlights().then(function (rows) { if (!cancelled) setFlights(rows); }).catch(function () {});
       }, 45000);
@@ -4760,8 +4873,15 @@
       const shipTimer = setInterval(function () {
         fetchShips().then(function (v) { if (!cancelled) setShips((v && v.rows) || []); }).catch(function () {});
       }, 40000);
+      const onLeads = function () {
+        settleTimeout(fetchDealMarkers(viewer), 10000, []).then(function (rows) {
+          if (!cancelled) setDeals(rows || []);
+        }).catch(function () {});
+      };
+      try { window.addEventListener('v3:leads-loaded', onLeads); } catch (eL) {}
       return function () {
         cancelled = true;
+        try { window.removeEventListener('v3:leads-loaded', onLeads); } catch (eL2) {}
         clearInterval(flightTimer);
         clearInterval(issTimer);
         clearInterval(starTimer);
@@ -5006,66 +5126,124 @@
       } catch (e) {}
       return null;
     };
+    const hidePhonePano = function () {
+      phoneStreetState.gen += 1;
+      try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT) {}
+      try { if (phoneStreetState.pano && phoneStreetState.pano.setVisible) phoneStreetState.pano.setVisible(false); } catch (eP) {}
+      phoneStreetState.pano = null;
+      const el = phoneStreetState.el || document.getElementById('v4-gm-phone-pano');
+      if (el) {
+        try { el.classList.remove('is-on'); } catch (e) {}
+        try { el.innerHTML = ''; } catch (e2) {}
+      }
+    };
+    const restorePhoneGlobe = function () {
+      const g = globeInstRef.current;
+      if (g && g.__cesium) {
+        try { if (g._state) g._state._streetMode = false; } catch (eS) {}
+        try { if (g._viewer && g._viewer.scene && g._viewer.scene.globe) g._viewer.scene.globe.show = true; } catch (eG) {}
+        try { if (g._viewer && g._viewer.scene && g._viewer.scene.fog) { g._viewer.scene.fog.enabled = false; g._viewer.scene.fog.density = 0; } } catch (eF) {}
+        try { if (g.showAtmosphere) g.showAtmosphere(false); } catch (eA) {}
+        try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (eP) {}
+      } else if (g) {
+        try { g.showAtmosphere(false); } catch (eAtm) {}
+      }
+    };
+    const failStreetView = function (msg) {
+      hidePhonePano();
+      restorePhoneGlobe();
+      setStreetMode(false);
+      setSearchMsg(msg || 'Street View unavailable');
+    };
+    const showPhonePano = function (lat, lng) {
+      const gen = phoneStreetState.gen + 1;
+      phoneStreetState.gen = gen;
+      try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT0) {}
+      const root = globeRef.current && globeRef.current.parentNode;
+      let el = document.getElementById('v4-gm-phone-pano');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'v4-gm-phone-pano';
+        el.className = 'v4-gm-phone-pano';
+      }
+      if (root && el.parentNode !== root) root.appendChild(el);
+      phoneStreetState.el = el;
+      el.classList.add('is-on');
+      el.innerHTML = '';
+      const inner = document.createElement('div');
+      inner.className = 'v4-gm-phone-pano-inner';
+      el.appendChild(inner);
+      const miss = document.createElement('div');
+      miss.className = 'v4-gm-phone-pano-miss';
+      miss.textContent = 'Loading Street View…';
+      inner.appendChild(miss);
+      phoneStreetState.timer = global.setTimeout(function () {
+        if (phoneStreetState.gen !== gen) return;
+        failStreetView('Street View timed out');
+      }, STREET_PANO_TIMEOUT_MS);
+      ensureGoogleMapsJs().then(function (ok) {
+        if (phoneStreetState.gen !== gen) return;
+        const gmaps = global.google;
+        if (!(ok && gmaps && gmaps.maps && gmaps.maps.StreetViewPanorama && gmaps.maps.StreetViewService)) {
+          failStreetView('Street View unavailable');
+          return;
+        }
+        try {
+          const sv = new gmaps.maps.StreetViewService();
+          sv.getPanorama({ location: { lat: lat, lng: lng }, radius: 180 }, function (data, status) {
+            if (phoneStreetState.gen !== gen) return;
+            if (String(status) !== 'OK' || !data) {
+              failStreetView('No Street View coverage');
+              return;
+            }
+            try {
+              inner.innerHTML = '';
+              const pano = new gmaps.maps.StreetViewPanorama(inner, {
+                pano: data.location.pano,
+                position: data.location.latLng,
+                pov: { heading: 0, pitch: 0 },
+                zoom: 1,
+                visible: true,
+                addressControl: true,
+                fullscreenControl: false,
+                motionTracking: false,
+                motionTrackingControl: false,
+                enableCloseButton: false,
+              });
+              phoneStreetState.pano = pano;
+              try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT1) {}
+              setSearchMsg('Street View');
+            } catch (ePano) {
+              failStreetView('Street View failed');
+            }
+          });
+        } catch (eSv) {
+          failStreetView('Street View failed');
+        }
+      });
+    };
     const enterStreet = function (lat, lng) {
       const a = Number(lat);
       const b = Number(lng);
       if (!Number.isFinite(a) || !Number.isFinite(b)) { setSearchMsg('Search or tap a point first'); return; }
       const g = globeInstRef.current;
-      if (!g) return;
-      if (g.__cesium) {
+      if (g && g.__cesium) {
         try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (e) {}
         try { if (g._state) g._state._streetMode = true; } catch (eS) {}
-      } else {
+        try { if (g._viewer && g._viewer.scene && g._viewer.scene.fog) { g._viewer.scene.fog.enabled = false; g._viewer.scene.fog.density = 0; } } catch (eF) {}
+        try { if (g.showAtmosphere) g.showAtmosphere(false); } catch (eA) {}
+      } else if (g) {
         try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
-      }
-      if (g.__cesium) {
-        const Cesium = g._cesium;
-        const viewer = g._viewer;
-        try { g._streetPrev = viewer.camera.position.clone(); } catch (e) {}
-        try {
-          viewer.scene.screenSpaceCameraController.minimumZoomDistance = MIN_CAMERA_ALT_M;
-          let heading = 0;
-          try { heading = viewer.camera.heading; } catch (eH) {}
-          const target = Cesium.Cartesian3.fromDegrees(b, a, 8);
-          if (Cesium.BoundingSphere && viewer.camera.flyToBoundingSphere) {
-            viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(target, 12), {
-              offset: new Cesium.HeadingPitchRange(heading, Cesium.Math.toRadians(-35), 190),
-              duration: 1.55,
-            });
-          } else {
-            viewer.camera.flyTo({
-              destination: Cesium.Cartesian3.fromDegrees(b, a, STREET_CAMERA_ALT_M),
-              orientation: { heading: heading, pitch: Cesium.Math.toRadians(-35), roll: 0 },
-              duration: 1.55,
-            });
-          }
-        } catch (e) {}
-        enablePhonePhotoreal(Cesium, viewer, g._state, { show: true, force: true });
-      } else {
-        try { g.pointOfView({ lat: a, lng: b, altitude: STREET_ALT_RADII }, 1100); } catch (e) {}
-        syncGlobeCameraNear(g);
+        try { g.showAtmosphere(false); } catch (eAtm) {}
       }
       setStreetMode(true);
-      setSearchMsg('Street height · stay on globe');
+      setSearchMsg('Loading Street View…');
+      showPhonePano(a, b);
     };
     global.__gmPhoneStreetView = enterStreet;
     const leaveStreetView = function () {
-      const g = globeInstRef.current;
-      if (g && g.__cesium && g._streetPrev) {
-        try { if (g._state) g._state._streetMode = false; } catch (eS) {}
-        try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (eP) {}
-        try { g._viewer.camera.flyTo({ destination: g._streetPrev, duration: 1.2, complete: function () { try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (eC) {} } }); } catch (e) {}
-        g._streetPrev = null;
-      } else if (g) {
-        try {
-          const p = g.pointOfView && g.pointOfView();
-          g.pointOfView({
-            lat: p && Number.isFinite(Number(p.lat)) ? Number(p.lat) : 28,
-            lng: p && Number.isFinite(Number(p.lng)) ? Number(p.lng) : -20,
-            altitude: 2.15,
-          }, 1000);
-        } catch (e) {}
-      }
+      hidePhonePano();
+      restorePhoneGlobe();
       setStreetMode(false);
       setSearchMsg('');
     };
@@ -5127,10 +5305,10 @@
       return el('button', Object.assign({
         key: row.id,
         type: 'button',
-        className: 'v4-gm-phone-chip' + (on ? ' is-on' : ''),
-        'aria-label': row.label,
+        className: 'v4-gm-phone-chip' + (on ? ' is-on' : '') + (row.id === 'deals' && !deals.length ? ' is-empty' : ''),
+        'aria-label': row.id === 'deals' ? (deals.length ? ('Deals ' + deals.length) : 'Deals none') : row.label,
         'aria-pressed': on ? 'true' : 'false'
-      }, bindTap(function () { pickLayer(row.id); })), row.label);
+      }, bindTap(function () { pickLayer(row.id); })), row.id === 'deals' ? (deals.length ? ('Deals · ' + deals.length) : 'Deals · none') : row.label);
     });
     extraChipEls.push(el('button', Object.assign({
       key: 'settings',
@@ -5138,8 +5316,9 @@
       className: 'v4-gm-phone-chip' + (settingsOpen ? ' is-on' : ''),
       'aria-label': 'Settings',
       'aria-pressed': settingsOpen ? 'true' : 'false'
-    }, bindTap(function () { setSettingsOpen(!settingsOpen); })), 'Settings'));
+    }, bindTap(function () { setSettingsOpen(function (v) { return !v; }); })), 'Settings'));
     const settingsSheet = settingsOpen ? el('div', { className: 'v4-gm-phone-settings', role: 'listbox', 'aria-label': 'Layers' },
+      el('div', { className: 'v4-gm-phone-settings-title' }, 'Layers'),
       SETTINGS_LAYERS.map(function (row) {
         const on = layer === row.id;
         return el('button', Object.assign({
@@ -5243,7 +5422,7 @@
       el('div', { className: 'v4-gm-phone-sheet' },
         searchMsg ? el('div', { className: 'v4-gm-phone-search-msg' }, searchMsg) : null,
         selectedCard,
-        feedsLoading ? el('div', { className: 'v4-gm-phone-hint' }, 'Loading live data') : (!flights.length ? el('div', { className: 'v4-gm-phone-hint' }, 'Flights offline') : null),
+        layer === 'deals' && !feedsLoading ? el('div', { className: 'v4-gm-phone-hint' }, deals.length ? (deals.length + ' deals on globe') : 'No deal markers. Pipeline has no geocoded locations.') : (feedsLoading ? el('div', { className: 'v4-gm-phone-hint' }, 'Loading live data') : (!flights.length ? el('div', { className: 'v4-gm-phone-hint' }, 'Flights offline') : null)),
         settingsSheet,
         el('div', { className: 'v4-gm-phone-extra', 'aria-label': 'More layers' }, extraChipEls),
         el('nav', { className: 'v4-gm-phone-dock', 'aria-label': 'Layers' },

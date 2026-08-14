@@ -283,7 +283,7 @@
       '.v4-gm2 .v4-godmode-layer.is-active{border-color:rgba(100,210,255,.45);background:rgba(100,210,255,.12);color:#fff}',
       '.v4-gm2 .v4-godmode-layer-glyph{width:1.2em;text-align:center;color:var(--gm2-cyan)}',
       '.v4-gm2 .v4-gm2-keyhint{margin-left:auto;font-size:9px;letter-spacing:.14em;color:var(--gm2-muted);opacity:.7}',
-      '.v4-gm2 .v4-gm2-hud-right{position:absolute;right:12px;top:12px;z-index:6;display:flex;flex-direction:column;gap:8px;align-items:flex-end;max-width:min(360px,44vw)}',
+      '.v4-gm2 .v4-gm2-hud-right{position:absolute;right:12px;top:12px;z-index:22;display:flex;flex-direction:column;gap:8px;align-items:flex-end;max-width:min(300px,34vw);pointer-events:auto}',
       '.v4-gm2 .v4-gm2-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:4px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gm2-cyan);backdrop-filter:blur(10px)}',
       '.v4-gm2 .v4-gm2-chip.warn{border-color:rgba(255,214,10,.35);color:var(--gm2-amber)}',
       '.v4-gm2 .v4-gm2-chip.ok{border-color:rgba(52,199,89,.4);color:#34c759}',
@@ -329,14 +329,27 @@
       '.v4-gm2 .v4-gm2-vignette,.v4-gm2 .v4-gm2-scan,.v4-gm2 .v4-gm2-sensor-fx{pointer-events:none!important}',
       '.v4-gm2 .v4-gm2-cesium,.v4-gm2 .v4-gm2-cesium canvas,.v4-gm2 .cesium-widget,.v4-gm2 .cesium-widget canvas{pointer-events:auto!important;touch-action:none}',
       '.v4-gm2 .v4-godmode-layers,.v4-gm2 .v4-gm2-hud-right,.v4-gm2 .v4-gm2-timeline,.v4-gm2 .v4-gm2-search,.v4-gm2 .v4-godmode-head{pointer-events:auto}',
-      '.v4-gm2 .v4-gm2-search{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:8;display:flex;gap:6px;align-items:center;padding:6px 8px;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:6px;backdrop-filter:blur(10px);max-width:min(520px,70vw);width:min(520px,70vw)}',
+      '.v4-gm2 .v4-gm2-search{position:absolute;left:168px;top:12px;transform:none;z-index:22;display:flex;gap:6px;align-items:center;padding:6px 8px;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:6px;backdrop-filter:blur(10px);max-width:min(380px,calc(100% - 500px));width:min(380px,calc(100% - 500px))}',
       '.v4-gm2 .v4-gm2-search input{flex:1;min-width:0;height:32px;border:1px solid var(--gm2-border);background:rgba(8,12,20,.85);color:#e8eef8;border-radius:4px;padding:0 10px;font:inherit;font-size:12px;letter-spacing:.04em}',
-      '.v4-gm2 .v4-gm2-search-msg{position:absolute;left:50%;top:52px;transform:translateX(-50%);z-index:8;padding:4px 10px;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:4px;font-size:11px;color:var(--gm2-cyan);pointer-events:none;white-space:nowrap}',
+      '.v4-gm2 .v4-gm2-search-msg{position:absolute;left:50%;top:52px;transform:translateX(-50%);z-index:22;padding:4px 10px;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:4px;font-size:11px;color:var(--gm2-cyan);pointer-events:none;white-space:nowrap}',
       '.v4-gm2 .v4-gm2-suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:12;max-height:260px;overflow:auto;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:6px;backdrop-filter:blur(12px);padding:4px 0;box-shadow:0 12px 40px rgba(0,0,0,.45)}',
       '.v4-gm2 .v4-gm2-suggest button{display:block;width:100%;text-align:left;appearance:none;border:0;background:transparent;color:#e8eef8;padding:8px 12px;font:inherit;cursor:pointer}',
       '.v4-gm2 .v4-gm2-suggest button.is-active,.v4-gm2 .v4-gm2-suggest button:hover{background:rgba(100,210,255,.14)}',
       '.v4-gm2 .v4-gm2-suggest-name{display:block;font-size:12px;letter-spacing:.03em}',
       '.v4-gm2 .v4-gm2-suggest-sub{display:block;font-size:10px;color:var(--gm2-muted);letter-spacing:.04em;margin-top:2px}',
+      '.v4-gm2 .v4-gm2-search-msg{left:168px;transform:none}',
+      '.v4-gm2 .v4-gm2-chip.is-btn{cursor:pointer;appearance:none;font:inherit}',
+      '.v4-gm2 .v4-gm2-chip.is-btn:hover{border-color:rgba(100,210,255,.55);color:#fff}',
+      '.v4-gm2 .v4-gm2-pano{position:absolute;inset:0;z-index:5;background:#0b0d12;display:none;pointer-events:none}',
+      '.v4-gm2 .v4-gm2-empty{position:absolute;left:50%;top:16%;transform:translateX(-50%);z-index:12;padding:8px 14px;background:rgba(8,12,20,.88);border:1px solid rgba(255,214,10,.45);color:#ffd60a;font-size:11px;letter-spacing:.1em;text-transform:uppercase;pointer-events:none;white-space:nowrap}',
+      '.v4-gm2 .v4-gm2-pano.is-on{display:block;pointer-events:none}',
+      '.v4-gm2 .v4-gm2-pano.is-on.is-live{pointer-events:auto}',
+      '.v4-gm2 .v4-gm2-pano-inner,.v4-gm2 .v4-gm2-pano-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#111}',
+      '.v4-gm2 .v4-gm2-pano-miss{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#e8eef8;letter-spacing:.1em;font-size:13px;text-transform:uppercase;text-align:center;padding:16px}',
+      '.v4-gm2 .v4-gm2-settings-sheet{position:absolute;right:12px;top:12px;z-index:40;width:min(280px,70vw);max-height:min(70vh,520px);overflow:auto;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:8px;backdrop-filter:blur(14px);padding:8px}',
+      '.v4-gm2 .v4-gm2-settings-sheet h4{margin:4px 8px 8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gm2-cyan)}',
+      '@media (max-width:1100px){.v4-gm2 .v4-gm2-search{left:12px;top:8px;max-width:min(420px,calc(100% - 24px));width:min(420px,calc(100% - 24px))}.v4-gm2 .v4-gm2-search-msg{left:12px}.v4-gm2 .v4-gm2-hud-right{top:56px;max-width:min(320px,46vw)}}',
+      '@media (max-width:700px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2.is-settings .v4-godmode-layers{display:flex;z-index:15;background:rgba(8,12,20,.96)}.v4-gm2 .v4-gm2-hud-right{max-width:calc(100% - 16px);align-items:stretch}.v4-gm2 .v4-gm2-search{width:calc(100% - 24px);max-width:none}}',
     ].join('\n');
     const style = document.createElement('style');
     style.id = 'v4-gm2-styles';
@@ -1149,11 +1162,7 @@
           ws.send(JSON.stringify({
             APIKey: key,
             BoundingBoxes: [
-              [[24.8, 56.0], [27.2, 57.0]],
-              [[1.1, 103.4], [1.6, 104.2]],
-              [[50.8, -1.2], [51.6, 1.8]],
-              [[40.4, -74.3], [40.9, -73.7]],
-              [[33.6, -118.4], [34.0, -118.1]],
+              [[-90, -180], [90, 180]]
             ],
             FilterMessageTypes: ['PositionReport'],
           }));
@@ -1982,9 +1991,18 @@
   }
 
   async function geocodeDealCity(query, cache) {
-    const key = query.toLowerCase();
+    const key = String(query || '').toLowerCase();
+    if (!key) return null;
     if (cache[key]) return cache[key].miss ? null : cache[key];
-    const city = query.split(',')[0].trim();
+    const city = String(query).split(',')[0].trim();
+    try {
+      const known = typeof knownCityHit === 'function' ? knownCityHit(city) : null;
+      if (known && Number.isFinite(known.lat) && Number.isFinite(known.lng)) {
+        cache[key] = { lat: known.lat, lng: known.lng, name: known.name || city };
+        try { global.localStorage.setItem(DEAL_GEO_CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
+        return cache[key];
+      }
+    } catch (eK) {}
     try {
       const res = await fetchWithTimeout(
         'https://geocoding-api.open-meteo.com/v1/search?name=' + encodeURIComponent(city) + '&count=1&language=en&format=json',
@@ -2005,24 +2023,74 @@
   }
 
   async function fetchDealMarkers(viewer) {
-    const leads = (global.V3 && global.V3.LEADS) || [];
+    const seen = {};
+    const bag = [];
+    const pushAll = (arr) => {
+      (Array.isArray(arr) ? arr : []).forEach((l) => {
+        if (!l) return;
+        const id = String(l.id || l.leadId || l.brand || l.contactName || l.name || '') + '|' + String(l.location || l.loc || '');
+        if (seen[id]) return;
+        seen[id] = true;
+        bag.push(l);
+      });
+    };
+    try { pushAll(global.V3 && global.V3.LEADS); } catch (e) {}
+    try { pushAll(viewer && (viewer.leads || viewer.LEADS || viewer.deals)); } catch (e2) {}
+    let leads = bag;
+    if (!leads.length) {
+      try {
+        const proxied = await fetchGodModeProxy('/god-mode/deals', 8000);
+        if (proxied && proxied.ok !== false) {
+          const pts = proxied.points || proxied.deals || proxied.rows || [];
+          const ready = [];
+          (Array.isArray(pts) ? pts : []).forEach((p) => {
+            if (!p) return;
+            const lat = Number(p.lat);
+            const lng = Number(p.lng != null ? p.lng : p.lon);
+            if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+            ready.push({
+              lat, lng, altM: 2500,
+              label: p.label || p.name || 'Deal',
+              name: p.name || p.brand || 'Deal',
+              color: p.color || DEAL_STAGE_COLORS[String(p.stage)] || '#8e9dff',
+              type: 'deal', id: 'deal-' + String(p.id || p.name || lat),
+              stage: p.stage, loc: p.loc || p.location, source: 'UNIFY deals',
+            });
+          });
+          if (ready.length) return { points: ready, count: ready.length };
+          leads = proxied.leads || [];
+        }
+      } catch (eP) {}
+    }
     const hqLat = Number(viewer?.lat);
     const hqLng = Number(viewer?.lng ?? viewer?.lon);
     const hq = { lat: Number.isFinite(hqLat) ? hqLat : 37.46, lng: Number.isFinite(hqLng) ? hqLng : -122.43 };
-    const active = leads.filter((l) =>
-      DEAL_ACTIVE_STAGES.includes(String(l.stage || '')) && String(l.location || '').trim() && !l.isRobertBrief);
+    const active = (leads || []).filter((l) => {
+      if (!l || l.isRobertBrief) return false;
+      const loc = String(l.location || l.loc || '').trim();
+      const lat = Number(l.lat);
+      const lng = Number(l.lng != null ? l.lng : l.lon);
+      const hasGeo = Number.isFinite(lat) && Number.isFinite(lng);
+      const stage = String(l.stage || '');
+      if (stage && DEAL_ACTIVE_STAGES.indexOf(stage) === -1 && !hasGeo) return false;
+      return !!(loc || hasGeo);
+    });
     const cache = readDealGeoCache();
     const points = [];
     for (const lead of active.slice(0, 80)) {
-      const loc = String(lead.location).trim();
-      const geo = await geocodeDealCity(loc, cache);
+      const loc = String(lead.location || lead.loc || '').trim();
+      let geo = null;
+      const lat = Number(lead.lat);
+      const lng = Number(lead.lng != null ? lead.lng : lead.lon);
+      if (Number.isFinite(lat) && Number.isFinite(lng)) geo = { lat, lng };
+      else if (loc) geo = await geocodeDealCity(loc, cache);
       if (!geo) continue;
       const color = DEAL_STAGE_COLORS[String(lead.stage)] || '#d0d6e0';
       const name = lead.brand || lead.contactName || 'Deal';
       const money = typeof lead.value === 'number' && lead.value > 0 ? lead.value : 0;
       points.push({
-        lat: geo.lat, lng: geo.lng, altM: 0,
-        label: name + ' · ' + loc + ' · ' + String(lead.stage).replace(/-/g, ' ') + (money ? ' · $' + money.toLocaleString() : ''),
+        lat: geo.lat, lng: geo.lng, altM: 2500,
+        label: name + (loc ? ' · ' + loc : '') + ' · ' + String(lead.stage || '').replace(/-/g, ' ') + (money ? ' · $' + money.toLocaleString() : ''),
         name, color, type: 'deal', leadId: lead.id, id: 'deal-' + String(lead.id || name),
         stage: lead.stage, money, loc, hqLat: hq.lat, hqLng: hq.lng, source: 'UNIFY deals',
       });
@@ -2724,38 +2792,39 @@
     var ship = row.type === 'ship';
     var rot = craftHeadingRad(row);
     var icon = getCraftIcon(ship ? 'ship' : 'air');
-    var heightRef = ship ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE;
+    var heightRef = Cesium.HeightReference.NONE;
     var scaleNear = selected ? 1.25 : 1.0;
     try { if (ent.ellipse) ent.ellipse = undefined; } catch (e) {}
     if (ent.point) {
       try {
         ent.point.show = true;
-        ent.point.pixelSize = selected ? 4 : 2.2;
+        var orbit = state && state.lastLod === 'Orbit';
+        ent.point.pixelSize = selected ? (ship ? 16 : 4) : (ship ? (orbit ? 14 : 12) : 2.4);
         ent.point.color = color;
-        ent.point.outlineWidth = 0;
+        ent.point.outlineWidth = ship ? 1 : 0;
+        ent.point.outlineColor = Cesium.Color.BLACK.withAlpha(0.65);
         ent.point.heightReference = heightRef;
-        ent.point.disableDepthTestDistance = 0;
-        ent.point.scaleByDistance = new Cesium.NearFarScalar(2.5e5, 0.15, 1.2e7, 1.15);
-        ent.point.translucencyByDistance = new Cesium.NearFarScalar(8e6, 0.85, 2.4e7, 0.2);
+        ent.point.disableDepthTestDistance = Number.POSITIVE_INFINITY;
+        ent.point.scaleByDistance = new Cesium.NearFarScalar(8.0e5, 1.0, 4.5e7, 1.15);
+        ent.point.translucencyByDistance = new Cesium.NearFarScalar(4.0e7, 1.0, 8.0e7, 0.7);
       } catch (e) {}
     }
-    if (icon) {
+    if (icon && !(ship && state && state.lastLod === 'Orbit')) {
       var bb = {
         image: icon,
-        width: ship ? 11 : 16,
-        height: ship ? 16 : 16,
+        width: ship ? 14 : 16,
+        height: ship ? 20 : 16,
         color: color,
         rotation: rot,
-        alignedAxis: Cesium.Cartesian3.UNIT_Z,
+        alignedAxis: (ship && (state.lastLod === 'Orbit')) ? undefined : Cesium.Cartesian3.UNIT_Z,
         verticalOrigin: Cesium.VerticalOrigin.CENTER,
         horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
         heightReference: heightRef,
-        disableDepthTestDistance: 0,
+        disableDepthTestDistance: Number.POSITIVE_INFINITY,
         sizeInMeters: false,
         scale: scaleNear,
-        scaleByDistance: new Cesium.NearFarScalar(5.0e4, 1.12, 8.0e6, 0.16),
-        translucencyByDistance: new Cesium.NearFarScalar(5.5e6, 1.0, 1.6e7, 0.2),
-        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 7.5e6)
+        scaleByDistance: new Cesium.NearFarScalar(8.0e4, 1.35, 5.5e7, 1.15),
+        translucencyByDistance: new Cesium.NearFarScalar(6.0e7, 1.0, 1.0e8, 0.85)
       };
       try {
         if (ent.billboard) {
@@ -2773,7 +2842,10 @@
         } else {
           ent.billboard = new Cesium.BillboardGraphics(bb);
         }
+        try { if (ent.billboard) ent.billboard.show = true; } catch (eS) {}
       } catch (e) {}
+    } else {
+      try { if (ent.billboard) ent.billboard.show = false; } catch (eH) {}
     }
     var trail = craftTrailCartesian(Cesium, row);
     var wantTrail = !!(selected || craftTrailNearby(state, row));
@@ -2802,7 +2874,7 @@
     if (type === 'starlink' || type === 'oneweb' || type === 'kuiper') return 3;
     if (type === 'flight') return 2.4;
     if (type === 'military') return 2.6;
-    if (type === 'ship') return 2.2;
+    if (type === 'ship') return 8;
     if (type === 'gps') return 5;
     if (type === 'wxsat' || type === 'visual') return 6;
     if (type === 'geo') return 5;
@@ -2913,8 +2985,21 @@
   function isPointFacing(Cesium, viewer, state, pos) {
     if (!pos) return true;
     try {
+      const h = cameraHeightM(viewer);
+      if (Number.isFinite(h) && h > 9e5) {
+        const cam = viewer.camera.positionWC;
+        if (!cam) return true;
+        const nPos = Cesium.Cartesian3.normalize(pos, new Cesium.Cartesian3());
+        const nCam = Cesium.Cartesian3.normalize(cam, new Cesium.Cartesian3());
+        return Cesium.Cartesian3.dot(nPos, nCam) > 0.08;
+      }
       const occ = cameraOccluder(Cesium, viewer, state);
-      return !occ || occ.isPointVisible(pos);
+      if (!occ) return true;
+      if (occ.isPointVisible(pos)) return true;
+      const mag = Cesium.Cartesian3.magnitude(pos);
+      const n = Cesium.Cartesian3.normalize(pos, new Cesium.Cartesian3());
+      const raised = Cesium.Cartesian3.multiplyByScalar(n, mag + 80000, new Cesium.Cartesian3());
+      return occ.isPointVisible(raised);
     } catch (e) { return true; }
   }
 
@@ -2969,7 +3054,8 @@
     const lng = Number(row.lng);
     if (!validLatLng(lat, lng)) return null;
     const alt = Number(row.altM);
-    const height = Number.isFinite(alt) ? alt : 0;
+    let height = Number.isFinite(alt) ? alt : 0;
+    if (row.type === 'ship' && height < 80) height = 80;
     const id = String(row.id || (row.type + '-' + lat + '-' + lng));
     row.id = id;
     const color = cesiumColor(Cesium, row.color || opts?.color || '#64d2ff', opts?.alpha);
@@ -2978,7 +3064,7 @@
     const pos = Cesium.Cartesian3.fromDegrees(lng, lat, height);
     if (!cartesianFinite(Cesium, pos)) return null;
     let ent = state.entityById.get(id);
-    if ((!ent || isDestroyedEnt(ent)) && id !== state.selectedId && !isPointFacing(Cesium, viewer, state, pos)) {
+    if ((!ent || isDestroyedEnt(ent)) && id !== state.selectedId && !isCraftType(row.type) && row.type !== 'deal' && row.type !== 'launch' && !isPointFacing(Cesium, viewer, state, pos)) {
       return null;
     }
     const lod = state.lastLod || 'Orbit';
@@ -3016,14 +3102,18 @@
       id: 'gm2-' + id,
       position: pos,
       point: {
-        pixelSize: selected ? pixelSize + 5 : pixelSize,
+        pixelSize: selected ? pixelSize + 5 : (row.type === 'ship' ? Math.max(pixelSize, 12) : pixelSize),
         color,
         outlineColor: Cesium.Color.BLACK.withAlpha(0.65),
         outlineWidth: opts?.outline === false ? 0 : 1,
-        heightReference: heightRef,
-        disableDepthTestDistance: 0,
-        scaleByDistance: new Cesium.NearFarScalar(8.0e5, 1.15, 2.2e7, 0.28),
-        translucencyByDistance: new Cesium.NearFarScalar(1.2e7, 1.0, 3.2e7, 0.15),
+        heightReference: (row.type === 'ship' || isCraftType(row.type)) ? Cesium.HeightReference.NONE : heightRef,
+        disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        scaleByDistance: row.type === 'ship'
+          ? new Cesium.NearFarScalar(1.0e6, 1.2, 5.5e7, 1.05)
+          : new Cesium.NearFarScalar(8.0e5, 1.15, 2.2e7, 0.28),
+        translucencyByDistance: row.type === 'ship'
+          ? new Cesium.NearFarScalar(5.5e7, 1.0, 9.0e7, 0.65)
+          : new Cesium.NearFarScalar(1.2e7, 1.0, 3.2e7, 0.15),
       },
     };
     if (opts?.ellipseM && Number.isFinite(opts.ellipseM) && opts.ellipseM > 0) {
@@ -3245,8 +3335,40 @@
     upsertPolyline(Cesium, viewer, state, 'issOrbitEntity', cartesianPath(Cesium, pts || []), '#5ac8fa', 1.8);
   }
 
+  function flyToDealSet(Cesium, viewer, state, deals) {
+    const pts = (deals || []).filter((d) => d && validLatLng(d.lat, d.lng));
+    if (!pts.length || !viewer || !Cesium) return false;
+    try { pauseIdleSpinState(state); } catch (eP) {}
+    if (pts.length === 1) {
+      try {
+        viewer.camera.flyTo({
+          destination: Cesium.Cartesian3.fromDegrees(pts[0].lng, pts[0].lat, 2.8e6),
+          duration: 1.15,
+          complete: function () { try { enableDesktopRotate(Cesium, viewer); } catch (e) {} requestSceneRender(viewer); },
+        });
+      } catch (e) { return false; }
+      return true;
+    }
+    const cartesians = [];
+    for (let i = 0; i < pts.length; i++) {
+      const c = Cesium.Cartesian3.fromDegrees(pts[i].lng, pts[i].lat, 0);
+      if (cartesianFinite(Cesium, c)) cartesians.push(c);
+    }
+    if (cartesians.length < 2) return false;
+    try {
+      const bs = Cesium.BoundingSphere.fromPoints(cartesians);
+      const range = Math.max((bs && bs.radius ? bs.radius * 4.5 : 0), 1.6e6);
+      viewer.camera.flyToBoundingSphere(bs, {
+        duration: 1.25,
+        offset: new Cesium.HeadingPitchRange(0, Cesium.Math.toRadians(-89), range),
+        complete: function () { try { enableDesktopRotate(Cesium, viewer); } catch (e) {} requestSceneRender(viewer); },
+      });
+    } catch (e) { return false; }
+    return true;
+  }
+
   function syncDeals(Cesium, viewer, state, deals) {
-    syncGroup(Cesium, viewer, state, 'deal', deals, () => ({ pixelSize: 9 }));
+    syncGroup(Cesium, viewer, state, 'deal', deals, () => ({ pixelSize: 14, label: true }));
     const keep = new Set();
     (deals || []).forEach((d) => {
       if (!validLatLng(d.hqLat, d.hqLng) || !validLatLng(d.lat, d.lng)) return;
@@ -3495,7 +3617,7 @@
     else { setGroupShow(state, 'deal', false); setGroupShow(state, 'deal-arc', false); }
 
     if (showShips) {
-      if ((data.ships || []).length) syncGroup(Cesium, viewer, state, 'ship', capCraftRows(Cesium, viewer, state, 'ship', data.ships), () => ({ pixelSize: 7 }));
+      if ((data.ships || []).length) syncGroup(Cesium, viewer, state, 'ship', capCraftRows(Cesium, viewer, state, 'ship', data.ships), () => ({ pixelSize: 12 }));
     } else setGroupShow(state, 'ship', false);
 
     if (state.selectedId) {
@@ -4487,12 +4609,15 @@
     const wantHouse = parseHouseNumber(q);
     let best = null;
     let bestRank = -1;
-    const rank = { address: 4, street: 3, place: 2, city: 1 };
+    const rank = wantHouse ? { address: 4, street: 3, place: 2, city: 1 } : { city: 10, place: 6, street: 2, address: 1 };
+    const qn = String(q || "").trim().toLowerCase();
     for (let i = 0; i < list.length; i++) {
       const hit = list[i];
       const k = geocodeKindFromNominatim(hit);
       const hn = ((hit && hit.address) || {}).house_number;
       let r = rank[k] || 2;
+      const nm = String((hit && (hit.name || (hit.address && (hit.address.city || hit.address.town)))) || "").toLowerCase();
+      if (!wantHouse && qn && (nm === qn || String(hit.display_name || "").toLowerCase().indexOf(qn) === 0)) r += 6;
       if (wantHouse) {
         if (housesEqual(hn, wantHouse)) r = 20;
         else if (k === "address" || k === "place") r = 8 + r;
@@ -4522,7 +4647,8 @@
     const wantHouse = parseHouseNumber(q);
     let best = null;
     let bestRank = -1;
-    const rank = { address: 4, street: 3, place: 2, city: 1 };
+    const rank = wantHouse ? { address: 4, street: 3, place: 2, city: 1 } : { city: 10, place: 6, street: 2, address: 1 };
+    const qn = String(q || "").trim().toLowerCase();
     for (let i = 0; i < feats.length; i++) {
       const hit = feats[i];
       const coords = hit && hit.geometry && hit.geometry.coordinates;
@@ -4530,6 +4656,9 @@
       const props = hit.properties || {};
       const kind = geocodeKindFromPhoton(props);
       let r = rank[kind] || 2;
+      const nm = String(props.name || props.city || "").toLowerCase();
+      if (!wantHouse && qn && nm === qn) r += 8;
+      if (!wantHouse && qn === "tokyo" && /japan|東京/i.test(String(props.country || props.state || ""))) r += 12;
       if (wantHouse) {
         if (housesEqual(props.housenumber, wantHouse)) r = 20;
         else if (kind === "address" || kind === "place") r = 8 + r;
@@ -4665,8 +4794,8 @@
     const list = Array.isArray(rows) ? rows : [];
     const lod = (state && state.lastLod) || "Orbit";
     let cap = type === "ship" ? MAX_SHIP_POINTS : MAX_FLIGHT_POINTS;
-    if (lod === "Orbit") cap = type === "ship" ? 240 : 200;
-    else if (lod === "Regional") cap = type === "ship" ? 480 : 300;
+    if (lod === "Orbit") cap = type === "ship" ? MAX_SHIP_POINTS : 200;
+    else if (lod === "Regional") cap = type === "ship" ? MAX_SHIP_POINTS : 300;
     if (list.length <= cap) return list;
     const rect = viewRectDeg(Cesium, viewer);
     const sel = state && state.selectedId;
@@ -4877,64 +5006,168 @@
     };
   }
 
-  function enterStreetView(Cesium, viewer, state, lat, lng) {
+  function streetPanoEl(viewer) {
+    let el = document.getElementById('v4-gm2-pano');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'v4-gm2-pano';
+      el.className = 'v4-gm2-pano';
+      el.setAttribute('aria-label', 'Street View panorama');
+    }
+    try {
+      const host = (viewer && viewer.container && viewer.container.parentElement)
+        || document.querySelector('.v4-gm2-stage');
+      if (host && el.parentNode !== host) host.appendChild(el);
+    } catch (e) {}
+    return el;
+  }
+
+  function hideStreetPanorama(state) {
+    const el = document.getElementById('v4-gm2-pano');
+    if (el) {
+      try { el.classList.remove('is-on'); } catch (e) {}
+      try { el.classList.remove('is-live'); } catch (eL) {}
+      try { el.style.pointerEvents = 'none'; } catch (eP) {}
+      try { el.innerHTML = ''; } catch (e2) {}
+    }
+    if (state) {
+      try { if (state._streetTimer) { global.clearTimeout(state._streetTimer); state._streetTimer = 0; } } catch (eT) {}
+      try { if (state._streetPano && state._streetPano.setVisible) state._streetPano.setVisible(false); } catch (e3) {}
+      state._streetPano = null;
+      state._streetMode = false;
+      state._streetFlying = false;
+    }
+  }
+
+  function fillStreetPanorama(el, lat, lng, state, onSettled) {
+    const gen = (state._streetGen = (state._streetGen || 0) + 1);
+    try { if (state._streetTimer) { global.clearTimeout(state._streetTimer); state._streetTimer = 0; } } catch (eT0) {}
+    el.innerHTML = '';
+    const inner = document.createElement('div');
+    inner.className = 'v4-gm2-pano-inner';
+    el.appendChild(inner);
+    const miss = function (msg) {
+      inner.innerHTML = '';
+      const d = document.createElement('div');
+      d.className = 'v4-gm2-pano-miss';
+      d.textContent = msg || 'No Street View here';
+      inner.appendChild(d);
+    };
+    miss('Loading Street View…');
+    var settled = false;
+    const done = function (ok, msg) {
+      if (settled) return;
+      settled = true;
+      try { if (state && state._streetTimer) { global.clearTimeout(state._streetTimer); state._streetTimer = 0; } } catch (eT) {}
+      if (state && state._streetGen !== gen) return;
+      if (onSettled) onSettled(ok, msg);
+    };
+    ensureGoogleMapsJs().then(function (ok) {
+      if (state && state._streetGen !== gen) return;
+      state._streetTimer = global.setTimeout(function () {
+        if (state && state._streetGen !== gen) return;
+        hideStreetPanorama(state);
+        done(false, 'Street View timed out');
+      }, 10000);
+      if (state && state._streetGen !== gen) return;
+      const g = global.google;
+      if (!(ok && g && g.maps && g.maps.StreetViewPanorama && g.maps.StreetViewService)) {
+        hideStreetPanorama(state);
+        done(false, 'Street View unavailable');
+        return;
+      }
+      try {
+        const sv = new g.maps.StreetViewService();
+        sv.getPanorama({ location: { lat: lat, lng: lng }, radius: 180 }, function (data, status) {
+          if (state && state._streetGen !== gen) return;
+          if (String(status) !== 'OK' || !data) {
+            hideStreetPanorama(state);
+            done(false, 'No Street View coverage');
+            return;
+          }
+          try {
+            inner.innerHTML = '';
+            const pano = new g.maps.StreetViewPanorama(inner, {
+              pano: data.location.pano,
+              position: data.location.latLng,
+              pov: { heading: 0, pitch: 0 },
+              zoom: 1,
+              visible: true,
+              addressControl: true,
+              fullscreenControl: false,
+              motionTracking: false,
+              motionTrackingControl: false,
+              enableCloseButton: false,
+            });
+            try { el.classList.add('is-live'); } catch (eLive) {}
+            if (state) state._streetPano = pano;
+            done(true, '');
+          } catch (eP) {
+            hideStreetPanorama(state);
+            done(false, 'Street View failed');
+          }
+        });
+      } catch (eS) {
+        hideStreetPanorama(state);
+        done(false, 'Street View failed');
+      }
+    });
+  }
+
+  function enterStreetView(Cesium, viewer, state, lat, lng, onSettled) {
     const a = Number(lat);
     const b = Number(lng);
-    if (!Cesium || !viewer || !Number.isFinite(a) || !Number.isFinite(b)) return false;
-    try {
-      state._streetPrev = viewer.camera.position.clone();
+    if (!Number.isFinite(a) || !Number.isFinite(b)) return false;
+    if (state) {
       state._streetMode = true;
-      state._streetFlying = true;
-    } catch (e) {}
-    pauseIdleSpinState(state);
-    try { state.lastLod = 'City'; } catch (e) {}
-    try { viewer.scene.screenSpaceCameraController.minimumZoomDistance = 80; } catch (e) {}
-    try { if (viewer.scene.fog) { viewer.scene.fog.enabled = false; viewer.scene.fog.density = 0; } } catch (e) {}
-    try { if (viewer.scene.skyAtmosphere) viewer.scene.skyAtmosphere.show = false; } catch (e) {}
-    try { if (viewer.scene.globe) { viewer.scene.globe.showGroundAtmosphere = false; viewer.scene.globe.atmosphereLightIntensity = 0; } } catch (e) {}
-    const finishStreet = function () {
-      try { state._streetFlying = false; } catch (e) {}
-      enableDesktopRotate(Cesium, viewer);
-      tryEnableGooglePhotoreal(Cesium, viewer, state);
-      applyStreetClarity(Cesium, viewer, 'City', state);
-      applySensorSkin(state, 'eo');
-    };
-    try {
-      const look = streetViewLookAt(Cesium, viewer, a, b);
-      const finish = function () { finishStreet(); requestSceneRender(viewer); };
-      const ease = streetFlyEasing(Cesium);
-      if (Cesium.BoundingSphere && typeof viewer.camera.flyToBoundingSphere === "function") {
-        const bsOpts = {
-          offset: new Cesium.HeadingPitchRange(look.heading, look.pitch, look.range),
-          duration: 2.4,
-          complete: finish,
-        };
-        if (ease) bsOpts.easingFunction = ease;
-        viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(look.target, 12), bsOpts);
-      } else {
-        const flyOpts = {
-          destination: Cesium.Cartesian3.fromDegrees(b, a, 120),
-          orientation: { heading: look.heading, pitch: look.pitch, roll: 0 },
-          duration: 2.4,
-          complete: finish,
-        };
-        if (ease) flyOpts.easingFunction = ease;
-        viewer.camera.flyTo(flyOpts);
-      }
-    } catch (e) {
-      finishStreet();
+      state._streetFlying = false;
     }
+    try { pauseIdleSpinState(state); } catch (e) {}
+    try { if (viewer && viewer.scene && viewer.scene.fog) { viewer.scene.fog.enabled = false; viewer.scene.fog.density = 0; } } catch (eF) {}
+    const el = streetPanoEl(viewer);
+    el.classList.add('is-on');
+    fillStreetPanorama(el, a, b, state, function (ok, msg) {
+      if (!ok) {
+        try { exitStreetView(Cesium, viewer, state); } catch (eX) {}
+      }
+      if (onSettled) onSettled(ok, msg);
+    });
     return true;
   }
 
   function exitStreetView(Cesium, viewer, state) {
-    if (!viewer || !state) return;
-    const prev = state._streetPrev;
-    state._streetMode = false;
-    state._streetFlying = false;
-    state._streetPrev = null;
-    if (prev && Cesium) {
-      try { viewer.camera.flyTo({ destination: prev, duration: 1.25, complete: function () { enableDesktopRotate(Cesium, viewer); pauseIdleSpinState(state); } }); } catch (e) {}
+    try { if (state) state._streetGen = (state._streetGen || 0) + 1; } catch (eG0) {}
+    hideStreetPanorama(state);
+    if (viewer && Cesium) {
+      try { enableDesktopRotate(Cesium, viewer); } catch (e) {}
+      try { unloadGooglePhotoreal(state, viewer); } catch (eU) {}
+      try { keepEsriGround(viewer, state); } catch (eK) {}
+      try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = true; } catch (eG) {}
+      try { if (viewer.scene && viewer.scene.fog) { viewer.scene.fog.enabled = false; viewer.scene.fog.density = 0; } } catch (eF) {}
+      try { pauseIdleSpinState(state); } catch (eP) {}
+      try {
+        var cam = viewer.camera.positionCartographic;
+        var lat = cam ? Cesium.Math.toDegrees(cam.latitude) : 35.68;
+        var lng = cam ? Cesium.Math.toDegrees(cam.longitude) : 139.69;
+        var dest = Cesium.Cartesian3.fromDegrees(lng, lat, 2.8e6);
+        try { viewer.camera.setView({ destination: dest }); } catch (eSet) {}
+        try { if (state) { state._streetMode = false; state._streetFlying = false; } } catch (eFl) {}
+        try { setEllipsoidGlobeVisible(viewer, state, true); } catch (eEll) {}
+        viewer.camera.flyTo({
+          destination: dest,
+          duration: 0.85,
+          complete: function () {
+            try { keepEsriGround(viewer, state); } catch (e2) {}
+            try { setEllipsoidGlobeVisible(viewer, state, true); } catch (e3) {}
+            try { pauseIdleSpinState(state); } catch (e4) {}
+            try { if (state) { state._streetMode = false; state._streetFlying = false; } } catch (e5) {}
+            requestSceneRender(viewer);
+          }
+        });
+      } catch (eFly) {
+        try { setEllipsoidGlobeVisible(viewer, state, true); } catch (eE2) {}
+      }
+      requestSceneRender(viewer);
     }
   }
 
@@ -5003,8 +5236,14 @@
     });
   }
 
+  function mapsJsReady() {
+    try {
+      const g = global.google && global.google.maps;
+      return !!(g && g.StreetViewService && g.StreetViewPanorama && g.Geocoder);
+    } catch (e) { return false; }
+  }
   function ensureGoogleMapsJs() {
-    if (global.google && global.google.maps && global.google.maps.Geocoder) return Promise.resolve(true);
+    if (mapsJsReady()) return Promise.resolve(true);
     const key = (typeof readGoogleTilesKey === "function" && readGoogleTilesKey()) || "";
     if (!key) return Promise.resolve(false);
     if (ensureGoogleMapsJs._p) return ensureGoogleMapsJs._p;
@@ -5015,14 +5254,14 @@
         settled = true;
         resolve(!!ok);
       }
-      var timer = global.setTimeout(function () { finish(false); }, 2500);
-      const s = document.createElement("script");
-      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&libraries=places";
-      s.async = true;
-      s.onload = function () {
-        global.clearTimeout(timer);
-        finish(!!(global.google && global.google.maps && global.google.maps.Geocoder));
+      global.__gm2MapsReady = function () {
+        try { delete global.__gm2MapsReady; } catch (e) {}
+        finish(mapsJsReady());
       };
+      var timer = global.setTimeout(function () { finish(mapsJsReady()); }, 12000);
+      const s = document.createElement("script");
+      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&libraries=places&callback=__gm2MapsReady&v=weekly";
+      s.async = true;
       s.onerror = function () {
         global.clearTimeout(timer);
         finish(false);
@@ -5107,6 +5346,29 @@
       lat: NaN,
       lng: NaN,
     };
+  }
+
+  function knownCityHit(q) {
+    const s = String(q || "").trim().toLowerCase().replace(/\s+/g, " ");
+    if (!s || parseHouseNumber(s)) return null;
+    let best = null;
+    for (let i = 0; i < WEATHER_CITIES.length; i++) {
+      const name = String(WEATHER_CITIES[i][0] || "");
+      const n = name.toLowerCase().replace("são", "sao");
+      if (n === s || n.split(",")[0] === s) {
+        return {
+          lat: WEATHER_CITIES[i][1], lng: WEATHER_CITIES[i][2],
+          name: name, title: name, sub: "City", kind: "city", source: "known-city", house: "",
+        };
+      }
+      if (!best && s.length >= 4 && (n.indexOf(s) === 0 || s.indexOf(n) === 0)) {
+        best = {
+          lat: WEATHER_CITIES[i][1], lng: WEATHER_CITIES[i][2],
+          name: name, title: name, sub: "City", kind: "city", source: "known-city", house: "",
+        };
+      }
+    }
+    return best;
   }
 
   function queryHasLocality(q) {
@@ -5320,10 +5582,24 @@
       rows = diverse.concat(rest);
     } else {
       rows.sort(function (a, b) {
+        const ac = a.kind === "city" ? 1 : 0;
+        const bc = b.kind === "city" ? 1 : 0;
         const ag = a.source === "google" ? 1 : 0;
         const bg = b.source === "google" ? 1 : 0;
-        return bg - ag;
+        const ak = a.source === "known-city" ? 1 : 0;
+        const bk = b.source === "known-city" ? 1 : 0;
+        return (bk - ak) || (bc - ac) || (bg - ag);
       });
+    }
+    const known = knownCityHit(q);
+    if (known) {
+      rows = (rows || []).filter(function (r) {
+        const nm = String((r && (r.name || r.title)) || '').toLowerCase();
+        if (/woods of alon/.test(nm)) return false;
+        if (/san antonio/.test(nm) && !/sweden|japan|finland|norway|denmark/.test(nm)) return false;
+        return true;
+      });
+      rows.unshift(known);
     }
     return mergeSuggestRows(syn, rows);
   }
@@ -5424,6 +5700,8 @@
   async function geocodeAddress(query) {
     const q = String(query || "").trim();
     if (!q) return null;
+    const known = knownCityHit(q);
+    if (known && !parseHouseNumber(q)) return known;
     const rows = await geocodeAddressAll(q);
     const real = (rows || []).filter(function (r) { return r && Number.isFinite(Number(r.lat)); });
     if (!real.length) return null;
@@ -5655,8 +5933,14 @@
     const suggestGenRef = React.useRef(0);
     const searchingSinceRef = React.useRef(0);
     const [streetMode, setStreetMode] = React.useState(false);
+    const [settingsOpen, setSettingsOpen] = React.useState(false);
 
-    React.useEffect(() => { setLayer(activeLayer); layerRef.current = activeLayer; }, [activeLayer]);
+    React.useEffect(() => {
+      if (String(activeLayer || '') === String(layerRef.current || '')) return;
+      // Parent layer wins only when it actually changed (open, or a real HUD pick).
+      setLayer(activeLayer);
+      layerRef.current = activeLayer;
+    }, [activeLayer]);
     React.useEffect(() => { injectStyles(); }, []);
     React.useEffect(() => { followRef.current = follow; stateRef.current.follow = follow; }, [follow]);
     React.useEffect(() => { keysOpenRef.current = keysOpen; }, [keysOpen]);
@@ -5823,7 +6107,15 @@
           }
         } catch (e) {}
       }
-      if (enterStreetView(Cesium, viewer, state, lat, lng)) setStreetMode(true);
+      if (enterStreetView(Cesium, viewer, state, lat, lng, function (ok, msg) {
+        if (!ok) {
+          setStreetMode(false);
+          setSearchMsg(msg || 'Street View unavailable');
+        }
+      })) {
+        setStreetMode(true);
+        setSearchMsg('Loading Street View…');
+      }
     }, [selected]);
     const leaveStreetViewHud = React.useCallback(() => {
       exitStreetView(global.Cesium, stateRef.current.viewer, stateRef.current);
@@ -5949,6 +6241,7 @@
           if (cancelled || bootGen !== state._bootGen || !stageRef.current) return;
           try { if (Cesium.Ion && !Cesium.Ion.defaultAccessToken) Cesium.Ion.defaultAccessToken = 'not-used'; } catch (e) {}
           try { if (!global.UNALIGNED_GOOGLE_MAPS_TILES_KEY) global.UNALIGNED_GOOGLE_MAPS_TILES_KEY = readGoogleTilesKey(); } catch (e) {}
+          try { ensureGoogleMapsJs(); } catch (eMaps) {}
 
           const container = stageRef.current;
           container.innerHTML = '';
@@ -6029,6 +6322,11 @@
             tuneCameraFeel(viewer);
             try { viewer.scene.canvas.style.pointerEvents = 'auto'; } catch (e2) {}
             try { viewer.scene.canvas.style.touchAction = 'none'; } catch (e2) {}
+            try {
+              viewer.scene.canvas.addEventListener('wheel', function (e) {
+                try { e.preventDefault(); } catch (eP) {}
+              }, { passive: false });
+            } catch (eW) {}
             try { viewer.scene.canvas.style.transform = 'none'; } catch (e2) {}
             try { viewer.resize(); } catch (e2) {}
             try { viewer.scene.requestRender(); } catch (e2) {}
@@ -6297,7 +6595,8 @@
             setShipHud((() => {
               const n = (v.rows || []).length;
               const src = String(v.source || '');
-              const cov = /baltic|digitraffic/i.test(src) ? 'BALTIC' : (src ? src.slice(0, 18) : 'AIS');
+              const live = !!(aisstreamWs && aisstreamWs.readyState === 1);
+              const cov = (live || /aisstream/i.test(src)) ? 'AIS' : 'BALTIC';
               return n ? (cov + ' · ' + n) : (cov + ' · 0');
             })());
           }),
@@ -6374,7 +6673,7 @@
           setShipHud((() => {
             const n = (v.rows || []).length;
             const src = String(v.source || '');
-            const cov = /baltic|digitraffic/i.test(src) ? 'BALTIC' : (src ? src.slice(0, 18) : 'AIS');
+            const cov = ( /aisstream/i.test(src) ) ? 'AIS' : (/baltic|digitraffic/i.test(src) || !src ? 'BALTIC' : src.slice(0, 18));
             return n ? (cov + ' · ' + n) : (cov + ' · 0');
           })());
           const Cesium = global.Cesium;
@@ -6428,6 +6727,14 @@
       applyLayerVisibility(state, layer);
       paint();
       refreshCityLabels(global.Cesium, state, state.lastLod || lod, layer);
+      if (layer === 'deals') {
+        if (state._dealsFlyFor !== 'deals') {
+          state._dealsFlyFor = 'deals';
+          try { flyToDealSet(global.Cesium, state.viewer, state, dataRef.current.deals); } catch (eFly) {}
+        }
+      } else {
+        state._dealsFlyFor = '';
+      }
     }, [layer, ready, paint, lod]);
 
     React.useEffect(() => {
@@ -6457,7 +6764,7 @@
 
     return React.createElement(
       'div',
-      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + ((streetMode || lod === 'City') ? 'eo' : skin), role: 'dialog', 'aria-label': 'God mode earth view' },
+      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + ((streetMode || lod === 'City') ? 'eo' : skin) + (settingsOpen ? ' is-settings' : ''), role: 'dialog', 'aria-label': 'God mode earth view' },
       React.createElement('div', { className: 'v4-godmode-backdrop', onClick: onClose }),
       React.createElement(
         'div',
@@ -6504,10 +6811,24 @@
               )
             )
           ),
+          settingsOpen ? React.createElement('div', { className: 'v4-gm2-settings-sheet', role: 'dialog', 'aria-label': 'Settings' },
+            React.createElement('h4', null, 'Layers'),
+            LAYERS.map((row) =>
+              React.createElement('button', {
+                key: 'set-' + row.id, type: 'button',
+                className: 'v4-godmode-layer' + (layer === row.id ? ' is-active' : ''),
+                onClick: () => pickLayer(row.id),
+              },
+                React.createElement('span', { className: 'v4-godmode-layer-glyph' }, row.glyph),
+                React.createElement('span', null, row.label)
+              )
+            )
+          ) : null,
           React.createElement(
             'div',
             { className: 'v4-gm2-stage' },
             React.createElement('div', { ref: stageRef, className: 'v4-gm2-cesium-host', style: { width: '100%', height: '100%' } }),
+            (layer === 'deals' && !stats.deals) ? React.createElement('div', { className: 'v4-gm2-empty' }, 'No deal markers · pipeline has no geocoded locations') : null,
             React.createElement('form', {
               className: 'v4-gm2-search',
               onSubmit: (e) => { e.preventDefault(); runSearch(); },
@@ -6615,17 +6936,33 @@
                   }, s.label, s.key ? React.createElement('span', { className: 'v4-gm2-skinkey' }, s.key) : null)
                 )
               ),
-              shipHud ? React.createElement('div', {
-                className: 'v4-gm2-chip ' + (stats.ships ? '' : 'warn'),
+              React.createElement('button', {
+                type: 'button',
+                className: 'v4-gm2-chip is-btn ' + (stats.deals ? '' : 'warn'),
+                onClick: function () { pickLayer(layer === 'deals' ? 'all' : 'deals'); },
+              }, stats.deals ? ('DEALS · ' + stats.deals) : 'DEALS · NONE'),
+              shipHud ? React.createElement('button', {
+                type: 'button',
+                className: 'v4-gm2-chip is-btn ' + (stats.ships ? '' : 'warn'),
+                onClick: function () { pickLayer(layer === 'ships' ? 'all' : 'ships'); },
               }, 'SHIPS · ' + shipHud) : null,
-              jamHud ? React.createElement('div', {
-                className: 'v4-gm2-chip ' + (dataRef.current.gpsjam.length ? '' : 'warn'),
+              jamHud ? React.createElement('button', {
+                type: 'button',
+                className: 'v4-gm2-chip is-btn ' + (dataRef.current.gpsjam.length ? '' : 'warn'),
                 title: dataRef.current.gpsjamAttribution || 'Data derived from ADS-B Exchange via gpsjam.org',
+                onClick: function () { pickLayer(layer === 'gpsjam' ? 'all' : 'gpsjam'); },
               }, jamHud) : null,
-              milHud ? React.createElement('div', {
-                className: 'v4-gm2-chip ' + ((dataRef.current.milFlights || []).length ? '' : 'warn'),
+              milHud ? React.createElement('button', {
+                type: 'button',
+                className: 'v4-gm2-chip is-btn ' + ((dataRef.current.milFlights || []).length ? '' : 'warn'),
+                onClick: function () { pickLayer(layer === 'flights' ? 'all' : 'flights'); },
               }, milHud) : null,
-              readAisstreamKey() ? React.createElement('div', { className: 'v4-gm2-chip warn' }, 'AISSTREAM KEY · IDLE') : null,
+              React.createElement('button', {
+                type: 'button',
+                className: 'v4-gm2-chip is-btn' + (settingsOpen ? ' ok' : ''),
+                onClick: function () { setSettingsOpen(function (v) { return !v; }); },
+              }, settingsOpen ? 'SETTINGS · ON' : 'SETTINGS'),
+              (aisstreamWs && aisstreamWs.readyState === 1) ? React.createElement('div', { className: 'v4-gm2-chip ok' }, 'AIS · LIVE') : null,
               selected && fields ? React.createElement('div', { className: 'v4-gm2-inspector' },
                 React.createElement('div', { className: 'v4-gm2-ins-type' }, fields.type),
                 React.createElement('div', { className: 'v4-gm2-ins-name' }, fields.name),
@@ -6660,7 +6997,15 @@
                     onClick: () => {
                       const Cesium = global.Cesium;
                       const st = stateRef.current;
-                      if (enterStreetView(Cesium, st.viewer, st, selected && selected.lat, selected && selected.lng)) setStreetMode(true);
+                      if (enterStreetView(Cesium, st.viewer, st, selected && selected.lat, selected && selected.lng, function (ok, msg) {
+                      if (!ok) {
+                        setStreetMode(false);
+                        setSearchMsg(msg || 'Street View unavailable');
+                      }
+                    })) {
+                      setStreetMode(true);
+                      setSearchMsg('Loading Street View…');
+                    }
                     },
                   }, 'STREET VIEW'),
                   React.createElement('button', {
