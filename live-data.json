@@ -17,7 +17,7 @@
     "lists": 63,
     "stories": 10,
     "signals": 6,
-    "reports": 0
+    "reports": 3
   },
   "chips": [
     {
@@ -549,7 +549,38 @@
       "topic_label": "Companies"
     }
   ],
-  "reports": [],
+  "reports": [
+    {
+      "id": "rep-morning-2026-08-14",
+      "title": "Morning Run — August 14, 2026",
+      "summary": "Weekday intelligence run from 63 curated X lists.",
+      "type": "deep dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-14T16:00:00.000Z",
+      "url": "reports.html"
+    },
+    {
+      "id": "rep-evening-2026-08-09",
+      "title": "Archive Report: Evening Run, August 9 2026",
+      "summary": "Complete archive of the August 9 evening Aligned News refresh, including corpus collection, editorial validation, section publication, events, Ten Things, and Scoble coverage.",
+      "type": "deep dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-09T23:00:00.000Z",
+      "url": "reports.html"
+    },
+    {
+      "id": "rep-evening-2026-08-08",
+      "title": "Archive Report: Evening Run, August 8 2026",
+      "summary": "The complete August 8 evening archive covering models, agents, robotics, infrastructure, events, and Robert Scoble’s recoverable timeline activity.",
+      "type": "deep dive",
+      "author": "Aligned News Research",
+      "reading_time_min": 1,
+      "published_at": "2026-08-08T23:00:00.000Z",
+      "url": "reports.html"
+    }
+  ],
   "bundles": [],
   "ai_sections": []
 }

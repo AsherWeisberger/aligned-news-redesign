@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json?v=an77";
+  var DATA_URL = "live-data.json?v=an78";
   var state = {
     data: null,
     filter: "all",
@@ -1055,6 +1055,13 @@
     } catch (e) { return ""; }
   }
 
+  function fmtDateShort(iso) {
+    if (!iso) return "";
+    try {
+      return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+    } catch (e) { return ""; }
+  }
+
   function escapeHtml(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -1473,7 +1480,8 @@
         '<div class="nl-subscribe-inner">' +
           '<div class="nl-subscribe-copy">' +
             '<p class="nl-subscribe-kicker">Newsletter</p>' +
-            '<p class="nl-subscribe-headline">Today\u2019s top stories. In your inbox.</p>' +
+            '<p class="nl-subscribe-headline">Aligned Daily Intelligence.</p>' +
+            '<p class="nl-subscribe-sub">Weekdays at 1 p.m. PT.</p>' +
           "</div>" +
           (inBar
             ? '<p class="nl-subscribe-done">You\u2019re in</p>'
@@ -2110,6 +2118,7 @@
       } else {
         list.innerHTML = '<li class="empty">No stories match this filter.</li>';
       }
+      renderTodayDeskModules();
       return;
     }
 
@@ -2233,6 +2242,69 @@
 
     list.innerHTML = html;
     enableCardNavigation(list);
+    renderTodayDeskModules();
+  }
+
+  function renderTodayDeskModules() {
+    var sigHost = document.getElementById("todaySignalsList");
+    var repHost = document.getElementById("todayReportsList");
+    var sigMod = document.getElementById("todaySignalsMod");
+    var repMod = document.getElementById("todayReportsMod");
+    if (!sigHost && !repHost) return;
+    var isSaved = getParam("view") === "saved";
+    if (isSaved) {
+      if (sigMod) sigMod.hidden = true;
+      if (repMod) repMod.hidden = true;
+      return;
+    }
+    if (sigMod) sigMod.hidden = false;
+    if (repMod) repMod.hidden = false;
+
+    if (sigHost) {
+      var signals = ((state.data && state.data.signals) || []).slice();
+      if (!signals.length) {
+        sigHost.innerHTML = '<li class="desk-mod-empty">No signals yet.</li>';
+      } else {
+        sigHost.innerHTML = signals.map(function (s) {
+          var title = editorialTitle(s, 96);
+          var body = displayText(s.text || s.analysis || "").trim();
+          if (body && body.toLowerCase() === title.toLowerCase()) body = "";
+          if (body) body = firstSentence(body, 140);
+          var provenance = displayText(s.source_list || "").trim();
+          var href = "story.html?id=" + encodeURIComponent("sigstory-" + s.id);
+          return (
+            '<li class="desk-mod-item">' +
+              '<a href="' + href + '">' +
+                '<p class="desk-mod-title">' + escapeHtml(title) + "</p>" +
+                (body ? '<p class="desk-mod-text">' + escapeHtml(body) + "</p>" : "") +
+                (provenance ? '<p class="desk-mod-meta">' + escapeHtml(provenance) + "</p>" : "") +
+              "</a>" +
+            "</li>"
+          );
+        }).join("");
+      }
+    }
+
+    if (repHost) {
+      var reports = ((state.data && state.data.reports) || []).slice();
+      if (!reports.length) {
+        repHost.innerHTML = '<li class="desk-mod-empty">No reports yet.</li>';
+      } else {
+        repHost.innerHTML = reports.map(function (r) {
+          var title = displayText(r.title || "").trim();
+          var date = fmtDateShort(r.published_at) || fallbackTime(r.published_at);
+          var href = r.url || "reports.html";
+          return (
+            '<li class="desk-mod-item">' +
+              '<a href="' + escapeHtml(href) + '">' +
+                '<p class="desk-mod-title">' + escapeHtml(title) + "</p>" +
+                (date ? '<p class="desk-mod-meta">' + escapeHtml(date) + "</p>" : "") +
+              "</a>" +
+            "</li>"
+          );
+        }).join("");
+      }
+    }
   }
 
   function renderSignals() {
