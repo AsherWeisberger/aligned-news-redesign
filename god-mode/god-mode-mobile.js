@@ -4083,8 +4083,14 @@
     });
   }
 
+  function mapsJsReady() {
+    try {
+      const g = global.google && global.google.maps;
+      return !!(g && g.StreetViewService && g.StreetViewPanorama);
+    } catch (e) { return false; }
+  }
   function ensureGoogleMapsJs() {
-    if (global.google && global.google.maps && global.google.maps.Geocoder) return Promise.resolve(true);
+    if (mapsJsReady()) return Promise.resolve(true);
     const key = (typeof readGoogleTilesKey === "function" && readGoogleTilesKey()) || "";
     if (!key) return Promise.resolve(false);
     if (ensureGoogleMapsJs._p) return ensureGoogleMapsJs._p;
@@ -4095,14 +4101,29 @@
         settled = true;
         resolve(!!ok);
       }
-      var timer = global.setTimeout(function () { finish(false); }, 2500);
-      const s = document.createElement("script");
-      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&libraries=places";
-      s.async = true;
-      s.onload = function () {
-        global.clearTimeout(timer);
-        finish(!!(global.google && global.google.maps && global.google.maps.Geocoder));
+      function afterLoad() {
+        var g = global.google && global.google.maps;
+        if (g && typeof g.importLibrary === "function") {
+          Promise.all([g.importLibrary("streetView"), g.importLibrary("core")]).then(function (libs) {
+            try {
+              var sv = libs && libs[0];
+              if (sv && sv.StreetViewService && !g.StreetViewService) g.StreetViewService = sv.StreetViewService;
+              if (sv && sv.StreetViewPanorama && !g.StreetViewPanorama) g.StreetViewPanorama = sv.StreetViewPanorama;
+            } catch (eImp) {}
+            finish(mapsJsReady());
+          }).catch(function () { finish(mapsJsReady()); });
+          return;
+        }
+        finish(mapsJsReady());
+      }
+      global.__gmPhoneMapsReady = function () {
+        try { delete global.__gmPhoneMapsReady; } catch (e) {}
+        afterLoad();
       };
+      var timer = global.setTimeout(function () { afterLoad(); }, 15000);
+      const s = document.createElement("script");
+      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&callback=__gmPhoneMapsReady&v=weekly&loading=async";
+      s.async = true;
       s.onerror = function () {
         global.clearTimeout(timer);
         finish(false);
@@ -5190,33 +5211,47 @@
         }
         try {
           const sv = new gmaps.maps.StreetViewService();
-          sv.getPanorama({ location: { lat: lat, lng: lng }, radius: 180 }, function (data, status) {
+          const outdoor = (gmaps.maps.StreetViewSource && gmaps.maps.StreetViewSource.OUTDOOR) || 'outdoor';
+          const radii = [200, 500, 1200];
+          function ask(i) {
             if (phoneStreetState.gen !== gen) return;
-            if (String(status) !== 'OK' || !data) {
+            if (i >= radii.length) {
               failStreetView('No Street View coverage');
               return;
             }
-            try {
-              inner.innerHTML = '';
-              const pano = new gmaps.maps.StreetViewPanorama(inner, {
-                pano: data.location.pano,
-                position: data.location.latLng,
-                pov: { heading: 0, pitch: 0 },
-                zoom: 1,
-                visible: true,
-                addressControl: true,
-                fullscreenControl: false,
-                motionTracking: false,
-                motionTrackingControl: false,
-                enableCloseButton: false,
-              });
-              phoneStreetState.pano = pano;
-              try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT1) {}
-              setSearchMsg('Street View');
-            } catch (ePano) {
-              failStreetView('Street View failed');
-            }
-          });
+            sv.getPanorama({
+              location: { lat: lat, lng: lng },
+              radius: radii[i],
+              source: outdoor,
+            }, function (data, status) {
+              if (phoneStreetState.gen !== gen) return;
+              if (String(status) !== 'OK' || !data || !data.location) {
+                ask(i + 1);
+                return;
+              }
+              try {
+                inner.innerHTML = '';
+                const pano = new gmaps.maps.StreetViewPanorama(inner, {
+                  pano: data.location.pano,
+                  position: data.location.latLng,
+                  pov: { heading: 0, pitch: 0 },
+                  zoom: 1,
+                  visible: true,
+                  addressControl: true,
+                  fullscreenControl: false,
+                  motionTracking: false,
+                  motionTrackingControl: false,
+                  enableCloseButton: false,
+                });
+                phoneStreetState.pano = pano;
+                try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT1) {}
+                setSearchMsg('');
+              } catch (ePano) {
+                failStreetView('Street View failed');
+              }
+            });
+          }
+          ask(0);
         } catch (eSv) {
           failStreetView('Street View failed');
         }
