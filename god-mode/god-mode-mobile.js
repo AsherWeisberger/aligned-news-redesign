@@ -3632,7 +3632,7 @@
     '.v4-gm-phone-card-type{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-top:3px;}',
     '.v4-gm-phone-card-stat{font-size:14px;margin-top:6px;opacity:.95;}',
     '.v4-gm-phone-hint{padding:0 16px 8px;font-size:11px;opacity:.7;color:#e8edf5;pointer-events:none;}',
-    '.v4-gm-phone-search{position:absolute;top:calc(env(safe-area-inset-top,0px) + 56px);left:10px;right:10px;z-index:2;display:flex;gap:8px;pointer-events:none;}',
+    '.v4-gm-phone-search{position:absolute;top:calc(env(safe-area-inset-top,0px) + 64px);left:10px;right:10px;z-index:12;display:flex;gap:8px;pointer-events:none;}',
     '.v4-gm-phone-search input{flex:1;min-height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(11,13,18,.94);color:#f2f5fa;font-size:16px;padding:0 12px;outline:none;pointer-events:auto;}',
     '.v4-gm-phone-search-go,.v4-gm-phone-sv{min-height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:13px;font-weight:700;touch-action:manipulation;pointer-events:auto;}',
     '.v4-gm-phone-sv-card{margin-top:10px;min-height:44px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:14px;font-weight:700;touch-action:manipulation;}',
@@ -3645,11 +3645,11 @@
     '.v4-gm-phone-suggest-name{display:block;font-size:14px;font-weight:600;}',
     '.v4-gm-phone-suggest-sub{display:block;font-size:11px;opacity:.7;margin-top:2px;}',
     '.v4-gm-phone-search-msg{padding:6px 16px 0;font-size:12px;opacity:.75;}',
-    '.v4-gm-phone-extra{pointer-events:auto;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 12px 8px;}',
+    '.v4-gm-phone-extra{pointer-events:auto;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 12px 16px;position:relative;z-index:7;}',
     '.v4-gm-phone-chip{min-height:36px;min-width:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(18,20,26,.88);color:#e8edf5;font-size:12px;font-weight:700;letter-spacing:.04em;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}',
     '.v4-gm-phone-chip.is-on{background:rgba(232,237,245,.18);border-color:rgba(255,255,255,.4);color:#fff;}',
     '.v4-gm-phone-chip.is-empty{border-color:rgba(255,214,10,.5);color:#ffd60a;}',
-    '.v4-gm-phone-settings{position:relative;z-index:6;isolation:isolate;transform:translateZ(0);pointer-events:auto;margin:0 12px 8px;min-height:88px;max-height:min(52vh,420px);overflow:auto;background:rgba(11,13,18,.96);border:1px solid rgba(255,255,255,.22);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.55);}',
+    '.v4-gm-phone-settings{position:relative;z-index:14;isolation:isolate;transform:translateZ(0);pointer-events:auto;margin:0 12px 16px;min-height:88px;max-height:min(52vh,420px);overflow:auto;background:rgba(11,13,18,.96);border:1px solid rgba(255,255,255,.22);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.55);}',
     '.v4-gm-phone-settings-row{display:flex;align-items:center;justify-content:space-between;min-height:44px;width:100%;padding:0 16px;border:0;border-bottom:1px solid rgba(255,255,255,.08);background:transparent;color:#e8edf5;font:inherit;font-size:15px;font-weight:600;text-align:left;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}',
     '.v4-gm-phone-settings-row:last-child{border-bottom:0;}',
     '.v4-gm-phone-settings-row.is-on{background:rgba(232,237,245,.12);}',
@@ -3658,8 +3658,8 @@
     '.v4-gm-phone-pano.is-on{display:block;}',
     '.v4-gm-phone-pano-inner,.v4-gm-phone-pano iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}',
     '.v4-gm-phone-pano-miss{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#e8edf5;text-align:center;padding:16px;letter-spacing:.08em;}',
-    '.v4-gm-phone-search{z-index:9;}',
-    '.v4-gm-phone-suggest{z-index:10;}',
+    '.v4-gm-phone-search{z-index:12;}',
+    '.v4-gm-phone-suggest{z-index:13;}',
   ].join('');
   function injectPhoneCss() {
     let style = document.getElementById('v4-gm-phone-css');

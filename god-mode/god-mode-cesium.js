@@ -249,7 +249,6 @@
   const trailHistory = new Map();
 
   function injectStyles() {
-    if (stylesInjected || document.getElementById('v4-gm2-styles')) { stylesInjected = true; return; }
     const css = [
       '.v4-godmode.v4-gm2{--gm2-cyan:#64d2ff;--gm2-amber:#ffd60a;--gm2-red:#ff453a;--gm2-panel:rgba(8,12,20,0.82);--gm2-border:rgba(100,210,255,0.22);--gm2-text:#e8eef8;--gm2-muted:#8b96a8;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}',
       '.v4-gm2 .v4-godmode-shell{position:relative;display:flex;flex-direction:column;width:min(100vw,100%);height:min(100vh,100%);background:#05070c;color:var(--gm2-text);overflow:hidden;border:1px solid var(--gm2-border);box-shadow:0 0 80px rgba(0,40,80,0.45)}',
@@ -340,7 +339,7 @@
       '.v4-gm2 .v4-gm2-search-msg{left:168px;transform:none}',
       '.v4-gm2 .v4-gm2-chip.is-btn{cursor:pointer;appearance:none;font:inherit}',
       '.v4-gm2 .v4-gm2-chip.is-btn:hover{border-color:rgba(100,210,255,.55);color:#fff}',
-      '.v4-gm2 .v4-gm2-pano{position:absolute;inset:0;z-index:5;background:#0b0d12;display:none;pointer-events:none}',
+      '.v4-gm2 .v4-gm2-pano{position:absolute;inset:0;z-index:18;background:#0b0d12;display:none;pointer-events:none}',
       '.v4-gm2 .v4-gm2-empty{position:absolute;left:50%;top:16%;transform:translateX(-50%);z-index:12;padding:8px 14px;background:rgba(8,12,20,.88);border:1px solid rgba(255,214,10,.45);color:#ffd60a;font-size:11px;letter-spacing:.1em;text-transform:uppercase;pointer-events:none;white-space:nowrap}',
       '.v4-gm2 .v4-gm2-pano.is-on{display:block;pointer-events:none}',
       '.v4-gm2 .v4-gm2-pano.is-on.is-live{pointer-events:auto}',
@@ -348,13 +347,16 @@
       '.v4-gm2 .v4-gm2-pano-miss{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#e8eef8;letter-spacing:.1em;font-size:13px;text-transform:uppercase;text-align:center;padding:16px}',
       '.v4-gm2 .v4-gm2-settings-sheet{position:absolute;right:12px;top:12px;z-index:40;width:min(280px,70vw);max-height:min(70vh,520px);overflow:auto;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:8px;backdrop-filter:blur(14px);padding:8px}',
       '.v4-gm2 .v4-gm2-settings-sheet h4{margin:4px 8px 8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gm2-cyan)}',
-      '@media (max-width:1100px){.v4-gm2 .v4-gm2-search{left:12px;top:8px;max-width:min(420px,calc(100% - 24px));width:min(420px,calc(100% - 24px))}.v4-gm2 .v4-gm2-search-msg{left:12px}.v4-gm2 .v4-gm2-hud-right{top:56px;max-width:min(320px,46vw)}}',
+      '@media (max-width:1024px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2.is-settings .v4-godmode-layers{display:flex;z-index:15;background:rgba(8,12,20,.96)}.v4-gm2 .v4-gm2-search{left:12px;top:8px;width:calc(100% - 24px);max-width:calc(100% - 24px)}.v4-gm2 .v4-gm2-search-msg{left:12px}.v4-gm2 .v4-gm2-hud-right{top:56px;max-width:min(320px,46vw)}}',
       '@media (max-width:700px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2.is-settings .v4-godmode-layers{display:flex;z-index:15;background:rgba(8,12,20,.96)}.v4-gm2 .v4-gm2-hud-right{max-width:calc(100% - 16px);align-items:stretch}.v4-gm2 .v4-gm2-search{width:calc(100% - 24px);max-width:none}}',
     ].join('\n');
-    const style = document.createElement('style');
-    style.id = 'v4-gm2-styles';
+    let style = document.getElementById('v4-gm2-styles');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'v4-gm2-styles';
+      document.head.appendChild(style);
+    }
     style.textContent = css;
-    document.head.appendChild(style);
     stylesInjected = true;
   }
 
@@ -3898,7 +3900,6 @@
 
 
   function photorealWantShow(state, heightM) {
-    if (state && state._streetMode) return true;
     const h = Number(heightM);
     if (!Number.isFinite(h)) return false;
     const hideAt = (state && state._photorealShown) ? PHOTOREAL_HIDE_M : PHOTOREAL_SHOW_M;
@@ -4044,7 +4045,7 @@
     } catch (eTune) {}
     if (state._photorealShown) setEllipsoidGlobeVisible(viewer, state, false);
     const wantShow = photorealWantShow(state, h);
-    const wantPrefetch = photorealWantPrefetch(h) || wantShow || !!(state && state._streetMode);
+    const wantPrefetch = photorealWantPrefetch(h) || wantShow;
     if (wantShow) {
       applyStreetClarity(Cesium, viewer, 'City', state);
       try { applySensorSkin(state, 'eo'); } catch (e) {}
@@ -5014,11 +5015,15 @@
       el.className = 'v4-gm2-pano';
       el.setAttribute('aria-label', 'Street View panorama');
     }
+    try { el.style.pointerEvents = 'none'; } catch (ePe) {}
+    var stage = null;
+    try { stage = document.querySelector('.v4-gm2-stage'); } catch (eS) { stage = null; }
+    var host = stage || (document.body || document.documentElement);
     try {
-      const host = (viewer && viewer.container && viewer.container.parentElement)
-        || document.querySelector('.v4-gm2-stage');
-      if (host && el.parentNode !== host) host.appendChild(el);
-    } catch (e) {}
+      if (host) host.appendChild(el);
+    } catch (e) {
+      try { (document.body || document.documentElement).appendChild(el); } catch (e2) {}
+    }
     return el;
   }
 
@@ -5036,6 +5041,7 @@
       state._streetPano = null;
       state._streetMode = false;
       state._streetFlying = false;
+      state._streetInflight = false;
     }
   }
 
@@ -5060,28 +5066,29 @@
       settled = true;
       try { if (state && state._streetTimer) { global.clearTimeout(state._streetTimer); state._streetTimer = 0; } } catch (eT) {}
       if (state && state._streetGen !== gen) return;
+      try { if (state) state._streetInflight = false; } catch (eInf) {}
+      if (!ok) {
+        try { miss(msg || 'No Street View imagery'); } catch (eM) {}
+      }
       if (onSettled) onSettled(ok, msg);
     };
     ensureGoogleMapsJs().then(function (ok) {
       if (state && state._streetGen !== gen) return;
+      const g = global.google;
+      if (!(ok && g && g.maps && g.maps.StreetViewPanorama && g.maps.StreetViewService)) {
+        done(false, 'No Street View imagery');
+        return;
+      }
       state._streetTimer = global.setTimeout(function () {
         if (state && state._streetGen !== gen) return;
-        hideStreetPanorama(state);
         done(false, 'Street View timed out');
       }, 10000);
       if (state && state._streetGen !== gen) return;
-      const g = global.google;
-      if (!(ok && g && g.maps && g.maps.StreetViewPanorama && g.maps.StreetViewService)) {
-        hideStreetPanorama(state);
-        done(false, 'Street View unavailable');
-        return;
-      }
       try {
         const sv = new g.maps.StreetViewService();
-        sv.getPanorama({ location: { lat: lat, lng: lng }, radius: 180 }, function (data, status) {
+        sv.getPanorama({ location: { lat: lat, lng: lng }, radius: 500 }, function (data, status) {
           if (state && state._streetGen !== gen) return;
           if (String(status) !== 'OK' || !data) {
-            hideStreetPanorama(state);
             done(false, 'No Street View coverage');
             return;
           }
@@ -5103,14 +5110,14 @@
             if (state) state._streetPano = pano;
             done(true, '');
           } catch (eP) {
-            hideStreetPanorama(state);
             done(false, 'Street View failed');
           }
         });
       } catch (eS) {
-        hideStreetPanorama(state);
         done(false, 'Street View failed');
       }
+    }, function () {
+      done(false, 'No Street View imagery');
     });
   }
 
@@ -5118,15 +5125,18 @@
     const a = Number(lat);
     const b = Number(lng);
     if (!Number.isFinite(a) || !Number.isFinite(b)) return false;
+    if (state && state._streetInflight) return true;
     if (state) {
       state._streetMode = true;
       state._streetFlying = false;
+      state._streetInflight = true;
     }
     try { pauseIdleSpinState(state); } catch (e) {}
     try { if (viewer && viewer.scene && viewer.scene.fog) { viewer.scene.fog.enabled = false; viewer.scene.fog.density = 0; } } catch (eF) {}
     const el = streetPanoEl(viewer);
     el.classList.add('is-on');
     fillStreetPanorama(el, a, b, state, function (ok, msg) {
+      try { if (state) state._streetInflight = false; } catch (eInf) {}
       if (!ok) {
         try { exitStreetView(Cesium, viewer, state); } catch (eX) {}
       }
@@ -5239,7 +5249,7 @@
   function mapsJsReady() {
     try {
       const g = global.google && global.google.maps;
-      return !!(g && g.StreetViewService && g.StreetViewPanorama && g.Geocoder);
+      return !!(g && g.StreetViewService && g.StreetViewPanorama);
     } catch (e) { return false; }
   }
   function ensureGoogleMapsJs() {
@@ -5254,13 +5264,28 @@
         settled = true;
         resolve(!!ok);
       }
+      function afterLoad() {
+        var g = global.google && global.google.maps;
+        if (g && typeof g.importLibrary === "function") {
+          Promise.all([g.importLibrary("streetView"), g.importLibrary("core")]).then(function (libs) {
+            try {
+              var sv = libs && libs[0];
+              if (sv && sv.StreetViewService && !g.StreetViewService) g.StreetViewService = sv.StreetViewService;
+              if (sv && sv.StreetViewPanorama && !g.StreetViewPanorama) g.StreetViewPanorama = sv.StreetViewPanorama;
+            } catch (eImp) {}
+            finish(mapsJsReady());
+          }).catch(function () { finish(mapsJsReady()); });
+          return;
+        }
+        finish(mapsJsReady());
+      }
       global.__gm2MapsReady = function () {
         try { delete global.__gm2MapsReady; } catch (e) {}
-        finish(mapsJsReady());
+        afterLoad();
       };
-      var timer = global.setTimeout(function () { finish(mapsJsReady()); }, 12000);
+      var timer = global.setTimeout(function () { afterLoad(); }, 15000);
       const s = document.createElement("script");
-      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&libraries=places&callback=__gm2MapsReady&v=weekly";
+      s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&callback=__gm2MapsReady&v=weekly&loading=async";
       s.async = true;
       s.onerror = function () {
         global.clearTimeout(timer);
@@ -5931,6 +5956,7 @@
     const [searchSuggests, setSearchSuggests] = React.useState([]);
     const [suggestHi, setSuggestHi] = React.useState(-1);
     const suggestGenRef = React.useRef(0);
+    const suppressSuggestsRef = React.useRef(false);
     const searchingSinceRef = React.useRef(0);
     const [streetMode, setStreetMode] = React.useState(false);
     const [settingsOpen, setSettingsOpen] = React.useState(false);
@@ -5942,6 +5968,12 @@
       layerRef.current = activeLayer;
     }, [activeLayer]);
     React.useEffect(() => { injectStyles(); }, []);
+    React.useEffect(() => {
+      if (!selected) return;
+      suppressSuggestsRef.current = true;
+      setSearchSuggests([]);
+      setSuggestHi(-1);
+    }, [selected]);
     React.useEffect(() => { followRef.current = follow; stateRef.current.follow = follow; }, [follow]);
     React.useEffect(() => { keysOpenRef.current = keysOpen; }, [keysOpen]);
     React.useEffect(() => { if (!open) setKeysOpen(false); }, [open]);
@@ -5967,6 +5999,10 @@
       if (!Cesium || !viewer || !hit) return;
       if (!Number.isFinite(Number(hit.lat)) || !Number.isFinite(Number(hit.lng))) return;
       setSearchPin(Cesium, viewer, state, hit);
+      suppressSuggestsRef.current = true;
+      setSearchSuggests([]);
+      setSuggestHi(-1);
+      setSearchMsg('');
       try {
         setSelected({
           type: 'place',
@@ -6005,7 +6041,7 @@
       if (real[0]) {
         setSearchSuggests([]);
         setSuggestHi(-1);
-        setSearchMsg(real[0].name || q);
+        setSearchMsg('');
         flySearchHit(real[0]);
         return true;
       }
@@ -6019,9 +6055,10 @@
       if (Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lng))) {
         const refineQ = (parseHouseNumber(typed) && !housesEqual(row.house, parseHouseNumber(typed))) ? typed : q;
         setSearchQ(refineQ);
+        suppressSuggestsRef.current = true;
         setSearchSuggests([]);
         setSuggestHi(-1);
-        setSearchMsg(refineQ);
+        setSearchMsg('');
         flySearchHit(row);
         return;
       }
@@ -6039,6 +6076,11 @@
         setSuggestHi(-1);
         return undefined;
       }
+      if (suppressSuggestsRef.current) {
+        setSearchSuggests([]);
+        setSuggestHi(-1);
+        return undefined;
+      }
       const syn = syntheticSuggestRow(q);
       setSearchSuggests([syn]);
       setSuggestHi(0);
@@ -6046,11 +6088,21 @@
         const gen = ++suggestGenRef.current;
         fetchSearchSuggests(q).then(function (rows) {
           if (gen !== suggestGenRef.current) return;
+          if (suppressSuggestsRef.current) {
+            setSearchSuggests([]);
+            setSuggestHi(-1);
+            return;
+          }
           const list = mergeSuggestRows(syn, Array.isArray(rows) ? rows : []);
           setSearchSuggests(list);
           setSuggestHi(list.length ? 0 : -1);
         }).catch(function () {
           if (gen !== suggestGenRef.current) return;
+          if (suppressSuggestsRef.current) {
+            setSearchSuggests([]);
+            setSuggestHi(-1);
+            return;
+          }
           setSearchSuggests([syn]);
           setSuggestHi(0);
         });
@@ -6077,7 +6129,7 @@
         }
         if (!hit) { setSearchMsg('No match'); return; }
         setSearchSuggests([]);
-        setSearchMsg(hit.name || q);
+        setSearchMsg('');
         flySearchHit(hit);
       } catch (e) {
         setSearchMsg('Search failed');
@@ -6092,6 +6144,10 @@
       const Cesium = global.Cesium;
       const state = stateRef.current;
       const viewer = state.viewer;
+      try { suppressSuggestsRef.current = true; } catch (eSup) {}
+      setSearchSuggests([]);
+      setSuggestHi(-1);
+      if (state && state._streetInflight) return;
       let lat = null, lng = null;
       const pin = state._searchPin;
       if (pin && Number.isFinite(Number(pin.lat)) && Number.isFinite(Number(pin.lng))) {
@@ -6115,6 +6171,9 @@
       })) {
         setStreetMode(true);
         setSearchMsg('Loading Street View…');
+      } else {
+        setStreetMode(false);
+        setSearchMsg('Street View unavailable');
       }
     }, [selected]);
     const leaveStreetViewHud = React.useCallback(() => {
@@ -6846,6 +6905,7 @@
                   const v = e.target.value;
                   setSearchQ(v);
                   const q = String(v || '').trim();
+                  suppressSuggestsRef.current = false;
                   if (!q) {
                     setSearchMsg('');
                     setSearchSuggests([]);
@@ -6914,7 +6974,7 @@
                 )
               ) : null
             ),
-            (searchMsg && !searchSuggests.length) ? React.createElement('div', { className: 'v4-gm2-search-msg' }, searchMsg) : null,
+            searchMsg ? React.createElement('div', { className: 'v4-gm2-search-msg' }, searchMsg) : null,
             React.createElement('div', { className: 'v4-gm2-vignette', 'aria-hidden': 'true' }),
             React.createElement('div', { className: 'v4-gm2-scan', 'aria-hidden': 'true' }),
             React.createElement('div', { className: 'v4-gm2-sensor-fx', 'aria-hidden': 'true' }),
@@ -6994,19 +7054,8 @@
                   }, 'TRACK'),
                   React.createElement('button', {
                     type: 'button', className: 'v4-gm2-btn',
-                    onClick: () => {
-                      const Cesium = global.Cesium;
-                      const st = stateRef.current;
-                      if (enterStreetView(Cesium, st.viewer, st, selected && selected.lat, selected && selected.lng, function (ok, msg) {
-                      if (!ok) {
-                        setStreetMode(false);
-                        setSearchMsg(msg || 'Street View unavailable');
-                      }
-                    })) {
-                      setStreetMode(true);
-                      setSearchMsg('Loading Street View…');
-                    }
-                    },
+                    onMouseDown: (ev) => { ev.preventDefault(); ev.stopPropagation(); },
+                    onClick: (ev) => { ev.stopPropagation(); goStreetView(); },
                   }, 'STREET VIEW'),
                   React.createElement('button', {
                     type: 'button', className: 'v4-gm2-btn',
