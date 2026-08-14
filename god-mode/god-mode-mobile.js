@@ -631,7 +631,9 @@
         return;
       }
       var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
-      var last = state._idleSpinLastTs || now;
+      var last = state._idleSpinLastTs;
+      if (last && now === last) return;
+      if (!last) last = now;
       var dt = (now - last) / 1000;
       state._idleSpinLastTs = now;
       if (!(dt > 0) || dt > 0.25) dt = 1 / 60;
@@ -639,9 +641,17 @@
       try { if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eReq) {}
     };
     try { viewer.clock.onTick.addEventListener(onTick); } catch (eT) {}
+    var spinInterval = 0;
+    try { spinInterval = global.setInterval(onTick, 50); } catch (eI) { spinInterval = 0; }
     state._idleSpinTick = onTick;
+    state._idleSpinInterval = spinInterval;
     state.stopIdleOrbitSpin = function () {
       clearResume();
+      if (spinInterval) {
+        try { global.clearInterval(spinInterval); } catch (e) {}
+        spinInterval = 0;
+      }
+      try { state._idleSpinInterval = null; } catch (e) {}
       try { if (viewer.clock && viewer.clock.onTick) viewer.clock.onTick.removeEventListener(onTick); } catch (e) {}
       listeners.forEach(function (row) {
         try { row[0].removeEventListener(row[1], row[2], row[3]); } catch (e2) {}
@@ -653,18 +663,60 @@
     };
   }
 
+  function isSafariWebKit() {
+    try {
+      var ua = String((global.navigator && global.navigator.userAgent) || '');
+      return /Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Edg|OPR/i.test(ua);
+    } catch (e) {
+      return false;
+    }
+  }
+
   function killPhoneAtmosphere(viewer) {
     try {
       const scene = viewer && viewer.scene;
       if (!scene) return;
       try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
-      try {
-        if (scene.globe) {
-          scene.globe.showGroundAtmosphere = false;
-          scene.globe.atmosphereLightIntensity = 0;
-        }
-      } catch (e) {}
+      if (isSafariWebKit()) {
+        try {
+          if (scene.globe) {
+            scene.globe.showGroundAtmosphere = false;
+            scene.globe.atmosphereLightIntensity = 0;
+          }
+        } catch (e) {}
+      }
       try { if (scene.fog) { scene.fog.enabled = false; scene.fog.density = 0; } } catch (e) {}
+    } catch (e) {}
+  }
+
+  function configurePhoneAtmosphere(Cesium, viewer) {
+    try {
+      const scene = viewer && viewer.scene;
+      if (!scene || !scene.globe) return;
+      const globe = scene.globe;
+      const safari = isSafariWebKit();
+      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
+      globe.enableLighting = true;
+      try { globe.dynamicAtmosphereLighting = true; } catch (e) {}
+      try { globe.dynamicAtmosphereLightingFromSun = true; } catch (e) {}
+      if (safari) {
+        try { globe.showGroundAtmosphere = false; } catch (e) {}
+        try { globe.atmosphereLightIntensity = 0; } catch (e) {}
+        try { globe.lambertDiffuseMultiplier = 2.0; } catch (e) {}
+      } else {
+        try { globe.showGroundAtmosphere = true; } catch (e) {}
+        try { globe.atmosphereLightIntensity = 10; } catch (e) {}
+        try { globe.lambertDiffuseMultiplier = 1.75; } catch (e) {}
+      }
+      try { globe.lightingFadeOutDistance = 6.0e7; } catch (e) {}
+      try { globe.lightingFadeInDistance = 9.0e7; } catch (e) {}
+      try { globe.nightFadeOutDistance = 8.0e6; } catch (e) {}
+      try { globe.nightFadeInDistance = 5.5e7; } catch (e) {}
+      try { globe.vertexShadowDarkness = 0.08; } catch (e) {}
+      try {
+        if (Cesium && Cesium.SunLight) scene.light = new Cesium.SunLight({ intensity: 1.75 });
+      } catch (e) {}
+      try { if (scene.sun) scene.sun.show = true; } catch (e) {}
     } catch (e) {}
   }
   const PHOTOREAL_PREFETCH_M = 80000;
@@ -880,7 +932,7 @@
       camera: function () { return null; },
       width: function () { try { viewer.resize(); } catch (e) {} return adapter; },
       height: function () { try { viewer.resize(); } catch (e) {} return adapter; },
-      showAtmosphere: function () { killPhoneAtmosphere(viewer); return adapter; },
+      showAtmosphere: function () { killPhoneAtmosphere(viewer); configurePhoneAtmosphere(Cesium, viewer); return adapter; },
       atmosphereAltitude: function () { return adapter; },
       globeTileEngineUrl: function () { return adapter; },
       globeTileEngineMaxLevel: function () { return adapter; },
@@ -1069,17 +1121,11 @@
     } catch (eImg) {}
     killPhoneAtmosphere(viewer);
     try { if (viewer.scene) viewer.scene.rethrowRenderErrors = false; } catch (eRethrow) {}
+    try { configurePhoneAtmosphere(Cesium, viewer); } catch (eAtm) {}
     try {
       const globe = viewer.scene.globe;
-      globe.enableLighting = true;
-      globe.showGroundAtmosphere = false;
-      globe.atmosphereLightIntensity = 0;
       globe.depthTestAgainstTerrain = false;
-      try { globe.lambertDiffuseMultiplier = 1.85; } catch (eL) {}
     } catch (e) {}
-    try {
-      if (Cesium.SunLight) viewer.scene.light = new Cesium.SunLight({ intensity: 1.75 });
-    } catch (eSun) {}
     try { viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#000000'); } catch (eBg) {}
     try {
       const ssc = viewer.scene.screenSpaceCameraController;
