@@ -539,6 +539,120 @@
     }
     return cesiumLibPromise;
   }
+
+  var IDLE_SPIN_ORBIT_M = 2.0e6;
+  var IDLE_SPIN_STREET_M = 2500;
+  var IDLE_SPIN_RESUME_MS = 4000;
+  var IDLE_SPIN_RAD_PER_S = 0.058;
+
+  function pauseIdleSpinState(state) {
+    try { if (state && typeof state.pauseIdleSpin === 'function') state.pauseIdleSpin(); } catch (e) {}
+  }
+
+  function installIdleOrbitSpin(Cesium, viewer, state) {
+    if (!Cesium || !viewer || !state) return;
+    try { if (viewer.clock) viewer.clock.shouldAnimate = true; } catch (e) {}
+    try { if (viewer.scene && viewer.scene.requestRenderMode) viewer.scene.requestRender(); } catch (e) {}
+    state._idleSpinHeld = 0;
+    state._idleSpinPaused = false;
+    state._idleSpinLastTs = 0;
+    var resumeTimer = 0;
+    var canvas = null;
+    try { canvas = viewer.scene && viewer.scene.canvas; } catch (eC) {}
+    var clearResume = function () {
+      if (resumeTimer) {
+        try { global.clearTimeout(resumeTimer); } catch (e) {}
+        resumeTimer = 0;
+      }
+    };
+    var scheduleResume = function () {
+      clearResume();
+      resumeTimer = global.setTimeout(function () {
+        resumeTimer = 0;
+        state._idleSpinPaused = false;
+        state._idleSpinLastTs = 0;
+      }, IDLE_SPIN_RESUME_MS);
+    };
+    var pause = function () {
+      state._idleSpinPaused = true;
+      state._idleSpinLastTs = 0;
+      if (state._idleSpinHeld > 0) {
+        clearResume();
+        return;
+      }
+      scheduleResume();
+    };
+    state.pauseIdleSpin = pause;
+    var onDown = function () {
+      state._idleSpinHeld = (state._idleSpinHeld || 0) + 1;
+      pause();
+    };
+    var onUp = function () {
+      state._idleSpinHeld = Math.max(0, (state._idleSpinHeld || 0) - 1);
+      pause();
+    };
+    var onWheel = function () { pause(); };
+    var listeners = [];
+    var add = function (target, type, fn, opts) {
+      if (!target || !target.addEventListener) return;
+      try {
+        target.addEventListener(type, fn, opts);
+        listeners.push([target, type, fn, opts]);
+      } catch (e) {}
+    };
+    if (canvas) {
+      add(canvas, 'pointerdown', onDown, true);
+      add(canvas, 'pointerup', onUp, true);
+      add(canvas, 'pointercancel', onUp, true);
+      add(canvas, 'wheel', onWheel, { capture: true, passive: true });
+      add(canvas, 'gesturestart', onWheel, true);
+    }
+    var onTick = function () {
+      if (state.destroyed) return;
+      try { if (viewer.isDestroyed && viewer.isDestroyed()) return; } catch (eD) { return; }
+      if (state._streetMode || state._streetFlying) {
+        state._idleSpinLastTs = 0;
+        return;
+      }
+      if (state.follow || viewer.trackedEntity) {
+        state._idleSpinLastTs = 0;
+        return;
+      }
+      var h = 0;
+      try {
+        h = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
+      } catch (eH) { h = 0; }
+      if (!(h > IDLE_SPIN_ORBIT_M) || h < IDLE_SPIN_STREET_M) {
+        state._idleSpinLastTs = 0;
+        return;
+      }
+      if (state._idleSpinPaused || (state._idleSpinHeld || 0) > 0) {
+        state._idleSpinLastTs = 0;
+        return;
+      }
+      var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+      var last = state._idleSpinLastTs || now;
+      var dt = (now - last) / 1000;
+      state._idleSpinLastTs = now;
+      if (!(dt > 0) || dt > 0.25) dt = 1 / 60;
+      try { viewer.camera.rotate(Cesium.Cartesian3.UNIT_Z, -dt * IDLE_SPIN_RAD_PER_S); } catch (eR) {}
+      try { if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eReq) {}
+    };
+    try { viewer.clock.onTick.addEventListener(onTick); } catch (eT) {}
+    state._idleSpinTick = onTick;
+    state.stopIdleOrbitSpin = function () {
+      clearResume();
+      try { if (viewer.clock && viewer.clock.onTick) viewer.clock.onTick.removeEventListener(onTick); } catch (e) {}
+      listeners.forEach(function (row) {
+        try { row[0].removeEventListener(row[1], row[2], row[3]); } catch (e2) {}
+      });
+      listeners.length = 0;
+      state.pauseIdleSpin = null;
+      state._idleSpinTick = null;
+      state.stopIdleOrbitSpin = null;
+    };
+  }
+
   function killPhoneAtmosphere(viewer) {
     try {
       const scene = viewer && viewer.scene;
@@ -774,7 +888,9 @@
       backgroundImageUrl: function () { return adapter; },
       pauseAnimation: function () {},
       getGlobeRadius: function () { return EARTH_RADIUS_M; },
+      pauseIdleSpin: function () { try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (e) {} },
       _destructor: function () {
+        try { if (state && state.stopIdleOrbitSpin) state.stopIdleOrbitSpin(); } catch (e) {}
         try { if (state && state.handler && state.handler.destroy) state.handler.destroy(); } catch (e) {}
         try {
           if (state && state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
@@ -803,8 +919,9 @@
         altM = Math.max(MIN_CAMERA_ALT_M, Math.min(4.5e7, altM));
         const dest = Cesium.Cartesian3.fromDegrees(lng, lat, altM);
         const dur = (Number(ms) || 0) / 1000;
+        try { if (dur > 0.05 && state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eP) {}
         try {
-          if (dur > 0.05) viewer.camera.flyTo({ destination: dest, duration: dur });
+          if (dur > 0.05) viewer.camera.flyTo({ destination: dest, duration: dur, complete: function () { try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eC) {} } });
           else viewer.camera.setView({ destination: dest });
         } catch (e) {}
         return adapter;
@@ -958,7 +1075,12 @@
       globe.showGroundAtmosphere = false;
       globe.atmosphereLightIntensity = 0;
       globe.depthTestAgainstTerrain = false;
+      try { globe.lambertDiffuseMultiplier = 1.85; } catch (eL) {}
     } catch (e) {}
+    try {
+      if (Cesium.SunLight) viewer.scene.light = new Cesium.SunLight({ intensity: 1.75 });
+    } catch (eSun) {}
+    try { viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#000000'); } catch (eBg) {}
     try {
       const ssc = viewer.scene.screenSpaceCameraController;
       ssc.enableInputs = true;
@@ -1017,8 +1139,12 @@
     try {
       global.setTimeout(function () {
         try { viewer.resize(); } catch (eR) {}
+      }, 0);
+      global.setTimeout(function () {
+        try { viewer.resize(); } catch (eR) {}
       }, 300);
     } catch (eT) {}
+    try { installIdleOrbitSpin(Cesium, viewer, state); } catch (eSpin) {}
     return makeCesiumPhoneAdapter(Cesium, viewer, state);
   }
   function syncGlobeCameraNear(g) {
@@ -1038,6 +1164,7 @@
   }
 
   function configurePhoneControls(g) {
+    if (!g || g.__cesium) return null;
     const controls = g.controls();
     if (!controls) throw new Error('Globe controls unavailable');
     const radius = globeRadiusOf(g);
@@ -4481,7 +4608,11 @@
     const flyTo = function (lat, lng, altitude) {
       const g = globeInstRef.current;
       if (!g || !Number.isFinite(Number(lat)) || !Number.isFinite(Number(lng))) return;
-      try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
+      if (g.__cesium) {
+        try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (e) {}
+      } else {
+        try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
+      }
       try { g.pointOfView({ lat: Number(lat), lng: Number(lng), altitude: altitude == null ? SEARCH_ALT_RADII : altitude }, 900); } catch (e) {}
     };
     const applyMobileHit = function (hit) {
@@ -4591,7 +4722,12 @@
       if (!Number.isFinite(a) || !Number.isFinite(b)) { setSearchMsg('Search or tap a point first'); return; }
       const g = globeInstRef.current;
       if (!g) return;
-      try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
+      if (g.__cesium) {
+        try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (e) {}
+        try { if (g._state) g._state._streetMode = true; } catch (eS) {}
+      } else {
+        try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
+      }
       if (g.__cesium) {
         const Cesium = g._cesium;
         const viewer = g._viewer;
@@ -4626,7 +4762,9 @@
     const leaveStreetView = function () {
       const g = globeInstRef.current;
       if (g && g.__cesium && g._streetPrev) {
-        try { g._viewer.camera.flyTo({ destination: g._streetPrev, duration: 1.2 }); } catch (e) {}
+        try { if (g._state) g._state._streetMode = false; } catch (eS) {}
+        try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (eP) {}
+        try { g._viewer.camera.flyTo({ destination: g._streetPrev, duration: 1.2, complete: function () { try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (eC) {} } }); } catch (e) {}
         g._streetPrev = null;
       } else if (g) {
         try {
