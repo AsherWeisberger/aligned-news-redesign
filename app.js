@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json";
+  var DATA_URL = "live-data.json?v=an66";
   var state = {
     data: null,
     filter: "all",
