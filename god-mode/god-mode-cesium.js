@@ -4872,12 +4872,13 @@
       var dt = (now - last) / 1000;
       state._idleSpinLastTs = now;
       if (!(dt > 0) || dt > 0.25) dt = 1 / 60;
-      try { viewer.camera.rotate(Cesium.Cartesian3.UNIT_Z, -dt * IDLE_SPIN_RAD_PER_S); } catch (eR) {}
-      try { if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eReq) {}
+      try {
+        viewer.camera.rotate(Cesium.Cartesian3.UNIT_Z, -dt * IDLE_SPIN_RAD_PER_S);
+        if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender();
+      } catch (eR) {}
     };
-    try { viewer.clock.onTick.addEventListener(onTick); } catch (eT) {}
     var spinInterval = 0;
-    try { spinInterval = global.setInterval(onTick, 50); } catch (eI) { spinInterval = 0; }
+    try { spinInterval = global.setInterval(onTick, 100); } catch (eI) { spinInterval = 0; }
     state._idleSpinTick = onTick;
     state._idleSpinInterval = spinInterval;
     state.stopIdleOrbitSpin = function () {
@@ -4887,7 +4888,6 @@
         spinInterval = 0;
       }
       try { state._idleSpinInterval = null; } catch (e) {}
-      try { if (viewer.clock && viewer.clock.onTick) viewer.clock.onTick.removeEventListener(onTick); } catch (e) {}
       listeners.forEach(function (row) {
         try { row[0].removeEventListener(row[1], row[2], row[3]); } catch (e2) {}
       });
