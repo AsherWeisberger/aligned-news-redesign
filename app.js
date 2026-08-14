@@ -2044,22 +2044,21 @@
 
   function daySectionLabel(dayKey) {
     var parts = String(dayKey || "").split("-");
-    if (parts.length !== 3) return "Earlier top stories";
+    if (parts.length !== 3) return "Earlier";
     var dayDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-    if (isNaN(dayDate.getTime())) return "Earlier top stories";
+    if (isNaN(dayDate.getTime())) return "Earlier";
     var today = startOfLocalDay(new Date());
     var yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     var sod = startOfLocalDay(dayDate);
-    if (sod.getTime() === today.getTime()) return "Today's top stories";
-    if (sod.getTime() === yesterday.getTime()) return "Yesterday's top stories";
+    if (sod.getTime() === today.getTime()) return "Today";
+    if (sod.getTime() === yesterday.getTime()) return "Yesterday";
     var ageDays = Math.round((today.getTime() - sod.getTime()) / 86400000);
     try {
       if (ageDays >= 0 && ageDays < 7) {
-        var weekday = dayDate.toLocaleDateString(undefined, { weekday: "long" });
-        return weekday + "'s top stories";
+        return dayDate.toLocaleDateString(undefined, { weekday: "long" });
       }
-      return dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + " top stories";
+      return dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
     } catch (e) {
       return dayKey;
     }

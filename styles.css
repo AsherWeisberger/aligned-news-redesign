@@ -1823,24 +1823,21 @@ body[data-page="signals"] .feed-row {
 .feed-day-label {
   margin: 0;
   font-family: var(--font);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-size: 1.22rem;
+  font-weight: 650;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--text);
   line-height: 1.2;
-}
-html[data-theme="dark"] .feed-day-label {
-  color: var(--muted);
 }
 html[data-density="compact"] .feed-day-head {
   margin: 0.7rem 0 0.15rem;
   padding: 0.5rem 0 0.22rem;
 }
 html[data-density="compact"] .feed-day-label {
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-size: 1.12rem;
+  font-weight: 650;
+  letter-spacing: normal;
 }
 
 /* Compact density = dense headline + meta list (no photo / why / dek chrome) */
@@ -4271,23 +4268,11 @@ html.has-mobile-dock .density-seg {
   }
 }
 
-/* Today: no desk-hero kicker/value-prop. Quiet section label instead. */
+/* Today: no desk-hero kicker/value-prop. Day heads stay visible. */
 body[data-page="today"] .desk-hero,
 body[data-page="today"] .desk-hero-slim,
 body[data-page="today"] .intel-strip {
   display: none !important;
-}
-.feed-section-label {
-  margin: 0 0 0.55rem;
-  font-family: var(--font);
-  font-size: 1.28rem;
-  font-weight: 650;
-  letter-spacing: -0.03em;
-  color: var(--text);
-  line-height: 1.2;
-}
-body[data-page="today"] .feed-day-head:first-child {
-  display: none;
 }
 
 /* Topic chips: keep, but don't shout */
@@ -4439,7 +4424,6 @@ body[data-page="today"] .feed-day-head:first-child {
     height: 105px;
     border-radius: 10px;
   }
-  .feed-section-label { font-size: 1.12rem; }
 }
 @media (max-width: 520px) {
   .lead-card .row-thumb,
@@ -4468,6 +4452,7 @@ html[data-density="compact"] .lead-card .lead-title {
 
 
 /* an75 — paper/ink newsletter strip + Partners rail (structure, not Digg costume) */
+/* an76 — restore readable day heads (Today / Yesterday / weekday / Aug 8) */
 .nl-subscribe {
   list-style: none;
   padding: 0.55rem 0 0.85rem;
