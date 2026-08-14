@@ -129,14 +129,8 @@
     var parts = [];
     var n = sourceCount(item);
     parts.push(n + (n === 1 ? " source" : " sources"));
-    var listPretty = prettyChipLabel("", item.source_list || item.section_label || "");
-    if (listPretty && !/^(Models|Agents|Robotics|Funding|Companies|Research|Chips)$/i.test(listPretty)) {
-      parts.push(listPretty);
-    } else if (item.topic_label) {
-      parts.push(item.topic_label);
-    }
     parts.push("first seen " + (fallbackTime(item.published_at || item.created_at) || "recently"));
-    return parts.join(" · ");
+    return parts.join(", ");
   }
 
   function whyRankedLabel(item) {
@@ -2057,9 +2051,6 @@
 
     function renderStoryItem(s, i, allowLead) {
       var compact = isCompactDensity();
-      var badge = s.signal_badge
-        ? '<span class="' + badgeClass(s.signal_badge) + '">' + escapeHtml(String(s.signal_badge).toUpperCase()) + "</span>"
-        : "";
       var isRead = state.read.indexOf(s.id) !== -1;
       var sectionPretty = s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.section || "");
       var metaLine = storyMetaLine(s);
@@ -2069,27 +2060,22 @@
 
       // Compact = dense headline+meta list — no lead hero / why box / excerpts / thumbs.
       if (!compact && allowLead && showLead && i === 0) {
-        var leadHeadline = editorialTitle(s, 72);
+        var leadHeadline = editorialTitle(s, 88);
         var dek = uniqueDek(s, leadHeadline, 170);
-        var why = whyItMatters(s);
-        var leadHero = leadHeroHtml(s, key, sectionPretty);
+        var leadThumb = rowThumbHtml(s, key, sectionPretty);
         rankCounter = 1;
         return (
-          '<li class="lead-card' + (leadHero ? " lead-card-photo" : "") + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
-            '<div class="lead-rank-row">' +
-              '<div class="lead-eyebrow">Top Story</div>' +
-              badge +
-              (s.topic_label ? '<span class="badge badge-signal">' + escapeHtml(s.topic_label) + "</span>" : "") +
-              whyRankedHtml(s) +
+          '<li class="lead-card' + (leadThumb ? " lead-card-photo" : "") + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
+            '<div class="rank">1.</div>' +
+            '<div class="feed-body">' +
+              '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
+              (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
+              '<div class="lead-meta">' +
+                avatarStackHtml(s) +
+                '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
+              "</div>" +
             "</div>" +
-            leadHero +
-            '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
-            (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
-            '<div class="lead-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
-            '<div class="lead-meta">' +
-              avatarStackHtml(s) +
-              '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
-            "</div>" +
+            leadThumb +
           "</li>"
         );
       }
@@ -2097,18 +2083,14 @@
       rankCounter += 1;
       var rank = rankCounter;
       var excerpt = compact ? "" : uniqueDek(s, headline, 140);
-      var callout = !compact && (rank === 3 || rank === 8) && s.signal_badge;
       return (
-        '<li class="feed-row' + (isRead ? " is-read" : "") + (callout ? " feed-row-callout" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
+        '<li class="feed-row' + (isRead ? " is-read" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(headline) + "</a></h2>" +
             (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               avatarStackHtml(s) +
-              badge +
-              (s.topic_label ? '<span class="badge">' + escapeHtml(s.topic_label) + "</span>" : "") +
-              whyRankedHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
           "</div>" +
