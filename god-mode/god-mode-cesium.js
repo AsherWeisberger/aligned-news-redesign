@@ -3679,7 +3679,7 @@
   }
 
   const GOOGLE_TILES_CACHE_BYTES = 1024 * 1024 * 1024;
-  const GOOGLE_TILES_SSE = 0.6;
+  const GOOGLE_TILES_SSE = 1.0;
   const PHOTOREAL_PREFETCH_M = 12000;
   const PHOTOREAL_UNLOAD_M = 25000;
   const PHOTOREAL_SHOW_M = 1200;
@@ -3741,7 +3741,7 @@
   function tuneGoogleTileset(tileset, heightM) {
     if (!tileset) return;
     const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
-    try { tileset.maximumScreenSpaceError = street ? 0.5 : (Number(GOOGLE_TILES_SSE) || 0.6); } catch (e) {}
+    try { tileset.maximumScreenSpaceError = street ? 0.8 : (Number(GOOGLE_TILES_SSE) || 1.0); } catch (e) {}
     try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
     try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = false; } catch (e) {}
     try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
@@ -4167,20 +4167,29 @@
       try { ssc.enableRotate = true; } catch (e) {}
       try { ssc.enableTilt = true; } catch (e) {}
       try { ssc.enableLook = true; } catch (e) {}
-      try { ssc.enableTranslate = true; } catch (e) {}
+      try { ssc.enableTranslate = false; } catch (e) {}
       try { ssc.enableZoom = true; } catch (e) {}
       try { ssc.enableCollisionDetection = false; } catch (e) {}
-      try { ssc.inertiaTranslate = 0.7; } catch (e) {}
       const CET = Cesium && Cesium.CameraEventType;
-      const KEM = Cesium && Cesium.KeyboardEventModifier;
       if (CET) {
-        try { ssc.translateEventTypes = CET.LEFT_DRAG; } catch (e) {}
-        try { ssc.zoomEventTypes = [CET.PINCH]; } catch (e) {}
-        try { ssc.rotateEventTypes = CET.RIGHT_DRAG; } catch (e) {}
+        try { ssc.rotateEventTypes = CET.LEFT_DRAG; } catch (e) {}
         try {
-          ssc.tiltEventTypes = CET.PINCH;
+          const zoomTypes = [];
+          if (CET.WHEEL) zoomTypes.push(CET.WHEEL);
+          if (CET.PINCH) zoomTypes.push(CET.PINCH);
+          ssc.zoomEventTypes = zoomTypes.length ? zoomTypes : CET.WHEEL;
         } catch (e) {}
-        try { ssc.lookEventTypes = CET.MIDDLE_DRAG; } catch (e) {}
+        try {
+          const tiltTypes = [];
+          if (CET.RIGHT_DRAG) tiltTypes.push(CET.RIGHT_DRAG);
+          if (CET.PINCH) tiltTypes.push(CET.PINCH);
+          ssc.tiltEventTypes = tiltTypes.length ? tiltTypes : CET.PINCH;
+        } catch (e) {}
+        try {
+          ssc.translateEventTypes = CET.MIDDLE_DRAG ? CET.MIDDLE_DRAG : [];
+        } catch (e) {
+          try { ssc.translateEventTypes = []; } catch (e2) {}
+        }
       }
       try {
         const canvas = scene.canvas;
@@ -4194,6 +4203,8 @@
             const dx = Number(ev.deltaX) || 0;
             const dy = Number(ev.deltaY) || 0;
             const horiz = Math.abs(dx) > Math.abs(dy) * 1.15;
+            if (!horiz) return;
+            try { ev.preventDefault(); } catch (eP) {}
             try {
               const cam = viewer && viewer.camera;
               if (!cam) return;
@@ -4202,61 +4213,12 @@
               if (!Number.isFinite(h) || h < 80) h = 80;
               const mode = Number(ev.deltaMode) || 0;
               const unit = mode === 1 ? 16 : (mode === 2 ? 800 : 1);
-              if (horiz) {
-                try { ev.preventDefault(); } catch (eP) {}
-                const mag = h * 0.0012 * unit;
-                cam.moveRight(dx * mag);
-                cam.moveUp(-dy * mag);
-              } else if (Math.abs(dy) > 0.01) {
-                try { ev.preventDefault(); } catch (eP2) {}
-                const zoom = dy * unit * Math.max(h, 120) * 0.0022;
-                if (zoom > 0) cam.zoomOut(zoom);
-                else cam.zoomIn(-zoom);
-              }
+              const mag = h * 0.0012 * unit;
+              cam.moveRight(dx * mag);
+              cam.moveUp(-dy * mag);
             } catch (eW) {}
             try { if (viewer && viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eR) {}
           }, { passive: false });
-        }
-        if (canvas && !canvas.__gm2LeftPan) {
-          canvas.__gm2LeftPan = true;
-          let armed = false;
-          let panning = false;
-          let lastX = 0;
-          let lastY = 0;
-          canvas.addEventListener("pointerdown", function (ev) {
-            if (ev.button !== 0) return;
-            if (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey) return;
-            armed = true;
-            panning = false;
-            lastX = ev.clientX;
-            lastY = ev.clientY;
-            try { canvas.setPointerCapture(ev.pointerId); } catch (eC) {}
-          });
-          canvas.addEventListener("pointermove", function (ev) {
-            if (!armed) return;
-            const dx = ev.clientX - lastX;
-            const dy = ev.clientY - lastY;
-            if (!panning) {
-              if ((dx * dx + dy * dy) < 9) return;
-              panning = true;
-            }
-            lastX = ev.clientX;
-            lastY = ev.clientY;
-            try {
-              const cam = viewer && viewer.camera;
-              if (!cam) return;
-              let h = 1000;
-              try { h = cam.positionCartographic.height; } catch (eH) {}
-              if (!Number.isFinite(h) || h < 80) h = 80;
-              const mag = h * 0.0015;
-              cam.moveRight(-dx * mag);
-              cam.moveUp(dy * mag);
-            } catch (eM) {}
-            try { if (viewer && viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eR) {}
-          });
-          const endPan = function () { armed = false; panning = false; };
-          canvas.addEventListener("pointerup", endPan);
-          canvas.addEventListener("pointercancel", endPan);
         }
       } catch (e) {}
     } catch (e) {}
@@ -4724,7 +4686,7 @@
     if (state.selectedId && String(row.id) === String(state.selectedId)) return true;
     const viewer = state.viewer;
     const h = cameraHeightM(viewer);
-    if (!Number.isFinite(h) || h > 1.6e7) return false;
+    if (!Number.isFinite(h) || h > 7.5e5) return false;
     try {
       const cam = viewer.camera.positionCartographic;
       if (!cam) return false;
@@ -4891,11 +4853,11 @@
       if (!(dt > 0) || dt > 0.25) dt = 1 / 60;
       try {
         viewer.camera.rotate(Cesium.Cartesian3.UNIT_Z, -dt * IDLE_SPIN_RAD_PER_S);
-        if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender();
-      } catch (eR) {}
+      } catch (eR) { return; }
+      try { if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eRend) {}
     };
     var spinInterval = 0;
-    try { spinInterval = global.setInterval(onTick, 100); } catch (eI) { spinInterval = 0; }
+    try { spinInterval = global.setInterval(onTick, 150); } catch (eI) { spinInterval = 0; }
     state._idleSpinTick = onTick;
     state._idleSpinInterval = spinInterval;
     state.stopIdleOrbitSpin = function () {
@@ -6065,7 +6027,7 @@
             ssc.enableRotate = true;
             ssc.enableTilt = true;
             ssc.enableLook = true;
-            ssc.enableTranslate = true;
+            ssc.enableTranslate = false;
             ssc.minimumZoomDistance = 80;
             ssc.maximumZoomDistance = 4.5e7;
             tuneCameraFeel(viewer);

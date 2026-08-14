@@ -639,11 +639,11 @@
       if (!(dt > 0) || dt > 0.25) dt = 1 / 60;
       try {
         viewer.camera.rotate(Cesium.Cartesian3.UNIT_Z, -dt * IDLE_SPIN_RAD_PER_S);
-        if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender();
-      } catch (eR) {}
+      } catch (eR) { return; }
+      try { if (viewer.scene && viewer.scene.requestRender) viewer.scene.requestRender(); } catch (eRend) {}
     };
     var spinInterval = 0;
-    try { spinInterval = global.setInterval(onTick, 100); } catch (eI) { spinInterval = 0; }
+    try { spinInterval = global.setInterval(onTick, 150); } catch (eI) { spinInterval = 0; }
     state._idleSpinTick = onTick;
     state._idleSpinInterval = spinInterval;
     state.stopIdleOrbitSpin = function () {
@@ -722,7 +722,7 @@
   const PHOTOREAL_PREFETCH_M = 80000;
   const PHOTOREAL_SHOW_M = 1200;
   const PHOTOREAL_HIDE_M = 2200;
-  const GOOGLE_TILES_SSE = 0.6;
+  const GOOGLE_TILES_SSE = 1.0;
   function googleTilesetUrlOf(tileset) {
     try {
       const r = tileset && (tileset.resource || tileset._resource);
@@ -745,7 +745,7 @@
   function tunePhoneTileset(tileset, heightM) {
     if (!tileset) return;
     const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
-    try { tileset.maximumScreenSpaceError = street ? 0.5 : (Number(GOOGLE_TILES_SSE) || 0.6); } catch (e) {}
+    try { tileset.maximumScreenSpaceError = street ? 0.8 : (Number(GOOGLE_TILES_SSE) || 1.0); } catch (e) {}
     try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = false; } catch (e) {}
     try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
     try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
