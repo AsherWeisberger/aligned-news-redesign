@@ -4575,3 +4575,176 @@ html[data-density="compact"] .nl-subscribe {
 .rail-card-partners .partners-link:hover {
   border-bottom-color: var(--text);
 }
+
+
+/* === an77: restore boxed left nav, X-trim rows, designated modules === */
+@media (min-width: 900px) {
+  :root { --sidebar-w: 208px; }
+  .app {
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    grid-template-areas:
+      "topbar topbar"
+      "sidebar main";
+  }
+  .sidebar {
+    display: block;
+    background: transparent;
+    border-right: none;
+    padding: 0.95rem 0.85rem 2rem 0.95rem;
+  }
+}
+
+.side-box {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.55rem 0.45rem 0.55rem;
+}
+.side-box + .side-box {
+  margin-top: 0.7rem;
+}
+.side-box .nav-label {
+  font-size: 0.64rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.2rem 0.55rem 0.4rem;
+}
+.side-box .side-nav a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  padding: 0.42rem 0.55rem;
+  box-shadow: none;
+}
+.side-box .side-nav a:hover {
+  background: var(--bg-soft);
+  color: var(--text);
+  transform: none;
+  box-shadow: none;
+}
+.side-box .side-nav a.active {
+  background: var(--bg-soft);
+  color: var(--text);
+  font-weight: 650;
+  box-shadow: none;
+  border-color: transparent;
+}
+.side-box .count {
+  background: transparent;
+  padding: 0;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.side-box.side-box-quiet,
+.side-box.sidebar-foot {
+  margin-top: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.74rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Comfortable rows: X-trim — headline, one-line dek, avatars + time */
+html:not([data-density="compact"]) .feed-row {
+  padding: 0.85rem 0;
+}
+html[data-density="compact"] .feed-row {
+  padding: 0.48rem 0.05rem 0.48rem 0;
+}
+.feed-row .excerpt,
+.excerpt {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  margin: 0 0 0.32rem;
+}
+.feed-row .meta {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  gap: 0.35rem 0.5rem;
+}
+.feed-row .meta-line {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.feed-row .row-thumb {
+  width: 96px;
+  height: 72px;
+}
+
+/* Stories module + quiet rail boxes */
+.feed-module {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.7rem 1rem 0.35rem;
+}
+.module-label {
+  margin: 0 0 0.35rem;
+  font-family: var(--font);
+  font-size: 0.64rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.feed-module .feed-day-head:first-child {
+  margin-top: 0.15rem;
+}
+.page-rail {
+  gap: 0.75rem;
+}
+.page-rail .rail-card,
+.page-rail .rail-card-why,
+.page-rail .rail-card-partners,
+.page-rail .rail-card-unaligned,
+.page-rail .rail-card-pro-note {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 0.9rem 1rem 1rem;
+}
+.page-rail .rail-card:first-child,
+.page-rail .rail-card-why:first-child {
+  border-top: 1px solid var(--border);
+  padding-top: 0.9rem;
+}
+.page-rail .rail-card:hover,
+.page-rail .rail-card-why:hover,
+.page-rail .rail-card-partners:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--bg-elev);
+}
+
+@media (max-width: 899px) {
+  .menu-btn { display: inline-flex; flex-shrink: 0; }
+  .sidebar {
+    display: block;
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: min(290px, 86vw);
+    height: 100vh;
+    z-index: 50;
+    transform: translateX(-105%);
+    transition: transform 0.22s var(--ease-out);
+    border-right: none;
+    background: var(--bg);
+    padding: 1.15rem 0.85rem 2rem;
+  }
+  .sidebar.open { transform: translateX(0); }
+}
+
+.page-primary > .feed {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.45rem 1rem 0.3rem;
+}

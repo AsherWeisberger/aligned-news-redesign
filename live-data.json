@@ -1,19 +1,21 @@
 {
   "meta": {
-    "generatedAt": "2026-08-14T14:17:25.981Z",
-    "scrapedAt": "2026-08-14T14:17:25.981Z",
+    "generatedAt": "2026-08-14T20:38:11.000Z",
+    "scrapedAt": "2026-08-14T20:38:11.000Z",
     "source": "alignednews-rss",
-    "note": "Refreshed from alignednews.com/rss",
-    "rssLastBuildDate": "Thu, 13 Aug 2026 18:21:41 GMT",
-    "rssItemCount": 50
+    "note": "Refreshed from https://alignednews.com/rss",
+    "rssLastBuildDate": "Fri, 14 Aug 2026 15:15:34 GMT",
+    "rssItemCount": 50,
+    "rssKeptCount": 10,
+    "lastUpdatedTs": 1786720534000
   },
   "user": {
     "name": "Asher",
     "plan": "Pro"
   },
   "stats": {
-    "lists": 8,
-    "stories": 50,
+    "lists": 63,
+    "stories": 10,
     "signals": 6,
     "reports": 0
   },
@@ -57,1089 +59,96 @@
   ],
   "forYou": [
     {
-      "id": "aa8f4a76-49da-4bd8-ac7a-01eccc45364f",
-      "title": "ShellHacks 2026 brings an in-person student hackathon to Miami in September 2026",
-      "text": "ShellHacks 2026 will take place from September 25 through September 27, 2026, at Florida International University’s Graham Center in Miami, Florida. The official ShellHacks team organizes the event and presents it as an in-person hackathon focused on building, learning, networking, and career exploration. The stated audience is students from Florida and elsewhere who want to create projects, learn current technologies, meet industry professionals, and explore internships or job opportunities.",
+      "id": "3d2a4962-8df3-406e-8b76-6e15a8b7d84b",
+      "title": "GLM-5.3 partners are launching through an official service with safeguards and controlled access",
+      "text": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
       "badge": "story",
-      "topic_key": "companies",
-      "source_url": "https://shellhacks.net/",
-      "created_at": "2026-08-13T18:21:41.000Z",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "source_list": "Events · Hackathons",
-      "topic_label": "Companies",
-      "analysis": "ShellHacks 2026 will take place from September 25 through September 27, 2026, at Florida International University’s Graham Center in Miami, Florida."
+      "topic_key": "models",
+      "source_url": "https://x.com/Zai_org/status/2088132978698256725",
+      "created_at": "2026-08-14T15:15:34.000Z",
+      "section_key": "models",
+      "section_label": "Latest Stories",
+      "source_list": "Latest Stories",
+      "topic_label": "Models",
+      "analysis": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process."
     },
     {
-      "id": "6aa8ffe5-cb02-4935-978c-5f04cbf24fab",
-      "title": "HackRice 16 brings a 36-hour student hackathon to Rice University in September 2026",
-      "text": "HackRice 16 will run from September 11 through September 13, 2026, at the Rice Student Center on the Rice University campus in Houston, Texas. The official HackRice team at Rice University organizes the annual event and describes it as the university’s flagship hackathon. Its stated audience is undergraduate builders and innovators, including creators, developers, and designers; the official page provides separate registration paths for Rice and non-Rice students.",
+      "id": "78489e0f-33b0-43a5-8066-1872e0b9f176",
+      "title": "A report says the Trump administration is loosening constraints on offensive cyber operations",
+      "text": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
       "badge": "story",
-      "topic_key": "companies",
-      "source_url": "https://hackrice.com/",
-      "created_at": "2026-08-13T18:21:41.000Z",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "source_list": "Events · Hackathons",
-      "topic_label": "Companies",
-      "analysis": "HackRice 16 will run from September 11 through September 13, 2026, at the Rice Student Center on the Rice University campus in Houston, Texas."
+      "topic_key": "policy",
+      "source_url": "https://x.com/Gizmodo/status/2088204007202275382",
+      "created_at": "2026-08-14T15:15:34.000Z",
+      "section_key": "policy",
+      "section_label": "Latest Stories",
+      "source_list": "Latest Stories",
+      "topic_label": "Policy",
+      "analysis": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail."
     },
     {
-      "id": "d274c7f6-dabe-49d9-aeff-e5e12c31b561",
-      "title": "HackIllinois 2027 opens a focused builder event for students who want to learn technologies and build software",
-      "text": "HackIllinois 2027 is scheduled for 2027, with the detailed schedule pending in University of Illinois Urbana-Champaign, Illinois, USA. HackIllinois organizes the event for students who want to learn technologies and build software, mobile applications, websites, and other projects.",
+      "id": "20608399-a743-4c1c-9619-319e96cc462c",
+      "title": "JPMorgan reportedly ended Polymarket’s banking relationship over regulatory concerns while retaining some ties",
+      "text": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
       "badge": "story",
-      "topic_key": "companies",
-      "source_url": "https://hackillinois.org/",
-      "created_at": "2026-08-13T18:21:41.000Z",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "source_list": "Events · Hackathons",
-      "topic_label": "Companies",
-      "analysis": "HackIllinois 2027 is scheduled for 2027, with the detailed schedule pending in University of Illinois Urbana-Champaign, Illinois, USA."
+      "topic_key": "policy",
+      "source_url": "https://x.com/Techmeme/status/2088204332886094211",
+      "created_at": "2026-08-14T15:15:34.000Z",
+      "section_key": "policy",
+      "section_label": "Latest Stories",
+      "source_list": "Latest Stories",
+      "topic_label": "Policy",
+      "analysis": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain."
     },
     {
-      "id": "e9514988-baf5-47f3-82ab-cb892aca2851",
-      "title": "HackTX 2026 opens a focused builder event for student developers",
-      "text": "HackTX 2026 is scheduled for fall 2026 after August 13 in University of Texas at Austin, Austin, Texas, USA. Freetail Hackers organizes the event for student developers, designers, engineers, mentors, and sponsors.",
+      "id": "0725e2fb-908e-410c-9ad0-1c016bfd960f",
+      "title": "Modal is promising another throughput push after a new state-of-the-art model result",
+      "text": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
       "badge": "story",
-      "topic_key": "companies",
-      "source_url": "https://hacktx.com/",
-      "created_at": "2026-08-13T18:21:41.000Z",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "source_list": "Events · Hackathons",
-      "topic_label": "Companies",
-      "analysis": "HackTX 2026 is scheduled for fall 2026 after August 13 in University of Texas at Austin, Austin, Texas, USA."
+      "topic_key": "models",
+      "source_url": "https://x.com/bernhardsson/status/2088211796842709130",
+      "created_at": "2026-08-14T15:15:34.000Z",
+      "section_key": "models",
+      "section_label": "Latest Stories",
+      "source_list": "Latest Stories",
+      "topic_label": "Models",
+      "analysis": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark."
     },
     {
-      "id": "c8176240-f53e-4e71-bc86-be59bd0dc2ea",
-      "title": "HackHarvard 2026 opens a focused builder event for undergraduate developers",
-      "text": "HackHarvard 2026 is scheduled for fall 2026 after August 13 in Harvard University, Cambridge, Massachusetts, USA. HackHarvard organizes the event for undergraduate developers, designers, entrepreneurs, and multidisciplinary student builders.",
+      "id": "b69a9f55-f7c3-41bb-bd26-e0dd53532127",
+      "title": "A judge orders Google to remove installation friction for third-party Android app stores",
+      "text": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
       "badge": "story",
-      "topic_key": "companies",
-      "source_url": "https://www.hackharvard.io/",
-      "created_at": "2026-08-13T18:21:41.000Z",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "source_list": "Events · Hackathons",
-      "topic_label": "Companies",
-      "analysis": "HackHarvard 2026 is scheduled for fall 2026 after August 13 in Harvard University, Cambridge, Massachusetts, USA."
+      "topic_key": "policy",
+      "source_url": "https://x.com/Techmeme/status/2088205449195889138",
+      "created_at": "2026-08-14T15:15:34.000Z",
+      "section_key": "policy",
+      "section_label": "Latest Stories",
+      "source_list": "Latest Stories",
+      "topic_label": "Policy",
+      "analysis": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge."
     }
   ],
   "stories": [
     {
-      "id": "aa8f4a76-49da-4bd8-ac7a-01eccc45364f",
-      "headline": "ShellHacks 2026 brings an in-person student hackathon to Miami in September 2026",
-      "summary": "ShellHacks 2026 will take place from September 25 through September 27, 2026, at Florida International University’s Graham Center in Miami, Florida. The official ShellHacks team organizes the event and presents it as an in-person hackathon focused on building, learning…",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "ShellHacks",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://shellhacks.net/",
-      "sources": [
-        {
-          "url": "https://shellhacks.net/",
-          "name": "shellhacks.net"
-        }
-      ],
-      "body": "ShellHacks 2026 will take place from September 25 through September 27, 2026, at Florida International University’s Graham Center in Miami, Florida. The official ShellHacks team organizes the event and presents it as an in-person hackathon focused on building, learning, networking, and career exploration. The stated audience is students from Florida and elsewhere who want to create projects, learn current technologies, meet industry professionals, and explore internships or job opportunities.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "ShellHacks 2026 will take place from September 25 through September 27, 2026, at Florida International University’s Graham Center in Miami, Florida.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "6aa8ffe5-cb02-4935-978c-5f04cbf24fab",
-      "headline": "HackRice 16 brings a 36-hour student hackathon to Rice University in September 2026",
-      "summary": "HackRice 16 will run from September 11 through September 13, 2026, at the Rice Student Center on the Rice University campus in Houston, Texas. The official HackRice team at Rice University organizes the annual event and describes it as the university’s flagship hackathon. Its…",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "HackRice",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://hackrice.com/",
-      "sources": [
-        {
-          "url": "https://hackrice.com/",
-          "name": "hackrice.com"
-        }
-      ],
-      "body": "HackRice 16 will run from September 11 through September 13, 2026, at the Rice Student Center on the Rice University campus in Houston, Texas. The official HackRice team at Rice University organizes the annual event and describes it as the university’s flagship hackathon. Its stated audience is undergraduate builders and innovators, including creators, developers, and designers; the official page provides separate registration paths for Rice and non-Rice students.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "HackRice 16 will run from September 11 through September 13, 2026, at the Rice Student Center on the Rice University campus in Houston, Texas.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "d274c7f6-dabe-49d9-aeff-e5e12c31b561",
-      "headline": "HackIllinois 2027 opens a focused builder event for students who want to learn technologies and build software",
-      "summary": "HackIllinois 2027 is scheduled for 2027, with the detailed schedule pending in University of Illinois Urbana-Champaign, Illinois, USA. HackIllinois organizes the event for students who want to learn technologies and build software, mobile applications, websites, and other…",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://hackillinois.org/",
-      "sources": [
-        {
-          "url": "https://hackillinois.org/",
-          "name": "hackillinois.org"
-        }
-      ],
-      "body": "HackIllinois 2027 is scheduled for 2027, with the detailed schedule pending in University of Illinois Urbana-Champaign, Illinois, USA. HackIllinois organizes the event for students who want to learn technologies and build software, mobile applications, websites, and other projects.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "HackIllinois 2027 is scheduled for 2027, with the detailed schedule pending in University of Illinois Urbana-Champaign, Illinois, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "e9514988-baf5-47f3-82ab-cb892aca2851",
-      "headline": "HackTX 2026 opens a focused builder event for student developers",
-      "summary": "HackTX 2026 is scheduled for fall 2026 after August 13 in University of Texas at Austin, Austin, Texas, USA. Freetail Hackers organizes the event for student developers, designers, engineers, mentors, and sponsors.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://hacktx.com/",
-      "sources": [
-        {
-          "url": "https://hacktx.com/",
-          "name": "hacktx.com"
-        }
-      ],
-      "body": "HackTX 2026 is scheduled for fall 2026 after August 13 in University of Texas at Austin, Austin, Texas, USA. Freetail Hackers organizes the event for student developers, designers, engineers, mentors, and sponsors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "HackTX 2026 is scheduled for fall 2026 after August 13 in University of Texas at Austin, Austin, Texas, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "c8176240-f53e-4e71-bc86-be59bd0dc2ea",
-      "headline": "HackHarvard 2026 opens a focused builder event for undergraduate developers",
-      "summary": "HackHarvard 2026 is scheduled for fall 2026 after August 13 in Harvard University, Cambridge, Massachusetts, USA. HackHarvard organizes the event for undergraduate developers, designers, entrepreneurs, and multidisciplinary student builders.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://www.hackharvard.io/",
-      "sources": [
-        {
-          "url": "https://www.hackharvard.io/",
-          "name": "hackharvard.io"
-        }
-      ],
-      "body": "HackHarvard 2026 is scheduled for fall 2026 after August 13 in Harvard University, Cambridge, Massachusetts, USA. HackHarvard organizes the event for undergraduate developers, designers, entrepreneurs, and multidisciplinary student builders.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "HackHarvard 2026 is scheduled for fall 2026 after August 13 in Harvard University, Cambridge, Massachusetts, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "eac62518-929d-4dd5-89de-c08e8684fad3",
-      "headline": "PennApps Fall 2026 opens a focused builder event for student developers",
-      "summary": "PennApps Fall 2026 is scheduled for fall 2026 after August 13 in University of Pennsylvania, Philadelphia, Pennsylvania, USA. PennApps organizes the event for student developers, designers, engineers, mentors, and sponsors.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://pennapps.com/",
-      "sources": [
-        {
-          "url": "https://pennapps.com/",
-          "name": "pennapps.com"
-        }
-      ],
-      "body": "PennApps Fall 2026 is scheduled for fall 2026 after August 13 in University of Pennsylvania, Philadelphia, Pennsylvania, USA. PennApps organizes the event for student developers, designers, engineers, mentors, and sponsors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "PennApps Fall 2026 is scheduled for fall 2026 after August 13 in University of Pennsylvania, Philadelphia, Pennsylvania, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "a682677b-f3c1-421d-bb17-93c8b45ecebb",
-      "headline": "Cal Hacks 2026 opens a focused builder event for students",
-      "summary": "Cal Hacks 2026 is scheduled for fall 2026 after August 13 in University of California, Berkeley, California, USA. Cal Hacks organizes the event for students, developers, designers, mentors, sponsors, and startup-minded builders.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://www.calhacks.io/",
-      "sources": [
-        {
-          "url": "https://www.calhacks.io/",
-          "name": "calhacks.io"
-        }
-      ],
-      "body": "Cal Hacks 2026 is scheduled for fall 2026 after August 13 in University of California, Berkeley, California, USA. Cal Hacks organizes the event for students, developers, designers, mentors, sponsors, and startup-minded builders.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Cal Hacks 2026 is scheduled for fall 2026 after August 13 in University of California, Berkeley, California, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "06b77184-53fc-469b-8015-adabe12b26ad",
-      "headline": "HackMIT 2026 opens a focused builder event for student software and hardware builders",
-      "summary": "HackMIT 2026 is scheduled for fall 2026 after August 13 in MIT, Cambridge, Massachusetts, USA. HackMIT organizes the event for student software and hardware builders, designers, mentors, and sponsors.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://hackmit.org/",
-      "sources": [
-        {
-          "url": "https://hackmit.org/",
-          "name": "hackmit.org"
-        }
-      ],
-      "body": "HackMIT 2026 is scheduled for fall 2026 after August 13 in MIT, Cambridge, Massachusetts, USA. HackMIT organizes the event for student software and hardware builders, designers, mentors, and sponsors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "HackMIT 2026 is scheduled for fall 2026 after August 13 in MIT, Cambridge, Massachusetts, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "8e9739e9-76f8-4501-bd5f-08e6f8f7c0a0",
-      "headline": "LA Hacks 2027 opens a focused builder event for college students",
-      "summary": "LA Hacks 2027 is scheduled for mid-April 2027 in Pauley Pavilion at UCLA, Los Angeles, California, USA. LA Hacks organizes the event for college students, developers, designers, mentors, volunteers, and sponsors.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://lahacks.com/",
-      "sources": [
-        {
-          "url": "https://lahacks.com/",
-          "name": "lahacks.com"
-        }
-      ],
-      "body": "LA Hacks 2027 is scheduled for mid-April 2027 in Pauley Pavilion at UCLA, Los Angeles, California, USA. LA Hacks organizes the event for college students, developers, designers, mentors, volunteers, and sponsors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "LA Hacks 2027 is scheduled for mid-April 2027 in Pauley Pavilion at UCLA, Los Angeles, California, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "2dcb2511-57bf-4741-adb6-b1745e8c5fd8",
-      "headline": "NASA International Space Apps Challenge 2026 opens a focused builder event for people interested in space",
-      "summary": "NASA International Space Apps Challenge 2026 is scheduled for November 14–15, 2026 in global local events and virtual participation. NASA’s Science Mission Directorate, supported by its contracted program partners organizes the event for people interested in space, Earth…",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://www.spaceappschallenge.org/",
-      "sources": [
-        {
-          "url": "https://www.spaceappschallenge.org/",
-          "name": "spaceappschallenge.org"
-        }
-      ],
-      "body": "NASA International Space Apps Challenge 2026 is scheduled for November 14–15, 2026 in global local events and virtual participation. NASA’s Science Mission Directorate, supported by its contracted program partners organizes the event for people interested in space, Earth science, data, design, software, storytelling, and problem solving.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "NASA International Space Apps Challenge 2026 is scheduled for November 14–15, 2026 in global local events and virtual participation.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "65214704-656b-4f54-b092-4671a5e81170",
-      "headline": "Junction 2026 opens a focused builder event for developers",
-      "summary": "Junction 2026 is scheduled for November 13–15, 2026 in Hype Areena, Espoo, Finland. Junction organizes the event for developers, designers, engineers, students, entrepreneurs, and multidisciplinary technology builders.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://2026.hackjunction.com/",
-      "sources": [
-        {
-          "url": "https://2026.hackjunction.com/",
-          "name": "2026.hackjunction.com"
-        }
-      ],
-      "body": "Junction 2026 is scheduled for November 13–15, 2026 in Hype Areena, Espoo, Finland. Junction organizes the event for developers, designers, engineers, students, entrepreneurs, and multidisciplinary technology builders.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Junction 2026 is scheduled for November 13–15, 2026 in Hype Areena, Espoo, Finland.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "6d477434-0090-4f1b-ab20-f5e7ddb4246e",
-      "headline": "DubHacks 2026 opens a focused builder event for students",
-      "summary": "DubHacks 2026 is scheduled for October 17–18, 2026 in University of Washington, Seattle, Washington, USA. DubHacks organizes the event for students, software and hardware builders, designers, mentors, and sponsors.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://dubhacks.co/",
-      "sources": [
-        {
-          "url": "https://dubhacks.co/",
-          "name": "dubhacks.co"
-        }
-      ],
-      "body": "DubHacks 2026 is scheduled for October 17–18, 2026 in University of Washington, Seattle, Washington, USA. DubHacks organizes the event for students, software and hardware builders, designers, mentors, and sponsors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "DubHacks 2026 is scheduled for October 17–18, 2026 in University of Washington, Seattle, Washington, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "77a02428-7c50-4e97-9a1c-4361cab1a3b4",
-      "headline": "Hack-Nation Global AI Hackathon 7 opens a focused builder event for AI builders",
-      "summary": "Hack-Nation Global AI Hackathon 7 is scheduled for October 3–4, 2026 in online and official hubs including San Francisco and Stanford, California. Hack-Nation organizes the event for AI builders, founders, students, researchers, developers, and technical teams.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://hack-nation.ai/start",
-      "sources": [
-        {
-          "url": "https://hack-nation.ai/start",
-          "name": "hack-nation.ai"
-        }
-      ],
-      "body": "Hack-Nation Global AI Hackathon 7 is scheduled for October 3–4, 2026 in online and official hubs including San Francisco and Stanford, California. Hack-Nation organizes the event for AI builders, founders, students, researchers, developers, and technical teams.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Hack-Nation Global AI Hackathon 7 is scheduled for October 3–4, 2026 in online and official hubs including San Francisco and Stanford, California.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "d4aafc22-4351-4d01-b340-4b84c412f8d1",
-      "headline": "ETHOnline 2026 opens a focused builder event for Ethereum and web3 developers",
-      "summary": "ETHOnline 2026 is scheduled for September 4–16, 2026 in online worldwide. ETHGlobal organizes the event for Ethereum and web3 developers, designers, researchers, and product builders.",
-      "section": "events-hackathons",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://ethglobal.com/events",
-      "sources": [
-        {
-          "url": "https://ethglobal.com/events",
-          "name": "ethglobal.com"
-        }
-      ],
-      "body": "ETHOnline 2026 is scheduled for September 4–16, 2026 in online worldwide. ETHGlobal organizes the event for Ethereum and web3 developers, designers, researchers, and product builders.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "ETHOnline 2026 is scheduled for September 4–16, 2026 in online worldwide.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "2fa3dfea-a6e2-48a5-ae49-f8db8ae1b1f3",
-      "headline": "Code for a Billion: Bharat Agentic-AI Hackathon 2026 opens a focused builder event for developers",
-      "summary": "Code for a Billion: Bharat Agentic-AI Hackathon 2026 is scheduled for August 15–November 15, 2026 in online worldwide, with meetups in six Indian cities. Code for India organizes the event for developers, designers, health-technology builders, volunteers, and collaborators.",
-      "section": "events-hackathons",
-      "section_key": "agents",
-      "section_label": "Agents",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-13T18:21:41.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Hackathons",
-      "source_url": "https://codeforindia.org/hackathon",
-      "sources": [
-        {
-          "url": "https://codeforindia.org/hackathon",
-          "name": "codeforindia.org"
-        }
-      ],
-      "body": "Code for a Billion: Bharat Agentic-AI Hackathon 2026 is scheduled for August 15–November 15, 2026 in online worldwide, with meetups in six Indian cities. Code for India organizes the event for developers, designers, health-technology builders, volunteers, and collaborators.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Code for a Billion: Bharat Agentic-AI Hackathon 2026 is scheduled for August 15–November 15, 2026 in online worldwide, with meetups in six Indian cities.",
-      "topic_key": "agents",
-      "topic_label": "Agents"
-    },
-    {
-      "id": "54c94cee-ca11-4f6f-9ae0-863554ef08e2",
-      "headline": "NVIDIA GTC 2027 brings artificial intelligence to San Jose",
-      "summary": "NVIDIA GTC 2027 is scheduled for March 15–18, 2027 in San Jose, California, USA. NVIDIA organizes the event for developers, researchers, engineers, enterprise leaders, startups, and accelerated-computing practitioners.",
-      "section": "events-conferences",
-      "section_key": "chips",
-      "section_label": "Chips",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://www.nvidia.com/gtc/",
-      "sources": [
-        {
-          "url": "https://www.nvidia.com/gtc/",
-          "name": "nvidia.com"
-        }
-      ],
-      "body": "NVIDIA GTC 2027 is scheduled for March 15–18, 2027 in San Jose, California, USA. NVIDIA organizes the event for developers, researchers, engineers, enterprise leaders, startups, and accelerated-computing practitioners.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "NVIDIA GTC 2027 is scheduled for March 15–18, 2027 in San Jose, California, USA.",
-      "topic_key": "chips",
-      "topic_label": "Chips",
-      "signal_badge": "SIGNAL"
-    },
-    {
-      "id": "dda19462-9dd8-4a66-aead-4a7ff3a73b2e",
-      "headline": "Mobile World Congress Barcelona 2027 brings mobile networks to Barcelona",
-      "summary": "Mobile World Congress Barcelona 2027 is scheduled for March 1–4, 2027 in Barcelona, Spain. GSMA organizes the event for mobile-network operators, device makers, software companies, infrastructure providers, policymakers, investors, and media.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://www.mwcbarcelona.com/",
-      "sources": [
-        {
-          "url": "https://www.mwcbarcelona.com/",
-          "name": "mwcbarcelona.com"
-        }
-      ],
-      "body": "Mobile World Congress Barcelona 2027 is scheduled for March 1–4, 2027 in Barcelona, Spain. GSMA organizes the event for mobile-network operators, device makers, software companies, infrastructure providers, policymakers, investors, and media.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Mobile World Congress Barcelona 2027 is scheduled for March 1–4, 2027 in Barcelona, Spain.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "954f8822-d842-44a4-8002-0ff08ae81df6",
-      "headline": "FOSDEM 2027 brings free and open-source software across developer rooms to Brussels",
-      "summary": "FOSDEM 2027 is scheduled for February 6–7, 2027 in Brussels, Belgium. the FOSDEM community organizes the event for free-software and open-source developers, maintainers, users, researchers, and contributors.",
-      "section": "events-conferences",
-      "section_key": "open-source",
-      "section_label": "Open source",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://fosdem.org/",
-      "sources": [
-        {
-          "url": "https://fosdem.org/",
-          "name": "fosdem.org"
-        }
-      ],
-      "body": "FOSDEM 2027 is scheduled for February 6–7, 2027 in Brussels, Belgium. the FOSDEM community organizes the event for free-software and open-source developers, maintainers, users, researchers, and contributors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "FOSDEM 2027 is scheduled for February 6–7, 2027 in Brussels, Belgium.",
-      "topic_key": "open-source",
-      "topic_label": "Open source"
-    },
-    {
-      "id": "19f2299c-845b-4d84-81d2-bf296a70807c",
-      "headline": "World Economic Forum Annual Meeting 2027 brings global economic to Davos-Klosters",
-      "summary": "World Economic Forum Annual Meeting 2027 is scheduled for January 18–22, 2027 in Davos-Klosters, Switzerland. the World Economic Forum organizes the event for business, government, civil-society, academic, and international-organization leaders.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://www.weforum.org/meetings/world-economic-forum-annual-meeting/",
-      "sources": [
-        {
-          "url": "https://www.weforum.org/meetings/world-economic-forum-annual-meeting/",
-          "name": "weforum.org"
-        }
-      ],
-      "body": "World Economic Forum Annual Meeting 2027 is scheduled for January 18–22, 2027 in Davos-Klosters, Switzerland. the World Economic Forum organizes the event for business, government, civil-society, academic, and international-organization leaders.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "World Economic Forum Annual Meeting 2027 is scheduled for January 18–22, 2027 in Davos-Klosters, Switzerland.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "ffa59214-b091-40ea-a7b4-1177b72e818d",
-      "headline": "CES 2027 brings consumer technology to Las Vegas",
-      "summary": "CES 2027 is scheduled for January 6–9, 2027 in Las Vegas, Nevada, USA. the Consumer Technology Association organizes the event for technology companies, startups, buyers, investors, media, policymakers, and product teams.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://www.ces.tech/",
-      "sources": [
-        {
-          "url": "https://www.ces.tech/",
-          "name": "ces.tech"
-        }
-      ],
-      "body": "CES 2027 is scheduled for January 6–9, 2027 in Las Vegas, Nevada, USA. the Consumer Technology Association organizes the event for technology companies, startups, buyers, investors, media, policymakers, and product teams.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "CES 2027 is scheduled for January 6–9, 2027 in Las Vegas, Nevada, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "c896f132-e16a-4183-b51b-0c3ed24b7326",
-      "headline": "AWS re:Invent 2026 brings cloud infrastructure to Las Vegas",
-      "summary": "AWS re:Invent 2026 is scheduled for November 30–December 4, 2026 in Las Vegas, Nevada, USA. Amazon Web Services organizes the event for cloud architects, developers, data and AI practitioners, security teams, partners, and enterprise technology leaders.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://reinvent.awsevents.com/",
-      "sources": [
-        {
-          "url": "https://reinvent.awsevents.com/",
-          "name": "reinvent.awsevents.com"
-        }
-      ],
-      "body": "AWS re:Invent 2026 is scheduled for November 30–December 4, 2026 in Las Vegas, Nevada, USA. Amazon Web Services organizes the event for cloud architects, developers, data and AI practitioners, security teams, partners, and enterprise technology leaders.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "AWS re:Invent 2026 is scheduled for November 30–December 4, 2026 in Las Vegas, Nevada, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "c3eda778-e794-44e3-8b8f-bd13493124cc",
-      "headline": "Web Summit Lisbon 2026 brings startups to Lisbon",
-      "summary": "Web Summit Lisbon 2026 is scheduled for November 9–12, 2026 in Lisbon, Portugal. Web Summit organizes the event for startup founders, investors, technology companies, policymakers, media, and operators.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://websummit.com/",
-      "sources": [
-        {
-          "url": "https://websummit.com/",
-          "name": "websummit.com"
-        }
-      ],
-      "body": "Web Summit Lisbon 2026 is scheduled for November 9–12, 2026 in Lisbon, Portugal. Web Summit organizes the event for startup founders, investors, technology companies, policymakers, media, and operators.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Web Summit Lisbon 2026 is scheduled for November 9–12, 2026 in Lisbon, Portugal.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "8773491b-9486-4904-a53e-5ebb00cf75b5",
-      "headline": "KubeCon + CloudNativeCon North America 2026 brings Kubernetes to Salt Lake City",
-      "summary": "KubeCon + CloudNativeCon North America 2026 is scheduled for November 9–12, 2026 in Salt Lake City, Utah, USA. the Cloud Native Computing Foundation and The Linux Foundation organizes the event for Kubernetes users, open-source contributors, platform engineers, security teams…",
-      "section": "events-conferences",
-      "section_key": "open-source",
-      "section_label": "Open source",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
-      "sources": [
-        {
-          "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
-          "name": "events.linuxfoundation.org"
-        }
-      ],
-      "body": "KubeCon + CloudNativeCon North America 2026 is scheduled for November 9–12, 2026 in Salt Lake City, Utah, USA. the Cloud Native Computing Foundation and The Linux Foundation organizes the event for Kubernetes users, open-source contributors, platform engineers, security teams, developers, and cloud-native operators.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "KubeCon + CloudNativeCon North America 2026 is scheduled for November 9–12, 2026 in Salt Lake City, Utah, USA.",
-      "topic_key": "open-source",
-      "topic_label": "Open source"
-    },
-    {
-      "id": "c2ed749b-f0d3-4690-90ba-c5cb808cb772",
-      "headline": "TechCrunch Disrupt 2026 brings startup building to San Francisco",
-      "summary": "TechCrunch Disrupt 2026 is scheduled for October 13–15, 2026 in San Francisco, California, USA. TechCrunch organizes the event for startup founders, investors, operators, developers, and technology media.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://techcrunch.com/events/tc-disrupt-2026/",
-      "sources": [
-        {
-          "url": "https://techcrunch.com/events/tc-disrupt-2026/",
-          "name": "techcrunch.com"
-        }
-      ],
-      "body": "TechCrunch Disrupt 2026 is scheduled for October 13–15, 2026 in San Francisco, California, USA. TechCrunch organizes the event for startup founders, investors, operators, developers, and technology media.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "TechCrunch Disrupt 2026 is scheduled for October 13–15, 2026 in San Francisco, California, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "1c1a42b5-0896-4251-b770-2caf94f7e368",
-      "headline": "GITEX GLOBAL 2026 brings artificial intelligence to Dubai",
-      "summary": "GITEX GLOBAL 2026 is scheduled for October 12–16, 2026 in Dubai, United Arab Emirates. GITEX GLOBAL organizes the event for technology companies, startups, investors, government leaders, enterprise buyers, and developers.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://www.gitex.com/",
-      "sources": [
-        {
-          "url": "https://www.gitex.com/",
-          "name": "gitex.com"
-        }
-      ],
-      "body": "GITEX GLOBAL 2026 is scheduled for October 12–16, 2026 in Dubai, United Arab Emirates. GITEX GLOBAL organizes the event for technology companies, startups, investors, government leaders, enterprise buyers, and developers.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "GITEX GLOBAL 2026 is scheduled for October 12–16, 2026 in Dubai, United Arab Emirates.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "909f2f3d-16fc-4840-8600-d2f963189c45",
-      "headline": "Open Source Summit Europe 2026 brings open-source software to Bilbao",
-      "summary": "Open Source Summit Europe 2026 is scheduled for September 28–October 2, 2026 in Bilbao, Spain. The Linux Foundation organizes the event for open-source maintainers, developers, platform engineers, business leaders, and community contributors.",
-      "section": "events-conferences",
-      "section_key": "open-source",
-      "section_label": "Open source",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://events.linuxfoundation.org/open-source-summit-europe/",
-      "sources": [
-        {
-          "url": "https://events.linuxfoundation.org/open-source-summit-europe/",
-          "name": "events.linuxfoundation.org"
-        }
-      ],
-      "body": "Open Source Summit Europe 2026 is scheduled for September 28–October 2, 2026 in Bilbao, Spain. The Linux Foundation organizes the event for open-source maintainers, developers, platform engineers, business leaders, and community contributors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Open Source Summit Europe 2026 is scheduled for September 28–October 2, 2026 in Bilbao, Spain.",
-      "topic_key": "open-source",
-      "topic_label": "Open source"
-    },
-    {
-      "id": "fb35ad3a-fcec-4749-bf73-23532b295b31",
-      "headline": "Dreamforce 2026 brings customer platforms to San Francisco",
-      "summary": "Dreamforce 2026 is scheduled for September 15–17, 2026 in San Francisco, California, USA. Salesforce organizes the event for Salesforce customers, administrators, developers, partners, enterprise leaders, and technology teams.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://www.salesforce.com/dreamforce/",
-      "sources": [
-        {
-          "url": "https://www.salesforce.com/dreamforce/",
-          "name": "salesforce.com"
-        }
-      ],
-      "body": "Dreamforce 2026 is scheduled for September 15–17, 2026 in San Francisco, California, USA. Salesforce organizes the event for Salesforce customers, administrators, developers, partners, enterprise leaders, and technology teams.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Dreamforce 2026 is scheduled for September 15–17, 2026 in San Francisco, California, USA.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "1899d2f6-1d5d-4c5f-bd53-8c1e6a709297",
-      "headline": "IBC 2026 brings media creation to RAI Amsterdam",
-      "summary": "IBC 2026 is scheduled for September 11–14, 2026 in RAI Amsterdam, Amsterdam, Netherlands. IBC organizes the event for broadcast, streaming, media, entertainment, production, and technology professionals.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://show.ibc.org/",
-      "sources": [
-        {
-          "url": "https://show.ibc.org/",
-          "name": "show.ibc.org"
-        }
-      ],
-      "body": "IBC 2026 is scheduled for September 11–14, 2026 in RAI Amsterdam, Amsterdam, Netherlands. IBC organizes the event for broadcast, streaming, media, entertainment, production, and technology professionals.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "IBC 2026 is scheduled for September 11–14, 2026 in RAI Amsterdam, Amsterdam, Netherlands.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "523f7e7c-e05e-4337-bee7-dab378f1e04a",
-      "headline": "IFA Berlin 2026 brings consumer electronics to Berlin",
-      "summary": "IFA Berlin 2026 is scheduled for September 4–8, 2026 in Berlin, Germany. IFA organizes the event for consumer-technology companies, retailers, media, buyers, founders, and product teams.",
-      "section": "events-conferences",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://www.ifa-berlin.com/",
-      "sources": [
-        {
-          "url": "https://www.ifa-berlin.com/",
-          "name": "ifa-berlin.com"
-        }
-      ],
-      "body": "IFA Berlin 2026 is scheduled for September 4–8, 2026 in Berlin, Germany. IFA organizes the event for consumer-technology companies, retailers, media, buyers, founders, and product teams.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "IFA Berlin 2026 is scheduled for September 4–8, 2026 in Berlin, Germany.",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "06bdae3c-3b90-4cc8-a03d-90beb2c34e4f",
-      "headline": "Open Source Summit North America 2026 brings open-source software to Denver",
-      "summary": "Open Source Summit North America 2026 is scheduled for August 31–September 2, 2026 in Denver, Colorado, USA. The Linux Foundation organizes the event for open-source maintainers, developers, platform engineers, business leaders, and community contributors.",
-      "section": "events-conferences",
-      "section_key": "open-source",
-      "section_label": "Open source",
-      "tag": "events-conferences",
-      "published_at": "2026-08-13T18:21:40.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Events · Conferences",
-      "source_url": "https://events.linuxfoundation.org/open-source-summit-north-america/",
-      "sources": [
-        {
-          "url": "https://events.linuxfoundation.org/open-source-summit-north-america/",
-          "name": "events.linuxfoundation.org"
-        }
-      ],
-      "body": "Open Source Summit North America 2026 is scheduled for August 31–September 2, 2026 in Denver, Colorado, USA. The Linux Foundation organizes the event for open-source maintainers, developers, platform engineers, business leaders, and community contributors.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Open Source Summit North America 2026 is scheduled for August 31–September 2, 2026 in Denver, Colorado, USA.",
-      "topic_key": "open-source",
-      "topic_label": "Open source"
-    },
-    {
-      "id": "d9c09ad6-0a9f-4235-bc49-ccfa88bf2c4c",
-      "headline": "Lamp and Reachy communicate through a shared robot operating system",
-      "summary": "A playful cross-robot demonstration shows Lamp talking with Reachy while both use an open operating layer described as an Android-audience activity system for robots.",
-      "section": "anomalies",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Dee",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/dee_hw/status/2087894392514437205",
-      "sources": [
-        {
-          "url": "https://x.com/dee_hw/status/2087894392514437205",
-          "name": "@dee_hw"
-        }
-      ],
-      "body": "A playful cross-robot demonstration shows Lamp talking with Reachy while both use an open operating layer described as an Android-audience activity system for robots.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "A playful cross-robot demonstration shows Lamp talking with Reachy while both use an open operating layer described as an Android-audience activity system for robots.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
-    },
-    {
-      "id": "af8b7459-2a5e-4ae2-9609-f1e9ecdc02d6",
-      "headline": "Grok Benchmark Charts Leave a Practical Question Unanswered: Does It Invent Function Arguments?",
-      "summary": "The critique exposes a gap between aggregate model scores and the small reliability failures that determine whether software agents actually work.",
-      "section": "anomalies",
+      "id": "3d2a4962-8df3-406e-8b76-6e15a8b7d84b",
+      "headline": "GLM-5.3 partners are launching through an official service with safeguards and controlled access",
+      "summary": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
+      "section": "ten-things",
       "section_key": "models",
-      "section_label": "Models",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/fialaerik/status/2087929420824912173",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "Zai_org",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/Zai_org/status/2088132978698256725",
       "sources": [
         {
-          "url": "https://x.com/fialaerik/status/2087929420824912173",
-          "name": "@fialaerik"
+          "url": "https://x.com/Zai_org/status/2088132978698256725",
+          "name": "x.com"
         }
       ],
-      "body": "The critique exposes a gap between aggregate model scores and the small reliability failures that determine whether software agents actually work.",
+      "body": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1149,30 +158,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "The critique exposes a gap between aggregate model scores and the small reliability failures that determine whether software agents actually work.",
+      "why_it_matters": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
       "topic_key": "models",
-      "topic_label": "Models",
-      "signal_badge": "SIGNAL"
+      "topic_label": "Models"
     },
     {
-      "id": "dc2aebc4-b27d-4161-95c3-9a1c94ef09c1",
-      "headline": "Production Scripture Detection Scores Only 46% on Paraphrased Sermon Language",
-      "summary": "The weak baseline is useful precisely because it exposes a gap hidden by unmeasured deployment and creates a target for future changes.",
-      "section": "anomalies",
-      "section_key": "research",
-      "section_label": "Research",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/darasoba/status/2087928070963421436",
+      "id": "78489e0f-33b0-43a5-8066-1872e0b9f176",
+      "headline": "A report says the Trump administration is loosening constraints on offensive cyber operations",
+      "summary": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
+      "section": "ten-things",
+      "section_key": "policy",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "Gizmodo",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/Gizmodo/status/2088204007202275382",
       "sources": [
         {
-          "url": "https://x.com/darasoba/status/2087928070963421436",
-          "name": "@darasoba"
+          "url": "https://x.com/Gizmodo/status/2088204007202275382",
+          "name": "x.com"
         }
       ],
-      "body": "The weak baseline is useful precisely because it exposes a gap hidden by unmeasured deployment and creates a target for future changes.",
+      "body": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1182,29 +190,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "The weak baseline is useful precisely because it exposes a gap hidden by unmeasured deployment and creates a target for future changes.",
-      "topic_key": "research",
-      "topic_label": "Research"
+      "why_it_matters": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
     },
     {
-      "id": "f6186987-8dde-478f-9868-29ad9502281f",
-      "headline": "AI Drug Discovery May Generate Failures Faster Instead of Finding a Magic Wand",
-      "summary": "Daphne Koller’s warning reframes acceleration: higher experimental throughput is useful only when biology and measurement let teams learn from the failures.",
-      "section": "anomalies",
-      "section_key": "research",
-      "section_label": "Research",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/WorldSummitAI/status/2087849147030254045",
+      "id": "20608399-a743-4c1c-9619-319e96cc462c",
+      "headline": "JPMorgan reportedly ended Polymarket’s banking relationship over regulatory concerns while retaining some ties",
+      "summary": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
+      "section": "ten-things",
+      "section_key": "policy",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "Techmeme",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/Techmeme/status/2088204332886094211",
       "sources": [
         {
-          "url": "https://x.com/WorldSummitAI/status/2087849147030254045",
-          "name": "@WorldSummitAI"
+          "url": "https://x.com/Techmeme/status/2088204332886094211",
+          "name": "x.com"
         }
       ],
-      "body": "Daphne Koller’s warning reframes acceleration: higher experimental throughput is useful only when biology and measurement let teams learn from the failures.",
+      "body": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1214,29 +222,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Daphne Koller’s warning reframes acceleration: higher experimental throughput is useful only when biology and measurement let teams learn from the failures.",
-      "topic_key": "research",
-      "topic_label": "Research"
+      "why_it_matters": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
     },
     {
-      "id": "8aac205d-64db-498c-9378-842b5521fc03",
-      "headline": "A 50-Degree Temperature Difference Determines Whether an Ultrathin Magnetic Film Stays Intact",
-      "summary": "The narrow thermal boundary highlights how nanoscale material behavior can hinge on processing conditions that appear modest at ordinary scales.",
-      "section": "anomalies",
-      "section_key": "research",
-      "section_label": "Research",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/LifeboatHQ/status/2087892322520330524",
+      "id": "0725e2fb-908e-410c-9ad0-1c016bfd960f",
+      "headline": "Modal is promising another throughput push after a new state-of-the-art model result",
+      "summary": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
+      "section": "ten-things",
+      "section_key": "models",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "bernhardsson",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/bernhardsson/status/2088211796842709130",
       "sources": [
         {
-          "url": "https://x.com/LifeboatHQ/status/2087892322520330524",
-          "name": "@LifeboatHQ"
+          "url": "https://x.com/bernhardsson/status/2088211796842709130",
+          "name": "x.com"
         }
       ],
-      "body": "The narrow thermal boundary highlights how nanoscale material behavior can hinge on processing conditions that appear modest at ordinary scales.",
+      "body": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1246,29 +254,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "The narrow thermal boundary highlights how nanoscale material behavior can hinge on processing conditions that appear modest at ordinary scales.",
-      "topic_key": "research",
-      "topic_label": "Research"
+      "why_it_matters": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
+      "topic_key": "models",
+      "topic_label": "Models"
     },
     {
-      "id": "dfc8a751-651f-4261-9141-51d58d5d5cc5",
-      "headline": "Galileo’s 1638 Physics Shows Human-Shaped Giants Would Collapse Under Their Own Weight",
-      "summary": "The old result remains a sharp scaling lesson: enlarging a body without redesigning its proportions breaks the physical assumptions that made it work.",
-      "section": "anomalies",
-      "section_key": "research",
-      "section_label": "Research",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/mitpress/status/2087926426603286679",
+      "id": "b69a9f55-f7c3-41bb-bd26-e0dd53532127",
+      "headline": "A judge orders Google to remove installation friction for third-party Android app stores",
+      "summary": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
+      "section": "ten-things",
+      "section_key": "policy",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "Techmeme",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/Techmeme/status/2088205449195889138",
       "sources": [
         {
-          "url": "https://x.com/mitpress/status/2087926426603286679",
-          "name": "@mitpress"
+          "url": "https://x.com/Techmeme/status/2088205449195889138",
+          "name": "x.com"
         }
       ],
-      "body": "The old result remains a sharp scaling lesson: enlarging a body without redesigning its proportions breaks the physical assumptions that made it work.",
+      "body": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1278,29 +286,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "The old result remains a sharp scaling lesson: enlarging a body without redesigning its proportions breaks the physical assumptions that made it work.",
-      "topic_key": "research",
-      "topic_label": "Research"
+      "why_it_matters": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
     },
     {
-      "id": "2175e950-aa9d-4876-b5d6-fa1f841a2d43",
-      "headline": "Humanoid T2 Uses Breakdancing to Demonstrate Dynamic Motion Ahead of WRC",
-      "summary": "Breakdancing turns balance and recovery into a compact stress test, even if a performance clip cannot establish general mobility.",
-      "section": "anomalies",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/boosterobotics/status/2087866297510211726",
+      "id": "de773a40-f1fe-4397-a14c-d3c557351135",
+      "headline": "A privacy report centers the claim that privacy is a fundamental right",
+      "summary": "Futurism highlights the statement “Privacy is a fundamental right,” but its social post provides no additional context about the speaker, dispute, or underlying event.",
+      "section": "ten-things",
+      "section_key": "policy",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "futurism",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/futurism/status/2088053040049692970",
       "sources": [
         {
-          "url": "https://x.com/boosterobotics/status/2087866297510211726",
-          "name": "@boosterobotics"
+          "url": "https://x.com/futurism/status/2088053040049692970",
+          "name": "x.com"
         }
       ],
-      "body": "Breakdancing turns balance and recovery into a compact stress test, even if a performance clip cannot establish general mobility.",
+      "body": "Futurism highlights the statement “Privacy is a fundamental right,” but its social post provides no additional context about the speaker, dispute, or underlying event.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1310,224 +318,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Breakdancing turns balance and recovery into a compact stress test, even if a performance clip cannot establish general mobility.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "why_it_matters": "Futurism highlights the statement “Privacy is a fundamental right,” but its social post provides no additional context about the speaker, dispute, or underlying event.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
     },
     {
-      "id": "cfbb23a3-c1d7-4858-bcf8-bc88101368ac",
-      "headline": "A 25-DoF Dual-Arm Humanoid Launches in China for Under $3,000",
-      "summary": "The price brings a high-joint-count mobile manipulator into territory previously associated with hobby platforms rather than humanoid hardware.",
-      "section": "anomalies",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/XRoboHub/status/2087847646727979147",
-      "sources": [
-        {
-          "url": "https://x.com/XRoboHub/status/2087847646727979147",
-          "name": "@XRoboHub"
-        }
-      ],
-      "body": "The price brings a high-joint-count mobile manipulator into territory previously associated with hobby platforms rather than humanoid hardware.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "The price brings a high-joint-count mobile manipulator into territory previously associated with hobby platforms rather than humanoid hardware.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "signal_badge": "SIGNAL"
-    },
-    {
-      "id": "ad461a66-2eb8-477b-b971-87eb79931bbf",
-      "headline": "Printed Signs Become Unauthorized Robot Commands in 5,670 Planning Trials",
-      "summary": "The attack turns ordinary environmental text into an instruction channel, showing that robot planners may confuse visible words with legitimate authority.",
-      "section": "anomalies",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/Robot_AIsignals/status/2087865226213704018",
-      "sources": [
-        {
-          "url": "https://x.com/Robot_AIsignals/status/2087865226213704018",
-          "name": "@Robot_AIsignals"
-        }
-      ],
-      "body": "The attack turns ordinary environmental text into an instruction channel, showing that robot planners may confuse visible words with legitimate authority.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "The attack turns ordinary environmental text into an instruction channel, showing that robot planners may confuse visible words with legitimate authority.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
-    },
-    {
-      "id": "0c85de14-82c1-49e1-807a-de4fb4e8b508",
-      "headline": "Inference-Time VLA Steering Can Harm Actions by Intervening at Every Timestep",
-      "summary": "The failure mode reverses a common assumption: more corrective steering is not always safer when a policy already knows what to do.",
-      "section": "anomalies",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/stepjamUK/status/2087901996317561019",
-      "sources": [
-        {
-          "url": "https://x.com/stepjamUK/status/2087901996317561019",
-          "name": "@stepjamUK"
-        }
-      ],
-      "body": "The failure mode reverses a common assumption: more corrective steering is not always safer when a policy already knows what to do.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "The failure mode reverses a common assumption: more corrective steering is not always safer when a policy already knows what to do.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
-    },
-    {
-      "id": "a59e9170-d48f-4daa-b001-0b1f505b5a34",
-      "headline": "Figure’s Founder Calls the Tendon Hand His Biggest Engineering Mistake",
-      "summary": "The admission is notable because tendon routing looks attractive for actuator packaging, yet the system-level tradeoffs reportedly outweighed that benefit.",
-      "section": "anomalies",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/adcock_brett/status/2087927278458327179",
-      "sources": [
-        {
-          "url": "https://x.com/adcock_brett/status/2087927278458327179",
-          "name": "@adcock_brett"
-        }
-      ],
-      "body": "The admission is notable because tendon routing looks attractive for actuator packaging, yet the system-level tradeoffs reportedly outweighed that benefit.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "The admission is notable because tendon routing looks attractive for actuator packaging, yet the system-level tradeoffs reportedly outweighed that benefit.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "signal_badge": "SIGNAL"
-    },
-    {
-      "id": "6fa4395c-5c3b-415d-84e6-82bc36c6c9b1",
-      "headline": "MX01 Switches Between Humanoid, Quadruped, and Flight Modes in One Transformable Robot",
-      "summary": "The robot treats body configuration as a terrain-dependent choice, collapsing three mobility categories into one platform.",
-      "section": "anomalies",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/techniahqrobot/status/2087841143115436084",
-      "sources": [
-        {
-          "url": "https://x.com/techniahqrobot/status/2087841143115436084",
-          "name": "@techniahqrobot"
-        }
-      ],
-      "body": "The robot treats body configuration as a terrain-dependent choice, collapsing three mobility categories into one platform.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "The robot treats body configuration as a terrain-dependent choice, collapsing three mobility categories into one platform.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
-    },
-    {
-      "id": "dce9b9fe-5a76-4607-a0e2-599d8cc3cc3b",
-      "headline": "Agent Benchmark Reports a 1,667-Fold Cost Spread at the Same Quality Tier",
-      "summary": "Equivalent headline quality can hide radically different unit economics, especially when a self-hosted model competes with hosted frontier services.",
-      "section": "anomalies",
-      "section_key": "agents",
-      "section_label": "Agents",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/StatsWire/status/2087907529795969515",
-      "sources": [
-        {
-          "url": "https://x.com/StatsWire/status/2087907529795969515",
-          "name": "@StatsWire"
-        }
-      ],
-      "body": "Equivalent headline quality can hide radically different unit economics, especially when a self-hosted model competes with hosted frontier services.",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Equivalent headline quality can hide radically different unit economics, especially when a self-hosted model competes with hosted frontier services.",
-      "topic_key": "agents",
-      "topic_label": "Agents",
-      "signal_badge": "SIGNAL"
-    },
-    {
-      "id": "64ef587f-7cd9-4b44-801c-7171f5e373ee",
-      "headline": "Poland Wins a 24-Hour AI Film Final in the First GenJam Director’s Cup",
-      "summary": "The unusual competition compresses international filmmaking into a one-day final, making production speed part of creative performance.",
-      "section": "anomalies",
+      "id": "ae63f758-e90f-45be-b960-c19f305cdb41",
+      "headline": "CodeRabbit Security is designed to look beyond known attack patterns encoded in rule-based scanners",
+      "summary": "CodeRabbit says rule-based scanners cover attacks already conceived, while CodeRabbit Security is designed to address attacks that have not yet been written into rules.",
+      "section": "ten-things",
       "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/MachineCinemaAI/status/2087928652704997754",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "coderabbitai",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/coderabbitai/status/2088008079119929394",
       "sources": [
         {
-          "url": "https://x.com/MachineCinemaAI/status/2087928652704997754",
-          "name": "@MachineCinemaAI"
+          "url": "https://x.com/coderabbitai/status/2088008079119929394",
+          "name": "x.com"
         }
       ],
-      "body": "The unusual competition compresses international filmmaking into a one-day final, making production speed part of creative performance.",
+      "body": "CodeRabbit says rule-based scanners cover attacks already conceived, while CodeRabbit Security is designed to address attacks that have not yet been written into rules.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1537,29 +350,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "The unusual competition compresses international filmmaking into a one-day final, making production speed part of creative performance.",
+      "why_it_matters": "CodeRabbit says rule-based scanners cover attacks already conceived, while CodeRabbit Security is designed to address attacks that have not yet been written into rules.",
       "topic_key": "companies",
       "topic_label": "Companies"
     },
     {
-      "id": "389fa426-8843-4ad0-8c09-10fb9d125502",
-      "headline": "iPhone Ultra May Debut in the United States Before the Rest of the World",
-      "summary": "A geographically limited first release would invert Apple’s usual global flagship pattern and turn availability itself into a market experiment.",
-      "section": "anomalies",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "anomalies",
-      "published_at": "2026-08-13T18:21:39.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Anomalies",
-      "source_url": "https://x.com/9to5mac/status/2087894730742943805",
+      "id": "ac89eeb5-3e8e-40e7-96a9-3dc4db82aeb3",
+      "headline": "NEAR AI is adding independent Intel attestation to make inference verifiable for users",
+      "summary": "Illia Polosukhin says Intel ITA independent attestation will be added to all NEAR AI inference, separating verification from the hardware operator and giving users machine-checkable proof.",
+      "section": "ten-things",
+      "section_key": "chips",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "ilblackdragon",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/ilblackdragon/status/2088263044421816383",
       "sources": [
         {
-          "url": "https://x.com/9to5mac/status/2087894730742943805",
-          "name": "@9to5mac"
+          "url": "https://x.com/ilblackdragon/status/2088263044421816383",
+          "name": "x.com"
         }
       ],
-      "body": "A geographically limited first release would invert Apple’s usual global flagship pattern and turn availability itself into a market experiment.",
+      "body": "Illia Polosukhin says Intel ITA independent attestation will be added to all NEAR AI inference, separating verification from the hardware operator and giving users machine-checkable proof.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1569,30 +382,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "A geographically limited first release would invert Apple’s usual global flagship pattern and turn availability itself into a market experiment.",
-      "topic_key": "companies",
-      "topic_label": "Companies",
-      "signal_badge": "SIGNAL"
+      "why_it_matters": "Illia Polosukhin says Intel ITA independent attestation will be added to all NEAR AI inference, separating verification from the hardware operator and giving users machine-checkable proof.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
     },
     {
-      "id": "16ff50ea-dc19-4338-85f2-9703c5d327c3",
-      "headline": "Pirat Nation identifies a concrete hiring or career move, widening the AI talent pipeline",
-      "summary": "Pirat Nation signals a named hiring, team, or career development relevant to the AI workforce",
-      "section": "jobs",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "jobs",
-      "published_at": "2026-08-13T18:21:38.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Jobs",
-      "source_url": "https://x.com/Pirat_Nation/status/2087887142479360015",
+      "id": "6c56e578-57d9-4220-a954-1efecffbb059",
+      "headline": "Alibaba is reportedly nearing a sale of Lingxi Games to Trustar Capital at a valuation above $1.5 billion",
+      "summary": "Bloomberg sources say Alibaba is close to selling Lingxi Games to private-equity firm Trustar Capital at a potential valuation exceeding $1.5 billion as Alibaba continues reorganizing.",
+      "section": "ten-things",
+      "section_key": "funding",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "Techmeme",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/Techmeme/status/2088209252854956082",
       "sources": [
         {
-          "url": "https://x.com/Pirat_Nation/status/2087887142479360015",
-          "name": "@Pirat_Nation"
+          "url": "https://x.com/Techmeme/status/2088209252854956082",
+          "name": "x.com"
         }
       ],
-      "body": "Pirat Nation signals a named hiring, team, or career development relevant to the AI workforce",
+      "body": "Bloomberg sources say Alibaba is close to selling Lingxi Games to private-equity firm Trustar Capital at a potential valuation exceeding $1.5 billion as Alibaba continues reorganizing.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1602,29 +414,29 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Pirat Nation signals a named hiring, team, or career development relevant to the AI workforce",
-      "topic_key": "companies",
-      "topic_label": "Companies"
+      "why_it_matters": "Bloomberg sources say Alibaba is close to selling Lingxi Games to private-equity firm Trustar Capital at a potential valuation exceeding $1.5 billion as Alibaba continues reorganizing.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
     },
     {
-      "id": "1682b69f-5af6-44d9-84c7-1e42bbe5048e",
-      "headline": "Deepindaba identifies a concrete hiring or career move, widening the AI talent pipeline",
-      "summary": "Deepindaba signals a named hiring, team, or career development relevant to the AI workforce",
-      "section": "jobs",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "jobs",
-      "published_at": "2026-08-13T18:21:38.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Jobs",
-      "source_url": "https://x.com/DeepIndaba/status/2087932092143239336",
+      "id": "5c86c460-8dbd-4b69-8456-68814e77303d",
+      "headline": "Silver Lake is reportedly in talks to acquire Workday in a potentially historic software buyout",
+      "summary": "Reuters reports that Silver Lake is in talks to acquire Workday in a transaction that could rank among the largest software buyouts ever. The talks do not establish that a deal will be reached.",
+      "section": "ten-things",
+      "section_key": "funding",
+      "section_label": "Latest Stories",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T15:15:34.000Z",
+      "author_name": "ReutersTech",
+      "source_list": "Latest Stories",
+      "source_url": "https://x.com/ReutersTech/status/2088076427283304454",
       "sources": [
         {
-          "url": "https://x.com/DeepIndaba/status/2087932092143239336",
-          "name": "@DeepIndaba"
+          "url": "https://x.com/ReutersTech/status/2088076427283304454",
+          "name": "x.com"
         }
       ],
-      "body": "Deepindaba signals a named hiring, team, or career development relevant to the AI workforce",
+      "body": "Reuters reports that Silver Lake is in talks to acquire Workday in a transaction that could rank among the largest software buyouts ever. The talks do not establish that a deal will be reached.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -1634,105 +446,9 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Deepindaba signals a named hiring, team, or career development relevant to the AI workforce",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "754659ac-971e-4e74-ae83-c9adebfc8ad2",
-      "headline": "Jayminsofficial identifies a concrete hiring or career move, widening the AI talent pipeline",
-      "summary": "Jayminsofficial signals a named hiring, team, or career development relevant to the AI workforce",
-      "section": "jobs",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "jobs",
-      "published_at": "2026-08-13T18:21:38.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Jobs",
-      "source_url": "https://x.com/JayminSOfficial/status/2087937817511071961",
-      "sources": [
-        {
-          "url": "https://x.com/JayminSOfficial/status/2087937817511071961",
-          "name": "@JayminSOfficial"
-        }
-      ],
-      "body": "Jayminsofficial signals a named hiring, team, or career development relevant to the AI workforce",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Jayminsofficial signals a named hiring, team, or career development relevant to the AI workforce",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "d1c646a8-71ce-465a-ba69-5d47978cda85",
-      "headline": "Omofelam3303 identifies a concrete hiring or career move, widening the AI talent pipeline",
-      "summary": "Omofelam3303 signals a named hiring, team, or career development relevant to the AI workforce",
-      "section": "jobs",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "jobs",
-      "published_at": "2026-08-13T18:21:38.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Jobs",
-      "source_url": "https://x.com/OmofelaM3303/status/2087926709416788324",
-      "sources": [
-        {
-          "url": "https://x.com/OmofelaM3303/status/2087926709416788324",
-          "name": "@OmofelaM3303"
-        }
-      ],
-      "body": "Omofelam3303 signals a named hiring, team, or career development relevant to the AI workforce",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Omofelam3303 signals a named hiring, team, or career development relevant to the AI workforce",
-      "topic_key": "companies",
-      "topic_label": "Companies"
-    },
-    {
-      "id": "5ae70e3d-6621-425f-b1e2-5e0a0a8d2869",
-      "headline": "Matteocollina identifies a concrete hiring or career move, widening the AI talent pipeline",
-      "summary": "Matteocollina signals a named hiring, team, or career development relevant to the AI workforce",
-      "section": "jobs",
-      "section_key": "companies",
-      "section_label": "Companies",
-      "tag": "jobs",
-      "published_at": "2026-08-13T18:21:38.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Jobs",
-      "source_url": "https://x.com/matteocollina/status/2087933269656355302",
-      "sources": [
-        {
-          "url": "https://x.com/matteocollina/status/2087933269656355302",
-          "name": "@matteocollina"
-        }
-      ],
-      "body": "Matteocollina signals a named hiring, team, or career development relevant to the AI workforce",
-      "kind": "story",
-      "engagement": {
-        "bookmark_count": 0,
-        "impression_count": 0,
-        "like_count": 0,
-        "quote_count": 0,
-        "reply_count": 0,
-        "retweet_count": 0
-      },
-      "why_it_matters": "Matteocollina signals a named hiring, team, or career development relevant to the AI workforce",
-      "topic_key": "companies",
-      "topic_label": "Companies"
+      "why_it_matters": "Reuters reports that Silver Lake is in talks to acquire Workday in a transaction that could rank among the largest software buyouts ever. The talks do not establish that a deal will be reached.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
     }
   ],
   "signals": [

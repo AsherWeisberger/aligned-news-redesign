@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json?v=an66";
+  var DATA_URL = "live-data.json?v=an77";
   var state = {
     data: null,
     filter: "all",
@@ -129,8 +129,8 @@
     var parts = [];
     var n = sourceCount(item);
     parts.push(n + (n === 1 ? " source" : " sources"));
-    parts.push("first seen " + (fallbackTime(item.published_at || item.created_at) || "recently"));
-    return parts.join(", ");
+    parts.push(fallbackTime(item.published_at || item.created_at) || "recently");
+    return parts.join(" · ");
   }
 
   function whyRankedLabel(item) {
@@ -1743,6 +1743,7 @@
     var sidebar = $("#sidebar");
     if (sidebar) {
       sidebar.innerHTML =
+        '<div class="side-box">' +
         '<div class="nav-label">Browse</div>' +
         '<ul class="side-nav">' +
         nav.map(function (item) {
@@ -1761,7 +1762,8 @@
           );
         }).join("") +
         "</ul>" +
-        '<div class="sidebar-foot" id="sidebarFoot"></div>';
+        "</div>" +
+        '<div class="side-box side-box-quiet sidebar-foot" id="sidebarFoot"></div>';
     }
 
     renderMobileDock(page);
