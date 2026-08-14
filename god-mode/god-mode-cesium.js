@@ -4708,7 +4708,7 @@
     if (state.selectedId && String(row.id) === String(state.selectedId)) return true;
     const viewer = state.viewer;
     const h = cameraHeightM(viewer);
-    if (!Number.isFinite(h) || h > 7.5e5) return false;
+    if (!Number.isFinite(h) || h > 1.6e7) return false;
     try {
       const cam = viewer.camera.positionCartographic;
       if (!cam) return false;
@@ -4717,7 +4717,8 @@
       const lng = C.Math.toDegrees(cam.longitude);
       const dlat = Number(row.lat) - lat;
       const dlng = Number(row.lng) - lng;
-      return (dlat * dlat + dlng * dlng) < (2.8 * 2.8);
+      const ang2 = h > 1e6 ? (8 * 8) : (2.8 * 2.8);
+      return (dlat * dlat + dlng * dlng) < ang2;
     } catch (e) { return false; }
   }
 
