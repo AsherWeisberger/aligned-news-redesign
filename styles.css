@@ -4866,3 +4866,52 @@ html[data-density="compact"] .feed-row {
 body[data-page="today"] #topSignals {
   display: none !important;
 }
+
+
+/* === an82: Today rail — quiet 63 lists paper module === */
+.page-rail .rail-card-lists {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 0.9rem 1rem 1rem;
+}
+.page-rail .rail-card-lists:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--bg-elev);
+}
+.rail-card-lists .lists-title {
+  margin: 0 0 0.18rem;
+  font-family: var(--display);
+  font-size: 1.18rem;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  text-transform: none;
+  color: var(--text);
+}
+.rail-card-lists .lists-kicker {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+.rail-card-lists .lists-copy {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.48;
+  color: var(--text-secondary);
+}
+.rail-card-lists .lists-together {
+  margin: 0.55rem 0 0;
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+html[data-theme="dark"] .page-rail .rail-card-lists,
+html[data-theme="dark"] .page-rail .rail-card-lists:hover {
+  background: var(--bg-elev);
+  border-color: var(--border);
+}
