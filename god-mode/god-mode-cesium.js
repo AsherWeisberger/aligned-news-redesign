@@ -1,14 +1,14 @@
 /**
- * God Mode Cesium — Aligned News / God Mode — self-contained Cesium overlay.
+ * God Mode Cesium — shared UNIFY / Aligned News overlay (one codebase).
  * Browser-loadable IIFE. Exposes window.V4GodModeEarth (React function component).
  * API: { open, layer, viewer, onClose, onLayerChange }
- * React / ReactDOM are globals (boot.js). CesiumJS loaded on demand from CDN.
+ * React / ReactDOM are globals (ops.html or boot.js). CesiumJS loaded on demand from CDN.
  */
 (function (global) {
   'use strict';
 
-  // Live React binding — never abort this IIFE. boot.js loads UMD React first,
-  // but a parse/load race must still export V4GodModeEarth for Cesium.
+  // Live React binding — never abort this IIFE. ops.html / boot.js load UMD React
+  // first, but a parse/load race must still export V4GodModeEarth for Cesium.
   let React = global.React;
   function bindReact() {
     const R = global.React;
@@ -251,11 +251,10 @@
   function injectStyles() {
     if (stylesInjected || document.getElementById('v4-gm2-styles')) { stylesInjected = true; return; }
     const css = [
-      '.v4-godmode.v4-gm2{position:absolute;inset:0;z-index:1;display:grid;place-items:stretch;width:100%;height:100%;pointer-events:auto;--gm2-cyan:#64d2ff;--gm2-amber:#ffd60a;--gm2-red:#ff453a;--gm2-panel:rgba(8,12,20,0.82);--gm2-border:rgba(100,210,255,0.22);--gm2-text:#e8eef8;--gm2-muted:#8b96a8;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}',
-      '.v4-gm2 .v4-godmode-shell{position:relative;z-index:2;display:flex;flex-direction:column;width:100%;height:100%;background:#05070c;color:var(--gm2-text);overflow:hidden;border:0;box-shadow:none;pointer-events:auto}',
+      '.v4-godmode.v4-gm2{--gm2-cyan:#64d2ff;--gm2-amber:#ffd60a;--gm2-red:#ff453a;--gm2-panel:rgba(8,12,20,0.82);--gm2-border:rgba(100,210,255,0.22);--gm2-text:#e8eef8;--gm2-muted:#8b96a8;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}',
+      '.v4-gm2 .v4-godmode-shell{position:relative;display:flex;flex-direction:column;width:min(100vw,100%);height:min(100vh,100%);background:#05070c;color:var(--gm2-text);overflow:hidden;border:1px solid var(--gm2-border);box-shadow:0 0 80px rgba(0,40,80,0.45)}',
       '.v4-gm2 .v4-godmode-body{position:relative;flex:1;min-height:0;display:flex}',
       '.v4-gm2 .v4-gm2-stage{position:relative;flex:1;min-width:0;min-height:0;background:#02040a}',
-      '.v4-gm2 .v4-gm2-cesium-host{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;transform:none!important;zoom:normal!important}',
       '.v4-gm2 .v4-gm2-cesium,.v4-gm2 .v4-gm2-cesium .cesium-viewer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-cesiumWidgetContainer,.v4-gm2 .v4-gm2-cesium .cesium-widget,.v4-gm2 .v4-gm2-cesium canvas{position:absolute;inset:0;width:100%!important;height:100%!important;transform:none!important;zoom:normal!important}',
       '.v4-gm2 .v4-gm2-cesium .cesium-viewer-bottom,.v4-gm2 .v4-gm2-cesium .cesium-viewer-animationContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-timelineContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-fullscreenContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-vrContainer,.v4-gm2 .v4-gm2-cesium .cesium-viewer-toolbar{display:none!important}',
       '.v4-gm2 .v4-gm2-cesium .cesium-credit-logoContainer,.v4-gm2 .v4-gm2-cesium .cesium-credit-expand-link{filter:invert(1) brightness(1.2);opacity:.55}',
@@ -326,7 +325,7 @@
       '.v4-gm2 .v4-gm2-timeline button.is-active{border-color:rgba(100,210,255,.45);color:#fff;background:rgba(100,210,255,.12)}',
       '.v4-gm2 .v4-gm2-timeline .v4-gm2-clock-read{color:var(--gm2-cyan);min-width:168px;text-align:right}',
       '.v4-gm2 .v4-gm2-note{font-size:9px;letter-spacing:.08em;color:var(--gm2-amber);text-transform:uppercase}',
-      '.v4-godmode-backdrop{display:none!important;pointer-events:none!important}',
+      '.v4-gm2 .v4-gm2-cesium-host{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;transform:none!important;zoom:normal!important}',
       '.v4-gm2 .v4-gm2-vignette,.v4-gm2 .v4-gm2-scan,.v4-gm2 .v4-gm2-sensor-fx{pointer-events:none!important}',
       '.v4-gm2 .v4-gm2-cesium,.v4-gm2 .v4-gm2-cesium canvas,.v4-gm2 .cesium-widget,.v4-gm2 .cesium-widget canvas{pointer-events:auto!important;touch-action:none}',
       '.v4-gm2 .v4-godmode-layers,.v4-gm2 .v4-gm2-hud-right,.v4-gm2 .v4-gm2-timeline,.v4-gm2 .v4-gm2-search,.v4-gm2 .v4-godmode-head{pointer-events:auto}',
@@ -857,7 +856,7 @@
         rows.forEach((r) => { if (!r.source) r.source = "OpenSky proxy"; });
         return rows;
       }
-    } catch (e) { console.warn("[god-mode-cesium] flight proxy failed, trying public ADS-B / OpenSky", e); }
+    } catch (e) { console.warn("[god-mode-cesium] flight proxy failed, trying ADS-B", e); }
     try {
       const rows = await fetchAdsbFlightsMerged();
       if (rows.length) {
@@ -4090,6 +4089,7 @@
     }
   }
 
+
   function streetFlyEasing(Cesium) {
     try {
       if (Cesium && Cesium.EasingFunction && Cesium.EasingFunction.CUBIC_IN_OUT) {
@@ -5947,11 +5947,8 @@
         try {
           const Cesium = await ensureCesium();
           if (cancelled || bootGen !== state._bootGen || !stageRef.current) return;
-          try {
-            if (Cesium.Ion && !Cesium.Ion.defaultAccessToken) {
-              Cesium.Ion.defaultAccessToken = 'not-used';
-            }
-          } catch (e) {}
+          try { if (Cesium.Ion && !Cesium.Ion.defaultAccessToken) Cesium.Ion.defaultAccessToken = 'not-used'; } catch (e) {}
+          try { if (!global.UNALIGNED_GOOGLE_MAPS_TILES_KEY) global.UNALIGNED_GOOGLE_MAPS_TILES_KEY = readGoogleTilesKey(); } catch (e) {}
 
           const container = stageRef.current;
           container.innerHTML = '';
@@ -6020,7 +6017,6 @@
             viewer.scene.globe.show = true;
             viewer.scene.globe.depthTestAgainstTerrain = false;
             try { viewer.scene.requestRenderMode = true; viewer.scene.maximumRenderTimeChange = 2.0; } catch (e2) {}
-            try { installSafeRenderLoop(viewer, state); } catch (e2) {}
             const ssc = viewer.scene.screenSpaceCameraController;
             ssc.enableInputs = true;
             ssc.enableZoom = true;
@@ -6045,6 +6041,10 @@
                 state._resizeObserver = ro;
               }
             } catch (e2) {}
+            if (viewer.scene.globe) {
+              try { viewer.scene.globe.preloadSiblings = false; } catch (eG) {}
+              try { viewer.scene.globe.loadingDescendantLimit = 6; } catch (eG2) {}
+            }
           } catch (e) {}
           attachHorizonCull(Cesium, viewer, state);
 
@@ -6457,7 +6457,7 @@
 
     return React.createElement(
       'div',
-      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + ((streetMode || lod === 'City') ? 'eo' : skin), role: 'dialog', 'aria-label': 'Aligned News God Mode' },
+      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + ((streetMode || lod === 'City') ? 'eo' : skin), role: 'dialog', 'aria-label': 'God mode earth view' },
       React.createElement('div', { className: 'v4-godmode-backdrop', onClick: onClose }),
       React.createElement(
         'div',
@@ -6466,9 +6466,9 @@
           'div',
           { className: 'v4-godmode-head' },
           React.createElement('div', { className: 'v4-godmode-title' },
-            React.createElement('span', { className: 'v4-godmode-eyebrow' }, 'Aligned News'),
-            React.createElement('strong', null, 'GOD MODE'),
-            React.createElement('span', { className: 'v4-godmode-sub' }, 'Live Earth · Wx · flights · sats · ships')
+            React.createElement('span', { className: 'v4-godmode-eyebrow' }, 'Planetary ops'),
+            React.createElement('strong', null, 'GOD MODE · CESIUM'),
+            React.createElement('span', { className: 'v4-godmode-sub' }, 'Phase 3e · lighting · bloom')
           ),
           React.createElement('div', { className: 'v4-godmode-stats' },
             [['flights', 'Flights'], ['sats', 'Sats'], ['ships', 'Ships'], ['launches', 'Launches'], ['events', 'Events'], ['weather', 'Wx']].map(([k, label]) =>

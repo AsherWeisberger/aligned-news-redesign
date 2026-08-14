@@ -1,5 +1,5 @@
 /**
- * God Mode Mobile -- phone globe for Aligned News / God Mode.
+ * God Mode Mobile -- shared UNIFY / Aligned News phone globe (one codebase).
  * Browser IIFE. Exposes window.V4GodModeEarth with props
  * { open, layer, viewer, onClose, onLayerChange }.
  * React is a global. Phone HUD + Cesium camera/photoreal (globe.gl fallback).
@@ -8,8 +8,16 @@
 (function (global) {
   'use strict';
 
-  const React = global.React;
-  if (!React) return;
+  let React = global.React;
+  function bindReact() {
+    const R = global.React;
+    if (R && R.createElement && R.useRef) {
+      React = R;
+      return true;
+    }
+    return false;
+  }
+  bindReact();
 
   // WebKit/Safari returns null from several WebGL queries; Three.js assumes strings/arrays.
   const WEBGL_PRECISION_FALLBACK = { rangeMin: 127, rangeMax: 127, precision: 23 };
@@ -117,11 +125,14 @@
     }
   }
   function globeScriptCandidates() {
-    const localMin = function () { return new URL('god-mode/globe.gl.min.js', global.location.href).href; };
-    const localSafari = function () { return new URL('god-mode/globe.gl.safari.min.js', global.location.href).href; };
+    const from = function (rel) { return function () { return new URL(rel, global.location.href).href; }; };
+    const localMin = from('flow-v4/vendor/globe.gl.min.js');
+    const localSafari = from('flow-v4/vendor/globe.gl.safari.min.js');
+    const gmMin = from('god-mode/globe.gl.min.js');
+    const gmSafari = from('god-mode/globe.gl.safari.min.js');
     const cdn = 'https://cdn.jsdelivr.net/npm/globe.gl@2.35.0/dist/globe.gl.min.js';
-    if (isWebKitBrowser()) return [localMin, localSafari, cdn];
-    return [localMin, cdn];
+    if (isWebKitBrowser()) return [localMin, localSafari, gmMin, gmSafari, cdn];
+    return [localMin, gmMin, cdn];
   }
 
   let globeLibPromise = null;
@@ -188,7 +199,47 @@
     { id: 'ships', label: 'Ships' },
     { id: 'events', label: 'Events' },
   ];
-  const LAYER_TYPES = { all: null, weather: ['weather'], flights: ['flight'], satellites: ['satellite', 'starlink'], ships: ['ship'], events: ['event', 'launch'] };
+  const EXTRA_LAYER_CHIPS = [
+    { id: 'deals', label: 'Deals' },
+    { id: 'launches', label: 'Launches' },
+    { id: 'gpsjam', label: 'GPS jam' },
+  ];
+  const SETTINGS_LAYERS = [
+    { id: 'all', label: 'All' },
+    { id: 'deals', label: 'Deals' },
+    { id: 'weather', label: 'Weather' },
+    { id: 'events', label: 'Events' },
+    { id: 'flights', label: 'Flights' },
+    { id: 'satellites', label: 'Satellites' },
+    { id: 'launches', label: 'Launches' },
+    { id: 'ships', label: 'Ships' },
+    { id: 'gpsjam', label: 'GPS jam' },
+  ];
+  const LAYER_TYPES = {
+    all: null,
+    weather: ['weather'],
+    flights: ['flight'],
+    satellites: ['satellite', 'starlink'],
+    ships: ['ship'],
+    events: ['event', 'launch'],
+    launches: ['launch'],
+    deals: ['deal'],
+    gpsjam: ['gpsjam'],
+  };
+  const DEAL_STAGE_COLORS = {
+    'first-touch': '#8e9dff', engaged: '#5ac8fa', 'rates-sent': '#ffd60a',
+    negotiating: '#ff9f0a', 'invoice-sent': '#ff5e6c', done: '#34c759', 'paid-out': '#f5c518',
+  };
+  const DEAL_ACTIVE_STAGES = Object.keys(DEAL_STAGE_COLORS);
+  const DEAL_GEO_CACHE_KEY = 'v4-godmode-dealgeo-v1';
+  const H3_JS_URLS = [
+    'https://cdn.jsdelivr.net/npm/h3-js@4.2.1/dist/h3-js.umd.js',
+    'https://unpkg.com/h3-js@3.7.2/dist/h3-js.js',
+  ];
+
+  const GPSJAM_PHONE_CAP = 80;
+  let h3LibPromise = null;
+
   let satLibPromise = null;
   let starlinkSatrecs = null;
   function loadExternalScript(src, key) {
@@ -240,6 +291,51 @@
     });
 
   }
+
+  function h3CellToLatLngFn(mod) {
+    if (!mod || (typeof mod !== "object" && typeof mod !== "function")) return null;
+    try { if (typeof mod.cellToLatLng === "function") return function (cell) { return mod.cellToLatLng(cell); }; } catch (e) {}
+    try { if (typeof mod.h3ToGeo === "function") return function (cell) { return mod.h3ToGeo(cell); }; } catch (e) {}
+    try { if (typeof mod.cellToLatLngs === "function") return function (cell) { return mod.cellToLatLngs(cell); }; } catch (e) {}
+    try { if (mod.default && mod.default !== mod) return h3CellToLatLngFn(mod.default); } catch (e) {}
+    return null;
+  }
+  function resolveH3Module() {
+    const bag = [global.h3, global.h3js, global.H3];
+    for (let i = 0; i < bag.length; i++) {
+      if (h3CellToLatLngFn(bag[i])) return bag[i];
+    }
+    return null;
+  }
+  function loadH3Lib() {
+    const have = resolveH3Module();
+    if (have) return Promise.resolve(have);
+    if (h3LibPromise) return h3LibPromise;
+    h3LibPromise = (async function () {
+      for (let i = 0; i < H3_JS_URLS.length; i++) {
+        try {
+          await loadExternalScript(H3_JS_URLS[i], "h3-js-" + i);
+          const h3 = resolveH3Module();
+          if (h3 && h3CellToLatLngFn(h3)) return h3;
+        } catch (e) {}
+      }
+      return null;
+    })();
+    return h3LibPromise;
+  }
+  function jamBand(pct) {
+    const p = Number(pct);
+    if (!Number.isFinite(p) || p < 2) return 'low';
+    if (p <= 10) return 'med';
+    return 'high';
+  }
+  function jamColor(pct) {
+    const b = jamBand(pct);
+    if (b === 'high') return '#ff453a';
+    if (b === 'med') return '#ffd60a';
+    return '#34c759';
+  }
+
 
   function resolveGlobeFactory() {
 
@@ -1609,7 +1705,7 @@
       const origin = String(loc && loc.origin || '').replace(/\/$/, '');
       if (origin && !onPublic && !host.includes('127.0.0.1') && !host.includes('localhost')) bases.push(origin);
     } catch (e) {}
-    if (!host.includes('127.0.0.1') && !host.includes('localhost')) {
+    if (!onPublic && !host.includes('127.0.0.1') && !host.includes('localhost')) {
       bases.push('https://mac-studio.tail50d3a2.ts.net');
     }
     if (host.includes('127.0.0.1') || host.includes('localhost')) {
@@ -3256,6 +3352,102 @@
     return await fetchDigitrafficShips();
   }
 
+
+  async function fetchGpsjam() {
+    const empty = { date: '', rows: [], attribution: 'Data derived from ADS-B Exchange via gpsjam.org' };
+    try {
+      const data = await fetchGodModeProxy('/god-mode/gpsjam', 45000);
+      if (!data || !data.ok || !Array.isArray(data.rows) || !data.rows.length) return empty;
+      let toLatLng = null;
+      try {
+        const h3 = await loadH3Lib();
+        toLatLng = h3CellToLatLngFn(h3);
+      } catch (eH) { toLatLng = null; }
+      if (typeof toLatLng !== 'function') return empty;
+      const rows = [];
+      for (let i = 0; i < data.rows.length && rows.length < GPSJAM_PHONE_CAP; i++) {
+        const r = data.rows[i];
+        const hx = String((r && r.hex) || '').trim();
+        if (!hx) continue;
+        let latlng = null;
+        try { latlng = toLatLng(hx); } catch (eCell) { continue; }
+        const lat = Number(Array.isArray(latlng) ? latlng[0] : latlng && latlng.lat);
+        const lng = Number(Array.isArray(latlng) ? latlng[1] : (latlng && (latlng.lng != null ? latlng.lng : latlng.lon)));
+        if (!validLatLng(lat, lng, true)) continue;
+        const pct = Number(r.pct);
+        if (jamBand(pct) !== 'high' && rows.length > 24) continue;
+        rows.push({
+          hex: hx, lat: lat, lng: lng, altM: 0, size: 0.07,
+          pct: Number.isFinite(pct) ? pct : 0, band: jamBand(pct),
+          id: 'jam-' + hx, type: 'gpsjam', color: jamColor(pct),
+          name: 'GPS jam ' + (Number.isFinite(pct) ? pct.toFixed(1) : '?') + '%',
+          label: 'JAM · ' + jamBand(pct).toUpperCase(),
+          source: 'ADS-B Exchange via gpsjam.org',
+        });
+      }
+      return { date: String(data.date || ''), rows: rows, attribution: data.attribution || empty.attribution };
+    } catch (e) {
+      return empty;
+    }
+  }
+
+  function readDealGeoCache() {
+    try { return JSON.parse(global.localStorage.getItem(DEAL_GEO_CACHE_KEY) || '{}') || {}; }
+    catch (e) { return {}; }
+  }
+  async function geocodeDealCity(query, cache) {
+    const key = String(query || '').toLowerCase();
+    if (!key) return null;
+    if (cache[key]) return cache[key].miss ? null : cache[key];
+    const city = String(query).split(',')[0].trim();
+    try {
+      const res = await fetchWithTimeout(
+        'https://geocoding-api.open-meteo.com/v1/search?name=' + encodeURIComponent(city) + '&count=1&language=en&format=json',
+        {}, 8000);
+      if (res && res.ok) {
+        const data = await res.json();
+        const hit = Array.isArray(data && data.results) ? data.results[0] : null;
+        if (hit && Number.isFinite(hit.latitude)) {
+          cache[key] = { lat: hit.latitude, lng: hit.longitude, name: hit.name || city };
+          try { global.localStorage.setItem(DEAL_GEO_CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
+          return cache[key];
+        }
+      }
+    } catch (e) {}
+    cache[key] = { miss: true };
+    try { global.localStorage.setItem(DEAL_GEO_CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
+    return null;
+  }
+  async function fetchDealMarkers(viewer) {
+    try {
+      const leads = (global.V3 && global.V3.LEADS) || [];
+      if (!leads.length) return [];
+      const active = leads.filter(function (l) {
+        return DEAL_ACTIVE_STAGES.indexOf(String(l.stage || '')) >= 0 && String(l.location || '').trim() && !l.isRobertBrief;
+      });
+      const cache = readDealGeoCache();
+      const points = [];
+      for (let i = 0; i < active.length && points.length < 40; i++) {
+        const lead = active[i];
+        const loc = String(lead.location).trim();
+        const geo = await geocodeDealCity(loc, cache);
+        if (!geo) continue;
+        const color = DEAL_STAGE_COLORS[String(lead.stage)] || '#d0d6e0';
+        const name = lead.brand || lead.contactName || 'Deal';
+        points.push({
+          lat: geo.lat, lng: geo.lng, altM: 0, size: 0.11,
+          name: name, color: color, type: 'deal',
+          id: 'deal-' + String(lead.id || name),
+          stage: lead.stage, loc: loc, source: 'UNIFY deals',
+          label: name + ' · ' + loc,
+        });
+      }
+      return points;
+    } catch (e) {
+      return [];
+    }
+  }
+
   async function loadFlights() {
     const rows = await fetchFlights();
     return thinList(rows, MAX_FLIGHTS);
@@ -3302,6 +3494,8 @@
     if (t === 'ship') return 'Ship';
     if (t === 'event') return item.category || 'Event';
     if (t === 'launch') return 'Launch';
+    if (t === 'deal') return 'Deal';
+    if (t === 'gpsjam') return 'GPS jam';
     return 'Point';
   }
 
@@ -3330,6 +3524,8 @@
   return item.source || item.category || 'Live event';
     }
     if (item.type === 'launch') return fmtLaunchWhen(item.when);
+    if (item.type === 'deal') return item.stage ? String(item.stage).replace(/-/g, ' ') : (item.loc || 'Deal');
+    if (item.type === 'gpsjam') return item.label || item.name || 'GPS jam';
     if (item.type === 'satellite') return 'Live position';
     if (item.type === 'starlink') return 'On orbit';
     return '';
@@ -3352,7 +3548,7 @@
   }
 
   const PHONE_CSS = [
-    '.v4-gm-phone{position:absolute;inset:0;z-index:1;width:100%;height:100%;background:#05070c;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;overflow:hidden;pointer-events:auto;touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;}',
+    '.v4-gm-phone{position:fixed;inset:0;z-index:12000;background:#05070c;color:#e8edf5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;overflow:hidden;touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;}',
     'html.v4-godmode-phone,html.v4-godmode-phone body,body.v4-godmode-phone{touch-action:none;overscroll-behavior:none;overflow:hidden;height:100%;}',
     'body.v4-godmode-phone .hd,body.v4-godmode-phone .v6-gnav,body.v4-godmode-phone .mobile-nav-layer{visibility:hidden!important;pointer-events:none!important;}',
     '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;pointer-events:auto;-webkit-user-select:none;user-select:none;transform:none;-webkit-transform:none;}',
@@ -3393,6 +3589,14 @@
     '.v4-gm-phone-suggest-name{display:block;font-size:14px;font-weight:600;}',
     '.v4-gm-phone-suggest-sub{display:block;font-size:11px;opacity:.7;margin-top:2px;}',
     '.v4-gm-phone-search-msg{padding:6px 16px 0;font-size:12px;opacity:.75;}',
+    '.v4-gm-phone-extra{pointer-events:auto;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 12px 8px;}',
+    '.v4-gm-phone-chip{min-height:36px;min-width:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(18,20,26,.88);color:#e8edf5;font-size:12px;font-weight:700;letter-spacing:.04em;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}',
+    '.v4-gm-phone-chip.is-on{background:rgba(232,237,245,.18);border-color:rgba(255,255,255,.4);color:#fff;}',
+    '.v4-gm-phone-settings{pointer-events:auto;margin:0 12px 8px;max-height:min(52vh,420px);overflow:auto;background:rgba(11,13,18,.96);border:1px solid rgba(255,255,255,.16);border-radius:16px;}',
+    '.v4-gm-phone-settings-row{display:flex;align-items:center;justify-content:space-between;min-height:44px;width:100%;padding:0 16px;border:0;border-bottom:1px solid rgba(255,255,255,.08);background:transparent;color:#e8edf5;font:inherit;font-size:15px;font-weight:600;text-align:left;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}',
+    '.v4-gm-phone-settings-row:last-child{border-bottom:0;}',
+    '.v4-gm-phone-settings-row.is-on{background:rgba(232,237,245,.12);}',
+    '.v4-gm-phone-settings-mark{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}',
   ].join('');
   function injectPhoneCss() {
     let style = document.getElementById('v4-gm-phone-css');
@@ -4223,6 +4427,7 @@
 
 
   function V4GodModeEarth(props) {
+    bindReact();
     const open = !!(props && props.open);
     const activeLayer = (props && props.layer) || 'all';
     const viewer = props && props.viewer;
@@ -4236,6 +4441,9 @@
     const [starlink, setStarlink] = React.useState({ points: [], count: 0 });
     const [ships, setShips] = React.useState([]);
     const [launches, setLaunches] = React.useState({ markers: [], list: [] });
+    const [deals, setDeals] = React.useState([]);
+    const [gpsjam, setGpsjam] = React.useState([]);
+    const [settingsOpen, setSettingsOpen] = React.useState(false);
     const [earthEvents, setEarthEvents] = React.useState([]);
     const [selected, setSelected] = React.useState(null);
     const [globeError, setGlobeError] = React.useState('');
@@ -4335,8 +4543,10 @@
       ships.forEach(push);
       earthEvents.forEach(push);
       (launches.markers || []).forEach(push);
+      (deals || []).forEach(push);
+      (gpsjam || []).forEach(push);
       return rows;
-    }, [weather, flights, satellites, starlink, ships, earthEvents, launches]);
+    }, [weather, flights, satellites, starlink, ships, earthEvents, launches, deals, gpsjam]);
     const applyGlobeLayers = React.useCallback(function (opts) {
       const globe = globeInstRef.current;
       if (!globe) return;
@@ -4529,6 +4739,10 @@
         loadFeed('ships', function () { return fetchShips().then(function (v) { return (v && v.rows) || []; }); }, setShips),
         loadFeed('events', loadEvents, setEarthEvents),
         loadFeed('launches', fetchLaunches, setLaunches),
+        loadFeed('deals', function () { return fetchDealMarkers(viewer); }, setDeals),
+        loadFeed('gpsjam', function () {
+          return fetchGpsjam().then(function (v) { return (v && v.rows) || []; });
+        }, setGpsjam),
       ]).then(function () { if (!cancelled) setFeedsLoading(false); });
       const flightTimer = setInterval(function () {
         loadFlights().then(function (rows) { if (!cancelled) setFlights(rows); }).catch(function () {});
@@ -4560,6 +4774,7 @@
       layerRef.current = id;
       if (onLayerChange) onLayerChange(id);
       setSelected(null);
+      setSettingsOpen(false);
     };
     let _mobileSearchPinDataUrl = null;
     const mobileSearchPinDataUrl = function () {
@@ -4907,6 +5122,37 @@
         el('span', { className: 'v4-gm-phone-dock-label' }, row.label)
       );
     });
+    const extraChipEls = EXTRA_LAYER_CHIPS.map(function (row) {
+      const on = layer === row.id;
+      return el('button', Object.assign({
+        key: row.id,
+        type: 'button',
+        className: 'v4-gm-phone-chip' + (on ? ' is-on' : ''),
+        'aria-label': row.label,
+        'aria-pressed': on ? 'true' : 'false'
+      }, bindTap(function () { pickLayer(row.id); })), row.label);
+    });
+    extraChipEls.push(el('button', Object.assign({
+      key: 'settings',
+      type: 'button',
+      className: 'v4-gm-phone-chip' + (settingsOpen ? ' is-on' : ''),
+      'aria-label': 'Settings',
+      'aria-pressed': settingsOpen ? 'true' : 'false'
+    }, bindTap(function () { setSettingsOpen(!settingsOpen); })), 'Settings'));
+    const settingsSheet = settingsOpen ? el('div', { className: 'v4-gm-phone-settings', role: 'listbox', 'aria-label': 'Layers' },
+      SETTINGS_LAYERS.map(function (row) {
+        const on = layer === row.id;
+        return el('button', Object.assign({
+          key: row.id,
+          type: 'button',
+          className: 'v4-gm-phone-settings-row' + (on ? ' is-on' : ''),
+          'aria-pressed': on ? 'true' : 'false'
+        }, bindTap(function () { pickLayer(row.id); })),
+          el('span', null, row.label),
+          on ? el('span', { className: 'v4-gm-phone-settings-mark' }, 'On') : null
+        );
+      })
+    ) : null;
     const goProps = Object.assign({ type: 'button', className: 'v4-gm-phone-search-go', 'aria-label': 'Search' }, bindTap(runSearch));
     const svProps = Object.assign({ type: 'button', className: 'v4-gm-phone-sv', 'aria-label': 'Street View' }, bindTap(goStreetView));
     return el('div', { className: 'v4-gm-phone', role: 'dialog', 'aria-label': 'God Mode' },
@@ -4998,6 +5244,8 @@
         searchMsg ? el('div', { className: 'v4-gm-phone-search-msg' }, searchMsg) : null,
         selectedCard,
         feedsLoading ? el('div', { className: 'v4-gm-phone-hint' }, 'Loading live data') : (!flights.length ? el('div', { className: 'v4-gm-phone-hint' }, 'Flights offline') : null),
+        settingsSheet,
+        el('div', { className: 'v4-gm-phone-extra', 'aria-label': 'More layers' }, extraChipEls),
         el('nav', { className: 'v4-gm-phone-dock', 'aria-label': 'Layers' },
           el.apply(null, ['div', { className: 'v4-gm-phone-dock-inner' }].concat(dockEls))
         )
@@ -5007,4 +5255,6 @@
 
   V4GodModeEarth.engine = 'phone';
   global.V4GodModeEarth = V4GodModeEarth;
+  global.V4GodMode = V4GodModeEarth;
+  global.GodModeEarth = V4GodModeEarth;
 })(typeof window !== 'undefined' ? window : this);
