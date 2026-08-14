@@ -3679,7 +3679,7 @@
   }
 
   const GOOGLE_TILES_CACHE_BYTES = 1024 * 1024 * 1024;
-  const GOOGLE_TILES_SSE = 1;
+  const GOOGLE_TILES_SSE = 0.6;
   const PHOTOREAL_PREFETCH_M = 12000;
   const PHOTOREAL_UNLOAD_M = 25000;
   const PHOTOREAL_SHOW_M = 1200;
@@ -3741,9 +3741,9 @@
   function tuneGoogleTileset(tileset, heightM) {
     if (!tileset) return;
     const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
-    try { tileset.maximumScreenSpaceError = Math.max(1, Number(GOOGLE_TILES_SSE) || 1); } catch (e) {}
+    try { tileset.maximumScreenSpaceError = street ? 0.5 : (Number(GOOGLE_TILES_SSE) || 0.6); } catch (e) {}
     try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
-    try { tileset.skipLevelOfDetail = false; } catch (e) {}
+    try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = false; } catch (e) {}
     try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
     try { tileset.loadSiblings = !!street; } catch (e) {}
     try { tileset.preloadWhenHidden = !street; } catch (e) {}
@@ -3916,6 +3916,12 @@
     if (!Cesium || !viewer || !state || state.destroyed || viewer.isDestroyed?.()) return false;
     const h = Number(heightM);
     state._cameraH = h;
+    try {
+      if (state.googleTileset && !state.googleTileset.isDestroyed?.()) {
+        tuneGoogleTileset(state.googleTileset, h);
+      }
+    } catch (eTune) {}
+    if (state._photorealShown) setEllipsoidGlobeVisible(viewer, state, false);
     const wantShow = photorealWantShow(state, h);
     const wantPrefetch = photorealWantPrefetch(h) || wantShow || !!(state && state._streetMode);
     if (wantShow) {
@@ -4733,6 +4739,7 @@
       if (!globe) return;
       if (Number.isFinite(h) && h > 1.5e6) globe.maximumScreenSpaceError = 3.2;
       else if (Number.isFinite(h) && h > 2e4) globe.maximumScreenSpaceError = 2.2;
+      else if (Number.isFinite(h) && h < 2500) globe.maximumScreenSpaceError = 1.0;
       else globe.maximumScreenSpaceError = 1.6;
     } catch (e) {}
   }

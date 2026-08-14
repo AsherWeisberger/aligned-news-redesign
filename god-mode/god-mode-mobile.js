@@ -722,7 +722,7 @@
   const PHOTOREAL_PREFETCH_M = 80000;
   const PHOTOREAL_SHOW_M = 1200;
   const PHOTOREAL_HIDE_M = 2200;
-  const GOOGLE_TILES_SSE = 1;
+  const GOOGLE_TILES_SSE = 0.6;
   function googleTilesetUrlOf(tileset) {
     try {
       const r = tileset && (tileset.resource || tileset._resource);
@@ -742,10 +742,11 @@
   function isGooglePhotorealUrl(url) {
     return /tile\.googleapis\.com/i.test(String(url || ''));
   }
-  function tunePhoneTileset(tileset) {
+  function tunePhoneTileset(tileset, heightM) {
     if (!tileset) return;
-    try { tileset.maximumScreenSpaceError = GOOGLE_TILES_SSE; } catch (e) {}
-    try { tileset.skipLevelOfDetail = false; } catch (e) {}
+    const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
+    try { tileset.maximumScreenSpaceError = street ? 0.5 : (Number(GOOGLE_TILES_SSE) || 0.6); } catch (e) {}
+    try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = false; } catch (e) {}
     try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
     try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
     try { tileset.loadSiblings = true; } catch (e) {}
@@ -767,6 +768,7 @@
           scene.globe.showGroundAtmosphere = false;
           scene.globe.atmosphereLightIntensity = 0;
           scene.globe.depthTestAgainstTerrain = false;
+          scene.globe.maximumScreenSpaceError = 1.0;
         }
       } catch (e) {}
       try {
@@ -787,6 +789,10 @@
     const wantPrefetch = wantShow || (Number.isFinite(h) && h < PHOTOREAL_PREFETCH_M) || !!opts.force;
     const key = readGoogleTilesKey();
     if (!key || !Cesium || !viewer) return false;
+    try {
+      const globe = viewer.scene && viewer.scene.globe;
+      if (globe && Number.isFinite(h) && h < 2500) globe.maximumScreenSpaceError = 1.0;
+    } catch (eStreet) {}
     if (!wantPrefetch) {
       if (state && state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
         try { state.googleTileset.show = false; } catch (e) {}
@@ -803,7 +809,7 @@
           try { state.googleTileset.destroy(); } catch (eD) {}
           state.googleTileset = null;
         } else {
-          tunePhoneTileset(state.googleTileset);
+          tunePhoneTileset(state.googleTileset, h);
           try { state.googleTileset.show = !!wantShow; } catch (eT) {}
           if (state) state._photorealShown = !!wantShow;
           try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = !wantShow; } catch (eG) {}
@@ -814,7 +820,7 @@
     if (state && state._googleTilesPending) {
       try { await state._googleTilesPending; } catch (eP) {}
       if (state.googleTileset && !(state.googleTileset.isDestroyed && state.googleTileset.isDestroyed())) {
-        tunePhoneTileset(state.googleTileset);
+        tunePhoneTileset(state.googleTileset, h);
         try { state.googleTileset.show = !!wantShow; } catch (eT) {}
         state._photorealShown = !!wantShow;
         return true;
@@ -856,7 +862,7 @@
         console.warn('[god-mode-phone] photoreal tileset was not Google; keeping Esri ground');
         return false;
       }
-      tunePhoneTileset(tileset);
+      tunePhoneTileset(tileset, h);
       const stillShow = (opts.show !== undefined) ? !!opts.show : (function () {
         try {
           const hh = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
