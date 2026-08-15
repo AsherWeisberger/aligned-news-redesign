@@ -505,28 +505,43 @@
 
   }
 
-  function disposeGlobeInstance(globe) {
-
-    if (!globe) return;
-
-    try { globe.pauseAnimation?.(); } catch (e) {}
-
+  function losePhoneGlobeCanvases(root) {
     try {
-
-      const renderer = globe.renderer?.();
-
-      if (renderer) {
-
-        renderer.dispose?.();
-
-        renderer.forceContextLoss?.();
-
+      const host = root || document.querySelector('.v4-gm-phone-globe');
+      if (!host) return;
+      const canvases = host.querySelectorAll('canvas');
+      for (let i = 0; i < canvases.length; i++) {
+        const c = canvases[i];
+        try {
+          const gl = c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl');
+          const ext = gl && gl.getExtension('WEBGL_lose_context');
+          if (ext) ext.loseContext();
+        } catch (eGl) {}
+        try { if (c.parentNode) c.parentNode.removeChild(c); } catch (eRm) {}
       }
-
+      try { host.innerHTML = ''; } catch (eH) {}
     } catch (e) {}
-
-    try { globe._destructor?.(); } catch (e) {}
-
+  }
+  function disposeGlobeInstance(globe) {
+    if (globe && globe.__cesium) {
+      try {
+        const v = globe._viewer;
+        if (v && !(v.isDestroyed && v.isDestroyed())) v.destroy();
+      } catch (eC) {}
+      try { globe._viewer = null; } catch (eV) {}
+    }
+    if (globe) {
+      try { globe.pauseAnimation?.(); } catch (e) {}
+      try {
+        const renderer = globe.renderer?.();
+        if (renderer) {
+          renderer.dispose?.();
+          renderer.forceContextLoss?.();
+        }
+      } catch (eR) {}
+      try { globe._destructor?.(); } catch (eD) {}
+    }
+    losePhoneGlobeCanvases(document.querySelector('.v4-gm-phone-globe'));
   }
 
 
@@ -3609,6 +3624,8 @@
     'body.v4-godmode-phone .hd,body.v4-godmode-phone .v6-gnav,body.v4-godmode-phone .mobile-nav-layer{visibility:hidden!important;pointer-events:none!important;}',
     '.v4-gm-phone-globe,.v4-gm-phone-globe>div,.v4-gm-phone-globe canvas{position:absolute;inset:0;z-index:0!important;touch-action:none;pointer-events:auto;-webkit-user-select:none;user-select:none;transform:none;-webkit-transform:none;}',
     '.v4-gm-phone-globe canvas{display:block;width:100%!important;height:100%!important;touch-action:none;pointer-events:auto;}',
+    '.v4-gm-phone.is-street .v4-gm-phone-globe{visibility:hidden;pointer-events:none;}',
+    '.v4-gm-phone.is-street .v4-gm-phone-globe canvas{display:none!important;}',
     '.v4-gm-phone-top{position:absolute;top:env(safe-area-inset-top,0px);left:env(safe-area-inset-left,0px);right:env(safe-area-inset-right,0px);z-index:12;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);display:flex;align-items:center;justify-content:space-between;padding:8px 10px;pointer-events:none;}',
     '.v4-gm-phone-live{display:flex;align-items:center;gap:8px;background:#0b0d12;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 12px;font-size:12px;letter-spacing:.08em;font-weight:700;color:#f2f5fa;pointer-events:none;}',
     '.v4-gm-phone-dot{width:7px;height:7px;border-radius:50%;background:#34c759;box-shadow:0 0 8px #34c759;}',
@@ -4731,6 +4748,12 @@
     }, [open, applyGlobeLayers, layer]);
     React.useEffect(function () {
       if (!open) return undefined;
+      if (streetMode) {
+        try { disposeGlobeInstance(globeInstRef.current); } catch (eD) {}
+        globeInstRef.current = null;
+        try { if (globeRef.current) globeRef.current.innerHTML = ''; } catch (eH) {}
+        return undefined;
+      }
       let cancelled = false;
       let resizeObs = null;
       let globe = null;
@@ -4851,7 +4874,7 @@
         globeInstRef.current = null;
         if (globeRef.current) globeRef.current.innerHTML = '';
       };
-    }, [open, viewer]);
+    }, [open, viewer, streetMode]);
     React.useEffect(function () {
       if (!open) return undefined;
       let cancelled = false;
@@ -5147,6 +5170,24 @@
       } catch (e) {}
       return null;
     };
+    const sleepPhoneGlobe = function () {
+      try {
+        const root = document.querySelector('.v4-gm-phone');
+        if (root) root.classList.add('is-street');
+      } catch (eR) {}
+      const g = globeInstRef.current;
+      if (g && g.__cesium && g._viewer) {
+        try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (e) {}
+        try { if (g._state) g._state._streetMode = true; } catch (eS) {}
+        try { g._viewer.useDefaultRenderLoop = false; } catch (eL) {}
+        try { if (g._viewer.scene && g._viewer.scene.globe) g._viewer.scene.globe.show = false; } catch (eG) {}
+        try { if (g._viewer.scene && g._viewer.scene.fog) { g._viewer.scene.fog.enabled = false; g._viewer.scene.fog.density = 0; } } catch (eF) {}
+        try { if (g.showAtmosphere) g.showAtmosphere(false); } catch (eA) {}
+      } else if (g) {
+        try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
+        try { g.showAtmosphere(false); } catch (eAtm) {}
+      }
+    };
     const hidePhonePano = function () {
       phoneStreetState.gen += 1;
       try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT) {}
@@ -5159,12 +5200,18 @@
       }
     };
     const restorePhoneGlobe = function () {
+      try {
+        const root = document.querySelector('.v4-gm-phone');
+        if (root) root.classList.remove('is-street');
+      } catch (eR) {}
       const g = globeInstRef.current;
-      if (g && g.__cesium) {
+      if (g && g.__cesium && g._viewer) {
         try { if (g._state) g._state._streetMode = false; } catch (eS) {}
-        try { if (g._viewer && g._viewer.scene && g._viewer.scene.globe) g._viewer.scene.globe.show = true; } catch (eG) {}
-        try { if (g._viewer && g._viewer.scene && g._viewer.scene.fog) { g._viewer.scene.fog.enabled = false; g._viewer.scene.fog.density = 0; } } catch (eF) {}
+        try { g._viewer.useDefaultRenderLoop = true; } catch (eL) {}
+        try { if (g._viewer.scene && g._viewer.scene.globe) g._viewer.scene.globe.show = true; } catch (eG) {}
+        try { if (g._viewer.scene && g._viewer.scene.fog) { g._viewer.scene.fog.enabled = false; g._viewer.scene.fog.density = 0; } } catch (eF) {}
         try { if (g.showAtmosphere) g.showAtmosphere(false); } catch (eA) {}
+        try { if (g._viewer.scene && g._viewer.scene.requestRender) g._viewer.scene.requestRender(); } catch (eRR) {}
         try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (eP) {}
       } else if (g) {
         try { g.showAtmosphere(false); } catch (eAtm) {}
@@ -5180,7 +5227,7 @@
       const gen = phoneStreetState.gen + 1;
       phoneStreetState.gen = gen;
       try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT0) {}
-      const root = globeRef.current && globeRef.current.parentNode;
+      const root = document.querySelector('.v4-gm-phone') || (globeRef.current && globeRef.current.parentNode);
       let el = document.getElementById('v4-gm-phone-pano');
       if (!el) {
         el = document.createElement('div');
@@ -5229,26 +5276,33 @@
                 ask(i + 1);
                 return;
               }
+              inner.innerHTML = '';
+              const loc = data.location;
+              const boot = function () {
+                if (phoneStreetState.gen !== gen) return;
+                try {
+                  const pano = new gmaps.maps.StreetViewPanorama(inner, {
+                    pano: loc.pano,
+                    position: loc.latLng,
+                    pov: { heading: 0, pitch: 0 },
+                    zoom: 1,
+                    visible: true,
+                    addressControl: true,
+                    fullscreenControl: false,
+                    motionTracking: false,
+                    motionTrackingControl: false,
+                    enableCloseButton: false,
+                  });
+                  phoneStreetState.pano = pano;
+                  try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT1) {}
+                  setSearchMsg('');
+                } catch (ePano) {
+                  failStreetView('Street View failed');
+                }
+              };
               try {
-                inner.innerHTML = '';
-                const pano = new gmaps.maps.StreetViewPanorama(inner, {
-                  pano: data.location.pano,
-                  position: data.location.latLng,
-                  pov: { heading: 0, pitch: 0 },
-                  zoom: 1,
-                  visible: true,
-                  addressControl: true,
-                  fullscreenControl: false,
-                  motionTracking: false,
-                  motionTrackingControl: false,
-                  enableCloseButton: false,
-                });
-                phoneStreetState.pano = pano;
-                try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT1) {}
-                setSearchMsg('');
-              } catch (ePano) {
-                failStreetView('Street View failed');
-              }
+                global.requestAnimationFrame(function () { global.requestAnimationFrame(boot); });
+              } catch (eRaf) { boot(); }
             });
           }
           ask(0);
@@ -5261,19 +5315,13 @@
       const a = Number(lat);
       const b = Number(lng);
       if (!Number.isFinite(a) || !Number.isFinite(b)) { setSearchMsg('Search or tap a point first'); return; }
-      const g = globeInstRef.current;
-      if (g && g.__cesium) {
-        try { if (g.pauseIdleSpin) g.pauseIdleSpin(); } catch (e) {}
-        try { if (g._state) g._state._streetMode = true; } catch (eS) {}
-        try { if (g._viewer && g._viewer.scene && g._viewer.scene.fog) { g._viewer.scene.fog.enabled = false; g._viewer.scene.fog.density = 0; } } catch (eF) {}
-        try { if (g.showAtmosphere) g.showAtmosphere(false); } catch (eA) {}
-      } else if (g) {
-        try { const c = g.controls(); if (c) c.autoRotate = false; } catch (e) {}
-        try { g.showAtmosphere(false); } catch (eAtm) {}
-      }
+      sleepPhoneGlobe();
+      try { disposeGlobeInstance(globeInstRef.current); } catch (eD) {}
+      globeInstRef.current = null;
+      try { if (globeRef.current) globeRef.current.innerHTML = ''; } catch (eH) {}
       setStreetMode(true);
       setSearchMsg('Loading Street View…');
-      showPhonePano(a, b);
+      global.setTimeout(function () { showPhonePano(a, b); }, 160);
     };
     global.__gmPhoneStreetView = enterStreet;
     const leaveStreetView = function () {
