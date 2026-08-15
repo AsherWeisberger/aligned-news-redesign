@@ -345,10 +345,12 @@
       '.v4-gm2 .v4-gm2-pano.is-on.is-live{pointer-events:auto}',
       '.v4-gm2 .v4-gm2-pano-inner,.v4-gm2 .v4-gm2-pano-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#111}',
       '.v4-gm2 .v4-gm2-pano-miss{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#e8eef8;letter-spacing:.1em;font-size:13px;text-transform:uppercase;text-align:center;padding:16px}',
-      '.v4-gm2 .v4-gm2-settings-sheet{position:absolute;right:12px;top:12px;z-index:40;width:min(280px,70vw);max-height:min(70vh,520px);overflow:auto;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:8px;backdrop-filter:blur(14px);padding:8px}',
-      '.v4-gm2 .v4-gm2-settings-sheet h4{margin:4px 8px 8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gm2-cyan)}',
-      '@media (max-width:1024px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2.is-settings .v4-godmode-layers{display:flex;z-index:15;background:rgba(8,12,20,.96)}.v4-gm2 .v4-gm2-search{left:12px;top:8px;width:calc(100% - 24px);max-width:calc(100% - 24px)}.v4-gm2 .v4-gm2-search-msg{left:12px}.v4-gm2 .v4-gm2-hud-right{top:56px;max-width:min(320px,46vw)}}',
-      '@media (max-width:700px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2.is-settings .v4-godmode-layers{display:flex;z-index:15;background:rgba(8,12,20,.96)}.v4-gm2 .v4-gm2-hud-right{max-width:calc(100% - 16px);align-items:stretch}.v4-gm2 .v4-gm2-search{width:calc(100% - 24px);max-width:none}}',
+      '.v4-gm2 .v4-gm2-settings-sheet{position:absolute;left:12px;right:auto;top:12px;z-index:25;width:min(280px,70vw);max-height:min(70vh,520px);overflow:auto;background:var(--gm2-panel);border:1px solid var(--gm2-border);border-radius:8px;backdrop-filter:blur(14px);padding:8px;pointer-events:auto}',
+      '.v4-gm2 .v4-gm2-settings-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 6px}',
+      '.v4-gm2 .v4-gm2-settings-sheet h4{margin:4px 8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gm2-cyan)}',
+      '.v4-gm2.is-settings .v4-godmode-layers{visibility:hidden;pointer-events:none}',
+      '@media (max-width:1024px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2 .v4-gm2-search{left:12px;top:8px;width:calc(100% - 24px);max-width:calc(100% - 24px)}.v4-gm2 .v4-gm2-search-msg{left:12px}.v4-gm2 .v4-gm2-hud-right{top:56px;max-width:min(320px,46vw)}}',
+      '@media (max-width:700px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2 .v4-gm2-hud-right{max-width:calc(100% - 16px);align-items:stretch}.v4-gm2 .v4-gm2-search{width:calc(100% - 24px);max-width:none}}',
     ].join('\n');
     let style = document.getElementById('v4-gm2-styles');
     if (!style) {
@@ -5937,6 +5939,7 @@
     const clockRef = React.useRef({ mode: 'live', speed: 1 });
     const followRef = React.useRef(false);
     const keysOpenRef = React.useRef(false);
+    const settingsOpenRef = React.useRef(false);
     const skinRef = React.useRef('eo');
     const lastSatPropRef = React.useRef(0);
 
@@ -5990,7 +5993,22 @@
     }, [selected]);
     React.useEffect(() => { followRef.current = follow; stateRef.current.follow = follow; }, [follow]);
     React.useEffect(() => { keysOpenRef.current = keysOpen; }, [keysOpen]);
-    React.useEffect(() => { if (!open) setKeysOpen(false); }, [open]);
+    React.useEffect(() => { settingsOpenRef.current = settingsOpen; }, [settingsOpen]);
+    React.useEffect(() => {
+      if (!open || !settingsOpen) return undefined;
+      const onDown = (e) => {
+        const t = e.target;
+        if (!t || !t.closest) return;
+        try {
+          if (t.closest('.v4-gm2-settings-sheet')) return;
+          if (t.closest('[data-gm-settings-toggle]')) return;
+        } catch (eC) { return; }
+        setSettingsOpen(false);
+      };
+      document.addEventListener('pointerdown', onDown, true);
+      return () => document.removeEventListener('pointerdown', onDown, true);
+    }, [open, settingsOpen]);
+    React.useEffect(() => { if (!open) { setKeysOpen(false); setSettingsOpen(false); } }, [open]);
     React.useEffect(() => { skinRef.current = skin; }, [skin]);
     React.useEffect(() => { clockRef.current = { mode: clockMode, speed: clockSpeed }; }, [clockMode, clockSpeed]);
 
@@ -6222,6 +6240,7 @@
         }
         if (e.key === 'Escape') {
           e.preventDefault();
+          if (settingsOpenRef.current) { setSettingsOpen(false); return; }
           if (keysOpenRef.current) { setKeysOpen(false); return; }
           if (stateRef.current._searchPin) {
             setSearchQ('');
@@ -6887,7 +6906,13 @@
             )
           ),
           settingsOpen ? React.createElement('div', { className: 'v4-gm2-settings-sheet', role: 'dialog', 'aria-label': 'Settings' },
-            React.createElement('h4', null, 'Layers'),
+            React.createElement('div', { className: 'v4-gm2-settings-head' },
+              React.createElement('h4', null, 'Layers'),
+              React.createElement('button', {
+                type: 'button', className: 'v4-gm2-btn', 'aria-label': 'Close settings',
+                onClick: function () { setSettingsOpen(false); },
+              }, 'Close')
+            ),
             LAYERS.map((row) =>
               React.createElement('button', {
                 key: 'set-' + row.id, type: 'button',
@@ -6938,6 +6963,7 @@
                   if (e.key === 'Escape') {
                     e.preventDefault();
                     e.stopPropagation();
+                    if (settingsOpenRef.current) { setSettingsOpen(false); return; }
                     setSearchQ('');
                     setSearchMsg('');
                     setSearchSuggests([]);
@@ -7036,6 +7062,7 @@
               React.createElement('button', {
                 type: 'button',
                 className: 'v4-gm2-chip is-btn' + (settingsOpen ? ' ok' : ''),
+                'data-gm-settings-toggle': '1',
                 onClick: function () { setSettingsOpen(function (v) { return !v; }); },
               }, settingsOpen ? 'SETTINGS · ON' : 'SETTINGS'),
               (aisstreamWs && aisstreamWs.readyState === 1) ? React.createElement('div', { className: 'v4-gm2-chip ok' }, 'AIS · LIVE') : null,
