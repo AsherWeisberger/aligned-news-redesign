@@ -1238,7 +1238,6 @@
         } catch (e) {}
       };
       handler.setInputAction(pickPhoneRow, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-      handler.setInputAction(pickPhoneRow, Cesium.ScreenSpaceEventType.LEFT_DOWN);
       state.handler = handler;
     } catch (e) {}
     return adapter;
@@ -1317,7 +1316,7 @@
       ssc.inertiaZoom = 0.4;
       try {
         const CET = Cesium.CameraEventType;
-        ssc.zoomEventTypes = [CET.PINCH, CET.WHEEL];
+        ssc.zoomEventTypes = [CET.PINCH];
         ssc.rotateEventTypes = CET.LEFT_DRAG;
         ssc.tiltEventTypes = CET.PINCH;
         ssc.translateEventTypes = [];
@@ -1327,6 +1326,22 @@
       const canvas = viewer.scene.canvas;
       canvas.style.touchAction = 'none';
       canvas.style.pointerEvents = 'auto';
+      canvas.tabIndex = -1;
+      canvas.setAttribute('tabindex', '-1');
+      canvas.addEventListener('wheel', function (e) {
+        try { e.preventDefault(); e.stopPropagation(); } catch (e0) {}
+        let h = 1.37e7;
+        try { h = viewer.camera.positionCartographic.height; } catch (eH) {}
+        if (!(h > 0)) h = 1.37e7;
+        const factor = e.deltaY > 0 ? 1.16 : 0.86;
+        const next = Math.max(MIN_CAMERA_ALT_M, Math.min(4.5e7, h * factor));
+        try {
+          const c = viewer.camera.positionCartographic;
+          viewer.camera.setView({
+            destination: Cesium.Cartesian3.fromRadians(c.longitude, c.latitude, next)
+          });
+        } catch (eZ) {}
+      }, { passive: false, capture: true });
     } catch (e) {}
     const v = viewerProp || {};
     const lat = Number(v.lat);
@@ -4718,6 +4733,12 @@
     const [globeError, setGlobeError] = React.useState('');
     const [feedsLoading, setFeedsLoading] = React.useState(false);
     const [searchQ, setSearchQ] = React.useState('');
+    const searchInputRef = React.useRef(null);
+    const setSearchField = function (v) {
+      const s = v == null ? '' : String(v);
+      setSearchQ(s);
+      try { if (searchInputRef.current) searchInputRef.current.value = s; } catch (e) {}
+    };
     const [searchMsg, setSearchMsg] = React.useState('');
     const [searching, setSearching] = React.useState(false);
     const [searchSuggests, setSearchSuggests] = React.useState([]);
@@ -4766,7 +4787,7 @@
           if (e.preventDefault) e.preventDefault();
           if (e.stopPropagation) e.stopPropagation();
           if ((searchSuggestsRef.current && searchSuggestsRef.current.length) || String(searchQRef.current || '').trim()) {
-            setSearchQ('');
+            setSearchField('');
             setSearchMsg('');
             setSearchSuggests([]);
             setSuggestHi(-1);
@@ -4777,6 +4798,13 @@
         }
       };
       window.addEventListener('keydown', onKey);
+      const onWheelHud = function (e) {
+        try {
+          if (e.target && e.target.closest && e.target.closest('.v4-gm-phone-suggest, .v4-gm-phone-settings')) return;
+        } catch (eC) {}
+        try { e.preventDefault(); } catch (eP) {}
+      };
+      window.addEventListener('wheel', onWheelHud, { capture: true, passive: false });
       document.body.classList.add('v4-godmode-open');
       document.body.classList.add('v4-godmode-phone');
       document.documentElement.classList.add('v4-godmode-phone');
@@ -4788,6 +4816,7 @@
       const clock = window.setInterval(function () { setUtc(fmtUtc(new Date())); }, 1000);
       return function () {
         window.removeEventListener('keydown', onKey);
+        try { window.removeEventListener('wheel', onWheelHud, { capture: true, passive: false }); } catch (eW) {}
         document.body.classList.remove('v4-godmode-open');
         document.body.classList.remove('v4-godmode-phone');
         document.documentElement.classList.remove('v4-godmode-phone');
@@ -5226,13 +5255,13 @@
       const q = String(row.name || row.title || typed).trim();
       if (Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lng))) {
         const refineQ = (parseHouseNumber(typed) && !housesEqual(row.house, parseHouseNumber(typed))) ? typed : q;
-        setSearchQ(refineQ);
+        setSearchField(refineQ);
         setSearchSuggests([]);
         setSuggestHi(-1);
         applyMobileHit(Object.assign({}, row, { name: refineQ }));
         return;
       }
-      setSearchQ(q);
+      setSearchField(q);
       setSearchMsg('Searching…');
       geocodeAddressAll(q).then(function (rows) {
         const real = (rows || []).filter(function (r) { return r && Number.isFinite(Number(r.lat)); });
@@ -5570,11 +5599,15 @@
       ),
       el('form', {
         className: 'v4-gm-phone-search',
-        onSubmit: function (e) { if (e && e.preventDefault) e.preventDefault(); runSearch(); }
+        onSubmit: function (e) { if (e && e.preventDefault) e.preventDefault(); runSearch(); },
+        onMouseDown: function (e) { if (e && e.stopPropagation) e.stopPropagation(); },
+        onPointerDown: function (e) { if (e && e.stopPropagation) e.stopPropagation(); }
       },
         el('input', {
+          key: 'gm-phone-search',
+          ref: searchInputRef,
           type: 'text',
-          inputMode: 'search',
+          inputMode: 'text',
           enterKeyHint: 'search',
           autoComplete: 'off',
           autoCorrect: 'off',
@@ -5582,7 +5615,9 @@
           spellCheck: false,
           name: 'gm-addr-no-fill',
           placeholder: 'Search address or city',
-          value: searchQ,
+          defaultValue: '',
+          onMouseDown: function (e) { if (e && e.stopPropagation) e.stopPropagation(); },
+          onPointerDown: function (e) { if (e && e.stopPropagation) e.stopPropagation(); },
           onChange: function (e) {
             const v = String((e && e.target && e.target.value) || '');
             setSearchQ(v);
@@ -5601,7 +5636,7 @@
             if (e && e.key === 'Escape') {
               if (e.preventDefault) e.preventDefault();
               if (e.stopPropagation) e.stopPropagation();
-              setSearchQ('');
+              setSearchField('');
               setSearchMsg('');
               setSearchSuggests([]);
               setSuggestHi(-1);
@@ -5626,13 +5661,13 @@
             }
           }
         }),
-        searchQ ? el('button', Object.assign({ type: 'button', className: 'v4-gm-phone-search-clear', 'aria-label': 'Clear search' }, bindTap(function () {
-          setSearchQ('');
+        el('button', Object.assign({ type: 'button', className: 'v4-gm-phone-search-clear', 'aria-label': 'Clear search', style: searchQ ? undefined : { visibility: 'hidden', pointerEvents: 'none' } }, bindTap(function () {
+          setSearchField('');
           setSearchMsg('');
           setSearchSuggests([]);
           setSuggestHi(-1);
           clearMobileSearchPin(globeInstRef.current);
-        })), '×') : null,
+        })), '×'),
         el('button', goProps, searching ? '…' : 'Go'),
         el('button', svProps, 'SV'),
         searchSuggests.length ? el('div', { className: 'v4-gm-phone-suggest', role: 'listbox' },
