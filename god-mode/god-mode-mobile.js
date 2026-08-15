@@ -3651,7 +3651,8 @@
     '.v4-gm-phone-hint{padding:0 16px 8px;font-size:11px;opacity:.7;color:#e8edf5;pointer-events:none;}',
     '.v4-gm-phone-search{position:absolute;top:calc(env(safe-area-inset-top,0px) + 64px);left:10px;right:10px;z-index:12;display:flex;gap:8px;pointer-events:none;}',
     '.v4-gm-phone-search input{flex:1;min-height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(11,13,18,.94);color:#f2f5fa;font-size:16px;padding:0 12px;outline:none;pointer-events:auto;}',
-    '.v4-gm-phone-search-go,.v4-gm-phone-sv{min-height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:13px;font-weight:700;touch-action:manipulation;pointer-events:auto;}',
+    '.v4-gm-phone-search-go,.v4-gm-phone-sv,.v4-gm-phone-search-clear{min-height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#161c28;color:#f2f5fa;font-size:13px;font-weight:700;touch-action:manipulation;pointer-events:auto;}',
+    '.v4-gm-phone-search-clear{min-width:40px;padding:0 8px;font-size:18px;line-height:1;}',
     '.v4-gm-phone-sv-card{margin-top:10px;min-height:44px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:14px;font-weight:700;touch-action:manipulation;}',
     '.v4-gm-phone-back{pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:44px;padding:0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:#e8edf5;color:#0b0d12;font-size:13px;font-weight:700;}',
     '.v4-gm-phone-globe .cesium-viewer,.v4-gm-phone-globe .cesium-viewer-cesiumWidgetContainer,.v4-gm-phone-globe .cesium-widget,.v4-gm-phone-globe .cesium-widget canvas,.v4-gm-phone-cesium{position:absolute;inset:0;width:100%!important;height:100%!important;touch-action:none;pointer-events:auto;}',
@@ -3673,8 +3674,11 @@
     '.v4-gm-phone-settings-title{padding:12px 16px 8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:700;}','.v4-gm-phone-settings-mark{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}',
     '.v4-gm-phone-pano{position:absolute;inset:0;z-index:8;background:#0b0d12;display:none;}',
     '.v4-gm-phone-pano.is-on{display:block;}',
-    '.v4-gm-phone-pano-inner,.v4-gm-phone-pano iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}',
+    '.v4-gm-phone-pano-inner,.v4-gm-phone-pano iframe,.v4-gm-phone-pano img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}',
     '.v4-gm-phone-pano-miss{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#e8edf5;text-align:center;padding:16px;letter-spacing:.08em;}',
+    '.v4-gm-phone-pano-turn{position:absolute;top:50%;z-index:9;width:44px;height:44px;margin-top:-22px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(11,13,18,.82);color:#f2f5fa;font-size:22px;line-height:1;pointer-events:auto;touch-action:manipulation;}',
+    '.v4-gm-phone-pano-turn.is-left{left:10px;}',
+    '.v4-gm-phone-pano-turn.is-right{right:10px;}',
     '.v4-gm-phone-search{z-index:12;}',
     '.v4-gm-phone-suggest{z-index:13;}',
   ].join('');
@@ -3710,14 +3714,44 @@
       }
     };
   }
-  var STREET_PANO_TIMEOUT_MS = 8000;
-  var phoneStreetState = { gen: 0, timer: 0, el: null, pano: null };
+  var STREET_PANO_TIMEOUT_MS = 14000;
+  var phoneStreetState = { gen: 0, timer: 0, el: null, pano: null, panoId: '', heading: 0 };
 
   function streetViewUrl(lat, lng) {
     const a = Number(lat);
     const b = Number(lng);
     if (!Number.isFinite(a) || !Number.isFinite(b)) return '';
     return 'https://www.google.com/maps?layer=c&cbll=' + a.toFixed(6) + ',' + b.toFixed(6) + '&cbp=12,0,0,0,0&output=svembed';
+  }
+  function streetViewPanoUrl(pano) {
+    const id = String(pano || '').trim();
+    if (!id) return '';
+    return 'https://www.google.com/maps?layer=c&panoid=' + encodeURIComponent(id) + '&output=svembed';
+  }
+  function staticStreetSrc(panoId, heading) {
+    const key = (typeof readGoogleTilesKey === 'function' && readGoogleTilesKey()) || '';
+    const id = String(panoId || '').trim();
+    if (!id || !key) return '';
+    const h = ((Number(heading) % 360) + 360) % 360;
+    return 'https://maps.googleapis.com/maps/api/streetview?size=640x640&pano=' + encodeURIComponent(id) + '&heading=' + h + '&source=outdoor&return_error_code=true&key=' + encodeURIComponent(key);
+  }
+  function fetchOutdoorPanoId(lat, lng) {
+    const key = (typeof readGoogleTilesKey === 'function' && readGoogleTilesKey()) || '';
+    if (!key) return Promise.resolve('');
+    const radii = [200, 500, 1200];
+    const ask = function (i) {
+      if (i >= radii.length) return Promise.resolve('');
+      const u = 'https://maps.googleapis.com/maps/api/streetview/metadata?location=' + Number(lat) + ',' + Number(lng) + '&radius=' + radii[i] + '&source=outdoor&key=' + encodeURIComponent(key);
+      return fetch(u).then(function (r) { return r.json(); }).then(function (j) {
+        if (j && String(j.status) === 'OK' && j.pano_id) {
+          const copy = String(j.copyright || '');
+          const indoor = /workbox/i.test(copy) || (/company/i.test(copy) && !/google/i.test(copy));
+          if (!indoor) return String(j.pano_id);
+        }
+        return ask(i + 1);
+      }).catch(function () { return ask(i + 1); });
+    };
+    return ask(0);
   }
   function openStreetView(lat, lng) {
     try {
@@ -5078,8 +5112,12 @@
       setMobileSearchPin(globeInstRef.current, hit);
       flyTo(hit.lat, hit.lng, altM / EARTH_RADIUS_M);
     };
+    var pickSuggestAt = 0;
     const pickSuggest = function (row) {
       if (!row) return;
+      var now = Date.now();
+      if (now - pickSuggestAt < 400) return;
+      pickSuggestAt = now;
       const typed = String(searchQ || '').trim();
       const q = String(row.name || row.title || typed).trim();
       if (Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lng))) {
@@ -5126,7 +5164,7 @@
           setSearchSuggests([syn]);
           setSuggestHi(0);
         });
-      }, 60);
+      }, 180);
       return function () { window.clearTimeout(tmr); };
     }, [searchQ]);
     const runSearch = async function () {
@@ -5219,9 +5257,9 @@
     };
     const failStreetView = function (msg) {
       hidePhonePano();
-      restorePhoneGlobe();
-      setStreetMode(false);
+      try { losePhoneGlobeCanvases(document.getElementById('v4-gm-phone-pano')); } catch (eL) {}
       setSearchMsg(msg || 'Street View unavailable');
+      global.setTimeout(function () { setStreetMode(false); }, 450);
     };
     const showPhonePano = function (lat, lng) {
       const gen = phoneStreetState.gen + 1;
@@ -5249,66 +5287,57 @@
         if (phoneStreetState.gen !== gen) return;
         failStreetView('Street View timed out');
       }, STREET_PANO_TIMEOUT_MS);
-      ensureGoogleMapsJs().then(function (ok) {
+      const boot = function (panoId) {
         if (phoneStreetState.gen !== gen) return;
-        const gmaps = global.google;
-        if (!(ok && gmaps && gmaps.maps && gmaps.maps.StreetViewPanorama && gmaps.maps.StreetViewService)) {
-          failStreetView('Street View unavailable');
-          return;
-        }
+        const id = String(panoId || '').trim();
+        const key = (typeof readGoogleTilesKey === 'function' && readGoogleTilesKey()) || '';
+        if (!id || !key) { failStreetView('No Street View coverage'); return; }
         try {
-          const sv = new gmaps.maps.StreetViewService();
-          const outdoor = (gmaps.maps.StreetViewSource && gmaps.maps.StreetViewSource.OUTDOOR) || 'outdoor';
-          const radii = [200, 500, 1200];
-          function ask(i) {
+          inner.innerHTML = '';
+          phoneStreetState.panoId = id;
+          phoneStreetState.heading = 0;
+          const img = document.createElement('img');
+          img.alt = 'Street View';
+          img.src = staticStreetSrc(id, 0);
+          img.addEventListener('load', function () {
             if (phoneStreetState.gen !== gen) return;
-            if (i >= radii.length) {
-              failStreetView('No Street View coverage');
-              return;
-            }
-            sv.getPanorama({
-              location: { lat: lat, lng: lng },
-              radius: radii[i],
-              source: outdoor,
-            }, function (data, status) {
-              if (phoneStreetState.gen !== gen) return;
-              if (String(status) !== 'OK' || !data || !data.location) {
-                ask(i + 1);
-                return;
-              }
-              inner.innerHTML = '';
-              const loc = data.location;
-              const boot = function () {
-                if (phoneStreetState.gen !== gen) return;
-                try {
-                  const pano = new gmaps.maps.StreetViewPanorama(inner, {
-                    pano: loc.pano,
-                    position: loc.latLng,
-                    pov: { heading: 0, pitch: 0 },
-                    zoom: 1,
-                    visible: true,
-                    addressControl: true,
-                    fullscreenControl: false,
-                    motionTracking: false,
-                    motionTrackingControl: false,
-                    enableCloseButton: false,
-                  });
-                  phoneStreetState.pano = pano;
-                  try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT1) {}
-                  setSearchMsg('');
-                } catch (ePano) {
-                  failStreetView('Street View failed');
-                }
-              };
-              try {
-                global.requestAnimationFrame(function () { global.requestAnimationFrame(boot); });
-              } catch (eRaf) { boot(); }
-            });
-          }
-          ask(0);
-        } catch (eSv) {
+            try { if (phoneStreetState.timer) { global.clearTimeout(phoneStreetState.timer); phoneStreetState.timer = 0; } } catch (eT1) {}
+            setSearchMsg('');
+          });
+          img.addEventListener('error', function () {
+            if (phoneStreetState.gen !== gen) return;
+            failStreetView('Street View failed');
+          });
+          inner.appendChild(img);
+          const turn = function (delta) {
+            if (phoneStreetState.gen !== gen) return;
+            phoneStreetState.heading = ((phoneStreetState.heading + delta) % 360 + 360) % 360;
+            img.src = staticStreetSrc(phoneStreetState.panoId, phoneStreetState.heading);
+          };
+          const left = document.createElement('button');
+          left.type = 'button';
+          left.className = 'v4-gm-phone-pano-turn is-left';
+          left.setAttribute('aria-label', 'Look left');
+          left.textContent = '\u2039';
+          left.addEventListener('click', function (e) { if (e && e.preventDefault) e.preventDefault(); turn(-90); });
+          const right = document.createElement('button');
+          right.type = 'button';
+          right.className = 'v4-gm-phone-pano-turn is-right';
+          right.setAttribute('aria-label', 'Look right');
+          right.textContent = '\u203a';
+          right.addEventListener('click', function (e) { if (e && e.preventDefault) e.preventDefault(); turn(90); });
+          inner.appendChild(left);
+          inner.appendChild(right);
+          phoneStreetState.pano = null;
+        } catch (ePano) {
           failStreetView('Street View failed');
         }
+      };
+      fetchOutdoorPanoId(lat, lng).then(function (panoId) {
+        if (phoneStreetState.gen !== gen) return;
+        try {
+          global.requestAnimationFrame(function () { global.requestAnimationFrame(function () { boot(panoId); }); });
+        } catch (eRaf) { boot(panoId); }
       });
     };
     const enterStreet = function (lat, lng) {
@@ -5321,14 +5350,19 @@
       try { if (globeRef.current) globeRef.current.innerHTML = ''; } catch (eH) {}
       setStreetMode(true);
       setSearchMsg('Loading Street View…');
-      global.setTimeout(function () { showPhonePano(a, b); }, 160);
+      global.setTimeout(function () { showPhonePano(a, b); }, 320);
     };
     global.__gmPhoneStreetView = enterStreet;
     const leaveStreetView = function () {
       hidePhonePano();
-      restorePhoneGlobe();
-      setStreetMode(false);
+      try { losePhoneGlobeCanvases(document.getElementById('v4-gm-phone-pano')); } catch (eL) {}
+      try {
+        const root = document.querySelector('.v4-gm-phone');
+        if (root) root.classList.remove('is-street');
+      } catch (eR) {}
+      globeInstRef.current = null;
       setSearchMsg('');
+      global.setTimeout(function () { setStreetMode(false); }, 450);
     };
     const goStreetView = function () {
       const f = currentFocus();
@@ -5435,16 +5469,18 @@
         onSubmit: function (e) { if (e && e.preventDefault) e.preventDefault(); runSearch(); }
       },
         el('input', {
-          type: 'search',
+          type: 'text',
+          inputMode: 'search',
           enterKeyHint: 'search',
           autoComplete: 'off',
           autoCorrect: 'off',
           autoCapitalize: 'off',
+          spellCheck: false,
           name: 'gm-addr-no-fill',
           placeholder: 'Search address or city',
           value: searchQ,
           onChange: function (e) {
-            const v = e.target.value;
+            const v = String((e && e.target && e.target.value) || '');
             setSearchQ(v);
             const qv = String(v || '').trim();
             if (!qv) {
@@ -5484,6 +5520,13 @@
             }
           }
         }),
+        searchQ ? el('button', Object.assign({ type: 'button', className: 'v4-gm-phone-search-clear', 'aria-label': 'Clear search' }, bindTap(function () {
+          setSearchQ('');
+          setSearchMsg('');
+          setSearchSuggests([]);
+          setSuggestHi(-1);
+          clearMobileSearchPin(globeInstRef.current);
+        })), '×') : null,
         el('button', goProps, searching ? '…' : 'Go'),
         el('button', svProps, 'SV'),
         searchSuggests.length ? el('div', { className: 'v4-gm-phone-suggest', role: 'listbox' },
