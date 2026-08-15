@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json?v=an83";
+  var DATA_URL = "live-data.json?v=an92";
   var state = {
     data: null,
     filter: "all",
@@ -1447,11 +1447,20 @@
 
   function leadHeroHtml(s, key, sectionPretty) {
     var media = storyMediaUrl(s);
-    if (!media) return "";
+    var label = String((s && s.topic_label) || sectionPretty || "Today");
+    var bg = sectionThumbStyle(key);
+    if (media) {
+      return (
+        '<div class="lead-hero">' +
+          '<img src="' + escapeHtml(String(media)) + '" alt="" loading="eager" ' +
+          "onerror=\"var h=this.parentNode;if(h){this.remove();h.classList.add('lead-hero-topic');}\" />" +
+        "</div>"
+      );
+    }
     return (
-      '<div class="lead-hero">' +
-        '<img src="' + escapeHtml(String(media)) + '" alt="" loading="eager" ' +
-        "onerror=\"var h=this.parentNode;if(h){h.remove();}\" />" +
+      '<div class="lead-hero lead-hero-topic" style="--lead-topic-bg:' + bg + '">' +
+        '<span class="lead-hero-glyph">' + topicGlyphSvg(key) + "</span>" +
+        '<span class="lead-hero-topic-label">' + escapeHtml(label) + "</span>" +
       "</div>"
     );
   }
@@ -2163,10 +2172,15 @@
       for (var bi = 0; bi < Math.min(items.length, 40); bi++) {
         var cand = items[bi];
         if (!isAiRelevant(cand)) continue;
+        if (/scoble\s*:-?\)|scoble smile/i.test(String(cand.headline || cand.title || ""))) continue;
         var rs = relevanceScore(cand);
         if (rs < 12) continue;
         var score = rankScore(cand) + rs * 2;
         if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180;
+        if (isEventItem(cand)) score -= 420;
+        if (storyMediaUrl(cand)) score += 90;
+        var sec = String(cand.section || cand.tag || "").toLowerCase();
+        if (sec === "ten-things" || sec === "videos") score += 140;
         if (score > best) { best = score; bestIdx = bi; }
       }
       if (bestIdx < 0) return items;
@@ -2188,13 +2202,14 @@
       // Compact = dense headline+meta list — no lead hero / why box / excerpts / thumbs.
       if (!compact && allowLead && showLead && i === 0) {
         var leadHeadline = editorialTitle(s, 88);
-        var dek = uniqueDek(s, leadHeadline, 170);
-        var leadThumb = rowThumbHtml(s, key, sectionPretty);
+        var dek = uniqueDek(s, leadHeadline, 140);
+        var hero = leadHeroHtml(s, key, sectionPretty);
         rankCounter = 1;
         return (
-          '<li class="lead-card' + (leadThumb ? " lead-card-photo" : "") + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
-            '<div class="rank">1.</div>' +
-            '<div class="feed-body">' +
+          '<li class="lead-card lead-card-opener lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
+            hero +
+            '<div class="lead-copy">' +
+              '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || "Today") + "</p>" +
               '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
               (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
               '<div class="lead-meta">' +
@@ -2202,7 +2217,6 @@
                 '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
               "</div>" +
             "</div>" +
-            leadThumb +
           "</li>"
         );
       }
@@ -2242,7 +2256,7 @@
       var groups = groupStoriesByDay(stories);
       groups.forEach(function (group, gi) {
         var items = group.items;
-        // Comfortable: first story in the whole feed is the Digg lead,
+        // Comfortable: first story in the whole feed is the magazine opener,
         // even when that group is Yesterday (no stories dated today).
         var allowLead = gi === 0;
         if (allowLead) {
@@ -2631,7 +2645,7 @@
   }
 
 
-  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an79";
+  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an91";
   var godModeBootPromise = null;
 
   function ensureGodModeWidget() {

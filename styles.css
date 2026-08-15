@@ -4915,3 +4915,162 @@ html[data-theme="dark"] .page-rail .rail-card-lists:hover {
   background: var(--bg-elev);
   border-color: var(--border);
 }
+
+/* === an92: magazine opener — full-bleed photo, paper hierarchy, one-shot ease-in === */
+@keyframes lead-opener-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.lead-card.lead-card-opener,
+.lead-card-photo.lead-card-opener {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  gap: 0;
+  align-items: stretch;
+  padding: 0.15rem 0 1.55rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  box-shadow: none;
+  animation: lead-opener-in 520ms var(--ease-out) both;
+}
+.lead-card.lead-card-opener .rank,
+.lead-card-opener .row-thumb {
+  display: none !important;
+}
+.lead-card-opener .lead-hero {
+  display: block !important;
+  width: 100%;
+  margin: 0 0 1.05rem;
+  aspect-ratio: 16 / 9;
+  min-height: 280px;
+  max-height: 420px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  box-shadow: none;
+  background: linear-gradient(160deg, #0D0F14 0%, #2c2e34 55%, #D9CCAC 100%);
+}
+.lead-card-opener .lead-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transform: none;
+  animation: none;
+  opacity: 1;
+}
+.lead-card-opener .lead-hero::after {
+  background: linear-gradient(180deg, transparent 58%, rgba(13,15,20,0.22));
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+html[data-theme="dark"] .lead-card-opener .lead-hero::after {
+  background: linear-gradient(180deg, transparent 52%, rgba(0,0,0,0.38));
+}
+.lead-card-opener .lead-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 0.05rem;
+}
+.lead-card-opener .lead-eyebrow {
+  margin: 0 0 0.42rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lead-card-opener .lead-eyebrow::before {
+  display: none;
+}
+.lead-card-opener .lead-title,
+.lead-card-opener.lead-card-photo .lead-title {
+  margin: 0 0 0.55rem;
+  font-family: var(--display);
+  font-size: clamp(2.02rem, 3.4vw, 2.72rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.12;
+  letter-spacing: -0.038em;
+  max-width: 22ch;
+  color: var(--text);
+}
+.lead-card-opener .lead-dek {
+  margin: 0;
+  max-width: 46ch;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lead-card-opener .lead-meta {
+  margin-top: 0.85rem;
+  gap: 0.4rem 0.65rem;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  opacity: 0.92;
+}
+.lead-card-opener .lead-meta .source-avatar {
+  width: 18px;
+  height: 18px;
+  font-size: 8px;
+}
+.feed.feed-reveal .lead-card.lead-card-opener {
+  animation-name: lead-opener-in;
+  animation-duration: 520ms;
+  animation-timing-function: var(--ease-out);
+  animation-delay: 0ms;
+  filter: none;
+  will-change: opacity, transform;
+}
+.feed.feed-reveal .lead-card.lead-card-opener .lead-title,
+.feed.feed-reveal .lead-card.lead-card-opener .lead-dek,
+.feed.feed-reveal .lead-card.lead-card-opener .lead-meta,
+.feed.feed-reveal .lead-card.lead-card-opener .lead-eyebrow,
+.feed.feed-reveal .lead-card.lead-card-opener .lead-copy {
+  animation: none;
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+@media (max-width: 720px) {
+  .lead-card-opener .lead-hero {
+    min-height: 196px;
+    max-height: 280px;
+    border-radius: 6px;
+    margin-bottom: 0.85rem;
+  }
+  .lead-card-opener .lead-title,
+  .lead-card-opener.lead-card-photo .lead-title {
+    font-size: 1.72rem;
+    max-width: none;
+  }
+}
+html[data-density="compact"] .lead-card.lead-card-opener,
+html[data-density="compact"] .lead-card-photo.lead-card-opener {
+  display: grid !important;
+  grid-template-columns: 2rem minmax(0, 1fr) !important;
+  padding: 0.48rem 0.05rem 0.48rem 0;
+}
+html[data-density="compact"] .lead-card-opener .lead-hero,
+html[data-density="compact"] .lead-card-opener .lead-eyebrow,
+html[data-density="compact"] .lead-card-opener .lead-dek {
+  display: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lead-card.lead-card-opener,
+  .feed.feed-reveal .lead-card.lead-card-opener {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

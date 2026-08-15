@@ -23,10 +23,11 @@ RSS_URLS = (
     "https://alignednews.com/rss",
     "https://alignednews.com/feed.xml",
 )
-UA = "AlignedNewsRedesign/an77 (+https://asherweisberger.github.io/aligned-news-redesign/)"
+UA = "AlignedNewsRedesign/an92 (+https://asherweisberger.github.io/aligned-news-redesign/)"
 
 JUNK_TITLE_RE = re.compile(
-    r"posted a brief reply|documents a current scoble development",
+    r"posted a brief reply|documents a current scoble development|"
+    r"scoble\s*:-?\)|scoble smile",
     re.I,
 )
 RT_RE = re.compile(r"^RT\s+@", re.I)
@@ -124,7 +125,34 @@ def x_handle(url: str, author: str = "") -> str:
 def x_avatar_url(handle: str) -> str:
     if not handle:
         return ""
+    if not re.fullmatch(r"[A-Za-z0-9_]{1,15}", handle):
+        return ""
     return f"https://unavatar.io/twitter/{handle}"
+
+
+def verify_unavatar(url: str) -> str:
+    """Keep only well-formed unavatar twitter URLs; drop HTTP errors."""
+    if not url or "unavatar.io/twitter/" not in url:
+        return ""
+    handle = url.rstrip("/").rsplit("/", 1)[-1]
+    if not re.fullmatch(r"[A-Za-z0-9_]{1,15}", handle):
+        return ""
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": UA, "Accept": "image/*"},
+        method="GET",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            if getattr(resp, "status", 200) >= 400:
+                return ""
+            ctype = (resp.headers.get("Content-Type") or "").lower()
+            if ctype and not (ctype.startswith("image") or "octet-stream" in ctype):
+                return ""
+            return f"https://unavatar.io/twitter/{handle}"
+    except (urllib.error.URLError, TimeoutError, ValueError):
+        # Network flake: keep the well-formed URL rather than stripping photos.
+        return f"https://unavatar.io/twitter/{handle}"
 
 def host_name(url: str) -> str:
     try:
@@ -169,6 +197,8 @@ def looks_like_scoble_reply(title: str, body: str, category: str) -> bool:
     if re.search(r"Robert Scoble posted a brief reply", title, re.I):
         return True
     if re.search(r"documents a current scoble development", title, re.I):
+        return True
+    if re.search(r"scoble\s*:-?\)|scoble smile", title + " " + body, re.I):
         return True
     if cat == "scoble":
         # Keep only if it looks like a real post (not a one-line reply).
@@ -257,6 +287,7 @@ def item_to_story(item) -> dict | None:
     media = x_avatar_url(handle)
     if media:
         story["media_url"] = media
+        story["x_handle"] = handle
     return story
 
 
@@ -315,6 +346,36 @@ def main() -> int:
         seen.add(story["id"])
         stories.append(story)
 
+    def section_priority(story: dict) -> int:
+        sec = (story.get("section") or "").lower()
+        if sec == "ten-things":
+            return 0
+        if sec == "videos":
+            return 1
+        if "event" not in sec:
+            return 2
+        if "conference" in sec:
+            return 8
+        if "hackathon" in sec:
+            return 9
+        return 10
+
+    def pub_ts(story: dict) -> float:
+        try:
+            return datetime.fromisoformat(story["published_at"].replace("Z", "+00:00")).timestamp()
+        except (KeyError, ValueError, TypeError):
+            return 0.0
+
+    stories.sort(key=lambda s: (section_priority(s), -pub_ts(s)))
+    stories = stories[:50]
+    for story in stories:
+        media = story.get("media_url") or ""
+        checked = verify_unavatar(media)
+        if checked:
+            story["media_url"] = checked
+        else:
+            story.pop("media_url", None)
+
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
     try:
         last_ts = int(parsedate_to_datetime(last_build).timestamp() * 1000) if last_build else int(datetime.now(timezone.utc).timestamp() * 1000)
@@ -336,6 +397,7 @@ def main() -> int:
     reports = existing.get("reports") if isinstance(existing.get("reports"), list) else []
     bundles = existing.get("bundles") if isinstance(existing.get("bundles"), list) else []
     ai_sections = existing.get("ai_sections") if isinstance(existing.get("ai_sections"), list) else []
+    lists = existing.get("lists") if isinstance(existing.get("lists"), list) else []
     user = existing.get("user") or {"name": "Asher", "plan": "Pro"}
 
     out = {
@@ -364,6 +426,8 @@ def main() -> int:
         "bundles": bundles,
         "ai_sections": ai_sections,
     }
+    if lists:
+        out["lists"] = lists
     DATA_PATH.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Wrote {DATA_PATH.name}: {len(stories)} stories from {len(items)} RSS items ({used_url})")
     print(f"lastBuildDate: {last_build}")
