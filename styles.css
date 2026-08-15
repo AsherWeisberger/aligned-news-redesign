@@ -4307,16 +4307,9 @@ html.has-mobile-dock .density-seg {
   .sidebar {
     display: block;
   }
-  /* Search stays in the header on phone */
+  /* Search on its own row so it cannot crush Compact */
   .top-search {
-    display: block !important;
-    flex: 1 1 7.5rem;
-    max-width: min(240px, 42vw);
-    margin: 0 0.25rem;
-  }
-  .top-search input {
-    padding: 0.42rem 0.7rem 0.42rem 2rem;
-    font-size: 0.82rem;
+    display: none !important;
   }
 }
 
@@ -5217,5 +5210,39 @@ html[data-density="compact"] .lead-card-opener .lead-dek {
   .auth-cta {
     flex-shrink: 0;
     max-width: none;
+  }
+}
+
+
+/* an99: phone header — search full-width under icons, Compact unobstructed */
+@media (max-width: 860px) {
+  .app {
+    grid-template-rows: auto 1fr;
+  }
+  .topbar {
+    height: auto !important;
+    min-height: calc(52px + env(safe-area-inset-top, 0px));
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+    overflow: visible;
+  }
+  .top-search {
+    display: block !important;
+    flex: 1 1 100%;
+    max-width: none !important;
+    width: 100%;
+    margin: 0 0 0.2rem;
+    order: 30;
+  }
+  .top-search input {
+    width: 100%;
+    padding: 0.52rem 0.9rem 0.52rem 2.2rem;
+    font-size: 16px;
+  }
+  .density-seg,
+  .top-actions .density-seg {
+    flex-shrink: 0 !important;
+    position: relative;
+    z-index: 3;
   }
 }
