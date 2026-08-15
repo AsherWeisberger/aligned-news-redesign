@@ -1,7 +1,15 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json?v=an95";
+  try {
+    var standalone = (window.navigator && window.navigator.standalone === true) ||
+      (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+      (window.matchMedia && window.matchMedia("(display-mode: fullscreen)").matches);
+    if (standalone) document.documentElement.classList.add("is-standalone");
+  } catch (e) {}
+
+
+  var DATA_URL = "live-data.json?v=an96";
   var state = {
     data: null,
     filter: "all",

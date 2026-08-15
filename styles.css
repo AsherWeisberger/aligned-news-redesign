@@ -3538,6 +3538,25 @@ body[data-page="auth"] .app {
   html.has-mobile-dock .live-pill {
     padding-inline: 0.4rem;
   }
+
+  /* Standalone (Add to Home Screen): no Safari URL bar, sit on the home indicator */
+  html.has-mobile-dock.is-standalone .mobile-dock,
+  html.has-mobile-dock:fullscreen .mobile-dock {
+    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  }
+  html.has-mobile-dock.is-standalone .mobile-dock-inner,
+  html.has-mobile-dock:fullscreen .mobile-dock-inner {
+    margin: 0 16px 6px;
+  }
+}
+@media (max-width: 860px) and (display-mode: standalone),
+       (max-width: 860px) and (display-mode: fullscreen) {
+  html.has-mobile-dock .mobile-dock {
+    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  }
+  html.has-mobile-dock .mobile-dock-inner {
+    margin: 0 16px 6px;
+  }
 }
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
   .mobile-dock,
