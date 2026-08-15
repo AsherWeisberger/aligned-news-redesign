@@ -1101,6 +1101,7 @@
           try { viewer.entities.remove(pointEntities[i]); } catch (e) {}
         }
         pointEntities.length = 0;
+        const labeledPads = {};
         (rows || []).forEach(function (row) {
           const lat = Number(row.lat);
           const lng = Number(row.lng);
@@ -1150,7 +1151,7 @@
             const ground = kind === 'deal' || kind === 'launch' || kind === 'event' || kind === 'gpsjam' || kind === 'weather' || kind === 'place';
             let px = 6;
             if (kind === 'starlink') px = 3;
-            else if (kind === 'launch') px = 12;
+            else if (kind === 'launch') px = 18;
             else if (kind === 'deal') px = 10;
             else if (kind === 'event') px = 10;
             else if (kind === 'gpsjam') px = 8;
@@ -1163,6 +1164,30 @@
               heightReference: ground ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE,
               scaleByDistance: new Cesium.NearFarScalar(8.0e5, 1.15, 2.2e7, ground ? 0.6 : 0.28)
             };
+            if (kind === 'launch') {
+              const padKey = lat.toFixed(1) + ',' + lng.toFixed(1);
+              if (!labeledPads[padKey]) {
+                labeledPads[padKey] = 1;
+                let nm = String(row.name || row.label || '').trim();
+                const pipe = nm.indexOf('|');
+                if (pipe > 4) nm = nm.slice(0, pipe).trim();
+                nm = nm.slice(0, 22);
+                if (nm) {
+                  def.label = {
+                    text: nm,
+                    font: 'bold 13px sans-serif',
+                    fillColor: Cesium.Color.fromCssColorString('#fff6d8'),
+                    outlineColor: Cesium.Color.BLACK,
+                    outlineWidth: 2,
+                    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                    pixelOffset: new Cesium.Cartesian2(0, -14),
+                    disableDepthTestDistance: Number.POSITIVE_INFINITY,
+                    scaleByDistance: new Cesium.NearFarScalar(4.0e5, 1.45, 1.2e7, 1.05)
+                  };
+                }
+              }
+            }
           }
           const ent = viewer.entities.add(def);
           ent.__gmPhone = row;
@@ -1183,14 +1208,37 @@
     };
     try {
       const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-      handler.setInputAction(function (click) {
+      const pickPhoneRow = function (click) {
         try {
+          if (state && state.pauseIdleSpin) state.pauseIdleSpin();
           const picked = viewer.scene.pick(click.position);
           if (Cesium.defined(picked) && picked.id && picked.id.__gmPhone && adapter._onPointClick) {
             adapter._onPointClick(picked.id.__gmPhone);
+            return;
           }
+          const pos = click.position;
+          let best = null;
+          let bestD = 40 * 40;
+          const now = viewer.clock && viewer.clock.currentTime;
+          for (let i = 0; i < pointEntities.length; i++) {
+            const ent = pointEntities[i];
+            const row = ent && ent.__gmPhone;
+            if (!row) continue;
+            let cart = null;
+            try { cart = ent.position && ent.position.getValue(now); } catch (eP) {}
+            if (!cart) continue;
+            const win = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cart);
+            if (!win) continue;
+            const dx = win.x - pos.x;
+            const dy = win.y - pos.y;
+            const d = dx * dx + dy * dy;
+            if (d < bestD) { bestD = d; best = row; }
+          }
+          if (best && adapter._onPointClick) adapter._onPointClick(best);
         } catch (e) {}
-      }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+      };
+      handler.setInputAction(pickPhoneRow, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+      handler.setInputAction(pickPhoneRow, Cesium.ScreenSpaceEventType.LEFT_DOWN);
       state.handler = handler;
     } catch (e) {}
     return adapter;
