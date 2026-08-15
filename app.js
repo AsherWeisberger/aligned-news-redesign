@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "live-data.json?v=an92";
+  var DATA_URL = "live-data.json?v=an93";
   var state = {
     data: null,
     filter: "all",
@@ -1445,11 +1445,26 @@
     return item.media_url || item.image_url || item.mediaUrl || item.imageUrl || "";
   }
 
+  /** Square profile art — not a magazine photo. Row thumbs may still use it. */
+  function isAvatarMedia(url) {
+    var u = String(url || "").toLowerCase();
+    if (!u) return false;
+    if (u.indexOf("unavatar.io") !== -1) return true;
+    if (u.indexOf("pbs.twimg.com/profile_images") !== -1) return true;
+    if (u.indexOf("abs.twimg.com") !== -1) return true;
+    if (u.indexOf("avatars.githubusercontent.com") !== -1) return true;
+    if (u.indexOf("gravatar.com") !== -1) return true;
+    if (u.indexOf("ui-avatars.com") !== -1) return true;
+    if (u.indexOf("i.pravatar.cc") !== -1) return true;
+    if (/\/profile[_-]?images?\//.test(u)) return true;
+    return false;
+  }
+
   function leadHeroHtml(s, key, sectionPretty) {
     var media = storyMediaUrl(s);
     var label = String((s && s.topic_label) || sectionPretty || "Today");
     var bg = sectionThumbStyle(key);
-    if (media) {
+    if (media && !isAvatarMedia(media)) {
       return (
         '<div class="lead-hero">' +
           '<img src="' + escapeHtml(String(media)) + '" alt="" loading="eager" ' +
@@ -2178,7 +2193,8 @@
         var score = rankScore(cand) + rs * 2;
         if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180;
         if (isEventItem(cand)) score -= 420;
-        if (storyMediaUrl(cand)) score += 90;
+        var candMedia = storyMediaUrl(cand);
+        if (candMedia && !isAvatarMedia(candMedia)) score += 90;
         var sec = String(cand.section || cand.tag || "").toLowerCase();
         if (sec === "ten-things" || sec === "videos") score += 140;
         if (score > best) { best = score; bestIdx = bi; }
