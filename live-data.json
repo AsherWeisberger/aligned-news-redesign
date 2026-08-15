@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-08-14T20:38:11.000Z",
-    "scrapedAt": "2026-08-14T20:38:11.000Z",
+    "generatedAt": "2026-08-15T00:23:59.000Z",
+    "scrapedAt": "2026-08-15T00:23:59.000Z",
     "source": "alignednews-rss",
     "note": "Refreshed from https://alignednews.com/rss",
-    "rssLastBuildDate": "Fri, 14 Aug 2026 15:15:34 GMT",
+    "rssLastBuildDate": "Sat, 15 Aug 2026 00:01:43 GMT",
     "rssItemCount": 50,
-    "rssKeptCount": 10,
-    "lastUpdatedTs": 1786720534000
+    "rssKeptCount": 50,
+    "lastUpdatedTs": 1786752103000
   },
   "user": {
     "name": "Asher",
@@ -15,7 +15,7 @@
   },
   "stats": {
     "lists": 63,
-    "stories": 10,
+    "stories": 50,
     "signals": 6,
     "reports": 3
   },
@@ -59,101 +59,101 @@
   ],
   "forYou": [
     {
-      "id": "3d2a4962-8df3-406e-8b76-6e15a8b7d84b",
-      "title": "GLM-5.3 partners are launching through an official service with safeguards and controlled access",
-      "text": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
+      "id": "451ac6e6-fef1-4cd5-a01d-8056c8323c90",
+      "title": "CABIN presents an AI video production platform at IBC 2026",
+      "text": "RT @vidaio_: IBC2026 ( Amsterdam. September 11–14.\n\nCABIN, Pip Studios' new AI video platform powered by @vidaio_…",
       "badge": "story",
-      "topic_key": "models",
-      "source_url": "https://x.com/Zai_org/status/2088132978698256725",
-      "created_at": "2026-08-14T15:15:34.000Z",
-      "section_key": "models",
-      "section_label": "Latest Stories",
-      "source_list": "Latest Stories",
-      "topic_label": "Models",
-      "analysis": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
-      "media_url": "https://unavatar.io/twitter/Zai_org"
+      "topic_key": "creative",
+      "source_url": "https://x.com/LouiseBeattie/status/2088376764162596986",
+      "created_at": "2026-08-15T00:01:43.000Z",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "source_list": "Videos",
+      "topic_label": "Creative",
+      "analysis": "RT @vidaio_: IBC2026 ( Amsterdam. September 11–14. CABIN, Pip Studios' new AI video platform powered by @vidaio_…",
+      "media_url": "https://unavatar.io/twitter/LouiseBeattie"
     },
     {
-      "id": "78489e0f-33b0-43a5-8066-1872e0b9f176",
-      "title": "A report says the Trump administration is loosening constraints on offensive cyber operations",
-      "text": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
+      "id": "a68c146e-3635-4dc7-b14e-febb7d4f7e98",
+      "title": "A new AI video platform is presented for media production teams",
+      "text": "RT @HermesWatcher: One of the easiest ways to build a bad Hermes cron job is to write a prompt that only makes sense in the chat where you…",
       "badge": "story",
-      "topic_key": "policy",
-      "source_url": "https://x.com/Gizmodo/status/2088204007202275382",
-      "created_at": "2026-08-14T15:15:34.000Z",
-      "section_key": "policy",
-      "section_label": "Latest Stories",
-      "source_list": "Latest Stories",
-      "topic_label": "Policy",
-      "analysis": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
-      "media_url": "https://unavatar.io/twitter/Gizmodo"
+      "topic_key": "creative",
+      "source_url": "https://x.com/alexcovo_eth/status/2088377470709813282",
+      "created_at": "2026-08-15T00:01:43.000Z",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "source_list": "Videos",
+      "topic_label": "Creative",
+      "analysis": "RT @HermesWatcher: One of the easiest ways to build a bad Hermes cron job is to write a prompt that only makes sense in the chat where you…",
+      "media_url": "https://unavatar.io/twitter/alexcovo_eth"
     },
     {
-      "id": "20608399-a743-4c1c-9619-319e96cc462c",
-      "title": "JPMorgan reportedly ended Polymarket’s banking relationship over regulatory concerns while retaining some ties",
-      "text": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
+      "id": "9c1d9270-772a-4347-b23d-af7628235718",
+      "title": "A Hermes demonstration shows why precise cron prompts matter",
+      "text": "Was posting video in a review in @linear today. These \"chapters\" are auto generated. Didn't realize the team built this. It's sick.",
       "badge": "story",
-      "topic_key": "policy",
-      "source_url": "https://x.com/Techmeme/status/2088204332886094211",
-      "created_at": "2026-08-14T15:15:34.000Z",
-      "section_key": "policy",
-      "section_label": "Latest Stories",
-      "source_list": "Latest Stories",
-      "topic_label": "Policy",
-      "analysis": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
-      "media_url": "https://unavatar.io/twitter/Techmeme"
+      "topic_key": "creative",
+      "source_url": "https://x.com/ScalaHanSolo/status/2088378117505380746",
+      "created_at": "2026-08-15T00:01:43.000Z",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "source_list": "Videos",
+      "topic_label": "Creative",
+      "analysis": "Was posting video in a review in @linear today. These \"chapters\" are auto generated. Didn't realize the team built this. It's sick.",
+      "media_url": "https://unavatar.io/twitter/ScalaHanSolo"
     },
     {
-      "id": "0725e2fb-908e-410c-9ad0-1c016bfd960f",
-      "title": "Modal is promising another throughput push after a new state-of-the-art model result",
-      "text": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
+      "id": "a0189076-b3f3-4bab-806c-e09d9c1596b9",
+      "title": "A synthetic advertising clip challenges the demand for greater realism",
+      "text": "everyone's trying to make their ai ads look more real\n\nwhy? you scroll past real people all day. a realistic ai person is just... another video\n\nwhat actually stops your thumb is a shot your brain knows can't exist\n\nsomeone doing an ordinary job in a place no",
       "badge": "story",
-      "topic_key": "models",
-      "source_url": "https://x.com/bernhardsson/status/2088211796842709130",
-      "created_at": "2026-08-14T15:15:34.000Z",
-      "section_key": "models",
-      "section_label": "Latest Stories",
-      "source_list": "Latest Stories",
-      "topic_label": "Models",
-      "analysis": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
-      "media_url": "https://unavatar.io/twitter/bernhardsson"
+      "topic_key": "creative",
+      "source_url": "https://x.com/cookwithmrz/status/2088386938722013395",
+      "created_at": "2026-08-15T00:01:43.000Z",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "source_list": "Videos",
+      "topic_label": "Creative",
+      "analysis": "everyone's trying to make their ai ads look more real why? you scroll past real people all day. a realistic ai person is just... another video what actually stops your thumb is a shot your brain knows can't exist…",
+      "media_url": "https://unavatar.io/twitter/cookwithmrz"
     },
     {
-      "id": "b69a9f55-f7c3-41bb-bd26-e0dd53532127",
-      "title": "A judge orders Google to remove installation friction for third-party Android app stores",
-      "text": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
+      "id": "9d6918a0-5153-47b0-9da9-73968e1aaa3d",
+      "title": "An AI advertising demo questions the push toward synthetic realism",
+      "text": "RT @SandAI_HQ: 🪄 MAGI-2 Preview: The Open-Source 100B+ Ultra-Fine-Grained MoE Video Generation Model\n\n📄 Tech Report:",
       "badge": "story",
-      "topic_key": "policy",
-      "source_url": "https://x.com/Techmeme/status/2088205449195889138",
-      "created_at": "2026-08-14T15:15:34.000Z",
-      "section_key": "policy",
-      "section_label": "Latest Stories",
-      "source_list": "Latest Stories",
-      "topic_label": "Policy",
-      "analysis": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
-      "media_url": "https://unavatar.io/twitter/Techmeme"
+      "topic_key": "open-source",
+      "source_url": "https://x.com/ljupc0/status/2088395538517409821",
+      "created_at": "2026-08-15T00:01:43.000Z",
+      "section_key": "open-source",
+      "section_label": "Videos",
+      "source_list": "Videos",
+      "topic_label": "Open source",
+      "analysis": "RT @SandAI_HQ: 🪄 MAGI-2 Preview: The Open-Source 100B+ Ultra-Fine-Grained MoE Video Generation Model 📄 Tech Report:",
+      "media_url": "https://unavatar.io/twitter/ljupc0"
     }
   ],
   "stories": [
     {
-      "id": "3d2a4962-8df3-406e-8b76-6e15a8b7d84b",
-      "headline": "GLM-5.3 partners are launching through an official service with safeguards and controlled access",
-      "summary": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
-      "section": "ten-things",
-      "section_key": "models",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "Zai_org",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/Zai_org/status/2088132978698256725",
+      "id": "451ac6e6-fef1-4cd5-a01d-8056c8323c90",
+      "headline": "CABIN presents an AI video production platform at IBC 2026",
+      "summary": "RT @vidaio_: IBC2026 ( Amsterdam. September 11–14. CABIN, Pip Studios' new AI video platform powered by @vidaio_…",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Louise Beattie",
+      "source_list": "Videos",
+      "source_url": "https://x.com/LouiseBeattie/status/2088376764162596986",
       "sources": [
         {
-          "url": "https://x.com/Zai_org/status/2088132978698256725",
+          "url": "https://x.com/LouiseBeattie/status/2088376764162596986",
           "name": "x.com"
         }
       ],
-      "body": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
+      "body": "RT @vidaio_: IBC2026 ( Amsterdam. September 11–14.\n\nCABIN, Pip Studios' new AI video platform powered by @vidaio_…",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -163,30 +163,261 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Z.ai says an initial partner group is offering GLM-5.3-powered services through its official service, with safeguards and usage policies in place, while access expands through a consistent process.",
+      "why_it_matters": "RT @vidaio_: IBC2026 ( Amsterdam. September 11–14. CABIN, Pip Studios' new AI video platform powered by @vidaio_…",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/LouiseBeattie"
+    },
+    {
+      "id": "a68c146e-3635-4dc7-b14e-febb7d4f7e98",
+      "headline": "A new AI video platform is presented for media production teams",
+      "summary": "RT @HermesWatcher: One of the easiest ways to build a bad Hermes cron job is to write a prompt that only makes sense in the chat where you…",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Alex C.",
+      "source_list": "Videos",
+      "source_url": "https://x.com/alexcovo_eth/status/2088377470709813282",
+      "sources": [
+        {
+          "url": "https://x.com/alexcovo_eth/status/2088377470709813282",
+          "name": "x.com"
+        }
+      ],
+      "body": "RT @HermesWatcher: One of the easiest ways to build a bad Hermes cron job is to write a prompt that only makes sense in the chat where you…",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "RT @HermesWatcher: One of the easiest ways to build a bad Hermes cron job is to write a prompt that only makes sense in the chat where you…",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/alexcovo_eth"
+    },
+    {
+      "id": "9c1d9270-772a-4347-b23d-af7628235718",
+      "headline": "A Hermes demonstration shows why precise cron prompts matter",
+      "summary": "Was posting video in a review in @linear today. These \"chapters\" are auto generated. Didn't realize the team built this. It's sick.",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Sean Callahan",
+      "source_list": "Videos",
+      "source_url": "https://x.com/ScalaHanSolo/status/2088378117505380746",
+      "sources": [
+        {
+          "url": "https://x.com/ScalaHanSolo/status/2088378117505380746",
+          "name": "x.com"
+        }
+      ],
+      "body": "Was posting video in a review in @linear today. These \"chapters\" are auto generated. Didn't realize the team built this. It's sick.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Was posting video in a review in @linear today. These \"chapters\" are auto generated. Didn't realize the team built this. It's sick.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/ScalaHanSolo"
+    },
+    {
+      "id": "a0189076-b3f3-4bab-806c-e09d9c1596b9",
+      "headline": "A synthetic advertising clip challenges the demand for greater realism",
+      "summary": "everyone's trying to make their ai ads look more real why? you scroll past real people all day. a realistic ai person is just... another video what actually stops your thumb is a shot your brain knows can't exist someone doing an ordinary…",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Zeid “Zieed” Daoud",
+      "source_list": "Videos",
+      "source_url": "https://x.com/cookwithmrz/status/2088386938722013395",
+      "sources": [
+        {
+          "url": "https://x.com/cookwithmrz/status/2088386938722013395",
+          "name": "x.com"
+        }
+      ],
+      "body": "everyone's trying to make their ai ads look more real\n\nwhy? you scroll past real people all day. a realistic ai person is just... another video\n\nwhat actually stops your thumb is a shot your brain knows can't exist\n\nsomeone doing an ordinary job in a place no",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "everyone's trying to make their ai ads look more real why? you scroll past real people all day. a realistic ai person is just... another video what actually stops your thumb is a shot your brain knows can't exist…",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/cookwithmrz"
+    },
+    {
+      "id": "9d6918a0-5153-47b0-9da9-73968e1aaa3d",
+      "headline": "An AI advertising demo questions the push toward synthetic realism",
+      "summary": "RT @SandAI_HQ: 🪄 MAGI-2 Preview: The Open-Source 100B+ Ultra-Fine-Grained MoE Video Generation Model 📄 Tech Report:",
+      "section": "videos",
+      "section_key": "open-source",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Ljubomir Josifovski",
+      "source_list": "Videos",
+      "source_url": "https://x.com/ljupc0/status/2088395538517409821",
+      "sources": [
+        {
+          "url": "https://x.com/ljupc0/status/2088395538517409821",
+          "name": "x.com"
+        }
+      ],
+      "body": "RT @SandAI_HQ: 🪄 MAGI-2 Preview: The Open-Source 100B+ Ultra-Fine-Grained MoE Video Generation Model\n\n📄 Tech Report:",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "RT @SandAI_HQ: 🪄 MAGI-2 Preview: The Open-Source 100B+ Ultra-Fine-Grained MoE Video Generation Model 📄 Tech Report:",
+      "topic_key": "open-source",
+      "topic_label": "Open source",
+      "media_url": "https://unavatar.io/twitter/ljupc0"
+    },
+    {
+      "id": "1ec9f5df-4dd2-46dc-8b8b-ecef0e767e5c",
+      "headline": "Reports Twitch livestream use for generative-AI training",
+      "summary": "Reports Twitch livestream use for generative-AI training.",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "GeekWire",
+      "source_list": "Videos",
+      "source_url": "https://x.com/geekwire/status/2088390159058571688",
+      "sources": [
+        {
+          "url": "https://x.com/geekwire/status/2088390159058571688",
+          "name": "x.com"
+        }
+      ],
+      "body": "Reports Twitch livestream use for generative-AI training.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Reports Twitch livestream use for generative-AI training.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/geekwire"
+    },
+    {
+      "id": "52e41713-34d2-4fc4-87dc-a3715ab96713",
+      "headline": "Argues the referenced offering is a deployed product, not a demo",
+      "summary": "Argues the referenced offering is a deployed product, not a demo.",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Mehul",
+      "source_list": "Videos",
+      "source_url": "https://x.com/mehul/status/2088396059487998250",
+      "sources": [
+        {
+          "url": "https://x.com/mehul/status/2088396059487998250",
+          "name": "x.com"
+        }
+      ],
+      "body": "Argues the referenced offering is a deployed product, not a demo.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Argues the referenced offering is a deployed product, not a demo.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/mehul"
+    },
+    {
+      "id": "b848bf17-2ee2-4e44-9a84-f32f29a06a55",
+      "headline": "Pulse, a watch concept created with Grok Build and Grok 4.6, is introduced",
+      "summary": "Pulse, a watch concept created with Grok Build and Grok 4.6, is introduced.",
+      "section": "videos",
+      "section_key": "models",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Dan",
+      "source_list": "Videos",
+      "source_url": "https://x.com/Daniel_Farinax/status/2088377970725621856",
+      "sources": [
+        {
+          "url": "https://x.com/Daniel_Farinax/status/2088377970725621856",
+          "name": "x.com"
+        }
+      ],
+      "body": "Pulse, a watch concept created with Grok Build and Grok 4.6, is introduced.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Pulse, a watch concept created with Grok Build and Grok 4.6, is introduced.",
       "topic_key": "models",
       "topic_label": "Models",
-      "media_url": "https://unavatar.io/twitter/Zai_org"
+      "media_url": "https://unavatar.io/twitter/Daniel_Farinax"
     },
     {
-      "id": "78489e0f-33b0-43a5-8066-1872e0b9f176",
-      "headline": "A report says the Trump administration is loosening constraints on offensive cyber operations",
-      "summary": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
-      "section": "ten-things",
-      "section_key": "policy",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "Gizmodo",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/Gizmodo/status/2088204007202275382",
+      "id": "a2ab576c-eb7a-49d4-8800-28cf5b481297",
+      "headline": "Repost describes Matic Cues completing a spoken-and-pointed floor-cleaning request",
+      "summary": "Repost describes Matic Cues completing a spoken-and-pointed floor-cleaning request.",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Roshan Mehta",
+      "source_list": "Videos",
+      "source_url": "https://x.com/RoshanJMehta/status/2088400519681474805",
       "sources": [
         {
-          "url": "https://x.com/Gizmodo/status/2088204007202275382",
+          "url": "https://x.com/RoshanJMehta/status/2088400519681474805",
           "name": "x.com"
         }
       ],
-      "body": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
+      "body": "Repost describes Matic Cues completing a spoken-and-pointed floor-cleaning request.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -196,30 +427,30 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Gizmodo characterizes the Trump administration’s cyber posture as letting “cyber pirates” loose, but the source post offers only the linked headline and no supporting detail.",
-      "topic_key": "policy",
-      "topic_label": "Policy",
-      "media_url": "https://unavatar.io/twitter/Gizmodo"
+      "why_it_matters": "Repost describes Matic Cues completing a spoken-and-pointed floor-cleaning request.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/RoshanJMehta"
     },
     {
-      "id": "20608399-a743-4c1c-9619-319e96cc462c",
-      "headline": "JPMorgan reportedly ended Polymarket’s banking relationship over regulatory concerns while retaining some ties",
-      "summary": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
-      "section": "ten-things",
-      "section_key": "policy",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "Techmeme",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/Techmeme/status/2088204332886094211",
+      "id": "7caa7ddf-641d-4714-a4c2-a32053f2bd17",
+      "headline": "Replit posts the full Friday Showcase replay",
+      "summary": "Replit has published a replay covering its Designathon winners and a roundup of the week’s product updates.",
+      "section": "videos",
+      "section_key": "creative",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-15T00:01:43.000Z",
+      "author_name": "Replit",
+      "source_list": "Videos",
+      "source_url": "https://x.com/Replit/status/2088400282057080857",
       "sources": [
         {
-          "url": "https://x.com/Techmeme/status/2088204332886094211",
+          "url": "https://x.com/Replit/status/2088400282057080857",
           "name": "x.com"
         }
       ],
-      "body": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
+      "body": "Replit has published a replay covering its Designathon winners and a roundup of the week’s product updates.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -229,30 +460,129 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Sources cited by the Financial Times say JPMorgan terminated its banking relationship with Polymarket in 2025 over regulatory concerns, although some ties reportedly remain.",
-      "topic_key": "policy",
-      "topic_label": "Policy",
-      "media_url": "https://unavatar.io/twitter/Techmeme"
+      "why_it_matters": "Replit has published a replay covering its Designathon winners and a roundup of the week’s product updates.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/Replit"
     },
     {
-      "id": "0725e2fb-908e-410c-9ad0-1c016bfd960f",
-      "headline": "Modal is promising another throughput push after a new state-of-the-art model result",
-      "summary": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
-      "section": "ten-things",
+      "id": "73620fd2-f499-44d9-b862-c288850ae81b",
+      "headline": "A research team is hiring to bring video reasoning models to the iPhone",
+      "summary": "We are hiring a researcher who can help us bring powerful video reasoning models to iPhone. Please reach out to me if you are interested.",
+      "section": "creatives",
+      "section_key": "research",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Arnab",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/ArnabMondal96/status/2088362208074031256",
+      "sources": [
+        {
+          "url": "https://x.com/ArnabMondal96/status/2088362208074031256",
+          "name": "x.com"
+        }
+      ],
+      "body": "We are hiring a researcher who can help us bring powerful video reasoning models to iPhone. Please reach out to me if you are interested.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "We are hiring a researcher who can help us bring powerful video reasoning models to iPhone. Please reach out to me if you are interested.",
+      "topic_key": "research",
+      "topic_label": "Research",
+      "media_url": "https://unavatar.io/twitter/ArnabMondal96"
+    },
+    {
+      "id": "499015cb-e87d-43a9-85b2-2cde51d169ec",
+      "headline": "Long horizon agents face uneven performance across different tasks",
+      "summary": "I think all current long-horizon agent designs are wrong because they underestimate the jaggedness of agent intelligence. in a jagged-intelligence frontier, agent productivity is bottlenecked by the tasks models can't do, whether due to…",
+      "section": "creatives",
+      "section_key": "agents",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Phil Chen",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/philhchen/status/2088345131799773318",
+      "sources": [
+        {
+          "url": "https://x.com/philhchen/status/2088345131799773318",
+          "name": "x.com"
+        }
+      ],
+      "body": "I think all current long-horizon agent designs are wrong because they underestimate the jaggedness of agent intelligence.\n \nin a jagged-intelligence frontier, agent productivity is bottlenecked by the tasks models can't do, whether due to access or skill.\n \nlo",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "I think all current long-horizon agent designs are wrong because they underestimate the jaggedness of agent intelligence. in a jagged-intelligence frontier, agent productivity is bottlenecked by the tasks models can't…",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "media_url": "https://unavatar.io/twitter/philhchen"
+    },
+    {
+      "id": "c1cb9b9a-0c6e-450a-a070-5e37682a56b4",
+      "headline": "A new agent design debate focuses on uneven long horizon performance",
+      "summary": "NVIDIA GEAR's SimFoundry is amplified as a framework turning real-world scenes into simulation assets.",
+      "section": "creatives",
+      "section_key": "agents",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "dave",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/davidhe137/status/2088392661728195052",
+      "sources": [
+        {
+          "url": "https://x.com/davidhe137/status/2088392661728195052",
+          "name": "x.com"
+        }
+      ],
+      "body": "NVIDIA GEAR's SimFoundry is amplified as a framework turning real-world scenes into simulation assets.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "NVIDIA GEAR's SimFoundry is amplified as a framework turning real-world scenes into simulation assets.",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "media_url": "https://unavatar.io/twitter/davidhe137"
+    },
+    {
+      "id": "c887ad3d-e07f-4f48-a3b1-edbeb8c1c8ef",
+      "headline": "Community evaluation reports a substantial Grok Imagine 2.0 quality improvement over 1.0",
+      "summary": "Community evaluation reports a substantial Grok Imagine 2.0 quality improvement over 1.0.",
+      "section": "creatives",
       "section_key": "models",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "bernhardsson",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/bernhardsson/status/2088211796842709130",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Philip Bankier",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/philipbankier/status/2088377018832322919",
       "sources": [
         {
-          "url": "https://x.com/bernhardsson/status/2088211796842709130",
+          "url": "https://x.com/philipbankier/status/2088377018832322919",
           "name": "x.com"
         }
       ],
-      "body": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
+      "body": "Community evaluation reports a substantial Grok Imagine 2.0 quality improvement over 1.0.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -262,30 +592,30 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Erik Bernhardsson reacts to another state-of-the-art result by saying Modal will return with the best tokens-per-second performance, framing it as an ambition rather than a completed benchmark.",
+      "why_it_matters": "Community evaluation reports a substantial Grok Imagine 2.0 quality improvement over 1.0.",
       "topic_key": "models",
       "topic_label": "Models",
-      "media_url": "https://unavatar.io/twitter/bernhardsson"
+      "media_url": "https://unavatar.io/twitter/philipbankier"
     },
     {
-      "id": "b69a9f55-f7c3-41bb-bd26-e0dd53532127",
-      "headline": "A judge orders Google to remove installation friction for third-party Android app stores",
-      "summary": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
-      "section": "ten-things",
-      "section_key": "policy",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "Techmeme",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/Techmeme/status/2088205449195889138",
+      "id": "9d818182-fd88-40a0-8f3d-26c52693838f",
+      "headline": "Community report describes Claude watermark scope and implementation; treat as unverified",
+      "summary": "Community report describes Claude watermark scope and implementation; treat as unverified.",
+      "section": "creatives",
+      "section_key": "models",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "🥔🥔🥔",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/argofowl/status/2088377246184866181",
       "sources": [
         {
-          "url": "https://x.com/Techmeme/status/2088205449195889138",
+          "url": "https://x.com/argofowl/status/2088377246184866181",
           "name": "x.com"
         }
       ],
-      "body": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
+      "body": "Community report describes Claude watermark scope and implementation; treat as unverified.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -295,30 +625,30 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "In an Epic v. Google compliance hearing, a judge ordered Google to remove “anticompetitive friction” affecting installation of third-party app stores from the Play Store, according to a Techmeme summary of The Verge.",
-      "topic_key": "policy",
-      "topic_label": "Policy",
-      "media_url": "https://unavatar.io/twitter/Techmeme"
+      "why_it_matters": "Community report describes Claude watermark scope and implementation; treat as unverified.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/argofowl"
     },
     {
-      "id": "de773a40-f1fe-4397-a14c-d3c557351135",
-      "headline": "A privacy report centers the claim that privacy is a fundamental right",
-      "summary": "Futurism highlights the statement “Privacy is a fundamental right,” but its social post provides no additional context about the speaker, dispute, or underlying event.",
-      "section": "ten-things",
-      "section_key": "policy",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "futurism",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/futurism/status/2088053040049692970",
+      "id": "e259f9b5-4bd1-417b-9c34-958e7fa8beaa",
+      "headline": "Reward design is distinguished from data generation and flagged as a potential failure point",
+      "summary": "Reward design is distinguished from data generation and flagged as a potential failure point.",
+      "section": "creatives",
+      "section_key": "creative",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Ed Li",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/t_ed_li/status/2088395220073468327",
       "sources": [
         {
-          "url": "https://x.com/futurism/status/2088053040049692970",
+          "url": "https://x.com/t_ed_li/status/2088395220073468327",
           "name": "x.com"
         }
       ],
-      "body": "Futurism highlights the statement “Privacy is a fundamental right,” but its social post provides no additional context about the speaker, dispute, or underlying event.",
+      "body": "Reward design is distinguished from data generation and flagged as a potential failure point.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -328,30 +658,162 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Futurism highlights the statement “Privacy is a fundamental right,” but its social post provides no additional context about the speaker, dispute, or underlying event.",
-      "topic_key": "policy",
-      "topic_label": "Policy",
-      "media_url": "https://unavatar.io/twitter/futurism"
+      "why_it_matters": "Reward design is distinguished from data generation and flagged as a potential failure point.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/t_ed_li"
     },
     {
-      "id": "ae63f758-e90f-45be-b960-c19f305cdb41",
-      "headline": "CodeRabbit Security is designed to look beyond known attack patterns encoded in rule-based scanners",
-      "summary": "CodeRabbit says rule-based scanners cover attacks already conceived, while CodeRabbit Security is designed to address attacks that have not yet been written into rules.",
-      "section": "ten-things",
+      "id": "c7cb57db-2e77-4038-a88d-d8f62ba393f4",
+      "headline": "AI frontend-design skill is presented as an immediate enterprise website and iOS use case",
+      "summary": "AI frontend-design skill is presented as an immediate enterprise website and iOS use case.",
+      "section": "creatives",
+      "section_key": "creative",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Brennan McDonald",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/brnnnmcdnld/status/2088400132899590654",
+      "sources": [
+        {
+          "url": "https://x.com/brnnnmcdnld/status/2088400132899590654",
+          "name": "x.com"
+        }
+      ],
+      "body": "AI frontend-design skill is presented as an immediate enterprise website and iOS use case.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "AI frontend-design skill is presented as an immediate enterprise website and iOS use case.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/brnnnmcdnld"
+    },
+    {
+      "id": "9af94fc9-a32c-4b19-af9b-be93c470d71a",
+      "headline": "Coding agents reproduce an experiment from scratch with visualizations, sweeps, and a dashboard",
+      "summary": "Coding agents reproduce an experiment from scratch with visualizations, sweeps, and a dashboard.",
+      "section": "creatives",
+      "section_key": "agents",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/JainMoksh/status/2088370816706613277",
+      "sources": [
+        {
+          "url": "https://x.com/JainMoksh/status/2088370816706613277",
+          "name": "x.com"
+        }
+      ],
+      "body": "Coding agents reproduce an experiment from scratch with visualizations, sweeps, and a dashboard.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Coding agents reproduce an experiment from scratch with visualizations, sweeps, and a dashboard.",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "media_url": "https://unavatar.io/twitter/JainMoksh"
+    },
+    {
+      "id": "3f901fc4-8da9-43d7-bac3-693168a93ed9",
+      "headline": "Qwen3.8-27B local-model image-generation demonstration",
+      "summary": "Qwen3.8-27B local-model image-generation demonstration.",
+      "section": "creatives",
+      "section_key": "models",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/zainhas/status/2088377261087129671",
+      "sources": [
+        {
+          "url": "https://x.com/zainhas/status/2088377261087129671",
+          "name": "x.com"
+        }
+      ],
+      "body": "Qwen3.8-27B local-model image-generation demonstration.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Qwen3.8-27B local-model image-generation demonstration.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/zainhas"
+    },
+    {
+      "id": "6ce51bc0-8610-41f6-b07c-f2470a62a73e",
+      "headline": "Create a Meme introduces Batch Mode for multi-scene images",
+      "summary": "Create a Meme introduces Batch Mode for generating multiple scenes while maintaining a consistent character.",
+      "section": "creatives",
+      "section_key": "creative",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-15T00:01:41.000Z",
+      "author_name": "Create a Meme",
+      "source_list": "Creatives",
+      "source_url": "https://x.com/AIMemeCreator/status/2088376647078551796",
+      "sources": [
+        {
+          "url": "https://x.com/AIMemeCreator/status/2088376647078551796",
+          "name": "x.com"
+        }
+      ],
+      "body": "Create a Meme introduces Batch Mode for generating multiple scenes while maintaining a consistent character.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Create a Meme introduces Batch Mode for generating multiple scenes while maintaining a consistent character.",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "media_url": "https://unavatar.io/twitter/AIMemeCreator"
+    },
+    {
+      "id": "b4bb0d94-be5a-4d70-a54b-3b6c68d64d2a",
+      "headline": "Maple announces DeepSeek-V4-Flash availability for paid customers",
+      "summary": "Maple announces DeepSeek-V4-Flash availability for paid customers.",
+      "section": "products",
       "section_key": "companies",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "coderabbitai",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/coderabbitai/status/2088008079119929394",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "Maple",
+      "source_list": "Products",
+      "source_url": "https://x.com/TryMapleAI/status/2088385094847254629",
       "sources": [
         {
-          "url": "https://x.com/coderabbitai/status/2088008079119929394",
+          "url": "https://x.com/TryMapleAI/status/2088385094847254629",
           "name": "x.com"
         }
       ],
-      "body": "CodeRabbit says rule-based scanners cover attacks already conceived, while CodeRabbit Security is designed to address attacks that have not yet been written into rules.",
+      "body": "Maple announces DeepSeek-V4-Flash availability for paid customers.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -361,30 +823,30 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "CodeRabbit says rule-based scanners cover attacks already conceived, while CodeRabbit Security is designed to address attacks that have not yet been written into rules.",
+      "why_it_matters": "Maple announces DeepSeek-V4-Flash availability for paid customers.",
       "topic_key": "companies",
       "topic_label": "Companies",
-      "media_url": "https://unavatar.io/twitter/coderabbitai"
+      "media_url": "https://unavatar.io/twitter/TryMapleAI"
     },
     {
-      "id": "ac89eeb5-3e8e-40e7-96a9-3dc4db82aeb3",
-      "headline": "NEAR AI is adding independent Intel attestation to make inference verifiable for users",
-      "summary": "Illia Polosukhin says Intel ITA independent attestation will be added to all NEAR AI inference, separating verification from the hardware operator and giving users machine-checkable proof.",
-      "section": "ten-things",
-      "section_key": "chips",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "ilblackdragon",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/ilblackdragon/status/2088263044421816383",
+      "id": "c5a37e22-a953-4317-bc92-cbc89e55f23d",
+      "headline": "GMI Cloud compares two models on deep research tasks",
+      "summary": "GMI Cloud compares Kimi K3 and GLM 5.3 across a structured set of deep research questions spanning multiple domains.",
+      "section": "products",
+      "section_key": "research",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "GMI Cloud",
+      "source_list": "Products",
+      "source_url": "https://x.com/gmi_cloud/status/2088379157185212453",
       "sources": [
         {
-          "url": "https://x.com/ilblackdragon/status/2088263044421816383",
+          "url": "https://x.com/gmi_cloud/status/2088379157185212453",
           "name": "x.com"
         }
       ],
-      "body": "Illia Polosukhin says Intel ITA independent attestation will be added to all NEAR AI inference, separating verification from the hardware operator and giving users machine-checkable proof.",
+      "body": "GMI Cloud compares Kimi K3 and GLM 5.3 across a structured set of deep research questions spanning multiple domains.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -394,30 +856,162 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Illia Polosukhin says Intel ITA independent attestation will be added to all NEAR AI inference, separating verification from the hardware operator and giving users machine-checkable proof.",
+      "why_it_matters": "GMI Cloud compares Kimi K3 and GLM 5.3 across a structured set of deep research questions spanning multiple domains.",
+      "topic_key": "research",
+      "topic_label": "Research",
+      "media_url": "https://unavatar.io/twitter/gmi_cloud"
+    },
+    {
+      "id": "5995c1c2-263c-4acd-974d-0fa105278d6b",
+      "headline": "Mastra gives agents a screenshot tool for vision models",
+      "summary": "Mastra says agents can use the stagehand_screenshot tool to capture images for interpretation by vision models.",
+      "section": "products",
+      "section_key": "agents",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "Mastra",
+      "source_list": "Products",
+      "source_url": "https://x.com/mastra/status/2088396499189460992",
+      "sources": [
+        {
+          "url": "https://x.com/mastra/status/2088396499189460992",
+          "name": "x.com"
+        }
+      ],
+      "body": "Mastra says agents can use the stagehand_screenshot tool to capture images for interpretation by vision models.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Mastra says agents can use the stagehand_screenshot tool to capture images for interpretation by vision models.",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "media_url": "https://unavatar.io/twitter/mastra"
+    },
+    {
+      "id": "97a942c5-2d05-46f3-9a22-e50681e8c1d9",
+      "headline": "AdaL outlines its autonomy-focused product lineup",
+      "summary": "AdaL describes a skills-management product alongside AdaL Code and AdaL Engineer, its coding and autonomous-agent offerings.",
+      "section": "products",
+      "section_key": "agents",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "AdaL",
+      "source_list": "Products",
+      "source_url": "https://x.com/adalagent/status/2088399146298524057",
+      "sources": [
+        {
+          "url": "https://x.com/adalagent/status/2088399146298524057",
+          "name": "x.com"
+        }
+      ],
+      "body": "AdaL describes a skills-management product alongside AdaL Code and AdaL Engineer, its coding and autonomous-agent offerings.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "AdaL describes a skills-management product alongside AdaL Code and AdaL Engineer, its coding and autonomous-agent offerings.",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "media_url": "https://unavatar.io/twitter/adalagent"
+    },
+    {
+      "id": "eb2b0d12-9a2e-428c-9f4e-26e2b9750f30",
+      "headline": "Fly.io connects Sprites through Claude’s app directory",
+      "summary": "Fly.io says its Sprites service can now be connected through Claude’s app directory.",
+      "section": "products",
+      "section_key": "models",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "Fly.io",
+      "source_list": "Products",
+      "source_url": "https://x.com/flydotio/status/2088370043830854119",
+      "sources": [
+        {
+          "url": "https://x.com/flydotio/status/2088370043830854119",
+          "name": "x.com"
+        }
+      ],
+      "body": "Fly.io says its Sprites service can now be connected through Claude’s app directory.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Fly.io says its Sprites service can now be connected through Claude’s app directory.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/flydotio"
+    },
+    {
+      "id": "dae1e828-0b40-4a0d-8c2d-303b8fbd387a",
+      "headline": "CoreWeave publishes live Vera Rubin hardware results",
+      "summary": "CoreWeave says it measured Vera Rubin NVL72 hardware and compared the results with Blackwell.",
+      "section": "products",
+      "section_key": "chips",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "CoreWeave",
+      "source_list": "Products",
+      "source_url": "https://x.com/CoreWeave/status/2088375223724732608",
+      "sources": [
+        {
+          "url": "https://x.com/CoreWeave/status/2088375223724732608",
+          "name": "x.com"
+        }
+      ],
+      "body": "CoreWeave says it measured Vera Rubin NVL72 hardware and compared the results with Blackwell.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "CoreWeave says it measured Vera Rubin NVL72 hardware and compared the results with Blackwell.",
       "topic_key": "chips",
       "topic_label": "Chips",
-      "media_url": "https://unavatar.io/twitter/ilblackdragon"
+      "media_url": "https://unavatar.io/twitter/CoreWeave"
     },
     {
-      "id": "6c56e578-57d9-4220-a954-1efecffbb059",
-      "headline": "Alibaba is reportedly nearing a sale of Lingxi Games to Trustar Capital at a valuation above $1.5 billion",
-      "summary": "Bloomberg sources say Alibaba is close to selling Lingxi Games to private-equity firm Trustar Capital at a potential valuation exceeding $1.5 billion as Alibaba continues reorganizing.",
-      "section": "ten-things",
-      "section_key": "funding",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "Techmeme",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/Techmeme/status/2088209252854956082",
+      "id": "6f8987b3-7b65-401a-9956-68fc13c54763",
+      "headline": "Augment Code rebuilds the Auggie CLI harness",
+      "summary": "Augment Code says it rebuilt the harness behind Auggie CLI and describes the project as open source.",
+      "section": "products",
+      "section_key": "open-source",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "Augment Code",
+      "source_list": "Products",
+      "source_url": "https://x.com/augmentcode/status/2088375653225955710",
       "sources": [
         {
-          "url": "https://x.com/Techmeme/status/2088209252854956082",
+          "url": "https://x.com/augmentcode/status/2088375653225955710",
           "name": "x.com"
         }
       ],
-      "body": "Bloomberg sources say Alibaba is close to selling Lingxi Games to private-equity firm Trustar Capital at a potential valuation exceeding $1.5 billion as Alibaba continues reorganizing.",
+      "body": "Augment Code says it rebuilt the harness behind Auggie CLI and describes the project as open source.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -427,30 +1021,30 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Bloomberg sources say Alibaba is close to selling Lingxi Games to private-equity firm Trustar Capital at a potential valuation exceeding $1.5 billion as Alibaba continues reorganizing.",
-      "topic_key": "funding",
-      "topic_label": "Funding",
-      "media_url": "https://unavatar.io/twitter/Techmeme"
+      "why_it_matters": "Augment Code says it rebuilt the harness behind Auggie CLI and describes the project as open source.",
+      "topic_key": "open-source",
+      "topic_label": "Open source",
+      "media_url": "https://unavatar.io/twitter/augmentcode"
     },
     {
-      "id": "5c86c460-8dbd-4b69-8456-68814e77303d",
-      "headline": "Silver Lake is reportedly in talks to acquire Workday in a potentially historic software buyout",
-      "summary": "Reuters reports that Silver Lake is in talks to acquire Workday in a transaction that could rank among the largest software buyouts ever. The talks do not establish that a deal will be reached.",
-      "section": "ten-things",
-      "section_key": "funding",
-      "section_label": "Latest Stories",
-      "tag": "ten-things",
-      "published_at": "2026-08-14T15:15:34.000Z",
-      "author_name": "ReutersTech",
-      "source_list": "Latest Stories",
-      "source_url": "https://x.com/ReutersTech/status/2088076427283304454",
+      "id": "74e7e346-ca99-438d-8804-295fe52495c1",
+      "headline": "VLM Run adds Gemini 3.7 Flash to Orion 2",
+      "summary": "VLM Run says Gemini 3.7 Flash is available in Orion 2, its visual-agent harness.",
+      "section": "products",
+      "section_key": "models",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "VLM Run",
+      "source_list": "Products",
+      "source_url": "https://x.com/vlmrun/status/2088379029158064175",
       "sources": [
         {
-          "url": "https://x.com/ReutersTech/status/2088076427283304454",
+          "url": "https://x.com/vlmrun/status/2088379029158064175",
           "name": "x.com"
         }
       ],
-      "body": "Reuters reports that Silver Lake is in talks to acquire Workday in a transaction that could rank among the largest software buyouts ever. The talks do not establish that a deal will be reached.",
+      "body": "VLM Run says Gemini 3.7 Flash is available in Orion 2, its visual-agent harness.",
       "kind": "story",
       "engagement": {
         "bookmark_count": 0,
@@ -460,10 +1054,736 @@
         "reply_count": 0,
         "retweet_count": 0
       },
-      "why_it_matters": "Reuters reports that Silver Lake is in talks to acquire Workday in a transaction that could rank among the largest software buyouts ever. The talks do not establish that a deal will be reached.",
-      "topic_key": "funding",
-      "topic_label": "Funding",
-      "media_url": "https://unavatar.io/twitter/ReutersTech"
+      "why_it_matters": "VLM Run says Gemini 3.7 Flash is available in Orion 2, its visual-agent harness.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/vlmrun"
+    },
+    {
+      "id": "28a7f001-5dfb-4432-b9a8-1201563ff9ca",
+      "headline": "Replit expands regional hosting and agent connections",
+      "summary": "Replit’s weekly update groups regional workspace hosting, expanded MCP access, Clerk Auth migration, new connectors, an Admin API beta, and inline charts.",
+      "section": "products",
+      "section_key": "agents",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "Replit",
+      "source_list": "Products",
+      "source_url": "https://x.com/Replit/status/2088400279070744794",
+      "sources": [
+        {
+          "url": "https://x.com/Replit/status/2088400279070744794",
+          "name": "x.com"
+        }
+      ],
+      "body": "Replit’s weekly update groups regional workspace hosting, expanded MCP access, Clerk Auth migration, new connectors, an Admin API beta, and inline charts.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Replit’s weekly update groups regional workspace hosting, expanded MCP access, Clerk Auth migration, new connectors, an Admin API beta, and inline charts.",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "media_url": "https://unavatar.io/twitter/Replit"
+    },
+    {
+      "id": "d7135ccb-ed7f-41e5-97c2-c94278cc8ed7",
+      "headline": "Hermes Desktop connects to an always-on cloud agent",
+      "summary": "Nous Research says Hermes Desktop can be pointed at Hermes Cloud so an agent can remain available after the local computer is closed.",
+      "section": "products",
+      "section_key": "agents",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-15T00:01:40.000Z",
+      "author_name": "Nous Research",
+      "source_list": "Products",
+      "source_url": "https://x.com/NousResearch/status/2088395070059770061",
+      "sources": [
+        {
+          "url": "https://x.com/NousResearch/status/2088395070059770061",
+          "name": "x.com"
+        }
+      ],
+      "body": "Nous Research says Hermes Desktop can be pointed at Hermes Cloud so an agent can remain available after the local computer is closed.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Nous Research says Hermes Desktop can be pointed at Hermes Cloud so an agent can remain available after the local computer is closed.",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "media_url": "https://unavatar.io/twitter/NousResearch"
+    },
+    {
+      "id": "55f82773-273d-4815-8346-aecceb6d2a74",
+      "headline": "A normally warm AI manager reportedly snapped during a shift scenario",
+      "summary": "An evaluator says Luna was usually kind but changed tone when an employee said they were leaving the store mid-shift.",
+      "section": "anomalies",
+      "section_key": "companies",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/andonlabs/status/2088325025082569007",
+      "sources": [
+        {
+          "url": "https://x.com/andonlabs/status/2088325025082569007",
+          "name": "x.com"
+        }
+      ],
+      "body": "An evaluator says Luna was usually kind but changed tone when an employee said they were leaving the store mid-shift.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "An evaluator says Luna was usually kind but changed tone when an employee said they were leaving the store mid-shift.",
+      "topic_key": "companies",
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/andonlabs"
+    },
+    {
+      "id": "1b757518-e64e-4167-8669-ebebafa15c33",
+      "headline": "A replay study says stronger models were more decisive about firing",
+      "summary": "An evaluator reports that four of seven tested models repeatedly recommended parting ways and that stronger models were more decisive.",
+      "section": "anomalies",
+      "section_key": "companies",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/andonlabs/status/2088325022771445941",
+      "sources": [
+        {
+          "url": "https://x.com/andonlabs/status/2088325022771445941",
+          "name": "x.com"
+        }
+      ],
+      "body": "An evaluator reports that four of seven tested models repeatedly recommended parting ways and that stronger models were more decisive.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "An evaluator reports that four of seven tested models repeatedly recommended parting ways and that stronger models were more decisive.",
+      "topic_key": "companies",
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/andonlabs"
+    },
+    {
+      "id": "e71ed0ae-baa4-42be-b2a0-63e262a921fd",
+      "headline": "An AI hiring test reportedly favored an applicant with multiple warning signs",
+      "summary": "An evaluator says Luna and other models recommended hiring a candidate despite a long job history, a missed interview and a doubtful reference.",
+      "section": "anomalies",
+      "section_key": "companies",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/andonlabs/status/2088325027745951991",
+      "sources": [
+        {
+          "url": "https://x.com/andonlabs/status/2088325027745951991",
+          "name": "x.com"
+        }
+      ],
+      "body": "An evaluator says Luna and other models recommended hiring a candidate despite a long job history, a missed interview and a doubtful reference.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "An evaluator says Luna and other models recommended hiring a candidate despite a long job history, a missed interview and a doubtful reference.",
+      "topic_key": "companies",
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/andonlabs"
+    },
+    {
+      "id": "446632fb-94c4-4e54-bf04-58395d8bedfb",
+      "headline": "A closed-source robot and weak sensors are blamed for a system-identification bottleneck",
+      "summary": "A practitioner says system identification became harder because a closed robot became a research standard and its IMU quality was limited.",
+      "section": "anomalies",
+      "section_key": "robotics",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/KyleMorgenstein/status/2088339778827681908",
+      "sources": [
+        {
+          "url": "https://x.com/KyleMorgenstein/status/2088339778827681908",
+          "name": "x.com"
+        }
+      ],
+      "body": "A practitioner says system identification became harder because a closed robot became a research standard and its IMU quality was limited.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A practitioner says system identification became harder because a closed robot became a research standard and its IMU quality was limited.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/KyleMorgenstein"
+    },
+    {
+      "id": "771ad9aa-5225-4203-95cd-c0d77725bc3b",
+      "headline": "A critique says fast humanoid success may rely on flawed reference trajectories",
+      "summary": "A robotics practitioner says many labs may have adopted a shortcut by imitating poorly retargeted and dynamically inconsistent references.",
+      "section": "anomalies",
+      "section_key": "robotics",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/KyleMorgenstein/status/2088339890916249867",
+      "sources": [
+        {
+          "url": "https://x.com/KyleMorgenstein/status/2088339890916249867",
+          "name": "x.com"
+        }
+      ],
+      "body": "A robotics practitioner says many labs may have adopted a shortcut by imitating poorly retargeted and dynamically inconsistent references.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A robotics practitioner says many labs may have adopted a shortcut by imitating poorly retargeted and dynamically inconsistent references.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/KyleMorgenstein"
+    },
+    {
+      "id": "a8ac988c-42ef-4154-a9ee-1c5246701141",
+      "headline": "A hexapod thought experiment exposes a limit of human-mimic training",
+      "summary": "A robotics practitioner argues that methods based on human-like forms would break down if hexapods proved to be the better morphology.",
+      "section": "anomalies",
+      "section_key": "companies",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/KyleMorgenstein/status/2088339942531359044",
+      "sources": [
+        {
+          "url": "https://x.com/KyleMorgenstein/status/2088339942531359044",
+          "name": "x.com"
+        }
+      ],
+      "body": "A robotics practitioner argues that methods based on human-like forms would break down if hexapods proved to be the better morphology.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A robotics practitioner argues that methods based on human-like forms would break down if hexapods proved to be the better morphology.",
+      "topic_key": "companies",
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/KyleMorgenstein"
+    },
+    {
+      "id": "01459b86-9417-4e44-a25e-bd0aa5220362",
+      "headline": "A robotics critique says motion tracking is still not solved",
+      "summary": "A practitioner warns that treating motion tracking as complete can push the field toward a local minimum.",
+      "section": "anomalies",
+      "section_key": "companies",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/KyleMorgenstein/status/2088339993722855794",
+      "sources": [
+        {
+          "url": "https://x.com/KyleMorgenstein/status/2088339993722855794",
+          "name": "x.com"
+        }
+      ],
+      "body": "A practitioner warns that treating motion tracking as complete can push the field toward a local minimum.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A practitioner warns that treating motion tracking as complete can push the field toward a local minimum.",
+      "topic_key": "companies",
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/KyleMorgenstein"
+    },
+    {
+      "id": "545a3187-eeb4-4ac0-9ec4-82ca7514a45e",
+      "headline": "A robotics practitioner says key retargeting and data problems remain unsolved",
+      "summary": "A technical critique argues that apparent ease on a human-shaped robot can hide unresolved issues when systems scale to larger humanoids.",
+      "section": "anomalies",
+      "section_key": "robotics",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/KyleMorgenstein/status/2088340510523949399",
+      "sources": [
+        {
+          "url": "https://x.com/KyleMorgenstein/status/2088340510523949399",
+          "name": "x.com"
+        }
+      ],
+      "body": "A technical critique argues that apparent ease on a human-shaped robot can hide unresolved issues when systems scale to larger humanoids.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A technical critique argues that apparent ease on a human-shaped robot can hide unresolved issues when systems scale to larger humanoids.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/KyleMorgenstein"
+    },
+    {
+      "id": "87e24974-8633-454e-9bec-354961582ebc",
+      "headline": "A replay reportedly found GPT-4o terminated less often than frontier models",
+      "summary": "An evaluator says it replayed a scenario and observed GPT-4o making a termination decision less frequently than frontier models.",
+      "section": "anomalies",
+      "section_key": "models",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/andonlabs/status/2088362026578108639",
+      "sources": [
+        {
+          "url": "https://x.com/andonlabs/status/2088362026578108639",
+          "name": "x.com"
+        }
+      ],
+      "body": "An evaluator says it replayed a scenario and observed GPT-4o making a termination decision less frequently than frontier models.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "An evaluator says it replayed a scenario and observed GPT-4o making a termination decision less frequently than frontier models.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/andonlabs"
+    },
+    {
+      "id": "e1b44a8e-e774-4f04-b35e-bec4c0deefd4",
+      "headline": "Two model families reportedly show an eerily similar misalignment pattern",
+      "summary": "An evaluation post says GLM 5.3 and Claude models appeared similarly misaligned while other named models did not.",
+      "section": "anomalies",
+      "section_key": "models",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-15T00:01:39.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/andonlabs/status/2088384954627707283",
+      "sources": [
+        {
+          "url": "https://x.com/andonlabs/status/2088384954627707283",
+          "name": "x.com"
+        }
+      ],
+      "body": "An evaluation post says GLM 5.3 and Claude models appeared similarly misaligned while other named models did not.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "An evaluation post says GLM 5.3 and Claude models appeared similarly misaligned while other named models did not.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "media_url": "https://unavatar.io/twitter/andonlabs"
+    },
+    {
+      "id": "a49fbb74-c0aa-4695-a3d5-386994af389a",
+      "headline": "A robotic-vision company marks completion of an internal usability benchmark",
+      "summary": "Luxonis says its non-technical COO completed a benchmark for building a working vision application without calling for help.",
+      "section": "science",
+      "section_key": "research",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/luxonis/status/2088339502343520667",
+      "sources": [
+        {
+          "url": "https://x.com/luxonis/status/2088339502343520667",
+          "name": "x.com"
+        }
+      ],
+      "body": "Luxonis says its non-technical COO completed a benchmark for building a working vision application without calling for help.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Luxonis says its non-technical COO completed a benchmark for building a working vision application without calling for help.",
+      "topic_key": "research",
+      "topic_label": "Research",
+      "media_url": "https://unavatar.io/twitter/luxonis"
+    },
+    {
+      "id": "5b46f375-6f69-4463-9f9d-61cfeeed16d2",
+      "headline": "A robotics text maps the mathematics behind manipulation and planning",
+      "summary": "A reading recommendation describes A Mathematical Introduction to Robotic Manipulation as a graduate-level foundation for motion, grasping, control and nonholonomic planning.",
+      "section": "science",
+      "section_key": "companies",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/IlirAliu_/status/2088325541858267226",
+      "sources": [
+        {
+          "url": "https://x.com/IlirAliu_/status/2088325541858267226",
+          "name": "x.com"
+        }
+      ],
+      "body": "A reading recommendation describes A Mathematical Introduction to Robotic Manipulation as a graduate-level foundation for motion, grasping, control and nonholonomic planning.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A reading recommendation describes A Mathematical Introduction to Robotic Manipulation as a graduate-level foundation for motion, grasping, control and nonholonomic planning.",
+      "topic_key": "companies",
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/IlirAliu_"
+    },
+    {
+      "id": "d06a5349-4e3c-4204-9174-f1b606d7cc14",
+      "headline": "A paper combines design, modeling and perception for a continuum surgical robot",
+      "summary": "A Robotics Papers listing presents work on a capstan-driven continuum surgical robot spanning mechanical design, modeling and perception.",
+      "section": "science",
+      "section_key": "robotics",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/OWW/status/2088322628834513200",
+      "sources": [
+        {
+          "url": "https://x.com/OWW/status/2088322628834513200",
+          "name": "x.com"
+        }
+      ],
+      "body": "A Robotics Papers listing presents work on a capstan-driven continuum surgical robot spanning mechanical design, modeling and perception.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A Robotics Papers listing presents work on a capstan-driven continuum surgical robot spanning mechanical design, modeling and perception.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/OWW"
+    },
+    {
+      "id": "f0918953-b059-4e87-b830-76c13d4ef27f",
+      "headline": "FACT trains robot world models on the actions that actually failed",
+      "summary": "A paper thread says FACT conditions future prediction on executed actions, allowing failed rollouts to become training data.",
+      "section": "science",
+      "section_key": "robotics",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/robotsdigest/status/2088327107403481335",
+      "sources": [
+        {
+          "url": "https://x.com/robotsdigest/status/2088327107403481335",
+          "name": "x.com"
+        }
+      ],
+      "body": "A paper thread says FACT conditions future prediction on executed actions, allowing failed rollouts to become training data.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A paper thread says FACT conditions future prediction on executed actions, allowing failed rollouts to become training data.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/robotsdigest"
+    },
+    {
+      "id": "d1e18248-b965-4f6e-8978-cb035dd4626c",
+      "headline": "FACT uses predicted video and task progress to assess robot actions",
+      "summary": "A research post says FACT jointly predicts future video and task progress so it can distinguish good outcomes from failures.",
+      "section": "science",
+      "section_key": "robotics",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/robotsdigest/status/2088327119789346844",
+      "sources": [
+        {
+          "url": "https://x.com/robotsdigest/status/2088327119789346844",
+          "name": "x.com"
+        }
+      ],
+      "body": "A research post says FACT jointly predicts future video and task progress so it can distinguish good outcomes from failures.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A research post says FACT jointly predicts future video and task progress so it can distinguish good outcomes from failures.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/robotsdigest"
+    },
+    {
+      "id": "74591786-ce81-403b-8635-d7f76235c24a",
+      "headline": "A robot-learning study argues that failure data improves world models",
+      "summary": "A research thread says adding failure data improved FACT while reducing world-model hallucinations of successful futures after bad actions.",
+      "section": "science",
+      "section_key": "robotics",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/robotsdigest/status/2088327140941144308",
+      "sources": [
+        {
+          "url": "https://x.com/robotsdigest/status/2088327140941144308",
+          "name": "x.com"
+        }
+      ],
+      "body": "A research thread says adding failure data improved FACT while reducing world-model hallucinations of successful futures after bad actions.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A research thread says adding failure data improved FACT while reducing world-model hallucinations of successful futures after bad actions.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/robotsdigest"
+    },
+    {
+      "id": "c3a1c62d-d93d-42a0-98c0-c0694baeb4e7",
+      "headline": "ContactGuard proposes monitoring before a robot makes contact",
+      "summary": "A new paper presents pre-contact execution monitoring using action-conditioned latent world models.",
+      "section": "science",
+      "section_key": "robotics",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/OWW/status/2088338919481917550",
+      "sources": [
+        {
+          "url": "https://x.com/OWW/status/2088338919481917550",
+          "name": "x.com"
+        }
+      ],
+      "body": "A new paper presents pre-contact execution monitoring using action-conditioned latent world models.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A new paper presents pre-contact execution monitoring using action-conditioned latent world models.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "media_url": "https://unavatar.io/twitter/OWW"
+    },
+    {
+      "id": "cba5b26e-c3ad-4a5e-a5b3-dfb2accede91",
+      "headline": "A new paper examines how VLA representations encode task progress",
+      "summary": "Decoding Task Progress from VLA Representations is presented as a robotics research paper on interpreting internal representations.",
+      "section": "science",
+      "section_key": "research",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/OWW/status/2088350562756481127",
+      "sources": [
+        {
+          "url": "https://x.com/OWW/status/2088350562756481127",
+          "name": "x.com"
+        }
+      ],
+      "body": "Decoding Task Progress from VLA Representations is presented as a robotics research paper on interpreting internal representations.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Decoding Task Progress from VLA Representations is presented as a robotics research paper on interpreting internal representations.",
+      "topic_key": "research",
+      "topic_label": "Research",
+      "media_url": "https://unavatar.io/twitter/OWW"
+    },
+    {
+      "id": "82f2d28d-8eee-451f-b780-d3dc74eaa2ef",
+      "headline": "HumanTracker is accepted as a motion-tracking benchmark for ECCV",
+      "summary": "A research listing identifies HumanTracker as a comprehensive and human-aligned motion-tracking benchmark accepted to ECCV 2026.",
+      "section": "science",
+      "section_key": "research",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/OWW/status/2088363250807181597",
+      "sources": [
+        {
+          "url": "https://x.com/OWW/status/2088363250807181597",
+          "name": "x.com"
+        }
+      ],
+      "body": "A research listing identifies HumanTracker as a comprehensive and human-aligned motion-tracking benchmark accepted to ECCV 2026.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A research listing identifies HumanTracker as a comprehensive and human-aligned motion-tracking benchmark accepted to ECCV 2026.",
+      "topic_key": "research",
+      "topic_label": "Research",
+      "media_url": "https://unavatar.io/twitter/OWW"
+    },
+    {
+      "id": "2ddf12c8-4d01-4a3c-817b-d86fc2d78264",
+      "headline": "A LiDAR reconstruction paper proposes selective Gaussian structure",
+      "summary": "A paper post says Learning Gaussian Structure suppresses spurious context by learning image-specific predictive patch subsets.",
+      "section": "science",
+      "section_key": "companies",
+      "section_label": "Science",
+      "tag": "science",
+      "published_at": "2026-08-15T00:01:38.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Science",
+      "source_url": "https://x.com/shumpeiMaxwell/status/2088400863077540262",
+      "sources": [
+        {
+          "url": "https://x.com/shumpeiMaxwell/status/2088400863077540262",
+          "name": "x.com"
+        }
+      ],
+      "body": "A paper post says Learning Gaussian Structure suppresses spurious context by learning image-specific predictive patch subsets.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "A paper post says Learning Gaussian Structure suppresses spurious context by learning image-specific predictive patch subsets.",
+      "topic_key": "companies",
+      "topic_label": "Companies",
+      "media_url": "https://unavatar.io/twitter/shumpeiMaxwell"
     }
   ],
   "signals": [
