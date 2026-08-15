@@ -5,7 +5,7 @@
 (function (global) {
   "use strict";
 
-  var VERSION = "an87";
+  var VERSION = "an88";
   // GitHub Pages has no /god-mode proxy. Engines that read this hit Unify.
   try {
     if (!global.UNALIGNED_GOD_MODE_PROXY) {

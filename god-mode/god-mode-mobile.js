@@ -190,6 +190,7 @@
     ['Shanghai', 31.23, 121.47],
     ['Hong Kong', 22.32, 114.17],
     ['Bangkok', 13.76, 100.5],
+    ['Stockholm', 59.33, 18.07],
   ];
   const LAYERS = [
     { id: 'all', label: 'All' },
@@ -4257,6 +4258,34 @@
   }
 
 
+
+  function knownCityCountry(name) {
+    const n = String(name || "").toLowerCase().replace("são", "sao");
+    const map = {
+      stockholm: "Sweden", tokyo: "Japan", london: "United Kingdom", paris: "France",
+      berlin: "Germany", dubai: "United Arab Emirates", mumbai: "India", singapore: "Singapore",
+      seoul: "South Korea", sydney: "Australia", moscow: "Russia", cairo: "Egypt",
+      lagos: "Nigeria", johannesburg: "South Africa", nairobi: "Kenya", beijing: "China",
+      shanghai: "China", "hong kong": "China", bangkok: "Thailand", toronto: "Canada",
+      "sao paulo": "Brazil", "mexico city": "Mexico", chicago: "United States",
+      "new york": "United States", "los angeles": "United States"
+    };
+    return map[n] || "";
+  }
+  function dropConflictingUsTowns(rows, known) {
+    if (!known) return rows || [];
+    const country = knownCityCountry(known.name || known.title);
+    const intl = country && country !== "United States";
+    const usRe = /\b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)\b/;
+    return (rows || []).filter(function (r) {
+      if (!r || r.source === "known-city") return !!r;
+      const blob = (String(r.sub || "") + " " + String(r.title || "") + " " + String(r.name || "")).toLowerCase();
+      if (/\btexas\b|\btx\b|, tx\b/.test(blob)) return false;
+      if (intl && usRe.test(blob) && !/sweden|japan|united kingdom|france|germany|sweden/.test(blob)) return false;
+      return true;
+    });
+  }
+
   function knownCityHit(q) {
     const s = String(q || "").trim().toLowerCase().replace(/\s+/g, " ");
     if (!s) return null;
@@ -4264,11 +4293,12 @@
       ['Tokyo', 35.68, 139.69], ['Chicago', 41.88, -87.63], ['London', 51.51, -0.13],
       ['Paris', 48.86, 2.35], ['New York', 40.71, -74.01], ['Los Angeles', 34.05, -118.24],
       ['Singapore', 1.35, 103.82], ['Seoul', 37.57, 126.98], ['Sydney', -33.87, 151.21],
-      ['Berlin', 52.52, 13.41], ['Dubai', 25.20, 55.27], ['Mumbai', 19.08, 72.88],
+      ['Berlin', 52.52, 13.41], ['Stockholm', 59.33, 18.07], ['Dubai', 25.20, 55.27], ['Mumbai', 19.08, 72.88],
     ];
     for (let i = 0; i < cities.length; i++) {
       if (String(cities[i][0]).toLowerCase() === s) {
-        return { lat: cities[i][1], lng: cities[i][2], name: cities[i][0], title: cities[i][0], sub: 'City', kind: 'city', source: 'known-city', house: '' };
+        const country = knownCityCountry(cities[i][0]);
+        return { lat: cities[i][1], lng: cities[i][2], name: cities[i][0], title: cities[i][0], sub: country && country !== 'United States' ? ('City · ' + country) : 'City', kind: 'city', source: 'known-city', house: '' };
       }
     }
     return null;
@@ -4506,7 +4536,10 @@
       });
     }
     const known = knownCityHit(q);
-    if (known) rows.unshift(known);
+    if (known) {
+      rows = dropConflictingUsTowns(rows, known);
+      rows.unshift(known);
+    }
     return mergeSuggestRows(syn, rows);
   }
 
@@ -4643,6 +4676,8 @@
     const [suggestHi, setSuggestHi] = React.useState(-1);
     const suggestGenRef = React.useRef(0);
     const searchingSinceRef = React.useRef(0);
+    const searchQRef = React.useRef('');
+    const searchSuggestsRef = React.useRef([]);
     const [streetMode, setStreetMode] = React.useState(false);
     const focusRef = React.useRef(null);
     const globeRef = React.useRef(null);
@@ -4657,6 +4692,8 @@
       setLayer(activeLayer);
       layerRef.current = activeLayer;
     }, [activeLayer]);
+    React.useEffect(function () { searchQRef.current = searchQ; }, [searchQ]);
+    React.useEffect(function () { searchSuggestsRef.current = searchSuggests; }, [searchSuggests]);
     React.useEffect(function () {
       selectedRef.current = selected;
       if (selected && Number.isFinite(Number(selected.lat)) && Number.isFinite(Number(selected.lng))) {
@@ -4678,6 +4715,15 @@
           } catch (eType) {}
         }
         if (e.key === 'Escape') {
+          if (e.preventDefault) e.preventDefault();
+          if (e.stopPropagation) e.stopPropagation();
+          if ((searchSuggestsRef.current && searchSuggestsRef.current.length) || String(searchQRef.current || '').trim()) {
+            setSearchQ('');
+            setSearchMsg('');
+            setSearchSuggests([]);
+            setSuggestHi(-1);
+            return;
+          }
           if (selectedRef.current) { setSelected(null); return; }
           if (onClose) onClose();
         }
@@ -5505,6 +5551,8 @@
           },
           onKeyDown: function (e) {
             if (e && e.key === 'Escape') {
+              if (e.preventDefault) e.preventDefault();
+              if (e.stopPropagation) e.stopPropagation();
               setSearchQ('');
               setSearchMsg('');
               setSearchSuggests([]);

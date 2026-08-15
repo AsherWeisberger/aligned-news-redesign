@@ -5389,6 +5389,34 @@
     };
   }
 
+
+  function knownCityCountry(name) {
+    const n = String(name || "").toLowerCase().replace("são", "sao");
+    const map = {
+      stockholm: "Sweden", tokyo: "Japan", london: "United Kingdom", paris: "France",
+      berlin: "Germany", dubai: "United Arab Emirates", mumbai: "India", singapore: "Singapore",
+      seoul: "South Korea", sydney: "Australia", moscow: "Russia", cairo: "Egypt",
+      lagos: "Nigeria", johannesburg: "South Africa", nairobi: "Kenya", beijing: "China",
+      shanghai: "China", "hong kong": "China", bangkok: "Thailand", toronto: "Canada",
+      "sao paulo": "Brazil", "mexico city": "Mexico", chicago: "United States",
+      "new york": "United States", "los angeles": "United States"
+    };
+    return map[n] || "";
+  }
+  function dropConflictingUsTowns(rows, known) {
+    if (!known) return rows || [];
+    const country = knownCityCountry(known.name || known.title);
+    const intl = country && country !== "United States";
+    const usRe = /\b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)\b/;
+    return (rows || []).filter(function (r) {
+      if (!r || r.source === "known-city") return !!r;
+      const blob = (String(r.sub || "") + " " + String(r.title || "") + " " + String(r.name || "")).toLowerCase();
+      if (/\btexas\b|\btx\b|, tx\b/.test(blob)) return false;
+      if (intl && usRe.test(blob) && !/sweden|japan|united kingdom|france|germany|sweden/.test(blob)) return false;
+      return true;
+    });
+  }
+
   function knownCityHit(q) {
     const s = String(q || "").trim().toLowerCase().replace(/\s+/g, " ");
     if (!s || parseHouseNumber(s)) return null;
@@ -5399,13 +5427,13 @@
       if (n === s || n.split(",")[0] === s) {
         return {
           lat: WEATHER_CITIES[i][1], lng: WEATHER_CITIES[i][2],
-          name: name, title: name, sub: "City", kind: "city", source: "known-city", house: "",
+          name: name, title: name, sub: (function(){ var c = knownCityCountry(name); return c && c !== "United States" ? ("City · " + c) : "City"; })(), kind: "city", source: "known-city", house: "",
         };
       }
       if (!best && s.length >= 4 && (n.indexOf(s) === 0 || s.indexOf(n) === 0)) {
         best = {
           lat: WEATHER_CITIES[i][1], lng: WEATHER_CITIES[i][2],
-          name: name, title: name, sub: "City", kind: "city", source: "known-city", house: "",
+          name: name, title: name, sub: (function(){ var c = knownCityCountry(name); return c && c !== "United States" ? ("City · " + c) : "City"; })(), kind: "city", source: "known-city", house: "",
         };
       }
     }
@@ -5634,6 +5662,7 @@
     }
     const known = knownCityHit(q);
     if (known) {
+      rows = dropConflictingUsTowns(rows, known);
       rows = (rows || []).filter(function (r) {
         const nm = String((r && (r.name || r.title)) || '').toLowerCase();
         if (/woods of alon/.test(nm)) return false;
