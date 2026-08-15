@@ -3,7 +3,7 @@
     "generatedAt": "2026-08-15T19:30:06.000Z",
     "scrapedAt": "2026-08-15T19:30:06.000Z",
     "source": "alignednews-rss",
-    "note": "Refreshed from https://alignednews.com/rss",
+    "note": "Refreshed from https://alignednews.com/rss | x-algorithm lead 2026-08-14",
     "rssLastBuildDate": "Sat, 15 Aug 2026 19:04:18 GMT",
     "rssItemCount": 50,
     "rssKeptCount": 50,
@@ -132,6 +132,40 @@
     }
   ],
   "stories": [
+    {
+      "id": "0a3dda84-03a3-4656-9ba8-cdfb428bf46d",
+      "headline": "X open-sources the For You ranker: Phoenix, not a single engagement score.",
+      "summary": "The code that orders For You is public. Thunder pulls posts from accounts you follow. Phoenix and SimClusters pull everything else. A Grok-based transformer predicts many actions per post. One weighted sum is the rank. Visibility filters sit in a separate path.",
+      "section": "ten-things",
+      "section_key": "research",
+      "section_label": "Research",
+      "tag": "ten-things",
+      "published_at": "2026-08-14T18:00:00.000Z",
+      "author_name": "xAI",
+      "source_list": "AI Leaders",
+      "source_url": "https://github.com/xai-org/x-algorithm",
+      "sources": [
+        {
+          "url": "https://github.com/xai-org/x-algorithm",
+          "name": "GitHub"
+        }
+      ],
+      "body": "xAI published the For You pipeline at github.com/xai-org/x-algorithm. In-network candidates come from Thunder (recent posts by accounts the viewer follows). Out-of-network candidates come from Phoenix two-tower retrieval plus SimClusters. Both sets go through the same ranker: Phoenix, a transformer adapted from Grok-1, predicts probabilities (and some continuous values) for many viewer actions on each post. Those predictions are combined with weights in home-mixer. The weights scale predicted probabilities, not raw like/report counts. A later diversity pass (VMRanker) trades a little score for less similar neighbors. Visibility labels can drop or interstitial a post after ranking. The Aug 14 note in the repo is the one that matters for operators: 1 report does not cancel 468 likes.",
+      "kind": "story",
+      "engagement": {
+        "bookmark_count": 0,
+        "impression_count": 0,
+        "like_count": 0,
+        "quote_count": 0,
+        "reply_count": 0,
+        "retweet_count": 0
+      },
+      "why_it_matters": "Aligned News already ranks from Scoble’s 63 lists. The same graph now has a public score function. Reach questions can be answered from this repo instead of folklore.",
+      "topic_key": "research",
+      "topic_label": "Research",
+      "media_url": "https://opengraph.githubassets.com/1/xai-org/x-algorithm",
+      "x_handle": ""
+    },
     {
       "id": "661d8a98-db99-4e8d-93f8-2a90ff5e48b9",
       "headline": "OpenAI executive departures intensify criticism of its AGI claims.",
@@ -1863,6 +1897,16 @@
     }
   ],
   "reports": [
+    {
+      "id": "rep-x-algorithm-2026-08-14",
+      "title": "X For You, as shipped",
+      "summary": "Phoenix predicts many actions. Weighted sum ranks. Thunder vs out-of-network. Visibility is a different system. Repo: xai-org/x-algorithm.",
+      "type": "deep dive",
+      "author": "Aligned News Research",
+      "reading_time_min": "4",
+      "published_at": "2026-08-14T18:00:00.000Z",
+      "url": "https://github.com/xai-org/x-algorithm"
+    },
     {
       "id": "rep-morning-2026-08-14",
       "title": "Morning Run — August 14, 2026",
