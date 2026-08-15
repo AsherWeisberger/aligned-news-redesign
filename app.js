@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an103";
+  var DATA_URL = "live-data.json?v=an104";
   var state = {
     data: null,
     filter: "all",
@@ -178,31 +178,21 @@
 
   function whyHereLine(item) {
     if (!item) return "";
-    var list = String(item.source_list || item.section_label || "").replace(/\s+/g, " ").trim();
     var nSources = (item.sources && item.sources.length) || 0;
-    var first;
-    if (nSources >= 2) first = "Hit " + nSources + " of Scoble's lists.";
-    else if (list) first = "On Scoble's " + list + " list.";
-    else first = "On Scoble's lists.";
-
     var e = item.engagement || {};
     var likes = Number(e.like_count) || 0;
     var replies = Number(e.reply_count) || 0;
     var quotes = Number(e.quote_count) || 0;
     var talk = replies + quotes;
-    var handle = String(item.x_handle || "").replace(/^@/, "").trim() || xHandleFrom(item);
-
-    var second = "";
-    if (talk > likes && talk > 0) {
-      second = "People are talking, not just liking, which is what For You actually rewards.";
-    } else if (likes > 0 && talk === 0) {
-      second = "Likes don't move For You much. Replies and time spent do.";
-    } else if (isEventItem(item)) {
-      second = "For You will hide a pile of similar event posts. The desk still files it from the list.";
-    } else if (handle) {
-      second = "From @" + handle + ".";
-    }
-    return (first + (second ? " " + second : "")).replace(/\s+/g, " ").trim();
+    var bits = [];
+    if (nSources >= 2) bits.push("Hit " + nSources + " of Scoble's lists");
+    if (talk > likes && talk > 0) bits.push("people are talking, not just liking");
+    else if (likes > 0 && talk === 0) bits.push("likes won't carry this on For You");
+    if (bits.length) return bits.join(". ").replace(/^./, function (c) { return c.toUpperCase(); }) + ".";
+    if (isEventItem(item)) return "";
+    var list = String(item.source_list || item.section_label || "").replace(/\s+/g, " ").trim();
+    if (!list || /^events/i.test(list)) return "";
+    return "On Scoble's " + list + " list.";
   }
 
   function whyHereHtml(item) {
