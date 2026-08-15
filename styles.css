@@ -109,6 +109,7 @@ button, input { font: inherit; }
 .side-nav a:focus-visible,
 .btn:focus-visible,
 .tool-toggle:focus-visible,
+.feed-collabs:focus-visible,
 .icon-btn:focus-visible,
 .menu-btn:focus-visible,
 button:focus-visible {
@@ -4726,6 +4727,9 @@ html[data-density="compact"] .feed-row {
   text-transform: uppercase;
   color: var(--muted);
 }
+.feed-module-head .module-label {
+  margin: 0;
+}
 .feed-module .feed-day-head:first-child {
   margin-top: 0.15rem;
 }
@@ -5119,4 +5123,54 @@ html[data-density="compact"] .lead-card-opener .lead-dek {
     opacity: 1;
     transform: none;
   }
+}
+
+
+/* === an94: Collabs on the feed toolbar (title left, compact control right) === */
+.feed-module-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin: 0 0 0.35rem;
+}
+.nl-section-head.feed-module-head {
+  margin: 0 0 0.85rem;
+  align-items: center;
+}
+.feed-collabs {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 550;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.16rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  box-shadow: none;
+  transition: background 0.15s var(--ease-soft), border-color 0.15s var(--ease-soft), color 0.15s var(--ease-soft);
+}
+.feed-collabs:hover {
+  background: var(--bg-soft);
+  border-color: var(--border-strong);
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+.feed-collabs:active {
+  background: var(--bg-wash);
+}
+/* Never sit in site chrome — Collabs belongs on the feed row */
+.topbar .feed-collabs,
+.top-actions .feed-collabs,
+.mobile-dock .feed-collabs {
+  display: none !important;
 }
