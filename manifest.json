@@ -1,0 +1,32 @@
+{
+  "name": "Aligned News",
+  "short_name": "Aligned",
+  "description": "AI signal from 63 curated X lists.",
+  "start_url": "/aligned-news-redesign/",
+  "scope": "/aligned-news-redesign/",
+  "id": "/aligned-news-redesign/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F0EFEC",
+  "theme_color": "#F0EFEC",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
