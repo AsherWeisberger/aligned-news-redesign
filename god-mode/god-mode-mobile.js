@@ -3567,6 +3567,7 @@
     if (t === 'launch') return 'Launch';
     if (t === 'deal') return 'Deal';
     if (t === 'gpsjam') return 'GPS jam';
+    if (t === 'place') return 'Place';
     return 'Point';
   }
 
@@ -3599,6 +3600,15 @@
     if (item.type === 'gpsjam') return item.label || item.name || 'GPS jam';
     if (item.type === 'satellite') return 'Live position';
     if (item.type === 'starlink') return 'On orbit';
+    if (item.type === 'place') {
+      const lat = Number(item.lat);
+      const lng = Number(item.lng);
+      if (Number.isFinite(lat) && Number.isFinite(lng)) {
+        const ns = lat >= 0 ? 'N' : 'S';
+        const ew = lng >= 0 ? 'E' : 'W';
+        return Math.abs(lat).toFixed(3) + '\u00b0' + ns + ' ' + Math.abs(lng).toFixed(3) + '\u00b0' + ew;
+      }
+    }
     return '';
   }
 
