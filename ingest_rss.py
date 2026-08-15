@@ -6,16 +6,19 @@ and fills Today from real stories — ten-things first, never Scoble reply dump.
 """
 from __future__ import annotations
 
+import html as html_lib
 import json
 import re
 import sys
+import threading
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 
 ROOT = Path(__file__).resolve().parent
 DATA_PATH = ROOT / "live-data.json"
@@ -23,7 +26,7 @@ RSS_URLS = (
     "https://alignednews.com/rss",
     "https://alignednews.com/feed.xml",
 )
-UA = "AlignedNewsRedesign/an92 (+https://asherweisberger.github.io/aligned-news-redesign/)"
+UA = "AlignedNewsRedesign/an98 (+https://asherweisberger.github.io/aligned-news-redesign/)"
 
 JUNK_TITLE_RE = re.compile(
     r"posted a brief reply|documents a current scoble development|"
@@ -153,6 +156,303 @@ def verify_unavatar(url: str) -> str:
     except (urllib.error.URLError, TimeoutError, ValueError):
         # Network flake: keep the well-formed URL rather than stripping photos.
         return f"https://unavatar.io/twitter/{handle}"
+
+META_PROP_Q = re.compile(r'(?:property|name)\s*=\s*["\']([^"\']+)["\']', re.I)
+META_PROP_B = re.compile(r'(?:property|name)\s*=\s*([^\s>]+)', re.I)
+META_CONTENT_Q = re.compile(r'content\s*=\s*["\']([^"\']+)["\']', re.I)
+META_CONTENT_B = re.compile(r'content\s*=\s*([^\s>]+)', re.I)
+
+X_STATUS_RE = re.compile(r"(?:x\.com|twitter\.com)/[^/\s]+/status/(\d+)", re.I)
+AVATAR_HINT_RE = re.compile(
+    r"unavatar\.io|pbs\.twimg\.com/profile_images|abs\.twimg\.com|"
+    r"avatars\.githubusercontent|gravatar\.com|ui-avatars\.com|i\.pravatar\.cc|"
+    r"profile[-_]?images",
+    re.I,
+)
+VIDEO_EXT_RE = re.compile(r"\.(?:mp4|m3u8|mov|webm)(?:$|\?)", re.I)
+HTML_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+)
+
+
+def http_get(url: str, timeout: float, accept: str, ua: str = UA) -> bytes:
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": ua,
+            "Accept": accept,
+            "Accept-Language": "en-US,en;q=0.9",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read()
+
+
+def is_real_photo(url: str) -> bool:
+    u = (url or "").strip()
+    if not u.startswith("http://") and not u.startswith("https://"):
+        return False
+    if AVATAR_HINT_RE.search(u):
+        return False
+    parsed = urlparse(u)
+    host = parsed.netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    if host in ("x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"):
+        return False
+    path = parsed.path.lower()
+    if path.endswith(".svg"):
+        return False
+    if VIDEO_EXT_RE.search(u):
+        return False
+    return True
+
+
+def first_photo(*cands) -> str:
+    for c in cands:
+        if isinstance(c, dict):
+            for key in (
+                "url",
+                "src",
+                "image",
+                "thumbnail_url",
+                "thumbnail",
+                "poster",
+                "preview_image_url",
+                "preview",
+                "original",
+            ):
+                v = first_photo(c.get(key))
+                if v:
+                    return v
+        elif isinstance(c, list):
+            for item in c:
+                v = first_photo(item)
+                if v:
+                    return v
+        elif isinstance(c, str) and is_real_photo(c):
+            return c.strip()
+    return ""
+
+
+def photos_from_fx_tweet(tweet: dict) -> str:
+    if not isinstance(tweet, dict):
+        return ""
+    media = tweet.get("media") or {}
+    if isinstance(media, dict):
+        got = first_photo(media.get("photos"))
+        if got:
+            return got
+        for item in media.get("all") or []:
+            if isinstance(item, dict) and str(item.get("type") or "").lower() == "photo":
+                got = first_photo(item)
+                if got:
+                    return got
+        got = first_photo(media.get("videos"), media.get("all"))
+        if got:
+            return got
+    quote = tweet.get("quote")
+    if isinstance(quote, dict):
+        got = photos_from_fx_tweet(quote)
+        if got:
+            return got
+    for key in ("retweet", "retweeted_tweet", "rt", "reposted_tweet"):
+        nested = tweet.get(key)
+        if isinstance(nested, dict):
+            got = photos_from_fx_tweet(nested)
+            if got:
+                return got
+    return ""
+
+
+def photo_from_fxtwitter(status_id: str) -> str:
+    for url in (
+        f"https://api.fxtwitter.com/status/{status_id}",
+        f"https://api.fxtwitter.com/i/status/{status_id}",
+    ):
+        try:
+            raw = http_get(url, 10, "application/json")
+            data = json.loads(raw.decode("utf-8", "replace"))
+        except (urllib.error.URLError, TimeoutError, ValueError, json.JSONDecodeError):
+            continue
+        tweet = data.get("tweet") if isinstance(data, dict) else None
+        if not isinstance(tweet, dict) and isinstance(data, dict):
+            tweet = data
+        got = photos_from_fx_tweet(tweet if isinstance(tweet, dict) else {})
+        if got:
+            return got
+    return ""
+
+
+def photo_from_vxtwitter(status_id: str) -> str:
+    url = f"https://api.vxtwitter.com/Twitter/status/{status_id}"
+    try:
+        raw = http_get(url, 10, "application/json")
+        data = json.loads(raw.decode("utf-8", "replace"))
+    except (urllib.error.URLError, TimeoutError, ValueError, json.JSONDecodeError):
+        return ""
+    if not isinstance(data, dict):
+        return ""
+    got = first_photo(data.get("media_extended"), data.get("mediaURLs"))
+    if got:
+        return got
+    qrt = data.get("qrt")
+    if isinstance(qrt, dict):
+        got = first_photo(qrt.get("media_extended"), qrt.get("mediaURLs"))
+        if got:
+            return got
+    return ""
+
+
+def photo_from_syndication(status_id: str) -> str:
+    url = f"https://cdn.syndication.twimg.com/tweet-result?id={status_id}&lang=en"
+    try:
+        raw = http_get(url, 8, "application/json")
+        data = json.loads(raw.decode("utf-8", "replace"))
+    except (urllib.error.URLError, TimeoutError, ValueError, json.JSONDecodeError):
+        return ""
+    if not isinstance(data, dict):
+        return ""
+    got = first_photo(data.get("photos"), data.get("mediaDetails"))
+    if got:
+        return got
+    video = data.get("video") or data.get("videoInfo") or {}
+    if isinstance(video, dict):
+        got = first_photo(video.get("poster"), video.get("thumbnail_url"), video)
+        if got:
+            return got
+    return ""
+
+
+def og_image_from_html(html: str, base: str) -> str:
+    if not html:
+        return ""
+    prefer = []
+    fallback = []
+    for tag in re.findall(r"<meta\b[^>]*>", html, re.I):
+        prop = ""
+        content = ""
+        m = META_PROP_Q.search(tag)
+        if not m:
+            m = META_PROP_B.search(tag)
+        if m:
+            prop = html_lib.unescape(m.group(1)).strip().lower()
+        m = META_CONTENT_Q.search(tag)
+        if not m:
+            m = META_CONTENT_B.search(tag)
+        if m:
+            content = html_lib.unescape(m.group(1)).strip()
+        if not prop or not content:
+            continue
+        if prop in ("og:image", "og:image:url", "og:image:secure_url"):
+            prefer.append(content)
+        elif prop in ("twitter:image", "twitter:image:src"):
+            fallback.append(content)
+    for content in prefer + fallback:
+        abs_url = urljoin(base, content)
+        if is_real_photo(abs_url):
+            return abs_url
+    return ""
+
+
+def og_image(url: str, timeout: float = 8.0) -> str:
+    try:
+        raw = http_get(
+            url,
+            timeout,
+            "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
+            ua=HTML_UA,
+        )
+    except (urllib.error.URLError, TimeoutError, ValueError, OSError):
+        return ""
+    html = raw.decode("utf-8", "replace")
+    try:
+        return og_image_from_html(html, url)
+    except Exception:
+        return ""
+
+
+def status_id_from_url(url: str) -> str:
+    m = X_STATUS_RE.search(url or "")
+    return m.group(1) if m else ""
+
+
+def resolve_story_photo(source_url: str) -> str:
+    url = (source_url or "").strip()
+    if not url:
+        return ""
+    sid = status_id_from_url(url)
+    if sid:
+        got = photo_from_fxtwitter(sid)
+        if got:
+            return got
+        got = photo_from_vxtwitter(sid)
+        if got:
+            return got
+        got = photo_from_syndication(sid)
+        if got:
+            return got
+        got = og_image(f"https://fxtwitter.com/i/status/{sid}", timeout=8)
+        if got:
+            return got
+        got = og_image(url, timeout=8)
+        if got:
+            return got
+        return ""
+    return og_image(url, timeout=8)
+
+
+def attach_photos(stories: list) -> dict:
+    """Fill media_url with a real photo when one exists. Never use unavatar."""
+    cache = {}
+    lock = threading.Lock()
+    found = 0
+    empty = 0
+    x_found = 0
+    x_empty = 0
+    x_total = 0
+
+    def work(story):
+        url = story.get("source_url") or ""
+        with lock:
+            if url in cache:
+                return url, cache[url]
+        photo = resolve_story_photo(url)
+        with lock:
+            cache[url] = photo
+        return url, photo
+
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        futs = {pool.submit(work, s): s for s in stories}
+        for fut in as_completed(futs):
+            story = futs[fut]
+            try:
+                _, photo = fut.result()
+            except Exception:
+                photo = ""
+            is_x = bool(status_id_from_url(story.get("source_url") or ""))
+            if is_x:
+                x_total += 1
+            if photo:
+                story["media_url"] = photo
+                found += 1
+                if is_x:
+                    x_found += 1
+            else:
+                story.pop("media_url", None)
+                empty += 1
+                if is_x:
+                    x_empty += 1
+    return {
+        "found": found,
+        "empty": empty,
+        "x_total": x_total,
+        "x_found": x_found,
+        "x_empty": x_empty,
+    }
+
+
 
 def host_name(url: str) -> str:
     try:
@@ -284,9 +584,7 @@ def item_to_story(item) -> dict | None:
         "topic_label": topic_label,
     }
     handle = x_handle(link, author_name)
-    media = x_avatar_url(handle)
-    if media:
-        story["media_url"] = media
+    if handle:
         story["x_handle"] = handle
     return story
 
@@ -368,13 +666,7 @@ def main() -> int:
 
     stories.sort(key=lambda s: (section_priority(s), -pub_ts(s)))
     stories = stories[:50]
-    for story in stories:
-        media = story.get("media_url") or ""
-        checked = verify_unavatar(media)
-        if checked:
-            story["media_url"] = checked
-        else:
-            story.pop("media_url", None)
+    photo_stats = attach_photos(stories)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
     try:
@@ -431,8 +723,15 @@ def main() -> int:
     DATA_PATH.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Wrote {DATA_PATH.name}: {len(stories)} stories from {len(items)} RSS items ({used_url})")
     print(f"lastBuildDate: {last_build}")
+    print(
+        "photos: "
+        f"{photo_stats['found']} real / {photo_stats['empty']} empty "
+        f"(X {photo_stats['x_found']}/{photo_stats['x_total']} with photo, "
+        f"{photo_stats['x_empty']} X empty)"
+    )
     for s in stories:
-        print(f"  - [{s['section']}/{s['topic_key']}] {s['headline'][:88]}")
+        flag = "img" if s.get("media_url") else "   "
+        print(f"  - [{flag}] [{s['section']}/{s['topic_key']}] {s['headline'][:88]}")
     return 0
 
 
