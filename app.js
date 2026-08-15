@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an102";
+  var DATA_URL = "live-data.json?v=an103";
   var state = {
     data: null,
     filter: "all",
@@ -181,53 +181,28 @@
     var list = String(item.source_list || item.section_label || "").replace(/\s+/g, " ").trim();
     var nSources = (item.sources && item.sources.length) || 0;
     var first;
-    if (nSources >= 2) first = "Crossed " + nSources + " lists.";
-    else if (list) first = "From the " + list + " list.";
-    else first = "From Scoble lists.";
-
-    var handle = String(item.x_handle || "").replace(/^@/, "").trim();
-    if (!handle) handle = xHandleFrom(item);
+    if (nSources >= 2) first = "Hit " + nSources + " of Scoble's lists.";
+    else if (list) first = "On Scoble's " + list + " list.";
+    else first = "On Scoble's lists.";
 
     var e = item.engagement || {};
     var likes = Number(e.like_count) || 0;
     var replies = Number(e.reply_count) || 0;
     var quotes = Number(e.quote_count) || 0;
     var talk = replies + quotes;
+    var handle = String(item.x_handle || "").replace(/^@/, "").trim() || xHandleFrom(item);
 
     var second = "";
     if (talk > likes && talk > 0) {
-      second = "Replies and quotes already outrun likes, which Phoenix weights.";
+      second = "People are talking, not just liking, which is what For You actually rewards.";
     } else if (likes > 0 && talk === 0) {
-      second = "Likes are the weak head; For You cares more about replies and dwell.";
-    } else {
-      var sl = [
-        item.source_list, item.section_label, item.section, item.tag, item.section_key
-      ].join(" ").toLowerCase();
-      var topic = String(item.topic_key || "").toLowerCase();
-      if (!topic) topic = topicKeyFor(item);
-      var topicBit;
-      if (isEventItem(item) || /event|hackathon|dinner/.test(sl)) {
-        topicBit = "For You diversity-decays lookalikes; this desk files it from the list.";
-      } else if (topic === "research" || /\bresearch\b/.test(sl)) {
-        topicBit = "Dwell is the head that would carry this.";
-      } else if (topic === "agents" || topic === "models") {
-        topicBit = "Replies are the expensive predicted action.";
-      } else if (topic === "companies" || /\bcompan/.test(sl)) {
-        topicBit = "Profile clicks and follows are the positive heads.";
-      } else {
-        topicBit = "For You scores predicted replies and dwell, not a like count.";
-      }
-      if (handle) {
-        if (viewerFollowsHandle(handle)) {
-          second = "In-network via Thunder — you follow @" + handle + ".";
-        } else {
-          second = "@" + handle + " is out-of-network, so Phoenix retrieval rather than Thunder.";
-        }
-      } else {
-        second = topicBit;
-      }
+      second = "Likes don't move For You much. Replies and time spent do.";
+    } else if (isEventItem(item)) {
+      second = "For You will hide a pile of similar event posts. The desk still files it from the list.";
+    } else if (handle) {
+      second = "From @" + handle + ".";
     }
-    return (first + " " + second).replace(/\s+/g, " ").trim();
+    return (first + (second ? " " + second : "")).replace(/\s+/g, " ").trim();
   }
 
   function whyHereHtml(item) {
