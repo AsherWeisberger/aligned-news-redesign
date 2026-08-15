@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an96";
+  var DATA_URL = "live-data.json?v=an97";
   var state = {
     data: null,
     filter: "all",

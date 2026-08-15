@@ -21,7 +21,7 @@
   --danger: #b45309;
   --live: #3f7d57;
   --sidebar-w: 196px;
-  --topbar-h: 56px;
+  --topbar-h: calc(56px + env(safe-area-inset-top, 0px));
   --radius: 16px;
   --radius-sm: 11px;
   --shadow: 0 1px 2px rgba(13, 15, 20, 0.04), 0 8px 24px rgba(13, 15, 20, 0.04);
@@ -3546,7 +3546,7 @@ body[data-page="auth"] .app {
   }
   html.has-mobile-dock.is-standalone .mobile-dock-inner,
   html.has-mobile-dock:fullscreen .mobile-dock-inner {
-    margin: 0 16px 6px;
+    margin: 0 12px 0;
   }
 }
 @media (max-width: 860px) and (display-mode: standalone),
@@ -3555,7 +3555,7 @@ body[data-page="auth"] .app {
     padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
   }
   html.has-mobile-dock .mobile-dock-inner {
-    margin: 0 16px 6px;
+    margin: 0 12px 0;
   }
 }
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
@@ -5192,4 +5192,30 @@ html[data-density="compact"] .lead-card-opener .lead-dek {
 .top-actions .feed-collabs,
 .mobile-dock .feed-collabs {
   display: none !important;
+}
+
+
+/* an97: Home Screen standalone — notch + home indicator */
+.topbar {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  height: var(--topbar-h);
+  min-height: var(--topbar-h);
+  box-sizing: border-box;
+  overflow: visible;
+}
+@media (max-width: 860px) {
+  .topbar {
+    padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
+    padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
+  }
+  .top-actions {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+  .auth-cta {
+    flex-shrink: 0;
+    max-width: none;
+  }
 }
