@@ -1208,37 +1208,55 @@
     };
     try {
       const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-      const pickPhoneRow = function (click) {
+      const nearestPhoneRow = function (pos) {
+        if (!pos) return null;
         try {
-          if (state && state.pauseIdleSpin) state.pauseIdleSpin();
-          const picked = viewer.scene.pick(click.position);
-          if (Cesium.defined(picked) && picked.id && picked.id.__gmPhone && adapter._onPointClick) {
-            adapter._onPointClick(picked.id.__gmPhone);
-            return;
-          }
-          const pos = click.position;
-          let best = null;
-          let bestD = 40 * 40;
-          const now = viewer.clock && viewer.clock.currentTime;
-          for (let i = 0; i < pointEntities.length; i++) {
-            const ent = pointEntities[i];
-            const row = ent && ent.__gmPhone;
-            if (!row) continue;
-            let cart = null;
-            try { cart = ent.position && ent.position.getValue(now); } catch (eP) {}
-            if (!cart) continue;
-            const win = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cart);
-            if (!win) continue;
-            const dx = win.x - pos.x;
-            const dy = win.y - pos.y;
-            const d = dx * dx + dy * dy;
-            if (d < bestD) { bestD = d; best = row; }
-          }
-          if (best && adapter._onPointClick) adapter._onPointClick(best);
-        } catch (e) {}
+          const picked = viewer.scene.pick(pos);
+          if (Cesium.defined(picked) && picked.id && picked.id.__gmPhone) return picked.id.__gmPhone;
+        } catch (eP) {}
+        let best = null;
+        let bestD = 120 * 120;
+        const now = viewer.clock && viewer.clock.currentTime;
+        for (let i = 0; i < pointEntities.length; i++) {
+          const ent = pointEntities[i];
+          const row = ent && ent.__gmPhone;
+          if (!row) continue;
+          let cart = null;
+          try { cart = ent.position && ent.position.getValue(now); } catch (eC) {}
+          if (!cart) continue;
+          const win = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cart);
+          if (!win) continue;
+          const dx = win.x - pos.x;
+          const dy = win.y - pos.y;
+          const d = dx * dx + dy * dy;
+          if (d < bestD) { bestD = d; best = row; }
+        }
+        return best;
       };
-      handler.setInputAction(pickPhoneRow, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+      const firePhonePick = function (row) {
+        if (!row || !adapter._onPointClick) return;
+        try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (e) {}
+        try { adapter._onPointClick(row); } catch (e2) {}
+      };
+      const canvas = viewer.scene.canvas;
+      const eventPos = function (e) {
+        const r = canvas.getBoundingClientRect();
+        return new Cesium.Cartesian2(e.clientX - r.left, e.clientY - r.top);
+      };
+      const onTapDown = function (e) {
+        if (e.button != null && e.button !== 0) return;
+        try {
+          if (e.target && e.target.closest && e.target.closest('.v4-gm-phone-search, .v4-gm-phone-chip, .v4-gm-phone-dock, .v4-gm-phone-card, .v4-gm-phone-close, .v4-gm-phone-top, .v4-gm-phone-settings')) return;
+        } catch (eC) {}
+        const row = nearestPhoneRow(eventPos(e));
+        if (!row) return;
+        firePhonePick(row);
+        try { e.stopImmediatePropagation(); } catch (eS) {}
+      };
+      document.addEventListener('pointerdown', onTapDown, true);
+      document.addEventListener('mousedown', onTapDown, true);
       state.handler = handler;
+      state._onTapDown = onTapDown;
     } catch (e) {}
     return adapter;
   }
@@ -1307,7 +1325,7 @@
       const ssc = viewer.scene.screenSpaceCameraController;
       ssc.enableInputs = true;
       ssc.enableZoom = true;
-      ssc.enableRotate = true;
+      ssc.enableRotate = false;
       ssc.enableTilt = true;
       ssc.enableLook = false;
       ssc.enableTranslate = false;
@@ -1317,7 +1335,7 @@
       try {
         const CET = Cesium.CameraEventType;
         ssc.zoomEventTypes = [CET.PINCH];
-        ssc.rotateEventTypes = CET.LEFT_DRAG;
+        ssc.rotateEventTypes = [];
         ssc.tiltEventTypes = CET.PINCH;
         ssc.translateEventTypes = [];
       } catch (eZ) {}
@@ -4878,6 +4896,13 @@
       const fp = rows.map(function (r) {
         return String(r.id || r.name || (r.lat + "," + r.lng));
       }).join("|");
+      const onPick = function (pt) {
+        setSelected(pt || null);
+        if (pt && Number.isFinite(Number(pt.lat))) {
+          try { globe.pointOfView({ lat: Number(pt.lat), lng: Number(pt.lng), altitude: SEARCH_ALT_RADII }, 700); } catch (e) {}
+        }
+      };
+      try { if (globe && typeof globe.onPointClick === 'function') globe.onPointClick(onPick); } catch (eB) {}
       if (fp === pointsFpRef.current) return;
       pointsFpRef.current = fp;
       try {
@@ -4898,12 +4923,7 @@
           })
           .pointResolution(12).pointsMerge(false).pointsTransitionDuration(0)
           .pointLabel(function (d) { return d.label || d.name || ""; })
-          .onPointClick(function (pt) {
-            setSelected(pt || null);
-            if (pt && Number.isFinite(Number(pt.lat))) {
-              try { globe.pointOfView({ lat: Number(pt.lat), lng: Number(pt.lng), altitude: SEARCH_ALT_RADII }, 700); } catch (e) {}
-            }
-          });
+          .onPointClick(onPick);
       } catch (e) {
         console.warn("[god-mode-phone] layer apply failed", e);
       }
