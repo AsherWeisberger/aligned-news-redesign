@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an101";
+  var DATA_URL = "live-data.json?v=an102";
   var state = {
     data: null,
     filter: "all",
@@ -153,6 +153,87 @@
     parts.push(n + (n === 1 ? " source" : " sources"));
     parts.push(when);
     return parts.join(" · ");
+  }
+
+  function viewerFollowsHandle(handle) {
+    var h = String(handle || "").replace(/^@/, "").trim().toLowerCase();
+    if (!h) return false;
+    var pool = [];
+    var user = state.data && state.data.user;
+    if (user) {
+      ["follows", "following", "x_follows"].forEach(function (k) {
+        var v = user[k];
+        if (Array.isArray(v)) pool = pool.concat(v);
+      });
+    }
+    try {
+      var stored = JSON.parse(localStorage.getItem("an-follows") || "[]");
+      if (Array.isArray(stored)) pool = pool.concat(stored);
+    } catch (e) {}
+    for (var i = 0; i < pool.length; i++) {
+      if (String(pool[i] || "").replace(/^@/, "").trim().toLowerCase() === h) return true;
+    }
+    return false;
+  }
+
+  function whyHereLine(item) {
+    if (!item) return "";
+    var list = String(item.source_list || item.section_label || "").replace(/\s+/g, " ").trim();
+    var nSources = (item.sources && item.sources.length) || 0;
+    var first;
+    if (nSources >= 2) first = "Crossed " + nSources + " lists.";
+    else if (list) first = "From the " + list + " list.";
+    else first = "From Scoble lists.";
+
+    var handle = String(item.x_handle || "").replace(/^@/, "").trim();
+    if (!handle) handle = xHandleFrom(item);
+
+    var e = item.engagement || {};
+    var likes = Number(e.like_count) || 0;
+    var replies = Number(e.reply_count) || 0;
+    var quotes = Number(e.quote_count) || 0;
+    var talk = replies + quotes;
+
+    var second = "";
+    if (talk > likes && talk > 0) {
+      second = "Replies and quotes already outrun likes, which Phoenix weights.";
+    } else if (likes > 0 && talk === 0) {
+      second = "Likes are the weak head; For You cares more about replies and dwell.";
+    } else {
+      var sl = [
+        item.source_list, item.section_label, item.section, item.tag, item.section_key
+      ].join(" ").toLowerCase();
+      var topic = String(item.topic_key || "").toLowerCase();
+      if (!topic) topic = topicKeyFor(item);
+      var topicBit;
+      if (isEventItem(item) || /event|hackathon|dinner/.test(sl)) {
+        topicBit = "For You diversity-decays lookalikes; this desk files it from the list.";
+      } else if (topic === "research" || /\bresearch\b/.test(sl)) {
+        topicBit = "Dwell is the head that would carry this.";
+      } else if (topic === "agents" || topic === "models") {
+        topicBit = "Replies are the expensive predicted action.";
+      } else if (topic === "companies" || /\bcompan/.test(sl)) {
+        topicBit = "Profile clicks and follows are the positive heads.";
+      } else {
+        topicBit = "For You scores predicted replies and dwell, not a like count.";
+      }
+      if (handle) {
+        if (viewerFollowsHandle(handle)) {
+          second = "In-network via Thunder — you follow @" + handle + ".";
+        } else {
+          second = "@" + handle + " is out-of-network, so Phoenix retrieval rather than Thunder.";
+        }
+      } else {
+        second = topicBit;
+      }
+    }
+    return (first + " " + second).replace(/\s+/g, " ").trim();
+  }
+
+  function whyHereHtml(item) {
+    var line = whyHereLine(item);
+    if (!line) return "";
+    return '<p class="why-here">' + escapeHtml(line) + "</p>";
   }
 
   function whyRankedLabel(item) {
@@ -2240,6 +2321,7 @@
                 avatarStackHtml(s) +
                 '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
               "</div>" +
+              whyHereHtml(s) +
             "</div>" +
           "</li>"
         );
@@ -2258,6 +2340,7 @@
               avatarStackHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
+            (compact ? "" : whyHereHtml(s)) +
           "</div>" +
           (compact ? "" : rowThumbHtml(s, key, sectionPretty)) +
         "</li>"
@@ -2622,6 +2705,7 @@
           (!story.signal_badge && story.author_name) ? decodeEntities(story.author_name) : ""
         ])) + "</span>" +
       "</div>" +
+      whyHereHtml(story) +
       "<h1>" + escapeHtml(title) + "</h1>" +
       (dekFinal ? '<p class="article-dek">' + escapeHtml(dekFinal) + "</p>" : "") +
       '<div class="article-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +

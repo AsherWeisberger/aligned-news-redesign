@@ -1849,7 +1849,8 @@ html[data-density="compact"] .lead-hero,
 html[data-density="compact"] .lead-why,
 html[data-density="compact"] .lead-dek,
 html[data-density="compact"] .excerpt,
-html[data-density="compact"] .row-thumb {
+html[data-density="compact"] .row-thumb,
+html[data-density="compact"] .why-here {
   display: none !important;
 }
 html[data-density="compact"] .feed-row {
@@ -5245,4 +5246,34 @@ html[data-density="compact"] .lead-card-opener .lead-dek {
     position: relative;
     z-index: 3;
   }
+}
+
+/* an102: quiet why-here line under meta (lists + public For You ranker) */
+.why-here {
+  margin: 0.38rem 0 0;
+  max-width: 62ch;
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.005em;
+  color: var(--muted);
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+.lead-card .why-here,
+.lead-card-opener .why-here {
+  margin-top: 0.55rem;
+  font-size: 0.88rem;
+  max-width: 58ch;
+}
+.article .why-here {
+  margin: 0.15rem 0 0.85rem;
+  font-size: 0.82rem;
+}
+html[data-density="compact"] .why-here {
+  display: none !important;
 }
