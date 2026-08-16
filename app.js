@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an105";
+  var DATA_URL = "live-data.json?v=an106";
   var state = {
     data: null,
     filter: "all",
@@ -2414,8 +2414,9 @@
       return next;
     }
 
-    function renderStoryItem(s, i, allowLead) {
+    function renderStoryItem(s, i, allowLead, rest) {
       var compact = isCompactDensity();
+      var quiet = compact || !!rest;
       var isRead = state.read.indexOf(s.id) !== -1;
       var sectionPretty = s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.section || "");
       var metaLine = storyMetaLine(s);
@@ -2423,8 +2424,8 @@
       var key = s.topic_key || s.section_key || mapSectionKey(s.section || s.tag || "");
       var headline = editorialTitle(s, 92);
 
-      // Compact = dense headline+meta list — no lead hero / why box / excerpts / thumbs.
-      if (!compact && allowLead && showLead && i === 0) {
+      // Compact / rest-of-desk = dense headline+meta — no lead hero / why / excerpts / thumbs.
+      if (!quiet && allowLead && showLead && i === 0) {
         var leadHeadline = editorialTitle(s, 88);
         var dek = uniqueDek(s, leadHeadline, 140);
         var hero = leadHeroHtml(s, key, sectionPretty);
@@ -2448,9 +2449,9 @@
 
       rankCounter += 1;
       var rank = rankCounter;
-      var excerpt = compact ? "" : uniqueDek(s, headline, 140);
+      var excerpt = quiet ? "" : uniqueDek(s, headline, 140);
       return (
-        '<li class="feed-row' + (isRead ? " is-read" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
+        '<li class="feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(headline) + "</a></h2>" +
@@ -2459,9 +2460,9 @@
               avatarStackHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
-            (compact ? "" : whyHereHtml(s)) +
+            (quiet ? "" : whyHereHtml(s)) +
           "</div>" +
-          (compact ? "" : rowThumbHtml(s, key, sectionPretty)) +
+          (quiet ? "" : rowThumbHtml(s, key, sectionPretty)) +
         "</li>"
       );
     }
@@ -2480,6 +2481,12 @@
       });
     } else {
       var groups = groupStoriesByDay(stories);
+      var restStarted = false;
+      function restHeadHtml() {
+        if (restStarted || isCompactDensity() || state.filter !== "all" || state.query) return "";
+        restStarted = true;
+        return '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">Rest of the desk</h2></li>';
+      }
       groups.forEach(function (group, gi) {
         var items = group.items;
         // Comfortable: first story in the whole feed is the magazine opener,
@@ -2493,17 +2500,19 @@
             '<h2 class="feed-day-label">' + escapeHtml(group.label) + "</h2>" +
           "</li>";
         items.forEach(function (s, i) {
-          html += renderStoryItem(s, i, allowLead);
+          html += renderStoryItem(s, i, allowLead, restStarted);
           html += takeBanner();
           if (!eventsInserted && boxedEvents.length && allowLead && (i + 1) === 12) {
             html += eventsBoxHtml(boxedEvents);
             eventsInserted = true;
           }
+          if (rankCounter >= 12) html += restHeadHtml();
         });
         if (!eventsInserted && boxedEvents.length && (group.label === "Today" || gi === 0)) {
           html += eventsBoxHtml(boxedEvents);
           eventsInserted = true;
         }
+        if (rankCounter >= 12) html += restHeadHtml();
       });
       if (!eventsInserted && boxedEvents.length) html += eventsBoxHtml(boxedEvents);
     }
