@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an104";
+  var DATA_URL = "live-data.json?v=an105";
   var state = {
     data: null,
     filter: "all",
@@ -21,27 +21,120 @@
 
 
   function topicKeyFor(item) {
-    if (item.topic_key && /^(models|agents|robotics|funding|companies|research|chips|open-source|policy|creative)$/.test(item.topic_key)) {
+    if (item.topic_key && /^(models|agents|robotics|funding|companies|research|chips|open-source|policy|creative|jobs|events|videos|labs|breaking)$/.test(item.topic_key)) {
       return item.topic_key;
     }
     var hay = [
       item.headline, item.title, item.text, item.summary, item.body,
       item.section_label, item.section, item.category, item.source_list, item.tag
     ].join(" ").toLowerCase();
-    if (/robot|humanoid|physical ai|openusd/.test(hay)) return "robotics";
-    if (/fund|raised|\$|series [a-d]|acquisition|ipo|valuation|invest/.test(hay)) return "funding";
-    if (/regulat|polic|congress|eu ai|white house|antitrust/.test(hay)) return "policy";
-    if (/agentic|\bagents?\b|openclaw|orchestrat|tool call/.test(hay)) return "agents";
-    if (/gpu|chip|semiconductor|tpu|hardware|inference chip/.test(hay)) return "chips";
-    if (/open[- ]?source|open.weight|hugging face|weights/.test(hay)) return "open-source";
-    if (/benchmark|paper|arxiv|research|eval|sota/.test(hay)) return "research";
-    if (/video|image gen|creative|midjourney|sora|flux/.test(hay)) return "creative";
-    if (/model|llm|gpt|claude|gemini|fireworks|muse|token|grok|\bxai\b/.test(hay)) return "models";
+    var sec = String(item.section || item.tag || "").toLowerCase();
+    if (sec.indexOf("event") !== -1 || /hackathon|dinner|conference/.test(sec)) return "events";
+    if (sec === "jobs") return "jobs";
+    if (sec === "videos") return "videos";
+    if (sec === "openclaw") return "open-source";
+    if (/open[- ]?source|open[- ]?weight/.test(hay)) return "open-source";
+    if (/robot|humanoid|physical ai|openusd/.test(hay) || sec === "robotics") return "robotics";
+    if (/fund|raised|\$|series [a-d]|acquisition|ipo|valuation|invest/.test(hay) || sec === "funding") return "funding";
+    if (/regulat|polic|congress|eu ai|white house|antitrust/.test(hay) || sec === "policy") return "policy";
+    if (/agentic|\bagents?\b|orchestrat|tool call/.test(hay) || sec === "agents") return "agents";
+    if (/gpu|chip|semiconductor|tpu|hardware|inference chip/.test(hay) || sec === "chips") return "chips";
+    if (/benchmark|paper|arxiv|research|eval|sota/.test(hay) || sec === "papers" || sec === "science") return "research";
+    if (/video|image gen|creative|midjourney|sora|flux/.test(hay) || sec === "creatives") return "creative";
+    if (/model|llm|gpt|claude|gemini|fireworks|muse|token|grok|\bxai\b|deepseek/.test(hay) || sec === "models") return "models";
     if (/nvidia/.test(hay)) return "chips";
-    if (/compan|startup|lab|industry|hiring/.test(hay)) return "companies";
+    if (sec === "labs") return "labs";
+    if (/compan|startup|industry/.test(hay)) return "companies";
     var sl = String(item.section_label || item.source_list || item.section || "").toLowerCase();
     if (sl.indexOf("compan") !== -1) return "companies";
     return "companies";
+  }
+
+
+  function itemHay(item) {
+    return [
+      item && item.headline, item && item.title, item && item.summary, item && item.body,
+      item && item.text, item && item.section, item && item.tag, item && item.topic_key,
+      item && item.section_key, item && item.category
+    ].join(" ").toLowerCase();
+  }
+
+  function isEventItem(item) {
+    var hay = [
+      item && item.section, item && item.tag, item && item.topic_key,
+      item && item.section_key, item && item.category
+    ].join(" ").toLowerCase();
+    return /event|hackathon|dinner|conference/.test(hay);
+  }
+
+  function isSideDeskItem(item) {
+    var sec = String((item && (item.section || item.tag || item.topic_key)) || "").toLowerCase();
+    return sec === "jobs" || sec === "videos" || sec.indexOf("jobs") === 0;
+  }
+
+  function isOpenSourceItem(item) {
+    if (!item) return false;
+    var sec = String(item.section || item.tag || item.topic_key || item.section_key || "").toLowerCase();
+    if (sec === "openclaw" || sec === "open-source") return true;
+    var hay = itemHay(item);
+    return /open[- ]?source|open[- ]?weight|hugging\s*face|openclaw|\boss\b/.test(hay);
+  }
+
+  function isHardNewsItem(item) {
+    var sec = String((item && (item.section || item.tag)) || "").toLowerCase();
+    if (/^(breaking|models|labs|chips|papers|robotics|openclaw)$/.test(sec)) return true;
+    var hay = itemHay(item);
+    return /\b(release[sd]?|launches?|launched|announces?|unveils?|arxiv|paper|benchmark|sota|parameter|moe|open[- ]?weight|550-billion|deepseek|grok 4)\b/i.test(hay);
+  }
+
+  function isHotTakeItem(item) {
+    var hay = itemHay(item);
+    var sec = String((item && item.section) || "").toLowerCase();
+    if (sec === "anomalies" && !isHardNewsItem(item)) return true;
+    return /\b(hot take|i think|imo\b|seems like|hype cycle|vibes?|can't believe|wild that|this is fine)\b|\?{2,}|!{2,}/i.test(hay);
+  }
+
+  function storyMatchesChip(story, filter) {
+    if (!filter || filter === "all") return true;
+    var sec = String(story.section || story.tag || "").toLowerCase();
+    var topic = String(story.topic_key || story.section_key || "").toLowerCase();
+    if (filter === "breaking") return sec === "breaking";
+    if (filter === "labs") return sec === "labs";
+    if (filter === "jobs") return sec === "jobs" || topic === "jobs";
+    if (filter === "events") return isEventItem(story);
+    if (filter === "open-source") return isOpenSourceItem(story);
+    if (filter === "research") return topic === "research" || sec === "papers" || sec === "science";
+    if (filter === "videos") return sec === "videos" || topic === "videos";
+    if (topic === filter || sec === filter) return true;
+    return mapSectionKey(sec) === filter;
+  }
+
+  var DESK_CHIP_ORDER = [
+    { id: "all", label: "All" },
+    { id: "breaking", label: "Breaking" },
+    { id: "models", label: "Models" },
+    { id: "labs", label: "Labs" },
+    { id: "chips", label: "Chips" },
+    { id: "robotics", label: "Robotics" },
+    { id: "agents", label: "Agents" },
+    { id: "research", label: "Research" },
+    { id: "funding", label: "Funding" },
+    { id: "policy", label: "Policy" },
+    { id: "open-source", label: "Open source" },
+    { id: "jobs", label: "Jobs" },
+    { id: "events", label: "Events" },
+    { id: "companies", label: "Companies" }
+  ];
+
+  function deskChipsFromStories(stories) {
+    var list = stories || [];
+    return DESK_CHIP_ORDER.filter(function (chip) {
+      if (chip.id === "all") return true;
+      for (var i = 0; i < list.length; i++) {
+        if (storyMatchesChip(list[i], chip.id)) return true;
+      }
+      return false;
+    }).map(function (chip) { return { id: chip.id, label: chip.label }; });
   }
 
   function deskTakeFor(item) {
@@ -178,6 +271,7 @@
 
   function whyHereLine(item) {
     if (!item) return "";
+    if (isEventItem(item) || isSideDeskItem(item)) return "";
     var nSources = (item.sources && item.sources.length) || 0;
     var e = item.engagement || {};
     var likes = Number(e.like_count) || 0;
@@ -188,11 +282,8 @@
     if (nSources >= 2) bits.push("Hit " + nSources + " of Scoble's lists");
     if (talk > likes && talk > 0) bits.push("people are talking, not just liking");
     else if (likes > 0 && talk === 0) bits.push("likes won't carry this on For You");
-    if (bits.length) return bits.join(". ").replace(/^./, function (c) { return c.toUpperCase(); }) + ".";
-    if (isEventItem(item)) return "";
-    var list = String(item.source_list || item.section_label || "").replace(/\s+/g, " ").trim();
-    if (!list || /^events/i.test(list)) return "";
-    return "On Scoble's " + list + " list.";
+    if (!bits.length) return "";
+    return bits.join(". ").replace(/^./, function (c) { return c.toUpperCase(); }) + ".";
   }
 
   function whyHereHtml(item) {
@@ -235,19 +326,23 @@
 
   function mapSectionKey(name) {
     var s = String(name || "").toLowerCase();
+    if (s.indexOf("openclaw") !== -1 || s.indexOf("open-source") !== -1 || s.indexOf("open source") !== -1) return "open-source";
     if (s.indexOf("robot") !== -1) return "robotics";
     if (s.indexOf("fund") !== -1 || s.indexOf("deal") !== -1 || s.indexOf("acquisit") !== -1) return "funding";
     if (s.indexOf("polic") !== -1 || s.indexOf("regulat") !== -1) return "policy";
-    if (s.indexOf("agent") !== -1 || s.indexOf("openclaw") !== -1) return "agents";
+    if (s.indexOf("agent") !== -1) return "agents";
     if (s.indexOf("model") !== -1 || s.indexOf("benchmark") !== -1 || s.indexOf("big stuff") !== -1) return "models";
     if (s.indexOf("chip") !== -1 || s.indexOf("hardware") !== -1) return "chips";
-    if (s.indexOf("open-source") !== -1 || s.indexOf("open source") !== -1) return "open-source";
-    if (s.indexOf("creative") !== -1 || s.indexOf("video") !== -1) return "creative";
-    if (s.indexOf("event") !== -1) return "events";
+    if (s.indexOf("job") !== -1) return "jobs";
+    if (s.indexOf("hackathon") !== -1 || s.indexOf("dinner") !== -1 || s.indexOf("conference") !== -1 || s.indexOf("event") !== -1) return "events";
     if (s.indexOf("paper") !== -1 || s.indexOf("science") !== -1 || s.indexOf("research") !== -1) return "research";
-    if (s.indexOf("infra") !== -1 || s.indexOf("compute") !== -1) return "compute";
-    if (s.indexOf("lab") !== -1 || s.indexOf("compan") !== -1 || s.indexOf("industry") !== -1) return "companies";
+    if (s.indexOf("infra") !== -1 || s.indexOf("compute") !== -1) return "chips";
+    if (s.indexOf("lab") !== -1) return "labs";
+    if (s.indexOf("creative") !== -1) return "creative";
+    if (s.indexOf("video") !== -1) return "videos";
+    if (s.indexOf("compan") !== -1 || s.indexOf("industry") !== -1) return "companies";
     if (s.indexOf("scoble") !== -1) return "scoble";
+    if (s.indexOf("breaking") !== -1) return "breaking";
     return s.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "general";
   }
 
@@ -256,7 +351,8 @@
       models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
       policy: "Policy", chips: "Chips", "open-source": "Open source", events: "Events",
       research: "Research", creative: "Creative", compute: "Compute", industry: "Industry",
-      scoble: "Scoble", labs: "Labs", jobs: "Jobs", companies: "Companies", industry: "Companies"
+      scoble: "Scoble", labs: "Labs", jobs: "Jobs", companies: "Companies", industry: "Companies",
+      breaking: "Breaking", videos: "Videos"
     };
     return map[key] || fallback || key;
   }
@@ -288,17 +384,7 @@
           s._analysis_placeholder = false;
         }
       });
-      var topicOrder2 = ["models","agents","robotics","funding","companies","research","chips","open-source","policy","creative"];
-      var topicLabels2 = {
-        models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
-        policy: "Policy", chips: "Chips", "open-source": "Open source", research: "Research",
-        creative: "Creative", companies: "Companies", industry: "Companies"
-      };
-      var counts2 = {};
-      data.stories.forEach(function (s) { counts2[s.topic_key] = (counts2[s.topic_key] || 0) + 1; });
-      data.chips = [{ id: "all", label: "All" }].concat(topicOrder2.filter(function (id) {
-        return counts2[id];
-      }).map(function (id) { return { id: id, label: topicLabels2[id] }; }));
+      data.chips = deskChipsFromStories(data.stories);
       return data;
     }
 
@@ -416,36 +502,23 @@
       return r;
     });
 
-    var topicOrder = ["models","agents","robotics","funding","companies","research","chips","open-source","policy","creative"];
-    var topicLabels = {
-      models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
-      policy: "Policy", chips: "Chips", "open-source": "Open source", research: "Research",
-      creative: "Creative", companies: "Companies", industry: "Companies"
-    };
-    var topicCounts = {};
     stories.forEach(function (s) {
       var tk = topicKeyFor(s);
       s.topic_key = tk;
-      s.topic_label = topicLabels[tk] || labelFor(tk, s.section_label);
-      topicCounts[tk] = (topicCounts[tk] || 0) + 1;
+      s.topic_label = labelFor(tk, s.section_label);
     });
     signals.forEach(function (s) {
       var tk = topicKeyFor(s);
       s.topic_key = tk;
       s.section_key = s.section_key || tk;
-      s.topic_label = topicLabels[tk] || labelFor(tk, s.section_label);
+      s.topic_label = labelFor(tk, s.section_label);
       // Fill empty analysis with a short desk take so Signals feels real
       if (!s.analysis || !String(s.analysis).trim()) {
         s.analysis = deskTakeFor(s);
         s._analysis_placeholder = false;
       }
     });
-    var chips = [{ id: "all", label: "All" }].concat(topicOrder.filter(function (id) {
-      return topicCounts[id];
-    }).map(function (id) {
-      return { id: id, label: topicLabels[id] };
-    }));
-    // If nothing mapped, fall back to provided chips
+    var chips = deskChipsFromStories(stories);
     if (chips.length <= 1 && data.chips && data.chips.length) {
       chips = data.chips.map(function (c) {
         return { id: c.id, label: prettyChipLabel(c.id, c.label) };
@@ -1205,7 +1278,8 @@
     var known = {
       models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
       companies: "Companies", research: "Research", chips: "Chips",
-      "open-source": "Open source", policy: "Policy", creative: "Creative", all: "All"
+      "open-source": "Open source", policy: "Policy", creative: "Creative", all: "All",
+      breaking: "Breaking", labs: "Labs", jobs: "Jobs", events: "Events", videos: "Videos"
     };
     if (known[id]) return known[id];
     if (known[label]) return known[label];
@@ -1239,9 +1313,8 @@
         return true;
       }
     }
-    // entertainment / sports junk
-    if (/\b(Aegon|Game of Thrones|House of the Dragon|NFL|NBA|soccer|football|Taylor Swift|spoiler)\b/i.test(t) &&
-        !/\b(AI|model|agent|LLM|robot)\b/i.test(t)) {
+    // entertainment / sports / gamer junk — never under Tech
+    if (/\b(Aegon|Game of Thrones|House of the Dragon|NFL|NBA|soccer|football|Taylor Swift|spoiler|Call of Duty|Fortnite|PlayStation|Xbox|esports|World Cup|Super Bowl)\b/i.test(t)) {
       return true;
     }
     return false;
@@ -1267,7 +1340,10 @@
     var m = hay.match(new RegExp(AI_RE.source, "gi"));
     if (m) score += Math.min(m.length, 8) * 12;
     if (/^RT\s+@/i.test(String(item.headline || item.title || ""))) score -= 25;
-    if (/\b(game of thrones|aegon|season\s+\d+|nba|nfl|soccer|football|celebrity|actor|actress|tv show)\b/i.test(hay)) score -= 220;
+    if (/\b(game of thrones|aegon|season\s+\d+|nba|nfl|soccer|football|celebrity|actor|actress|tv show|fortnite|playstation)\b/i.test(hay)) score -= 400;
+    if (isHardNewsItem(item)) score += 28;
+    if (isHotTakeItem(item)) score -= 40;
+    if (isEventItem(item) || isSideDeskItem(item)) score -= 80;
     if (item.signal_badge) score += 8;
     if (item._from_x_api) score += 2;
     return score;
@@ -1275,7 +1351,21 @@
 
   function rankScore(item) {
     if (isRetweetNoise(item)) return -1e12;
+    if (isEventItem(item)) return -1e6;
     var base = engagementScore(item) + relevanceScore(item) * 8;
+    var sec = String((item && (item.section || item.tag)) || "").toLowerCase();
+    var topic = String((item && item.topic_key) || "").toLowerCase();
+    if (isSideDeskItem(item)) base -= 900;
+    if (sec === "breaking") base += 320;
+    if (sec === "models" || topic === "models") base += 200;
+    if (sec === "labs") base += 180;
+    if (sec === "chips" || topic === "chips") base += 180;
+    if (sec === "papers" || topic === "research") base += 160;
+    if (sec === "robotics" || topic === "robotics") base += 150;
+    if (sec === "openclaw" || topic === "open-source") base += 140;
+    if (isHardNewsItem(item)) base += 120;
+    if (isHotTakeItem(item)) base -= 360;
+    if (sec === "anomalies" && !isHardNewsItem(item)) base -= 220;
     if (!isAiRelevant(item)) base -= 5000;
     if (/^RT\s+@/i.test(String((item && (item.headline || item.title)) || ""))) base -= 800;
     return base;
@@ -1347,11 +1437,6 @@
 
   function fallbackTimeLong(iso) {
     return fmtDateLong(resolveTimeIso(iso)) || "Aug 9";
-  }
-
-  function isEventItem(item) {
-    var hay = [item.section_key, item.section, item.tag, item.category].join(" ").toLowerCase();
-    return hay.indexOf("event") !== -1;
   }
 
   function isTodayFeedKind(item) {
@@ -1990,8 +2075,7 @@
 
   function storyMatches(story) {
     if (state.filter && state.filter !== "all") {
-      var key = story.topic_key || story.section_key || mapSectionKey(story.section || story.tag || "");
-      if (key !== state.filter) return false;
+      if (!storyMatchesChip(story, state.filter)) return false;
     }
     if (state.query) {
       var q = state.query.toLowerCase();
@@ -2084,7 +2168,7 @@
       return;
     }
     var stories = (state.data.stories || []).filter(function (s) {
-      return isTodayFeedKind(s) && isAiRelevant(s) && !isRetweetNoise(s);
+      return isTodayFeedKind(s) && isAiRelevant(s) && !isRetweetNoise(s) && !isEventItem(s) && !isSideDeskItem(s) && !isHotTakeItem(s);
     }).slice().sort(function (a, b) {
       return rankScore(b) - rankScore(a);
     }).slice(0, 5);
@@ -2219,12 +2303,65 @@
       return;
     }
 
+
+    function eventKind(item) {
+      var sec = String((item && (item.section || item.tag)) || "").toLowerCase();
+      var hay = itemHay(item);
+      if (sec.indexOf("hackathon") !== -1 || hay.indexOf("hackathon") !== -1) return "hackathons";
+      if (sec.indexOf("dinner") !== -1 || hay.indexOf("dinner") !== -1 || hay.indexOf("night summit") !== -1) return "dinners";
+      return "conferences";
+    }
+
+    function eventsBoxHtml(items) {
+      if (!items || !items.length) return "";
+      var groups = { conferences: [], hackathons: [], dinners: [] };
+      items.forEach(function (ev) { groups[eventKind(ev)].push(ev); });
+      function col(title, arr) {
+        if (!arr.length) return "";
+        return '<section class="events-col">' +
+          '<h3 class="events-col-title">' + escapeHtml(title) + "</h3>" +
+          "<ul>" + arr.slice(0, 6).map(function (ev) {
+            var href = "story.html?id=" + encodeURIComponent(ev.id);
+            return '<li><a href="' + href + '">' + escapeHtml(editorialTitle(ev, 72)) + "</a></li>";
+          }).join("") + "</ul></section>";
+      }
+      return (
+        '<li class="events-box" role="region" aria-label="Events">' +
+          '<div class="events-box-head">' +
+            '<h2 class="events-box-title">This week</h2>' +
+            '<p class="events-box-kicker">Conferences · hackathons · dinners</p>' +
+          "</div>" +
+          '<div class="events-box-cols">' +
+            col("Conferences", groups.conferences) +
+            col("Hackathons", groups.hackathons) +
+            col("Dinners", groups.dinners) +
+          "</div>" +
+        "</li>"
+      );
+    }
+
+    if (!getParam("view") && state.filter === "events") {
+      var onlyEvents = stories.filter(isEventItem);
+      list.innerHTML = onlyEvents.length ? eventsBoxHtml(onlyEvents) : '<li class="empty">No events on the desk.</li>';
+      enableCardNavigation(list);
+      renderTodayDeskModules();
+      return;
+    }
+
     var isSaved = getParam("view") === "saved";
     var showLead = !isSaved && state.filter === "all" && !state.query;
     var html = "";
     var rankCounter = 0;
     var storyCount = 0;
     var bannerDone = false;
+    var boxedEvents = [];
+    var eventsInserted = false;
+    if (!isSaved && !state.query && (state.filter === "all" || state.filter === "events")) {
+      boxedEvents = stories.filter(isEventItem);
+      if (state.filter === "all") {
+        stories = stories.filter(function (s) { return !isEventItem(s); });
+      }
+    }
 
     function takeBanner() {
       storyCount += 1;
@@ -2240,20 +2377,37 @@
       var best = -1e9;
       for (var bi = 0; bi < Math.min(items.length, 40); bi++) {
         var cand = items[bi];
+        if (isEventItem(cand) || isSideDeskItem(cand)) continue;
         if (!isAiRelevant(cand)) continue;
+        if (isHotTakeItem(cand) && !isHardNewsItem(cand)) continue;
         if (/scoble\s*:-?\)|scoble smile/i.test(String(cand.headline || cand.title || ""))) continue;
         var rs = relevanceScore(cand);
-        if (rs < 12) continue;
+        if (rs < 8) continue;
         var score = rankScore(cand) + rs * 2;
         if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180;
-        if (isEventItem(cand)) score -= 420;
         var candMedia = storyMediaUrl(cand);
         if (candMedia && !isAvatarMedia(candMedia)) score += 90;
         var sec = String(cand.section || cand.tag || "").toLowerCase();
-        if (sec === "ten-things" || sec === "videos") score += 140;
+        var topic = String(cand.topic_key || "").toLowerCase();
+        if (sec === "breaking") score += 240;
+        if (sec === "models" || topic === "models") score += 160;
+        if (sec === "labs") score += 150;
+        if (sec === "chips" || topic === "chips") score += 150;
+        if (sec === "papers" || topic === "research") score += 130;
+        if (sec === "robotics" || topic === "robotics") score += 130;
+        if (sec === "openclaw" || topic === "open-source") score += 110;
+        if (isHardNewsItem(cand)) score += 80;
         if (score > best) { best = score; bestIdx = bi; }
       }
-      if (bestIdx < 0) return items;
+      if (bestIdx < 0) {
+        for (var bj = 0; bj < items.length; bj++) {
+          if (!isEventItem(items[bj]) && !isSideDeskItem(items[bj])) {
+            bestIdx = bj;
+            break;
+          }
+        }
+        if (bestIdx < 0) return items;
+      }
       var next = items.slice();
       var lead = next.splice(bestIdx, 1)[0];
       next.unshift(lead);
@@ -2341,8 +2495,17 @@
         items.forEach(function (s, i) {
           html += renderStoryItem(s, i, allowLead);
           html += takeBanner();
+          if (!eventsInserted && boxedEvents.length && allowLead && (i + 1) === 12) {
+            html += eventsBoxHtml(boxedEvents);
+            eventsInserted = true;
+          }
         });
+        if (!eventsInserted && boxedEvents.length && (group.label === "Today" || gi === 0)) {
+          html += eventsBoxHtml(boxedEvents);
+          eventsInserted = true;
+        }
       });
+      if (!eventsInserted && boxedEvents.length) html += eventsBoxHtml(boxedEvents);
     }
 
     list.innerHTML = html;
