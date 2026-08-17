@@ -5415,3 +5415,92 @@ html[data-density="compact"] .events-box-title { font-size: 1.08rem; }
 html[data-density="compact"] .feed-rest-head {
   display: none;
 }
+
+
+/* an108: quiet lead hover scatter — magazine photo only */
+.lead-scatter {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 3;
+}
+.lead-card-opener .lead-hero::after {
+  z-index: 1;
+}
+.lead-card-opener .lead-hero.lead-hero-reveal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: #F0EFEC;
+  animation: lead-paper-veil 560ms var(--ease-out) both;
+}
+html[data-theme="dark"] .lead-card-opener .lead-hero.lead-hero-reveal::before {
+  background: #131315;
+}
+.lead-card-opener .lead-hero.lead-hero-reveal img {
+  animation: lead-photo-land 680ms var(--ease-out) both;
+}
+@keyframes lead-paper-veil {
+  0% { opacity: 0.55; }
+  100% { opacity: 0; }
+}
+@keyframes lead-photo-land {
+  0% {
+    opacity: 0.35;
+    filter: contrast(1.12) saturate(0.92);
+    clip-path: inset(6% 5%);
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    clip-path: inset(0);
+    transform: none;
+  }
+}
+@keyframes lead-photo-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .lead-card-opener .lead-title a {
+    transition: letter-spacing 180ms var(--ease-soft);
+  }
+  .lead-card-opener:hover .lead-title a {
+    letter-spacing: -0.05em;
+  }
+}
+@media (max-width: 720px), (pointer: coarse), (hover: none) {
+  .lead-scatter { display: none !important; }
+  .lead-card-opener .lead-hero.lead-hero-reveal::before { display: none; }
+  .lead-card-opener .lead-hero.lead-hero-reveal img {
+    animation: lead-photo-fade 280ms var(--ease-out) both;
+  }
+  .lead-card-opener:hover .lead-title a {
+    letter-spacing: inherit;
+  }
+}
+html.is-standalone .lead-scatter { display: none !important; }
+html.is-standalone .lead-card-opener .lead-hero.lead-hero-reveal::before { display: none; }
+html.is-standalone .lead-card-opener .lead-hero.lead-hero-reveal img {
+  animation: lead-photo-fade 280ms var(--ease-out) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lead-scatter { display: none !important; }
+  .lead-card-opener .lead-hero.lead-hero-reveal::before,
+  .lead-card-opener .lead-hero.lead-hero-reveal img {
+    animation: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+  .lead-card-opener:hover .lead-title a {
+    letter-spacing: inherit;
+  }
+}

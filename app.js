@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an107";
+  var DATA_URL = "live-data.json?v=an108";
   var state = {
     data: null,
     filter: "all",
@@ -2281,7 +2281,232 @@
     });
   }
 
+
+  var leadScatter = {
+    raf: 0,
+    canvas: null,
+    hero: null,
+    particles: [],
+    lastX: -1,
+    lastY: -1,
+    mouseX: -9999,
+    mouseY: -9999,
+    inside: false,
+    lastTs: 0,
+    unbind: null
+  };
+  var leadRevealSeen = {};
+
+  function isLeadScatterDesktop() {
+    if (prefersReducedMotion()) return false;
+    if (document.documentElement.classList.contains("is-standalone")) return false;
+    if (isCompactDensity()) return false;
+    try {
+      if (window.matchMedia("(max-width: 720px)").matches) return false;
+      if (window.matchMedia("(pointer: coarse)").matches) return false;
+      if (window.matchMedia("(hover: none)").matches) return false;
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
+  function destroyLeadScatter() {
+    if (leadScatter.raf) {
+      cancelAnimationFrame(leadScatter.raf);
+      leadScatter.raf = 0;
+    }
+    if (leadScatter.unbind) {
+      leadScatter.unbind();
+      leadScatter.unbind = null;
+    }
+    if (leadScatter.canvas && leadScatter.canvas.parentNode) {
+      leadScatter.canvas.parentNode.removeChild(leadScatter.canvas);
+    }
+    leadScatter.canvas = null;
+    leadScatter.hero = null;
+    leadScatter.particles = [];
+    leadScatter.inside = false;
+    leadScatter.lastTs = 0;
+    leadScatter.lastX = -1;
+    leadScatter.lastY = -1;
+  }
+
+  function sizeLeadScatterCanvas() {
+    var canvas = leadScatter.canvas;
+    var hero = leadScatter.hero;
+    if (!canvas || !hero) return;
+    var w = hero.clientWidth;
+    var h = hero.clientHeight;
+    if (w < 8 || h < 8) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+    var ctx = canvas.getContext("2d");
+    if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function spawnLeadDots(mx, my) {
+    var dots = leadScatter.particles;
+    var n = Math.random() < 0.4 ? 2 : 1;
+    var i;
+    for (i = 0; i < n; i++) {
+      if (dots.length >= 56) return;
+      var ang = Math.random() * Math.PI * 2;
+      var dist = Math.random() * 12;
+      var pick = Math.random();
+      var rgb = pick < 0.62 ? "240,239,236" : pick < 0.84 ? "13,15,20" : "217,204,172";
+      var a = pick < 0.62 ? 0.34 : 0.18;
+      dots.push({
+        x: mx + Math.cos(ang) * dist,
+        y: my + Math.sin(ang) * dist,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4 - 0.05,
+        r: 1.05 + Math.random() * 1.55,
+        life: 0,
+        max: 280 + Math.random() * 420,
+        rgb: rgb,
+        a: a
+      });
+    }
+  }
+
+  function tickLeadScatter(ts) {
+    leadScatter.raf = 0;
+    var canvas = leadScatter.canvas;
+    if (!canvas) return;
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    var w = canvas.clientWidth;
+    var h = canvas.clientHeight;
+    var dt = leadScatter.lastTs ? Math.min(32, ts - leadScatter.lastTs) : 16;
+    leadScatter.lastTs = ts;
+    ctx.clearRect(0, 0, w, h);
+    var mx = leadScatter.mouseX;
+    var my = leadScatter.mouseY;
+    var inside = leadScatter.inside;
+    var next = [];
+    var dots = leadScatter.particles;
+    var i, p, dx, dy, d2, d, f, t, alpha;
+    for (i = 0; i < dots.length; i++) {
+      p = dots[i];
+      if (inside) {
+        dx = p.x - mx;
+        dy = p.y - my;
+        d2 = dx * dx + dy * dy;
+        if (d2 < 2304 && d2 > 0.25) {
+          d = Math.sqrt(d2);
+          f = (1 - d / 48) * 0.72;
+          p.vx += (dx / d) * f;
+          p.vy += (dy / d) * f;
+        }
+      }
+      p.vx *= 0.93;
+      p.vy *= 0.93;
+      p.x += p.vx * (dt / 16);
+      p.y += p.vy * (dt / 16);
+      p.life += dt;
+      if (p.life >= p.max) continue;
+      if (p.x < -6 || p.y < -6 || p.x > w + 6 || p.y > h + 6) continue;
+      t = 1 - p.life / p.max;
+      alpha = p.a * t * t;
+      ctx.fillStyle = "rgba(" + p.rgb + "," + alpha + ")";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      next.push(p);
+    }
+    leadScatter.particles = next;
+    if (next.length || inside) {
+      leadScatter.raf = requestAnimationFrame(tickLeadScatter);
+    } else {
+      leadScatter.lastTs = 0;
+    }
+  }
+
+  function mountLeadScatter() {
+    destroyLeadScatter();
+    var hero = document.querySelector("#feed .lead-card-opener .lead-hero");
+    if (!hero) return;
+    var img = hero.querySelector("img");
+    if (img && !prefersReducedMotion()) {
+      var key = img.getAttribute("src") || "photo";
+      if (!leadRevealSeen[key]) {
+        leadRevealSeen[key] = 1;
+        hero.classList.add("lead-hero-reveal");
+      }
+    }
+    if (!isLeadScatterDesktop()) return;
+    if (!img) return;
+    if (img.complete && !img.naturalWidth) return;
+
+    var canvas = document.createElement("canvas");
+    canvas.className = "lead-scatter";
+    canvas.setAttribute("aria-hidden", "true");
+    canvas.style.pointerEvents = "none";
+    hero.appendChild(canvas);
+    leadScatter.canvas = canvas;
+    leadScatter.hero = hero;
+    sizeLeadScatterCanvas();
+
+    function onMove(e) {
+      if (e.pointerType && e.pointerType !== "mouse") return;
+      var rect = hero.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      leadScatter.mouseX = x;
+      leadScatter.mouseY = y;
+      leadScatter.inside = true;
+      var dx = x - leadScatter.lastX;
+      var dy = y - leadScatter.lastY;
+      if (dx * dx + dy * dy > 16) {
+        spawnLeadDots(x, y);
+        leadScatter.lastX = x;
+        leadScatter.lastY = y;
+      }
+      if (!leadScatter.raf) leadScatter.raf = requestAnimationFrame(tickLeadScatter);
+    }
+    function onLeave() {
+      leadScatter.inside = false;
+      leadScatter.lastX = -1;
+      leadScatter.lastY = -1;
+    }
+    function onResize() {
+      if (!isLeadScatterDesktop()) {
+        destroyLeadScatter();
+        return;
+      }
+      sizeLeadScatterCanvas();
+    }
+    function onImgErr() {
+      img.removeEventListener("error", onImgErr);
+      destroyLeadScatter();
+    }
+    hero.addEventListener("pointermove", onMove);
+    hero.addEventListener("pointerleave", onLeave);
+    window.addEventListener("resize", onResize);
+    img.addEventListener("error", onImgErr);
+    leadScatter.unbind = function () {
+      hero.removeEventListener("pointermove", onMove);
+      hero.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("resize", onResize);
+      img.removeEventListener("error", onImgErr);
+    };
+  }
+
+  function bindLeadScatterMedia() {
+    try {
+      var mq = window.matchMedia("(max-width: 720px), (pointer: coarse), (hover: none), (prefers-reduced-motion: reduce)");
+      var onChange = function () { mountLeadScatter(); };
+      if (mq.addEventListener) mq.addEventListener("change", onChange);
+      else if (mq.addListener) mq.addListener(onChange);
+    } catch (e) {}
+  }
+
   function renderTodayFeed() {
+    destroyLeadScatter();
     var list = $("#feed");
     if (!list || !state.data) return;
     renderRightRail();
@@ -2525,6 +2750,7 @@
     list.innerHTML = html;
     enableCardNavigation(list);
     renderTodayDeskModules();
+    mountLeadScatter();
   }
 
   function renderTodayDeskModules() {
@@ -3203,6 +3429,7 @@
   }
 
   function bindShell() {
+    bindLeadScatterMedia();
 
     // an57: floating capsule stays visible — no hide-on-scroll
 
