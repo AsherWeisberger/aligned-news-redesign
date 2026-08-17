@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an106";
+  var DATA_URL = "live-data.json?v=an107";
   var state = {
     data: null,
     filter: "all",
@@ -88,6 +88,8 @@
   }
 
   function isHotTakeItem(item) {
+    var title = String((item && (item.headline || item.title)) || "").replace(/\s+/g, " ").trim();
+    if (/^(it says a lot that|someone asked my thoughts|why\?\s*because they are the one)/i.test(title)) return true;
     var hay = itemHay(item);
     var sec = String((item && item.section) || "").toLowerCase();
     if (sec === "anomalies" && !isHardNewsItem(item)) return true;
@@ -1300,7 +1302,7 @@
     return (e.like_count || 0) * 3 + (e.retweet_count || 0) * 4 + (e.reply_count || 0) * 2 + (e.quote_count || 0) * 3 + Math.round((e.impression_count || 0) / 100);
   }
 
-  var AI_RE = /\b(ai|llm|gpt|claude|gemini|openai|anthropic|nvidia|model|agent|robot|chip|gpu|ml|neural|transformer|cursor|fireworks|scoble|aligned|startup|funding|benchmark|inference|open[- ]?source|agi|sota)\b/i;
+  var AI_RE = /\b(ai|llm|gpt|claude|gemini|openai|anthropic|nvidia|model|agent|robot|chip|gpu|ml|neural|transformer|cursor|fireworks|scoble|aligned|startup|funding|benchmark|inference|open[- ]?source|agi|sota|copilot|qwen|lindy|github)\b/i;
 
   
   function isRetweetNoise(item) {
@@ -1330,7 +1332,7 @@
       item && item.section_label,
       item && item.source_list
     ].join(" ");
-    return /\b(AI|A\.I\.|LLM|GPT|Claude|Grok|model|agent|robot|robotics|GPU|chip|semiconductor|OpenAI|Anthropic|NVIDIA|Google DeepMind|DeepMind|Meta Superintelligence|xAI|Mistral|funding|Series [ABC]|benchmark|SOTA|inference|transformer|diffusion|multimodal|MCP|Cursor)\b/i.test(t);
+    return /\b(AI|A\.I\.|LLM|GPT|Claude|Grok|model|agent|robot|robotics|GPU|chip|semiconductor|OpenAI|Anthropic|NVIDIA|Google DeepMind|DeepMind|Meta Superintelligence|xAI|Mistral|funding|Series [ABC]|benchmark|SOTA|inference|transformer|diffusion|multimodal|MCP|Cursor|Copilot|Qwen|Lindy|GitHub)\b/i.test(t);
   }
 
   function relevanceScore(item) {
@@ -2379,8 +2381,10 @@
         var cand = items[bi];
         if (isEventItem(cand) || isSideDeskItem(cand)) continue;
         if (!isAiRelevant(cand)) continue;
-        if (isHotTakeItem(cand) && !isHardNewsItem(cand)) continue;
+        if (isHotTakeItem(cand)) continue;
         if (/scoble\s*:-?\)|scoble smile/i.test(String(cand.headline || cand.title || ""))) continue;
+        var leadTitle = String(cand.headline || cand.title || "");
+        if (/\bsingularity\b/i.test(leadTitle) && /researchers|theoretical result/i.test(leadTitle)) continue;
         var rs = relevanceScore(cand);
         if (rs < 8) continue;
         var score = rankScore(cand) + rs * 2;
@@ -2397,6 +2401,7 @@
         if (sec === "robotics" || topic === "robotics") score += 130;
         if (sec === "openclaw" || topic === "open-source") score += 110;
         if (isHardNewsItem(cand)) score += 80;
+        if (/\b(github|copilot|gpt-?\s*5|qwen|lindy)\b/i.test(itemHay(cand))) score += 140;
         if (score > best) { best = score; bestIdx = bi; }
       }
       if (bestIdx < 0) {
