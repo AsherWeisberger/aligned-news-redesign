@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an108";
+  var DATA_URL = "live-data.json?v=an109";
   var state = {
     data: null,
     filter: "all",
@@ -3000,124 +3000,181 @@
     return null;
   }
 
+  function realSourceUrl(value) {
+    var url = String(value || "").trim();
+    return /^https?:\/\//i.test(url) ? url : "";
+  }
+
+  function uniqueStorySources(story) {
+    var out = [];
+    var seen = {};
+    function add(url, label) {
+      url = realSourceUrl(url);
+      if (!url) return;
+      var key = url.replace(/\/$/, "").toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      var host = "Source";
+      try { host = new URL(url).hostname.replace(/^www\./, ""); } catch (e) {}
+      label = displayText(label || "").trim();
+      if (!label || label.toLowerCase() === host.toLowerCase() || /^(source|story)$/i.test(label)) {
+        label = url === realSourceUrl(story.source_url) ? "Original post" : "Source";
+      }
+      out.push({ url: url, label: label, host: host });
+    }
+    (story.sources || []).forEach(function (source) {
+      if (source) add(source.url, source.name || source.label || source.title);
+    });
+    add(story.source_url, story.source_list || "Original post");
+    return out;
+  }
+
+  function normalizedStoryCopy(value) {
+    return displayText(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  }
+
+  function storyDeskRank(story) {
+    var stories = (state.data && state.data.stories ? state.data.stories.slice() : []);
+    if (!stories.some(function (item) { return item.id === story.id; })) stories.push(story);
+    stories = stories.filter(function (item) { return !isEventItem(item); });
+    stories.sort(function (a, b) {
+      var score = rankScore(b) - rankScore(a);
+      if (score) return score;
+      var time = Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+      if (time) return time;
+      return String(a.id || "").localeCompare(String(b.id || ""));
+    });
+    for (var i = 0; i < stories.length; i++) if (stories[i].id === story.id) return i + 1;
+    return Number(story.desk_rank) || 0;
+  }
+
+  function measuredValue(value) {
+    value = Number(value);
+    if (!isFinite(value) || value <= 0) return "Not measured";
+    return value.toLocaleString();
+  }
+
+  function sentimentValue(value) {
+    if (value == null || value === "") return "";
+    value = Number(value);
+    if (!isFinite(value)) return "";
+    if (Math.abs(value) <= 1) value *= 100;
+    return Math.round(value) + "%";
+  }
+
+  function sentimentHtml(story) {
+    var sentiment = story.sentiment;
+    var sample = sentiment && Number(sentiment.sample_size);
+    if (!sentiment || !isFinite(sample) || sample <= 0) {
+      return "<section class=\"story-panel sentiment-panel sentiment-empty\"><div class=\"story-panel-heading\"><span>Sentiment</span><span class=\"premium-mark\">Premium</span></div><h2>Not enough reactions yet</h2><p>Sentiment appears after Aligned sees enough public reactions. The original post alone isn’t a crowd sample.</p></section>";
+    }
+    var metrics = [];
+    var positive = sentimentValue(sentiment.positive);
+    var negative = sentimentValue(sentiment.negative);
+    if (positive) metrics.push("<div><span>Positive</span><strong>" + escapeHtml(positive) + "</strong></div>");
+    if (negative) metrics.push("<div><span>Negative</span><strong>" + escapeHtml(negative) + "</strong></div>");
+    metrics.push("<div><span>Public reactions</span><strong>" + escapeHtml(sample.toLocaleString()) + "</strong></div>");
+    return "<section class=\"story-panel sentiment-panel\"><div class=\"story-panel-heading\"><span>Sentiment</span><span class=\"premium-mark\">Premium</span></div><div class=\"sentiment-metrics\">" + metrics.join("") + "</div>" + (sentiment.summary ? "<p>" + escapeHtml(displayText(sentiment.summary)) + "</p>" : "") + "</section>";
+  }
+
   function renderStory() {
     var root = $("#article");
     if (!root) return;
-    var id = getParam("id");
-    var story = findStory(id);
+    var story = findStory(getParam("id"));
     if (!story) {
-      root.innerHTML = '<p class="status error">Story not found. <a href="index.html">Back to Today</a></p>';
+      root.innerHTML = "<p class=\"status error\">Story not found. <a href=\"index.html\">Back to Today</a></p>";
       return;
     }
     if (state.read.indexOf(story.id) === -1) {
       state.read.push(story.id);
       persistRead();
     }
+
     var saved = state.saved.indexOf(story.id) !== -1;
-    var paragraphs = storyBodyParagraphs(story);
-    var bodyHtml = paragraphs.map(function (p) {
-      if (hasSamplePlaceholder(p) || /^\[Sample/i.test(p)) return "";
-      if (/^From the \/ai briefing/i.test(p) || /^From the Aligned News/i.test(p)) {
-        return '<p class="sample-note">' + escapeHtml(p) + "</p>";
-      }
-      return "<p>" + escapeHtml(p) + "</p>";
-    }).join("");
-
-    var sources = story.sources || [];
-    if ((!sources.length) && story.source_url) {
-      sources = [{ url: story.source_url, name: story.source_list || "Original source" }];
-    }
-
-    var storyMedia = storyMediaUrl(story);
-    var showHero = !!storyMedia;
     var title = editorialTitle(story, 110);
-    var dek = firstSentence(story.summary || "", 220);
-    if (dek && dek.toLowerCase() === title.toLowerCase()) dek = "";
-    var why = whyItMatters(story);
-    // Prefer desk take / unique body paras only
-    var uniqueBody = paragraphs.filter(function (p) {
-      var t = p.trim().toLowerCase();
-      return t && t !== title.toLowerCase() && (!dek || t !== dek.toLowerCase()) && t !== why.toLowerCase();
-    });
-    var originalPost = "";
-    if (uniqueBody.length) {
-      originalPost = uniqueBody.join("\n\n");
-    } else if (story.body || story.summary) {
-      originalPost = displayText(story.body || story.summary);
-      if (originalPost.toLowerCase().indexOf(title.toLowerCase()) === 0) {
-        originalPost = originalPost.slice(title.length).replace(/^[\s.:\-—–]+/, "");
-      }
-    }
-    if (!originalPost) {
-      originalPost = "Original post from " + (story.author_name || story.source_list || "Scoble lists") + ".";
-    }
-    var related = (state.data.stories || []).filter(function (x) {
-      return x.id !== story.id && (x.topic_key || topicKeyFor(x)) === (story.topic_key || topicKeyFor(story));
-    }).slice(0, 3);
-    var relatedHtml = related.length ? (
-      '<div class="related"><h2>Related on the desk</h2><ul>' +
-      related.map(function (r) {
-        return '<li><a href="story.html?id=' + encodeURIComponent(r.id) + '">' + escapeHtml(editorialTitle(r, 80)) + "</a></li>";
-      }).join("") + "</ul></div>"
+    var summary = displayText(story.summary || "").trim();
+    var body = displayText(story.body || "").trim();
+    var whatHappened = summary || body;
+    if (!whatHappened) whatHappened = title;
+    var why = displayText(story.why_it_matters || "").trim();
+    var whyIsDifferent = why && normalizedStoryCopy(why) !== normalizedStoryCopy(whatHappened) && normalizedStoryCopy(why) !== normalizedStoryCopy(title);
+    var watch = displayText(story.what_to_watch || story.watch || story.watch_next || "").trim();
+    var sourceUrl = realSourceUrl(story.source_url);
+    var sources = uniqueStorySources(story);
+    var media = storyMediaUrl(story);
+    var rank = storyDeskRank(story);
+    var engagement = story.engagement || {};
+    var views = engagement.impression_count || engagement.view_count || story.view_count || 0;
+    var reactions = Number(engagement.like_count || 0) + Number(engagement.reply_count || 0) + Number(engagement.quote_count || 0) + Number(engagement.retweet_count || 0) + Number(engagement.bookmark_count || 0);
+    var handle = String(story.x_handle || xHandleFrom(story) || "").replace(/^@/, "");
+    var author = displayText(story.author_name || handle || story.source_list || "Original source");
+    var originalText = body || summary;
+
+    var intelHtml = "<div class=\"story-intelligence\" aria-label=\"Story intelligence\">" +
+      "<div><span>Desk rank</span><strong>" + (rank ? "#" + rank : "Not ranked") + "</strong></div>" +
+      "<div><span>First seen</span><strong>" + escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "Unknown") + "</strong></div>" +
+      "<div><span>Sources</span><strong>" + sources.length + " source" + (sources.length === 1 ? "" : "s") + "</strong></div>" +
+      "<div><span>Views</span><strong>" + measuredValue(views) + "</strong></div>" +
+      "<div><span>Reactions</span><strong>" + measuredValue(reactions) + "</strong></div>" +
+    "</div>";
+
+    var originalHtml = sourceUrl ? (
+      "<section class=\"story-block original-post-section\"><h2>Original post</h2>" +
+        "<a class=\"original-post-card\" href=\"" + escapeHtml(sourceUrl) + "\" target=\"_blank\" rel=\"noopener\">" +
+          "<span class=\"original-post-meta\"><span><strong>" + escapeHtml(author) + "</strong>" + (handle ? " <span>@" + escapeHtml(handle) + "</span>" : "") + "</span><time>" + escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "") + "</time></span>" +
+          (originalText ? "<span class=\"original-post-copy\">" + escapeHtml(originalText) + "</span>" : "") +
+          (media ? "<span class=\"original-post-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"lazy\" onerror=\"this.parentNode.hidden=true\"></span>" : "") +
+          "<span class=\"open-on-x\">Open on X ↗</span>" +
+        "</a></section>"
     ) : "";
-    var dekFinal = dek || uniqueDek(story, title, 200);
+
+    var usefulLinksHtml = sources.length ? (
+      "<section class=\"story-block useful-links\"><h2>Useful links</h2><div class=\"useful-link-grid\">" +
+      sources.map(function (source) {
+        return "<a href=\"" + escapeHtml(source.url) + "\" target=\"_blank\" rel=\"noopener\"><strong>" + escapeHtml(source.label) + "</strong><span>" + escapeHtml(source.host) + " ↗</span></a>";
+      }).join("") + "</div></section>"
+    ) : "";
+
+    var topic = story.topic_key || topicKeyFor(story);
+    var related = (state.data.stories || []).filter(function (item) {
+      return item.id !== story.id && !isEventItem(item) && (item.topic_key || topicKeyFor(item)) === topic;
+    }).sort(function (a, b) { return rankScore(b) - rankScore(a); }).slice(0, 3);
+    var relatedHtml = related.length ? (
+      "<section class=\"story-block related\"><h2>Related on the desk</h2><div class=\"related-card-grid\">" +
+      related.map(function (item) {
+        var relatedTitle = editorialTitle(item, 88);
+        var relatedDek = uniqueDek(item, relatedTitle, 130);
+        return "<a class=\"related-card\" href=\"story.html?id=" + encodeURIComponent(item.id) + "\"><span class=\"related-card-meta\">" + escapeHtml(joinMeta([item.topic_label || labelFor(item.topic_key || topicKeyFor(item)), fallbackTime(item.published_at)])) + "</span><strong>" + escapeHtml(relatedTitle) + "</strong>" + (relatedDek ? "<span>" + escapeHtml(relatedDek) + "</span>" : "") + "</a>";
+      }).join("") + "</div></section>"
+    ) : "";
+
     root.innerHTML =
-      '<a class="back-link" href="index.html">← Back to Today</a>' +
-      '<div class="article-kicker">' +
-        (story.signal_badge ? '<span class="' + badgeClass(story.signal_badge) + '">' + escapeHtml(String(story.signal_badge).toUpperCase()) + "</span>" : "") +
-        (story.topic_label ? '<span class="badge badge-signal">' + escapeHtml(story.topic_label) + "</span>" : "") +
-        whyRankedHtml(story) +
-        '<span class="meta-line">' + escapeHtml(joinMeta([
-          storyMetaLine(story),
-          fallbackTimeLong(story.published_at),
-          (!story.signal_badge && story.author_name) ? decodeEntities(story.author_name) : ""
-        ])) + "</span>" +
-      "</div>" +
-      whyHereHtml(story) +
-      "<h1>" + escapeHtml(title) + "</h1>" +
-      (dekFinal ? '<p class="article-dek">' + escapeHtml(dekFinal) + "</p>" : "") +
-      '<div class="article-why"><span class="lead-why-label">Why it matters</span><p>' + escapeHtml(why) + "</p></div>" +
-      (showHero
-        ? '<div class="article-hero"><img src="' + escapeHtml(String(storyMedia)) + '" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'" /></div>'
-        : "") +
-      '<div class="article-actions">' +
-        '<button type="button" class="btn" id="saveBtn">' + (saved ? "Saved" : "Save for later") + "</button>" +
-        '<button type="button" class="btn" id="readBtn">Mark unread</button>' +
-        (story.source_url ? '<a class="btn btn-primary" href="' + escapeHtml(story.source_url) + '" target="_blank" rel="noopener">Open source</a>' : "") +
-      "</div>" +
-      '<div class="article-body">' +
-        '<h2 class="article-section-label">Original post</h2>' +
-        originalPost.split(/\n\n+/).map(function (p) {
-          return "<p>" + linkifyHtml(escapeHtml(p.trim())) + "</p>";
-        }).join("") +
-      "</div>" +
-      relatedHtml +
-      (sources.length
-        ? '<div class="sources"><h2>Sources</h2><ul>' +
-          sources.map(function (src) {
-            return "<li><a href=\"" + escapeHtml(src.url) + "\" target=\"_blank\" rel=\"noopener\">" +
-              escapeHtml(decodeEntities(src.name || src.url)) + "</a></li>";
-          }).join("") + "</ul></div>"
-        : "");
+      "<a class=\"back-link\" href=\"index.html\">← Back to Today</a>" +
+      "<header class=\"story-header\"><div class=\"article-kicker\"><span class=\"badge badge-signal\">" + escapeHtml(story.topic_label || labelFor(topic)) + "</span><span class=\"meta-line\">" + escapeHtml(storyMetaLine(story)) + "</span></div><h1>" + escapeHtml(title) + "</h1></header>" +
+      intelHtml +
+      "<div class=\"article-actions\"><button type=\"button\" class=\"btn\" id=\"saveBtn\">" + (saved ? "Saved" : "Save for later") + "</button><button type=\"button\" class=\"btn\" id=\"readBtn\">Mark unread</button></div>" +
+      "<div class=\"story-layout\"><div class=\"story-main\">" +
+        originalHtml +
+        "<section class=\"story-block story-explainer\"><h2>What happened</h2><div class=\"story-prose\"><p>" + escapeHtml(whatHappened) + "</p></div></section>" +
+        (whyIsDifferent ? "<section class=\"story-block story-explainer\"><h2>Why it matters</h2><div class=\"story-prose\"><p>" + escapeHtml(why) + "</p></div></section>" : "") +
+        (watch ? "<section class=\"story-block story-explainer\"><h2>What to watch</h2><div class=\"story-prose\"><p>" + escapeHtml(watch) + "</p></div></section>" : "") +
+        usefulLinksHtml + relatedHtml +
+      "</div><aside class=\"story-aside\">" + sentimentHtml(story) + "</aside></div>";
 
     var saveBtn = $("#saveBtn");
-    if (saveBtn) {
-      saveBtn.addEventListener("click", function () {
-        var idx = state.saved.indexOf(story.id);
-        if (idx === -1) state.saved.push(story.id);
-        else state.saved.splice(idx, 1);
-        persistSaved();
-        saveBtn.textContent = state.saved.indexOf(story.id) !== -1 ? "Saved" : "Save";
-      });
-    }
+    if (saveBtn) saveBtn.addEventListener("click", function () {
+      var index = state.saved.indexOf(story.id);
+      if (index === -1) state.saved.push(story.id);
+      else state.saved.splice(index, 1);
+      persistSaved();
+      saveBtn.textContent = state.saved.indexOf(story.id) !== -1 ? "Saved" : "Save for later";
+    });
     var readBtn = $("#readBtn");
-    if (readBtn) {
-      readBtn.addEventListener("click", function () {
-        state.read = state.read.filter(function (x) { return x !== story.id; });
-        persistRead();
-        readBtn.textContent = "Marked unread";
-      });
-    }
+    if (readBtn) readBtn.addEventListener("click", function () {
+      state.read = state.read.filter(function (id) { return id !== story.id; });
+      persistRead();
+      readBtn.textContent = "Marked unread";
+    });
   }
 
 
