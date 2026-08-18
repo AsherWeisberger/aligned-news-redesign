@@ -6032,3 +6032,147 @@ body.nl-reading .nl-reader {
     display: -webkit-box !important;
   }
 }
+
+
+/* an114: compact on the Stories row, uncramp phone header */
+.feed-module-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.feed-module-head .density-seg {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  gap: 0.05rem;
+}
+.feed-module-head .density-seg-btn {
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 6px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--muted);
+}
+.feed-module-head .density-seg-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-soft);
+}
+.feed-module-head .density-seg-btn.is-active,
+.feed-module-head .density-seg-btn[aria-pressed="true"] {
+  background: transparent;
+  color: var(--text);
+  box-shadow: none;
+}
+html[data-theme="dark"] .feed-module-head .density-seg,
+html[data-theme="dark"] .feed-module-head .density-seg-btn.is-active,
+html[data-theme="dark"] .feed-module-head .density-seg-btn[aria-pressed="true"] {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Never sit in top chrome — Compact belongs on the section heading */
+.topbar .density-seg,
+.top-actions .density-seg,
+.mobile-dock .density-seg {
+  display: none !important;
+}
+
+.top-actions:has(.user-pill:not([hidden])) .auth-cta {
+  display: none !important;
+}
+
+.sidebar-theme {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0 0 0.65rem;
+  padding: 0.42rem 0.55rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.sidebar-theme:hover,
+.sidebar-theme:focus-visible {
+  background: var(--bg-soft);
+  color: var(--text);
+  outline: none;
+}
+.sidebar-theme svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.sidebar-foot-copy {
+  margin: 0;
+}
+
+/* Search wraps under the icon row from tablet; give it air so it isn't glued to the logo */
+@media (max-width: 860px) {
+  .topbar {
+    row-gap: 0.85rem !important;
+    padding-bottom: 0.65rem;
+  }
+  .top-search {
+    margin: 0.28rem 0 0.45rem !important;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Header: hamburger + Aligned + globe + avatar. Theme lives in the menu. */
+  .topbar #themeToggle,
+  .top-actions #themeToggle {
+    display: none !important;
+  }
+  .live-pill,
+  #livePill,
+  .think-status {
+    display: none !important;
+  }
+  .user-name,
+  .pro-badge {
+    display: none !important;
+  }
+
+  /* Stories row: Compact is a small Digg-like two-icon control */
+  .feed-module-head {
+    flex-wrap: nowrap;
+    gap: 0.35rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .feed-module-head .module-label,
+  .feed-module-head .nl-section-title {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .feed-module-tools {
+    gap: 0.28rem;
+  }
+  .feed-module-head .feed-collabs {
+    display: none;
+  }
+  .feed-module-head .density-seg {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  .feed-module-head .density-seg-btn {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+  .feed-module-head .density-seg-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+}

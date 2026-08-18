@@ -9,8 +9,8 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an113";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an113";
+  var DATA_URL = "live-data.json?v=an114";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an114";
   var state = {
     data: null,
     newsletter: [],
@@ -621,8 +621,42 @@
     applyChromeVisual(chromePref);
     syncChromeToggle();
     syncDensitySeg();
+    syncThemeButtons();
     lastScrollY = getScrollY();
   }
+
+  function isDarkTheme() {
+    return document.documentElement.getAttribute("data-theme") === "dark";
+  }
+
+  function syncThemeButtons() {
+    var dark = isDarkTheme();
+    var label = dark ? "Switch to light mode" : "Switch to dark mode";
+    var title = dark ? "Light mode" : "Dark mode";
+    var ids = ["themeToggle", "themeToggleSide"];
+    for (var i = 0; i < ids.length; i++) {
+      var btn = document.getElementById(ids[i]);
+      if (!btn) continue;
+      btn.setAttribute("aria-label", label);
+      btn.title = title;
+      var text = btn.querySelector(".sidebar-theme-label");
+      if (text) text.textContent = title;
+    }
+  }
+
+  function toggleTheme() {
+    var root = document.documentElement;
+    if (isDarkTheme()) {
+      root.removeAttribute("data-theme");
+      try { localStorage.setItem("an-theme", "light"); } catch (e) {}
+    } else {
+      root.setAttribute("data-theme", "dark");
+      try { localStorage.setItem("an-theme", "dark"); } catch (e) {}
+    }
+    syncThemeButtons();
+  }
+
+
 
   function syncChromeToggle() {
     // Button reflects preference (an-chrome), not transient scroll visual state.
@@ -1984,18 +2018,18 @@
 
     var foot = $("#sidebarFoot");
     if (foot) {
-      foot.innerHTML = escapeHtml(uname) + " · " + (pro ? "Pro" : "Free") +
-        "<br>" + (pro ? "63 curated X lists · interests first" : "Free desk · Upgrade for interests-first ranking");
+      var dark = isDarkTheme();
+      foot.innerHTML =
+        '<button type="button" class="sidebar-theme" id="themeToggleSide" aria-label="' +
+        (dark ? "Switch to light mode" : "Switch to dark mode") + '" title="' +
+        (dark ? "Light mode" : "Dark mode") + '">' +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' +
+        '<span class="sidebar-theme-label">' + (dark ? "Light mode" : "Dark mode") + "</span>" +
+        "</button>" +
+        '<p class="sidebar-foot-copy">' + escapeHtml(uname) + " · " + (pro ? "Pro" : "Free") +
+        "<br>" + (pro ? "63 curated X lists · interests first" : "Free desk · Upgrade for interests-first ranking") +
+        "</p>";
     }
-
-    var authCta = ensureAuthCta();
-    if (authCta) {
-      authCta.hidden = false;
-      authCta.classList.add("is-on");
-    }
-    // Remove legacy Upgrade CTA — Sign up / Login is the primary action.
-    var existingUp = $("#upgradeBtn");
-    if (existingUp) existingUp.remove();
 
     var pill = $(".user-pill");
     if (pill) {
@@ -2014,6 +2048,16 @@
         pill.classList.remove("is-compact");
       }
     }
+
+    var authCta = ensureAuthCta();
+    if (authCta) {
+      var signedIn = !!(pill && !pill.hidden);
+      authCta.hidden = signedIn;
+      authCta.classList.toggle("is-on", !signedIn);
+    }
+    // Remove legacy Upgrade CTA — Sign up / Login is the primary action.
+    var existingUp = $("#upgradeBtn");
+    if (existingUp) existingUp.remove();
 
     var kicker = $(".desk-kicker");
     if (kicker) {
@@ -2078,12 +2122,7 @@
 
     syncDensitySeg();
     syncChromeToggle();
-    var themeBtn = $("#themeToggle");
-    if (themeBtn) {
-      var dark = document.documentElement.getAttribute("data-theme") === "dark";
-      themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
-      themeBtn.title = dark ? "Light mode" : "Dark mode";
-    }
+    syncThemeButtons();
   }
 
   function getParam(name) {
@@ -3722,21 +3761,16 @@
 
     var themeBtn = $("#themeToggle");
     if (themeBtn) {
-      themeBtn.addEventListener("click", function () {
-        var root = document.documentElement;
-        var dark = root.getAttribute("data-theme") === "dark";
-        if (dark) {
-          root.removeAttribute("data-theme");
-          try { localStorage.setItem("an-theme", "light"); } catch (e) {}
-        } else {
-          root.setAttribute("data-theme", "dark");
-          try { localStorage.setItem("an-theme", "dark"); } catch (e) {}
-        }
-        var isDark = root.getAttribute("data-theme") === "dark";
-        themeBtn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-        themeBtn.title = isDark ? "Light mode" : "Dark mode";
+      themeBtn.addEventListener("click", function () { toggleTheme(); });
+    }
+    if (sidebar) {
+      sidebar.addEventListener("click", function (ev) {
+        var t = ev.target;
+        while (t && t !== sidebar && !(t.id === "themeToggleSide")) t = t.parentNode;
+        if (t && t.id === "themeToggleSide") toggleTheme();
       });
     }
+    syncThemeButtons();
 
     var search = $("#searchInput");
     if (search) {

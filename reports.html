@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=an113" />
+<link rel="stylesheet" href="styles.css?v=an114" />
 </head>
 <body data-page="reports">
   <div class="load-bar" id="loadBar" hidden aria-hidden="true"><div class="load-bar-inner"></div></div>
@@ -48,16 +48,6 @@
           <span class="live-dot" aria-hidden="true"></span>
           <span class="live-label">LIVE</span>
           <span class="live-time" id="liveTime">…</span>
-        </div>
-        <div class="density-seg" id="densityToggle" role="group" aria-label="Feed density">
-          <button type="button" class="density-seg-btn is-active" data-density-mode="comfortable" aria-pressed="true" title="Expanded">
-            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>
-            <span class="sr-only">Expanded</span>
-          </button>
-          <button type="button" class="density-seg-btn" data-density-mode="compact" aria-pressed="false" title="Compact">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
-            <span class="sr-only">Compact</span>
-          </button>
         </div>
         <button type="button" class="tool-toggle chrome-toggle" id="chromeToggle" aria-pressed="false" title="Hide desk for more feed space">Focus</button>
         <button type="button" class="gm-widget" id="godModeWidget" aria-label="Open God Mode" title="God Mode">
@@ -96,7 +86,19 @@
           <div class="page-primary">
             <div class="feed-module-head">
               <h2 class="module-label">Reports</h2>
-              <a class="feed-collabs" href="https://agentdashboard.cloud/connect" target="_blank" rel="noopener noreferrer">Collabs</a>
+              <div class="feed-module-tools">
+                <a class="feed-collabs" href="https://agentdashboard.cloud/connect" target="_blank" rel="noopener noreferrer">Collabs</a>
+                <div class="density-seg" id="densityToggle" role="group" aria-label="Feed density">
+                  <button type="button" class="density-seg-btn is-active" data-density-mode="comfortable" aria-pressed="true" title="Expanded">
+                    <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>
+                    <span class="sr-only">Expanded</span>
+                  </button>
+                  <button type="button" class="density-seg-btn" data-density-mode="compact" aria-pressed="false" title="Compact">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
+                    <span class="sr-only">Compact</span>
+                  </button>
+                </div>
+              </div>
             </div>
             <ul class="report-list" id="reportList"></ul>
           </div>
@@ -128,6 +130,6 @@
       </div>
     </main>
   </div>
-  <script src="app.js?v=an113"></script>
+  <script src="app.js?v=an114"></script>
 </body>
 </html>
