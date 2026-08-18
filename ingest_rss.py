@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urlencode, urljoin, urlparse
 
 ROOT = Path(__file__).resolve().parent
 DATA_PATH = ROOT / "live-data.json"
@@ -36,7 +36,7 @@ LOCAL_FEED_CANDIDATES = [
         "/workspace/aligned-news-feed.json",
     ) if p
 ]
-UA = "AlignedNewsRedesign/an105 (+https://asherweisberger.github.io/aligned-news-redesign/)"
+UA = "AlignedNewsRedesign/an110 (+https://asherweisberger.github.io/aligned-news-redesign/)"
 
 JUNK_TITLE_RE = re.compile(
     r"posted a brief reply|documents a current scoble development|"
@@ -545,6 +545,234 @@ def attach_photos(stories: list) -> dict:
     }
 
 
+X_INGEST_BEARER_PATH = Path(
+    "/home/box/agent-data/connector-secrets/"
+    "a936435d-a229-4665-be23-0a262d6c396b/aligned-news-ingest.json"
+)
+X_TWEET_LOOKUP_URLS = (
+    "https://api.x.com/2/tweets",
+    "https://api.twitter.com/2/tweets",
+)
+
+
+def load_x_bearer() -> str:
+    token = (os.environ.get("AN_X_BEARER_TOKEN") or "").strip()
+    if token:
+        return token
+    paths = []
+    env_file = (os.environ.get("AN_X_BEARER_FILE") or "").strip()
+    if env_file:
+        paths.append(Path(env_file))
+    paths.append(X_INGEST_BEARER_PATH)
+    for path in paths:
+        try:
+            if not path.is_file():
+                continue
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if not isinstance(data, dict):
+            continue
+        token = str(data.get("bearer_token") or "").strip()
+        if token:
+            return token
+    return ""
+
+
+def engagement_from_public_metrics(pm) -> dict:
+    if not isinstance(pm, dict):
+        return {}
+    out = {}
+    for key in (
+        "like_count",
+        "reply_count",
+        "retweet_count",
+        "quote_count",
+        "bookmark_count",
+        "impression_count",
+    ):
+        if key not in pm:
+            continue
+        try:
+            n = int(pm[key])
+        except (TypeError, ValueError):
+            continue
+        if n > 0:
+            out[key] = n
+    return out
+
+
+def apply_original_post_metrics(story: dict, eng: dict | None) -> None:
+    if eng:
+        story["engagement"] = dict(eng)
+        views = eng.get("impression_count")
+        if views:
+            story["views"] = views
+        else:
+            story.pop("views", None)
+    else:
+        story["engagement"] = {}
+        story.pop("views", None)
+
+
+def fetch_x_public_metrics(ids: list[str], bearer: str) -> tuple[dict, dict]:
+    """Official tweet lookup by IDs already on the desk. Batch <= 100."""
+    by_id: dict = {}
+    stats = {
+        "ok": 0,
+        "missing": 0,
+        "errors": 0,
+        "batches": 0,
+        "unauthorized": False,
+        "blocked": False,
+    }
+    if not ids or not bearer:
+        return by_id, stats
+    headers = {
+        "Authorization": "Bearer " + bearer,
+        "User-Agent": UA,
+        "Accept": "application/json",
+    }
+    lookup_host = X_TWEET_LOOKUP_URLS[0]
+    for i in range(0, len(ids), 100):
+        chunk = ids[i : i + 100]
+        stats["batches"] += 1
+        query = urlencode(
+            {
+                "ids": ",".join(chunk),
+                "tweet.fields": "public_metrics,created_at,author_id",
+            }
+        )
+        last_exc = None
+        payload = None
+        for base in (lookup_host,) + tuple(u for u in X_TWEET_LOOKUP_URLS if u != lookup_host):
+            url = f"{base}?{query}"
+            try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    raw = resp.read()
+                payload = json.loads(raw.decode("utf-8", "replace"))
+                lookup_host = base
+                last_exc = None
+                break
+            except urllib.error.HTTPError as exc:
+                last_exc = exc
+                stats["errors"] += 1
+                print(f"X tweet lookup HTTP {exc.code} for {len(chunk)} ids", file=sys.stderr)
+                if exc.code in (401, 403):
+                    stats["unauthorized"] = True
+                    return by_id, stats
+                if exc.code == 404 and base != X_TWEET_LOOKUP_URLS[-1]:
+                    continue
+                break
+            except (urllib.error.URLError, TimeoutError, ValueError, json.JSONDecodeError, OSError) as exc:
+                last_exc = exc
+                if base != X_TWEET_LOOKUP_URLS[-1]:
+                    continue
+                stats["errors"] += 1
+                print(f"X tweet lookup failed: {type(exc).__name__}", file=sys.stderr)
+                break
+        if payload is None:
+            continue
+        if not isinstance(payload, dict):
+            stats["errors"] += 1
+            continue
+        rows = payload.get("data") or []
+        if isinstance(rows, dict):
+            rows = [rows]
+        found_ids = set()
+        for tweet in rows:
+            if not isinstance(tweet, dict):
+                continue
+            tid = str(tweet.get("id") or "")
+            if not tid:
+                continue
+            found_ids.add(tid)
+            by_id[tid] = engagement_from_public_metrics(tweet.get("public_metrics"))
+            stats["ok"] += 1
+        errs = payload.get("errors") or []
+        if isinstance(errs, list):
+            stats["missing"] += len(errs)
+    return by_id, stats
+
+
+def attach_x_metrics(stories: list) -> dict:
+    """Fill original-post metrics from official X tweet lookup. Never write 0 for unknown."""
+    stats = {
+        "with_id": 0,
+        "without_id": 0,
+        "filled": 0,
+        "empty": 0,
+        "skipped_no_bearer": False,
+        "ok": 0,
+        "errors": 0,
+        "batches": 0,
+        "missing": 0,
+        "unauthorized": False,
+    }
+    id_to_stories: dict[str, list] = {}
+    for story in stories:
+        sid = status_id_from_url(story.get("source_url") or "")
+        if not sid:
+            stats["without_id"] += 1
+            apply_original_post_metrics(story, normalize_engagement(story.get("engagement")))
+            continue
+        stats["with_id"] += 1
+        id_to_stories.setdefault(sid, []).append(story)
+
+    ids = list(id_to_stories.keys())
+    by_id = {}
+    overlay_path = (os.environ.get("AN_X_METRICS_FILE") or "").strip()
+    if overlay_path:
+        try:
+            overlay = json.loads(Path(overlay_path).read_text(encoding="utf-8"))
+            rows = overlay.get("tweets") if isinstance(overlay, dict) and "tweets" in overlay else overlay
+            if isinstance(rows, dict):
+                for tid, eng in rows.items():
+                    cleaned = engagement_from_public_metrics(eng if isinstance(eng, dict) else {})
+                    if not cleaned and isinstance(eng, dict):
+                        cleaned = normalize_engagement(eng)
+                    if cleaned:
+                        by_id[str(tid)] = cleaned
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"X metrics overlay unreadable: {type(exc).__name__}", file=sys.stderr)
+
+    bearer = load_x_bearer()
+    if bearer:
+        live, lookup_stats = fetch_x_public_metrics(ids, bearer)
+        stats["ok"] = lookup_stats.get("ok") or 0
+        stats["errors"] = lookup_stats.get("errors") or 0
+        stats["batches"] = lookup_stats.get("batches") or 0
+        stats["missing"] = lookup_stats.get("missing") or 0
+        stats["unauthorized"] = bool(lookup_stats.get("unauthorized"))
+        by_id.update(live)
+    elif by_id:
+        print(f"X tweet lookup using overlay ({len(by_id)} ids)", file=sys.stderr)
+    else:
+        stats["skipped_no_bearer"] = True
+        print("X tweet lookup skipped: no ingest bearer", file=sys.stderr)
+        for group in id_to_stories.values():
+            for story in group:
+                apply_original_post_metrics(story, None)
+                stats["empty"] += 1
+        return stats
+
+    for sid, group in id_to_stories.items():
+        if sid not in by_id:
+            for story in group:
+                apply_original_post_metrics(story, None)
+                stats["empty"] += 1
+            continue
+        eng = by_id[sid]
+        for story in group:
+            apply_original_post_metrics(story, eng or None)
+            if eng:
+                stats["filled"] += 1
+            else:
+                stats["empty"] += 1
+    return stats
+
+
 
 def host_name(url: str) -> str:
     try:
@@ -692,25 +920,33 @@ def parse_iso_pub(raw: str) -> str:
 
 
 def normalize_engagement(raw) -> dict:
+    """Keep only known positive counts. 0 means unknown here, so omit it."""
     e = raw if isinstance(raw, dict) else {}
-    def n(key, *alts):
-        for k in (key,) + alts:
+    out = {}
+    pairs = (
+        ("bookmark_count", "bookmarks"),
+        ("impression_count", "impressions", "views"),
+        ("like_count", "likes"),
+        ("quote_count", "quotes"),
+        ("reply_count", "replies"),
+        ("retweet_count", "retweets", "reposts"),
+    )
+    for keys in pairs:
+        dest = keys[0]
+        for k in keys:
+            if k not in e:
+                continue
             v = e.get(k)
-            if v is None:
+            if v is None or v == "":
                 continue
             try:
-                return int(v)
+                n = int(v)
             except (TypeError, ValueError):
                 continue
-        return 0
-    return {
-        "bookmark_count": n("bookmark_count", "bookmarks"),
-        "impression_count": n("impression_count", "impressions", "views"),
-        "like_count": n("like_count", "likes"),
-        "quote_count": n("quote_count", "quotes"),
-        "reply_count": n("reply_count", "replies"),
-        "retweet_count": n("retweet_count", "retweets", "reposts"),
-    }
+            if n > 0:
+                out[dest] = n
+            break
+    return out
 
 
 def normalize_sources(raw, source_url: str, host: str) -> list:
@@ -848,14 +1084,7 @@ def item_to_story(item) -> dict | None:
         "sources": [{"url": link, "name": host}] if link else [],
         "body": body,
         "kind": "story",
-        "engagement": {
-            "bookmark_count": 0,
-            "impression_count": 0,
-            "like_count": 0,
-            "quote_count": 0,
-            "reply_count": 0,
-            "retweet_count": 0,
-        },
+        "engagement": {},
         "why_it_matters": "",
         "topic_key": topic_key,
         "topic_label": topic_label,
@@ -1100,6 +1329,7 @@ def main() -> int:
 
     stories, feed_meta = fetch_desk_stories()
     photo_stats = attach_photos(stories)
+    metrics_stats = attach_x_metrics(stories)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
     last_ts = int(datetime.now(timezone.utc).timestamp() * 1000)
@@ -1154,6 +1384,14 @@ def main() -> int:
         f"{photo_stats['found']} real / {photo_stats['empty']} empty "
         f"(X {photo_stats['x_found']}/{photo_stats['x_total']} with photo, "
         f"{photo_stats['x_empty']} X empty)"
+    )
+    print(
+        "x-metrics: "
+        f"{metrics_stats['filled']} filled / {metrics_stats['empty']} empty "
+        f"({metrics_stats['with_id']} tweet ids, {metrics_stats['without_id']} non-X, "
+        f"{metrics_stats['batches']} lookup batches)"
+        + (" [no bearer]" if metrics_stats.get("skipped_no_bearer") else "")
+        + (" [unauthorized]" if metrics_stats.get("unauthorized") else "")
     )
     from collections import Counter
     sec_counts = Counter(s.get("section") for s in stories)

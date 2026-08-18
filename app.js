@@ -9,7 +9,7 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an109";
+  var DATA_URL = "live-data.json?v=an110";
   var state = {
     data: null,
     filter: "all",
@@ -3048,10 +3048,32 @@
     return Number(story.desk_rank) || 0;
   }
 
-  function measuredValue(value) {
+  function compactCount(value) {
     value = Number(value);
-    if (!isFinite(value) || value <= 0) return "Not measured";
-    return value.toLocaleString();
+    if (!isFinite(value) || value <= 0) return "";
+    if (value < 1000) return String(Math.round(value));
+    var units = [
+      { div: 1e9, suffix: "B" },
+      { div: 1e6, suffix: "M" },
+      { div: 1e3, suffix: "K" }
+    ];
+    for (var i = 0; i < units.length; i++) {
+      if (value >= units[i].div) {
+        var n = value / units[i].div;
+        var s = n >= 100 ? n.toFixed(0) : n.toFixed(1);
+        s = s.replace(/\.0$/, "");
+        return s + units[i].suffix;
+      }
+    }
+    return String(Math.round(value));
+  }
+
+  function measuredValue(value) {
+    return compactCount(value) || "Not measured";
+  }
+
+  function intelCell(label, valueHtml) {
+    return "<div><span>" + escapeHtml(label) + "</span><strong>" + valueHtml + "</strong></div>";
   }
 
   function sentimentValue(value) {
@@ -3104,19 +3126,25 @@
     var media = storyMediaUrl(story);
     var rank = storyDeskRank(story);
     var engagement = story.engagement || {};
-    var views = engagement.impression_count || engagement.view_count || story.view_count || 0;
-    var reactions = Number(engagement.like_count || 0) + Number(engagement.reply_count || 0) + Number(engagement.quote_count || 0) + Number(engagement.retweet_count || 0) + Number(engagement.bookmark_count || 0);
+    var views = Number(engagement.impression_count || engagement.view_count || story.views || story.view_count || 0);
+    var likes = Number(engagement.like_count || 0);
+    var replies = Number(engagement.reply_count || 0);
+    var reposts = Number(engagement.retweet_count || 0);
+    var bookmarks = Number(engagement.bookmark_count || 0);
     var handle = String(story.x_handle || xHandleFrom(story) || "").replace(/^@/, "");
     var author = displayText(story.author_name || handle || story.source_list || "Original source");
     var originalText = body || summary;
 
-    var intelHtml = "<div class=\"story-intelligence\" aria-label=\"Story intelligence\">" +
-      "<div><span>Desk rank</span><strong>" + (rank ? "#" + rank : "Not ranked") + "</strong></div>" +
-      "<div><span>First seen</span><strong>" + escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "Unknown") + "</strong></div>" +
-      "<div><span>Sources</span><strong>" + sources.length + " source" + (sources.length === 1 ? "" : "s") + "</strong></div>" +
-      "<div><span>Views</span><strong>" + measuredValue(views) + "</strong></div>" +
-      "<div><span>Reactions</span><strong>" + measuredValue(reactions) + "</strong></div>" +
-    "</div>";
+    var intelCells = [];
+    intelCells.push(intelCell("Desk rank", rank ? "#" + rank : "Not ranked"));
+    intelCells.push(intelCell("First seen", escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "Unknown")));
+    intelCells.push(intelCell("Sources", String(sources.length) + " source" + (sources.length === 1 ? "" : "s")));
+    intelCells.push(intelCell("Original post views", measuredValue(views)));
+    if (likes > 0) intelCells.push(intelCell("Likes", escapeHtml(compactCount(likes))));
+    if (replies > 0) intelCells.push(intelCell("Replies", escapeHtml(compactCount(replies))));
+    if (reposts > 0) intelCells.push(intelCell("Reposts", escapeHtml(compactCount(reposts))));
+    if (bookmarks > 0) intelCells.push(intelCell("Bookmarks", escapeHtml(compactCount(bookmarks))));
+    var intelHtml = "<div class=\"story-intelligence\" aria-label=\"Original post metrics\">" + intelCells.join("") + "</div>";
 
     var originalHtml = sourceUrl ? (
       "<section class=\"story-block original-post-section\"><h2>Original post</h2>" +
