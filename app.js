@@ -9,8 +9,8 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an117";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an117";
+  var DATA_URL = "live-data.json?v=an118";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an118";
   var state = {
     data: null,
     newsletter: [],
@@ -2994,49 +2994,30 @@
 
   function setNewsletterMode(reading) {
     document.body.classList.toggle("nl-reading", !!reading);
-    var hero = document.querySelector(".desk-hero");
     var merge = document.querySelector(".merge-strip");
+    if (merge) merge.hidden = true;
     var layout = document.getElementById("nlListLayout") || document.querySelector(".page-layout");
-    if (hero) hero.hidden = !!reading;
-    if (merge) merge.hidden = !!reading;
-    if (layout) layout.hidden = !!reading;
+    if (layout) layout.hidden = false;
   }
 
   function renderNewsletterIssue(issue, opts) {
     var root = document.getElementById("nlReader");
     if (!root || !issue) return;
     opts = opts || {};
-    var standalone = opts.standalone !== false;
-    setNewsletterMode(standalone);
+    setNewsletterMode(true);
     var title = issue.title || "Untitled";
     var dek = issue.subtitle || "";
     var date = formatNewsletterDate(issue.date);
     var authors = issue.authors || "Robert Scoble";
     var read = issue.reading_time || "";
     var desk = isDeskIssue(issue);
-    var related = newsletterIssues().filter(function (it) { return it.id !== issue.id; }).slice(0, 4);
     var badge = desk ? "Unaligned" : "Archive";
     var credit = desk ? "Written at the Aligned News desk" : "From the Unaligned archive";
     var source = desk
       ? 'The live desk keeps ranking the same lists: <a href="https://alignednews.com/ai" target="_blank" rel="noopener noreferrer">alignednews.com/ai</a>'
       : "Earlier Unaligned issue, kept on this desk.";
-    var back = standalone ? '<a class="back-link" href="newsletter.html">\u2190 Newsletter</a>' : "";
-    var relatedHtml = "";
-    if (related.length) {
-      relatedHtml =
-        '<section class="related"><h2>More from the archive</h2><div class="related-card-grid">' +
-        related.map(function (it) {
-          return '<a class="related-card" href="newsletter.html?id=' + encodeURIComponent(it.id) + '">' +
-            '<span class="related-card-meta">' + escapeHtml(formatNewsletterDate(it.date)) + "</span>" +
-            "<strong>" + escapeHtml(it.title) + "</strong>" +
-            (it.excerpt ? "<span>" + escapeHtml(it.excerpt) + "</span>" : "") +
-          "</a>";
-        }).join("") +
-        "</div></section>";
-    }
     root.hidden = false;
     root.innerHTML =
-      back +
       '<header class="story-header">' +
         '<div class="article-kicker">' +
           '<span class="badge badge-signal">' + escapeHtml(badge) + "</span>" +
@@ -3047,71 +3028,32 @@
         '<p class="nl-credit">' + escapeHtml(credit) + "</p>" +
       "</header>" +
       '<div class="article-body nl-prose">' + sanitizeNewsletterBody(issue.body_html) + "</div>" +
-      '<p class="nl-source">' + (desk ? source : escapeHtml(source)) + "</p>" +
-      relatedHtml;
+      '<p class="nl-source">' + (desk ? source : escapeHtml(source)) + "</p>";
     document.title = title + " \u00b7 Unaligned \u00b7 Aligned News";
   }
 
-  function renderNewsletter() {
+  function renderPreviousIssues(current, items) {
     var list = $("#newsletterArchive");
-    var id = getParam("id");
-    var root = document.getElementById("nlReader");
-    if (id) {
-      var issue = findNewsletterIssue(id);
-      if (!issue) {
-        setNewsletterMode(true);
-        if (root) {
-          root.hidden = false;
-          root.innerHTML = '<p class="status error">Issue not found. <a href="newsletter.html">Back to Newsletter</a></p>';
-        }
-        return;
-      }
-      renderNewsletterIssue(issue, { standalone: true });
-      return;
-    }
-    setNewsletterMode(false);
-    var items = newsletterIssues().slice();
-    var lead = null;
-    if (!state.query && items.length) {
-      lead = items[0];
-      renderNewsletterIssue(lead, { standalone: false });
-      items = items.filter(function (it) { return it.id !== lead.id; });
-    } else if (root) {
-      root.hidden = true;
-      root.innerHTML = "";
-    }
     if (!list) return;
-    if (state.query) {
-      var q = state.query.toLowerCase();
-      items = newsletterIssues().filter(function (issue) {
-        return [issue.title, issue.subtitle, issue.excerpt, issue.authors, issue.date].join(" ").toLowerCase().indexOf(q) !== -1;
-      });
-    }
-    var metaEl = $("#pageMeta");
-    if (metaEl) {
-      var archiveN = items.length;
-      metaEl.textContent = lead && !state.query
-        ? "This week\u2019s briefing \u00b7 " + archiveN + " archive issue" + (archiveN === 1 ? "" : "s")
-        : archiveN + " issue" + (archiveN === 1 ? "" : "s") + " \u00b7 X-list briefing";
-    }
-    if (!items.length) {
-      list.innerHTML = '<li class="empty">No matching issues.</li>';
+    var currentId = current && (current.id || current.slug);
+    var rows = (items || []).filter(function (issue) {
+      return (issue.id || issue.slug) !== currentId;
+    });
+    if (!rows.length) {
+      list.innerHTML = '<li class="empty">No earlier issues.</li>';
+      list.classList.add("is-ready");
       return;
     }
-    list.innerHTML = items.map(function (issue, i) {
+    list.innerHTML = rows.map(function (issue, i) {
       var href = "newsletter.html?id=" + encodeURIComponent(issue.id || issue.slug);
       var date = formatNewsletterDate(issue.date) || issue.date || "";
-      var blurb = issue.excerpt || issue.subtitle || issue.blurb || "";
-      var metaBits = [isDeskIssue(issue) ? "This desk" : "Archive"];
-      if (date) metaBits.push(date);
-      if (issue.reading_time) metaBits.push(issue.reading_time);
-      var metaLine = metaBits.join(" \u00b7 ");
+      var blurb = issue.excerpt || issue.subtitle || "";
       return (
         '<li class="nl-issue" ' + staggerStyle(i) + '>' +
           '<a class="nl-issue-link" href="' + href + '">' +
+            (date ? '<span class="nl-issue-date">' + escapeHtml(date) + "</span>" : "") +
             '<h2 class="nl-issue-title">' + escapeHtml(issue.title) + "</h2>" +
             (blurb ? '<p class="nl-issue-blurb">' + escapeHtml(blurb) + "</p>" : "") +
-            '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
           "</a>" +
         "</li>"
       );
@@ -3119,6 +3061,43 @@
     list.classList.add("is-ready");
   }
 
+  function renderNewsletter() {
+    var id = getParam("id");
+    var root = document.getElementById("nlReader");
+    var all = newsletterIssues().slice();
+    var items = all;
+    if (state.query) {
+      var q = state.query.toLowerCase();
+      items = all.filter(function (issue) {
+        return [issue.title, issue.subtitle, issue.excerpt, issue.authors, issue.date].join(" ").toLowerCase().indexOf(q) !== -1;
+      });
+    }
+    var issue = id ? findNewsletterIssue(id) : (items[0] || all[0] || null);
+    if (id && !issue) {
+      setNewsletterMode(true);
+      if (root) {
+        root.hidden = false;
+        root.innerHTML = '<p class="status error">Issue not found. <a href="newsletter.html">Back to Newsletter</a></p>';
+      }
+      renderPreviousIssues(null, items.length ? items : all);
+      return;
+    }
+    if (!issue) {
+      if (root) {
+        root.hidden = false;
+        root.innerHTML = '<p class="status">No issues yet.</p>';
+      }
+      renderPreviousIssues(null, []);
+      return;
+    }
+    renderNewsletterIssue(issue, { standalone: false });
+    renderPreviousIssues(issue, state.query ? items : all);
+    var metaEl = $("#pageMeta");
+    if (metaEl) {
+      var n = Math.max(0, (state.query ? items : all).length - 1);
+      metaEl.textContent = n + " earlier issue" + (n === 1 ? "" : "s");
+    }
+  }
 
   function renderReports() {
     var list = $("#reportList");
