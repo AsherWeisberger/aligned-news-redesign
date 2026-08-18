@@ -9,8 +9,8 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an116";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an116";
+  var DATA_URL = "live-data.json?v=an117";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an117";
   var state = {
     data: null,
     newsletter: [],
