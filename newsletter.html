@@ -10,13 +10,13 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 <link rel="manifest" href="manifest.json" />
-<title>Newsletter · Aligned News</title>
-<meta name="description" content="Unaligned Newsletter on the Aligned News desk — industry analysis, copied in-site." />
+<title>Unaligned · Aligned News</title>
+<meta name="description" content="Unaligned — the AI conversation on X, written from the Aligned News desk off Scoble’s 63 lists." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D0F14'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=an115" />
+<link rel="stylesheet" href="styles.css?v=an116" />
 </head>
 <body data-page="newsletter">
   <div class="load-bar" id="loadBar" hidden aria-hidden="true"><div class="load-bar-inner"></div></div>
@@ -74,31 +74,32 @@
       <div class="page page-enter">
         <section class="desk-hero desk-hero-compact" aria-label="Newsletter overview">
           <div class="desk-copy">
-            <p class="desk-kicker">Unaligned × Aligned</p>
+            <p class="desk-kicker">Unaligned</p>
             <h1>Newsletter</h1>
-            <p class="desk-value">Industry analysis from Unaligned — read on the Aligned News desk.</p>
+            <p class="desk-value">The AI conversation on X, written from this desk. Sixty-three lists. Paper and ink.</p>
             <p class="page-meta" id="pageMeta"></p>
           </div>
         </section>
 
-        <section class="merge-strip merge-strip-quiet" aria-label="From Unaligned">
+        <section class="merge-strip merge-strip-quiet" aria-label="Unaligned">
           <div class="merge-mark-wrap">
             <img class="merge-mark" src="unaligned-mark.png" width="72" height="72" alt="Unaligned" />
           </div>
           <div class="merge-copy">
-            <p class="merge-kicker">From Unaligned</p>
-            <h2 class="merge-title">Unaligned Newsletter on the Aligned desk</h2>
-            <p class="merge-body">Industry analysis from Unaligned, copied here so you can read it without leaving Aligned News.</p>
+            <p class="merge-kicker">From this desk</p>
+            <h2 class="merge-title">Unaligned</h2>
+            <p class="merge-body">The AI happening on X &mdash; named people, named posts, the lists that rank this desk.</p>
           </div>
         </section>
 
         <p class="status" id="loadStatus">Loading newsletter…</p>
+        <article class="article article-shell nl-reader" id="nlReader" hidden></article>
         <div class="page-layout" id="nlListLayout">
           <div class="page-primary">
             <div class="nl-section-head feed-module-head">
               <div>
-                <h2 class="nl-section-title">Latest / Archive</h2>
-                <p class="nl-section-sub">Recent Unaligned issues — read on this desk</p>
+                <h2 class="nl-section-title">Archive</h2>
+                <p class="nl-section-sub">Earlier Unaligned issues, kept on this desk</p>
               </div>
               <div class="feed-module-tools">
                 <a class="feed-collabs" href="https://agentdashboard.cloud/connect" target="_blank" rel="noopener noreferrer">Collabs</a>
@@ -118,23 +119,22 @@
           </div>
           <aside class="page-rail" id="pageRail" aria-label="Sidebar modules">
             <section class="rail-card rail-card-why" id="whyMatters">
-              <h2 class="rail-title">Why this archive</h2>
-              <p class="vibe-body" id="whyCopy" data-locked="1">Unaligned’s long-form industry analysis now lives on this desk — same archive, paper and ink, no bounce-off.</p>
+              <h2 class="rail-title">Why this briefing</h2>
+              <p class="vibe-body" id="whyCopy" data-locked="1">This is the X-list briefing, written here. One take from the day’s lists, three happenings, five posts worth opening.</p>
             </section>
             <section class="rail-card rail-card-unaligned" id="fromUnaligned">
-              <h2 class="rail-title">From Unaligned</h2>
-              <p class="vibe-body">Sharp takes on AI timing, compute, trust, and the real economy — copied onto Aligned so the desk holds the archive.</p>
+              <h2 class="rail-title">The lists</h2>
+              <p class="vibe-body">Unaligned from this desk: 63 X lists, named accounts, paper and ink. Earlier beehiiv issues stay in the archive.</p>
             </section>
           </aside>
         </div>
-        <article class="article article-shell nl-reader" id="nlReader" hidden></article>
         <footer class="site-footer">
           <span>Aligned News · Pro desk</span>
-          <span>Unaligned × Aligned</span>
+          <span>Unaligned · from this desk</span>
         </footer>
       </div>
     </main>
   </div>
-  <script src="app.js?v=an115"></script>
+  <script src="app.js?v=an116"></script>
 </body>
 </html>
