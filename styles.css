@@ -4497,7 +4497,7 @@ html[data-density="compact"] .lead-card .lead-title {
 }
 
 
-/* an75 — paper/ink newsletter strip + Partners rail (structure, not Digg costume) */
+/* an75 — paper/ink newsletter strip + Partners rail */
 /* an76 — restore readable day heads (Today / Yesterday / weekday / Aug 8) */
 .nl-subscribe {
   list-style: none;
@@ -5583,6 +5583,9 @@ body.nl-reading .nl-reader {
   margin: 0.4rem 0 1.5rem;
 }
 .nl-reader[hidden] { display: none !important; }
+body[data-page="newsletter"]:not(.nl-reading) .nl-reader {
+  margin: 0 0 1.75rem;
+}
 .nl-reader {
   background: var(--bg-elev);
   border: 1px solid color-mix(in srgb, var(--text) 16%, var(--border));

@@ -9,8 +9,8 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an115";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an115";
+  var DATA_URL = "live-data.json?v=an116";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an116";
   var state = {
     data: null,
     newsletter: [],
@@ -1709,9 +1709,9 @@
       '<li class="nl-subscribe' + (inBar ? " is-in" : "") + '">' +
         '<div class="nl-subscribe-inner">' +
           '<div class="nl-subscribe-copy">' +
-            '<p class="nl-subscribe-kicker">Newsletter</p>' +
-            '<p class="nl-subscribe-headline">Aligned Daily Intelligence.</p>' +
-            '<p class="nl-subscribe-sub">Weekdays at 1 p.m. PT.</p>' +
+            '<p class="nl-subscribe-kicker">Unaligned</p>' +
+            '<p class="nl-subscribe-headline">The X-list briefing, written here.</p>' +
+            '<p class="nl-subscribe-sub">The AI conversation on X. Weekdays at 1 p.m. PT.</p>' +
           "</div>" +
           (inBar
             ? '<p class="nl-subscribe-done">You\u2019re in</p>'
@@ -2061,7 +2061,8 @@
 
     var kicker = $(".desk-kicker");
     if (kicker) {
-      kicker.textContent = pro ? "Scoble’s lists · Pro desk" : "Scoble’s lists · Free desk";
+      if (page === "newsletter") kicker.textContent = "Unaligned";
+      else kicker.textContent = pro ? "Scoble’s lists · Pro desk" : "Scoble’s lists · Free desk";
     }
 
     var siteFoot = $(".site-footer");
@@ -2102,7 +2103,7 @@
       } else if (page === "reports") {
         metaEl.textContent = counts.reports + " reports";
       } else if (page === "newsletter") {
-        metaEl.textContent = newsletterIssues().length + " archive issues · Unaligned × Aligned";
+        metaEl.textContent = "X-list briefing · written here";
       }
     }
 
@@ -2936,6 +2937,14 @@
     return Array.isArray(state.newsletter) ? state.newsletter : [];
   }
 
+  function isDeskIssue(issue) {
+    if (!issue) return false;
+    if (issue.in_house === true || issue.origin === "desk" || issue.desk === true) return true;
+    var authors = String(issue.authors || "");
+    if (/Irena/i.test(authors)) return false;
+    return false;
+  }
+
   function findNewsletterIssue(id) {
     var slug = String(id || "").replace(/^nl-/, "");
     var items = newsletterIssues();
@@ -2988,56 +2997,67 @@
     var hero = document.querySelector(".desk-hero");
     var merge = document.querySelector(".merge-strip");
     var layout = document.getElementById("nlListLayout") || document.querySelector(".page-layout");
-    var reader = document.getElementById("nlReader");
     if (hero) hero.hidden = !!reading;
     if (merge) merge.hidden = !!reading;
     if (layout) layout.hidden = !!reading;
-    if (reader) reader.hidden = !reading;
   }
 
-  function renderNewsletterIssue(issue) {
+  function renderNewsletterIssue(issue, opts) {
     var root = document.getElementById("nlReader");
-    if (!root) return;
-    setNewsletterMode(true);
+    if (!root || !issue) return;
+    opts = opts || {};
+    var standalone = opts.standalone !== false;
+    setNewsletterMode(standalone);
     var title = issue.title || "Untitled";
     var dek = issue.subtitle || "";
     var date = formatNewsletterDate(issue.date);
-    var authors = issue.authors || "Robert Scoble & Irena Cronin";
+    var authors = issue.authors || "Robert Scoble";
     var read = issue.reading_time || "";
+    var desk = isDeskIssue(issue);
     var related = newsletterIssues().filter(function (it) { return it.id !== issue.id; }).slice(0, 4);
+    var badge = desk ? "Unaligned" : "Archive";
+    var credit = desk ? "Written at the Aligned News desk" : "From the Unaligned archive";
+    var source = desk
+      ? 'The live desk keeps ranking the same lists: <a href="https://alignednews.com/ai" target="_blank" rel="noopener noreferrer">alignednews.com/ai</a>'
+      : "Earlier Unaligned issue, kept on this desk.";
+    var back = standalone ? '<a class="back-link" href="newsletter.html">\u2190 Newsletter</a>' : "";
+    var relatedHtml = "";
+    if (related.length) {
+      relatedHtml =
+        '<section class="related"><h2>More from the archive</h2><div class="related-card-grid">' +
+        related.map(function (it) {
+          return '<a class="related-card" href="newsletter.html?id=' + encodeURIComponent(it.id) + '">' +
+            '<span class="related-card-meta">' + escapeHtml(formatNewsletterDate(it.date)) + "</span>" +
+            "<strong>" + escapeHtml(it.title) + "</strong>" +
+            (it.excerpt ? "<span>" + escapeHtml(it.excerpt) + "</span>" : "") +
+          "</a>";
+        }).join("") +
+        "</div></section>";
+    }
+    root.hidden = false;
     root.innerHTML =
-      '<a class="back-link" href="newsletter.html">\u2190 Newsletter</a>' +
+      back +
       '<header class="story-header">' +
         '<div class="article-kicker">' +
-          '<span class="badge badge-signal">Newsletter</span>' +
+          '<span class="badge badge-signal">' + escapeHtml(badge) + "</span>" +
           '<span class="meta-line">' + escapeHtml([authors, date, read].filter(Boolean).join(" \u00b7 ")) + "</span>" +
         "</div>" +
         "<h1>" + escapeHtml(title) + "</h1>" +
         (dek ? '<p class="article-dek">' + escapeHtml(dek) + "</p>" : "") +
-        '<p class="nl-credit">From Unaligned</p>' +
+        '<p class="nl-credit">' + escapeHtml(credit) + "</p>" +
       "</header>" +
       '<div class="article-body nl-prose">' + sanitizeNewsletterBody(issue.body_html) + "</div>" +
-      '<p class="nl-source">Copied onto the Aligned desk from the Unaligned Newsletter.</p>' +
-      (related.length
-        ? ('<section class="related"><h2>More from Unaligned</h2><div class="related-card-grid">' +
-          related.map(function (it) {
-            return '<a class="related-card" href="newsletter.html?id=' + encodeURIComponent(it.id) + '">' +
-              '<span class="related-card-meta">' + escapeHtml(formatNewsletterDate(it.date)) + "</span>" +
-              "<strong>" + escapeHtml(it.title) + "</strong>" +
-              (it.excerpt ? "<span>" + escapeHtml(it.excerpt) + "</span>" : "") +
-            "</a>";
-          }).join("") +
-          "</div></section>")
-        : "");
-    document.title = title + " \u00b7 Newsletter \u00b7 Aligned News";
+      '<p class="nl-source">' + (desk ? source : escapeHtml(source)) + "</p>" +
+      relatedHtml;
+    document.title = title + " \u00b7 Unaligned \u00b7 Aligned News";
   }
 
   function renderNewsletter() {
     var list = $("#newsletterArchive");
     var id = getParam("id");
+    var root = document.getElementById("nlReader");
     if (id) {
       var issue = findNewsletterIssue(id);
-      var root = document.getElementById("nlReader");
       if (!issue) {
         setNewsletterMode(true);
         if (root) {
@@ -3046,47 +3066,46 @@
         }
         return;
       }
-      renderNewsletterIssue(issue);
+      renderNewsletterIssue(issue, { standalone: true });
       return;
     }
     setNewsletterMode(false);
-    if (!list) return;
     var items = newsletterIssues().slice();
+    var lead = null;
+    if (!state.query && items.length) {
+      lead = items[0];
+      renderNewsletterIssue(lead, { standalone: false });
+      items = items.filter(function (it) { return it.id !== lead.id; });
+    } else if (root) {
+      root.hidden = true;
+      root.innerHTML = "";
+    }
+    if (!list) return;
     if (state.query) {
       var q = state.query.toLowerCase();
-      items = items.filter(function (issue) {
-        return [issue.title, issue.subtitle, issue.excerpt, issue.date, "unaligned"].join(" ").toLowerCase().indexOf(q) !== -1;
+      items = newsletterIssues().filter(function (issue) {
+        return [issue.title, issue.subtitle, issue.excerpt, issue.authors, issue.date].join(" ").toLowerCase().indexOf(q) !== -1;
       });
     }
     var metaEl = $("#pageMeta");
     if (metaEl) {
-      metaEl.textContent = items.length + " archive issue" + (items.length === 1 ? "" : "s") + " \u00b7 Unaligned \u00d7 Aligned";
+      var archiveN = items.length;
+      metaEl.textContent = lead && !state.query
+        ? "This week\u2019s briefing \u00b7 " + archiveN + " archive issue" + (archiveN === 1 ? "" : "s")
+        : archiveN + " issue" + (archiveN === 1 ? "" : "s") + " \u00b7 X-list briefing";
     }
     if (!items.length) {
       list.innerHTML = '<li class="empty">No matching issues.</li>';
       return;
     }
     list.innerHTML = items.map(function (issue, i) {
-      var featured = i === 0 && !state.query;
       var href = "newsletter.html?id=" + encodeURIComponent(issue.id || issue.slug);
       var date = formatNewsletterDate(issue.date) || issue.date || "";
       var blurb = issue.excerpt || issue.subtitle || issue.blurb || "";
-      var metaBits = ["Unaligned"];
+      var metaBits = [isDeskIssue(issue) ? "This desk" : "Archive"];
       if (date) metaBits.push(date);
       if (issue.reading_time) metaBits.push(issue.reading_time);
       var metaLine = metaBits.join(" \u00b7 ");
-      if (featured) {
-        return (
-          '<li class="nl-issue nl-issue-featured" ' + staggerStyle(i) + '>' +
-            '<div class="nl-issue-badge">Latest</div>' +
-            '<a class="nl-issue-link" href="' + href + '">' +
-              '<h2 class="nl-issue-title">' + escapeHtml(issue.title) + "</h2>" +
-              (blurb ? '<p class="nl-issue-blurb">' + escapeHtml(blurb) + "</p>" : "") +
-              '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
-            "</a>" +
-          "</li>"
-        );
-      }
       return (
         '<li class="nl-issue" ' + staggerStyle(i) + '>' +
           '<a class="nl-issue-link" href="' + href + '">' +
