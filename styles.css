@@ -4626,12 +4626,19 @@ html[data-density="compact"] .nl-subscribe {
   border-bottom-color: var(--text);
 }
 
-.sponsors-under-stories { display: none; }
+.sponsors-in-feed { display: none; }
 
-@media (max-width: 1100px) {
-  .sponsors-under-stories {
-    display: block;
-    margin: 0.35rem 0 1.1rem;
+@media (max-width: 720px) {
+  .sponsors-in-feed {
+    display: list-item;
+    list-style: none;
+    margin: 0.15rem 0 0.85rem;
+    padding: 0.85rem 0 1rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .sponsors-in-feed .rail-title {
+    margin-bottom: 0.45rem;
   }
   .page-rail #partnersRail {
     display: none !important;

@@ -1716,6 +1716,19 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
   }
 
+  function sponsorsFeedHtml() {
+    return (
+      '<li class="sponsors-in-feed">' +
+        '<h2 class="rail-title">Sponsors</h2>' +
+        '<a class="partners-brand" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">' +
+          '<img class="partners-logo" src="viture-logo.png" alt="VITURE" />' +
+        "</a>" +
+        '<p class="partners-line">XR glasses that turn your phone, laptop, or console into a private cinema screen.</p>' +
+        '<a class="partners-link" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">viture.com</a>' +
+      "</li>"
+    );
+  }
+
   function newsletterBannerHtml() {
     var saved = nlEmailStored();
     var inBar = isValidEmail(saved);
@@ -2655,10 +2668,13 @@
 
     function takeBanner() {
       storyCount += 1;
-      if (bannerDone || isSaved || isCompactDensity()) return "";
+      if (bannerDone || isSaved) return "";
       if (storyCount !== 5) return "";
       bannerDone = true;
-      return newsletterBannerHtml();
+      var html = "";
+      if (!isCompactDensity()) html += newsletterBannerHtml();
+      html += sponsorsFeedHtml();
+      return html;
     }
 
     function pickLeadInGroup(items) {
