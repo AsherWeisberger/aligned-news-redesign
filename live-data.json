@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-08-18T02:36:18.000Z",
-    "scrapedAt": "2026-08-18T02:36:18.000Z",
+    "generatedAt": "2026-08-18T06:21:21.000Z",
+    "scrapedAt": "2026-08-18T06:21:21.000Z",
     "source": "alignednews-news-feed",
     "note": "Pulled from /api/news-feed, 195 stories, events boxed",
     "rssLastBuildDate": "",
     "rssItemCount": 195,
     "rssKeptCount": 195,
-    "lastUpdatedTs": 1787020578855
+    "lastUpdatedTs": 1787034081803
   },
   "user": {
     "name": "Asher",
@@ -518,323 +518,288 @@
       "views": 4222644
     },
     {
-      "id": "9a2774d8-c0e8-46db-a5ae-55fb5488237d",
-      "headline": "Command Code is growing incredibly fast",
-      "summary": "Command Code is growing incredibly fast. @MrAhmadAwais supplies the primary account and the concrete details available now.",
+      "id": "e90830ad-cb59-4ce9-b009-1b869531f240",
+      "headline": "YOLO26 gains an 8-bit CoreML deployment path",
+      "summary": "Ultralytics published a tutorial for exporting YOLO26 to CoreML with 8-bit quantization and running inference on Apple hardware.",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "Ahmad Awais",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "Ultralytics",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/MrAhmadAwais/status/2089508093667459447",
+      "source_url": "https://x.com/ultralytics/status/2089412034676801793",
       "sources": [
         {
-          "url": "https://x.com/MrAhmadAwais/status/2089508093667459447",
-          "name": "Original X post by @MrAhmadAwais"
+          "url": "https://x.com/ultralytics/status/2089412034676801793",
+          "name": "Original X post by @ultralytics"
         }
       ],
-      "body": "Command Code is growing incredibly fast. @MrAhmadAwais supplies the primary account and the concrete details available now.",
+      "body": "Ultralytics published a tutorial for exporting YOLO26 to CoreML with 8-bit quantization and running inference on Apple hardware.",
       "kind": "story",
       "engagement": {
-        "like_count": 90,
-        "reply_count": 17,
-        "retweet_count": 1,
-        "quote_count": 3,
-        "bookmark_count": 12,
-        "impression_count": 2989
-      },
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "MrAhmadAwais",
-      "media_url": "https://pbs.twimg.com/media/HP9eBMwasAA13eK.jpg?name=orig",
-      "views": 2989
-    },
-    {
-      "id": "82aec96f-444a-4103-86da-14141e53ac67",
-      "headline": "vibhu reports a new model development",
-      "summary": "vibhu reports a new model development. @vibhu supplies the primary account and the concrete details available now.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "vibhu",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/vibhu/status/2089488729333272711",
-      "sources": [
-        {
-          "url": "https://x.com/vibhu/status/2089488729333272711",
-          "name": "Original X post by @vibhu"
-        }
-      ],
-      "body": "vibhu reports a new model development. @vibhu supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 55,
+        "like_count": 48,
         "reply_count": 1,
-        "retweet_count": 1,
-        "bookmark_count": 1,
-        "impression_count": 1064
+        "retweet_count": 6,
+        "bookmark_count": 18,
+        "impression_count": 1580
       },
       "why_it_matters": "",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "vibhu",
-      "media_url": "https://pbs.twimg.com/card_img/2086955012475834368/oSVFlnoW?format=jpg&name=800x419",
-      "views": 1064
+      "x_handle": "ultralytics",
+      "media_url": "https://pbs.twimg.com/media/HP8VKB8W8AAHElg.jpg?name=orig",
+      "views": 1580
     },
     {
-      "id": "d5380b0b-a414-4ba0-b44e-37797baf06f1",
-      "headline": "Open-source has been going insane",
-      "summary": "Open-source has been going insane. @vasuman supplies the primary account and the concrete details available now.",
+      "id": "492b02e6-6453-496b-b6f8-7fd5d7ea5f09",
+      "headline": "Large-model verification could make local AI cheaper",
+      "summary": "Jun Song argues that pairing a large verifier with a smaller model may reduce the cost of checking local AI outputs.",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "vas",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "Jun Song",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/vasuman/status/2089475755759571231",
+      "source_url": "https://x.com/jun_song/status/2089555716671766988",
       "sources": [
         {
-          "url": "https://x.com/vasuman/status/2089475755759571231",
-          "name": "Original X post by @vasuman"
+          "url": "https://x.com/jun_song/status/2089555716671766988",
+          "name": "Original X post by @jun_song"
         }
       ],
-      "body": "Open-source has been going insane. @vasuman supplies the primary account and the concrete details available now.",
+      "body": "Jun Song argues that pairing a large verifier with a smaller model may reduce the cost of checking local AI outputs.",
       "kind": "story",
       "engagement": {
-        "like_count": 47,
+        "like_count": 160,
         "reply_count": 6,
         "retweet_count": 3,
-        "bookmark_count": 31,
-        "impression_count": 7730
+        "bookmark_count": 122,
+        "impression_count": 10713
       },
       "why_it_matters": "",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "vasuman",
-      "media_url": "https://pbs.twimg.com/media/HP9O3Z4XIAAUrFq.jpg?name=orig",
-      "views": 7730
+      "x_handle": "jun_song",
+      "views": 10713
     },
     {
-      "id": "234edbaa-3e57-4208-8d8b-42b4b400c5cc",
-      "headline": "We created AI Sleep Co-Scientist to analyze 1M hours of rich, multimodal sleep recordings",
-      "summary": "We created AI Sleep Co-Scientist to analyze 1M hours of rich, multimodal sleep recordings. @james_y_zou supplies the primary account and the concrete details available now.",
+      "id": "7199adb7-f25e-4156-8687-708d8eb3891f",
+      "headline": "Qwen3.8 posts a strong agentic score on affordable hardware",
+      "summary": "A model observer reports that Qwen3.8-27B scored 51 on the Artificial Analysis Agentic Index while running on hardware priced in the low thousands of dollars.",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "James Zou",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "Ahmad",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/james_y_zou/status/2089396649403752777",
+      "source_url": "https://x.com/TheAhmadOsman/status/2089516284660580614",
       "sources": [
         {
-          "url": "https://x.com/james_y_zou/status/2089396649403752777",
-          "name": "Original X post by @james_y_zou"
+          "url": "https://x.com/TheAhmadOsman/status/2089516284660580614",
+          "name": "Original X post by @TheAhmadOsman"
         }
       ],
-      "body": "We created AI Sleep Co-Scientist to analyze 1M hours of rich, multimodal sleep recordings. @james_y_zou supplies the primary account and the concrete details available now.",
+      "body": "A model observer reports that Qwen3.8-27B scored 51 on the Artificial Analysis Agentic Index while running on hardware priced in the low thousands of dollars.",
       "kind": "story",
       "engagement": {
-        "like_count": 206,
-        "reply_count": 9,
-        "retweet_count": 33,
-        "quote_count": 1,
-        "bookmark_count": 115,
-        "impression_count": 12907
+        "like_count": 365,
+        "reply_count": 31,
+        "retweet_count": 17,
+        "quote_count": 8,
+        "bookmark_count": 36,
+        "impression_count": 13236
       },
       "why_it_matters": "",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "james_y_zou",
-      "media_url": "https://pbs.twimg.com/media/HP8A6lZa0AAi-rr.jpg?name=orig",
-      "views": 12907
+      "x_handle": "TheAhmadOsman",
+      "media_url": "https://pbs.twimg.com/media/HP9yT2PW8AAbt51.jpg?name=orig",
+      "views": 13236
     },
     {
-      "id": "0a115a49-9725-4e0e-9e74-d93f3b6a4c68",
-      "headline": "Chubby reports a new model development",
-      "summary": "Chubby reports a new model development. @kimmonismus supplies the primary account and the concrete details available now.",
+      "id": "743b492d-84e4-43ae-b334-07f1bbe857d3",
+      "headline": "Agent leaderboard adds task categories and cost data",
+      "summary": "Arena added code, work, and other task filters plus cost to completion information based on more than 1.7 million Agent Mode sessions.",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "Chubby♨️",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/kimmonismus/status/2089488440089788587",
-      "sources": [
-        {
-          "url": "https://x.com/kimmonismus/status/2089488440089788587",
-          "name": "Original X post by @kimmonismus"
-        }
-      ],
-      "body": "Chubby reports a new model development. @kimmonismus supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 536,
-        "reply_count": 36,
-        "retweet_count": 34,
-        "quote_count": 3,
-        "bookmark_count": 243,
-        "impression_count": 35764
-      },
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "kimmonismus",
-      "media_url": "https://pbs.twimg.com/media/HP9apnNXwAAFcYO.png?name=orig",
-      "views": 35764
-    },
-    {
-      "id": "5196c3c1-7ce0-47e9-aabd-5655e62bcd05",
-      "headline": "I have decided to leave math academia",
-      "summary": "I have decided to leave math academia. @publishiperishi supplies the primary account and the concrete details available now.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "Rishikesh Gajjala",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/publishiperishi/status/2089337253055365226",
-      "sources": [
-        {
-          "url": "https://x.com/publishiperishi/status/2089337253055365226",
-          "name": "Original X post by @publishiperishi"
-        }
-      ],
-      "body": "I have decided to leave math academia. @publishiperishi supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 2913,
-        "reply_count": 145,
-        "retweet_count": 399,
-        "quote_count": 106,
-        "bookmark_count": 1136,
-        "impression_count": 273459
-      },
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "publishiperishi",
-      "views": 273459
-    },
-    {
-      "id": "01244c54-ed2f-4bb1-9fce-f87081a41216",
-      "headline": "I’ve been wanting to try out Gemini 3.7 Flash, but I wasn’t willing to risk screwing up any of my serious projects",
-      "summary": "I’ve been wanting to try out Gemini 3.7 Flash, but I wasn’t willing to risk screwing up any of my serious projects. @doodlestein supplies the primary account and the concrete details available now.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "Jeffrey Emanuel",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/doodlestein/status/2089464445684609085",
-      "sources": [
-        {
-          "url": "https://x.com/doodlestein/status/2089464445684609085",
-          "name": "Original X post by @doodlestein"
-        }
-      ],
-      "body": "I’ve been wanting to try out Gemini 3.7 Flash, but I wasn’t willing to risk screwing up any of my serious projects. @doodlestein supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 51,
-        "reply_count": 6,
-        "bookmark_count": 20,
-        "impression_count": 3768
-      },
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "doodlestein",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089464078443974656/img/WF-5ltvCi6hE5_M_.jpg",
-      "views": 3768
-    },
-    {
-      "id": "5fe0be62-b25d-4b9f-916e-17b3a157074a",
-      "headline": "What is an obvious thing that we should do with Codex, API or our models that we should just do but haven't yet",
-      "summary": "What is an obvious thing that we should do with Codex, API or our models that we should just do but haven't yet. @thsottiaux supplies the primary account and the concrete details available now.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
-      "author_name": "Tibo",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/thsottiaux/status/2089500941842342287",
-      "sources": [
-        {
-          "url": "https://x.com/thsottiaux/status/2089500941842342287",
-          "name": "Original X post by @thsottiaux"
-        }
-      ],
-      "body": "What is an obvious thing that we should do with Codex, API or our models that we should just do but haven't yet. @thsottiaux supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 2407,
-        "reply_count": 3194,
-        "retweet_count": 55,
-        "quote_count": 67,
-        "bookmark_count": 222,
-        "impression_count": 276281
-      },
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "thsottiaux",
-      "views": 276281
-    },
-    {
-      "id": "c593a36d-3425-43e3-b147-8757a3558541",
-      "headline": "Exciting news: Dreamina Seedance-2.5 by is topping ranks in Video Arena!",
-      "summary": "Exciting news: Dreamina Seedance-2.5 by is topping ranks in Video Arena!. @arena supplies the primary account and the concrete details available now.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
+      "published_at": "2026-08-18T05:20:01.000Z",
       "author_name": "Arena.ai",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/arena/status/2089448812159045848",
+      "source_url": "https://x.com/arena/status/2089464753567797321",
       "sources": [
         {
-          "url": "https://x.com/arena/status/2089448812159045848",
+          "url": "https://x.com/arena/status/2089464753567797321",
           "name": "Original X post by @arena"
         }
       ],
-      "body": "Exciting news: Dreamina Seedance-2.5 by is topping ranks in Video Arena!. @arena supplies the primary account and the concrete details available now.",
+      "body": "Arena added code, work, and other task filters plus cost to completion information based on more than 1.7 million Agent Mode sessions.",
       "kind": "story",
       "engagement": {
-        "like_count": 155,
-        "reply_count": 11,
-        "retweet_count": 8,
-        "quote_count": 3,
-        "bookmark_count": 24,
-        "impression_count": 23865
+        "like_count": 58,
+        "reply_count": 9,
+        "retweet_count": 3,
+        "quote_count": 1,
+        "bookmark_count": 14,
+        "impression_count": 11865
       },
       "why_it_matters": "",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "arena",
-      "media_url": "https://pbs.twimg.com/media/HP82J5UbsAAkFkF.jpg?name=orig",
-      "views": 23865
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089464463263240192/img/gDQPkZSH8IAUOWS6.jpg",
+      "views": 11865
     },
     {
-      "id": "70c21136-f11d-4570-a009-7ac156d13ee0",
-      "headline": "Artificial Analysis Intelligence Index puts Qwen3.8-27B at DeepSeek V4-Pro and GPT 5.6 Luna performance",
-      "summary": "Artificial Analysis Intelligence Index puts Qwen3.8-27B at DeepSeek V4-Pro and GPT 5.6 Luna performance. @cline supplies the primary account and the concrete details available now.",
+      "id": "426f547b-61ff-4cf2-b3d0-c0ed18edc978",
+      "headline": "Qwen3.8 GGUF demand signals momentum for local models",
+      "summary": "Unsloth says its Qwen3.8-27B GGUF became a top trending Hugging Face model and passed 2.7 million downloads.",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-18T01:29:20.000Z",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "Unsloth AI",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/UnslothAI/status/2089541444466090064",
+      "sources": [
+        {
+          "url": "https://x.com/UnslothAI/status/2089541444466090064",
+          "name": "Original X post by @UnslothAI"
+        }
+      ],
+      "body": "Unsloth says its Qwen3.8-27B GGUF became a top trending Hugging Face model and passed 2.7 million downloads.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 430,
+        "reply_count": 14,
+        "retweet_count": 22,
+        "quote_count": 1,
+        "bookmark_count": 58,
+        "impression_count": 15484
+      },
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "UnslothAI",
+      "media_url": "https://pbs.twimg.com/media/HP-KqytasAAFJDP.jpg?name=orig",
+      "views": 15484
+    },
+    {
+      "id": "08a339eb-12f2-4bae-99fa-8dfc258466ec",
+      "headline": "A chat-template error makes repeated fine-tuning attempts worse",
+      "summary": "A developer reports that attempts to train an LFM 2.6B model with Fable degraded results because roughly one third of the generated data used the wrong chat template.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "anton",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/abacaj/status/2089511122869100847",
+      "sources": [
+        {
+          "url": "https://x.com/abacaj/status/2089511122869100847",
+          "name": "Original X post by @abacaj"
+        }
+      ],
+      "body": "A developer reports that attempts to train an LFM 2.6B model with Fable degraded results because roughly one third of the generated data used the wrong chat template.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 133,
+        "reply_count": 23,
+        "retweet_count": 4,
+        "quote_count": 3,
+        "bookmark_count": 21,
+        "impression_count": 9582
+      },
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "abacaj",
+      "views": 9582
+    },
+    {
+      "id": "3e5e403c-b852-437f-ba2a-ffc6f9d355b3",
+      "headline": "vLLM 0.27 connects open models to coding agents",
+      "summary": "Red Hat AI will present vLLM 0.27, open-model support for Codex and Claude Code command line tools, Speculators updates, and GuideLLM 0.7.0.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "Red Hat AI",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/RedHat_AI/status/2089409045799022936",
+      "sources": [
+        {
+          "url": "https://x.com/RedHat_AI/status/2089409045799022936",
+          "name": "Original X post by @RedHat_AI"
+        }
+      ],
+      "body": "Red Hat AI will present vLLM 0.27, open-model support for Codex and Claude Code command line tools, Speculators updates, and GuideLLM 0.7.0.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 30,
+        "reply_count": 1,
+        "retweet_count": 8,
+        "quote_count": 1,
+        "bookmark_count": 6,
+        "impression_count": 2137
+      },
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "RedHat_AI",
+      "views": 2137
+    },
+    {
+      "id": "f7fde2df-06cf-40ee-b19a-e0eac7021e54",
+      "headline": "Benchmark skepticism grows as top models converge",
+      "summary": "A model observer argues that a widely shared chart reflects benchmark optimization and a shortage of sufficiently difficult tests.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "Lisan al Gaib",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/scaling01/status/2089548497003417618",
+      "sources": [
+        {
+          "url": "https://x.com/scaling01/status/2089548497003417618",
+          "name": "Original X post by @scaling01"
+        }
+      ],
+      "body": "A model observer argues that a widely shared chart reflects benchmark optimization and a shortage of sufficiently difficult tests.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 82,
+        "reply_count": 10,
+        "retweet_count": 2,
+        "bookmark_count": 9,
+        "impression_count": 6496
+      },
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "scaling01",
+      "media_url": "https://pbs.twimg.com/media/HP3bwx-WgAE5yWD.jpg?name=orig",
+      "views": 6496
+    },
+    {
+      "id": "126c93b5-2f37-496d-b5c9-fa8d82717f94",
+      "headline": "Qwen3.8 makes frontier-class local AI more plausible",
+      "summary": "Cline says Qwen3.8-27B reached performance associated with larger frontier systems on the Artificial Analysis Intelligence Index.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-18T05:20:01.000Z",
       "author_name": "Cline",
       "source_list": "From Scoble lists",
       "source_url": "https://x.com/cline/status/2089425906569977896",
@@ -844,7 +809,7 @@
           "name": "Original X post by @cline"
         }
       ],
-      "body": "Artificial Analysis Intelligence Index puts Qwen3.8-27B at DeepSeek V4-Pro and GPT 5.6 Luna performance. @cline supplies the primary account and the concrete details available now.",
+      "body": "Cline says Qwen3.8-27B reached performance associated with larger frontier systems on the Artificial Analysis Intelligence Index.",
       "kind": "story",
       "engagement": {
         "like_count": 2419,
@@ -860,6 +825,41 @@
       "x_handle": "cline",
       "media_url": "https://pbs.twimg.com/media/HP8hS56bYAAl87g.jpg?name=orig",
       "views": 140249
+    },
+    {
+      "id": "34f57a64-4613-4ec6-8670-b6241be4adc0",
+      "headline": "Sakana Namazu brings culture-aware reasoning to OpenRouter",
+      "summary": "OpenRouter added Sakana Namazu, a Kimi K2.6 based model with Japanese cultural knowledge, web search, and code execution.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-18T05:20:01.000Z",
+      "author_name": "OpenRouter",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/OpenRouter/status/2089442143010189812",
+      "sources": [
+        {
+          "url": "https://x.com/OpenRouter/status/2089442143010189812",
+          "name": "Original X post by @OpenRouter"
+        }
+      ],
+      "body": "OpenRouter added Sakana Namazu, a Kimi K2.6 based model with Japanese cultural knowledge, web search, and code execution.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 99,
+        "reply_count": 8,
+        "retweet_count": 2,
+        "quote_count": 3,
+        "bookmark_count": 16,
+        "impression_count": 12914
+      },
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "OpenRouter",
+      "media_url": "https://pbs.twimg.com/card_img/2089559953392455680/N6TUNyRs?format=jpg&name=800x419",
+      "views": 12914
     },
     {
       "id": "cf282dd1-4065-4a02-946f-f774e245b54c",
@@ -2188,7 +2188,7 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "theinformation",
-      "media_url": "https://pbs.twimg.com/card_img/2089433988939108352/0arDRqFp?format=jpg&name=800x419",
+      "media_url": "https://pbs.twimg.com/card_img/2089433988939108352/0arDRqFp?format=jpg&name=orig",
       "views": 60174
     },
     {
@@ -2227,152 +2227,152 @@
       "views": 3846
     },
     {
-      "id": "3c6462ac-74a6-43c9-a779-e759912b5568",
-      "headline": "Third-party analysis matters when enterprises evaluate conversational & agentic AI",
-      "summary": "Third-party analysis matters when enterprises evaluate conversational & agentic AI. @SoundHound supplies the primary account and the concrete details available now.",
+      "id": "9b670e7f-098f-4d99-bd0b-9da030fe7fdd",
+      "headline": "Agent Arena shows different leaders for code, work, and chat",
+      "summary": "Arena reports that different models lead its code, work, and chat agent categories rather than one model dominating every workload.",
       "section": "agents",
       "section_key": "agents",
       "section_label": "Agents",
       "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "SoundHound AI",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "Arena.ai",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/SoundHound/status/2089361410203517170",
+      "source_url": "https://x.com/arena/status/2089487885825360367",
       "sources": [
         {
-          "url": "https://x.com/SoundHound/status/2089361410203517170",
-          "name": "Original X post by @SoundHound"
+          "url": "https://x.com/arena/status/2089487885825360367",
+          "name": "Original X post by @arena"
         }
       ],
-      "body": "Third-party analysis matters when enterprises evaluate conversational & agentic AI. @SoundHound supplies the primary account and the concrete details available now.",
+      "body": "Arena reports that different models lead its code, work, and chat agent categories rather than one model dominating every workload.",
       "kind": "story",
       "engagement": {
-        "like_count": 35,
-        "reply_count": 8,
-        "retweet_count": 5,
-        "impression_count": 1923
-      },
-      "why_it_matters": "",
-      "topic_key": "agents",
-      "topic_label": "Agents",
-      "x_handle": "SoundHound",
-      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2089361360404500480/pu/img/SbVDoGaDPaIUkjW_.jpg",
-      "views": 1923
-    },
-    {
-      "id": "7d0f5684-9e1b-4f49-81f4-39dab931bd68",
-      "headline": "Computer Use models are rapidly improving, but adoption across enterprises has remained limited",
-      "summary": "Computer Use models are rapidly improving, but adoption across enterprises has remained limited. @browserbase supplies the primary account and the concrete details available now.",
-      "section": "agents",
-      "section_key": "agents",
-      "section_label": "Agents",
-      "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "Browserbase",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/browserbase/status/2089437678181974064",
-      "sources": [
-        {
-          "url": "https://x.com/browserbase/status/2089437678181974064",
-          "name": "Original X post by @browserbase"
-        }
-      ],
-      "body": "Computer Use models are rapidly improving, but adoption across enterprises has remained limited. @browserbase supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 22,
-        "reply_count": 1,
+        "like_count": 86,
+        "reply_count": 2,
         "retweet_count": 1,
-        "quote_count": 2,
-        "bookmark_count": 7,
-        "impression_count": 3847
+        "bookmark_count": 15,
+        "impression_count": 18603
       },
       "why_it_matters": "",
       "topic_key": "agents",
       "topic_label": "Agents",
-      "x_handle": "browserbase",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089436348663148544/img/BPa7AU7BoxgqXMzJ.jpg",
-      "views": 3847
+      "x_handle": "arena",
+      "media_url": "https://pbs.twimg.com/card_img/2089583640002891776/DTPtdGkg?format=jpg&name=orig",
+      "views": 18603
     },
     {
-      "id": "ecde6d76-2581-495f-a2a2-02013c54e263",
-      "headline": "Cursor is now competing directly with GitHub",
-      "summary": "Cursor is now competing directly with GitHub. @MTSlive supplies the primary account and the concrete details available now.",
+      "id": "1af71ef5-d6f2-47a9-b1fc-5a815e3682dc",
+      "headline": "Replit Agent can repair findings from black-box security tests",
+      "summary": "Replit added external-style penetration tests for hosted apps and says its agent can fix discovered issues with one click.",
       "section": "agents",
       "section_key": "agents",
       "section_label": "Agents",
       "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "MTS",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "Replit ⠕",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/MTSlive/status/2089493210964111504",
+      "source_url": "https://x.com/Replit/status/2089427187162083785",
       "sources": [
         {
-          "url": "https://x.com/MTSlive/status/2089493210964111504",
-          "name": "Original X post by @MTSlive"
+          "url": "https://x.com/Replit/status/2089427187162083785",
+          "name": "Original X post by @Replit"
         }
       ],
-      "body": "Cursor is now competing directly with GitHub. @MTSlive supplies the primary account and the concrete details available now.",
+      "body": "Replit added external-style penetration tests for hosted apps and says its agent can fix discovered issues with one click.",
       "kind": "story",
       "engagement": {
-        "like_count": 65,
-        "reply_count": 3,
-        "retweet_count": 4,
-        "quote_count": 1,
-        "bookmark_count": 5,
-        "impression_count": 7099
+        "like_count": 127,
+        "reply_count": 12,
+        "retweet_count": 15,
+        "quote_count": 6,
+        "bookmark_count": 31,
+        "impression_count": 39158
       },
       "why_it_matters": "",
       "topic_key": "agents",
       "topic_label": "Agents",
-      "x_handle": "MTSlive",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089493170052833280/img/PT-BcyUPNgg_9oTu.jpg",
-      "views": 7099
+      "x_handle": "Replit",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2089427160696082432/pu/img/YelOjFVLpTPGOHI-.jpg",
+      "views": 39158
     },
     {
-      "id": "beea9dfb-090b-4824-af28-88d7318a948f",
-      "headline": "How many agent skills are actually out there",
-      "summary": "How many agent skills are actually out there. @dair_ai supplies the primary account and the concrete details available now.",
+      "id": "8d322a14-5728-4412-a25c-10adf0371ac7",
+      "headline": "RSI Bench opens frontier research tasks to contributors",
+      "summary": "Scale AI Labs opened contributions to RSI Bench, an effort to test whether agents can perform work needed to advance AI research and development.",
       "section": "agents",
       "section_key": "agents",
       "section_label": "Agents",
       "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "DAIR.AI",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "Scale Labs",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/dair_ai/status/2089457322833936598",
+      "source_url": "https://x.com/ScaleAILabs/status/2089498140181176357",
       "sources": [
         {
-          "url": "https://x.com/dair_ai/status/2089457322833936598",
-          "name": "Original X post by @dair_ai"
+          "url": "https://x.com/ScaleAILabs/status/2089498140181176357",
+          "name": "Original X post by @ScaleAILabs"
         }
       ],
-      "body": "How many agent skills are actually out there. @dair_ai supplies the primary account and the concrete details available now.",
+      "body": "Scale AI Labs opened contributions to RSI Bench, an effort to test whether agents can perform work needed to advance AI research and development.",
       "kind": "story",
       "engagement": {
-        "like_count": 69,
-        "reply_count": 6,
-        "retweet_count": 11,
-        "quote_count": 1,
-        "bookmark_count": 80,
-        "impression_count": 10724
+        "like_count": 179,
+        "reply_count": 5,
+        "retweet_count": 19,
+        "quote_count": 8,
+        "bookmark_count": 195,
+        "impression_count": 29707
       },
       "why_it_matters": "",
       "topic_key": "agents",
       "topic_label": "Agents",
-      "x_handle": "dair_ai",
-      "media_url": "https://pbs.twimg.com/media/HP8-XGsaUAATC5y.png?name=orig",
-      "views": 10724
+      "x_handle": "ScaleAILabs",
+      "views": 29707
     },
     {
-      "id": "4d29c136-ca96-4c91-8b2f-95ca8e79b46e",
-      "headline": "Teams building with coding agents in Linear now ship 6.5x as much as those that don't",
-      "summary": "Teams building with coding agents in Linear now ship 6.5x as much as those that don't. @linear supplies the primary account and the concrete details available now.",
+      "id": "1108268e-c13e-407b-9c9c-eb808a0fa78d",
+      "headline": "Bionic adds reusable agent skills",
+      "summary": "LM Studio says Bionic now supports skills that package tasks, knowledge, or instructions and can be installed, created, or invoked from the composer.",
       "section": "agents",
       "section_key": "agents",
       "section_label": "Agents",
       "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "LM Studio",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/lmstudio/status/2089427829733695545",
+      "sources": [
+        {
+          "url": "https://x.com/lmstudio/status/2089427829733695545",
+          "name": "Original X post by @lmstudio"
+        }
+      ],
+      "body": "LM Studio says Bionic now supports skills that package tasks, knowledge, or instructions and can be installed, created, or invoked from the composer.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 183,
+        "reply_count": 7,
+        "retweet_count": 20,
+        "quote_count": 7,
+        "bookmark_count": 34,
+        "impression_count": 12315
+      },
+      "why_it_matters": "",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "x_handle": "lmstudio",
+      "media_url": "https://pbs.twimg.com/media/HP8jQeXXgAE0rIS.png?name=orig",
+      "views": 12315
+    },
+    {
+      "id": "ef82de29-9370-48c3-9385-c8a8e07adf99",
+      "headline": "Linear data links coding agents to 6.5 times more shipping",
+      "summary": "Linear says teams using coding agents in its product ship 6.5 times as much as teams that do not, based on platform usage data.",
+      "section": "agents",
+      "section_key": "agents",
+      "section_label": "Agents",
+      "tag": "agents",
+      "published_at": "2026-08-18T05:20:02.000Z",
       "author_name": "Linear",
       "source_list": "From Scoble lists",
       "source_url": "https://x.com/linear/status/2089405520285151409",
@@ -2382,7 +2382,7 @@
           "name": "Original X post by @linear"
         }
       ],
-      "body": "Teams building with coding agents in Linear now ship 6.5x as much as those that don't. @linear supplies the primary account and the concrete details available now.",
+      "body": "Linear says teams using coding agents in its product ship 6.5 times as much as teams that do not, based on platform usage data.",
       "kind": "story",
       "engagement": {
         "like_count": 222,
@@ -2400,178 +2400,176 @@
       "views": 35641
     },
     {
-      "id": "9a53be33-dce4-485d-b88b-32e6438942b7",
-      "headline": "Stripe's Will Gaybrick: \"Build everything\"",
-      "summary": "Stripe's Will Gaybrick: \"Build everything\". @a16z supplies the primary account and the concrete details available now.",
+      "id": "c034649f-d9f5-4f19-ac91-8f8505c924d7",
+      "headline": "Databricks separates daily and monthly coding-agent budgets",
+      "summary": "Databricks describes splitting coding-agent controls into daily limits for runaway spend and a separate longer-term budget.",
       "section": "agents",
       "section_key": "agents",
       "section_label": "Agents",
       "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "a16z",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "Databricks",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/a16z/status/2089387888685588717",
+      "source_url": "https://x.com/databricks/status/2089418761728037094",
       "sources": [
         {
-          "url": "https://x.com/a16z/status/2089387888685588717",
-          "name": "Original X post by @a16z"
+          "url": "https://x.com/databricks/status/2089418761728037094",
+          "name": "Original X post by @databricks"
         }
       ],
-      "body": "Stripe's Will Gaybrick: \"Build everything\". @a16z supplies the primary account and the concrete details available now.",
+      "body": "Databricks describes splitting coding-agent controls into daily limits for runaway spend and a separate longer-term budget.",
       "kind": "story",
       "engagement": {
-        "like_count": 142,
-        "reply_count": 20,
-        "retweet_count": 13,
-        "quote_count": 10,
-        "bookmark_count": 138,
-        "impression_count": 145263
+        "like_count": 63,
+        "reply_count": 3,
+        "retweet_count": 8,
+        "quote_count": 1,
+        "bookmark_count": 13,
+        "impression_count": 4649
       },
       "why_it_matters": "",
       "topic_key": "agents",
       "topic_label": "Agents",
-      "x_handle": "a16z",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089383338654199808/img/gWx3wCf2W1EvVXvZ.jpg",
-      "views": 145263
+      "x_handle": "databricks",
+      "media_url": "https://pbs.twimg.com/media/HP8bRjwWsAAQcKt.png?name=orig",
+      "views": 4649
     },
     {
-      "id": "b3a64003-cf64-42a7-b459-a76b8af88ed3",
-      "headline": "In a new blog post, we share how one customer, ABC Legal, deployed Claude Managed Agents",
-      "summary": "In a new blog post, we share how one customer, ABC Legal, deployed Claude Managed Agents. @ClaudeDevs supplies the primary account and the concrete details available now.",
+      "id": "0dc40e78-16b9-4fd5-b565-ece2981d554c",
+      "headline": "Microsoft Foundry gives Claude deployments native tool access",
+      "summary": "Microsoft says Claude deployments in Foundry now support structured outputs, web search, web fetch, MCP connectors, and tool search on Azure.",
       "section": "agents",
       "section_key": "agents",
       "section_label": "Agents",
       "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "ClaudeDevs",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "Microsoft Developer",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/ClaudeDevs/status/2089436153208549876",
+      "source_url": "https://x.com/msdev/status/2089434668399739126",
       "sources": [
         {
-          "url": "https://x.com/ClaudeDevs/status/2089436153208549876",
+          "url": "https://x.com/msdev/status/2089434668399739126",
+          "name": "Original X post by @msdev"
+        }
+      ],
+      "body": "Microsoft says Claude deployments in Foundry now support structured outputs, web search, web fetch, MCP connectors, and tool search on Azure.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 57,
+        "retweet_count": 8,
+        "bookmark_count": 20,
+        "impression_count": 10842
+      },
+      "why_it_matters": "",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "x_handle": "msdev",
+      "media_url": "https://pbs.twimg.com/card_img/2089432878279221248/e-kBU7HV?format=jpg&name=orig",
+      "views": 10842
+    },
+    {
+      "id": "8781af13-f2af-4dae-b3c0-5edae5428e95",
+      "headline": "Deterministic supervision keeps autonomous agents on mission",
+      "summary": "An agent practitioner argues for cron supervision, version control, and other deterministic controls to prevent unsupervised agents from damaging their stack or drifting from the mission.",
+      "section": "agents",
+      "section_key": "agents",
+      "section_label": "Agents",
+      "tag": "agents",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "Ahmad",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/TheAhmadOsman/status/2089547928553615478",
+      "sources": [
+        {
+          "url": "https://x.com/TheAhmadOsman/status/2089547928553615478",
+          "name": "Original X post by @TheAhmadOsman"
+        }
+      ],
+      "body": "An agent practitioner argues for cron supervision, version control, and other deterministic controls to prevent unsupervised agents from damaging their stack or drifting from the mission.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 79,
+        "reply_count": 12,
+        "retweet_count": 7,
+        "quote_count": 2,
+        "bookmark_count": 68,
+        "impression_count": 5867
+      },
+      "why_it_matters": "",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "x_handle": "TheAhmadOsman",
+      "views": 5867
+    },
+    {
+      "id": "34055d85-4417-452c-93a8-c088ff2d7109",
+      "headline": "Browserbase frames browser agents as an engineering problem",
+      "summary": "Browserbase argues that enterprise browser-agent adoption now depends more on reliable engineering than on another research breakthrough.",
+      "section": "agents",
+      "section_key": "agents",
+      "section_label": "Agents",
+      "tag": "agents",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "Browserbase",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/browserbase/status/2089437678181974064",
+      "sources": [
+        {
+          "url": "https://x.com/browserbase/status/2089437678181974064",
+          "name": "Original X post by @browserbase"
+        }
+      ],
+      "body": "Browserbase argues that enterprise browser-agent adoption now depends more on reliable engineering than on another research breakthrough.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 22,
+        "reply_count": 1,
+        "retweet_count": 1,
+        "quote_count": 2,
+        "bookmark_count": 7,
+        "impression_count": 3847
+      },
+      "why_it_matters": "",
+      "topic_key": "agents",
+      "topic_label": "Agents",
+      "x_handle": "browserbase",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089436348663148544/img/BPa7AU7BoxgqXMzJ.jpg",
+      "views": 3847
+    },
+    {
+      "id": "c0d67e36-0b07-45e2-927c-2d21cd39d4f7",
+      "headline": "Claude Code cuts peak CPU use by changing garbage collection",
+      "summary": "Claude developers say the command line tool now uses half as much CPU at the 99th percentile after moving Bun garbage collection to idle periods.",
+      "section": "agents",
+      "section_key": "agents",
+      "section_label": "Agents",
+      "tag": "agents",
+      "published_at": "2026-08-18T05:20:02.000Z",
+      "author_name": "ClaudeDevs",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/ClaudeDevs/status/2089509659090780193",
+      "sources": [
+        {
+          "url": "https://x.com/ClaudeDevs/status/2089509659090780193",
           "name": "Original X post by @ClaudeDevs"
         }
       ],
-      "body": "In a new blog post, we share how one customer, ABC Legal, deployed Claude Managed Agents. @ClaudeDevs supplies the primary account and the concrete details available now.",
+      "body": "Claude developers say the command line tool now uses half as much CPU at the 99th percentile after moving Bun garbage collection to idle periods.",
       "kind": "story",
       "engagement": {
-        "like_count": 1798,
-        "reply_count": 98,
-        "retweet_count": 100,
-        "quote_count": 19,
-        "bookmark_count": 1454,
-        "impression_count": 174802
+        "like_count": 3610,
+        "reply_count": 144,
+        "retweet_count": 115,
+        "quote_count": 57,
+        "bookmark_count": 396,
+        "impression_count": 250527
       },
       "why_it_matters": "",
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "ClaudeDevs",
-      "media_url": "https://pbs.twimg.com/media/HP8lUrlasAACdSz.jpg?name=orig",
-      "views": 174802
-    },
-    {
-      "id": "788a9779-4995-4246-a9e0-4f6213112034",
-      "headline": "Our first autonomous ai agent is being integrated into powered by Grok 4.6",
-      "summary": "Our first autonomous ai agent is being integrated into powered by Grok 4.6. @signerless supplies the primary account and the concrete details available now.",
-      "section": "agents",
-      "section_key": "agents",
-      "section_label": "Agents",
-      "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "acidburn",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/signerless/status/2089444518513029211",
-      "sources": [
-        {
-          "url": "https://x.com/signerless/status/2089444518513029211",
-          "name": "Original X post by @signerless"
-        }
-      ],
-      "body": "Our first autonomous ai agent is being integrated into powered by Grok 4.6. @signerless supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 38,
-        "reply_count": 2,
-        "retweet_count": 3,
-        "bookmark_count": 3,
-        "impression_count": 8844
-      },
-      "why_it_matters": "",
-      "topic_key": "agents",
-      "topic_label": "Agents",
-      "x_handle": "signerless",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089442622758612992/img/EaMyklGW076xJbOa.jpg",
-      "views": 8844
-    },
-    {
-      "id": "0624df93-0527-4c61-a1eb-cf049bc70b9e",
-      "headline": "Agent Categories and Costs are now in the Agent Leaderboard!",
-      "summary": "Agent Categories and Costs are now in the Agent Leaderboard!. @arena supplies the primary account and the concrete details available now.",
-      "section": "agents",
-      "section_key": "agents",
-      "section_label": "Agents",
-      "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "Arena.ai",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/arena/status/2089464753567797321",
-      "sources": [
-        {
-          "url": "https://x.com/arena/status/2089464753567797321",
-          "name": "Original X post by @arena"
-        }
-      ],
-      "body": "Agent Categories and Costs are now in the Agent Leaderboard!. @arena supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 58,
-        "reply_count": 9,
-        "retweet_count": 3,
-        "quote_count": 1,
-        "bookmark_count": 14,
-        "impression_count": 11865
-      },
-      "why_it_matters": "",
-      "topic_key": "agents",
-      "topic_label": "Agents",
-      "x_handle": "arena",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089464463263240192/img/gDQPkZSH8IAUOWS6.jpg",
-      "views": 11865
-    },
-    {
-      "id": "bd3ab77e-7121-45c9-833b-609af7c7548a",
-      "headline": "What are startups learning from building cost-effective agents with GPT-5.6",
-      "summary": "What are startups learning from building cost-effective agents with GPT-5.6. @OpenAIDevs supplies the primary account and the concrete details available now.",
-      "section": "agents",
-      "section_key": "agents",
-      "section_label": "Agents",
-      "tag": "agents",
-      "published_at": "2026-08-18T01:29:26.000Z",
-      "author_name": "OpenAI Developers",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/OpenAIDevs/status/2089374207818059793",
-      "sources": [
-        {
-          "url": "https://x.com/OpenAIDevs/status/2089374207818059793",
-          "name": "Original X post by @OpenAIDevs"
-        }
-      ],
-      "body": "What are startups learning from building cost-effective agents with GPT-5.6. @OpenAIDevs supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 1340,
-        "reply_count": 89,
-        "retweet_count": 64,
-        "quote_count": 16,
-        "bookmark_count": 245,
-        "impression_count": 102424
-      },
-      "why_it_matters": "",
-      "topic_key": "agents",
-      "topic_label": "Agents",
-      "x_handle": "OpenAIDevs",
-      "media_url": "https://pbs.twimg.com/media/HP7yxQ1bcAAsgvH.jpg?name=orig",
-      "views": 102424
+      "media_url": "https://pbs.twimg.com/media/HP9tuUzasAA8Zig.jpg?name=orig",
+      "views": 250527
     },
     {
       "id": "674920f2-92cf-46bc-889d-8fa2b87486fd",
@@ -4843,116 +4841,151 @@
       "views": 4297
     },
     {
-      "id": "12fc2a33-94ca-4c24-9e1d-3dfe937da3bd",
-      "headline": "MTS reports a new creative-tool development",
-      "summary": "MTS reports a new creative-tool development. @MTSlive supplies the primary account and the concrete details available now.",
+      "id": "83eb587a-9cfa-447b-8045-ade2ce2193f7",
+      "headline": "Gemini Omni Flash demo turns text into avatar video",
+      "summary": "A creator demonstrated text-to-video output described as Gemini Omni Flash using a Gemini Avatar feature.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "MTS",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "AshutoshShrivastava",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/MTSlive/status/2089431247894515970",
+      "source_url": "https://x.com/ai_for_success/status/2089534705041547422",
       "sources": [
         {
-          "url": "https://x.com/MTSlive/status/2089431247894515970",
-          "name": "Original X post by @MTSlive"
+          "url": "https://x.com/ai_for_success/status/2089534705041547422",
+          "name": "Original X post by @ai_for_success"
         }
       ],
-      "body": "MTS reports a new creative-tool development. @MTSlive supplies the primary account and the concrete details available now.",
+      "body": "A creator demonstrated text-to-video output described as Gemini Omni Flash using a Gemini Avatar feature.",
       "kind": "story",
       "engagement": {
-        "like_count": 59,
-        "reply_count": 3,
+        "like_count": 61,
+        "reply_count": 6,
         "retweet_count": 2,
-        "bookmark_count": 2,
-        "impression_count": 6895
+        "bookmark_count": 22,
+        "impression_count": 5161
       },
       "why_it_matters": "",
       "topic_key": "creative",
       "topic_label": "Creative",
-      "x_handle": "MTSlive",
-      "views": 6895
+      "x_handle": "ai_for_success",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089534683344420864/img/W-z8gu-DPumRe3mJ.jpg",
+      "views": 5161
     },
     {
-      "id": "9a663b6d-5f2f-406a-9db9-f8b69ce653e6",
-      "headline": "Gabriele Berton reports a new creative-tool development",
-      "summary": "Gabriele Berton reports a new creative-tool development. @gabriberton supplies the primary account and the concrete details available now.",
+      "id": "07facaa9-184d-4ec2-be5e-92a96012e495",
+      "headline": "Seedance replaces a green stage without changing stunt timing",
+      "summary": "Pika showed Seedance 2.5 replacing a green-screen set with a science-fiction battlefield while extending props, effects, atmosphere, and interactive lighting.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "Gabriele Berton",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "Pika",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/gabriberton/status/2089390434237780438",
+      "source_url": "https://x.com/pika_labs/status/2089506234487685160",
       "sources": [
         {
-          "url": "https://x.com/gabriberton/status/2089390434237780438",
-          "name": "Original X post by @gabriberton"
+          "url": "https://x.com/pika_labs/status/2089506234487685160",
+          "name": "Original X post by @pika_labs"
         }
       ],
-      "body": "Gabriele Berton reports a new creative-tool development. @gabriberton supplies the primary account and the concrete details available now.",
+      "body": "Pika showed Seedance 2.5 replacing a green-screen set with a science-fiction battlefield while extending props, effects, atmosphere, and interactive lighting.",
       "kind": "story",
       "engagement": {
-        "like_count": 306,
-        "reply_count": 9,
-        "retweet_count": 16,
-        "quote_count": 1,
-        "bookmark_count": 178,
-        "impression_count": 24007
+        "like_count": 50,
+        "reply_count": 10,
+        "retweet_count": 5,
+        "bookmark_count": 17,
+        "impression_count": 6210
       },
       "why_it_matters": "",
       "topic_key": "creative",
       "topic_label": "Creative",
-      "x_handle": "gabriberton",
-      "media_url": "https://pbs.twimg.com/media/HP8BJyiW0AAvhdp.jpg?name=orig",
-      "views": 24007
+      "x_handle": "pika_labs",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089506155211161601/img/qRxSYJBsjcLsuUDP.jpg",
+      "views": 6210
     },
     {
-      "id": "08b53f96-d3d8-4800-bea5-a531689195b4",
-      "headline": "Since we launched Replay Vision, the system’s watched 1,291,000 recordings",
-      "summary": "Since we launched Replay Vision, the system’s watched 1,291,000 recordings. @posthog supplies the primary account and the concrete details available now.",
+      "id": "1bd768e3-1f2d-471f-9af7-64a3cf494c6c",
+      "headline": "MiniMax H3 workflows bring video generation to an RTX 4090",
+      "summary": "MiniMax shared community resources for running H3 video workflows on an RTX 4090 with detailed prompts and repository materials.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "PostHog",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "MiniMax (official)",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/posthog/status/2089431214897967230",
+      "source_url": "https://x.com/MiniMax_AI/status/2089421390374138178",
       "sources": [
         {
-          "url": "https://x.com/posthog/status/2089431214897967230",
-          "name": "Original X post by @posthog"
+          "url": "https://x.com/MiniMax_AI/status/2089421390374138178",
+          "name": "Original X post by @MiniMax_AI"
         }
       ],
-      "body": "Since we launched Replay Vision, the system’s watched 1,291,000 recordings. @posthog supplies the primary account and the concrete details available now.",
+      "body": "MiniMax shared community resources for running H3 video workflows on an RTX 4090 with detailed prompts and repository materials.",
       "kind": "story",
       "engagement": {
-        "like_count": 22,
-        "reply_count": 2,
-        "retweet_count": 1,
-        "bookmark_count": 5,
-        "impression_count": 2188
+        "like_count": 165,
+        "reply_count": 8,
+        "retweet_count": 10,
+        "bookmark_count": 95,
+        "impression_count": 16215
       },
       "why_it_matters": "",
       "topic_key": "creative",
       "topic_label": "Creative",
-      "x_handle": "posthog",
-      "media_url": "https://pbs.twimg.com/media/HO0gt6mboAAwlKa.jpg?name=orig",
-      "views": 2188
+      "x_handle": "MiniMax_AI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089329436772769793/img/48ymWZdENzsQ4_t2.jpg",
+      "views": 16215
     },
     {
-      "id": "1aa21e05-de3f-4636-9e80-d30e91385adf",
-      "headline": "The doodles are part of the generation",
-      "summary": "The doodles are part of the generation. @magnific supplies the primary account and the concrete details available now.",
+      "id": "97652f94-994a-4caa-bcaa-161817713e72",
+      "headline": "Dreamina Seedance 2.5 leads the Video Edit Arena",
+      "summary": "Arena reports that Dreamina Seedance 2.5 ranks first in its newer video editing category with a lead over the available field.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "Arena.ai",
+      "source_list": "From Scoble lists",
+      "source_url": "https://x.com/arena/status/2089448812159045848",
+      "sources": [
+        {
+          "url": "https://x.com/arena/status/2089448812159045848",
+          "name": "Original X post by @arena"
+        }
+      ],
+      "body": "Arena reports that Dreamina Seedance 2.5 ranks first in its newer video editing category with a lead over the available field.",
+      "kind": "story",
+      "engagement": {
+        "like_count": 155,
+        "reply_count": 11,
+        "retweet_count": 8,
+        "quote_count": 3,
+        "bookmark_count": 24,
+        "impression_count": 23865
+      },
+      "why_it_matters": "",
+      "topic_key": "creative",
+      "topic_label": "Creative",
+      "x_handle": "arena",
+      "media_url": "https://pbs.twimg.com/media/HP82J5UbsAAkFkF.jpg?name=orig",
+      "views": 23865
+    },
+    {
+      "id": "d9770452-ceaa-46f5-b9ad-9b6e4fca240d",
+      "headline": "Seedance blends live action and drawn animation in one shot",
+      "summary": "Magnific demonstrated Seedance 2.5 combining filmed action with hand-drawn animation and audio inside a 30-second sequence.",
+      "section": "creatives",
+      "section_key": "creative",
+      "section_label": "Creative",
+      "tag": "creatives",
+      "published_at": "2026-08-18T05:20:03.000Z",
       "author_name": "Magnific",
       "source_list": "From Scoble lists",
       "source_url": "https://x.com/magnific/status/2089412025399345588",
@@ -4962,7 +4995,7 @@
           "name": "Original X post by @magnific"
         }
       ],
-      "body": "The doodles are part of the generation. @magnific supplies the primary account and the concrete details available now.",
+      "body": "Magnific demonstrated Seedance 2.5 combining filmed action with hand-drawn animation and audio inside a 30-second sequence.",
       "kind": "story",
       "engagement": {
         "like_count": 25,
@@ -4980,152 +5013,153 @@
       "views": 3365
     },
     {
-      "id": "5a5b5e9e-7d2a-4d8a-878b-c0132ac0eef7",
-      "headline": "PiratNation reports a new creative-tool development",
-      "summary": "PiratNation reports a new creative-tool development. @Pirat_Nation supplies the primary account and the concrete details available now.",
+      "id": "fa045575-0d25-465a-8248-e12fb0736151",
+      "headline": "Seedance 2.5 holds a fashion film together from 30 references",
+      "summary": "Pika shared a short fashion film built from 30 visual references and one music track, citing consistent cast, styling, graphics, and rhythm.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "Pirat_Nation 🔴",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "Pika",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/Pirat_Nation/status/2089478376427786326",
+      "source_url": "https://x.com/pika_labs/status/2089446510849405275",
       "sources": [
         {
-          "url": "https://x.com/Pirat_Nation/status/2089478376427786326",
-          "name": "Original X post by @Pirat_Nation"
+          "url": "https://x.com/pika_labs/status/2089446510849405275",
+          "name": "Original X post by @pika_labs"
         }
       ],
-      "body": "PiratNation reports a new creative-tool development. @Pirat_Nation supplies the primary account and the concrete details available now.",
+      "body": "Pika shared a short fashion film built from 30 visual references and one music track, citing consistent cast, styling, graphics, and rhythm.",
       "kind": "story",
       "engagement": {
-        "like_count": 611,
-        "reply_count": 63,
-        "retweet_count": 19,
-        "quote_count": 5,
-        "bookmark_count": 43,
-        "impression_count": 28781
+        "like_count": 30,
+        "reply_count": 6,
+        "retweet_count": 3,
+        "bookmark_count": 9,
+        "impression_count": 4993
       },
       "why_it_matters": "",
       "topic_key": "creative",
       "topic_label": "Creative",
-      "x_handle": "Pirat_Nation",
-      "media_url": "https://pbs.twimg.com/media/HP9AZ8cWYAASZDt.jpg?name=orig",
-      "views": 28781
+      "x_handle": "pika_labs",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089446266673733632/img/BL-JKTyzjCuLnK0K.jpg",
+      "views": 4993
     },
     {
-      "id": "65dbab2f-3cf5-4b6f-8aaa-dd321db1b92e",
-      "headline": "Alibaba cloud is quietly giving away a lot of ai credits rn 😳",
-      "summary": "Alibaba cloud is quietly giving away a lot of ai credits rn 😳. @k2sbhai supplies the primary account and the concrete details available now.",
+      "id": "01c50149-bec6-4aee-86be-1dd9763d4720",
+      "headline": "Fal adds 16 Topaz endpoints for image and video enhancement",
+      "summary": "Fal made 16 Topaz Labs enhancement endpoints available for restoration, upscaling, denoising, interpolation, and related image and video work.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "K2S",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "fal",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/k2sbhai/status/2089266431745733000",
+      "source_url": "https://x.com/fal/status/2089440831711179230",
       "sources": [
         {
-          "url": "https://x.com/k2sbhai/status/2089266431745733000",
-          "name": "Original X post by @k2sbhai"
+          "url": "https://x.com/fal/status/2089440831711179230",
+          "name": "Original X post by @fal"
         }
       ],
-      "body": "Alibaba cloud is quietly giving away a lot of ai credits rn 😳. @k2sbhai supplies the primary account and the concrete details available now.",
+      "body": "Fal made 16 Topaz Labs enhancement endpoints available for restoration, upscaling, denoising, interpolation, and related image and video work.",
       "kind": "story",
       "engagement": {
-        "like_count": 111,
-        "reply_count": 14,
-        "retweet_count": 7,
-        "bookmark_count": 106,
-        "impression_count": 6264
+        "like_count": 103,
+        "reply_count": 8,
+        "retweet_count": 16,
+        "quote_count": 4,
+        "bookmark_count": 51,
+        "impression_count": 9547
       },
       "why_it_matters": "",
       "topic_key": "creative",
       "topic_label": "Creative",
-      "x_handle": "k2sbhai",
-      "media_url": "https://pbs.twimg.com/media/HP6QK34bAAAd8lj.jpg?name=orig",
-      "views": 6264
+      "x_handle": "fal",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2089440794151165952/pu/img/hu5E6SLjuBD6AYUa.jpg",
+      "views": 9547
     },
     {
-      "id": "ef697f3b-804b-48f6-b04f-3c38b6becfd4",
-      "headline": "Ever wanted a model that can reason, call functions, and understand images plus text",
-      "summary": "Ever wanted a model that can reason, call functions, and understand images plus text. @HuggingModels supplies the primary account and the concrete details available now.",
+      "id": "aee3264f-c515-4af0-8285-5a6d8323a08f",
+      "headline": "Sonic 3.6 takes the lead in two speech arenas",
+      "summary": "Artificial Analysis reports that Cartesia Sonic 3.6 leads its provider and controlled voice speech leaderboards.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "Hugging Models",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "Artificial Analysis",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/HuggingModels/status/2089431825848705239",
+      "source_url": "https://x.com/ArtificialAnlys/status/2089400880688976062",
       "sources": [
         {
-          "url": "https://x.com/HuggingModels/status/2089431825848705239",
-          "name": "Original X post by @HuggingModels"
+          "url": "https://x.com/ArtificialAnlys/status/2089400880688976062",
+          "name": "Original X post by @ArtificialAnlys"
         }
       ],
-      "body": "Ever wanted a model that can reason, call functions, and understand images plus text. @HuggingModels supplies the primary account and the concrete details available now.",
+      "body": "Artificial Analysis reports that Cartesia Sonic 3.6 leads its provider and controlled voice speech leaderboards.",
       "kind": "story",
       "engagement": {
-        "like_count": 48,
-        "reply_count": 1,
-        "retweet_count": 8,
-        "bookmark_count": 31,
-        "impression_count": 3836
+        "like_count": 337,
+        "reply_count": 16,
+        "retweet_count": 39,
+        "quote_count": 9,
+        "bookmark_count": 107,
+        "impression_count": 39239
       },
       "why_it_matters": "",
       "topic_key": "creative",
       "topic_label": "Creative",
-      "x_handle": "HuggingModels",
-      "media_url": "https://pbs.twimg.com/media/HP8nLE6bkAAA1jx.jpg?name=orig",
-      "views": 3836
+      "x_handle": "ArtificialAnlys",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HP8FQfjbsAAreas.jpg",
+      "views": 39239
     },
     {
-      "id": "a508a4a5-c851-4a8c-9ae1-a02b6eb38f40",
-      "headline": "Claude Code can design now",
-      "summary": "Claude Code can design now. @ClaudeDevs supplies the primary account and the concrete details available now.",
+      "id": "02b118b2-f3f2-4d3e-945c-dd7df4e58b07",
+      "headline": "MiniMax H3 targets consistent walking for game sprites",
+      "summary": "MiniMax highlights H3 video generation for maintaining a walking character and applying the result to game-sprite creation.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "ClaudeDevs",
+      "published_at": "2026-08-18T05:20:03.000Z",
+      "author_name": "MiniMax (official)",
       "source_list": "From Scoble lists",
-      "source_url": "https://x.com/ClaudeDevs/status/2089471692762673408",
+      "source_url": "https://x.com/MiniMax_AI/status/2089420340728610890",
       "sources": [
         {
-          "url": "https://x.com/ClaudeDevs/status/2089471692762673408",
-          "name": "Original X post by @ClaudeDevs"
+          "url": "https://x.com/MiniMax_AI/status/2089420340728610890",
+          "name": "Original X post by @MiniMax_AI"
         }
       ],
-      "body": "Claude Code can design now. @ClaudeDevs supplies the primary account and the concrete details available now.",
+      "body": "MiniMax highlights H3 video generation for maintaining a walking character and applying the result to game-sprite creation.",
       "kind": "story",
       "engagement": {
-        "like_count": 7358,
-        "reply_count": 230,
-        "retweet_count": 448,
-        "quote_count": 138,
-        "bookmark_count": 3666,
-        "impression_count": 435425
+        "like_count": 468,
+        "reply_count": 15,
+        "retweet_count": 34,
+        "quote_count": 4,
+        "bookmark_count": 265,
+        "impression_count": 32829
       },
       "why_it_matters": "",
       "topic_key": "creative",
       "topic_label": "Creative",
-      "x_handle": "ClaudeDevs",
-      "media_url": "https://pbs.twimg.com/media/HP9LXQiasAAoPxJ.jpg?name=orig",
-      "views": 435425
+      "x_handle": "MiniMax_AI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089309634284691456/img/koex8m51S6wVBrVk.jpg",
+      "views": 32829
     },
     {
-      "id": "c80388d7-91bb-4f34-8821-761151d44bea",
-      "headline": "Grok publishes a new AI update",
-      "summary": "Grok publishes a new AI update. @grok supplies the primary account and the concrete details available now.",
+      "id": "4a37da5e-42c2-4d77-8862-5d57debb7db7",
+      "headline": "Grok Imagine offers major prizes for Odyssey videos",
+      "summary": "Grok launched a contest asking creators to render a scene from The Odyssey with its video and voice tools, with prizes for the top three entries.",
       "section": "creatives",
       "section_key": "creative",
       "section_label": "Creative",
       "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
+      "published_at": "2026-08-18T05:20:03.000Z",
       "author_name": "Grok",
       "source_list": "From Scoble lists",
       "source_url": "https://x.com/grok/status/2089443401695470006",
@@ -5135,7 +5169,7 @@
           "name": "Original X post by @grok"
         }
       ],
-      "body": "Grok publishes a new AI update. @grok supplies the primary account and the concrete details available now.",
+      "body": "Grok launched a contest asking creators to render a scene from The Odyssey with its video and voice tools, with prizes for the top three entries.",
       "kind": "story",
       "engagement": {
         "like_count": 3007,
@@ -5151,40 +5185,6 @@
       "x_handle": "grok",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089440735934205952/img/AzsBoitFtU-u43ZB.jpg",
       "views": 2052705
-    },
-    {
-      "id": "9387ad02-9f20-4acc-ba73-ea7cf697b851",
-      "headline": "PiratNation reports a new creative-tool development",
-      "summary": "PiratNation reports a new creative-tool development. @Pirat_Nation supplies the primary account and the concrete details available now.",
-      "section": "creatives",
-      "section_key": "creative",
-      "section_label": "Creative",
-      "tag": "creatives",
-      "published_at": "2026-08-18T01:29:18.000Z",
-      "author_name": "Pirat_Nation 🔴",
-      "source_list": "From Scoble lists",
-      "source_url": "https://x.com/Pirat_Nation/status/2089423828745077051",
-      "sources": [
-        {
-          "url": "https://x.com/Pirat_Nation/status/2089423828745077051",
-          "name": "Original X post by @Pirat_Nation"
-        }
-      ],
-      "body": "PiratNation reports a new creative-tool development. @Pirat_Nation supplies the primary account and the concrete details available now.",
-      "kind": "story",
-      "engagement": {
-        "like_count": 794,
-        "reply_count": 21,
-        "retweet_count": 62,
-        "bookmark_count": 59,
-        "impression_count": 20402
-      },
-      "why_it_matters": "",
-      "topic_key": "creative",
-      "topic_label": "Creative",
-      "x_handle": "Pirat_Nation",
-      "media_url": "https://pbs.twimg.com/media/HP8W5HLW8AA77mE.jpg?name=orig",
-      "views": 20402
     },
     {
       "id": "7c1399df-96a1-4d00-ad60-f7b93223f81a",
@@ -5969,7 +5969,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://emt.gartnerweb.com/ngw/commonassets/images/build-graphics/corporate-homepage/conference-promotion/conference-images-na-single.png"
     },
     {
       "id": "05de4801-5d9c-496a-9705-5363b7a92959",
