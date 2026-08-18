@@ -9,8 +9,8 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an111";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an111";
+  var DATA_URL = "live-data.json?v=an112";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an112";
   var state = {
     data: null,
     newsletter: [],
@@ -250,6 +250,21 @@
     parts.push(n + (n === 1 ? " source" : " sources"));
     parts.push(when);
     return parts.join(" · ");
+  }
+
+  function storyFeedMeta(item) {
+    var when = fallbackTime(item.published_at || item.created_at) || "recently";
+    var bits = [];
+    var n = 0;
+    if (item.sources && item.sources.length) n = item.sources.length;
+    else if (item.source_url) n = 1;
+    if (n > 0) bits.push(n + (n === 1 ? " source" : " sources"));
+    bits.push("first seen " + when);
+    var eng = item.engagement || {};
+    var views = Number(eng.impression_count || eng.view_count || item.views || item.view_count || 0);
+    var shown = compactCount(views);
+    if (shown) bits.push(shown + " views");
+    return bits.join(" · ");
   }
 
   function viewerFollowsHandle(handle) {
@@ -2651,19 +2666,22 @@
       var quiet = compact || !!rest;
       var isRead = state.read.indexOf(s.id) !== -1;
       var sectionPretty = s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.section || "");
-      var metaLine = storyMetaLine(s);
+      var metaLine = storyFeedMeta(s);
       var href = "story.html?id=" + encodeURIComponent(s.id);
       var key = s.topic_key || s.section_key || mapSectionKey(s.section || s.tag || "");
       var headline = editorialTitle(s, 92);
+      var media = storyMediaUrl(s);
+      var photoThumb = media ? rowThumbHtml(s, key, sectionPretty) : "";
 
-      // Compact / rest-of-desk = dense headline+meta — no lead hero / why / excerpts / thumbs.
+      // Compact / rest-of-desk = dense headline+meta — no lead hero / why.
       if (!quiet && allowLead && showLead && i === 0) {
         var leadHeadline = editorialTitle(s, 88);
-        var dek = uniqueDek(s, leadHeadline, 140);
+        var dek = uniqueDek(s, leadHeadline, 110);
         var hero = leadHeroHtml(s, key, sectionPretty);
         rankCounter = 1;
         return (
           '<li class="lead-card lead-card-opener lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
+            '<div class="rank">1</div>' +
             hero +
             '<div class="lead-copy">' +
               '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || "Today") + "</p>" +
@@ -2675,13 +2693,15 @@
               "</div>" +
               whyHereHtml(s) +
             "</div>" +
+            photoThumb +
           "</li>"
         );
       }
 
       rankCounter += 1;
       var rank = rankCounter;
-      var excerpt = quiet ? "" : uniqueDek(s, headline, 140);
+      var excerpt = uniqueDek(s, headline, 110);
+      var thumb = photoThumb || (quiet ? "" : rowThumbHtml(s, key, sectionPretty));
       return (
         '<li class="feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           '<div class="rank">' + rank + "</div>" +
@@ -2694,7 +2714,7 @@
             "</div>" +
             (quiet ? "" : whyHereHtml(s)) +
           "</div>" +
-          (quiet ? "" : rowThumbHtml(s, key, sectionPretty)) +
+          thumb +
         "</li>"
       );
     }
@@ -3176,8 +3196,20 @@
     return compactCount(value) || "Not measured";
   }
 
-  function intelCell(label, valueHtml) {
-    return "<div><span>" + escapeHtml(label) + "</span><strong>" + valueHtml + "</strong></div>";
+  function intelIcon(kind) {
+    var d = {
+      like: '<path d="M12 21s-6.8-4.35-9.2-8.15C.7 9.6 2.15 6 5.9 6c2.05 0 3.4 1.15 4.1 2.2C10.7 7.15 12.05 6 14.1 6c3.75 0 5.2 3.6 3.1 6.85C18.8 16.65 12 21 12 21z"/>',
+      reply: '<path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 20.5l1.6-4.6A8.4 8.4 0 1 1 21 11.5z"/>',
+      repost: '<path d="M17 4l3.5 3.5L17 11"/><path d="M7 20l-3.5-3.5L7 13"/><path d="M20.5 7.5H9"/><path d="M3.5 16.5H15"/>',
+      save: '<path d="M7 4h10v16l-5-3.2L7 20V4z"/>'
+    };
+    return '<svg class="story-intel-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' + (d[kind] || "") + "</svg>";
+  }
+
+  function intelReaction(kind, label, count) {
+    var n = compactCount(count);
+    if (!n) return "";
+    return "<li class=\"story-intel-stat\"><span class=\"sr-only\">" + escapeHtml(label) + "</span>" + intelIcon(kind) + "<strong>" + escapeHtml(n) + "</strong><span>" + escapeHtml(label) + "</span></li>";
   }
 
   function sentimentValue(value) {
@@ -3192,15 +3224,17 @@
     var sentiment = story.sentiment;
     var sample = sentiment && Number(sentiment.sample_size);
     if (!sentiment || !isFinite(sample) || sample <= 0) {
-      return "<section class=\"story-panel sentiment-panel sentiment-empty\"><div class=\"story-panel-heading\"><span>Sentiment</span><span class=\"premium-mark\">Premium</span></div><h2>Not enough reactions yet</h2><p>Sentiment appears after Aligned sees enough public reactions. The original post alone isn’t a crowd sample.</p></section>";
+      return "<p class=\"sentiment-empty-line\">Not enough public reactions yet.</p>";
     }
-    var metrics = [];
     var positive = sentimentValue(sentiment.positive);
     var negative = sentimentValue(sentiment.negative);
-    if (positive) metrics.push("<div><span>Positive</span><strong>" + escapeHtml(positive) + "</strong></div>");
-    if (negative) metrics.push("<div><span>Negative</span><strong>" + escapeHtml(negative) + "</strong></div>");
-    metrics.push("<div><span>Public reactions</span><strong>" + escapeHtml(sample.toLocaleString()) + "</strong></div>");
-    return "<section class=\"story-panel sentiment-panel\"><div class=\"story-panel-heading\"><span>Sentiment</span><span class=\"premium-mark\">Premium</span></div><div class=\"sentiment-metrics\">" + metrics.join("") + "</div>" + (sentiment.summary ? "<p>" + escapeHtml(displayText(sentiment.summary)) + "</p>" : "") + "</section>";
+    var posN = parseFloat(positive) || 0;
+    var negN = parseFloat(negative) || 0;
+    var bar = "<div class=\"sentiment-bar\" role=\"img\" aria-label=\"Sentiment mix\"><span class=\"sentiment-bar-pos\" style=\"flex-grow:" + posN + "\"></span><span class=\"sentiment-bar-neg\" style=\"flex-grow:" + Math.max(negN, 0.01) + "\"></span></div>";
+    var read = sentiment.summary
+      ? "<p>" + escapeHtml(displayText(sentiment.summary)) + "</p>"
+      : "<p>" + escapeHtml(positive || "0%") + " positive · " + escapeHtml(negative || "0%") + " negative · " + escapeHtml(sample.toLocaleString()) + " public reactions</p>";
+    return "<section class=\"sentiment-panel sentiment-has\"><div class=\"story-panel-heading\"><span>Sentiment</span></div>" + bar + read + "</section>";
   }
 
   function renderStory() {
@@ -3239,16 +3273,27 @@
     var author = displayText(story.author_name || handle || story.source_list || "Original source");
     var originalText = body || summary;
 
-    var intelCells = [];
-    intelCells.push(intelCell("Desk rank", rank ? "#" + rank : "Not ranked"));
-    intelCells.push(intelCell("First seen", escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "Unknown")));
-    intelCells.push(intelCell("Sources", String(sources.length) + " source" + (sources.length === 1 ? "" : "s")));
-    intelCells.push(intelCell("Original post views", measuredValue(views)));
-    if (likes > 0) intelCells.push(intelCell("Likes", escapeHtml(compactCount(likes))));
-    if (replies > 0) intelCells.push(intelCell("Replies", escapeHtml(compactCount(replies))));
-    if (reposts > 0) intelCells.push(intelCell("Reposts", escapeHtml(compactCount(reposts))));
-    if (bookmarks > 0) intelCells.push(intelCell("Bookmarks", escapeHtml(compactCount(bookmarks))));
-    var intelHtml = "<div class=\"story-intelligence\" aria-label=\"Original post metrics\">" + intelCells.join("") + "</div>";
+    var firstSeen = story.published_at ? fallbackTime(story.published_at) : "";
+    var sourceBit = sources.length ? (String(sources.length) + (sources.length === 1 ? " source" : " sources")) : "";
+    var subBits = [];
+    if (sourceBit) subBits.push(sourceBit);
+    if (firstSeen) subBits.push("first seen " + firstSeen);
+    var viewsLabel = compactCount(views) || "Not measured";
+    var rankHtml = rank
+      ? "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">Today’s rank</span><strong class=\"story-intel-num\">#" + rank + "</strong></div>"
+      : "";
+    var viewsHtml = "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">Views</span><strong class=\"story-intel-num\">" + escapeHtml(viewsLabel) + "</strong>" +
+      (subBits.length ? "<p class=\"story-intel-sub\">" + escapeHtml(subBits.join(" · ")) + "</p>" : "") + "</div>";
+    var reactions = [
+      intelReaction("like", "Likes", likes),
+      intelReaction("reply", "Replies", replies),
+      intelReaction("repost", "Reposts", reposts),
+      intelReaction("save", "Saves", bookmarks)
+    ].filter(Boolean).join("");
+    var intelHtml = "<section class=\"story-intel\" aria-label=\"Original post metrics\">" +
+      "<div class=\"story-intel-heroes\">" + rankHtml + viewsHtml + "</div>" +
+      (reactions ? "<ul class=\"story-intel-reactions\">" + reactions + "</ul>" : "") +
+      "</section>";
 
     var originalHtml = sourceUrl ? (
       "<section class=\"story-block original-post-section\"><h2>Original post</h2>" +
@@ -3284,9 +3329,9 @@
       "<a class=\"back-link\" href=\"index.html\">← Back to Today</a>" +
       "<header class=\"story-header\"><div class=\"article-kicker\"><span class=\"badge badge-signal\">" + escapeHtml(story.topic_label || labelFor(topic)) + "</span><span class=\"meta-line\">" + escapeHtml(storyMetaLine(story)) + "</span></div><h1>" + escapeHtml(title) + "</h1></header>" +
       intelHtml +
-      "<div class=\"article-actions\"><button type=\"button\" class=\"btn\" id=\"saveBtn\">" + (saved ? "Saved" : "Save for later") + "</button><button type=\"button\" class=\"btn\" id=\"readBtn\">Mark unread</button></div>" +
+      originalHtml +
+      "<div class=\"article-actions article-actions-quiet\"><button type=\"button\" class=\"text-action\" id=\"saveBtn\">" + (saved ? "Saved" : "Save for later") + "</button><button type=\"button\" class=\"text-action\" id=\"readBtn\">Mark unread</button></div>" +
       "<div class=\"story-layout\"><div class=\"story-main\">" +
-        originalHtml +
         "<section class=\"story-block story-explainer\"><h2>What happened</h2><div class=\"story-prose\"><p>" + escapeHtml(whatHappened) + "</p></div></section>" +
         (whyIsDifferent ? "<section class=\"story-block story-explainer\"><h2>Why it matters</h2><div class=\"story-prose\"><p>" + escapeHtml(why) + "</p></div></section>" : "") +
         (watch ? "<section class=\"story-block story-explainer\"><h2>What to watch</h2><div class=\"story-prose\"><p>" + escapeHtml(watch) + "</p></div></section>" : "") +
