@@ -1772,10 +1772,12 @@
     el.id = "partnersRail";
     el.className = "rail-card rail-card-partners";
     el.innerHTML =
-      '<h2 class="rail-title">Partners</h2>' +
-      '<p class="partners-kicker">UNALIGNED \u00d7 Scoble</p>' +
-      '<p class="partners-line">Reach the lists that rank this desk.</p>' +
-      '<a class="partners-link" href="https://unaligned.io" target="_blank" rel="noopener noreferrer">Open unaligned.io</a>';
+      '<h2 class="rail-title">Sponsors</h2>' +
+      '<a class="partners-brand" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">' +
+      '<img class="partners-logo" src="viture-logo.png" alt="VITURE" />' +
+      '</a>' +
+      '<p class="partners-line">XR glasses that turn your phone, laptop, or console into a private cinema screen.</p>' +
+      '<a class="partners-link" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">viture.com</a>';
     var top = document.getElementById("topSignals");
     if (top && top.parentNode === rail) {
       if (top.nextSibling) rail.insertBefore(el, top.nextSibling);

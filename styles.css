@@ -4593,14 +4593,19 @@ html[data-density="compact"] .nl-subscribe {
   }
 }
 
-.rail-card-partners .partners-kicker {
-  margin: 0 0 0.35rem;
-  font-family: var(--display);
-  font-size: 1.12rem;
-  font-weight: 400;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: var(--text);
+.rail-card-partners .partners-brand {
+  display: block;
+  margin: 0 0 0.45rem;
+  line-height: 0;
+}
+.rail-card-partners .partners-logo {
+  display: block;
+  height: 22px;
+  width: auto;
+  max-width: 140px;
+}
+[data-theme="dark"] .rail-card-partners .partners-logo {
+  filter: invert(1);
 }
 .rail-card-partners .partners-line {
   margin: 0 0 0.7rem;
