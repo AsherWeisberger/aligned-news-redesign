@@ -9,8 +9,8 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an112";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an112";
+  var DATA_URL = "live-data.json?v=an113";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an113";
   var state = {
     data: null,
     newsletter: [],
@@ -2693,7 +2693,6 @@
               "</div>" +
               whyHereHtml(s) +
             "</div>" +
-            photoThumb +
           "</li>"
         );
       }
