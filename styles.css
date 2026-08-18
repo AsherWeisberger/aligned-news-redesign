@@ -6183,7 +6183,33 @@ html[data-signed-in] .auth-cta,
 }
 
 @media (max-width: 720px) {
-  /* Header: hamburger + Aligned + globe. Profile + theme live in the left nav. */
+  /* Header: hamburger | centered Aligned News | globe. Profile + theme live in the left nav. */
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(2.5rem, 1fr) auto minmax(2.5rem, 1fr);
+    grid-template-areas:
+      "menu brand actions"
+      "search search search";
+    align-items: center;
+    column-gap: 0.35rem;
+  }
+  .menu-btn { grid-area: menu; justify-self: start; }
+  .brand {
+    grid-area: brand;
+    justify-self: center;
+    font-size: 1.34rem;
+    min-width: auto;
+  }
+  .brand-align-mark { font-size: 1.34rem; }
+  .brand-align-sub.full {
+    display: inline-flex !important;
+  }
+  .brand-align-sub.full em,
+  .brand em {
+    display: inline-block !important;
+  }
+  .top-actions { grid-area: actions; justify-self: end; }
+  .top-search { grid-area: search; width: 100%; }
   .live-pill,
   #livePill,
   .think-status {
