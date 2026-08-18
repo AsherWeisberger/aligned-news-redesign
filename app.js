@@ -9,9 +9,11 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an110";
+  var DATA_URL = "live-data.json?v=an111";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an111";
   var state = {
     data: null,
+    newsletter: [],
     filter: "all",
     query: "",
     saved: loadSaved(),
@@ -1921,7 +1923,7 @@
       { id: "today", href: "index.html", label: "Today", count: counts.stories },
       { id: "signals", href: "signals.html", label: "Signals", count: counts.signals },
       { id: "reports", href: "reports.html", label: "Reports", count: counts.reports },
-      { id: "newsletter", href: "newsletter.html", label: "Newsletter", count: NEWSLETTER_ISSUES.length },
+      { id: "newsletter", href: "newsletter.html", label: "Newsletter", count: newsletterIssues().length || undefined },
       { id: "saved", href: "index.html?view=saved", label: "Saved", count: counts.saved },
     ];
 
@@ -2041,7 +2043,7 @@
       } else if (page === "reports") {
         metaEl.textContent = counts.reports + " reports";
       } else if (page === "newsletter") {
-        metaEl.textContent = NEWSLETTER_ISSUES.length + " archive issues · Unaligned × Aligned";
+        metaEl.textContent = newsletterIssues().length + " archive issues · Unaligned × Aligned";
       }
     }
 
@@ -2872,36 +2874,135 @@
 
   }
 
-  var NEWSLETTER_ISSUES = [
-    { title: "AI Is Making Timing More Valuable Than Intelligence", date: "", blurb: "Why being early — and decisive — now compounds faster than raw IQ in the AI economy." },
-    { title: "The AI Experience Gap", date: "Aug 04, 2026", blurb: "Why human experience may become our greatest competitive advantage." },
-    { title: "AI Is Quietly Creating a New Digital Economy", date: "", blurb: "Agents, marketplaces, and new rails forming under the hype cycle." },
-    { title: "The AI Economy Is Running Out of Cheap Compute", date: "", blurb: "Power, chips, and capital constraints reshaping who can train and ship." },
-    { title: "The Rise of AI Reputation Management", date: "", blurb: "Brands and founders learn to manage what models say about them." },
-    { title: "AI Workers Enter the Real Economy", date: "", blurb: "From copilots to payroll — synthetic labor meets real workflows." },
-    { title: "The New Uncanny Valley", date: "Jul 07, 2026", blurb: "When AI outputs feel almost human — and why that almost matters." },
-    { title: "The AI Productivity Boom Is Becoming an AI Training Problem", date: "", blurb: "Gains at the desk collide with the data and eval debt behind them." },
-    { title: "The Humanoid Robot Safety Race", date: "", blurb: "Hardware startups race on trust as much as torque." },
-    { title: "The Public Trust Problem in AI", date: "", blurb: "Adoption stalls where institutions and users stop believing the pitch." },
-    { title: "The New AI Investment Race", date: "", blurb: "Capital piles into infrastructure, applications, and the picks-and-shovels in between." },
-    { title: "Why Governments Want a Stake in AI Companies", date: "Jun 09, 2026", blurb: "Industrial policy meets frontier models — equity, access, and control." },
-    { title: "The AI IPO Race", date: "", blurb: "Public markets prepare for the next wave of AI listings." },
-    { title: "AI Regulation Becomes a Moral Issue", date: "", blurb: "Rules shift from compliance checklists to questions of harm and agency." }
-  ];
+  function newsletterIssues() {
+    return Array.isArray(state.newsletter) ? state.newsletter : [];
+  }
+
+  function findNewsletterIssue(id) {
+    var slug = String(id || "").replace(/^nl-/, "");
+    var items = newsletterIssues();
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].id === slug || items[i].slug === slug || items[i].id === id) return items[i];
+    }
+    return null;
+  }
+
+  function formatNewsletterDate(iso) {
+    if (!iso) return "";
+    try {
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return String(iso);
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    } catch (e) {
+      return String(iso);
+    }
+  }
+
+  function sanitizeNewsletterBody(html) {
+    var box = document.createElement("div");
+    box.innerHTML = String(html || "");
+    box.querySelectorAll("script,style,iframe,object,embed,form,link,meta,video,audio").forEach(function (n) {
+      n.remove();
+    });
+    box.querySelectorAll("a").forEach(function (a) {
+      var href = String(a.getAttribute("href") || "");
+      if (!/^https?:\/\//i.test(href)) a.removeAttribute("href");
+      else {
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+    box.querySelectorAll("img").forEach(function (img) {
+      var src = String(img.getAttribute("src") || "");
+      if (!/^https?:\/\//i.test(src)) img.remove();
+      else {
+        img.setAttribute("loading", "lazy");
+        img.removeAttribute("srcset");
+        img.removeAttribute("onerror");
+        img.removeAttribute("onclick");
+      }
+    });
+    return box.innerHTML;
+  }
+
+  function setNewsletterMode(reading) {
+    document.body.classList.toggle("nl-reading", !!reading);
+    var hero = document.querySelector(".desk-hero");
+    var merge = document.querySelector(".merge-strip");
+    var layout = document.getElementById("nlListLayout") || document.querySelector(".page-layout");
+    var reader = document.getElementById("nlReader");
+    if (hero) hero.hidden = !!reading;
+    if (merge) merge.hidden = !!reading;
+    if (layout) layout.hidden = !!reading;
+    if (reader) reader.hidden = !reading;
+  }
+
+  function renderNewsletterIssue(issue) {
+    var root = document.getElementById("nlReader");
+    if (!root) return;
+    setNewsletterMode(true);
+    var title = issue.title || "Untitled";
+    var dek = issue.subtitle || "";
+    var date = formatNewsletterDate(issue.date);
+    var authors = issue.authors || "Robert Scoble & Irena Cronin";
+    var read = issue.reading_time || "";
+    var related = newsletterIssues().filter(function (it) { return it.id !== issue.id; }).slice(0, 4);
+    root.innerHTML =
+      '<a class="back-link" href="newsletter.html">\u2190 Newsletter</a>' +
+      '<header class="story-header">' +
+        '<div class="article-kicker">' +
+          '<span class="badge badge-signal">Newsletter</span>' +
+          '<span class="meta-line">' + escapeHtml([authors, date, read].filter(Boolean).join(" \u00b7 ")) + "</span>" +
+        "</div>" +
+        "<h1>" + escapeHtml(title) + "</h1>" +
+        (dek ? '<p class="article-dek">' + escapeHtml(dek) + "</p>" : "") +
+        '<p class="nl-credit">From Unaligned</p>' +
+      "</header>" +
+      '<div class="article-body nl-prose">' + sanitizeNewsletterBody(issue.body_html) + "</div>" +
+      '<p class="nl-source">Copied onto the Aligned desk from the Unaligned Newsletter.</p>' +
+      (related.length
+        ? ('<section class="related"><h2>More from Unaligned</h2><div class="related-card-grid">' +
+          related.map(function (it) {
+            return '<a class="related-card" href="newsletter.html?id=' + encodeURIComponent(it.id) + '">' +
+              '<span class="related-card-meta">' + escapeHtml(formatNewsletterDate(it.date)) + "</span>" +
+              "<strong>" + escapeHtml(it.title) + "</strong>" +
+              (it.excerpt ? "<span>" + escapeHtml(it.excerpt) + "</span>" : "") +
+            "</a>";
+          }).join("") +
+          "</div></section>")
+        : "");
+    document.title = title + " \u00b7 Newsletter \u00b7 Aligned News";
+  }
 
   function renderNewsletter() {
     var list = $("#newsletterArchive");
+    var id = getParam("id");
+    if (id) {
+      var issue = findNewsletterIssue(id);
+      var root = document.getElementById("nlReader");
+      if (!issue) {
+        setNewsletterMode(true);
+        if (root) {
+          root.hidden = false;
+          root.innerHTML = '<p class="status error">Issue not found. <a href="newsletter.html">Back to Newsletter</a></p>';
+        }
+        return;
+      }
+      renderNewsletterIssue(issue);
+      return;
+    }
+    setNewsletterMode(false);
     if (!list) return;
-    var items = NEWSLETTER_ISSUES.slice();
+    var items = newsletterIssues().slice();
     if (state.query) {
       var q = state.query.toLowerCase();
       items = items.filter(function (issue) {
-        return [issue.title, issue.blurb, issue.date, "unaligned"].join(" ").toLowerCase().indexOf(q) !== -1;
+        return [issue.title, issue.subtitle, issue.excerpt, issue.date, "unaligned"].join(" ").toLowerCase().indexOf(q) !== -1;
       });
     }
     var metaEl = $("#pageMeta");
     if (metaEl) {
-      metaEl.textContent = items.length + " archive issue" + (items.length === 1 ? "" : "s") + " · Unaligned × Aligned";
+      metaEl.textContent = items.length + " archive issue" + (items.length === 1 ? "" : "s") + " \u00b7 Unaligned \u00d7 Aligned";
     }
     if (!items.length) {
       list.innerHTML = '<li class="empty">No matching issues.</li>';
@@ -2909,18 +3010,20 @@
     }
     list.innerHTML = items.map(function (issue, i) {
       var featured = i === 0 && !state.query;
-      var href = "https://unaligned.io";
+      var href = "newsletter.html?id=" + encodeURIComponent(issue.id || issue.slug);
+      var date = formatNewsletterDate(issue.date) || issue.date || "";
+      var blurb = issue.excerpt || issue.subtitle || issue.blurb || "";
       var metaBits = ["Unaligned"];
-      if (issue.date) metaBits.push(issue.date);
-      metaBits.push("Archive");
-      var metaLine = metaBits.join(" · ");
+      if (date) metaBits.push(date);
+      if (issue.reading_time) metaBits.push(issue.reading_time);
+      var metaLine = metaBits.join(" \u00b7 ");
       if (featured) {
         return (
           '<li class="nl-issue nl-issue-featured" ' + staggerStyle(i) + '>' +
-            '<div class="nl-issue-badge">Featured</div>' +
-            '<a class="nl-issue-link" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
+            '<div class="nl-issue-badge">Latest</div>' +
+            '<a class="nl-issue-link" href="' + href + '">' +
               '<h2 class="nl-issue-title">' + escapeHtml(issue.title) + "</h2>" +
-              (issue.blurb ? '<p class="nl-issue-blurb">' + escapeHtml(issue.blurb) + "</p>" : "") +
+              (blurb ? '<p class="nl-issue-blurb">' + escapeHtml(blurb) + "</p>" : "") +
               '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
             "</a>" +
           "</li>"
@@ -2928,9 +3031,9 @@
       }
       return (
         '<li class="nl-issue" ' + staggerStyle(i) + '>' +
-          '<a class="nl-issue-link" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
+          '<a class="nl-issue-link" href="' + href + '">' +
             '<h2 class="nl-issue-title">' + escapeHtml(issue.title) + "</h2>" +
-            (issue.blurb ? '<p class="nl-issue-blurb">' + escapeHtml(issue.blurb) + "</p>" : "") +
+            (blurb ? '<p class="nl-issue-blurb">' + escapeHtml(blurb) + "</p>" : "") +
             '<div class="meta"><span class="meta-line">' + escapeHtml(metaLine) + "</span></div>" +
           "</a>" +
         "</li>"
@@ -2938,6 +3041,7 @@
     }).join("");
     list.classList.add("is-ready");
   }
+
 
   function renderReports() {
     var list = $("#reportList");
@@ -3614,7 +3718,7 @@
     if (page === "today") document.title = (getParam("view") === "saved" ? "Saved" : "Today") + " · " + base;
     else if (page === "signals") document.title = "Signals · " + base;
     else if (page === "reports") document.title = "Reports · " + base;
-    else if (page === "newsletter") document.title = "Newsletter · " + base;
+    else if (page === "newsletter") document.title = (getParam("id") ? "Issue" : "Newsletter") + " · " + base;
     else if (page === "story") document.title = "Story · " + base;
   }
 
@@ -3634,12 +3738,28 @@
     }
 
     showLoadBar();
-    fetch(DATA_URL, { cache: "no-store" })
+    var liveP = fetch(DATA_URL, { cache: "no-store" })
       .then(function (res) {
         if (!res.ok) throw new Error("Could not load " + DATA_URL);
         return res.json();
-      })
-      .then(function (data) {
+      });
+    var newsP = pageName() === "newsletter"
+      ? fetch(NEWSLETTER_DATA_URL, { cache: "no-store" })
+          .then(function (res) {
+            if (!res.ok) throw new Error("Could not load " + NEWSLETTER_DATA_URL);
+            return res.json();
+          })
+          .then(function (nl) {
+            state.newsletter = (nl && nl.issues) || [];
+          })
+          .catch(function (err) {
+            console.error(err);
+            state.newsletter = [];
+          })
+      : Promise.resolve();
+    Promise.all([liveP, newsP])
+      .then(function (pair) {
+        var data = pair[0];
         state.data = normalizeData(data);
         var section = getParam("section");
         if (section) state.filter = section;
