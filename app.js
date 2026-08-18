@@ -9,8 +9,8 @@
   } catch (e) {}
 
 
-  var DATA_URL = "live-data.json?v=an118";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an118";
+  var DATA_URL = "live-data.json?v=an119";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an119";
   var state = {
     data: null,
     newsletter: [],
@@ -573,10 +573,26 @@
   function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
 
   function loadSaved() {
-    try { return JSON.parse(localStorage.getItem("an-saved") || "[]"); } catch (e) { return []; }
+    if (window.AlignedSaved) return window.AlignedSaved.load();
+    return [];
   }
   function persistSaved() {
-    try { localStorage.setItem("an-saved", JSON.stringify(state.saved)); } catch (e) {}
+    if (window.AlignedSaved) window.AlignedSaved.persist();
+  }
+  function isSavedId(id) {
+    return !!(window.AlignedSaved && window.AlignedSaved.isSaved(id));
+  }
+  function savedSnapshot(id) {
+    return window.AlignedSaved ? window.AlignedSaved.find(id) : null;
+  }
+  function toggleSavedStory(story) {
+    if (!window.AlignedSaved) return false;
+    var now = window.AlignedSaved.toggle(story);
+    state.saved = window.AlignedSaved.all();
+    return now;
+  }
+  function savedStoriesForFeed(live) {
+    return window.AlignedSaved ? window.AlignedSaved.storiesForFeed(live) : [];
   }
   function loadRead() {
     try { return JSON.parse(localStorage.getItem("an-read") || "[]"); } catch (e) { return []; }
@@ -2143,7 +2159,7 @@
       if (hay.indexOf(q) === -1) return false;
     }
     if (getParam("view") === "saved") {
-      if (state.saved.indexOf(story.id) === -1) return false;
+      if (!isSavedId(story.id)) return false;
     }
     return true;
   }
@@ -2568,7 +2584,9 @@
     if (!list || !state.data) return;
     renderRightRail();
     renderIntelStrip();
-    var stories = (state.data.stories || []).filter(function (s) {
+    var live = state.data.stories || [];
+    var stories = (getParam("view") === "saved" ? savedStoriesForFeed(live) : live).filter(function (s) {
+      if (getParam("view") === "saved") return storyMatches(s);
       if (!isTodayFeedKind(s)) return false;
       if (isRetweetNoise(s)) return false;
       return storyMatches(s);
@@ -3000,6 +3018,44 @@
     if (layout) layout.hidden = false;
   }
 
+  function newsletterIssueHref(id) {
+    return "newsletter.html?id=" + encodeURIComponent(id) + "&v=an119";
+  }
+
+  function openNewsletterIssue(id, push) {
+    var url = newsletterIssueHref(id);
+    if (push !== false) {
+      try { history.pushState({ nl: id }, "", url); } catch (e) {}
+    }
+    renderNewsletter();
+    var reader = document.getElementById("nlReader");
+    if (reader) {
+      try { reader.scrollIntoView({ block: "start", behavior: "smooth" }); }
+      catch (err) { reader.scrollIntoView(true); }
+    }
+  }
+
+  function bindNewsletterNav() {
+    if (bindNewsletterNav.bound) return;
+    bindNewsletterNav.bound = true;
+    document.addEventListener("click", function (ev) {
+      if (pageName() !== "newsletter") return;
+      if (ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      if (ev.button) return;
+      var a = ev.target && ev.target.closest ? ev.target.closest("a.nl-issue-link") : null;
+      if (!a) return;
+      var href = a.getAttribute("href") || "";
+      var id = "";
+      try { id = new URL(href, location.href).searchParams.get("id") || ""; } catch (e) {}
+      if (!id) return;
+      ev.preventDefault();
+      openNewsletterIssue(id, true);
+    });
+    window.addEventListener("popstate", function () {
+      if (pageName() === "newsletter") renderNewsletter();
+    });
+  }
+
   function renderNewsletterIssue(issue, opts) {
     var root = document.getElementById("nlReader");
     if (!root || !issue) return;
@@ -3045,7 +3101,7 @@
       return;
     }
     list.innerHTML = rows.map(function (issue, i) {
-      var href = "newsletter.html?id=" + encodeURIComponent(issue.id || issue.slug);
+      var href = newsletterIssueHref(issue.id || issue.slug);
       var date = formatNewsletterDate(issue.date) || issue.date || "";
       var blurb = issue.excerpt || issue.subtitle || "";
       return (
@@ -3131,9 +3187,11 @@
   }
 
   function findStory(id) {
-    if (!state.data) return null;
-    var stories = state.data.stories || [];
+    var stories = (state.data && state.data.stories) || [];
     for (var i = 0; i < stories.length; i++) if (stories[i].id === id) return stories[i];
+    var kept = savedSnapshot(id);
+    if (kept) return kept;
+    if (!state.data) return null;
     // also allow raw signal id
     var signals = state.data.signals || [];
     for (var j = 0; j < signals.length; j++) {
@@ -3286,7 +3344,7 @@
       persistRead();
     }
 
-    var saved = state.saved.indexOf(story.id) !== -1;
+    var saved = isSavedId(story.id);
     var title = editorialTitle(story, 110);
     var summary = displayText(story.summary || "").trim();
     var body = displayText(story.body || "").trim();
@@ -3376,11 +3434,8 @@
 
     var saveBtn = $("#saveBtn");
     if (saveBtn) saveBtn.addEventListener("click", function () {
-      var index = state.saved.indexOf(story.id);
-      if (index === -1) state.saved.push(story.id);
-      else state.saved.splice(index, 1);
-      persistSaved();
-      saveBtn.textContent = state.saved.indexOf(story.id) !== -1 ? "Saved" : "Save for later";
+      var nowSaved = toggleSavedStory(story);
+      saveBtn.textContent = nowSaved ? "Saved" : "Save for later";
     });
     var readBtn = $("#readBtn");
     if (readBtn) readBtn.addEventListener("click", function () {
@@ -3783,6 +3838,7 @@
 
     initGodModeChrome();
     bindNewsletterSubscribe();
+    bindNewsletterNav();
   }
 
   function setTitle(page) {
