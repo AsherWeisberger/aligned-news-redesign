@@ -4626,6 +4626,20 @@ html[data-density="compact"] .nl-subscribe {
   border-bottom-color: var(--text);
 }
 
+.sponsors-under-stories { display: none; }
+
+@media (max-width: 1100px) {
+  .sponsors-under-stories {
+    display: block;
+    margin: 0.35rem 0 1.1rem;
+  }
+  .page-rail #partnersRail {
+    display: none !important;
+  }
+}
+
+
+
 
 /* === an77: restore boxed left nav, X-trim rows, designated modules === */
 @media (min-width: 900px) {
