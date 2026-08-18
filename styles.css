@@ -1689,7 +1689,7 @@ body[data-page="signals"] .feed-row {
   .top-search { display: none; }
   .brand { min-width: 0; }
   .main { padding: 1rem 0.9rem 2.5rem; max-width: 100%; min-width: 0; }
-  .user-name { display: none; }
+  .top-actions .user-name { display: none; }
   .live-time { display: none; }
   .top-actions { gap: 0.35rem; flex-shrink: 0; }
   .feed-row {
@@ -1722,8 +1722,7 @@ body[data-page="signals"] .feed-row {
     font-size: 0.68rem;
   }
   .think-status-text { font-size: 0.68rem; }
-  .pro-badge { display: none; }
-  .user-pill { padding-right: 0.32rem; }
+  .top-actions .pro-badge { display: none; }
   .topbar { gap: 0.4rem; padding: 0 0.65rem; }
 }
 
@@ -2287,7 +2286,7 @@ html, body {
   }
 }
 @media (max-width: 520px) {
-  .pro-badge { display: none !important; }
+  .top-actions .pro-badge { display: none !important; }
   .brand em { display: none; }
 }
 
@@ -5909,10 +5908,7 @@ body[data-page="newsletter"]:not(.nl-reading) .nl-reader {
 
   .article-actions-quiet { margin: 0.15rem 0 0.85rem; }
 
-  /* Slim header: keep search under, drop redundant Sign up next to avatar */
-  .top-actions:has(.user-pill:not([hidden])) .auth-cta {
-    display: none !important;
-  }
+  /* Slim header: Sign up stays until the left profile is signed in */
   .top-actions { gap: 0.18rem; }
   .live-pill { display: none; }
   .gm-widget { width: 30px; height: 30px; }
@@ -6084,8 +6080,37 @@ html[data-theme="dark"] .feed-module-head .density-seg-btn[aria-pressed="true"] 
   display: none !important;
 }
 
-.top-actions:has(.user-pill:not([hidden])) .auth-cta {
+html[data-signed-in] .auth-cta,
+.auth-cta[hidden] {
   display: none !important;
+}
+
+.sidebar-account {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.55rem;
+  padding: 0.15rem 0.15rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-account .avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 0.72rem;
+}
+.sidebar-account-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.sidebar-account-name {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sidebar-theme {
@@ -6132,14 +6157,10 @@ html[data-theme="dark"] .feed-module-head .density-seg-btn[aria-pressed="true"] 
 }
 
 @media (max-width: 720px) {
-  /* Header: hamburger + Aligned + globe + avatar. Theme lives with the left profile. */
+  /* Header: hamburger + Aligned + globe. Profile + theme live in the left nav. */
   .live-pill,
   #livePill,
   .think-status {
-    display: none !important;
-  }
-  .user-name,
-  .pro-badge {
     display: none !important;
   }
 

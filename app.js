@@ -1182,9 +1182,7 @@
       el.id = "authCta";
       el.className = "auth-cta";
       el.textContent = "Sign up / Login";
-      var pill = actions.querySelector(".user-pill");
-      if (pill) actions.insertBefore(el, pill);
-      else actions.appendChild(el);
+      actions.appendChild(el);
     }
     el.href = "auth.html";
     el.removeAttribute("target");
@@ -2035,42 +2033,30 @@
     var foot = $("#sidebarFoot");
     if (foot) {
       var dark = isDarkTheme();
+      var av = initialsFrom(uname).slice(0, 1);
       foot.innerHTML =
+        '<div class="sidebar-account">' +
+        '<span class="avatar" aria-hidden="true">' + escapeHtml(av) + "</span>" +
+        '<span class="sidebar-account-meta">' +
+        '<span class="sidebar-account-name">' + escapeHtml(uname) + "</span>" +
+        '<span class="' + (pro ? "pro-badge" : "plan-badge plan-free") + '">' + (pro ? "Pro" : "Free") + "</span>" +
+        "</span>" +
+        "</div>" +
         '<button type="button" class="sidebar-theme" id="themeToggleSide" aria-label="' +
         (dark ? "Switch to light mode" : "Switch to dark mode") + '" title="' +
         (dark ? "Light mode" : "Dark mode") + '">' +
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' +
         '<span class="sidebar-theme-label">' + (dark ? "Light mode" : "Dark mode") + "</span>" +
-        "</button>" +
-        '<p class="sidebar-foot-copy">' + escapeHtml(uname) + " · " + (pro ? "Pro" : "Free") +
-        "<br>" + (pro ? "63 curated X lists · interests first" : "Free desk · Upgrade for interests-first ranking") +
-        "</p>";
-    }
-
-    var pill = $(".user-pill");
-    if (pill) {
-      if (pro) {
-        pill.hidden = false;
-        pill.classList.add("is-compact");
-        var av = initialsFrom(uname).slice(0, 1);
-        pill.innerHTML =
-          '<span class="avatar" aria-hidden="true">' + escapeHtml(av) + "</span>" +
-          '<span class="user-name">' + escapeHtml(uname) + "</span>" +
-          '<span class="pro-badge">Pro</span>';
-        pill.title = "Signed in · Pro";
-      } else {
-        // Free mock: Sign up / Login replaces the account chip.
-        pill.hidden = true;
-        pill.classList.remove("is-compact");
-      }
+        "</button>";
     }
 
     var authCta = ensureAuthCta();
     if (authCta) {
-      var signedIn = !!(pill && !pill.hidden);
-      authCta.hidden = signedIn;
-      authCta.classList.toggle("is-on", !signedIn);
+      authCta.hidden = !!pro;
+      authCta.classList.toggle("is-on", !pro);
     }
+    if (pro) document.documentElement.setAttribute("data-signed-in", "1");
+    else document.documentElement.removeAttribute("data-signed-in");
     // Remove legacy Upgrade CTA — Sign up / Login is the primary action.
     var existingUp = $("#upgradeBtn");
     if (existingUp) existingUp.remove();
