@@ -6132,11 +6132,7 @@ html[data-theme="dark"] .feed-module-head .density-seg-btn[aria-pressed="true"] 
 }
 
 @media (max-width: 720px) {
-  /* Header: hamburger + Aligned + globe + avatar. Theme lives in the menu. */
-  .topbar #themeToggle,
-  .top-actions #themeToggle {
-    display: none !important;
-  }
+  /* Header: hamburger + Aligned + globe + avatar. Theme lives with the left profile. */
   .live-pill,
   #livePill,
   .think-status {

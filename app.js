@@ -633,7 +633,7 @@
     var dark = isDarkTheme();
     var label = dark ? "Switch to light mode" : "Switch to dark mode";
     var title = dark ? "Light mode" : "Dark mode";
-    var ids = ["themeToggle", "themeToggleSide"];
+    var ids = ["themeToggleSide"];
     for (var i = 0; i < ids.length; i++) {
       var btn = document.getElementById(ids[i]);
       if (!btn) continue;
@@ -3409,9 +3409,9 @@
         '<span class="gm-widget-atm" aria-hidden="true"></span>' +
         '<canvas class="gm-widget-globe" width="72" height="72" aria-hidden="true"></canvas>' +
         '<span class="gm-widget-pulse" aria-hidden="true"></span>';
-      var theme = document.getElementById("themeToggle");
       var focus = document.getElementById("chromeToggle");
-      if (theme) actions.insertBefore(el, theme);
+      var auth = document.getElementById("authCta");
+      if (auth) actions.insertBefore(el, auth);
       else if (focus) actions.insertBefore(el, focus.nextSibling);
       else actions.appendChild(el);
     }
@@ -3757,10 +3757,6 @@
     bindChromeScrollListeners();
     syncTopbarSolid();
 
-    var themeBtn = $("#themeToggle");
-    if (themeBtn) {
-      themeBtn.addEventListener("click", function () { toggleTheme(); });
-    }
     if (sidebar) {
       sidebar.addEventListener("click", function (ev) {
         var t = ev.target;
