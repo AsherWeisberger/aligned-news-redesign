@@ -3426,7 +3426,7 @@ body[data-page="auth"] .app {
     top: auto !important;
     bottom: 0 !important;
     z-index: 60;
-    padding: 0 0.85rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    padding: 0 0.5rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
     pointer-events: none;
     transform: none;
     opacity: 1;
@@ -3445,19 +3445,21 @@ body[data-page="auth"] .app {
   .mobile-dock-bar {
     display: flex;
     align-items: center;
-    gap: 0.72rem;
+    gap: 0.55rem;
+    width: 100%;
     pointer-events: none;
   }
   .mobile-dock-inner {
     pointer-events: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2px;
+    justify-content: space-evenly;
+    gap: 0;
     flex: 1 1 auto;
+    width: 100%;
     min-width: 0;
     height: 56px;
-    padding: 0 0.28rem;
+    padding: 0 0.2rem;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: color-mix(in srgb, #1c1c1e 86%, transparent);
@@ -3488,10 +3490,11 @@ body[data-page="auth"] .app {
     align-items: center;
     justify-content: center;
     gap: 0;
-    min-width: 44px;
+    flex: 1 1 0;
+    min-width: 0;
     width: auto;
     height: 44px;
-    padding: 0 10px;
+    padding: 0 8px;
     border-radius: 999px;
     color: color-mix(in srgb, #fff 70%, transparent);
     text-decoration: none;
@@ -3582,7 +3585,7 @@ body[data-page="auth"] .app {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: calc(100% - 56px - 0.72rem);
+    width: calc(100% - 56px - 0.55rem);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.7rem 0.45rem;
