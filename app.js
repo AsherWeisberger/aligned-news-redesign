@@ -1972,6 +1972,18 @@
     return icons[id] || icons.today;
   }
 
+  function dockTileIcon(id) {
+    var icons = {
+      god: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+      signin: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 19.2c1.2-3 3.6-4.5 6.5-4.5s5.3 1.5 6.5 4.5"/></svg>',
+      saved: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-3.5L6 20V5a1 1 0 0 1 1-1z"/></svg>',
+      collabs: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 11a3 3 0 1 0-2.2-5M8 11a3 3 0 1 1 2.2-5M4.8 19a4.2 4.2 0 0 1 7.4-2.5M19.2 19a4.2 4.2 0 0 0-7.4-2.5"/></svg>',
+      compact: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>',
+      expanded: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>'
+    };
+    return icons[id] || icons.god;
+  }
+
   function renderMobileDock(page) {
     if (page === "auth") {
       var old = $("#mobileDock");
@@ -1979,12 +1991,19 @@
       document.documentElement.classList.remove("has-mobile-dock");
       return;
     }
-    // Primary destinations (not topic chips). Saved stays in hamburger/sidebar.
     var items = [
       { id: "today", href: "index.html", label: t("today") },
       { id: "signals", href: "signals.html", label: t("signals") },
       { id: "reports", href: "reports.html", label: t("reports") },
       { id: "newsletter", href: "newsletter.html", label: t("news") }
+    ];
+    var tiles = [
+      { act: "god", label: t("god_mode"), icon: "god" },
+      { href: "auth.html", label: t("sign_up_login"), icon: "signin" },
+      { href: "index.html?view=saved", label: t("saved"), icon: "saved" },
+      { href: "https://agentdashboard.cloud/connect", label: t("collabs"), icon: "collabs", ext: true },
+      { act: "expanded", label: t("expanded"), icon: "expanded" },
+      { act: "compact", label: t("compact"), icon: "compact" }
     ];
     var dock = $("#mobileDock");
     if (!dock) {
@@ -1993,28 +2012,75 @@
       dock.className = "mobile-dock";
       dock.setAttribute("aria-label", t("primary"));
     }
-    var bar = document.querySelector(".topbar");
-    if (bar) {
-      if (dock.parentNode !== bar) bar.appendChild(dock);
-    } else {
-      var appEl = document.querySelector(".app") || document.body;
-      if (dock.parentNode !== appEl) appEl.appendChild(dock);
-    }
+    var appEl = document.querySelector(".app") || document.body;
+    if (dock.parentNode !== appEl) appEl.appendChild(dock);
     document.documentElement.classList.add("has-mobile-dock");
+    var wasOpen = dock.classList.contains("is-open");
     dock.innerHTML =
-      '<div class="mobile-dock-inner">' +
-      items.map(function (item) {
-        var active = item.id === page || (page === "story" && item.id === "today");
-        if (item.id === "today") active = (page === "today" && getParam("view") !== "saved") || page === "story";
-        return (
-          '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
-          (active ? ' aria-current="page"' : "") + ">" +
-          '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
-          '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
-          "</a>"
-        );
-      }).join("") +
+      '<div class="mobile-dock-stage">' +
+        '<div class="mobile-dock-sheet" id="mobileDockSheet">' +
+          tiles.map(function (tile) {
+            var tag = tile.href ? "a" : "button";
+            var extra = tile.href
+              ? ' href="' + tile.href + '"' + (tile.ext ? ' target="_blank" rel="noopener noreferrer"' : "")
+              : ' type="button"';
+            return (
+              "<" + tag + ' class="dock-tile" data-act="' + (tile.act || "") + '"' + extra + ">" +
+              '<span class="dock-tile-ico">' + dockTileIcon(tile.icon) + "</span>" +
+              '<span class="dock-tile-label">' + escapeHtml(tile.label) + "</span>" +
+              "</" + tag + ">"
+            );
+          }).join("") +
+        "</div>" +
+        '<div class="mobile-dock-bar">' +
+          '<div class="mobile-dock-inner">' +
+          items.map(function (item) {
+            var active = item.id === page;
+            if (item.id === "today") active = (page === "today" && getParam("view") !== "saved") || page === "story";
+            return (
+              '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
+              (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
+              '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
+              '<span class="sr-only">' + escapeHtml(item.label) + "</span>" +
+              "</a>"
+            );
+          }).join("") +
+          "</div>" +
+          '<button type="button" class="mobile-dock-plus" id="mobileDockPlus" aria-expanded="' + (wasOpen ? "true" : "false") + '" aria-controls="mobileDockSheet" aria-label="+">' +
+            '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>' +
+          "</button>" +
+        "</div>" +
       "</div>";
+    if (wasOpen) dock.classList.add("is-open");
+    if (!dock.dataset.wired) {
+      dock.dataset.wired = "1";
+      dock.addEventListener("click", function (e) {
+        var plus = e.target.closest(".mobile-dock-plus");
+        if (plus) {
+          e.preventDefault();
+          var open = !dock.classList.contains("is-open");
+          dock.classList.toggle("is-open", open);
+          plus.setAttribute("aria-expanded", open ? "true" : "false");
+          return;
+        }
+        var tile = e.target.closest(".dock-tile");
+        if (!tile) return;
+        var act = tile.getAttribute("data-act");
+        if (act === "god") {
+          e.preventDefault();
+          dock.classList.remove("is-open");
+          var gm = document.getElementById("godModeWidget");
+          if (gm) gm.click();
+        } else if (act === "compact" || act === "expanded") {
+          e.preventDefault();
+          var btn = document.querySelector('[data-density-mode="' + (act === "compact" ? "compact" : "comfortable") + '"]');
+          if (btn) btn.click();
+          dock.classList.remove("is-open");
+        } else {
+          dock.classList.remove("is-open");
+        }
+      });
+    }
   }
 
   function renderChrome() {
