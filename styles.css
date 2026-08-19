@@ -3419,15 +3419,19 @@ body[data-page="auth"] .app {
 @media (max-width: 860px) {
   html.has-mobile-dock .mobile-dock {
     display: block;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 45;
+    position: fixed !important;
+    grid-area: unset;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: 0 !important;
+    z-index: 60;
     padding: 0 0.85rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
     pointer-events: none;
     transform: none;
     opacity: 1;
+    width: 100%;
+    max-width: 100%;
   }
   html.has-mobile-dock .mobile-dock.is-hidden {
     transform: translateY(110%);
@@ -3448,11 +3452,12 @@ body[data-page="auth"] .app {
     pointer-events: auto;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 2px;
     flex: 1 1 auto;
     min-width: 0;
     height: 56px;
-    padding: 0 0.35rem;
+    padding: 0 0.28rem;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: color-mix(in srgb, #1c1c1e 86%, transparent);
@@ -3479,15 +3484,45 @@ body[data-page="auth"] .app {
   .mobile-dock-item {
     position: relative;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 48px;
+    gap: 0;
+    min-width: 44px;
+    width: auto;
     height: 44px;
+    padding: 0 10px;
     border-radius: 999px;
     color: color-mix(in srgb, #fff 70%, transparent);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
-    transition: color 0.2s ease, background 0.22s cubic-bezier(0.22, 1.2, 0.36, 1);
+    overflow: hidden;
+    transition:
+      color 0.2s ease,
+      background 0.22s cubic-bezier(0.22, 1.2, 0.36, 1),
+      padding 0.32s cubic-bezier(0.22, 1.2, 0.36, 1),
+      min-width 0.32s cubic-bezier(0.22, 1.2, 0.36, 1);
+  }
+  .mobile-dock-label {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-left: 0;
+    color: inherit;
+    transition:
+      max-width 0.32s cubic-bezier(0.22, 1.2, 0.36, 1),
+      opacity 0.18s ease,
+      margin 0.32s cubic-bezier(0.22, 1.2, 0.36, 1);
+  }
+  .mobile-dock-item.is-active .mobile-dock-label {
+    max-width: 6.5rem;
+    opacity: 1;
+    margin-left: 0.4rem;
   }
   html:not([data-theme="dark"]) .mobile-dock-item {
     color: var(--muted);
@@ -3505,6 +3540,7 @@ body[data-page="auth"] .app {
   .mobile-dock-item.is-active {
     background: color-mix(in srgb, #fff 16%, transparent);
     color: #fff;
+    padding: 0 14px 0 11px;
   }
   html:not([data-theme="dark"]) .mobile-dock-item.is-active {
     background: var(--accent-soft);
@@ -3645,6 +3681,7 @@ body[data-page="auth"] .app {
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
   .mobile-dock,
   .mobile-dock-item,
+  .mobile-dock-label,
   .mobile-dock-inner,
   .mobile-dock-plus,
   .mobile-dock-plus svg,

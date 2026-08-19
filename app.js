@@ -2012,8 +2012,7 @@
       dock.className = "mobile-dock";
       dock.setAttribute("aria-label", t("primary"));
     }
-    var appEl = document.querySelector(".app") || document.body;
-    if (dock.parentNode !== appEl) appEl.appendChild(dock);
+    if (dock.parentNode !== document.body) document.body.appendChild(dock);
     document.documentElement.classList.add("has-mobile-dock");
     var wasOpen = dock.classList.contains("is-open");
     dock.innerHTML =
@@ -2041,7 +2040,7 @@
               '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
               (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
               '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
-              '<span class="sr-only">' + escapeHtml(item.label) + "</span>" +
+              '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
               "</a>"
             );
           }).join("") +

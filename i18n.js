@@ -1,4 +1,4 @@
-/* an132: EN / ES / PT / JA / ZH — chrome dict + full story translation */
+/* an133: EN / ES / PT / JA / ZH — chrome dict + full story translation */
 (function () {
   var KEY = "an-lang";
   var CACHE_KEY = "an-tx-v3";
@@ -1456,7 +1456,7 @@
   else applyStatic();
 
 
-  window.anTxReady = fetch("tx.json?v=an132").then(function (r) {
+  window.anTxReady = fetch("tx.json?v=an133").then(function (r) {
     if (!r.ok) throw new Error("tx");
     return r.json();
   }).then(function (map) {
