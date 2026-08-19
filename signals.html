@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=an126" />
+<link rel="stylesheet" href="styles.css?v=an127" />
 </head>
 <body data-page="signals">
   <div class="load-bar" id="loadBar" hidden aria-hidden="true"><div class="load-bar-inner"></div></div>
@@ -33,18 +33,18 @@
         </span>
         <span class="brand-align-sub full"><em>News</em></span>
       </a>
-      <p class="brand-tagline">AI signal from 63 curated X lists</p>
+      <p class="brand-tagline" data-i18n="tagline">AI signal from 63 curated X lists</p>
       <div class="top-search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <label class="sr-only" for="searchInput">Search</label>
-        <input id="searchInput" type="search" placeholder="Search signals" autocomplete="off" />
+        <label class="sr-only" for="searchInput" data-i18n="search_label">Search</label>
+        <input id="searchInput" type="search" placeholder="Search signals" data-i18n-placeholder="search_signals" autocomplete="off" />
       </div>
       <div class="top-actions">
         <div class="think-status" id="thinkStatus" hidden aria-live="polite" aria-hidden="true">
           <span class="think-status-dot" aria-hidden="true"></span>
-          <span class="think-status-text" id="thinkStatusText">Loading…</span>
+          <span class="think-status-text" id="thinkStatusText" data-i18n="loading">Loading…</span>
         </div>
-        <div class="live-pill" id="livePill" title="Live desk">
+        <div class="live-pill" id="livePill" title="Live desk" data-i18n-title="live_desk">
           <span class="live-dot" aria-hidden="true"></span>
           <span class="live-label">LIVE</span>
           <span class="live-time" id="liveTime">…</span>
@@ -60,36 +60,36 @@
     </header>
 
     <div class="backdrop" id="backdrop"></div>
-    <aside class="sidebar" id="sidebar" aria-label="Primary"></aside>
+    <aside class="sidebar" id="sidebar" aria-label="Primary" data-i18n-aria="primary"></aside>
 
     <main class="main">
       <div class="page page-enter">
-        <section class="desk-hero desk-hero-compact" aria-label="Signals overview">
+        <section class="desk-hero desk-hero-compact" aria-label="Signals overview" data-i18n-aria="signals_overview">
           <div class="desk-copy">
             <p class="desk-kicker">Confidence-ranked movers</p>
-            <h1>Signals</h1>
-            <p class="desk-value">Cross-list spikes, keyword hits, and high-engagement posts from Scoble’s lists.</p>
+            <h1 data-i18n="signals">Signals</h1>
+            <p class="desk-value" data-i18n="signals_value">Cross-list spikes, keyword hits, and high-engagement posts from Scoble’s lists.</p>
             <p class="page-meta" id="pageMeta"></p>
           </div>
         </section>
 
-        <div class="chips" id="chips" role="toolbar" aria-label="Filter by list"></div>
-        <p class="status" id="loadStatus">Loading signals…</p>
+        <div class="chips" id="chips" role="toolbar" aria-label="Filter by list" data-i18n-aria="filter_list"></div>
+        <p class="status" id="loadStatus" data-i18n="loading_signals">Loading signals…</p>
         <div class="page-layout">
           <div class="page-primary">
             <div class="feed-module">
               <div class="feed-module-head">
-                <h2 class="module-label">Signals</h2>
+                <h2 class="module-label" data-i18n="signals">Signals</h2>
                 <div class="feed-module-tools">
-                <a class="feed-collabs" href="https://agentdashboard.cloud/connect" target="_blank" rel="noopener noreferrer">Collabs</a>
-                <div class="density-seg" id="densityToggle" role="group" aria-label="Feed density">
-                  <button type="button" class="density-seg-btn is-active" data-density-mode="comfortable" aria-pressed="true" title="Expanded">
+                <a class="feed-collabs" href="https://agentdashboard.cloud/connect" target="_blank" rel="noopener noreferrer" data-i18n="collabs">Collabs</a>
+                <div class="density-seg" id="densityToggle" role="group" aria-label="Feed density" data-i18n-aria="feed_density">
+                  <button type="button" class="density-seg-btn is-active" data-density-mode="comfortable" aria-pressed="true" title="Expanded" data-i18n-title="expanded">
                     <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>
-                    <span class="sr-only">Expanded</span>
+                    <span class="sr-only" data-i18n="expanded">Expanded</span>
                   </button>
-                  <button type="button" class="density-seg-btn" data-density-mode="compact" aria-pressed="false" title="Compact">
+                  <button type="button" class="density-seg-btn" data-density-mode="compact" aria-pressed="false" title="Compact" data-i18n-title="compact">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
-                    <span class="sr-only">Compact</span>
+                    <span class="sr-only" data-i18n="compact">Compact</span>
                   </button>
                 </div>
               </div>
@@ -97,36 +97,36 @@
               <ol class="feed" id="feed"></ol>
             </div>
           </div>
-          <aside class="page-rail" id="pageRail" aria-label="Sidebar modules">
+          <aside class="page-rail" id="pageRail" aria-label="Sidebar modules" data-i18n-aria="sidebar_modules">
             <section class="rail-card rail-card-why" id="whyMatters">
-              <h2 class="rail-title">Why this matters</h2>
-              <p class="vibe-body" id="whyCopy">Signals are the desk’s early-warning layer — engagement-weighted posts that crossed curated lists before they went mainstream.</p>
+              <h2 class="rail-title" data-i18n="why_matters">Why this matters</h2>
+              <p class="vibe-body" id="whyCopy" data-i18n="signals_why">Signals are the desk’s early-warning layer — engagement-weighted posts that crossed curated lists before they went mainstream.</p>
             </section>
             <section class="rail-card" id="topSignals">
-              <h2 class="rail-title">Top Signals</h2>
+              <h2 class="rail-title" data-i18n="top_signals">Top Signals</h2>
               <ul class="rail-list" id="topSignalsList"></ul>
             </section>
             <section class="rail-card" id="provenanceRail">
-              <h2 class="rail-title">List provenance</h2>
-              <p class="vibe-body" id="provenanceCopy">Filter by the Scoble list that surfaced each signal.</p>
+              <h2 class="rail-title" data-i18n="list_provenance">List provenance</h2>
+              <p class="vibe-body" id="provenanceCopy" data-i18n="signals_prov">Filter by the Scoble list that surfaced each signal.</p>
               <div class="section-cloud" id="sectionCloud"></div>
             </section>
             <section class="rail-card" id="vibeRail">
-              <h2 class="rail-title">Last 7 days</h2>
-              <p class="vibe-body" id="vibeCopy">Signal velocity across the desk — confidence-ranked movers first.</p>
+              <h2 class="rail-title" data-i18n="last7">Last 7 days</h2>
+              <p class="vibe-body" id="vibeCopy" data-i18n="signals_vibe">Signal velocity across the desk — confidence-ranked movers first.</p>
               <div id="vibeStats"></div>
             </section>
           </aside>
         </div>
         <footer class="site-footer">
           <span>Aligned News · Pro desk</span>
-          <span>Signal from Scoble’s X lists</span>
+          <span data-i18n="footer_signal">Signal from Scoble’s X lists</span>
         </footer>
       </div>
     </main>
   </div>
-  <script src="i18n.js?v=an126"></script>
-  <script src="an-saved.js?v=an126"></script>
-  <script src="app.js?v=an126"></script>
+  <script src="i18n.js?v=an127"></script>
+  <script src="an-saved.js?v=an127"></script>
+  <script src="app.js?v=an127"></script>
 </body>
 </html>

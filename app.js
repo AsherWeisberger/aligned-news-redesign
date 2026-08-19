@@ -9,8 +9,18 @@
   } catch (e) {}
 
 
-  function t(key) {
-    return (window.anT && window.anT(key)) || key;
+  function t(key, vars) {
+    if (window.anT) return window.anT(key, vars);
+    return key;
+  }
+
+  function txSrc(s) {
+    return ' data-tx-src="' + escapeHtml(String(s == null ? "" : s)) + '"';
+  }
+
+  function afterContentPaint() {
+    if (!window.anTranslatePage) return;
+    requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
   var DATA_URL = "live-data.json?v=an119";
@@ -246,28 +256,28 @@
   }
 
   function storyMetaLine(item) {
-    var when = fallbackTime(item.published_at || item.created_at) || "recently";
+    var when = fallbackTime(item.published_at || item.created_at) || t("recently");
     var handle = xHandleFrom(item);
     if (handle) return "@" + handle + " · " + when;
     var parts = [];
     var n = sourceCount(item);
-    parts.push(n + (n === 1 ? " source" : " sources"));
+    parts.push(n + " " + (n === 1 ? t("source_one") : t("sources")));
     parts.push(when);
     return parts.join(" · ");
   }
 
   function storyFeedMeta(item) {
-    var when = fallbackTime(item.published_at || item.created_at) || "recently";
+    var when = fallbackTime(item.published_at || item.created_at) || t("recently");
     var bits = [];
     var n = 0;
     if (item.sources && item.sources.length) n = item.sources.length;
     else if (item.source_url) n = 1;
-    if (n > 0) bits.push(n + (n === 1 ? " source" : " sources"));
-    bits.push("first seen " + when);
+    if (n > 0) bits.push(n + " " + (n === 1 ? t("source_one") : t("sources")));
+    bits.push(t("first_seen") + " " + when);
     var eng = item.engagement || {};
     var views = Number(eng.impression_count || eng.view_count || item.views || item.view_count || 0);
     var shown = compactCount(views);
-    if (shown) bits.push(shown + " views");
+    if (shown) bits.push(shown + " " + t("views_n"));
     return bits.join(" · ");
   }
 
@@ -302,9 +312,9 @@
     var quotes = Number(e.quote_count) || 0;
     var talk = replies + quotes;
     var bits = [];
-    if (nSources >= 2) bits.push("Hit " + nSources + " of Scoble's lists");
-    if (talk > likes && talk > 0) bits.push("people are talking, not just liking");
-    else if (likes > 0 && talk === 0) bits.push("likes won't carry this on For You");
+    if (nSources >= 2) bits.push(t("hit_n_lists", { n: nSources }));
+    if (talk > likes && talk > 0) bits.push(t("talking"));
+    else if (likes > 0 && talk === 0) bits.push(t("likes_wont"));
     if (!bits.length) return "";
     return bits.join(". ").replace(/^./, function (c) { return c.toUpperCase(); }) + ".";
   }
@@ -312,22 +322,22 @@
   function whyHereHtml(item) {
     var line = whyHereLine(item);
     if (!line) return "";
-    return '<p class="why-here">' + escapeHtml(line) + "</p>";
+    return '<p class="why-here"' + txSrc(line) + '>' + escapeHtml(line) + "</p>";
   }
 
   function whyRankedLabel(item) {
     var hay = [item.headline, item.summary, item.body, item.title, item.text].join(" ");
     var hits = 0;
     try { hits = (hay.match(new RegExp(AI_RE.source, "gi")) || []).length; } catch (e) { hits = 0; }
-    if (item.signal_badge && String(item.signal_badge).toLowerCase() === "bullish") return "Rising";
-    if (hits >= 3) return "Keyword hit";
-    if ((item.engagement && (item.engagement.retweet_count || 0) >= 10) || (item.engagement_score || 0) >= 60) return "List spike";
-    return "Scoble list";
+    if (item.signal_badge && String(item.signal_badge).toLowerCase() === "bullish") return t("rising");
+    if (hits >= 3) return t("keyword_hit");
+    if ((item.engagement && (item.engagement.retweet_count || 0) >= 10) || (item.engagement_score || 0) >= 60) return t("list_spike");
+    return t("scoble_list");
   }
 
   function whyRankedHtml(item) {
     var label = whyRankedLabel(item);
-    return '<span class="why-ranked" title="Why this ranked">' + escapeHtml(label) + "</span>";
+    return '<span class="why-ranked" title="' + t("why_ranked") + '">' + escapeHtml(label) + "</span>";
   }
 
   function uniqueDek(item, headline, maxLen) {
@@ -377,6 +387,9 @@
       scoble: "Scoble", labs: "Labs", jobs: "Jobs", companies: "Companies", industry: "Companies",
       breaking: "Breaking", videos: "Videos"
     };
+    var tkey = "topic_" + String(key || "").replace(/-/g, "_");
+    var translated = t(tkey);
+    if (translated && translated !== tkey) return translated;
     return map[key] || fallback || key;
   }
 
@@ -686,9 +699,9 @@
     if (btn) {
       btn.setAttribute("aria-pressed", prefCompact ? "true" : "false");
       // Pref full → "Focus" (action to collapse). Pref compact → "Desk" (action to restore).
-      btn.textContent = prefCompact ? "Desk" : "Focus";
-      btn.title = prefCompact ? "Show desk overview" : "Hide desk for more feed space";
-      btn.setAttribute("aria-label", prefCompact ? "Show desk" : "Focus — hide desk for more space");
+      btn.textContent = prefCompact ? t("desk") : t("focus");
+      btn.title = prefCompact ? t("show_desk") : t("hide_desk");
+      btn.setAttribute("aria-label", prefCompact ? t("show_desk_aria") : t("focus_aria"));
     }
     var hero = document.querySelector(".desk-hero");
     if (hero) hero.setAttribute("aria-hidden", visualCompact ? "true" : "false");
@@ -1144,7 +1157,7 @@
     if (!buttons.length) {
       // legacy single button
       seg.setAttribute("aria-pressed", compact ? "true" : "false");
-      if (seg.tagName === "BUTTON") seg.textContent = compact ? "Compact" : "Comfortable";
+      if (seg.tagName === "BUTTON") seg.textContent = compact ? t("compact") : t("comfortable");
       return;
     }
     for (var i = 0; i < buttons.length; i++) {
@@ -1243,25 +1256,25 @@
   }
   function fmtRelative(iso) {
     if (!iso) return "";
-    var t = Date.parse(iso);
-    if (!t) return "";
-    var diff = Date.now() - t;
+    var ts = Date.parse(iso);
+    if (!ts) return "";
+    var diff = Date.now() - ts;
     var mins = Math.round(diff / 60000);
-    if (mins < 1) return "just now";
-    if (mins < 60) return mins + "m ago";
+    if (mins < 1) return t("just_now");
+    if (mins < 60) return t("ago_m", { n: mins });
     var hrs = Math.round(mins / 60);
-    if (hrs < 36) return hrs + "h ago";
+    if (hrs < 36) return t("ago_h", { n: hrs });
     var days = Math.round(hrs / 24);
-    if (days < 14) return days + "d ago";
+    if (days < 14) return t("ago_d", { n: days });
     try {
-      return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      return new Date(ts).toLocaleDateString(window.anLoc ? window.anLoc() : undefined, { month: "short", day: "numeric" });
     } catch (e) { return ""; }
   }
 
   function fmtDateLong(iso) {
     if (!iso) return "";
     try {
-      return new Date(iso).toLocaleString(undefined, {
+      return new Date(iso).toLocaleString(window.anLoc ? window.anLoc() : undefined, {
         weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"
       });
     } catch (e) { return ""; }
@@ -1270,7 +1283,7 @@
   function fmtDateShort(iso) {
     if (!iso) return "";
     try {
-      return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+      return new Date(iso).toLocaleDateString(window.anLoc ? window.anLoc() : undefined, { month: "short", day: "numeric", year: "numeric" });
     } catch (e) { return ""; }
   }
 
@@ -1352,16 +1365,25 @@
       "open-source": "Open source", policy: "Policy", creative: "Creative", all: "All",
       breaking: "Breaking", labs: "Labs", jobs: "Jobs", events: "Events", videos: "Videos"
     };
-    if (known[id]) return known[id];
-    if (known[label]) return known[label];
+    var tkey = "topic_" + String(id || "").replace(/-/g, "_");
+    var translated = t(tkey);
+    if (translated && translated !== tkey) return translated;
+    if (id === "all" || label === "all") return t("all");
+    if (known[id]) {
+      var k2 = "topic_" + String(id).replace(/-/g, "_");
+      var tr = t(k2);
+      if (tr && tr !== k2) return tr;
+      return known[id];
+    }
+    if (known[label]) return t("topic_" + String(label).replace(/-/g, "_")) !== ("topic_" + String(label).replace(/-/g, "_")) ? t("topic_" + String(label).replace(/-/g, "_")) : known[label];
     var raw = String(label || id || "");
     if (known[raw.toLowerCase()]) return known[raw.toLowerCase()];
     var m = raw.match(/AI\s+Companies/i);
-    if (m) return "Companies";
+    if (m) return t("topic_companies");
     m = raw.match(/AI\s+Community/i);
-    if (m) return "Community";
+    if (m) return t("community");
     m = raw.match(/AI\s+Labs/i);
-    if (m) return "Labs";
+    if (m) return t("topic_labs");
     return raw.replace(/\s+#?\d+\s+of\s+\d+/i, "").replace(/\s+#\d+/i, "").trim() || raw;
   }
 
@@ -1503,11 +1525,11 @@
   }
 
   function fallbackTime(iso) {
-    return fmtRelative(resolveTimeIso(iso)) || "Aug 9";
+    return fmtRelative(resolveTimeIso(iso)) || t("recently");
   }
 
   function fallbackTimeLong(iso) {
-    return fmtDateLong(resolveTimeIso(iso)) || "Aug 9";
+    return fmtDateLong(resolveTimeIso(iso)) || t("recently");
   }
 
   function isTodayFeedKind(item) {
@@ -1532,9 +1554,9 @@
       var paras = [];
       var summary = displayText(story.summary || "").trim();
       if (summary) paras.push(summary);
-      if (story.kind === "ai-item" || story.ai_section) paras.push("From the /ai briefing.");
-      else if (story.signal_badge || story.kind === "signal-story") paras.push("From the Aligned News signals desk.");
-      else paras.push("From the Aligned News briefing.");
+      if (story.kind === "ai-item" || story.ai_section) paras.push(t("from_ai_briefing"));
+      else if (story.signal_badge || story.kind === "signal-story") paras.push(t("from_signals_desk"));
+      else paras.push(t("from_briefing"));
       return paras;
     }
     return cleaned.split(/\n\n+/).map(function (p) { return p.trim(); }).filter(Boolean)
@@ -1747,7 +1769,7 @@
           (inBar
             ? '<p class="nl-subscribe-done">' + t("youre_in") + '</p>'
             : '<form class="nl-subscribe-form" action="#" method="post" novalidate>' +
-                '<input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" />' +
+                '<input type="email" name="email" placeholder="' + t("email_ph") + '" autocomplete="email" aria-label="' + t("email") + '" />' +
                 '<button type="submit">' + t("subscribe") + '</button>' +
               "</form>") +
         "</div>" +
@@ -1848,7 +1870,7 @@
         items = state.data.forYou.slice(0, 5);
       }
       if (!items.length) {
-        list.innerHTML = '<li class="empty" style="padding:0.5rem 0;text-align:left;opacity:1;animation:none">No signals yet.</li>';
+        list.innerHTML = '<li class="empty" style="padding:0.5rem 0;text-align:left;opacity:1;animation:none">' + t("no_signals") + '</li>';
       } else {
         list.innerHTML = items.map(function (s) {
           var href = "story.html?id=" + encodeURIComponent("sigstory-" + s.id);
@@ -1859,7 +1881,7 @@
                 escapeHtml(String(s.badge || "sig").slice(0, 1).toUpperCase()) +
               "</span>" +
               "<div>" +
-                '<h3 class="rail-item-title"><a href="' + href + '">' + escapeHtml(title) + "</a></h3>" +
+                '<h3 class="rail-item-title"><a href="' + href + '"' + txSrc(title) + '>' + escapeHtml(title) + "</a></h3>" +
                 '<div class="rail-item-meta">' +
                   '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
                   '<span>' + escapeHtml(joinMeta([
@@ -1887,24 +1909,23 @@
     }
 
     var provenance = $("#provenanceCopy");
-    if (provenance && state.data.meta) {
+    if (provenance && state.data.meta && !provenance.getAttribute("data-i18n")) {
       var lists = state.data.meta.lists_sampled || [];
       var n = state.data.stats && state.data.stats.lists ? state.data.stats.lists : lists.length;
       provenance.textContent = n
-        ? ("Live from @" + (state.data.meta.username || "Scobleizer") + " — " + n + " lists sampled this sweep.")
-        : "Live from @Scobleizer lists via X API.";
+        ? t("live_from_n", { user: (state.data.meta.username || "Scobleizer"), n: n })
+        : t("live_from_fallback");
     }
 
     var why = $("#whyCopy");
-    if (why && !why.getAttribute("data-locked")) {
+    if (why && !why.getAttribute("data-locked") && !why.getAttribute("data-i18n")) {
       var storiesN = (state.data.stories || []).filter(isTodayFeedKind).length;
       var sigN = (state.data.signals || []).length;
       var top = (state.data.stories || []).filter(isTodayFeedKind).slice().sort(function(a,b){return rankScore(b)-rankScore(a);})[0];
       if (top) {
         why.textContent = whyItMatters(top);
       } else {
-        why.textContent = "Aligned News watches Scoble’s curated X lists, ranks cross-list spikes, and puts " +
-          storiesN + " stories and " + sigN + " signals on your Pro desk — before the timeline does.";
+        why.textContent = t("why_copy");
       }
     }
 
@@ -1914,13 +1935,12 @@
       var signals = (state.data.signals || []).length;
       var reports = (state.data.reports || []).length;
       vibeStats.innerHTML =
-        '<div class="vibe-stat"><span>Stories</span><strong>' + stories + "</strong></div>" +
-        '<div class="vibe-stat"><span>Signals</span><strong>' + signals + "</strong></div>" +
-        '<div class="vibe-stat"><span>Reports</span><strong>' + reports + "</strong></div>";
+        '<div class="vibe-stat"><span>' + t("stories") + '</span><strong>' + stories + "</strong></div>" +
+        '<div class="vibe-stat"><span>' + t("signals") + '</span><strong>' + signals + "</strong></div>" +
+        '<div class="vibe-stat"><span>' + t("reports") + '</span><strong>' + reports + "</strong></div>";
       var vibeCopy = $("#vibeCopy");
-      if (vibeCopy) {
-        vibeCopy.textContent = stories + " stories and " + signals + " signals on the desk this sweep — " +
-          reports + " reports when you need depth.";
+      if (vibeCopy && !vibeCopy.getAttribute("data-i18n")) {
+        vibeCopy.textContent = t("vibe_line", { stories: stories, signals: signals, reports: reports });
       }
     }
 
@@ -2124,6 +2144,8 @@
           rail.insertBefore(note, rail.firstChild);
         } else {
           note.hidden = false;
+          var np = note.querySelector(".pro-desk-note");
+          if (np) np.textContent = t("curated");
         }
       } else if (note) {
         note.hidden = true;
@@ -2149,16 +2171,16 @@
 
     var liveTime = $("#liveTime");
     if (liveTime) {
-      liveTime.textContent = lastUpdated || "desk";
+      liveTime.textContent = lastUpdated || t("desk_word");
     }
 
     var deskStats = $("#deskStats");
     if (deskStats) {
       var listCount = (data.stats && data.stats.lists) || (data.meta && data.meta.lists_sampled && data.meta.lists_sampled.length) || 63;
       deskStats.innerHTML =
-        '<div class="desk-stat"><strong>' + counts.stories + '</strong><span>Stories</span></div>' +
-        '<div class="desk-stat"><strong>' + counts.signals + '</strong><span>Signals</span></div>' +
-        '<div class="desk-stat"><strong>' + listCount + '</strong><span>Lists</span></div>';
+        '<div class="desk-stat"><strong>' + counts.stories + '</strong><span>' + t("stories") + '</span></div>' +
+        '<div class="desk-stat"><strong>' + counts.signals + '</strong><span>' + t("signals") + '</span></div>' +
+        '<div class="desk-stat"><strong>' + listCount + '</strong><span>' + t("lists") + '</span></div>';
     }
 
     syncDensitySeg();
@@ -2242,12 +2264,12 @@
     if (!items.length) { el.hidden = true; return; }
     el.hidden = false;
     el.innerHTML =
-      '<div class="foryou-label">For you</div>' +
+      '<div class="foryou-label">' + t("for_you") + '</div>' +
       items.map(function (s) {
         return (
           '<a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '">' +
           '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
-          "<span>" + escapeHtml(editorialTitle(s, 72)) + "</span></a>"
+          "<span" + txSrc(editorialTitle(s, 72)) + ">" + escapeHtml(editorialTitle(s, 72)) + "</span></a>"
         );
       }).join("");
   }
@@ -2278,7 +2300,7 @@
     el.hidden = false;
     el.classList.remove("chrome-collapsed");
     el.innerHTML =
-      '<div class="intel-head"><span class="intel-kicker">Desk glance</span><span class="intel-sub">What moved across Scoble lists</span></div>' +
+      '<div class="intel-head"><span class="intel-kicker">' + t("desk_glance") + '</span><span class="intel-sub">' + t("intel_sub") + '</span></div>' +
       '<ol class="intel-list">' +
       stories.map(function (s, i) {
         var title = editorialTitle(s, 78);
@@ -2287,7 +2309,7 @@
           '<li style="--i:' + i + '">' +
             '<a href="story.html?id=' + encodeURIComponent(s.id) + '">' +
               '<span class="intel-num">' + (i + 1) + "</span>" +
-              '<span class="intel-title">' + escapeHtml(title) + "</span>" +
+              '<span class="intel-title"' + txSrc(title) + '>' + escapeHtml(title) + "</span>" +
               '<span class="intel-topic">' + escapeHtml(topic) + "</span>" +
             "</a>" +
           "</li>"
@@ -2348,7 +2370,7 @@
       if (ageDays >= 0 && ageDays < 7) {
         return dayDate.toLocaleDateString(window.anLoc ? window.anLoc() : undefined, { weekday: "long" });
       }
-      return dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      return dayDate.toLocaleDateString(window.anLoc ? window.anLoc() : undefined, { month: "short", day: "numeric" });
     } catch (e) {
       return dayKey;
     }
@@ -2619,13 +2641,14 @@
       if (getParam("view") === "saved") {
         list.innerHTML =
           '<li class="empty empty-premium">' +
-            '<p class="empty-premium-title">Nothing saved yet</p>' +
+            '<p class="empty-premium-title">' + t("nothing_saved") + '</p>' +
             '<p class="empty-premium-copy">' + t("saved_copy") + '</p>' +
           "</li>";
       } else {
         list.innerHTML = '<li class="empty">' + t("no_stories") + '</li>';
       }
       renderTodayDeskModules();
+      afterContentPaint();
       return;
     }
 
@@ -2648,19 +2671,20 @@
           '<h3 class="events-col-title">' + escapeHtml(title) + "</h3>" +
           "<ul>" + arr.slice(0, 6).map(function (ev) {
             var href = "story.html?id=" + encodeURIComponent(ev.id);
-            return '<li><a href="' + href + '">' + escapeHtml(editorialTitle(ev, 72)) + "</a></li>";
+            var et = editorialTitle(ev, 72);
+            return '<li><a href="' + href + '"' + txSrc(et) + '>' + escapeHtml(et) + "</a></li>";
           }).join("") + "</ul></section>";
       }
       return (
         '<li class="events-box" role="region" aria-label="' + t("events") + '">' +
           '<div class="events-box-head">' +
-            '<h2 class="events-box-title">This week</h2>' +
-            '<p class="events-box-kicker">Conferences · hackathons · dinners</p>' +
+            '<h2 class="events-box-title">' + t("this_week") + '</h2>' +
+            '<p class="events-box-kicker">' + t("events_kicker") + '</p>' +
           "</div>" +
           '<div class="events-box-cols">' +
-            col("Conferences", groups.conferences) +
-            col("Hackathons", groups.hackathons) +
-            col("Dinners", groups.dinners) +
+            col(t("conferences"), groups.conferences) +
+            col(t("hackathons"), groups.hackathons) +
+            col(t("dinners"), groups.dinners) +
           "</div>" +
         "</li>"
       );
@@ -2671,6 +2695,7 @@
       list.innerHTML = onlyEvents.length ? eventsBoxHtml(onlyEvents) : '<li class="empty">' + t("no_events") + '</li>';
       enableCardNavigation(list);
       renderTodayDeskModules();
+      afterContentPaint();
       return;
     }
 
@@ -2769,9 +2794,9 @@
             '<div class="rank">1</div>' +
             hero +
             '<div class="lead-copy">' +
-              '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || "Today") + "</p>" +
-              '<h2 class="lead-title"><a href="' + href + '">' + escapeHtml(leadHeadline) + "</a></h2>" +
-              (dek ? '<p class="lead-dek">' + escapeHtml(dek) + "</p>" : "") +
+              '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || t("today")) + "</p>" +
+              '<h2 class="lead-title"><a href="' + href + '"' + txSrc(leadHeadline) + '>' + escapeHtml(leadHeadline) + "</a></h2>" +
+              (dek ? '<p class="lead-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
               '<div class="lead-meta">' +
                 avatarStackHtml(s) +
                 '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
@@ -2790,8 +2815,8 @@
         '<li class="feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           '<div class="rank">' + rank + "</div>" +
           '<div class="feed-body">' +
-            '<h2 class="story-title"><a href="' + href + '">' + escapeHtml(headline) + "</a></h2>" +
-            (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
+            '<h2 class="story-title"><a href="' + href + '"' + txSrc(headline) + '>' + escapeHtml(headline) + "</a></h2>" +
+            (excerpt ? '<p class="excerpt"' + txSrc(excerpt) + '>' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               avatarStackHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
@@ -2821,7 +2846,7 @@
       function restHeadHtml() {
         if (restStarted || isCompactDensity() || state.filter !== "all" || state.query) return "";
         restStarted = true;
-        return '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">Rest of the desk</h2></li>';
+        return '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + t("rest_desk") + '</h2></li>';
       }
       groups.forEach(function (group, gi) {
         var items = group.items;
@@ -2844,7 +2869,7 @@
           }
           if (rankCounter >= 12) html += restHeadHtml();
         });
-        if (!eventsInserted && boxedEvents.length && (group.label === "Today" || gi === 0)) {
+        if (!eventsInserted && boxedEvents.length && gi === 0) {
           html += eventsBoxHtml(boxedEvents);
           eventsInserted = true;
         }
@@ -2857,6 +2882,7 @@
     enableCardNavigation(list);
     renderTodayDeskModules();
     mountLeadScatter();
+    afterContentPaint();
   }
 
   function renderTodayDeskModules() {
@@ -2877,7 +2903,7 @@
     if (sigHost) {
       var signals = ((state.data && state.data.signals) || []).slice();
       if (!signals.length) {
-        sigHost.innerHTML = '<li class="desk-mod-empty">No signals yet.</li>';
+        sigHost.innerHTML = '<li class="desk-mod-empty">' + t("no_signals") + '</li>';
       } else {
         sigHost.innerHTML = signals.map(function (s) {
           var title = editorialTitle(s, 96);
@@ -2889,8 +2915,8 @@
           return (
             '<li class="desk-mod-item">' +
               '<a href="' + href + '">' +
-                '<p class="desk-mod-title">' + escapeHtml(title) + "</p>" +
-                (body ? '<p class="desk-mod-text">' + escapeHtml(body) + "</p>" : "") +
+                '<p class="desk-mod-title"' + txSrc(title) + '>' + escapeHtml(title) + "</p>" +
+                (body ? '<p class="desk-mod-text"' + txSrc(body) + '>' + escapeHtml(body) + "</p>" : "") +
                 (provenance ? '<p class="desk-mod-meta">' + escapeHtml(provenance) + "</p>" : "") +
               "</a>" +
             "</li>"
@@ -2902,7 +2928,7 @@
     if (repHost) {
       var reports = ((state.data && state.data.reports) || []).slice();
       if (!reports.length) {
-        repHost.innerHTML = '<li class="desk-mod-empty">No reports yet.</li>';
+        repHost.innerHTML = '<li class="desk-mod-empty">' + t("no_reports_yet") + '</li>';
       } else {
         repHost.innerHTML = reports.map(function (r) {
           var title = displayText(r.title || "").trim();
@@ -2911,7 +2937,7 @@
           return (
             '<li class="desk-mod-item">' +
               '<a href="' + escapeHtml(href) + '">' +
-                '<p class="desk-mod-title">' + escapeHtml(title) + "</p>" +
+                '<p class="desk-mod-title"' + txSrc(title) + '>' + escapeHtml(title) + "</p>" +
                 (date ? '<p class="desk-mod-meta">' + escapeHtml(date) + "</p>" : "") +
               "</a>" +
             "</li>"
@@ -2938,7 +2964,8 @@
       return rankScore(b) - rankScore(a);
     });
     if (!items.length) {
-      list.innerHTML = '<li class="empty">No signals match.</li>';
+      list.innerHTML = '<li class="empty">' + t("no_signals_match") + '</li>';
+      afterContentPaint();
       return;
     }
     var compact = isCompactDensity();
@@ -2956,15 +2983,15 @@
       var metaLine = joinMeta([
         s.topic_label || prettyChipLabel(s.section_key, s.section_label || s.category || ""),
         fallbackTime(s.created_at),
-        (s.engagement_score != null ? s.engagement_score + "% conf." : "")
+        (s.engagement_score != null ? t("conf_pct", { n: s.engagement_score }) : "")
       ]);
       return (
         '<li class="feed-row" ' + staggerStyle(i) + ' data-href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '" role="link" tabindex="0">' +
           '<div class="rank">' + (i + 1) + "</div>" +
           '<div class="feed-body">' +
-            '<h2 class="story-title"><a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '">' +
+            '<h2 class="story-title"><a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '"' + txSrc(title) + '>' +
               escapeHtml(title) + "</a></h2>" +
-            (excerpt ? '<p class="excerpt">' + escapeHtml(excerpt) + "</p>" : "") +
+            (excerpt ? '<p class="excerpt"' + txSrc(excerpt) + '>' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
               avatarStackHtml(s) +
               '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
@@ -2975,7 +3002,7 @@
       );
     }).join("");
     enableCardNavigation(list);
-
+    afterContentPaint();
   }
 
   function newsletterIssues() {
@@ -3004,7 +3031,7 @@
     try {
       var d = new Date(iso);
       if (isNaN(d.getTime())) return String(iso);
-      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      return d.toLocaleDateString(window.anLoc ? window.anLoc() : "en-US", { month: "short", day: "numeric", year: "numeric" });
     } catch (e) {
       return String(iso);
     }
@@ -3088,17 +3115,17 @@
     if (!root || !issue) return;
     opts = opts || {};
     setNewsletterMode(true);
-    var title = issue.title || "Untitled";
+    var title = issue.title || t("untitled");
     var dek = issue.subtitle || "";
     var date = formatNewsletterDate(issue.date);
     var authors = issue.authors || "Robert Scoble";
     var read = issue.reading_time || "";
     var desk = isDeskIssue(issue);
-    var badge = desk ? "Unaligned" : "Archive";
-    var credit = desk ? "Written at the Aligned News desk" : "From the Unaligned archive";
+    var badge = desk ? "Unaligned" : t("archive");
+    var credit = desk ? t("written_desk") : t("from_archive");
     var source = desk
       ? 'The live desk keeps ranking the same lists: <a href="https://alignednews.com/ai" target="_blank" rel="noopener noreferrer">alignednews.com/ai</a>'
-      : "Earlier Unaligned issue, kept on this desk.";
+      : t("nl_source_archive");
     root.hidden = false;
     root.innerHTML =
       '<header class="story-header">' +
@@ -3106,8 +3133,8 @@
           '<span class="badge badge-signal">' + escapeHtml(badge) + "</span>" +
           '<span class="meta-line">' + escapeHtml([authors, date, read].filter(Boolean).join(" \u00b7 ")) + "</span>" +
         "</div>" +
-        "<h1>" + escapeHtml(title) + "</h1>" +
-        (dek ? '<p class="article-dek">' + escapeHtml(dek) + "</p>" : "") +
+        "<h1" + txSrc(title) + ">" + escapeHtml(title) + "</h1>" +
+        (dek ? '<p class="article-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
         '<p class="nl-credit">' + escapeHtml(credit) + "</p>" +
       "</header>" +
       '<div class="article-body nl-prose">' + sanitizeNewsletterBody(issue.body_html) + "</div>" +
@@ -3123,7 +3150,7 @@
       return (issue.id || issue.slug) !== currentId;
     });
     if (!rows.length) {
-      list.innerHTML = '<li class="empty">No earlier issues.</li>';
+      list.innerHTML = '<li class="empty">' + t("no_earlier") + '</li>';
       list.classList.add("is-ready");
       return;
     }
@@ -3135,13 +3162,14 @@
         '<li class="nl-issue" ' + staggerStyle(i) + '>' +
           '<a class="nl-issue-link" href="' + href + '">' +
             (date ? '<span class="nl-issue-date">' + escapeHtml(date) + "</span>" : "") +
-            '<h2 class="nl-issue-title">' + escapeHtml(issue.title) + "</h2>" +
-            (blurb ? '<p class="nl-issue-blurb">' + escapeHtml(blurb) + "</p>" : "") +
+            '<h2 class="nl-issue-title"' + txSrc(issue.title) + '>' + escapeHtml(issue.title) + "</h2>" +
+            (blurb ? '<p class="nl-issue-blurb"' + txSrc(blurb) + '>' + escapeHtml(blurb) + "</p>" : "") +
           "</a>" +
         "</li>"
       );
     }).join("");
     list.classList.add("is-ready");
+    afterContentPaint();
   }
 
   function renderNewsletter() {
@@ -3160,17 +3188,19 @@
       setNewsletterMode(true);
       if (root) {
         root.hidden = false;
-        root.innerHTML = '<p class="status error">Issue not found. <a href="newsletter.html">Back to Newsletter</a></p>';
+        root.innerHTML = '<p class="status error">' + t("issue_not_found") + ' <a href="newsletter.html">' + t("back_nl") + '</a></p>';
       }
       renderPreviousIssues(null, items.length ? items : all);
+      afterContentPaint();
       return;
     }
     if (!issue) {
       if (root) {
         root.hidden = false;
-        root.innerHTML = '<p class="status">No issues yet.</p>';
+        root.innerHTML = '<p class="status">' + t("no_issues") + '</p>';
       }
       renderPreviousIssues(null, []);
+      afterContentPaint();
       return;
     }
     renderNewsletterIssue(issue, { standalone: false });
@@ -3178,7 +3208,7 @@
     var metaEl = $("#pageMeta");
     if (metaEl) {
       var n = Math.max(0, (state.query ? items : all).length - 1);
-      metaEl.textContent = n + " earlier issue" + (n === 1 ? "" : "s");
+      metaEl.textContent = n === 1 ? t("nl_issue_one") : t("nl_issues", { n: n });
     }
   }
 
@@ -3194,23 +3224,25 @@
       });
     }
     if (!items.length) {
-      list.innerHTML = '<li class="empty">No reports.</li>';
+      list.innerHTML = '<li class="empty">' + t("no_reports") + '</li>';
+      afterContentPaint();
       return;
     }
     list.innerHTML = items.map(function (r, i) {
       return (
         '<li class="report-item" ' + staggerStyle(i) + '>' +
-          "<h2>" + escapeHtml(displayText(r.title)) + "</h2>" +
-          (r.summary ? "<p>" + escapeHtml(firstSentence(r.summary, 200)) + "</p>" : "") +
+          "<h2" + txSrc(displayText(r.title)) + ">" + escapeHtml(displayText(r.title)) + "</h2>" +
+          (r.summary ? "<p" + txSrc(firstSentence(r.summary, 200)) + ">" + escapeHtml(firstSentence(r.summary, 200)) + "</p>" : "") +
           '<div class="meta"><span class="meta-line">' + escapeHtml(joinMeta([
             (r.type || "report").replace(/_/g, " "),
-            r.reading_time_min ? (r.reading_time_min + " min") : "",
+            r.reading_time_min ? t("min_read", { n: r.reading_time_min }) : "",
             fallbackTime(r.published_at),
             r.author || ""
           ])) + "</span></div>" +
         "</li>"
       );
     }).join("");
+    afterContentPaint();
   }
 
   function findStory(id) {
@@ -3263,14 +3295,14 @@
       try { host = new URL(url).hostname.replace(/^www\./, ""); } catch (e) {}
       label = displayText(label || "").trim();
       if (!label || label.toLowerCase() === host.toLowerCase() || /^(source|story)$/i.test(label)) {
-        label = url === realSourceUrl(story.source_url) ? "Original post" : "Source";
+        label = url === realSourceUrl(story.source_url) ? t("original_post") : t("source");
       }
       out.push({ url: url, label: label, host: host });
     }
     (story.sources || []).forEach(function (source) {
       if (source) add(source.url, source.name || source.label || source.title);
     });
-    add(story.source_url, story.source_list || "Original post");
+    add(story.source_url, story.source_list || t("original_post"));
     return out;
   }
 
@@ -3314,7 +3346,7 @@
   }
 
   function measuredValue(value) {
-    return compactCount(value) || "Not measured";
+    return compactCount(value) || t("not_measured");
   }
 
   function intelIcon(kind) {
@@ -3345,17 +3377,17 @@
     var sentiment = story.sentiment;
     var sample = sentiment && Number(sentiment.sample_size);
     if (!sentiment || !isFinite(sample) || sample <= 0) {
-      return "<p class=\"sentiment-empty-line\">Not enough public reactions yet.</p>";
+      return "<p class=\"sentiment-empty-line\">" + t("not_enough_reactions") + "</p>";
     }
     var positive = sentimentValue(sentiment.positive);
     var negative = sentimentValue(sentiment.negative);
     var posN = parseFloat(positive) || 0;
     var negN = parseFloat(negative) || 0;
-    var bar = "<div class=\"sentiment-bar\" role=\"img\" aria-label=\"Sentiment mix\"><span class=\"sentiment-bar-pos\" style=\"flex-grow:" + posN + "\"></span><span class=\"sentiment-bar-neg\" style=\"flex-grow:" + Math.max(negN, 0.01) + "\"></span></div>";
+    var bar = "<div class=\"sentiment-bar\" role=\"img\" aria-label=\"" + t("sentiment_mix") + "\"><span class=\"sentiment-bar-pos\" style=\"flex-grow:" + posN + "\"></span><span class=\"sentiment-bar-neg\" style=\"flex-grow:" + Math.max(negN, 0.01) + "\"></span></div>";
     var read = sentiment.summary
-      ? "<p>" + escapeHtml(displayText(sentiment.summary)) + "</p>"
-      : "<p>" + escapeHtml(positive || "0%") + " positive · " + escapeHtml(negative || "0%") + " negative · " + escapeHtml(sample.toLocaleString()) + " public reactions</p>";
-    return "<section class=\"sentiment-panel sentiment-has\"><div class=\"story-panel-heading\"><span>Sentiment</span></div>" + bar + read + "</section>";
+      ? "<p" + txSrc(displayText(sentiment.summary)) + ">" + escapeHtml(displayText(sentiment.summary)) + "</p>"
+      : "<p>" + escapeHtml(positive || "0%") + " " + t("positive") + " · " + escapeHtml(negative || "0%") + " " + t("negative") + " · " + escapeHtml(sample.toLocaleString(window.anLoc ? window.anLoc() : undefined)) + " " + t("public_reactions") + "</p>";
+    return "<section class=\"sentiment-panel sentiment-has\"><div class=\"story-panel-heading\"><span>" + t("sentiment") + "</span></div>" + bar + read + "</section>";
   }
 
   function renderStory() {
@@ -3363,7 +3395,8 @@
     if (!root) return;
     var story = findStory(getParam("id"));
     if (!story) {
-      root.innerHTML = "<p class=\"status error\">Story not found. <a href=\"index.html\">Back to Today</a></p>";
+      root.innerHTML = "<p class=\"status error\">" + t("story_not_found") + " <a href=\"index.html\">" + t("back_today") + "</a></p>";
+      afterContentPaint();
       return;
     }
     if (state.read.indexOf(story.id) === -1) {
@@ -3391,43 +3424,43 @@
     var reposts = Number(engagement.retweet_count || 0);
     var bookmarks = Number(engagement.bookmark_count || 0);
     var handle = String(story.x_handle || xHandleFrom(story) || "").replace(/^@/, "");
-    var author = displayText(story.author_name || handle || story.source_list || "Original source");
+    var author = displayText(story.author_name || handle || story.source_list || t("original_source"));
     var originalText = body || summary;
 
     var firstSeen = story.published_at ? fallbackTime(story.published_at) : "";
-    var sourceBit = sources.length ? (String(sources.length) + (sources.length === 1 ? " source" : " sources")) : "";
+    var sourceBit = sources.length ? (String(sources.length) + " " + (sources.length === 1 ? t("source_one") : t("sources"))) : "";
     var subBits = [];
     if (sourceBit) subBits.push(sourceBit);
-    if (firstSeen) subBits.push("first seen " + firstSeen);
-    var viewsLabel = compactCount(views) || "Not measured";
+    if (firstSeen) subBits.push(t("first_seen") + " " + firstSeen);
+    var viewsLabel = compactCount(views) || t("not_measured");
     var rankHtml = rank
-      ? "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">Today’s rank</span><strong class=\"story-intel-num\">#" + rank + "</strong></div>"
+      ? "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">" + t("desk_rank") + "</span><strong class=\"story-intel-num\">#" + rank + "</strong></div>"
       : "";
-    var viewsHtml = "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">Views</span><strong class=\"story-intel-num\">" + escapeHtml(viewsLabel) + "</strong>" +
+    var viewsHtml = "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">" + t("views") + "</span><strong class=\"story-intel-num\">" + escapeHtml(viewsLabel) + "</strong>" +
       (subBits.length ? "<p class=\"story-intel-sub\">" + escapeHtml(subBits.join(" · ")) + "</p>" : "") + "</div>";
     var reactions = [
-      intelReaction("like", "Likes", likes),
-      intelReaction("reply", "Replies", replies),
-      intelReaction("repost", "Reposts", reposts),
-      intelReaction("save", "Saves", bookmarks)
+      intelReaction("like", t("likes"), likes),
+      intelReaction("reply", t("replies"), replies),
+      intelReaction("repost", t("reposts"), reposts),
+      intelReaction("save", t("saves"), bookmarks)
     ].filter(Boolean).join("");
-    var intelHtml = "<section class=\"story-intel\" aria-label=\"Original post metrics\">" +
+    var intelHtml = "<section class=\"story-intel\" aria-label=\"" + t("original_metrics") + "\">" +
       "<div class=\"story-intel-heroes\">" + rankHtml + viewsHtml + "</div>" +
       (reactions ? "<ul class=\"story-intel-reactions\">" + reactions + "</ul>" : "") +
       "</section>";
 
     var originalHtml = sourceUrl ? (
-      "<section class=\"story-block original-post-section\"><h2>Original post</h2>" +
+      "<section class=\"story-block original-post-section\"><h2>" + t("original_post") + "</h2>" +
         "<a class=\"original-post-card\" href=\"" + escapeHtml(sourceUrl) + "\" target=\"_blank\" rel=\"noopener\">" +
           "<span class=\"original-post-meta\"><span><strong>" + escapeHtml(author) + "</strong>" + (handle ? " <span>@" + escapeHtml(handle) + "</span>" : "") + "</span><time>" + escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "") + "</time></span>" +
-          (originalText ? "<span class=\"original-post-copy\">" + escapeHtml(originalText) + "</span>" : "") +
+          (originalText ? "<span class=\"original-post-copy\"" + txSrc(originalText) + ">" + escapeHtml(originalText) + "</span>" : "") +
           (media ? "<span class=\"original-post-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"lazy\" onerror=\"this.parentNode.hidden=true\"></span>" : "") +
-          "<span class=\"open-on-x\">Open on X ↗</span>" +
+          "<span class=\"open-on-x\">" + t("open_on_x") + "</span>" +
         "</a></section>"
     ) : "";
 
     var usefulLinksHtml = sources.length ? (
-      "<section class=\"story-block useful-links\"><h2>Useful links</h2><div class=\"useful-link-grid\">" +
+      "<section class=\"story-block useful-links\"><h2>" + t("useful_links") + "</h2><div class=\"useful-link-grid\">" +
       sources.map(function (source) {
         return "<a href=\"" + escapeHtml(source.url) + "\" target=\"_blank\" rel=\"noopener\"><strong>" + escapeHtml(source.label) + "</strong><span>" + escapeHtml(source.host) + " ↗</span></a>";
       }).join("") + "</div></section>"
@@ -3438,38 +3471,39 @@
       return item.id !== story.id && !isEventItem(item) && (item.topic_key || topicKeyFor(item)) === topic;
     }).sort(function (a, b) { return rankScore(b) - rankScore(a); }).slice(0, 3);
     var relatedHtml = related.length ? (
-      "<section class=\"story-block related\"><h2>Related on the desk</h2><div class=\"related-card-grid\">" +
+      "<section class=\"story-block related\"><h2>" + t("related") + "</h2><div class=\"related-card-grid\">" +
       related.map(function (item) {
         var relatedTitle = editorialTitle(item, 88);
         var relatedDek = uniqueDek(item, relatedTitle, 130);
-        return "<a class=\"related-card\" href=\"story.html?id=" + encodeURIComponent(item.id) + "\"><span class=\"related-card-meta\">" + escapeHtml(joinMeta([item.topic_label || labelFor(item.topic_key || topicKeyFor(item)), fallbackTime(item.published_at)])) + "</span><strong>" + escapeHtml(relatedTitle) + "</strong>" + (relatedDek ? "<span>" + escapeHtml(relatedDek) + "</span>" : "") + "</a>";
+        return "<a class=\"related-card\" href=\"story.html?id=" + encodeURIComponent(item.id) + "\"><span class=\"related-card-meta\">" + escapeHtml(joinMeta([item.topic_label || labelFor(item.topic_key || topicKeyFor(item)), fallbackTime(item.published_at)])) + "</span><strong" + txSrc(relatedTitle) + ">" + escapeHtml(relatedTitle) + "</strong>" + (relatedDek ? "<span" + txSrc(relatedDek) + ">" + escapeHtml(relatedDek) + "</span>" : "") + "</a>";
       }).join("") + "</div></section>"
     ) : "";
 
     root.innerHTML =
-      "<a class=\"back-link\" href=\"index.html\">← Back to Today</a>" +
-      "<header class=\"story-header\"><div class=\"article-kicker\"><span class=\"badge badge-signal\">" + escapeHtml(story.topic_label || labelFor(topic)) + "</span><span class=\"meta-line\">" + escapeHtml(storyMetaLine(story)) + "</span></div><h1>" + escapeHtml(title) + "</h1></header>" +
+      "<a class=\"back-link\" href=\"index.html\">← " + t("back_today") + "</a>" +
+      "<header class=\"story-header\"><div class=\"article-kicker\"><span class=\"badge badge-signal\">" + escapeHtml(story.topic_label || labelFor(topic)) + "</span><span class=\"meta-line\">" + escapeHtml(storyMetaLine(story)) + "</span></div><h1" + txSrc(title) + ">" + escapeHtml(title) + "</h1></header>" +
       intelHtml +
       originalHtml +
-      "<div class=\"article-actions article-actions-quiet\"><button type=\"button\" class=\"text-action\" id=\"saveBtn\">" + (saved ? "Saved" : "Save for later") + "</button><button type=\"button\" class=\"text-action\" id=\"readBtn\">Mark unread</button></div>" +
+      "<div class=\"article-actions article-actions-quiet\"><button type=\"button\" class=\"text-action\" id=\"saveBtn\">" + (saved ? t("saved") : t("save_later")) + "</button><button type=\"button\" class=\"text-action\" id=\"readBtn\">" + t("mark_unread") + "</button></div>" +
       "<div class=\"story-layout\"><div class=\"story-main\">" +
-        "<section class=\"story-block story-explainer\"><h2>What happened</h2><div class=\"story-prose\"><p>" + escapeHtml(whatHappened) + "</p></div></section>" +
-        (whyIsDifferent ? "<section class=\"story-block story-explainer\"><h2>Why it matters</h2><div class=\"story-prose\"><p>" + escapeHtml(why) + "</p></div></section>" : "") +
-        (watch ? "<section class=\"story-block story-explainer\"><h2>What to watch</h2><div class=\"story-prose\"><p>" + escapeHtml(watch) + "</p></div></section>" : "") +
+        "<section class=\"story-block story-explainer\"><h2>" + t("what_happened") + "</h2><div class=\"story-prose\"><p" + txSrc(whatHappened) + ">" + escapeHtml(whatHappened) + "</p></div></section>" +
+        (whyIsDifferent ? "<section class=\"story-block story-explainer\"><h2>" + t("why_it_matters") + "</h2><div class=\"story-prose\"><p" + txSrc(why) + ">" + escapeHtml(why) + "</p></div></section>" : "") +
+        (watch ? "<section class=\"story-block story-explainer\"><h2>" + t("what_to_watch") + "</h2><div class=\"story-prose\"><p" + txSrc(watch) + ">" + escapeHtml(watch) + "</p></div></section>" : "") +
         usefulLinksHtml + relatedHtml +
       "</div><aside class=\"story-aside\">" + sentimentHtml(story) + "</aside></div>";
 
     var saveBtn = $("#saveBtn");
     if (saveBtn) saveBtn.addEventListener("click", function () {
       var nowSaved = toggleSavedStory(story);
-      saveBtn.textContent = nowSaved ? "Saved" : "Save for later";
+      saveBtn.textContent = nowSaved ? t("saved") : t("save_later");
     });
     var readBtn = $("#readBtn");
     if (readBtn) readBtn.addEventListener("click", function () {
       state.read = state.read.filter(function (id) { return id !== story.id; });
       persistRead();
-      readBtn.textContent = "Marked unread";
+      readBtn.textContent = t("marked_unread");
     });
+    afterContentPaint();
   }
 
 
@@ -3874,9 +3908,9 @@
   function setTitle(page) {
     var base = "Aligned News";
     if (page === "today") document.title = (getParam("view") === "saved" ? t("saved") : t("today")) + " · " + base;
-    else if (page === "signals") document.title = "Signals · " + base;
-    else if (page === "reports") document.title = "Reports · " + base;
-    else if (page === "newsletter") document.title = (getParam("id") ? "Issue" : "Newsletter") + " · " + base;
+    else if (page === "signals") document.title = t("signals") + " · " + base;
+    else if (page === "reports") document.title = t("reports") + " · " + base;
+    else if (page === "newsletter") document.title = (getParam("id") ? t("issue") : t("newsletter")) + " · " + base;
     else if (page === "story") document.title = "Story · " + base;
   }
 
@@ -3960,7 +3994,7 @@
         if (status) {
           status.hidden = false;
           status.className = "status error";
-          status.textContent = "Could not load live-data.json. Open this folder via a local static server (file:// may block fetch).";
+          status.textContent = t("could_not_load");
         }
         console.error(err);
         document.documentElement.removeAttribute("data-loading");
@@ -3973,16 +4007,30 @@
   window.anOnLangChange = function () {
     try {
       renderChrome();
+      renderChips("#chips");
       var page = pageName();
       if (page === "today") {
         var h = $("#pageTitle");
         if (h) h.textContent = getParam("view") === "saved" ? t("saved") : t("today");
+        setTitle(page);
+        renderForYou();
         renderTodayFeed();
-      } else if (page === "signals") renderSignals();
-      else if (page === "reports") renderReports();
-      else if (page === "newsletter") renderNewsletter();
-      else if (page === "story") renderStory();
-      if (window.anTranslatePage) window.anTranslatePage();
+      } else if (page === "signals") {
+        setTitle(page);
+        renderSignals();
+      } else if (page === "reports") {
+        setTitle(page);
+        renderReports();
+      } else if (page === "newsletter") {
+        setTitle(page);
+        renderNewsletter();
+      } else if (page === "story") {
+        renderStory();
+      } else if (page === "auth") {
+        renderChrome();
+      }
+      afterContentPaint();
+      try { document.dispatchEvent(new CustomEvent("an-lang")); } catch (e2) {}
     } catch (e) {}
   };
 
