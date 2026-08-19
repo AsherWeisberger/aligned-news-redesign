@@ -3499,7 +3499,7 @@ body[data-page="auth"] .app {
     color: color-mix(in srgb, #fff 70%, transparent);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
-    overflow: hidden;
+    overflow: visible;
     transition:
       color 0.2s ease,
       background 0.22s cubic-bezier(0.22, 1.2, 0.36, 1),
@@ -3523,9 +3523,10 @@ body[data-page="auth"] .app {
       margin 0.32s cubic-bezier(0.22, 1.2, 0.36, 1);
   }
   .mobile-dock-item.is-active .mobile-dock-label {
-    max-width: 6.5rem;
+    max-width: 9rem;
     opacity: 1;
     margin-left: 0.4rem;
+    overflow: visible;
   }
   html:not([data-theme="dark"]) .mobile-dock-item {
     color: var(--muted);
@@ -3541,9 +3542,11 @@ body[data-page="auth"] .app {
   }
   .mobile-dock-ico svg { display: block; }
   .mobile-dock-item.is-active {
+    flex: 2.2 1 auto;
     background: color-mix(in srgb, #fff 16%, transparent);
     color: #fff;
     padding: 0 14px 0 11px;
+    overflow: visible;
   }
   html:not([data-theme="dark"]) .mobile-dock-item.is-active {
     background: var(--accent-soft);

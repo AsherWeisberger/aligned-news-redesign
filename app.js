@@ -2047,11 +2047,13 @@
     });
     var items = dock.querySelectorAll(".mobile-dock-item");
     for (var i = 0; i < items.length; i++) {
+      var on = items[i].classList.contains("is-active");
       pin(items[i], {
-        flex: "1 1 auto",
+        flex: on ? "2.2 1 auto" : "1 1 auto",
         width: "auto",
         "min-width": "44px",
-        "max-width": "none"
+        "max-width": "none",
+        overflow: "visible"
       });
     }
   }
