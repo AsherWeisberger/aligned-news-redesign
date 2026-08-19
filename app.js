@@ -3300,7 +3300,10 @@
       out.push({ url: url, label: label, host: host });
     }
     (story.sources || []).forEach(function (source) {
-      if (source) add(source.url, source.name || source.label || source.title);
+      if (!source) return;
+      var raw = source.name || source.label || source.title || "";
+      var m = String(raw).match(/^Original X post by @([A-Za-z0-9_]+)$/i);
+      add(source.url, m ? t("original_x_post", { user: m[1] }) : raw);
     });
     add(story.source_url, story.source_list || t("original_post"));
     return out;

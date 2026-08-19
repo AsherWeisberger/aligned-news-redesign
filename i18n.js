@@ -1,4 +1,4 @@
-/* an128: EN / ES / PT / JA / ZH — chrome dict + full story translation */
+/* an129: EN / ES / PT / JA / ZH — chrome dict + full story translation */
 (function () {
   var KEY = "an-lang";
   var CACHE_KEY = "an-tx-v3";
@@ -120,6 +120,7 @@
       why_it_matters: "Why it matters",
       what_to_watch: "What to watch",
       original_post: "Original post",
+      original_x_post: "Original X post by @{user}",
       useful_links: "Useful links",
       related: "Related on the desk",
       open_on_x: "Open on X ↗",
@@ -347,6 +348,7 @@
       why_it_matters: "Por qué importa",
       what_to_watch: "Qué vigilar",
       original_post: "Publicación original",
+      original_x_post: "Publicación original en X de @{user}",
       useful_links: "Enlaces útiles",
       related: "Relacionado en el escritorio",
       open_on_x: "Abrir en X ↗",
@@ -574,6 +576,7 @@
       why_it_matters: "Por que importa",
       what_to_watch: "O que observar",
       original_post: "Post original",
+      original_x_post: "Post original no X de @{user}",
       useful_links: "Links úteis",
       related: "Relacionado na mesa",
       open_on_x: "Abrir no X ↗",
@@ -801,6 +804,7 @@
       why_it_matters: "なぜ重要か",
       what_to_watch: "注目ポイント",
       original_post: "元の投稿",
+      original_x_post: "@{user} の元の X 投稿",
       useful_links: "関連リンク",
       related: "デスクの関連",
       open_on_x: "Xで開く ↗",
@@ -1028,6 +1032,7 @@
       why_it_matters: "为什么重要",
       what_to_watch: "接下来看什么",
       original_post: "原始帖",
+      original_x_post: "@{user} 的原始 X 帖",
       useful_links: "有用链接",
       related: "工作台上的相关内容",
       open_on_x: "在 X 上打开 ↗",
@@ -1451,7 +1456,7 @@
   else applyStatic();
 
 
-  window.anTxReady = fetch("tx.json?v=an128").then(function (r) {
+  window.anTxReady = fetch("tx.json?v=an129").then(function (r) {
     if (!r.ok) throw new Error("tx");
     return r.json();
   }).then(function (map) {
