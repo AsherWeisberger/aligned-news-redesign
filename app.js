@@ -1988,6 +1988,74 @@
     return icons[id] || icons.god;
   }
 
+
+  function pinMobileDockLayout(dock) {
+    if (!dock) return;
+    var pin = function (el, props) {
+      if (!el) return;
+      Object.keys(props).forEach(function (k) {
+        el.style.setProperty(k, props[k], "important");
+      });
+    };
+    pin(dock, {
+      display: "block",
+      position: "fixed",
+      left: "0",
+      right: "0",
+      top: "auto",
+      bottom: "0",
+      width: "100%",
+      "max-width": "100%",
+      margin: "0",
+      transform: "none",
+      "z-index": "60",
+      padding: "0 8px calc(10px + env(safe-area-inset-bottom, 0px))",
+      "box-sizing": "border-box",
+      "pointer-events": "none"
+    });
+    pin(dock.querySelector(".mobile-dock-stage"), {
+      width: "100%",
+      "max-width": "100%",
+      "box-sizing": "border-box"
+    });
+    pin(dock.querySelector(".mobile-dock-bar"), {
+      display: "flex",
+      width: "100%",
+      "max-width": "100%",
+      "align-items": "center",
+      gap: "8px",
+      "box-sizing": "border-box",
+      "pointer-events": "none"
+    });
+    pin(dock.querySelector(".mobile-dock-inner"), {
+      display: "flex",
+      flex: "1 1 auto",
+      width: "100%",
+      "max-width": "100%",
+      height: "56px",
+      "align-items": "center",
+      "justify-content": "space-evenly",
+      "box-sizing": "border-box",
+      "pointer-events": "auto"
+    });
+    pin(dock.querySelector(".mobile-dock-plus"), {
+      display: "inline-flex",
+      flex: "0 0 56px",
+      width: "56px",
+      height: "56px",
+      "pointer-events": "auto"
+    });
+    var items = dock.querySelectorAll(".mobile-dock-item");
+    for (var i = 0; i < items.length; i++) {
+      pin(items[i], {
+        flex: "1 1 auto",
+        width: "auto",
+        "min-width": "44px",
+        "max-width": "none"
+      });
+    }
+  }
+
   function renderMobileDock(page) {
     if (page === "auth") {
       var old = $("#mobileDock");
@@ -2056,6 +2124,7 @@
         "</div>" +
       "</div>";
     if (wasOpen) dock.classList.add("is-open");
+    pinMobileDockLayout(dock);
     if (!dock.dataset.wired) {
       dock.dataset.wired = "1";
       dock.addEventListener("click", function (e) {
