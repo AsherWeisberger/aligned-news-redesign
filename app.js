@@ -7,6 +7,9 @@
       (window.matchMedia && window.matchMedia("(display-mode: fullscreen)").matches);
     if (standalone) document.documentElement.classList.add("is-standalone");
   } catch (e) {}
+  if (document.body && document.body.getAttribute("data-page") !== "auth") {
+    document.documentElement.classList.add("has-mobile-dock");
+  }
 
 
   function t(key, vars) {
