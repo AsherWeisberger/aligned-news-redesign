@@ -3412,22 +3412,37 @@ body[data-page="auth"] .app {
 }
 
 
-/* === Mobile primary dock (phone only) === */
+/* === Mobile expandable tab bar (phone, in the header — not the bottom) === */
 .mobile-dock {
   display: none;
 }
 @media (max-width: 860px) {
+  html.has-mobile-dock .topbar {
+    display: grid;
+    grid-template-columns: minmax(2.5rem, 1fr) auto minmax(2.5rem, 1fr);
+    grid-template-areas:
+      "menu brand actions"
+      "tabs tabs tabs";
+    align-items: center;
+    column-gap: 0.35rem;
+  }
+  html.has-mobile-dock .menu-btn { grid-area: menu; justify-self: start; }
+  html.has-mobile-dock .brand { grid-area: brand; justify-self: center; }
+  html.has-mobile-dock .top-actions { grid-area: actions; justify-self: end; }
   html.has-mobile-dock .mobile-dock {
     display: block;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 60;
-    padding: 0 env(safe-area-inset-right, 0px) 0 env(safe-area-inset-left, 0px);
-    pointer-events: none;
+    position: relative;
+    grid-area: tabs;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    z-index: 1;
+    padding: 0;
+    pointer-events: auto;
+    transform: none;
+    opacity: 1;
   }
-  /* an57: stay put — do not slide off-screen */
   html.has-mobile-dock .mobile-dock.is-hidden {
     transform: none;
     opacity: 1;
@@ -3436,11 +3451,13 @@ body[data-page="auth"] .app {
     pointer-events: auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     gap: 2px;
-    margin: 0 18px calc(10px + env(safe-area-inset-bottom, 0px));
-    padding: 6px 8px;
-    border-radius: 28px;
+    width: max-content;
+    max-width: 100%;
+    margin: 0.15rem auto 0.55rem;
+    padding: 5px 6px;
+    border-radius: 999px;
     border: 1px solid color-mix(in srgb, var(--border-strong) 70%, transparent);
     border-top-color: color-mix(in srgb, #fff 35%, var(--border));
     background: color-mix(in srgb, var(--bg-elev) 78%, transparent);
@@ -3448,8 +3465,7 @@ body[data-page="auth"] .app {
     -webkit-backdrop-filter: saturate(1.4) blur(22px);
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.42) inset,
-      0 18px 44px rgba(12, 13, 16, 0.22),
-      0 6px 16px rgba(12, 13, 16, 0.10);
+      0 10px 28px rgba(12, 13, 16, 0.12);
   }
   html[data-theme="dark"] .mobile-dock-inner {
     background: color-mix(in srgb, var(--bg-elev) 82%, transparent);
@@ -3457,24 +3473,29 @@ body[data-page="auth"] .app {
     border-top-color: rgba(255, 255, 255, 0.16);
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.08) inset,
-      0 22px 52px rgba(0, 0, 0, 0.55),
-      0 8px 20px rgba(0, 0, 0, 0.28);
+      0 12px 32px rgba(0, 0, 0, 0.4);
   }
   .mobile-dock-item {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 0;
-    min-height: 44px;
-    min-width: 44px;
-    padding: 6px 8px;
+    min-height: 38px;
+    min-width: 38px;
+    padding: 7px 10px;
     border-radius: 999px;
     color: var(--muted);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
-    transition: color 0.18s var(--ease-out), background 0.18s var(--ease-out), transform 0.18s cubic-bezier(0.22, 1.4, 0.36, 1);
+    overflow: hidden;
+    transition:
+      color 0.2s var(--ease-out),
+      background 0.22s var(--ease-out),
+      padding 0.32s cubic-bezier(0.22, 1.2, 0.36, 1),
+      min-width 0.32s cubic-bezier(0.22, 1.2, 0.36, 1),
+      transform 0.18s cubic-bezier(0.22, 1.4, 0.36, 1);
   }
   .mobile-dock-item:active {
     transform: scale(0.96);
@@ -3483,53 +3504,49 @@ body[data-page="auth"] .app {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
     color: inherit;
   }
   .mobile-dock-ico svg { display: block; }
-  /* Inactive: icon only */
   .mobile-dock-label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
+    max-width: 0;
+    opacity: 0;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
+    font-size: 0.84rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-left: 0;
+    transition:
+      max-width 0.32s cubic-bezier(0.22, 1.2, 0.36, 1),
+      opacity 0.18s ease,
+      margin 0.32s cubic-bezier(0.22, 1.2, 0.36, 1);
   }
   .mobile-dock-item.is-active {
     background: var(--accent-soft);
     color: var(--accent);
-    border-radius: 999px;
-    padding: 6px 12px;
-    flex-direction: column;
-    gap: 1px;
-    min-width: 64px;
-    transform: translateY(-1px);
+    padding: 7px 14px 7px 11px;
+    min-width: 0;
+    transform: none;
   }
   .mobile-dock-item.is-active:active {
-    transform: translateY(-1px) scale(0.96);
+    transform: scale(0.96);
   }
   .mobile-dock-item.is-active .mobile-dock-label {
-    position: static;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    line-height: 1.1;
+    max-width: 6.5rem;
+    opacity: 1;
+    margin-left: 0.42rem;
   }
   .mobile-dock-item.is-active .mobile-dock-ico svg {
     fill: currentColor;
     stroke: currentColor;
   }
   html.has-mobile-dock .main {
-    padding-bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: calc(1.4rem + env(safe-area-inset-bottom, 0px)) !important;
   }
-  /* De-emphasize redundant top chrome when dock is primary nav */
   html.has-mobile-dock .brand-tagline,
   html.has-mobile-dock .chrome-toggle,
   html.has-mobile-dock .live-pill .live-label {
@@ -3538,29 +3555,11 @@ body[data-page="auth"] .app {
   html.has-mobile-dock .live-pill {
     padding-inline: 0.4rem;
   }
-
-  /* Standalone (Add to Home Screen): no Safari URL bar, sit on the home indicator */
-  html.has-mobile-dock.is-standalone .mobile-dock,
-  html.has-mobile-dock:fullscreen .mobile-dock {
-    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
-  }
-  html.has-mobile-dock.is-standalone .mobile-dock-inner,
-  html.has-mobile-dock:fullscreen .mobile-dock-inner {
-    margin: 0 12px 0;
-  }
-}
-@media (max-width: 860px) and (display-mode: standalone),
-       (max-width: 860px) and (display-mode: fullscreen) {
-  html.has-mobile-dock .mobile-dock {
-    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
-  }
-  html.has-mobile-dock .mobile-dock-inner {
-    margin: 0 12px 0;
-  }
 }
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
   .mobile-dock,
   .mobile-dock-item,
+  .mobile-dock-label,
   .mobile-dock-ico {
     transition: none !important;
   }
@@ -6226,6 +6225,14 @@ html[data-signed-in] .auth-cta,
     align-items: center;
     column-gap: 0.35rem;
   }
+  html.has-mobile-dock .topbar {
+    grid-template-areas:
+      "menu brand actions"
+      "search search search"
+      "tabs tabs tabs";
+  }
+  html.has-mobile-dock .mobile-dock { grid-area: tabs; }
+
   .menu-btn { grid-area: menu; justify-self: start; }
   .brand {
     grid-area: brand;

@@ -23,8 +23,8 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an131";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an131";
+  var DATA_URL = "live-data.json?v=an130";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
     newsletter: [],
@@ -1992,8 +1992,13 @@
       dock.id = "mobileDock";
       dock.className = "mobile-dock";
       dock.setAttribute("aria-label", t("primary"));
+    }
+    var bar = document.querySelector(".topbar");
+    if (bar) {
+      if (dock.parentNode !== bar) bar.appendChild(dock);
+    } else {
       var appEl = document.querySelector(".app") || document.body;
-      appEl.appendChild(dock);
+      if (dock.parentNode !== appEl) appEl.appendChild(dock);
     }
     document.documentElement.classList.add("has-mobile-dock");
     dock.innerHTML =
@@ -3073,7 +3078,7 @@
   }
 
   function newsletterIssueHref(id) {
-    return "newsletter.html?id=" + encodeURIComponent(id) + "&v=an131";
+    return "newsletter.html?id=" + encodeURIComponent(id) + "&v=an119";
   }
 
   function openNewsletterIssue(id, push) {
