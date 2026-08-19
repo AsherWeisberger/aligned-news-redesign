@@ -23,8 +23,8 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an130";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
+  var DATA_URL = "live-data.json?v=an131";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an131";
   var state = {
     data: null,
     newsletter: [],
@@ -3073,7 +3073,7 @@
   }
 
   function newsletterIssueHref(id) {
-    return "newsletter.html?id=" + encodeURIComponent(id) + "&v=an119";
+    return "newsletter.html?id=" + encodeURIComponent(id) + "&v=an131";
   }
 
   function openNewsletterIssue(id, push) {
