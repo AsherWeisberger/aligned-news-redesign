@@ -4062,6 +4062,8 @@
     bindShell();
     setTitle(pageName());
     killEdgeGlowDom();
+    renderMobileDock(pageName());
+    ensureHeaderLang();
     var status = $("#loadStatus");
     if (status) {
       status.hidden = false;
