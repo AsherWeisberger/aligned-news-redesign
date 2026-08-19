@@ -1979,7 +1979,8 @@
       saved: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-3.5L6 20V5a1 1 0 0 1 1-1z"/></svg>',
       collabs: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 11a3 3 0 1 0-2.2-5M8 11a3 3 0 1 1 2.2-5M4.8 19a4.2 4.2 0 0 1 7.4-2.5M19.2 19a4.2 4.2 0 0 0-7.4-2.5"/></svg>',
       compact: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>',
-      expanded: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>'
+      expanded: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>',
+      theme: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
     };
     return icons[id] || icons.god;
   }
@@ -2003,7 +2004,8 @@
       { href: "index.html?view=saved", label: t("saved"), icon: "saved" },
       { href: "https://agentdashboard.cloud/connect", label: t("collabs"), icon: "collabs", ext: true },
       { act: "expanded", label: t("expanded"), icon: "expanded" },
-      { act: "compact", label: t("compact"), icon: "compact" }
+      { act: "compact", label: t("compact"), icon: "compact" },
+      { act: "theme", label: isDarkTheme() ? t("light_mode") : t("dark_mode"), icon: "theme" }
     ];
     var dock = $("#mobileDock");
     if (!dock) {
@@ -2075,9 +2077,76 @@
           var btn = document.querySelector('[data-density-mode="' + (act === "compact" ? "compact" : "comfortable") + '"]');
           if (btn) btn.click();
           dock.classList.remove("is-open");
+        } else if (act === "theme") {
+          e.preventDefault();
+          toggleTheme();
+          dock.classList.remove("is-open");
         } else {
           dock.classList.remove("is-open");
         }
+      });
+    }
+  }
+
+
+  function ensureHeaderLang() {
+    var actions = document.querySelector(".top-actions");
+    if (!actions) return;
+    var langs = window.anLangs || ["en", "es", "pt", "ja", "zh"];
+    var native = window.anLangNative || { en: "English", es: "Español", pt: "Português", ja: "日本語", zh: "中文" };
+    var shortN = { en: "EN", es: "ES", pt: "PT", ja: "日本語", zh: "中文" };
+    var cur = window.anLang ? window.anLang() : "en";
+    var el = document.getElementById("headerLang");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "headerLang";
+      el.className = "header-lang";
+      actions.appendChild(el);
+    }
+    el.innerHTML =
+      '<button type="button" class="header-lang-btn" id="headerLangBtn" aria-expanded="false" aria-haspopup="listbox" aria-label="' + t("language") + '">' +
+      escapeHtml(shortN[cur] || "EN") +
+      "</button>" +
+      '<div class="header-lang-menu" role="listbox">' +
+      langs.map(function (code) {
+        var on = code === cur ? " is-on" : "";
+        return (
+          '<button type="button" class="header-lang-opt' + on + '" role="option" data-lang="' + code + '" aria-selected="' + (code === cur ? "true" : "false") + '">' +
+          escapeHtml(native[code] || code) +
+          "</button>"
+        );
+      }).join("") +
+      "</div>";
+    if (!el.dataset.wired) {
+      el.dataset.wired = "1";
+      el.addEventListener("click", function (e) {
+        var opt = e.target.closest(".header-lang-opt");
+        if (opt && window.anSetLang) {
+          e.preventDefault();
+          e.stopPropagation();
+          window.anSetLang(opt.getAttribute("data-lang"));
+          el.classList.remove("is-open");
+          return;
+        }
+        var btn = e.target.closest(".header-lang-btn");
+        if (btn) {
+          e.preventDefault();
+          e.stopPropagation();
+          var open = !el.classList.contains("is-open");
+          el.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        }
+      });
+    }
+    if (!document.documentElement.dataset.langHeadWired) {
+      document.documentElement.dataset.langHeadWired = "1";
+      document.addEventListener("click", function (e) {
+        var box = document.getElementById("headerLang");
+        if (!box || !box.classList.contains("is-open")) return;
+        if (box.contains(e.target)) return;
+        box.classList.remove("is-open");
+        var b = document.getElementById("headerLangBtn");
+        if (b) b.setAttribute("aria-expanded", "false");
       });
     }
   }
@@ -2133,6 +2202,7 @@
     }
 
     renderMobileDock(page);
+    ensureHeaderLang();
 
     var user = resolvePlan(data.user || { name: "Asher", plan: "Pro" });
     data.user = user;

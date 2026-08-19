@@ -3677,6 +3677,12 @@ body[data-page="auth"] .app {
   html.has-mobile-dock .top-actions .auth-cta {
     display: none !important;
   }
+  html.has-mobile-dock .menu-btn {
+    display: none !important;
+  }
+  html.has-mobile-dock .header-lang {
+    display: block;
+  }
 }
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
   .mobile-dock,
@@ -6328,6 +6334,81 @@ html[data-signed-in] .auth-cta,
   margin: 0;
 }
 
+
+/* Phone header language expander — replaces the hamburger on small screens */
+.header-lang {
+  display: none;
+  position: relative;
+  z-index: 70;
+  flex-shrink: 0;
+}
+.header-lang-btn {
+  min-width: 2.5rem;
+  height: 2.15rem;
+  padding: 0 0.72rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-elev) 88%, transparent);
+  backdrop-filter: saturate(1.3) blur(16px);
+  -webkit-backdrop-filter: saturate(1.3) blur(16px);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.header-lang-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 10.25rem;
+  padding: 0.35rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--border-strong) 70%, transparent);
+  background: color-mix(in srgb, var(--bg-elev) 92%, transparent);
+  backdrop-filter: saturate(1.4) blur(22px);
+  -webkit-backdrop-filter: saturate(1.4) blur(22px);
+  box-shadow: 0 12px 32px rgba(12, 13, 16, 0.16);
+  opacity: 0;
+  transform: scale(0.88) translateY(-6px);
+  transform-origin: top right;
+  pointer-events: none;
+  transition:
+    opacity 0.22s cubic-bezier(0.22, 1.2, 0.36, 1),
+    transform 0.22s cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+.header-lang.is-open .header-lang-menu {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+.header-lang-opt {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 550;
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  border-radius: 11px;
+  cursor: pointer;
+}
+.header-lang-opt.is-on,
+.header-lang-opt:active {
+  background: var(--bg-soft);
+  color: var(--text);
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-lang-menu { transition: none; }
+}
+
 /* Search wraps under the icon row from tablet; give it air so it isn't glued to the logo */
 @media (max-width: 860px) {
   .topbar {
@@ -6340,7 +6421,7 @@ html[data-signed-in] .auth-cta,
 }
 
 @media (max-width: 720px) {
-  /* Header: hamburger | centered Aligned News. Globe lives in the bottom + sheet. */
+  /* Header: centered Aligned News | language expander. No hamburger on phone. */
   .topbar {
     display: grid;
     grid-template-columns: minmax(2.5rem, 1fr) auto minmax(2.5rem, 1fr);
