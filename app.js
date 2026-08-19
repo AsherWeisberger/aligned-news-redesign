@@ -9,6 +9,10 @@
   } catch (e) {}
 
 
+  function t(key) {
+    return (window.anT && window.anT(key)) || key;
+  }
+
   var DATA_URL = "live-data.json?v=an119";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an119";
   var state = {
@@ -647,8 +651,8 @@
 
   function syncThemeButtons() {
     var dark = isDarkTheme();
-    var label = dark ? "Switch to light mode" : "Switch to dark mode";
-    var title = dark ? "Light mode" : "Dark mode";
+    var label = dark ? t("switch_light") : t("switch_dark");
+    var title = dark ? t("light_mode") : t("dark_mode");
     var ids = ["themeToggleSide"];
     for (var i = 0; i < ids.length; i++) {
       var btn = document.getElementById(ids[i]);
@@ -1181,7 +1185,7 @@
       el = document.createElement("a");
       el.id = "authCta";
       el.className = "auth-cta";
-      el.textContent = "Sign up / Login";
+      el.textContent = t("sign_up_login");
       actions.appendChild(el);
     }
     el.href = "auth.html";
@@ -1719,11 +1723,11 @@
   function sponsorsFeedHtml() {
     return (
       '<li class="sponsors-in-feed">' +
-        '<h2 class="rail-title">Sponsors</h2>' +
+        '<h2 class="rail-title">' + t("sponsors") + '</h2>' +
         '<a class="partners-brand" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">' +
           '<img class="partners-logo" src="viture-logo.png" alt="VITURE" />' +
         "</a>" +
-        '<p class="partners-line">XR glasses that turn your phone, laptop, or console into a private cinema screen.</p>' +
+        '<p class="partners-line">' + t("viture_line") + '</p>' +
         '<a class="partners-link" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">viture.com</a>' +
       "</li>"
     );
@@ -1736,15 +1740,15 @@
       '<li class="nl-subscribe' + (inBar ? " is-in" : "") + '">' +
         '<div class="nl-subscribe-inner">' +
           '<div class="nl-subscribe-copy">' +
-            '<p class="nl-subscribe-kicker">Unaligned</p>' +
-            '<p class="nl-subscribe-headline">The X-list briefing, written here.</p>' +
-            '<p class="nl-subscribe-sub">The AI conversation on X. Weekdays at 1 p.m. PT.</p>' +
+            '<p class="nl-subscribe-kicker">' + t("nl_kicker") + '</p>' +
+            '<p class="nl-subscribe-headline">' + t("nl_headline") + '</p>' +
+            '<p class="nl-subscribe-sub">' + t("nl_sub") + '</p>' +
           "</div>" +
           (inBar
-            ? '<p class="nl-subscribe-done">You\u2019re in</p>'
+            ? '<p class="nl-subscribe-done">' + t("youre_in") + '</p>'
             : '<form class="nl-subscribe-form" action="#" method="post" novalidate>' +
                 '<input type="email" name="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" />' +
-                '<button type="submit">Subscribe</button>' +
+                '<button type="submit">' + t("subscribe") + '</button>' +
               "</form>") +
         "</div>" +
       "</li>"
@@ -1770,7 +1774,7 @@
       bar.classList.add("is-in");
       var done = document.createElement("p");
       done.className = "nl-subscribe-done";
-      done.textContent = "You\u2019re in";
+      done.textContent = t("youre_in");
       form.parentNode.replaceChild(done, form);
     });
   }
@@ -1785,11 +1789,11 @@
     el.id = "partnersRail";
     el.className = "rail-card rail-card-partners";
     el.innerHTML =
-      '<h2 class="rail-title">Sponsors</h2>' +
+      '<h2 class="rail-title">' + t("sponsors") + '</h2>' +
       '<a class="partners-brand" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">' +
       '<img class="partners-logo" src="viture-logo.png" alt="VITURE" />' +
       '</a>' +
-      '<p class="partners-line">XR glasses that turn your phone, laptop, or console into a private cinema screen.</p>' +
+      '<p class="partners-line">' + t("viture_line") + '</p>' +
       '<a class="partners-link" href="https://www.viture.com/" target="_blank" rel="noopener noreferrer">viture.com</a>';
     var top = document.getElementById("topSignals");
     if (top && top.parentNode === rail) {
@@ -1957,17 +1961,17 @@
     }
     // Primary destinations (not topic chips). Saved stays in hamburger/sidebar.
     var items = [
-      { id: "today", href: "index.html", label: "Today" },
-      { id: "signals", href: "signals.html", label: "Signals" },
-      { id: "reports", href: "reports.html", label: "Reports" },
-      { id: "newsletter", href: "newsletter.html", label: "News" }
+      { id: "today", href: "index.html", label: t("today") },
+      { id: "signals", href: "signals.html", label: t("signals") },
+      { id: "reports", href: "reports.html", label: t("reports") },
+      { id: "newsletter", href: "newsletter.html", label: t("news") }
     ];
     var dock = $("#mobileDock");
     if (!dock) {
       dock = document.createElement("nav");
       dock.id = "mobileDock";
       dock.className = "mobile-dock";
-      dock.setAttribute("aria-label", "Primary");
+      dock.setAttribute("aria-label", t("primary"));
       var appEl = document.querySelector(".app") || document.body;
       appEl.appendChild(dock);
     }
@@ -1998,11 +2002,11 @@
       saved: state.saved.length,
     };
     var nav = [
-      { id: "today", href: "index.html", label: "Today", count: counts.stories },
-      { id: "signals", href: "signals.html", label: "Signals", count: counts.signals },
-      { id: "reports", href: "reports.html", label: "Reports", count: counts.reports },
-      { id: "newsletter", href: "newsletter.html", label: "Newsletter", count: newsletterIssues().length || undefined },
-      { id: "saved", href: "index.html?view=saved", label: "Saved", count: counts.saved },
+      { id: "today", href: "index.html", label: t("today"), count: counts.stories },
+      { id: "signals", href: "signals.html", label: t("signals"), count: counts.signals },
+      { id: "reports", href: "reports.html", label: t("reports"), count: counts.reports },
+      { id: "newsletter", href: "newsletter.html", label: t("newsletter"), count: newsletterIssues().length || undefined },
+      { id: "saved", href: "index.html?view=saved", label: t("saved"), count: counts.saved },
     ];
 
     var lastUpdated = "";
@@ -2016,7 +2020,7 @@
     if (sidebar) {
       sidebar.innerHTML =
         '<div class="side-box">' +
-        '<div class="nav-label">Browse</div>' +
+        '<div class="nav-label">' + t("browse") + '</div>' +
         '<ul class="side-nav">' +
         nav.map(function (item) {
           var active = item.id === page || (page === "today" && item.id === "stories" && getParam("view") !== "saved") ||
@@ -2061,7 +2065,11 @@
         (dark ? "Switch to light mode" : "Switch to dark mode") + '" title="' +
         (dark ? "Light mode" : "Dark mode") + '">' +
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' +
-        '<span class="sidebar-theme-label">' + (dark ? "Light mode" : "Dark mode") + "</span>" +
+        '<span class="sidebar-theme-label">' + (dark ? t("light_mode") : t("dark_mode")) + "</span>" +
+        "</button>" +
+        '<button type="button" class="sidebar-lang" id="langToggleSide" aria-label="' +
+        (window.anLang && window.anLang() === "es" ? t("lang_to_en") : t("lang_to_es")) + '">' +
+        '<span class="sidebar-lang-label">' + (window.anLang && window.anLang() === "es" ? t("lang_to_en") : t("lang_to_es")) + "</span>" +
         "</button>";
     }
 
@@ -2078,14 +2086,14 @@
 
     var kicker = $(".desk-kicker");
     if (kicker) {
-      if (page === "newsletter") kicker.textContent = "Unaligned";
-      else kicker.textContent = pro ? "Scoble’s lists · Pro desk" : "Scoble’s lists · Free desk";
+      if (page === "newsletter") kicker.textContent = t("nl_kicker");
+      else kicker.textContent = pro ? t("scoble_pro") : t("scoble_free");
     }
 
     var siteFoot = $(".site-footer");
     if (siteFoot) {
       var spans = siteFoot.querySelectorAll("span");
-      if (spans[0]) spans[0].textContent = "Aligned News · " + (pro ? "Pro desk" : "Free desk");
+      if (spans[0]) spans[0].textContent = "Aligned News · " + (pro ? t("pro_desk") : t("free_desk"));
     }
 
     // Compact Pro rail / desk note — interests first, then the rest of the desk.
@@ -2097,7 +2105,7 @@
           note = document.createElement("section");
           note.id = "proDeskNote";
           note.className = "rail-card rail-card-pro-note";
-          note.innerHTML = '<p class="pro-desk-note">Curated to you — interests first, then the rest of the desk.</p>';
+          note.innerHTML = '<p class="pro-desk-note">' + t("curated") + '</p>';
           rail.insertBefore(note, rail.firstChild);
         } else {
           note.hidden = false;
@@ -2110,17 +2118,17 @@
 
     var metaEl = $("#pageMeta");
     if (metaEl) {
-      var todayLabel = new Date().toLocaleDateString(undefined, {
+      var todayLabel = new Date().toLocaleDateString(window.anLoc ? window.anLoc() : undefined, {
         weekday: "long", month: "long", day: "numeric", year: "numeric"
       });
       if (page === "today") {
-        metaEl.textContent = todayLabel + (lastUpdated ? " · Updated " + lastUpdated : "");
+        metaEl.textContent = todayLabel + (lastUpdated ? " · " + t("updated") + " " + lastUpdated : "");
       } else if (page === "signals") {
-        metaEl.textContent = counts.signals + " signals" + (lastUpdated ? " · Updated " + lastUpdated : "");
+        metaEl.textContent = counts.signals + " " + t("signals_n") + (lastUpdated ? " · " + t("updated") + " " + lastUpdated : "");
       } else if (page === "reports") {
-        metaEl.textContent = counts.reports + " reports";
+        metaEl.textContent = counts.reports + " " + t("reports_n");
       } else if (page === "newsletter") {
-        metaEl.textContent = "X-list briefing · written here";
+        metaEl.textContent = t("nl_meta");
       }
     }
 
@@ -2311,19 +2319,19 @@
 
   function daySectionLabel(dayKey) {
     var parts = String(dayKey || "").split("-");
-    if (parts.length !== 3) return "Earlier";
+    if (parts.length !== 3) return t("earlier");
     var dayDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-    if (isNaN(dayDate.getTime())) return "Earlier";
+    if (isNaN(dayDate.getTime())) return t("earlier");
     var today = startOfLocalDay(new Date());
     var yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     var sod = startOfLocalDay(dayDate);
-    if (sod.getTime() === today.getTime()) return "Today";
-    if (sod.getTime() === yesterday.getTime()) return "Yesterday";
+    if (sod.getTime() === today.getTime()) return t("today");
+    if (sod.getTime() === yesterday.getTime()) return t("yesterday");
     var ageDays = Math.round((today.getTime() - sod.getTime()) / 86400000);
     try {
       if (ageDays >= 0 && ageDays < 7) {
-        return dayDate.toLocaleDateString(undefined, { weekday: "long" });
+        return dayDate.toLocaleDateString(window.anLoc ? window.anLoc() : undefined, { weekday: "long" });
       }
       return dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
     } catch (e) {
@@ -2597,10 +2605,10 @@
         list.innerHTML =
           '<li class="empty empty-premium">' +
             '<p class="empty-premium-title">Nothing saved yet</p>' +
-            '<p class="empty-premium-copy">Save stories from Today or Signals to build a shortlist worth revisiting — your private desk list.</p>' +
+            '<p class="empty-premium-copy">' + t("saved_copy") + '</p>' +
           "</li>";
       } else {
-        list.innerHTML = '<li class="empty">No stories match this filter.</li>';
+        list.innerHTML = '<li class="empty">' + t("no_stories") + '</li>';
       }
       renderTodayDeskModules();
       return;
@@ -2629,7 +2637,7 @@
           }).join("") + "</ul></section>";
       }
       return (
-        '<li class="events-box" role="region" aria-label="Events">' +
+        '<li class="events-box" role="region" aria-label="' + t("events") + '">' +
           '<div class="events-box-head">' +
             '<h2 class="events-box-title">This week</h2>' +
             '<p class="events-box-kicker">Conferences · hackathons · dinners</p>' +
@@ -2645,7 +2653,7 @@
 
     if (!getParam("view") && state.filter === "events") {
       var onlyEvents = stories.filter(isEventItem);
-      list.innerHTML = onlyEvents.length ? eventsBoxHtml(onlyEvents) : '<li class="empty">No events on the desk.</li>';
+      list.innerHTML = onlyEvents.length ? eventsBoxHtml(onlyEvents) : '<li class="empty">' + t("no_events") + '</li>';
       enableCardNavigation(list);
       renderTodayDeskModules();
       return;
@@ -3819,8 +3827,12 @@
     if (sidebar) {
       sidebar.addEventListener("click", function (ev) {
         var t = ev.target;
-        while (t && t !== sidebar && !(t.id === "themeToggleSide")) t = t.parentNode;
+        while (t && t !== sidebar && !(t.id === "themeToggleSide") && !(t.id === "langToggleSide")) t = t.parentNode;
         if (t && t.id === "themeToggleSide") toggleTheme();
+        if (t && t.id === "langToggleSide") {
+          var next = (window.anLang && window.anLang() === "es") ? "en" : "es";
+          if (window.anSetLang) window.anSetLang(next);
+        }
       });
     }
     syncThemeButtons();
@@ -3847,7 +3859,7 @@
 
   function setTitle(page) {
     var base = "Aligned News";
-    if (page === "today") document.title = (getParam("view") === "saved" ? "Saved" : "Today") + " · " + base;
+    if (page === "today") document.title = (getParam("view") === "saved" ? t("saved") : t("today")) + " · " + base;
     else if (page === "signals") document.title = "Signals · " + base;
     else if (page === "reports") document.title = "Reports · " + base;
     else if (page === "newsletter") document.title = (getParam("id") ? "Issue" : "Newsletter") + " · " + base;
@@ -3901,7 +3913,7 @@
         hideFeedSkeletonThen(function () {
           if (page === "today") {
             var h = $("#pageTitle");
-            if (h) h.textContent = getParam("view") === "saved" ? "Saved" : "Today";
+            if (h) h.textContent = getParam("view") === "saved" ? t("saved") : t("today");
             renderForYou();
             renderTodayFeed();
           } else if (page === "signals") {
@@ -3916,6 +3928,7 @@
               document.title = findStory(getParam("id")).headline + " · Aligned News";
             }
           }
+          if (window.anTranslatePage) window.anTranslatePage();
         });
         if (status) {
           status.classList.remove("loading");
@@ -3942,6 +3955,22 @@
         hideThinLoadBar();
       });
   }
+
+  window.anOnLangChange = function () {
+    try {
+      renderChrome();
+      var page = pageName();
+      if (page === "today") {
+        var h = $("#pageTitle");
+        if (h) h.textContent = getParam("view") === "saved" ? t("saved") : t("today");
+        renderTodayFeed();
+      } else if (page === "signals") renderSignals();
+      else if (page === "reports") renderReports();
+      else if (page === "newsletter") renderNewsletter();
+      else if (page === "story") renderStory();
+      if (window.anTranslatePage) window.anTranslatePage();
+    } catch (e) {}
+  };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
