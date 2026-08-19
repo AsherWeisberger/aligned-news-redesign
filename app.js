@@ -2049,6 +2049,24 @@
     var pro = isProPlan(user);
     var uname = user.name || "Asher";
 
+    function langPickerHtml() {
+      var langs = (window.anLangs || ["en", "es", "pt", "ja", "zh"]);
+      var native = window.anLangNative || { en: "English", es: "Espa\u00f1ol", pt: "Portugu\u00eas", ja: "\u65e5\u672c\u8a9e", zh: "\u4e2d\u6587" };
+      var cur = window.anLang ? window.anLang() : "en";
+      var bits = ['<div class="sidebar-langs" role="group" aria-label="' + t("language") + '">'];
+      for (var i = 0; i < langs.length; i++) {
+        var code = langs[i];
+        var on = code === cur ? " is-on" : "";
+        bits.push(
+          '<button type="button" class="sidebar-lang' + on + '" data-lang="' + code + '" aria-pressed="' + (code === cur ? "true" : "false") + '">' +
+          (native[code] || code) +
+          "</button>"
+        );
+      }
+      bits.push("</div>");
+      return bits.join("");
+    }
+
     var foot = $("#sidebarFoot");
     if (foot) {
       var dark = isDarkTheme();
@@ -2062,15 +2080,12 @@
         "</span>" +
         "</div>" +
         '<button type="button" class="sidebar-theme" id="themeToggleSide" aria-label="' +
-        (dark ? "Switch to light mode" : "Switch to dark mode") + '" title="' +
-        (dark ? "Light mode" : "Dark mode") + '">' +
+        (dark ? t("switch_light") : t("switch_dark")) + '" title="' +
+        (dark ? t("light_mode") : t("dark_mode")) + '">' +
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' +
         '<span class="sidebar-theme-label">' + (dark ? t("light_mode") : t("dark_mode")) + "</span>" +
         "</button>" +
-        '<button type="button" class="sidebar-lang" id="langToggleSide" aria-label="' +
-        (window.anLang && window.anLang() === "es" ? t("lang_to_en") : t("lang_to_es")) + '">' +
-        '<span class="sidebar-lang-label">' + (window.anLang && window.anLang() === "es" ? t("lang_to_en") : t("lang_to_es")) + "</span>" +
-        "</button>";
+        langPickerHtml();
     }
 
     var authCta = ensureAuthCta();
@@ -3827,11 +3842,10 @@
     if (sidebar) {
       sidebar.addEventListener("click", function (ev) {
         var t = ev.target;
-        while (t && t !== sidebar && !(t.id === "themeToggleSide") && !(t.id === "langToggleSide")) t = t.parentNode;
+        while (t && t !== sidebar && !(t.id === "themeToggleSide") && !(t.classList && t.classList.contains("sidebar-lang"))) t = t.parentNode;
         if (t && t.id === "themeToggleSide") toggleTheme();
-        if (t && t.id === "langToggleSide") {
-          var next = (window.anLang && window.anLang() === "es") ? "en" : "es";
-          if (window.anSetLang) window.anSetLang(next);
+        if (t && t.getAttribute && t.getAttribute("data-lang") && window.anSetLang) {
+          window.anSetLang(t.getAttribute("data-lang"));
         }
       });
     }

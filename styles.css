@@ -6164,20 +6164,24 @@ html[data-signed-in] .auth-cta,
   outline: none;
 }
 
+.sidebar-langs {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 0.18rem 0 0;
+}
 .sidebar-lang {
   appearance: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: block;
   width: 100%;
   margin: 0;
-  padding: 0.42rem 0.55rem;
+  padding: 0.32rem 0.55rem;
   border: 0;
   border-radius: 8px;
   background: transparent;
   color: var(--text-secondary);
   font: inherit;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
@@ -6187,6 +6191,10 @@ html[data-signed-in] .auth-cta,
   background: var(--bg-soft);
   color: var(--text);
   outline: none;
+}
+.sidebar-lang.is-on {
+  color: var(--text);
+  background: var(--bg-soft);
 }
 .sidebar-theme svg {
   flex-shrink: 0;
