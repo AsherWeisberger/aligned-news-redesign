@@ -1,7 +1,7 @@
-/* an127: EN / ES / PT / JA / ZH — chrome dict + full story translation */
+/* an128: EN / ES / PT / JA / ZH — chrome dict + full story translation */
 (function () {
   var KEY = "an-lang";
-  var CACHE_KEY = "an-tx-v2";
+  var CACHE_KEY = "an-tx-v3";
   var LANGS = ["en", "es", "pt", "ja", "zh"];
   var HTML_LANG = { en: "en", es: "es", pt: "pt-BR", ja: "ja", zh: "zh-CN" };
   var LOCALE = { en: "en-US", es: "es-ES", pt: "pt-BR", ja: "ja-JP", zh: "zh-CN" };
@@ -1199,20 +1199,47 @@
   var txQuotaHit = false;
   var inFlight = {};
 
+  function isUsefulTx(src, out, lang) {
+    if (!out) return false;
+    var a = String(src).trim();
+    var b = String(out).trim();
+    if (!b || b === a) return false;
+    if (/MYMEMORY WARNING/i.test(b)) return false;
+    if ((lang === "zh" || lang === "ja") && !/[\u3040-\u30ff\u3400-\u9fff]/.test(b)) return false;
+    return true;
+  }
+
+  function lookupCache(src, lang) {
+    if (!cache[lang]) return "";
+    if (cache[lang][src]) return cache[lang][src];
+    var best = "";
+    for (var k in cache[lang]) {
+      if (!k) continue;
+      if (k === src || (src.length >= 24 && k.indexOf(src) === 0) || (k.length >= 24 && src.indexOf(k) === 0)) {
+        if (k.length > best.length) best = k;
+      }
+    }
+    return best ? cache[lang][best] : "";
+  }
+
   function translateRemote(text) {
     var lang = getLang();
     var src = String(text == null ? "" : text);
     if (lang === "en") return Promise.resolve(src);
     if (skipText(src)) return Promise.resolve(src);
     if (!cache[lang]) cache[lang] = {};
-    if (cache[lang][src]) return Promise.resolve(cache[lang][src]);
+    var hit = lookupCache(src, lang);
+    if (hit) {
+      cache[lang][src] = hit;
+      return Promise.resolve(hit);
+    }
     if (txQuotaHit) return Promise.resolve(src);
     var pair = PAIR[lang];
     if (!pair) return Promise.resolve(src);
     var fk = lang + "\0" + src;
     if (inFlight[fk]) return inFlight[fk];
     var q = encodeURIComponent(src.slice(0, 480));
-    var url = "https://api.mymemory.translated.net/get?langpair=" + encodeURIComponent(pair) + "&q=" + q;
+    var url = "https://api.mymemory.translated.net/get?langpair=" + encodeURIComponent(pair) + "&q=" + q + "&de=" + encodeURIComponent("asherunaligned@gmail.com");
     inFlight[fk] = fetch(url).then(function (r) { return r.json(); }).then(function (j) {
       var out = j && j.responseData && j.responseData.translatedText;
       var status = j && j.responseStatus;
@@ -1220,7 +1247,7 @@
         txQuotaHit = true;
         return src;
       }
-      if (out && String(out).trim() && !/MYMEMORY WARNING/i.test(String(out))) {
+      if (isUsefulTx(src, out, lang)) {
         cache[lang][src] = out;
         saveCache();
         return out;
@@ -1288,8 +1315,9 @@
         setElText(el, src);
         continue;
       }
-      if (cache[lang] && cache[lang][src]) {
-        setElText(el, cache[lang][src]);
+      var hit = lookupCache(src, lang);
+      if (hit) {
+        setElText(el, hit);
       } else if (!skipText(src) && !seen[src]) {
         seen[src] = 1;
         pending.push({ el: el, src: src });
@@ -1421,6 +1449,23 @@
   document.documentElement.setAttribute("data-lang", getLang());
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", applyStatic);
   else applyStatic();
+
+
+  window.anTxReady = fetch("tx.json?v=an128").then(function (r) {
+    if (!r.ok) throw new Error("tx");
+    return r.json();
+  }).then(function (map) {
+    if (!map) return;
+    var langs = Object.keys(map);
+    for (var i = 0; i < langs.length; i++) {
+      var lang = langs[i];
+      if (!cache[lang]) cache[lang] = {};
+      var pack = map[lang] || {};
+      for (var k in pack) if (pack[k]) cache[lang][k] = pack[k];
+    }
+    try { saveCache(); } catch (e) {}
+    if (getLang() !== "en" && typeof window.anTranslatePage === "function") window.anTranslatePage();
+  }).catch(function () { return null; });
 
   window.anT = t;
   window.anLang = getLang;

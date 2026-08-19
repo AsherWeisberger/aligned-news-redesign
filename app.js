@@ -3949,7 +3949,8 @@
             state.newsletter = [];
           })
       : Promise.resolve();
-    Promise.all([liveP, newsP])
+    var txP = window.anTxReady || Promise.resolve();
+    Promise.all([liveP, newsP, txP])
       .then(function (pair) {
         var data = pair[0];
         state.data = normalizeData(data);
