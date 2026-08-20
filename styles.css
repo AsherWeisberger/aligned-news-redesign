@@ -226,7 +226,6 @@ html[data-theme="dark"] .topbar.is-scrolled {
   grid-area: 1 / 1;
   display: block;
   white-space: nowrap;
-  will-change: transform;
   backface-visibility: hidden;
   line-height: 1.2;
   padding-bottom: 0.08em;
@@ -244,7 +243,7 @@ html[data-theme="dark"] .topbar.is-scrolled {
   display: inline-flex;
   align-items: baseline;
   margin-left: 0.25rem; /* breath between Aligned + News when settled */
-  will-change: transform, filter, opacity, letter-spacing;
+  will-change: auto;
 }
 .brand-align-sub em {
   font-family: var(--display);
