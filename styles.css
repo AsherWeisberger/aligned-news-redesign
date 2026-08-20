@@ -6662,3 +6662,11 @@ body[data-page="newsletter"] .desk-hero-compact h1 {
     height: 56px !important;
   }
 }
+
+/* Desktop: never show phone dock / header-lang chip, even if leftover DOM or inline styles exist */
+@media (min-width: 900px) {
+  .mobile-dock,
+  .header-lang {
+    display: none !important;
+  }
+}
