@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-20T03:17:42.000Z",
+    "generatedAt": "2026-08-20T06:22:10.000Z",
     "scrapedAt": "2026-08-20T03:17:42.000Z",
     "source": "alignednews-news-feed",
     "note": "Pulled from /api/news-feed, 195 stories, events boxed",
@@ -736,7 +736,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "yeahfortommy",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQFHHqZXoAAzeDI.png?name=orig"
     },
     {
       "id": "97f3b7a4-0aa4-4648-8d31-f99a1892a1fa",
@@ -763,7 +764,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "Pirat_Nation",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQGgYN9WYAE1o1q.jpg?name=orig"
     },
     {
       "id": "c0bb79c9-b5e3-4895-925f-1263850197ab",
@@ -817,7 +819,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "GaryMarcus",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQA_Na3XAAAVps_.jpg?name=orig"
     },
     {
       "id": "96e7ec93-6e55-450e-b77f-eede8a7ba828",
@@ -844,7 +847,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "PatrickToulme",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2089870032771919873/img/ZMSLGG71gNaaQcKk.jpg"
     },
     {
       "id": "fc17a69d-f5ef-4bf1-a8d2-a3d956e10b35",
@@ -898,7 +902,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "astridwilde1",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090159530621693952/img/JoH5ZT27Xv2lg4NL.jpg"
     },
     {
       "id": "d32a9385-872a-460c-a5a6-432db51b0e33",
@@ -925,7 +930,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TechCrunch",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/card_img/2090148410800082944/DTd6oRBE?format=jpg&name=800x419"
     },
     {
       "id": "c05a1835-e069-4947-8e41-cec2a75b988d",
@@ -952,7 +958,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "david_van_dijk",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/card_img/2087793758846763009/1MknTiit?format=png&name=orig"
     },
     {
       "id": "99fef3ec-df77-44d9-af5d-e6b4e18c99f4",
@@ -979,7 +986,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "ElevenLabs",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090133314132754432/img/Ldf3VymDMRDYAh2Z.jpg"
     },
     {
       "id": "f5a62f9d-99eb-46b6-b87f-8a798d679929",
@@ -1033,7 +1041,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "btibor91",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQHUESZXQAAN8o8.jpg?name=orig"
     },
     {
       "id": "29375db5-c10a-480d-b340-f66dfea56937",
@@ -1060,7 +1069,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "gabriberton",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQF82jaWgAAudAB.jpg?name=orig"
     },
     {
       "id": "dc2180b0-879a-4370-b8e7-ed946f39812a",
@@ -1087,7 +1097,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "NousResearch",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQHDBGUX0AAdV-k.jpg?name=orig"
     },
     {
       "id": "f4e1360e-d798-45ec-b91e-baeccb9b7a31",
@@ -1114,7 +1125,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "usedotai",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HPqGDYVXAAEtyrV.jpg?name=orig"
     },
     {
       "id": "5e394de1-e99e-40b8-bb1b-8fe955f5628a",
@@ -1195,7 +1207,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "animesh_garg",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090077083448025088/img/k_pDgdl9CuJQwiEN.jpg"
     },
     {
       "id": "c27558a8-b27b-4119-863b-ba76fa982c24",
@@ -1249,7 +1262,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "MTSlive",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQGIBPJasAE3l5w.jpg?name=orig"
     },
     {
       "id": "f4d052c7-49fd-45d3-9a4f-f8cbf1e9b88e",
@@ -1384,7 +1398,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "Castelion",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HQHhKW-akAAOOn1.jpg?name=orig"
     },
     {
       "id": "43bb6d24-7602-46ef-b76d-c95d2bfab08e",
@@ -1411,7 +1426,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "testingcatalog",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090189448587722753/img/Gq8WD83S7z6Rcc2V.jpg"
     },
     {
       "id": "d6084def-cee9-442d-98f9-28fb844852c0",
@@ -1438,7 +1454,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "gregisenberg",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090175928143867905/img/NHPjreARNfCjTMS-.jpg"
     },
     {
       "id": "8817ae42-6de0-4420-9534-831c464744d4",
@@ -1465,7 +1482,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "NVIDIAAI",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQGQwa2bEAE0QNn.jpg?name=orig"
     },
     {
       "id": "d2f898de-5ad1-4e8b-a428-f8b165c78f53",
@@ -1492,7 +1510,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "MIT_CSAIL",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQHKq0hWQAAz83G.png?name=orig"
     },
     {
       "id": "0af584f4-53fb-4461-8bd4-08b70998de0a",
@@ -1519,7 +1538,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "JennySeidensch1",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/card_img/2090090669272707072/wC2RJaio?format=jpg&name=800x419"
     },
     {
       "id": "e2fcf968-29a4-48cd-8f34-190476da53f1",
@@ -1546,7 +1566,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "BerkayAntmen",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQG-OAtawAA-L_h.jpg?name=orig"
     },
     {
       "id": "8b1a2642-6b2a-47b2-a45b-356cbf64ef19",
@@ -1573,7 +1594,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "VokabreRobotics",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090142313204813825/img/yDIz7iXqkSBh3Y3f.jpg"
     },
     {
       "id": "8074506b-0de5-4989-b2ed-1a44b70b3de1",
@@ -1600,7 +1622,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "oprydai",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQHFxEJWAAAL_LV.jpg?name=orig"
     },
     {
       "id": "c73850fa-955e-4e1e-8ab5-f440b36274bf",
@@ -1681,7 +1704,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "VaderResearch",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQGvT-sXEAAO0nk.jpg?name=orig"
     },
     {
       "id": "d8ab260f-c96c-4c5b-abff-40e879912152",
@@ -1708,7 +1732,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "binghao_huang",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQGcUqqacAA9MLb.jpg?name=orig"
     },
     {
       "id": "bfed5881-228c-4817-94a7-97b7a9a619df",
@@ -1735,7 +1760,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "peteflorence",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090159530621693952/img/JoH5ZT27Xv2lg4NL.jpg"
     },
     {
       "id": "de3b3203-9ccf-47e8-b276-64defc2c2837",
@@ -1762,7 +1788,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "keerthanpg",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQG9YK4aAAA9-qX.jpg?name=orig"
     },
     {
       "id": "bee83cff-42eb-4d8b-8f2f-5ebe0b0da80c",
@@ -1789,7 +1816,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "ArmenAgha",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQHCtVkaUAAijeH.jpg?name=orig"
     },
     {
       "id": "a69283fb-832a-4848-a715-aff6ff11e260",
@@ -1816,7 +1844,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "thechrisperry",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/card_img/2089760928657178624/0QMkdalY?format=jpg&name=orig"
     },
     {
       "id": "b1b74a76-0a40-45db-b468-31cbd3877b5a",
@@ -1843,7 +1872,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "melvinjohnsonp",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQGYQaAWcAAXtFB.jpg?name=orig"
     },
     {
       "id": "c7dd1697-74ff-489f-8566-393ffeddfd52",
@@ -1870,7 +1900,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "kohjingyu",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQEhovMXQAA83PX.jpg?name=orig"
     },
     {
       "id": "ef2d3c16-2b9d-4b04-92ed-68c1f4c828b6",
@@ -1897,7 +1928,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "jordan_ross_8F",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQGWwaWWwAANY3s.jpg?name=orig"
     },
     {
       "id": "c0fa2111-9db2-4bae-aaca-d610649cb321",
@@ -1978,7 +2010,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "0xSero",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQHHPBeWMAA6D6i.jpg?name=orig"
     },
     {
       "id": "068dc65a-d935-4e5a-b6ca-f8f34ae54141",
@@ -2005,7 +2038,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "rohan__sanjay",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQG9Kvib0AA5jKG.jpg?name=orig"
     },
     {
       "id": "68149649-aeec-4179-9bb7-0f85542f407a",
@@ -2032,7 +2066,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "OsaurusAI",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090164230049894400/img/Twjonhdk23DWjMB6.jpg"
     },
     {
       "id": "acdfa457-fd16-4397-bfe0-9e48bd9b096c",
@@ -2059,7 +2094,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "cursor_ai",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090135261350871040/img/WTrQM_sMgZ3c3owD.jpg"
     },
     {
       "id": "2d14f331-b6b5-48e0-856e-4c8b31071861",
@@ -2086,7 +2122,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "CopilotKit",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090126325948518400/img/sUycuiS8VzqUr6_I.jpg"
     },
     {
       "id": "8aff7454-997b-405a-85a7-3b00cda6bc34",
@@ -2113,7 +2150,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "UnslothAI",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQGJu-xaQAAs-Jg.jpg?name=orig"
     },
     {
       "id": "9ad41d0e-50a6-4623-8672-c263f2dc90ef",
@@ -2140,7 +2178,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "mixedbreadai",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090143195850063872/img/gl_aLPVsB74zxG4w.jpg"
     },
     {
       "id": "b7812786-9922-433c-8f40-5423e061ecef",
@@ -2167,7 +2206,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "vercel",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090172345269059585/img/n7B5QmJbVEebnGRZ.jpg"
     },
     {
       "id": "ec2cca83-df77-41e9-a43f-1b2c7b15ae1f",
@@ -2194,7 +2234,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "trymirage",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090093985079439360/img/fDntgdYCoTQgoAz6.jpg"
     },
     {
       "id": "1b3af253-65b9-4019-9fa0-6f5aa9180141",
@@ -2221,7 +2262,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "bankrbot",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090167030968434688/img/xUZfO8ao_2_hRNo5.jpg"
     },
     {
       "id": "4d143e7f-2675-479b-af3d-ff278eea37bc",
@@ -2248,7 +2290,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "GeneralistAI",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090159530621693952/img/JoH5ZT27Xv2lg4NL.jpg"
     },
     {
       "id": "daa1db80-cb06-4a5b-9130-6c3034578c76",
@@ -2275,7 +2318,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "krea_ai",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090149828340973568/img/eqqi_sZOUAcFZER6.jpg"
     },
     {
       "id": "95670aa2-e2ee-4405-aab3-a43a78bf43c0",
@@ -2302,7 +2346,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "NVIDIAAI",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQHYq9UbYAA1g_V.jpg?name=orig"
     },
     {
       "id": "0bf8b31d-aadc-4616-997f-2b83e8da3257",
@@ -2329,7 +2374,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "superwhisper",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQGTxRQWAAAPh39.jpg?name=orig"
     },
     {
       "id": "d6854c49-a114-4ebd-ac73-6c2a3c30df30",
@@ -2356,7 +2402,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "OpenRouter",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQGe7b8WMAAmBJp.jpg?name=orig"
     },
     {
       "id": "f4cdec51-9a67-47bd-ae7b-bdc0b54f032e",
@@ -2410,7 +2457,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "TechCrunch",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/card_img/2087940720715821056/9dng2Fkw?format=jpg&name=orig"
     },
     {
       "id": "5ca8de74-a302-427f-8183-8c08a934256c",
@@ -2464,7 +2512,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "that_anokha_boy",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090123116253179904/img/8dHWPSiHfjHQLjeM.jpg"
     },
     {
       "id": "3d9713eb-0a24-4ce9-b7a7-29d3097b6da0",
@@ -2518,7 +2567,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "GaryMarcus",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQBkgIGWAAAfM75.jpg?name=orig"
     },
     {
       "id": "6814b0ce-8faa-4b27-8378-c74e939291aa",
@@ -2626,7 +2676,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "prd_008",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQHCFkxbYAAkSFJ.jpg?name=orig"
     },
     {
       "id": "7db19375-7d5f-4393-b4c2-2ea824667954",
@@ -2653,7 +2704,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "sama",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/card_img/2090125740121686017/80VfjGcK?format=jpg&name=orig"
     },
     {
       "id": "9ae28997-a60a-4569-b351-ed800be50a4e",
@@ -2680,7 +2732,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "AmOptimistShow",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090173437696147456/img/_KvdlsmlUoZaFAvK.jpg"
     },
     {
       "id": "22622426-f841-4f99-aa96-aabfeeb28ded",
@@ -2734,7 +2787,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "rohanpaul_ai",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HQHPVj0bEAEk9tt.jpg?name=orig"
     },
     {
       "id": "8b39607d-8bcc-4f47-88a2-649d3ba7b966",
@@ -2761,7 +2815,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "boazbaraktcs",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQHCFkxbYAAkSFJ.jpg?name=orig"
     },
     {
       "id": "a04bd930-11df-4b84-b700-34552c95fe8e",
@@ -2788,7 +2843,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "nikunjhanda",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/card_img/2090125740121686017/80VfjGcK?format=jpg&name=orig"
     },
     {
       "id": "6ed635bc-1f0c-4f1c-b699-c679e19ee81c",
@@ -2815,7 +2871,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "gdb",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQHCFkxbYAAkSFJ.jpg?name=orig"
     },
     {
       "id": "002cfe6d-969f-4bfb-ac57-6f44ce9a8ca4",
@@ -2846,7 +2903,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "depthfirstlabs",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQGx3jlbIAA-F5r.jpg?name=orig"
     },
     {
       "id": "ed4d2ae1-f9e3-4a0d-863e-fb705c7e5f94",
@@ -2877,7 +2935,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "_clarktang",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQHZVAqagAAUt12.png?name=orig"
     },
     {
       "id": "49bca5e6-b508-4ace-ab80-a877e290ea1a",
@@ -2908,7 +2967,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "geoffreyirving",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQF9dfqWQAApsv5.jpg?name=orig"
     },
     {
       "id": "d098b257-9d68-4fdd-9d2b-9a4b752947c6",
@@ -2939,7 +2999,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "GeneralistAI",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090159674444443648/img/AWji8b7XpBc-X3mN.jpg"
     },
     {
       "id": "8b210987-c9e4-47f3-b619-1fe7975d3539",
@@ -2993,7 +3054,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "GeminiApp",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/card_img/2089729197141004288/4EnoWJet?format=jpg&name=orig"
     },
     {
       "id": "ca1d7ec9-f927-46ce-82a4-1f0db7a45a5e",
@@ -3024,7 +3086,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "odysseyml",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/card_img/2090090669272707072/wC2RJaio?format=jpg&name=orig"
     },
     {
       "id": "cf19c1e5-4577-496f-abab-c6d868812025",
@@ -3055,7 +3118,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "DanielWhiteson",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQGJNrsXEAAsUwY.jpg?name=orig"
     },
     {
       "id": "edf8b2b1-84c4-4954-988d-c49e2138699b",
@@ -3086,7 +3150,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "james_y_zou",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQDxw7kaQAAIjRT.jpg?name=orig"
     },
     {
       "id": "f05ebd10-a1f7-43df-863a-aa953626413b",
@@ -3117,7 +3182,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "adeelrazi",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQHRrBkakAAiKfe.jpg"
     },
     {
       "id": "0831ccf9-f003-4dd9-b801-ce79ca55d8bb",
@@ -3171,7 +3237,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "vamsibatchuk",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQGph2pbgAAsJGQ.jpg?name=orig"
     },
     {
       "id": "9a942e09-5c9e-4eca-a982-adda5db3f353",
@@ -3198,7 +3265,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "JamesonCamp",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090154683256262656/img/iXOzWbm-w1nbVA63.jpg"
     },
     {
       "id": "476841cc-7b5a-4a62-9d96-727e42b834e0",
@@ -3391,7 +3459,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "rob_mcrobberson",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQFFwukWcAAxG5W.jpg?name=orig"
     },
     {
       "id": "f4048df8-2035-4a58-bfaa-95476a223119",
@@ -3422,7 +3491,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "MorganBarrettX",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090187421426335744/img/C8mEduAjG_C-mwP7.jpg"
     },
     {
       "id": "d391d426-12f2-424d-b783-8aa8710f8c95",
@@ -3461,7 +3531,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "DeepInfra",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQGPS7BawAAC_pW.jpg?name=orig"
     },
     {
       "id": "8911594d-6b47-49b7-b7e4-141ea731bef5",
@@ -3492,7 +3563,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "JiaZhihao",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090127534574739456/img/tAxDCkCvb19f4Sz3.jpg"
     },
     {
       "id": "dc70194d-56e7-4774-8f55-bf80ad620b44",
@@ -3581,7 +3653,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "andrewdfeldman",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQG6MUWboAAOT22.jpg?name=orig"
     },
     {
       "id": "053746fc-3e79-4215-95d8-60af21db9626",
@@ -3639,7 +3712,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "kevinolearytv",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090189337065340928/img/gZvhGepdDrrUFxnh.jpg"
     },
     {
       "id": "e43aa3d5-4237-409e-aa8f-3c97fe7ec49c",
@@ -3666,7 +3740,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "Jason",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQG-tYmagAAvGmO.jpg?name=orig"
     },
     {
       "id": "abc9500e-5127-4251-adfd-86f5c57d8064",
@@ -3693,7 +3768,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "HedgieMarkets",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQHB4-jXEAEbVFs.jpg?name=orig"
     },
     {
       "id": "4a24c930-8020-4255-a478-c0b4da0de04d",
@@ -3720,7 +3796,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "ns123abc",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQHehg1WYAAEee9.jpg?name=orig"
     },
     {
       "id": "9f2006ef-8c53-449a-b7cc-00a7cb9bebe9",
@@ -3747,7 +3824,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "sterlingcrispin",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQF73JdbIAAg8UM.jpg?name=orig"
     },
     {
       "id": "f5975428-aa09-4e81-b75a-a1e4a67308f0",
@@ -3774,7 +3852,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "trq212",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090146540488921089/img/FSUtcYnz5HPcY7N1.jpg"
     },
     {
       "id": "9349d578-b391-4833-b42a-1a83e7d25933",
@@ -3801,7 +3880,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "rauchg",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090172345269059585/img/n7B5QmJbVEebnGRZ.jpg"
     },
     {
       "id": "d5893550-517f-40ea-91c6-67c90a1ef7e6",
@@ -3855,7 +3935,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "rmstein",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090177138096058368/img/7dX5fYlZXAenZRmH.jpg"
     },
     {
       "id": "38996afb-fd46-4197-8f36-7598121b3d35",
@@ -3882,7 +3963,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "thsottiaux",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQHCFkxbYAAkSFJ.jpg?name=orig"
     },
     {
       "id": "e450f440-485f-4b82-8a5a-bb3290cc1578",
@@ -3936,7 +4018,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "mitsuhiko",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090181584137953280/img/_CFPjMQMMPuN1Fwj.jpg"
     },
     {
       "id": "e7fac843-69cd-4709-aec3-2d344212b479",
@@ -3963,7 +4046,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "iaindunning",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/card_img/2087682653772541952/3RqVKTdY?format=jpg&name=orig"
     },
     {
       "id": "1a6c668a-67c4-4fc5-a596-4559135f1200",
@@ -4017,7 +4101,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "seconds_0",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQHhIoBaMAA9yo9.jpg?name=orig"
     },
     {
       "id": "f1da3d92-8d53-4317-8710-7359cebf1e5f",
@@ -4044,7 +4129,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "Pseudo_Sid26",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HQGogF3aUAATAB0.jpg?name=orig"
     },
     {
       "id": "794bdb52-7445-4bbe-887a-d0f6023c548f",
@@ -4071,7 +4157,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "walden_yan",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQGmpazaQAENLtS.jpg?name=orig"
     },
     {
       "id": "2cf76233-93c6-4505-ba9a-3ddfd421e63b",
@@ -4098,7 +4185,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "BrainChip_inc",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQGT2y1XoAAckIq.jpg?name=orig"
     },
     {
       "id": "97db8c8e-29ce-48be-a449-7b26ced73b6b",
@@ -4125,7 +4213,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "wildmindai",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQG_cgMWQAEatez.jpg?name=orig"
     },
     {
       "id": "548b5a37-d00a-463e-8812-7ba81cc1130b",
@@ -4152,7 +4241,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "zachdotai",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090138245581643776/img/7SlmMELjrU1ZV0Eg.jpg"
     },
     {
       "id": "a9cc0b7c-ab23-4995-ac96-66a7f734c3d8",
@@ -4179,7 +4269,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "MireloAI",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090135324361887744/img/KQaH2gIn_eglRLFm.jpg"
     },
     {
       "id": "7c1399df-96a1-4d00-ad60-f7b93223f81a",
@@ -4233,7 +4324,8 @@
       "topic_key": "jobs",
       "topic_label": "Jobs",
       "x_handle": "TheHumanoidHub",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090186015785070592/img/BWLS5vlej9AHEfHi.jpg"
     },
     {
       "id": "da972b09-c7a5-429f-934c-f0c7ab75c347",
@@ -4314,7 +4406,8 @@
       "topic_key": "jobs",
       "topic_label": "Jobs",
       "x_handle": "RayFernando1337",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQHcxfza4AEDHqh.jpg"
     },
     {
       "id": "88b3026b-c29a-44b2-ba81-1b4bc1813fc5",
@@ -4368,7 +4461,8 @@
       "topic_key": "jobs",
       "topic_label": "Jobs",
       "x_handle": "mhdempsey",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQG3GFTXIAA9zw5.jpg?name=orig"
     },
     {
       "id": "fcd7ddf8-500b-49a1-8ff5-bdfe7d0ecb5c",
@@ -4453,7 +4547,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "0xSero",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQHVDhjXwAAlHLh.jpg?name=orig"
     },
     {
       "id": "5f166710-22a7-47ef-9857-e8adb4fbce29",
@@ -4488,7 +4583,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "felixwyw",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQHAE-RaMAAA0sH.jpg?name=orig"
     },
     {
       "id": "5f490557-95f6-4ec9-9e75-8c1af32af25b",
@@ -4519,7 +4615,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "0xSero",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQHl8_sWEAIs96U.jpg?name=orig"
     },
     {
       "id": "cd390e1a-a3b6-45af-a059-861224734aba",
@@ -4581,7 +4678,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "ivanfioravanti",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090190932901576704/img/P9Am7PpOA9rtb4FW.jpg"
     },
     {
       "id": "dbb9f172-134c-4193-a0b8-8df58f0bd6ba",
@@ -4616,7 +4714,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "liangsays",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090194403499638784/img/1w_idjaImx0hzzvA.jpg"
     },
     {
       "id": "3aa6be74-0424-4434-859c-77b1e40c1b43",
@@ -4647,7 +4746,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "ben_burtenshaw",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/card_img/2089217587741630464/XE_NIxxv?format=jpg&name=orig"
     },
     {
       "id": "42394e6f-e629-47f3-952a-0b17df5e44d4",
@@ -4678,7 +4778,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "willeastcott",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090061884636508160/img/UmWt39ZPotxuFXJH.jpg"
     },
     {
       "id": "fcd04b31-8622-40c6-a127-3ac9724f9d82",
@@ -4709,7 +4810,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "dbabbs",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/card_img/2090165444069978112/XXxZuZcX?format=jpg&name=orig"
     },
     {
       "id": "2f8a0e3d-b5a7-4ac4-8cfa-65e99df9693a",
@@ -4740,7 +4842,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "GeneralistAI",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090160055895404544/img/Ya9D5HetvxpzJeKR.jpg"
     },
     {
       "id": "2860ed37-1c62-4747-8d3a-94f5ffcbf3af",
@@ -4766,7 +4869,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://sc26.supercomputing.org/wp-content/uploads/2025/11/sc26_1200x750.png"
     },
     {
       "id": "ab006ed1-88bd-43df-9d4a-a6ae5b59fbfc",
@@ -4792,7 +4896,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://events.linuxfoundation.org/wp-content/uploads/2026/03/kccnc-na-26-social-snackable.png"
     },
     {
       "id": "5f3ca215-2d0a-4aee-b063-cc51421427bc",
@@ -4818,7 +4923,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://websummit.com/wp-media/2024/11/54133374805_c24a6cbeb2_o-scaled.jpg"
     },
     {
       "id": "44d2ead1-38b5-4b4e-a0bc-7bb9b217c5c7",
@@ -4844,7 +4950,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://www.oracle.com/a/evt/img/social-og-oaiw26-1200x630.jpg"
     },
     {
       "id": "1b8f527f-bef8-4d0a-b454-7218f3fd79e4",
@@ -4870,7 +4977,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://emt.gartnerweb.com/ngw/commonassets/images/build-graphics/corporate-homepage/conference-promotion/conference-images-na-single.png"
     },
     {
       "id": "6811406e-f0c6-41e9-8c66-84372ea4dbef",
@@ -4896,7 +5004,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://techcrunch.com/wp-content/uploads/2018/10/27055664959_5fbe947d9b_o.jpg?resize=1200,799"
     },
     {
       "id": "74cbd8a0-62b9-4574-913f-754e929b849f",
@@ -4948,7 +5057,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2026/04/og-featured-image-1440x810-df.png?w=1024"
     },
     {
       "id": "73fccd0f-8a8e-42c1-a204-39317e418819",
@@ -4974,7 +5084,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://images.ctfassets.net/kftzwdyauwt9/6E6hS38rOnhhKPPmfUflDh/710cc08ecff66835d93a9989c8ece826/SEO_16_9.png?w=1600&h=900&fit=fill"
     },
     {
       "id": "4861f72c-a164-46e3-a7ad-773a44de330b",
@@ -5000,7 +5111,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://aiconference.com/wp-content/uploads/2026/03/The-AI-Conference-2026.jpg"
     },
     {
       "id": "fd82fcba-e51a-4144-8c52-c74fdc6a83d7",
@@ -5026,7 +5138,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://assets.spaceappschallenge.org/media/images/Horizontal_Space_Apps_logo_back.width-440.jpegquality-60.png"
     },
     {
       "id": "5168da3a-616f-400b-8db8-ab4c06ca5241",
@@ -5104,7 +5217,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://hackpsu.org/logo.png"
     },
     {
       "id": "9933b42b-9ab1-4f4c-bac4-7f9db3d85412",
@@ -5234,7 +5348,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://hackthenorth.com/preview_img.png"
     },
     {
       "id": "6e28bbbb-8c82-48a9-88d5-4cc23a7300bf",
@@ -5286,7 +5401,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/agentic_banner/_diHyNOg4fYw.jpg"
     },
     {
       "id": "30a926fa-00fb-424a-8f08-38eaafb9bf4b",
@@ -5312,7 +5428,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/blog_images/ait-september-2026-png-xnFO.png"
     },
     {
       "id": "3f350511-5e54-460d-ad3d-2b99da95114b",
@@ -5338,7 +5455,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/agentic_banner/_oDbudfLPRtQ.jpg"
     },
     {
       "id": "7c8c7a62-3851-4866-8e1a-1c3f2a10fd8a",
@@ -5364,7 +5482,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://images.aitinkerers.org/blog_images/thumbnail-jpg-MlQR.jpg"
     },
     {
       "id": "43de05ee-e730-406f-bfd5-ed93b10d5990",
@@ -5390,7 +5509,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/blog_images/bus4ydyvfjikbwog-jpg-wFIO.jpg"
     },
     {
       "id": "04a04b87-ad91-4ab6-986f-1e707a608eef",
@@ -5416,7 +5536,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/blog_images/wellington-aitinkerers-png-2tHi.png"
     },
     {
       "id": "cdea5aec-2dea-4c52-9cfc-7a019c040870",
@@ -5442,7 +5563,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/blog_images/image-png-ohbT.png"
     },
     {
       "id": "1a34473b-51ec-4c89-a6cd-5e4da12c1925",
@@ -5468,7 +5590,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/blog_images/image-2026-08-06-194603380-png-ClLl.jpg"
     },
     {
       "id": "cb9ea47d-0d46-47fc-9f75-28033febf854",
@@ -5494,7 +5617,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/blog_images/ai-tinkerers-valencia-banners-30-jpg-8lJ_.jpg"
     },
     {
       "id": "824e1b28-5ac1-4dd3-a04d-5e8ad342ac77",
@@ -5520,7 +5644,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://images.aitinkerers.org/cdn-cgi/image/format=jpeg/agentic_banner/_MJJVWtdr7kM.jpg"
     }
   ],
   "signals": [
