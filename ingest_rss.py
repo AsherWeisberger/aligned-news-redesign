@@ -40,7 +40,23 @@ UA = "AlignedNewsRedesign/an110 (+https://asherweisberger.github.io/aligned-news
 
 JUNK_TITLE_RE = re.compile(
     r"posted a brief reply|documents a current scoble development|"
-    r"scoble\s*:-?\)|scoble smile",
+    r"scoble\s*:-?\)|scoble smile|"
+    r"publishes a new .+ update|"
+    r"^(excellent|great|amazing|interesting|good|nice)\s+"
+    r"(article|read|post|piece|thread|write[- ]?up)\b",
+    re.I,
+)
+WEAK_LEAD_RE = re.compile(
+    r"just got competition|becomes a .+ question|what if\b|^ICYMI\b|"
+    r"\bI think\b|too late for me|after drinking|thank me later|"
+    r"publishes on Substack|opens for download|abliterated|"
+    r"\?$|!",
+    re.I,
+)
+STRONG_NEWS_RE = re.compile(
+    r"\b(unveiled|unveils|has unveiled|introduced|introduces|"
+    r"added|adds|opened|released|releases|"
+    r"announced|announces|is the fastest)\b",
     re.I,
 )
 RT_RE = re.compile(r"^RT\s+@", re.I)
@@ -878,6 +894,8 @@ def looks_like_scoble_reply(title: str, body: str, category: str) -> bool:
 
 
 def keep_item(title: str, body: str, category: str) -> bool:
+    if JUNK_TITLE_RE.search(title or ""):
+        return False
     if is_retweet_noise(title, body):
         return False
     if looks_like_scoble_reply(title, body, category):
@@ -1137,8 +1155,43 @@ def pub_ts(story: dict) -> float:
         return 0.0
 
 
+def is_event_story(story: dict) -> bool:
+    sec = (story.get("section") or "").lower()
+    topic = (story.get("topic_key") or "").lower()
+    headline = story.get("headline") or ""
+    if sec.startswith("events") or "hackathon" in sec or "dinner" in sec or "conference" in sec:
+        return True
+    if topic == "events":
+        return True
+    if re.search(r"\bhackathon\b", headline, re.I):
+        return True
+    return False
+
+
+def headline_is_strong_news(headline: str) -> bool:
+    h = (headline or "").strip()
+    if len(h) < 40:
+        return False
+    if JUNK_TITLE_RE.search(h) or WEAK_LEAD_RE.search(h):
+        return False
+    return bool(STRONG_NEWS_RE.search(h))
+
+
+def lead_bucket(story: dict) -> int:
+    """0 = specific news (lead), 1 = other news, 2 = side/events, 3 = leftover junk."""
+    h = story.get("headline") or ""
+    sec = (story.get("section") or "").lower()
+    if JUNK_TITLE_RE.search(h):
+        return 3
+    if is_event_story(story) or sec in ("jobs", "videos"):
+        return 2
+    if headline_is_strong_news(h):
+        return 0
+    return 1
+
+
 def sort_stories(stories: list) -> list:
-    stories.sort(key=lambda s: (section_priority(s), -pub_ts(s)))
+    stories.sort(key=lambda s: (lead_bucket(s), section_priority(s), -pub_ts(s)))
     return stories
 
 
