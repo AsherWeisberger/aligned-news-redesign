@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an145";
+  var DATA_URL = "live-data.json?v=an147";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -670,6 +670,8 @@
     var dark = isDarkTheme();
     var label = dark ? t("switch_light") : t("switch_dark");
     var title = dark ? t("light_mode") : t("dark_mode");
+    var sun = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+    var moon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>';
     var ids = ["themeToggleSide"];
     for (var i = 0; i < ids.length; i++) {
       var btn = document.getElementById(ids[i]);
@@ -678,10 +680,35 @@
       btn.title = title;
       var text = btn.querySelector(".sidebar-theme-label");
       if (text) text.textContent = title;
+      var ico = btn.querySelector("svg");
+      if (ico) {
+        var wrap = document.createElement("span");
+        wrap.innerHTML = dark ? sun : moon;
+        ico.replaceWith(wrap.firstChild);
+      }
     }
   }
 
-  function toggleTheme() {
+  function themeOrigin(ev) {
+    var x = window.innerWidth / 2;
+    var y = window.innerHeight / 2;
+    if (ev && typeof ev.clientX === "number" && (ev.clientX || ev.clientY)) {
+      x = ev.clientX;
+      y = ev.clientY;
+    } else {
+      var el = document.getElementById("themeToggleSide") || document.querySelector('[data-act="theme"]');
+      if (el) {
+        var r = el.getBoundingClientRect();
+        x = r.left + r.width / 2;
+        y = r.top + r.height / 2;
+      }
+    }
+    var root = document.documentElement;
+    root.style.setProperty("--theme-x", x + "px");
+    root.style.setProperty("--theme-y", y + "px");
+  }
+
+  function applyThemeFlip() {
     var root = document.documentElement;
     if (isDarkTheme()) {
       root.removeAttribute("data-theme");
@@ -691,6 +718,27 @@
       try { localStorage.setItem("an-theme", "dark"); } catch (e) {}
     }
     syncThemeButtons();
+  }
+
+  function toggleTheme(ev) {
+    themeOrigin(ev);
+    var reduce = false;
+    try {
+      reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    } catch (e) {}
+    if (!reduce && document.startViewTransition) {
+      document.documentElement.classList.add("is-theme-anim");
+      var vt = document.startViewTransition(applyThemeFlip);
+      if (vt && vt.finished && vt.finished.finally) {
+        vt.finished.finally(function () {
+          document.documentElement.classList.remove("is-theme-anim");
+        });
+      } else {
+        document.documentElement.classList.remove("is-theme-anim");
+      }
+      return;
+    }
+    applyThemeFlip();
   }
 
 
@@ -2168,7 +2216,7 @@
           dock.classList.remove("is-open");
         } else if (act === "theme") {
           e.preventDefault();
-          toggleTheme();
+          toggleTheme(e);
           dock.classList.remove("is-open");
         } else {
           dock.classList.remove("is-open");
@@ -4129,7 +4177,7 @@
       sidebar.addEventListener("click", function (ev) {
         var t = ev.target;
         while (t && t !== sidebar && !(t.id === "themeToggleSide") && !(t.classList && t.classList.contains("sidebar-lang"))) t = t.parentNode;
-        if (t && t.id === "themeToggleSide") toggleTheme();
+        if (t && t.id === "themeToggleSide") toggleTheme(ev);
         if (t && t.getAttribute && t.getAttribute("data-lang") && window.anSetLang) {
           window.anSetLang(t.getAttribute("data-lang"));
         }

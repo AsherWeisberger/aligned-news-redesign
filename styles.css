@@ -6674,3 +6674,28 @@ body[data-page="newsletter"] .desk-hero-compact h1 {
     pointer-events: none !important;
   }
 }
+
+
+/* Theme: circular wipe from the toggle (yui540-style, Aligned paper/ink) */
+html.is-theme-anim {
+  view-transition-name: root;
+}
+::view-transition-old(root) {
+  animation: none;
+  z-index: 1;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: an-theme-circle 0.62s var(--ease-soft) both;
+  z-index: 2;
+}
+@keyframes an-theme-circle {
+  from { clip-path: circle(0px at var(--theme-x, 50%) var(--theme-y, 50%)); }
+  to { clip-path: circle(160vmax at var(--theme-x, 50%) var(--theme-y, 50%)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
