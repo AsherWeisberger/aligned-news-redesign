@@ -55,8 +55,24 @@ WEAK_LEAD_RE = re.compile(
 )
 STRONG_NEWS_RE = re.compile(
     r"\b(unveiled|unveils|has unveiled|introduced|introduces|"
-    r"added|adds|opened|released|releases|"
-    r"announced|announces|is the fastest)\b",
+    r"added|adds|opened|released|"
+    r"releases\s+(?:a|an|the|its|their)|"
+    r"announced|announces|is the fastest|"
+    r"\d+\s*times?\s+faster)\b",
+    re.I,
+)
+CONCRETE_NEWS_RE = re.compile(
+    r"\b(\d+\s*times?\s+faster|"
+    r"raises?\s+(?:foundry\s+)?prices?|"
+    r"from simulation to reality|"
+    r"replace\s+.+\s+as\s+.+\s+CEO|"
+    r"\d+-nanometer|"
+    r"brings\s+.+?\s+to\s+all)\b",
+    re.I,
+)
+OFF_DESK_RE = re.compile(
+    r"\b(Nintendo|Switch emulators?|God of War|Kratos|"
+    r"GTA\s*6|Grand Theft Auto|Double Fine|Bautista)\b",
     re.I,
 )
 RT_RE = re.compile(r"^RT\s+@", re.I)
@@ -1165,6 +1181,18 @@ def is_event_story(story: dict) -> bool:
         return True
     if re.search(r"\bhackathon\b", headline, re.I):
         return True
+    if re.search(r"\b(gathering|meetup|demo night|tinkerers)\b", headline, re.I):
+        return True
+    return False
+
+
+def is_off_desk_story(story: dict) -> bool:
+    h = story.get("headline") or ""
+    blob = f"{h} {story.get('summary') or ''}"
+    if JUNK_TOPIC_RE.search(blob) and not AI_TOPIC_RE.search(blob):
+        return True
+    if OFF_DESK_RE.search(h) and not AI_TOPIC_RE.search(h):
+        return True
     return False
 
 
@@ -1174,7 +1202,7 @@ def headline_is_strong_news(headline: str) -> bool:
         return False
     if JUNK_TITLE_RE.search(h) or WEAK_LEAD_RE.search(h):
         return False
-    return bool(STRONG_NEWS_RE.search(h))
+    return bool(STRONG_NEWS_RE.search(h) or CONCRETE_NEWS_RE.search(h))
 
 
 def lead_bucket(story: dict) -> int:
@@ -1185,13 +1213,15 @@ def lead_bucket(story: dict) -> int:
         return 3
     if is_event_story(story) or sec in ("jobs", "videos"):
         return 2
-    if headline_is_strong_news(h):
+    if is_off_desk_story(story):
+        return 1
+    if sec == "breaking" or headline_is_strong_news(h):
         return 0
     return 1
 
 
 def sort_stories(stories: list) -> list:
-    stories.sort(key=lambda s: (lead_bucket(s), section_priority(s), -pub_ts(s)))
+    stories.sort(key=lambda s: (lead_bucket(s), -pub_ts(s), section_priority(s)))
     return stories
 
 
