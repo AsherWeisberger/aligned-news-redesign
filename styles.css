@@ -6675,27 +6675,103 @@ body[data-page="newsletter"] .desk-hero-compact h1 {
   }
 }
 
-
-/* Theme: circular wipe from the toggle (yui540-style, Aligned paper/ink) */
-html.is-theme-anim {
-  view-transition-name: root;
+/* Theme toggle: sun collapses into a moon. Page theme snaps. */
+.theme-orb {
+  --orb-bg: #FFFFFF;
+  --orb-ink: #2A2A2E;
+  --orb-cut: #FFFFFF;
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--orb-bg);
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(13, 15, 20, 0.08);
+  transition: background 0.42s var(--ease-soft);
 }
-::view-transition-old(root) {
-  animation: none;
-  z-index: 1;
-  mix-blend-mode: normal;
+html[data-theme="dark"] .theme-orb {
+  --orb-bg: #2A2A2E;
+  --orb-ink: #F4F4F6;
+  --orb-cut: #2A2A2E;
+  box-shadow: none;
 }
-::view-transition-new(root) {
-  animation: an-theme-circle 0.62s var(--ease-soft) both;
-  z-index: 2;
+.theme-sun-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: var(--orb-ink);
+  transition: background 0.42s var(--ease-soft);
 }
-@keyframes an-theme-circle {
-  from { clip-path: circle(0px at var(--theme-x, 50%) var(--theme-y, 50%)); }
-  to { clip-path: circle(160vmax at var(--theme-x, 50%) var(--theme-y, 50%)); }
+.theme-ray {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.6px;
+  height: 3.6px;
+  margin: -1.8px 0 0 -0.8px;
+  border-radius: 1px;
+  background: var(--orb-ink);
+  transform: rotate(calc(var(--i) * 45deg)) translateY(-7.2px);
+  transform-origin: center center;
+  transition: transform 0.36s var(--ease-soft), opacity 0.28s ease, background 0.42s var(--ease-soft);
+}
+html[data-theme="dark"] .theme-ray {
+  transform: rotate(calc(var(--i) * 45deg)) translateY(0) scaleY(0.15);
+  opacity: 0;
+}
+.theme-moon-cut {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: var(--orb-cut);
+  transform: translate(-11px, -11px);
+  opacity: 0;
+  transition: transform 0.42s var(--ease-soft), opacity 0.2s ease 0.08s, background 0.42s var(--ease-soft);
+}
+html[data-theme="dark"] .theme-moon-cut {
+  transform: translate(-3px, -3.2px);
+  opacity: 1;
+}
+.sidebar-theme .theme-orb {
+  margin-right: 0.1rem;
+}
+.dock-tile-ico .theme-orb {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+}
+.dock-tile-ico .theme-sun-core,
+.dock-tile-ico .theme-moon-cut {
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+}
+.dock-tile-ico .theme-ray {
+  height: 4px;
+  margin: -2px 0 0 -0.8px;
+  transform: rotate(calc(var(--i) * 45deg)) translateY(-8px);
+}
+html[data-theme="dark"] .dock-tile-ico .theme-ray {
+  transform: rotate(calc(var(--i) * 45deg)) translateY(0) scaleY(0.15);
+}
+html[data-theme="dark"] .dock-tile-ico .theme-moon-cut {
+  transform: translate(-3.2px, -3.4px);
 }
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none !important;
+  .theme-orb,
+  .theme-sun-core,
+  .theme-ray,
+  .theme-moon-cut {
+    transition: none !important;
   }
 }

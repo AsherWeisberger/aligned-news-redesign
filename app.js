@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an147";
+  var DATA_URL = "live-data.json?v=an148";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -666,49 +666,40 @@
     return document.documentElement.getAttribute("data-theme") === "dark";
   }
 
+  function themeOrbHtml() {
+    var rays = "";
+    for (var i = 0; i < 8; i++) {
+      rays += '<span class="theme-ray" style="--i:' + i + '"></span>';
+    }
+    return (
+      '<span class="theme-orb" aria-hidden="true">' +
+        '<span class="theme-sun-core"></span>' +
+        rays +
+        '<span class="theme-moon-cut"></span>' +
+      "</span>"
+    );
+  }
+
   function syncThemeButtons() {
     var dark = isDarkTheme();
     var label = dark ? t("switch_light") : t("switch_dark");
     var title = dark ? t("light_mode") : t("dark_mode");
-    var sun = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
-    var moon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>';
-    var ids = ["themeToggleSide"];
-    for (var i = 0; i < ids.length; i++) {
-      var btn = document.getElementById(ids[i]);
-      if (!btn) continue;
+    var btn = document.getElementById("themeToggleSide");
+    if (btn) {
       btn.setAttribute("aria-label", label);
       btn.title = title;
       var text = btn.querySelector(".sidebar-theme-label");
       if (text) text.textContent = title;
-      var ico = btn.querySelector("svg");
-      if (ico) {
-        var wrap = document.createElement("span");
-        wrap.innerHTML = dark ? sun : moon;
-        ico.replaceWith(wrap.firstChild);
-      }
+    }
+    var tile = document.querySelector('.dock-tile[data-act="theme"]');
+    if (tile) {
+      var tl = tile.querySelector(".dock-tile-label");
+      if (tl) tl.textContent = title;
+      tile.setAttribute("aria-label", label);
     }
   }
 
-  function themeOrigin(ev) {
-    var x = window.innerWidth / 2;
-    var y = window.innerHeight / 2;
-    if (ev && typeof ev.clientX === "number" && (ev.clientX || ev.clientY)) {
-      x = ev.clientX;
-      y = ev.clientY;
-    } else {
-      var el = document.getElementById("themeToggleSide") || document.querySelector('[data-act="theme"]');
-      if (el) {
-        var r = el.getBoundingClientRect();
-        x = r.left + r.width / 2;
-        y = r.top + r.height / 2;
-      }
-    }
-    var root = document.documentElement;
-    root.style.setProperty("--theme-x", x + "px");
-    root.style.setProperty("--theme-y", y + "px");
-  }
-
-  function applyThemeFlip() {
+  function toggleTheme() {
     var root = document.documentElement;
     if (isDarkTheme()) {
       root.removeAttribute("data-theme");
@@ -718,27 +709,6 @@
       try { localStorage.setItem("an-theme", "dark"); } catch (e) {}
     }
     syncThemeButtons();
-  }
-
-  function toggleTheme(ev) {
-    themeOrigin(ev);
-    var reduce = false;
-    try {
-      reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    } catch (e) {}
-    if (!reduce && document.startViewTransition) {
-      document.documentElement.classList.add("is-theme-anim");
-      var vt = document.startViewTransition(applyThemeFlip);
-      if (vt && vt.finished && vt.finished.finally) {
-        vt.finished.finally(function () {
-          document.documentElement.classList.remove("is-theme-anim");
-        });
-      } else {
-        document.documentElement.classList.remove("is-theme-anim");
-      }
-      return;
-    }
-    applyThemeFlip();
   }
 
 
@@ -2032,7 +2002,7 @@
       collabs: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 11a3 3 0 1 0-2.2-5M8 11a3 3 0 1 1 2.2-5M4.8 19a4.2 4.2 0 0 1 7.4-2.5M19.2 19a4.2 4.2 0 0 0-7.4-2.5"/></svg>',
       compact: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>',
       expanded: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>',
-      theme: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
+      theme: themeOrbHtml()
     };
     return icons[id] || icons.god;
   }
@@ -2216,8 +2186,7 @@
           dock.classList.remove("is-open");
         } else if (act === "theme") {
           e.preventDefault();
-          toggleTheme(e);
-          dock.classList.remove("is-open");
+          toggleTheme();
         } else {
           dock.classList.remove("is-open");
         }
@@ -2399,7 +2368,7 @@
         '<button type="button" class="sidebar-theme" id="themeToggleSide" aria-label="' +
         (dark ? t("switch_light") : t("switch_dark")) + '" title="' +
         (dark ? t("light_mode") : t("dark_mode")) + '">' +
-        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' +
+        themeOrbHtml() +
         '<span class="sidebar-theme-label">' + (dark ? t("light_mode") : t("dark_mode")) + "</span>" +
         "</button>" +
         langPickerHtml();
@@ -4177,7 +4146,7 @@
       sidebar.addEventListener("click", function (ev) {
         var t = ev.target;
         while (t && t !== sidebar && !(t.id === "themeToggleSide") && !(t.classList && t.classList.contains("sidebar-lang"))) t = t.parentNode;
-        if (t && t.id === "themeToggleSide") toggleTheme(ev);
+        if (t && t.id === "themeToggleSide") toggleTheme();
         if (t && t.getAttribute && t.getAttribute("data-lang") && window.anSetLang) {
           window.anSetLang(t.getAttribute("data-lang"));
         }
