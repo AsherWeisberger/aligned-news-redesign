@@ -3534,12 +3534,72 @@ body[data-page="auth"] .app {
     transform: scale(0.94);
   }
   .mobile-dock-ico {
+    position: relative;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 22px;
     height: 22px;
     color: inherit;
+    z-index: 1;
   }
-  .mobile-dock-ico svg { display: block; }
+  .mobile-dock-ico svg { display: block; position: relative; z-index: 1; }
+  .dock-metal {
+    display: none;
+  }
+  .mobile-dock-item.is-active .mobile-dock-ico {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: color-mix(in srgb, #0c0c0e 62%, transparent);
+  }
+  .mobile-dock-item.is-active .dock-metal {
+    display: block;
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .mobile-dock-item.is-active .dock-metal::before,
+  .mobile-dock-item.is-active .dock-metal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      #ff5a4a 0deg,
+      #ffd36a 55deg,
+      #7dffb3 115deg,
+      #5ad0ff 175deg,
+      #7a6bff 235deg,
+      #ff4ad8 300deg,
+      #ff5a4a 360deg
+    );
+    animation: an-metal-spin 5.6s linear infinite;
+  }
+  .mobile-dock-item.is-active .dock-metal::before {
+    inset: -4px;
+    filter: blur(8px) saturate(1.4);
+    opacity: 0.5;
+  }
+  .mobile-dock-item.is-active .dock-metal::after {
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.15px), #000 calc(100% - 1.25px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2.15px), #000 calc(100% - 1.25px));
+    filter: saturate(1.45) contrast(1.2);
+  }
+  html:not([data-theme="dark"]) .mobile-dock-item.is-active .mobile-dock-ico {
+    background: color-mix(in srgb, #121214 18%, transparent);
+  }
+  @keyframes an-metal-spin {
+    to { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-dock-item.is-active .dock-metal::before,
+    .mobile-dock-item.is-active .dock-metal::after {
+      animation: none;
+    }
+  }
   .mobile-dock-item.is-active {
     flex: 2.2 1 auto;
     background: color-mix(in srgb, #fff 16%, transparent);

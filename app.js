@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an151";
+  var DATA_URL = "live-data.json?v=an152";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -2147,7 +2147,7 @@
             return (
               '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
               (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
-              '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
+              '<span class="mobile-dock-ico"><span class="dock-metal" aria-hidden="true"></span>' + dockIcon(item.id, active) + "</span>" +
               '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
               "</a>"
             );
