@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an154";
+  var DATA_URL = "live-data.json?v=an155";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -2093,11 +2093,22 @@
     }
   }
 
+  function ensureMetalFilter() {
+    if (document.getElementById("anMetalSvg")) return;
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.id = "anMetalSvg";
+    svg.setAttribute("aria-hidden", "true");
+    svg.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
+    svg.innerHTML = '<defs><filter id="an-metal-wobble" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.018 0.05" numOctaves="2" seed="4" result="n"><animate attributeName="baseFrequency" dur="2.4s" values="0.012 0.035;0.03 0.08;0.012 0.035" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="5.5" xChannelSelector="R" yChannelSelector="G"/></filter></defs>';
+    document.body.appendChild(svg);
+  }
+
   function renderMobileDock(page) {
     if (page === "auth" || !isPhoneViewport()) {
       teardownMobileDock();
       return;
     }
+    ensureMetalFilter();
     var items = [
       { id: "today", href: "index.html", label: t("today") },
       { id: "signals", href: "signals.html", label: t("signals") },
@@ -2147,7 +2158,8 @@
             return (
               '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
               (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
-              '<span class="mobile-dock-ico"><span class="dock-metal" aria-hidden="true"><span class="dock-metal-bloom"></span><span class="dock-metal-ring"></span><span class="dock-metal-spec"></span></span>' + dockIcon(item.id, active) + "</span>" +
+              (active ? '<span class="dock-metal" aria-hidden="true"><span class="dock-metal-bloom"></span><span class="dock-metal-ring"></span><span class="dock-metal-spec"></span></span>' : "") +
+              '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
               '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
               "</a>"
             );
