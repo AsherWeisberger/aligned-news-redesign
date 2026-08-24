@@ -28,7 +28,7 @@
   }
 
   var DATA_URL = "live-data.json?v=an162";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an164";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
     newsletter: [],
@@ -4055,7 +4055,7 @@
   }
 
 
-  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an91";
+  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an163";
   var godModeBootPromise = null;
 
   function ensureGodModeWidget() {

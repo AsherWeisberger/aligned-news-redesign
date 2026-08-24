@@ -548,10 +548,10 @@
 
   const SAT_TILE_MAX_LEVEL = 19;
   const EARTH_RADIUS_M = 6371000;
-  const MIN_CAMERA_ALT_M = 80;
+  const MIN_CAMERA_ALT_M = 4;
   const STREET_CAMERA_ALT_M = 160;
   const SEARCH_CAMERA_ALT_M = 12000;
-  const SEARCH_ADDRESS_ALT_M = 900;
+  const SEARCH_ADDRESS_ALT_M = 280;
   const MIN_ALT_RADII = MIN_CAMERA_ALT_M / EARTH_RADIUS_M;
   const STREET_ALT_RADII = STREET_CAMERA_ALT_M / EARTH_RADIUS_M;
   const SEARCH_ALT_RADII = SEARCH_CAMERA_ALT_M / EARTH_RADIUS_M;
@@ -831,9 +831,9 @@
       try { if (scene.sun) scene.sun.show = true; } catch (e) {}
     } catch (e) {}
   }
-  const PHOTOREAL_PREFETCH_M = 80000;
-  const PHOTOREAL_SHOW_M = 1200;
-  const PHOTOREAL_HIDE_M = 2200;
+  const PHOTOREAL_PREFETCH_M = 1e12;
+  const PHOTOREAL_SHOW_M = 1e12;
+  const PHOTOREAL_HIDE_M = 1e12;
   const GOOGLE_TILES_SSE = 1.0;
   function googleTilesetUrlOf(tileset) {
     try {
@@ -859,11 +859,11 @@
     const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
     try { tileset.maximumScreenSpaceError = street ? 0.8 : (Number(GOOGLE_TILES_SSE) || 1.0); } catch (e) {}
     try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = false; } catch (e) {}
-    try { tileset.immediatelyLoadDesiredLevelOfDetail = true; } catch (e) {}
-    try { tileset.dynamicScreenSpaceError = false; } catch (e) {}
-    try { tileset.loadSiblings = true; } catch (e) {}
+    try { tileset.immediatelyLoadDesiredLevelOfDetail = false; } catch (e) {}
+    try { tileset.dynamicScreenSpaceError = true; } catch (e) {}
+    try { tileset.loadSiblings = false; } catch (e) {}
     try { tileset.preloadWhenHidden = true; } catch (e) {}
-    try { tileset.cullRequestsWhileMoving = false; } catch (e) {}
+    try { tileset.cullRequestsWhileMoving = true; } catch (e) {}
     try { tileset.enableCollision = false; } catch (e) {}
     try { tileset.cacheBytes = 1024 * 1024 * 1024; } catch (e) {}
     try { tileset.maximumCacheOverflowBytes = 1024 * 1024 * 1024; } catch (e) {}
@@ -897,8 +897,8 @@
       catch (e) { return NaN; }
     })();
     const shown = !!(state && state._photorealShown);
-    const wantShow = (opts.show !== undefined) ? !!opts.show : (Number.isFinite(h) && h < (shown ? PHOTOREAL_HIDE_M : PHOTOREAL_SHOW_M));
-    const wantPrefetch = wantShow || (Number.isFinite(h) && h < PHOTOREAL_PREFETCH_M) || !!opts.force;
+    const wantShow = (opts.show !== undefined) ? !!opts.show : true;
+    const wantPrefetch = true;
     const key = readGoogleTilesKey();
     if (!key || !Cesium || !viewer) return false;
     try {
@@ -943,12 +943,12 @@
       let tileset = null;
       const tileOpts = {
         maximumScreenSpaceError: GOOGLE_TILES_SSE,
-        skipLevelOfDetail: false,
-        immediatelyLoadDesiredLevelOfDetail: true,
-        dynamicScreenSpaceError: false,
-        loadSiblings: true,
+        skipLevelOfDetail: true,
+        immediatelyLoadDesiredLevelOfDetail: false,
+        dynamicScreenSpaceError: true,
+        loadSiblings: false,
         preloadWhenHidden: true,
-        cullRequestsWhileMoving: false,
+        cullRequestsWhileMoving: true,
         enableCollision: false,
         cacheBytes: 1024 * 1024 * 1024,
         maximumCacheOverflowBytes: 1024 * 1024 * 1024,
@@ -1091,8 +1091,18 @@
         const dur = (Number(ms) || 0) / 1000;
         try { if (dur > 0.05 && state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eP) {}
         try {
-          if (dur > 0.05) viewer.camera.flyTo({ destination: dest, duration: dur, complete: function () { try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eC) {} } });
-          else viewer.camera.setView({ destination: dest });
+          if (dur > 0.05) viewer.camera.flyTo({
+            destination: dest,
+            orientation: { heading: 0, pitch: Cesium.Math.toRadians(altM < 4000 ? -35 : -89), roll: 0 },
+            duration: Math.max(dur, 2.2),
+            easingFunction: (Cesium.EasingFunction && Cesium.EasingFunction.CUBIC_IN_OUT) || undefined,
+            complete: function () {
+              try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eC) {}
+              try { enablePhonePhotoreal(Cesium, viewer, state, { show: true }); } catch (eP) {}
+              try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false; } catch (eG) {}
+            }
+          });
+          else viewer.camera.setView({ destination: dest, orientation: { heading: 0, pitch: Cesium.Math.toRadians(altM < 4000 ? -35 : -89), roll: 0 } });
         } catch (e) {}
         return adapter;
       },
@@ -1141,7 +1151,7 @@
             if (icon) {
               def.billboard = {
                 image: icon, width: kind === 'ship' ? 14 : 15, height: kind === 'ship' ? 20 : 15,
-                color: color, rotation: rot, alignedAxis: Cesium.Cartesian3.UNIT_Z,
+                color: color, rotation: rot, alignedAxis: (function () { try { return Cesium.Ellipsoid.WGS84.geodeticSurfaceNormal(def.position, new Cesium.Cartesian3()); } catch (eA) { return Cesium.Cartesian3.UNIT_Z; } })(),
                 disableDepthTestDistance: Number.POSITIVE_INFINITY, sizeInMeters: false,
                 scaleByDistance: new Cesium.NearFarScalar(8.0e4, 1.25, 2.8e7, 0.95),
                 heightReference: kind === 'ship' ? Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.NONE
@@ -1288,11 +1298,18 @@
       fullscreenButton: false, vrButton: false, geocoder: false,
       homeButton: false, infoBox: false, sceneModePicker: false,
       selectionIndicator: false, navigationHelpButton: false,
-      creditContainer: document.createElement('div'),
+      creditContainer: (function () {
+        const el = document.createElement('div');
+        el.id = 'gm2-credits';
+        el.className = 'v4-gm2-credits';
+        try { el.style.cssText = 'position:absolute;left:8px;bottom:8px;z-index:8;max-width:70vw;font:11px/1.3 sans-serif;color:#e8f2ff;text-shadow:0 1px 2px #000;background:rgba(5,10,18,.42);padding:4px 8px;border-radius:4px;pointer-events:auto'; } catch (eS) {}
+        try { host.appendChild(el); } catch (eA) {}
+        return el;
+      })(),
       terrainProvider: new Cesium.EllipsoidTerrainProvider(),
       shouldAnimate: true,
       scene3DOnly: true,
-      skyAtmosphere: false,
+      skyAtmosphere: true,
       useDefaultRenderLoop: true,
     };
     if (esriBase) viewerOpts.baseLayer = esriBase;
@@ -1319,13 +1336,14 @@
     try {
       const globe = viewer.scene.globe;
       globe.depthTestAgainstTerrain = false;
+      globe.show = false;
     } catch (e) {}
     try { viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#000000'); } catch (eBg) {}
     try {
       const ssc = viewer.scene.screenSpaceCameraController;
       ssc.enableInputs = true;
       ssc.enableZoom = true;
-      ssc.enableRotate = false;
+      ssc.enableRotate = true;
       ssc.enableTilt = true;
       ssc.enableLook = false;
       ssc.enableTranslate = false;
@@ -1334,10 +1352,11 @@
       ssc.inertiaZoom = 0.4;
       try {
         const CET = Cesium.CameraEventType;
-        ssc.zoomEventTypes = [CET.PINCH];
-        ssc.rotateEventTypes = [];
-        ssc.tiltEventTypes = CET.PINCH;
+        ssc.zoomEventTypes = [CET.PINCH, CET.WHEEL];
+        ssc.rotateEventTypes = CET.LEFT_DRAG;
+        ssc.tiltEventTypes = [CET.PINCH, CET.RIGHT_DRAG];
         ssc.translateEventTypes = [];
+        try { ssc.lookEventTypes = []; } catch (eL) {}
       } catch (eZ) {}
     } catch (e) {}
     try {
@@ -1400,6 +1419,8 @@
         try { viewer.resize(); } catch (eR) {}
       }, 300);
     } catch (eT) {}
+    try { enablePhonePhotoreal(Cesium, viewer, state, { show: true }); } catch (eBootPr) {}
+    try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false; } catch (eHide) {}
     try { installIdleOrbitSpin(Cesium, viewer, state); } catch (eSpin) {}
     return makeCesiumPhoneAdapter(Cesium, viewer, state);
   }
@@ -4577,14 +4598,9 @@
         return rows;
       } catch (e) { return []; }
     })();
-    const osm = await Promise.all([photonP, nomP]);
-    var gRows = [];
-    try {
-      var marker = { __gmPending: 1 };
-      var raced = await Promise.race([googleP, Promise.resolve(marker)]);
-      if (!(raced && raced.__gmPending)) gRows = raced || [];
-    } catch (eG) { gRows = []; }
-    const buckets = [gRows, osm[0], osm[1]];
+    const trio = await Promise.all([googleP, photonP, nomP]);
+    var gRows = trio[0] || [];
+    const buckets = [gRows, trio[1] || [], trio[2] || []];
     let rows = [];
     for (let b = 0; b < buckets.length; b++) {
       const part = buckets[b] || [];
@@ -5497,13 +5513,9 @@
       const a = Number(lat);
       const b = Number(lng);
       if (!Number.isFinite(a) || !Number.isFinite(b)) { setSearchMsg('Search or tap a point first'); return; }
-      sleepPhoneGlobe();
-      try { disposeGlobeInstance(globeInstRef.current); } catch (eD) {}
-      globeInstRef.current = null;
-      try { if (globeRef.current) globeRef.current.innerHTML = ''; } catch (eH) {}
-      setStreetMode(true);
-      setSearchMsg('Loading Street View…');
-      global.setTimeout(function () { showPhonePano(a, b); }, 320);
+      setStreetMode(false);
+      setSearchMsg('');
+      flyTo(a, b, STREET_CAMERA_ALT_M / EARTH_RADIUS_M);
     };
     global.__gmPhoneStreetView = enterStreet;
     const leaveStreetView = function () {
