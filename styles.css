@@ -1,9 +1,3 @@
-@property --metal-a {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
 /* Aligned News — Pro reader */
 :root {
   --bg: #F0EFEC;
@@ -3540,116 +3534,12 @@ body[data-page="auth"] .app {
     transform: scale(0.94);
   }
   .mobile-dock-ico {
-    position: relative;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: 22px;
     height: 22px;
     color: inherit;
-    z-index: 1;
-    flex-shrink: 0;
   }
   .mobile-dock-ico svg { display: block; }
-  .dock-metal {
-    display: none;
-  }
-  .mobile-dock-item.is-active .dock-metal {
-    display: block;
-    position: absolute;
-    inset: -3px;
-    border-radius: 999px;
-    pointer-events: none;
-    z-index: 0;
-    filter: url(#an-metal-wobble);
-  }
-  .dock-metal-bloom,
-  .dock-metal-ring,
-  .dock-metal-spec {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    --metal-a: 0deg;
-    animation: an-metal-spin 3.2s linear infinite;
-  }
-  .dock-metal-bloom {
-    inset: -6px;
-    padding: 7px;
-    background: conic-gradient(
-      from var(--metal-a),
-      #1a4dff,
-      #00e8ff,
-      #5dff8a,
-      #ffe14d,
-      #ff6a2a,
-      #ff3d8a,
-      #b24dff,
-      #1a4dff
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-            mask-composite: exclude;
-    filter: blur(8px) saturate(1.7);
-    opacity: 0.75;
-  }
-  .dock-metal-ring {
-    padding: 2.6px;
-    background: conic-gradient(
-      from var(--metal-a),
-      #1a4dff,
-      #00e5ff,
-      #4dff88,
-      #ffe14d,
-      #ff7a2a,
-      #ff3d7a,
-      #b24dff,
-      #1a4dff
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-            mask-composite: exclude;
-    filter: contrast(1.2) saturate(1.5);
-  }
-  .dock-metal-spec {
-    padding: 2.2px;
-    background: conic-gradient(
-      from var(--metal-a),
-      transparent 0deg,
-      #fff 18deg,
-      transparent 36deg,
-      transparent 170deg,
-      rgba(255,255,255,0.9) 188deg,
-      transparent 206deg,
-      transparent 360deg
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-            mask-composite: exclude;
-    filter: blur(0.35px);
-  }
-  @keyframes an-metal-spin {
-    to { --metal-a: 360deg; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .dock-metal-bloom,
-    .dock-metal-ring,
-    .dock-metal-spec { animation: none; }
-  }
   .mobile-dock-item.is-active {
     flex: 2.2 1 auto;
     background: color-mix(in srgb, #fff 16%, transparent);
