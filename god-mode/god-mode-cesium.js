@@ -4050,10 +4050,6 @@
         return false;
       }
       tuneGoogleTileset(state.googleTileset, cameraHeightM(viewer));
-      try { state.googleTileset.preloadWhenHidden = !wantShow; } catch (e) {}
-      try { state.googleTileset.loadSiblings = !!wantShow; } catch (e) {}
-      try { state.googleTileset.cullRequestsWhileMoving = !wantShow; } catch (e) {}
-      try { state.googleTileset.immediatelyLoadDesiredLevelOfDetail = !!wantShow; } catch (e) {}
       try { state.googleTileset.show = !!wantShow; } catch (e) {}
       setEllipsoidGlobeVisible(viewer, state, !wantShow);
       if (wantShow) {
@@ -4108,10 +4104,6 @@
       const stillShow = photorealWantShow(state, cameraHeightM(viewer));
       tuneGoogleTileset(tileset, cameraHeightM(viewer));
       setEllipsoidGlobeVisible(viewer, state, !stillShow);
-      try { tileset.preloadWhenHidden = !stillShow; } catch (e) {}
-      try { tileset.loadSiblings = !!stillShow; } catch (e) {}
-      try { tileset.cullRequestsWhileMoving = !stillShow; } catch (e) {}
-      try { tileset.immediatelyLoadDesiredLevelOfDetail = !!stillShow; } catch (e) {}
       try { tileset.show = !!stillShow; } catch (e) {}
       viewer.scene.primitives.add(tileset);
       state.googleTileset = tileset;
