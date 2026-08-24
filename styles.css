@@ -3542,63 +3542,95 @@ body[data-page="auth"] .app {
     height: 22px;
     color: inherit;
     z-index: 1;
+    flex-shrink: 0;
   }
-  .mobile-dock-ico svg { display: block; position: relative; z-index: 1; }
-  .dock-metal {
-    display: none;
-  }
+  .mobile-dock-ico svg { display: block; position: relative; z-index: 2; }
+  .dock-metal { display: none; }
   .mobile-dock-item.is-active .mobile-dock-ico {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background: color-mix(in srgb, #0c0c0e 62%, transparent);
+    background:
+      radial-gradient(circle at 50% 36%, #3d3d44 0%, #1c1c20 58%, #0a0a0c 100%);
+    box-shadow:
+      inset 0 1.5px 2px rgba(255, 255, 255, 0.22),
+      inset 0 -4px 7px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(255, 255, 255, 0.07);
+    color: #e6e6ea;
+  }
+  .mobile-dock-item.is-active .mobile-dock-ico svg {
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(0 0.5px 0 rgba(255, 255, 255, 0.35));
   }
   .mobile-dock-item.is-active .dock-metal {
     display: block;
     position: absolute;
-    inset: -3px;
+    inset: -4px;
     border-radius: 50%;
     pointer-events: none;
+    animation: an-metal-spin 7s linear infinite;
   }
-  .mobile-dock-item.is-active .dock-metal::before,
-  .mobile-dock-item.is-active .dock-metal::after {
-    content: "";
+  .dock-metal-bloom,
+  .dock-metal-ring,
+  .dock-metal-spec {
     position: absolute;
     inset: 0;
     border-radius: 50%;
+  }
+  .dock-metal-bloom {
+    inset: -6px;
     background: conic-gradient(
-      from 0deg,
-      #ff5a4a 0deg,
-      #ffd36a 55deg,
-      #7dffb3 115deg,
-      #5ad0ff 175deg,
-      #7a6bff 235deg,
-      #ff4ad8 300deg,
-      #ff5a4a 360deg
+      from 210deg,
+      transparent 0deg 250deg,
+      rgba(58, 125, 255, 0.0) 268deg,
+      rgba(90, 210, 255, 0.55) 292deg,
+      rgba(255, 255, 255, 0.85) 318deg,
+      rgba(255, 210, 90, 0.55) 338deg,
+      rgba(255, 80, 50, 0.35) 352deg,
+      transparent 360deg
     );
-    animation: an-metal-spin 5.6s linear infinite;
+    filter: blur(9px) saturate(1.5);
+    opacity: 0.85;
   }
-  .mobile-dock-item.is-active .dock-metal::before {
-    inset: -4px;
-    filter: blur(8px) saturate(1.4);
-    opacity: 0.5;
+  .dock-metal-ring {
+    background: conic-gradient(
+      from 210deg,
+      transparent 0deg 255deg,
+      #2f6bff 278deg,
+      #7dffff 298deg,
+      #ffffff 318deg,
+      #ffe27a 334deg,
+      #ff5a32 350deg,
+      transparent 360deg
+    );
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.4px), #000 calc(100% - 1.15px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2.4px), #000 calc(100% - 1.15px));
+    filter: contrast(1.25) saturate(1.35);
   }
-  .mobile-dock-item.is-active .dock-metal::after {
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.15px), #000 calc(100% - 1.25px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2.15px), #000 calc(100% - 1.25px));
-    filter: saturate(1.45) contrast(1.2);
+  .dock-metal-spec {
+    background: conic-gradient(
+      from 210deg,
+      transparent 0deg 300deg,
+      rgba(255, 255, 255, 0.0) 308deg,
+      #fff 322deg,
+      rgba(255, 255, 255, 0.0) 336deg,
+      transparent 360deg
+    );
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.1px), #000 calc(100% - 0.9px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2.1px), #000 calc(100% - 0.9px));
+    filter: blur(0.3px);
   }
   html:not([data-theme="dark"]) .mobile-dock-item.is-active .mobile-dock-ico {
-    background: color-mix(in srgb, #121214 18%, transparent);
+    background:
+      radial-gradient(circle at 50% 36%, #4a4a52 0%, #242428 58%, #121214 100%);
+    color: #f2f2f4;
   }
   @keyframes an-metal-spin {
     to { transform: rotate(360deg); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .mobile-dock-item.is-active .dock-metal::before,
-    .mobile-dock-item.is-active .dock-metal::after {
-      animation: none;
-    }
+    .mobile-dock-item.is-active .dock-metal { animation: none; }
   }
   .mobile-dock-item.is-active {
     flex: 2.2 1 auto;
