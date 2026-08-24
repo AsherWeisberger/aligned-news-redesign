@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an156";
+  var DATA_URL = "live-data.json?v=an157";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -1980,6 +1980,101 @@
 
 
 
+
+  var dockMetalRaf = 0;
+
+  function paintDockMetal(cv, sec) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var css = cv.clientWidth || 40;
+    var need = Math.round(css * dpr);
+    if (cv.width !== need || cv.height !== need) {
+      cv.width = need;
+      cv.height = need;
+    }
+    var ctx = cv.getContext("2d");
+    if (!ctx) return;
+    var w = cv.width;
+    var cx = w / 2;
+    var r = w * 0.37;
+    var thick = w * 0.145;
+    ctx.clearRect(0, 0, w, w);
+    ctx.save();
+    ctx.translate(cx, cx);
+
+    ctx.lineCap = "round";
+    ctx.lineWidth = thick;
+    var body = ctx.createLinearGradient(-r, -r, r, r);
+    body.addColorStop(0, "#8a8a94");
+    body.addColorStop(0.28, "#2a2a30");
+    body.addColorStop(0.5, "#d8d8e0");
+    body.addColorStop(0.72, "#1c1c22");
+    body.addColorStop(1, "#6a6a72");
+    ctx.strokeStyle = body;
+    ctx.beginPath();
+    ctx.arc(0, 0, r, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.lineWidth = thick * 0.28;
+    ctx.strokeStyle = "rgba(255,255,255,0.28)";
+    ctx.beginPath();
+    ctx.arc(0, 0, r - thick * 0.32, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle = "rgba(0,0,0,0.45)";
+    ctx.beginPath();
+    ctx.arc(0, 0, r + thick * 0.28, 0, Math.PI * 2);
+    ctx.stroke();
+
+    var a = (sec / 3.35) * Math.PI * 2;
+    ctx.rotate(a);
+    ctx.globalCompositeOperation = "lighter";
+
+    ctx.shadowBlur = w * 0.1;
+    ctx.lineWidth = thick * 0.72;
+    ctx.shadowColor = "rgba(0,210,255,0.65)";
+    ctx.strokeStyle = "rgba(0, 220, 255, 0.55)";
+    ctx.beginPath();
+    ctx.arc(-dpr, -dpr, r, -0.62, 0.08);
+    ctx.stroke();
+
+    ctx.shadowColor = "rgba(255,80,40,0.55)";
+    ctx.strokeStyle = "rgba(255, 90, 40, 0.5)";
+    ctx.beginPath();
+    ctx.arc(dpr, dpr, r, -0.08, 0.62);
+    ctx.stroke();
+
+    ctx.shadowColor = "#fff";
+    ctx.shadowBlur = w * 0.18;
+    ctx.lineWidth = thick * 0.5;
+    ctx.strokeStyle = "rgba(255,255,255,0.98)";
+    ctx.beginPath();
+    ctx.arc(0, 0, r, -0.28, 0.28);
+    ctx.stroke();
+
+    ctx.shadowBlur = w * 0.08;
+    ctx.lineWidth = thick * 0.4;
+    ctx.strokeStyle = "rgba(255,255,255,0.35)";
+    ctx.beginPath();
+    ctx.arc(0, 0, r, Math.PI - 0.22, Math.PI + 0.22);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  function startDockMetal() {
+    if (dockMetalRaf) return;
+    function tick(now) {
+      var cvs = document.querySelectorAll(".dock-metal-cv");
+      if (!cvs.length) {
+        dockMetalRaf = 0;
+        return;
+      }
+      var sec = now / 1000;
+      for (var i = 0; i < cvs.length; i++) paintDockMetal(cvs[i], sec);
+      dockMetalRaf = requestAnimationFrame(tick);
+    }
+    dockMetalRaf = requestAnimationFrame(tick);
+  }
+
   function dockIcon(id, filled) {
     var icons = {
       today: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>',
@@ -2147,7 +2242,9 @@
             return (
               '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
               (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
-              '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
+              '<span class="mobile-dock-ico' + (active ? " is-metal" : "") + '">' +
+              (active ? '<canvas class="dock-metal-cv" width="80" height="80" aria-hidden="true"></canvas>' : "") +
+              dockIcon(item.id, active) + "</span>" +
               '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
               "</a>"
             );
@@ -2160,6 +2257,7 @@
       "</div>";
     if (wasOpen) dock.classList.add("is-open");
     pinMobileDockLayout(dock);
+    startDockMetal();
     if (!dock.dataset.wired) {
       dock.dataset.wired = "1";
       dock.addEventListener("click", function (e) {
