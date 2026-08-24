@@ -3547,29 +3547,28 @@ body[data-page="auth"] .app {
   .mobile-dock-ico svg { display: block; position: relative; z-index: 2; }
   .dock-metal { display: none; }
   .mobile-dock-item.is-active .mobile-dock-ico {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background:
-      radial-gradient(circle at 50% 36%, #3d3d44 0%, #1c1c20 58%, #0a0a0c 100%);
+      radial-gradient(circle at 50% 42%, #3a3a42 0 46%, #16161a 54% 100%);
     box-shadow:
-      inset 0 1.5px 2px rgba(255, 255, 255, 0.22),
-      inset 0 -4px 7px rgba(0, 0, 0, 0.55),
-      0 0 0 1px rgba(255, 255, 255, 0.07);
-    color: #e6e6ea;
+      inset 0 1px 2px rgba(255, 255, 255, 0.28),
+      inset 0 -3px 6px rgba(0, 0, 0, 0.55);
+    color: #ececf0;
   }
   .mobile-dock-item.is-active .mobile-dock-ico svg {
-    width: 16px;
-    height: 16px;
-    filter: drop-shadow(0 0.5px 0 rgba(255, 255, 255, 0.35));
+    width: 15px;
+    height: 15px;
+    filter: drop-shadow(0 0.5px 0 rgba(255, 255, 255, 0.4));
   }
   .mobile-dock-item.is-active .dock-metal {
     display: block;
     position: absolute;
-    inset: -4px;
+    inset: -1px;
     border-radius: 50%;
     pointer-events: none;
-    animation: an-metal-spin 7s linear infinite;
+    animation: an-metal-spin 3.4s linear infinite;
   }
   .dock-metal-bloom,
   .dock-metal-ring,
@@ -3579,52 +3578,63 @@ body[data-page="auth"] .app {
     border-radius: 50%;
   }
   .dock-metal-bloom {
-    inset: -6px;
+    inset: -7px;
     background: conic-gradient(
-      from 210deg,
-      transparent 0deg 250deg,
-      rgba(58, 125, 255, 0.0) 268deg,
-      rgba(90, 210, 255, 0.55) 292deg,
-      rgba(255, 255, 255, 0.85) 318deg,
-      rgba(255, 210, 90, 0.55) 338deg,
-      rgba(255, 80, 50, 0.35) 352deg,
-      transparent 360deg
+      from 0deg,
+      #2f6bff,
+      #00e8ff,
+      #5dff8a,
+      #ffe14d,
+      #ff6a2a,
+      #ff3d8a,
+      #a855ff,
+      #2f6bff
     );
-    filter: blur(9px) saturate(1.5);
-    opacity: 0.85;
+    -webkit-mask: radial-gradient(farthest-side, transparent 48%, #000 58% 78%, transparent 88%);
+            mask: radial-gradient(farthest-side, transparent 48%, #000 58% 78%, transparent 88%);
+    filter: blur(7px) saturate(1.7);
+    opacity: 0.8;
   }
   .dock-metal-ring {
-    background: conic-gradient(
-      from 210deg,
-      transparent 0deg 255deg,
-      #2f6bff 278deg,
-      #7dffff 298deg,
-      #ffffff 318deg,
-      #ffe27a 334deg,
-      #ff5a32 350deg,
-      transparent 360deg
-    );
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.4px), #000 calc(100% - 1.15px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2.4px), #000 calc(100% - 1.15px));
-    filter: contrast(1.25) saturate(1.35);
+    background:
+      radial-gradient(circle at 50% 50%, transparent 52%, rgba(255,255,255,0.22) 58%, transparent 66%),
+      conic-gradient(
+        from 0deg,
+        #1a4dff,
+        #00e5ff,
+        #4dff88,
+        #ffe14d,
+        #ff7a2a,
+        #ff3d7a,
+        #b24dff,
+        #1a4dff
+      );
+    -webkit-mask: radial-gradient(farthest-side, transparent 54%, #000 58% 74%, transparent 78%);
+            mask: radial-gradient(farthest-side, transparent 54%, #000 58% 74%, transparent 78%);
+    filter: contrast(1.15) saturate(1.45);
   }
   .dock-metal-spec {
     background: conic-gradient(
-      from 210deg,
-      transparent 0deg 300deg,
-      rgba(255, 255, 255, 0.0) 308deg,
-      #fff 322deg,
-      rgba(255, 255, 255, 0.0) 336deg,
-      transparent 360deg
+      from 0deg,
+      transparent 0deg,
+      transparent 38deg,
+      rgba(255,255,255,0) 48deg,
+      #fff 62deg,
+      rgba(255,255,255,0) 76deg,
+      transparent 88deg 200deg,
+      rgba(255,255,255,0) 214deg,
+      rgba(255,255,255,0.85) 228deg,
+      rgba(255,255,255,0) 242deg,
+      transparent 256deg 360deg
     );
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.1px), #000 calc(100% - 0.9px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2.1px), #000 calc(100% - 0.9px));
-    filter: blur(0.3px);
+    -webkit-mask: radial-gradient(farthest-side, transparent 55%, #000 59% 73%, transparent 77%);
+            mask: radial-gradient(farthest-side, transparent 55%, #000 59% 73%, transparent 77%);
+    filter: blur(0.4px);
   }
   html:not([data-theme="dark"]) .mobile-dock-item.is-active .mobile-dock-ico {
     background:
-      radial-gradient(circle at 50% 36%, #4a4a52 0%, #242428 58%, #121214 100%);
-    color: #f2f2f4;
+      radial-gradient(circle at 50% 42%, #45454e 0 46%, #1c1c20 54% 100%);
+    color: #f4f4f6;
   }
   @keyframes an-metal-spin {
     to { transform: rotate(360deg); }
