@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an158";
+  var DATA_URL = "live-data.json?v=an159";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -1983,33 +1983,23 @@
 
   var dockMetalRaf = 0;
 
-  function stadiumPoint(W, H, dist) {
-    var r = H / 2;
-    var straight = Math.max(0, W - H);
-    var halfCirc = Math.PI * r;
-    var per = 2 * straight + 2 * halfCirc;
-    if (per <= 0) return { x: W / 2, y: H / 2 };
-    var d = ((dist % per) + per) % per;
-    if (d < straight) return { x: r + d, y: 0 };
-    d -= straight;
-    if (d < halfCirc) {
-      var a = -Math.PI / 2 + d / r;
-      return { x: r + straight + r * Math.cos(a), y: r + r * Math.sin(a) };
-    }
-    d -= halfCirc;
-    if (d < straight) return { x: r + straight - d, y: H };
-    d -= straight;
-    var a2 = Math.PI / 2 + d / r;
-    return { x: r + r * Math.cos(a2), y: r + r * Math.sin(a2) };
+  function stadiumPath(ctx, x, y, w, h) {
+    var r = Math.max(0.5, h / 2);
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.arc(x + w - r, y + r, r, -Math.PI / 2, Math.PI / 2);
+    ctx.lineTo(x + r, y + h);
+    ctx.arc(x + r, y + r, r, Math.PI / 2, -Math.PI / 2);
+    ctx.closePath();
   }
 
   function paintDockMetal(cv, sec) {
     var host = cv.parentElement;
     if (!host) return;
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var cssW = host.offsetWidth + 10;
-    var cssH = host.offsetHeight + 10;
-    if (cssW < 8 || cssH < 8) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 3);
+    var cssW = host.offsetWidth + 12;
+    var cssH = host.offsetHeight + 12;
+    if (cssW < 12 || cssH < 12) return;
     cv.style.width = cssW + "px";
     cv.style.height = cssH + "px";
     var needW = Math.round(cssW * dpr);
@@ -2018,75 +2008,63 @@
       cv.width = needW;
       cv.height = needH;
     }
-    var ctx = cv.getContext("2d");
+    var ctx = cv.getContext("2d", { alpha: true });
     if (!ctx) return;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cssW, cssH);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
 
-    var pad = 5;
+    var pad = 6;
     var W = cssW - pad * 2;
     var H = cssH - pad * 2;
-    var thick = 4.4;
-    var r = H / 2;
-    var straight = Math.max(0, W - H);
-    var per = 2 * straight + Math.PI * H;
-    var n = 128;
+    var tube = Math.max(4.5, H * 0.13);
+    var cx = pad + W / 2;
+    var cy = pad + H / 2;
+
     ctx.save();
-    ctx.translate(pad, pad);
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-
-    ctx.lineWidth = thick;
     ctx.beginPath();
-    for (var i = 0; i <= n; i++) {
-      var p = stadiumPoint(W, H, (i / n) * per);
-      if (i === 0) ctx.moveTo(p.x, p.y);
-      else ctx.lineTo(p.x, p.y);
-    }
-    var g = ctx.createLinearGradient(0, 0, W, H);
-    g.addColorStop(0, "#8a8a94");
-    g.addColorStop(0.28, "#2a2a32");
-    g.addColorStop(0.5, "#dcdce4");
-    g.addColorStop(0.72, "#1c1c22");
-    g.addColorStop(1, "#74747e");
-    ctx.strokeStyle = g;
-    ctx.stroke();
+    stadiumPath(ctx, pad, pad, W, H);
+    stadiumPath(ctx, pad + tube, pad + tube, W - tube * 2, H - tube * 2);
+    ctx.clip("evenodd");
 
-    ctx.lineWidth = thick * 0.28;
-    ctx.strokeStyle = "rgba(255,255,255,0.25)";
+    var body = ctx.createLinearGradient(pad, pad, pad + W, pad + H);
+    body.addColorStop(0, "#c8c8d2");
+    body.addColorStop(0.22, "#3a3a42");
+    body.addColorStop(0.48, "#f2f2f6");
+    body.addColorStop(0.7, "#1a1a20");
+    body.addColorStop(1, "#9a9aa4");
+    ctx.fillStyle = body;
+    ctx.fillRect(0, 0, cssW, cssH);
+
+    var ang = ((sec / 3.4) * Math.PI * 2) % (Math.PI * 2);
+    var shine = ctx.createConicGradient(ang, cx, cy);
+    shine.addColorStop(0.0, "rgba(255,255,255,0)");
+    shine.addColorStop(0.04, "rgba(0, 210, 255, 0.0)");
+    shine.addColorStop(0.055, "rgba(0, 230, 255, 0.95)");
+    shine.addColorStop(0.075, "rgba(255, 255, 255, 1)");
+    shine.addColorStop(0.095, "rgba(255, 200, 70, 0.95)");
+    shine.addColorStop(0.115, "rgba(255, 70, 40, 0.85)");
+    shine.addColorStop(0.14, "rgba(255,255,255,0)");
+    shine.addColorStop(0.48, "rgba(255,255,255,0)");
+    shine.addColorStop(0.52, "rgba(255,255,255,0.22)");
+    shine.addColorStop(0.56, "rgba(255,255,255,0)");
+    shine.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.fillStyle = shine;
+    ctx.fillRect(0, 0, cssW, cssH);
+    ctx.restore();
+
+    ctx.save();
     ctx.beginPath();
-    for (var j = 0; j <= n; j++) {
-      var p2 = stadiumPoint(W, H, (j / n) * per);
-      if (j === 0) ctx.moveTo(p2.x, p2.y);
-      else ctx.lineTo(p2.x, p2.y);
-    }
+    stadiumPath(ctx, pad, pad, W, H);
+    ctx.strokeStyle = "rgba(255,255,255,0.55)";
+    ctx.lineWidth = 1;
     ctx.stroke();
-
-    function strokeWindow(center01, width01, color, blur, lw) {
-      var start = (center01 - width01 / 2) * per;
-      var end = (center01 + width01 / 2) * per;
-      ctx.shadowColor = color;
-      ctx.shadowBlur = blur;
-      ctx.strokeStyle = color;
-      ctx.lineWidth = lw;
-      ctx.beginPath();
-      var steps = 28;
-      for (var s = 0; s <= steps; s++) {
-        var sp = stadiumPoint(W, H, start + ((end - start) * s) / steps);
-        if (s === 0) ctx.moveTo(sp.x, sp.y);
-        else ctx.lineTo(sp.x, sp.y);
-      }
-      ctx.stroke();
-    }
-
-    ctx.globalCompositeOperation = "lighter";
-    var c1 = (sec / 3.35) % 1;
-    var c2 = (c1 + 0.5) % 1;
-    strokeWindow(c1, 0.14, "rgba(0,220,255,0.7)", 10, thick * 0.75);
-    strokeWindow(c1 + 0.035, 0.08, "rgba(255,90,40,0.55)", 8, thick * 0.7);
-    strokeWindow(c1, 0.07, "rgba(255,255,255,0.98)", 14, thick * 0.5);
-    strokeWindow(c2, 0.09, "rgba(255,255,255,0.32)", 7, thick * 0.4);
-    ctx.shadowBlur = 0;
+    ctx.beginPath();
+    stadiumPath(ctx, pad + tube, pad + tube, W - tube * 2, H - tube * 2);
+    ctx.strokeStyle = "rgba(0,0,0,0.55)";
+    ctx.lineWidth = 1;
+    ctx.stroke();
     ctx.restore();
   }
 
