@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an157";
+  var DATA_URL = "live-data.json?v=an158";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -1983,80 +1983,110 @@
 
   var dockMetalRaf = 0;
 
+  function stadiumPoint(W, H, dist) {
+    var r = H / 2;
+    var straight = Math.max(0, W - H);
+    var halfCirc = Math.PI * r;
+    var per = 2 * straight + 2 * halfCirc;
+    if (per <= 0) return { x: W / 2, y: H / 2 };
+    var d = ((dist % per) + per) % per;
+    if (d < straight) return { x: r + d, y: 0 };
+    d -= straight;
+    if (d < halfCirc) {
+      var a = -Math.PI / 2 + d / r;
+      return { x: r + straight + r * Math.cos(a), y: r + r * Math.sin(a) };
+    }
+    d -= halfCirc;
+    if (d < straight) return { x: r + straight - d, y: H };
+    d -= straight;
+    var a2 = Math.PI / 2 + d / r;
+    return { x: r + r * Math.cos(a2), y: r + r * Math.sin(a2) };
+  }
+
   function paintDockMetal(cv, sec) {
+    var host = cv.parentElement;
+    if (!host) return;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var css = cv.clientWidth || 40;
-    var need = Math.round(css * dpr);
-    if (cv.width !== need || cv.height !== need) {
-      cv.width = need;
-      cv.height = need;
+    var cssW = host.offsetWidth + 10;
+    var cssH = host.offsetHeight + 10;
+    if (cssW < 8 || cssH < 8) return;
+    cv.style.width = cssW + "px";
+    cv.style.height = cssH + "px";
+    var needW = Math.round(cssW * dpr);
+    var needH = Math.round(cssH * dpr);
+    if (cv.width !== needW || cv.height !== needH) {
+      cv.width = needW;
+      cv.height = needH;
     }
     var ctx = cv.getContext("2d");
     if (!ctx) return;
-    var w = cv.width;
-    var cx = w / 2;
-    var r = w * 0.37;
-    var thick = w * 0.145;
-    ctx.clearRect(0, 0, w, w);
-    ctx.save();
-    ctx.translate(cx, cx);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cssW, cssH);
 
+    var pad = 5;
+    var W = cssW - pad * 2;
+    var H = cssH - pad * 2;
+    var thick = 4.4;
+    var r = H / 2;
+    var straight = Math.max(0, W - H);
+    var per = 2 * straight + Math.PI * H;
+    var n = 128;
+    ctx.save();
+    ctx.translate(pad, pad);
     ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+
     ctx.lineWidth = thick;
-    var body = ctx.createLinearGradient(-r, -r, r, r);
-    body.addColorStop(0, "#8a8a94");
-    body.addColorStop(0.28, "#2a2a30");
-    body.addColorStop(0.5, "#d8d8e0");
-    body.addColorStop(0.72, "#1c1c22");
-    body.addColorStop(1, "#6a6a72");
-    ctx.strokeStyle = body;
     ctx.beginPath();
-    ctx.arc(0, 0, r, 0, Math.PI * 2);
+    for (var i = 0; i <= n; i++) {
+      var p = stadiumPoint(W, H, (i / n) * per);
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    }
+    var g = ctx.createLinearGradient(0, 0, W, H);
+    g.addColorStop(0, "#8a8a94");
+    g.addColorStop(0.28, "#2a2a32");
+    g.addColorStop(0.5, "#dcdce4");
+    g.addColorStop(0.72, "#1c1c22");
+    g.addColorStop(1, "#74747e");
+    ctx.strokeStyle = g;
     ctx.stroke();
 
     ctx.lineWidth = thick * 0.28;
-    ctx.strokeStyle = "rgba(255,255,255,0.28)";
+    ctx.strokeStyle = "rgba(255,255,255,0.25)";
     ctx.beginPath();
-    ctx.arc(0, 0, r - thick * 0.32, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.strokeStyle = "rgba(0,0,0,0.45)";
-    ctx.beginPath();
-    ctx.arc(0, 0, r + thick * 0.28, 0, Math.PI * 2);
+    for (var j = 0; j <= n; j++) {
+      var p2 = stadiumPoint(W, H, (j / n) * per);
+      if (j === 0) ctx.moveTo(p2.x, p2.y);
+      else ctx.lineTo(p2.x, p2.y);
+    }
     ctx.stroke();
 
-    var a = (sec / 3.35) * Math.PI * 2;
-    ctx.rotate(a);
+    function strokeWindow(center01, width01, color, blur, lw) {
+      var start = (center01 - width01 / 2) * per;
+      var end = (center01 + width01 / 2) * per;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = blur;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lw;
+      ctx.beginPath();
+      var steps = 28;
+      for (var s = 0; s <= steps; s++) {
+        var sp = stadiumPoint(W, H, start + ((end - start) * s) / steps);
+        if (s === 0) ctx.moveTo(sp.x, sp.y);
+        else ctx.lineTo(sp.x, sp.y);
+      }
+      ctx.stroke();
+    }
+
     ctx.globalCompositeOperation = "lighter";
-
-    ctx.shadowBlur = w * 0.1;
-    ctx.lineWidth = thick * 0.72;
-    ctx.shadowColor = "rgba(0,210,255,0.65)";
-    ctx.strokeStyle = "rgba(0, 220, 255, 0.55)";
-    ctx.beginPath();
-    ctx.arc(-dpr, -dpr, r, -0.62, 0.08);
-    ctx.stroke();
-
-    ctx.shadowColor = "rgba(255,80,40,0.55)";
-    ctx.strokeStyle = "rgba(255, 90, 40, 0.5)";
-    ctx.beginPath();
-    ctx.arc(dpr, dpr, r, -0.08, 0.62);
-    ctx.stroke();
-
-    ctx.shadowColor = "#fff";
-    ctx.shadowBlur = w * 0.18;
-    ctx.lineWidth = thick * 0.5;
-    ctx.strokeStyle = "rgba(255,255,255,0.98)";
-    ctx.beginPath();
-    ctx.arc(0, 0, r, -0.28, 0.28);
-    ctx.stroke();
-
-    ctx.shadowBlur = w * 0.08;
-    ctx.lineWidth = thick * 0.4;
-    ctx.strokeStyle = "rgba(255,255,255,0.35)";
-    ctx.beginPath();
-    ctx.arc(0, 0, r, Math.PI - 0.22, Math.PI + 0.22);
-    ctx.stroke();
-
+    var c1 = (sec / 3.35) % 1;
+    var c2 = (c1 + 0.5) % 1;
+    strokeWindow(c1, 0.14, "rgba(0,220,255,0.7)", 10, thick * 0.75);
+    strokeWindow(c1 + 0.035, 0.08, "rgba(255,90,40,0.55)", 8, thick * 0.7);
+    strokeWindow(c1, 0.07, "rgba(255,255,255,0.98)", 14, thick * 0.5);
+    strokeWindow(c2, 0.09, "rgba(255,255,255,0.32)", 7, thick * 0.4);
+    ctx.shadowBlur = 0;
     ctx.restore();
   }
 
@@ -2242,9 +2272,8 @@
             return (
               '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
               (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
-              '<span class="mobile-dock-ico' + (active ? " is-metal" : "") + '">' +
-              (active ? '<canvas class="dock-metal-cv" width="80" height="80" aria-hidden="true"></canvas>' : "") +
-              dockIcon(item.id, active) + "</span>" +
+              (active ? '<canvas class="dock-metal-cv" aria-hidden="true"></canvas>' : "") +
+              '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
               '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
               "</a>"
             );

@@ -3535,36 +3535,21 @@ body[data-page="auth"] .app {
   }
   .mobile-dock-ico {
     position: relative;
+    z-index: 1;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: 22px;
     height: 22px;
     color: inherit;
     flex-shrink: 0;
   }
-  .mobile-dock-ico svg { display: block; position: relative; z-index: 1; }
-  .mobile-dock-ico.is-metal {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 50% 38%, #2f2f36 0%, #121214 72%);
-    box-shadow:
-      inset 0 1px 2px rgba(255, 255, 255, 0.2),
-      inset 0 -3px 6px rgba(0, 0, 0, 0.55);
-    color: #ececf0;
-  }
-  .mobile-dock-ico.is-metal svg {
-    width: 15px;
-    height: 15px;
-    filter: drop-shadow(0 0.5px 0 rgba(255,255,255,0.35));
-  }
+  .mobile-dock-ico svg { display: block; }
+  .mobile-dock-label { position: relative; z-index: 1; }
   .dock-metal-cv {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    left: -5px;
+    top: -5px;
     pointer-events: none;
+    z-index: 0;
   }
   .mobile-dock-item.is-active {
     flex: 2.2 1 auto;
