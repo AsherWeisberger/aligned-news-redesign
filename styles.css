@@ -3555,20 +3555,20 @@ body[data-page="auth"] .app {
     width: 0;
     height: 0;
     pointer-events: none;
-    z-index: 0;
+    z-index: 2;
   }
   .mobile-dock.is-morphing .mobile-dock-item:active {
     transform: none;
   }
   .mobile-dock-item.is-active {
     flex: 2.2 1 auto;
-    background: color-mix(in srgb, #fff 16%, transparent);
+    background: transparent;
     color: #fff;
     padding: 0 14px 0 11px;
     overflow: visible;
   }
   html:not([data-theme="dark"]) .mobile-dock-item.is-active {
-    background: var(--accent-soft);
+    background: transparent;
     color: var(--ink);
   }
   .mobile-dock-plus {

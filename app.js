@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an161";
+  var DATA_URL = "live-data.json?v=an162";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -2101,6 +2101,14 @@
     var sample = stadiumPoint(mw, mh, 0);
     var per = sample.per;
     var n = 120;
+
+    var dark = document.documentElement.getAttribute("data-theme") === "dark";
+    ctx.save();
+    ctx.beginPath();
+    stadiumPath(ctx, pad, pad, W, H);
+    ctx.fillStyle = dark ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.08)";
+    ctx.fill();
+    ctx.restore();
 
     ctx.save();
     ctx.beginPath();
