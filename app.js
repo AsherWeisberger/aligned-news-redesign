@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an159";
+  var DATA_URL = "live-data.json?v=an160";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -1993,6 +1993,83 @@
     ctx.closePath();
   }
 
+  function stadiumPoint(w, h, dist) {
+    var r = h / 2;
+    var straight = Math.max(0, w - h);
+    var halfCirc = Math.PI * r;
+    var per = 2 * straight + 2 * halfCirc;
+    if (per <= 0) return { x: w / 2, y: h / 2, per: 1 };
+    var d = ((dist % per) + per) % per;
+    var x, y;
+    if (d < straight) {
+      x = r + d;
+      y = 0;
+    } else if ((d -= straight) < halfCirc) {
+      var a = -Math.PI / 2 + d / r;
+      x = r + straight + r * Math.cos(a);
+      y = r + r * Math.sin(a);
+    } else if ((d -= halfCirc) < straight) {
+      x = r + straight - d;
+      y = h;
+    } else {
+      d -= straight;
+      var a2 = Math.PI / 2 + d / r;
+      x = r + r * Math.cos(a2);
+      y = r + r * Math.sin(a2);
+    }
+    return { x: x, y: y, per: per };
+  }
+
+  function wrapDist(a, b) {
+    var d = Math.abs(a - b) % 1;
+    return d > 0.5 ? 1 - d : d;
+  }
+
+  function metalColor(u, sec) {
+    var flow = u - sec / 4.8;
+    var k = 0.5 + 0.5 * Math.sin(flow * Math.PI * 2);
+    var k2 = 0.5 + 0.5 * Math.sin(flow * Math.PI * 4 + 0.8);
+    var v = 34 + k * 162 + k2 * 24;
+    var r = v;
+    var g = v;
+    var b = v + 6;
+
+    var peak = (sec / 2.85 + 0.055 * Math.sin(sec * 1.37) + 0.025 * Math.sin(sec * 2.63)) % 1;
+    if (peak < 0) peak += 1;
+    var breathe = 0.5 + 0.5 * Math.sin(sec * 2.05);
+    var width = 0.05 + 0.045 * breathe;
+    var d = wrapDist(u, peak);
+    var spec = Math.pow(Math.max(0, 1 - d / width), 2.15);
+    var signed = u - peak;
+    if (signed > 0.5) signed -= 1;
+    if (signed < -0.5) signed += 1;
+
+    if (spec > 0.015) {
+      r = r + (255 - r) * spec;
+      g = g + (255 - g) * spec;
+      b = b + (255 - b) * spec;
+      var fringe = spec * (1 - spec) * 3.4;
+      if (fringe > 0) {
+        if (signed < 0) {
+          r = Math.max(0, r - fringe * 28);
+          g = Math.min(255, g + fringe * 36);
+          b = Math.min(255, b + fringe * 95);
+        } else {
+          r = Math.min(255, r + fringe * 95);
+          g = Math.min(255, g + fringe * 22);
+          b = Math.max(0, b - fringe * 38);
+        }
+      }
+    }
+
+    var peak2 = (peak + 0.5) % 1;
+    var spec2 = Math.pow(Math.max(0, 1 - wrapDist(u, peak2) / 0.13), 2) * 0.2;
+    r = r + (255 - r) * spec2;
+    g = g + (255 - g) * spec2;
+    b = b + (255 - b) * spec2;
+    return "rgb(" + (r | 0) + "," + (g | 0) + "," + (b | 0) + ")";
+  }
+
   function paintDockMetal(cv, sec) {
     var host = cv.parentElement;
     if (!host) return;
@@ -2019,8 +2096,13 @@
     var W = cssW - pad * 2;
     var H = cssH - pad * 2;
     var tube = Math.max(4.5, H * 0.13);
-    var cx = pad + W / 2;
-    var cy = pad + H / 2;
+    var ox = pad + tube / 2;
+    var oy = pad + tube / 2;
+    var mw = Math.max(1, W - tube);
+    var mh = Math.max(1, H - tube);
+    var sample = stadiumPoint(mw, mh, 0);
+    var per = sample.per;
+    var n = 120;
 
     ctx.save();
     ctx.beginPath();
@@ -2028,30 +2110,23 @@
     stadiumPath(ctx, pad + tube, pad + tube, W - tube * 2, H - tube * 2);
     ctx.clip("evenodd");
 
-    var body = ctx.createLinearGradient(pad, pad, pad + W, pad + H);
-    body.addColorStop(0, "#c8c8d2");
-    body.addColorStop(0.22, "#3a3a42");
-    body.addColorStop(0.48, "#f2f2f6");
-    body.addColorStop(0.7, "#1a1a20");
-    body.addColorStop(1, "#9a9aa4");
-    ctx.fillStyle = body;
+    ctx.fillStyle = "#2a2a30";
     ctx.fillRect(0, 0, cssW, cssH);
 
-    var ang = ((sec / 3.4) * Math.PI * 2) % (Math.PI * 2);
-    var shine = ctx.createConicGradient(ang, cx, cy);
-    shine.addColorStop(0.0, "rgba(255,255,255,0)");
-    shine.addColorStop(0.04, "rgba(0, 210, 255, 0.0)");
-    shine.addColorStop(0.055, "rgba(0, 230, 255, 0.95)");
-    shine.addColorStop(0.075, "rgba(255, 255, 255, 1)");
-    shine.addColorStop(0.095, "rgba(255, 200, 70, 0.95)");
-    shine.addColorStop(0.115, "rgba(255, 70, 40, 0.85)");
-    shine.addColorStop(0.14, "rgba(255,255,255,0)");
-    shine.addColorStop(0.48, "rgba(255,255,255,0)");
-    shine.addColorStop(0.52, "rgba(255,255,255,0.22)");
-    shine.addColorStop(0.56, "rgba(255,255,255,0)");
-    shine.addColorStop(1, "rgba(255,255,255,0)");
-    ctx.fillStyle = shine;
-    ctx.fillRect(0, 0, cssW, cssH);
+    ctx.lineCap = "butt";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = tube * 0.98;
+    var i;
+    for (i = 0; i < n; i++) {
+      var a = stadiumPoint(mw, mh, (i / n) * per);
+      var bpt = stadiumPoint(mw, mh, ((i + 1) / n) * per);
+      var u = i / n;
+      ctx.strokeStyle = metalColor(u, sec);
+      ctx.beginPath();
+      ctx.moveTo(ox + a.x, oy + a.y);
+      ctx.lineTo(ox + bpt.x, oy + bpt.y);
+      ctx.stroke();
+    }
     ctx.restore();
 
     ctx.save();
