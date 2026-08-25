@@ -788,7 +788,11 @@
     try {
       const scene = viewer && viewer.scene;
       if (!scene) return;
-      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
+      try {
+        var sa = scene.skyAtmosphere;
+        if (sa && typeof sa.setDynamicLighting !== 'function') scene.skyAtmosphere = undefined;
+        else if (sa) sa.show = false;
+      } catch (e) {}
       if (isSafariWebKit()) {
         try {
           if (scene.globe) {
@@ -807,7 +811,11 @@
       if (!scene || !scene.globe) return;
       const globe = scene.globe;
       const safari = isSafariWebKit();
-      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
+      try {
+        var sa = scene.skyAtmosphere;
+        if (sa && typeof sa.setDynamicLighting !== 'function') scene.skyAtmosphere = undefined;
+        else if (sa) sa.show = false;
+      } catch (e) {}
       globe.enableLighting = true;
       try { globe.dynamicAtmosphereLighting = true; } catch (e) {}
       try { globe.dynamicAtmosphereLightingFromSun = true; } catch (e) {}
@@ -873,7 +881,11 @@
       const scene = viewer && viewer.scene;
       if (!scene) return;
       try { if (scene.fog) { scene.fog.enabled = false; scene.fog.density = 0; } } catch (e) {}
-      try { if (scene.skyAtmosphere) scene.skyAtmosphere.show = false; } catch (e) {}
+      try {
+        var sa = scene.skyAtmosphere;
+        if (sa && typeof sa.setDynamicLighting !== 'function') scene.skyAtmosphere = undefined;
+        else if (sa) sa.show = false;
+      } catch (e) {}
       try {
         if (scene.globe) {
           scene.globe.show = false;
@@ -1309,8 +1321,8 @@
       terrainProvider: new Cesium.EllipsoidTerrainProvider(),
       shouldAnimate: true,
       scene3DOnly: true,
-      skyAtmosphere: true,
       useDefaultRenderLoop: true,
+      showRenderLoopErrors: false,
     };
     if (esriBase) viewerOpts.baseLayer = esriBase;
     let viewer;
@@ -1332,6 +1344,10 @@
     } catch (eImg) {}
     killPhoneAtmosphere(viewer);
     try { if (viewer.scene) viewer.scene.rethrowRenderErrors = false; } catch (eRethrow) {}
+    try {
+      var sa = viewer.scene && viewer.scene.skyAtmosphere;
+      if (sa && typeof sa.setDynamicLighting !== 'function') viewer.scene.skyAtmosphere = undefined;
+    } catch (eSky) {}
     try { configurePhoneAtmosphere(Cesium, viewer); } catch (eAtm) {}
     try {
       const globe = viewer.scene.globe;

@@ -3817,7 +3817,9 @@
       const scene = viewer && viewer.scene;
       if (!scene) return;
       try {
-        if (scene.skyAtmosphere) scene.skyAtmosphere.show = false;
+        var sa = scene.skyAtmosphere;
+        if (sa && typeof sa.setDynamicLighting !== 'function') scene.skyAtmosphere = undefined;
+        else if (sa) sa.show = false;
       } catch (e) {}
       if (isSafariWebKit()) {
         try {
@@ -6525,7 +6527,7 @@
             requestRenderMode: true,
             maximumRenderTimeChange: 2.0,
             scene3DOnly: true,
-            skyAtmosphere: true,
+            showRenderLoopErrors: false,
             useDefaultRenderLoop: false,
             baseLayer: esriBase,
           };
@@ -6547,6 +6549,10 @@
           }
 
           try { killSkyAtmosphere(viewer); } catch (e) {}
+          try {
+            var sa = viewer.scene && viewer.scene.skyAtmosphere;
+            if (sa && typeof sa.setDynamicLighting !== 'function') viewer.scene.skyAtmosphere = undefined;
+          } catch (eSky) {}
           try { viewer.useDefaultRenderLoop = false; if (viewer.scene) viewer.scene.rethrowRenderErrors = false; } catch (e) {}
           try { viewer.targetFrameRate = 60; } catch (eTf) {}
           state.viewer = viewer;
