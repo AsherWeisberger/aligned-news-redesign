@@ -180,13 +180,20 @@
     'uniform sampler2D colorTexture;',
     'in vec2 v_textureCoordinates;',
     'void main() {',
-    '  vec4 c = texture(colorTexture, v_textureCoordinates);',
-    '  float l = dot(c.rgb, vec3(0.22, 0.72, 0.06));',
-    '  float g = pow(clamp(l * 1.45, 0.0, 1.0), 0.82);',
-    '  float n = fract(sin(dot(v_textureCoordinates * 240.0, vec2(12.9898, 78.233))) * 43758.5453);',
-    '  g = clamp(g + (n - 0.5) * 0.07, 0.0, 1.0);',
-    '  float vig = smoothstep(0.95, 0.32, length(v_textureCoordinates - vec2(0.5)));',
-    '  out_FragColor = vec4(0.02, g, 0.08, 1.0) * vig;',
+    '  vec2 uv = v_textureCoordinates;',
+    '  vec2 c = uv * 2.0 - 1.0;',
+    '  float radius = length(c);',
+    '  float mask = pow(1.0 - smoothstep(0.58, 1.05, radius), 0.75);',
+    '  if (mask < 0.001) { out_FragColor = vec4(0.0, 0.0, 0.0, 1.0); return; }',
+    '  vec4 src = texture(colorTexture, uv);',
+    '  float l = dot(src.rgb, vec3(0.22, 0.72, 0.06));',
+    '  float g = pow(clamp(l * 1.65, 0.0, 1.0), 0.72);',
+    '  float n = fract(sin(dot(uv * 310.0, vec2(12.9898, 78.233))) * 43758.5453);',
+    '  g = clamp(g + (n - 0.5) * 0.11, 0.0, 1.0);',
+    '  float bloom = smoothstep(0.55, 1.0, g) * 0.28;',
+    '  float shade = max(0.0, 1.0 - radius * radius * 0.28);',
+    '  vec3 col = vec3(0.03 + bloom * 0.08, g + bloom, 0.06) * shade * mask;',
+    '  out_FragColor = vec4(col, 1.0);',
     '}',
   ].join('\n');
 
@@ -194,13 +201,26 @@
     'uniform sampler2D colorTexture;',
     'in vec2 v_textureCoordinates;',
     'void main() {',
-    '  vec4 c = texture(colorTexture, v_textureCoordinates);',
-    '  float l = pow(dot(c.rgb, vec3(0.299, 0.587, 0.114)), 0.72);',
-    '  vec3 cold = vec3(0.01, 0.02, 0.06);',
-    '  vec3 mid = vec3(0.78, 0.18, 0.02);',
-    '  vec3 hot = vec3(1.0, 0.94, 0.55);',
-    '  vec3 col = mix(cold, mid, clamp(l * 1.55, 0.0, 1.0));',
-    '  col = mix(col, hot, clamp((l - 0.52) * 2.3, 0.0, 1.0));',
+    '  vec4 src = texture(colorTexture, v_textureCoordinates);',
+    '  float t = pow(dot(src.rgb, vec3(0.299, 0.587, 0.114)), 0.78);',
+    '  t = clamp(t * 1.15, 0.0, 1.0);',
+    '  vec3 c0 = vec3(0.0, 0.0, 0.0);',
+    '  vec3 c1 = vec3(0.13, 0.0, 0.30);',
+    '  vec3 c2 = vec3(0.49, 0.0, 0.45);',
+    '  vec3 c3 = vec3(0.86, 0.10, 0.18);',
+    '  vec3 c4 = vec3(1.0, 0.55, 0.0);',
+    '  vec3 c5 = vec3(1.0, 0.91, 0.32);',
+    '  vec3 c6 = vec3(1.0, 1.0, 1.0);',
+    '  float s = t * 6.0;',
+    '  vec3 col;',
+    '  if (s < 1.0) col = mix(c0, c1, s);',
+    '  else if (s < 2.0) col = mix(c1, c2, s - 1.0);',
+    '  else if (s < 3.0) col = mix(c2, c3, s - 2.0);',
+    '  else if (s < 4.0) col = mix(c3, c4, s - 3.0);',
+    '  else if (s < 5.0) col = mix(c4, c5, s - 4.0);',
+    '  else col = mix(c5, c6, s - 5.0);',
+    '  float bands = abs(fract(t * 12.0) - 0.5);',
+    '  col *= mix(1.0, 0.82 + bands * 0.36, 0.22);',
     '  out_FragColor = vec4(col, 1.0);',
     '}',
   ].join('\n');
@@ -211,15 +231,19 @@
     'void main() {',
     '  vec2 uv = v_textureCoordinates;',
     '  vec2 center = uv - vec2(0.5);',
-    '  uv += center * dot(center, center) * 0.07;',
-    '  float r = texture(colorTexture, uv + vec2(0.0016, 0.0)).r;',
-    '  float g = texture(colorTexture, uv).g;',
-    '  float b = texture(colorTexture, uv - vec2(0.0016, 0.0)).b;',
-    '  float scan = 0.88 + 0.12 * sin(uv.y * 980.0);',
-    '  vec3 phos = vec3(r * 0.62, g * 1.08, b * 0.92) * scan;',
-    '  phos *= vec3(0.72, 1.08, 0.98);',
-    '  float vig = 1.0 - dot(center, center) * 0.85;',
-    '  out_FragColor = vec4(phos * vig, 1.0);',
+    '  float r2 = dot(center, center);',
+    '  vec2 distUV = center * (1.0 + r2 * 0.18) + vec2(0.5);',
+    '  if (distUV.x < 0.0 || distUV.x > 1.0 || distUV.y < 0.0 || distUV.y > 1.0) { out_FragColor = vec4(0.0, 0.0, 0.0, 1.0); return; }',
+    '  float ca = length(center) * 0.006;',
+    '  float r = texture(colorTexture, distUV + center * ca).r;',
+    '  float g = texture(colorTexture, distUV).g;',
+    '  float b = texture(colorTexture, distUV - center * ca).b;',
+    '  vec3 phos = vec3(r * 0.70, g * 1.08, b * 0.92);',
+    '  float scan = 0.82 + 0.18 * sin(distUV.y * 920.0);',
+    '  phos *= scan;',
+    '  vec2 vigUV = distUV * (1.0 - distUV);',
+    '  float vig = clamp(pow(vigUV.x * vigUV.y * 18.0, 0.28), 0.0, 1.0);',
+    '  out_FragColor = vec4(phos * vig * vec3(1.02, 1.0, 0.94), 1.0);',
     '}',
   ].join('\n');
 
@@ -4077,10 +4101,13 @@
       const tileOpts = googleTilesetCreateOptions();
       const apiOpts = { key: key, onlyUsingWithGoogleGeocoder: true };
       if (typeof Cesium.createGooglePhotorealistic3DTileset === 'function') {
-        try { tileset = await Cesium.createGooglePhotorealistic3DTileset(apiOpts, tileOpts); }
-        catch (e1) {
-          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, onlyUsingWithGoogleGeocoder: true }, tileOpts); }
-          catch (e1b) { tileset = null; }
+        try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ onlyUsingWithGoogleGeocoder: true }); }
+        catch (eSidhu) {
+          try { tileset = await Cesium.createGooglePhotorealistic3DTileset({ key: key, onlyUsingWithGoogleGeocoder: true }); }
+          catch (e1) {
+            try { tileset = await Cesium.createGooglePhotorealistic3DTileset(apiOpts, tileOpts); }
+            catch (e1b) { tileset = null; }
+          }
         }
       }
       if (!tileset && Cesium.Cesium3DTileset && Cesium.Cesium3DTileset.fromUrl) {
@@ -5726,7 +5753,7 @@
           });
         } catch (e) { resolve([]); }
       });
-    })(), 2500, []);
+    })(), 8000, []);
   }
 
   async function fetchSearchSuggests(query) {
@@ -5836,7 +5863,7 @@
     const phoP = (async function () {
       const rows = [];
       try {
-        const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&lang=en&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 2500);
+        const res = await fetchWithTimeout("https://photon.komoot.io/api/?limit=8&lang=en&q=" + encodeURIComponent(q), { headers: { Accept: "application/json" } }, 8000);
         if (res && res.ok) {
           const data = await res.json();
           const feats = (data && data.features) || [];
@@ -5848,7 +5875,7 @@
       } catch (e) {}
       return rows;
     })();
-    const pair = await Promise.all([settleTimeout(nomP, 2500, []), settleTimeout(phoP, 2500, [])]);
+    const pair = await Promise.all([nomP, phoP]);
     return [].concat(pair[0] || [], pair[1] || []);
   }
 
@@ -5883,8 +5910,8 @@
     const looksAddr = !!wantHouse || /\d/.test(q);
     const parsed = parseUsStreetQuery(q);
     const noCity = !!(wantHouse && !queryHasLocality(q));
-    const googleP = settleTimeout(geocodeGoogleJsAll(q).catch(function () { return []; }), 2500, []);
-    const osmP = settleTimeout(fetchOsmHits(q, parsed, noCity).catch(function () { return []; }), 2500, []);
+    const googleP = geocodeGoogleJsAll(q).catch(function () { return []; });
+    const osmP = fetchOsmHits(q, parsed, noCity).catch(function () { return []; });
     const pair = await Promise.all([googleP, osmP]);
     let rows = [].concat(pair[0] || [], pair[1] || []);
     if (wantHouse) {
@@ -6434,7 +6461,7 @@
       setSearching(true);
       setSearchMsg('Searching…');
       try {
-        const rows = await settleTimeout(geocodeAddressAll(q), 4000, []);
+        const rows = await geocodeAddressAll(q);
         const hit = (rows || []).find(function (r) { return r && Number.isFinite(Number(r.lat)); });
         if (hitsAreAmbiguous(rows, q) || (parseHouseNumber(q) && !queryHasLocality(q) && (rows || []).filter(function (r) { return r && Number.isFinite(Number(r.lat)); }).length > 1)) {
           applySearchRows(q, rows, { forceList: true });
@@ -6525,11 +6552,12 @@
             clearSearchPin(global.Cesium, stateRef.current.viewer, stateRef.current);
             return;
           }
-          if (stateRef.current.selectedId) {
+          if (stateRef.current._cockpitOn || stateRef.current.follow || stateRef.current.selectedId) {
             setSelected(null);
             setFollow(false);
             const C = global.Cesium;
             const st = stateRef.current;
+            try { unlockChaseCamera(C, st.viewer, st); } catch (eU) {}
             highlightSelected(st, '');
             if (C && st.viewer) showSelectionTrail(C, st.viewer, st, null);
             return;
@@ -6780,7 +6808,13 @@
                 }
               } catch (eT) {}
             } else {
-              try { unlockChaseCamera(Cesium, viewer, state); setFollow(false); } catch (eU) {}
+              try {
+                unlockChaseCamera(Cesium, viewer, state);
+                setFollow(false);
+                setSelected(null);
+                highlightSelected(state, '');
+                showSelectionTrail(Cesium, viewer, state, null);
+              } catch (eU) {}
             }
           }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
           handler.setInputAction((movement) => {
@@ -6802,22 +6836,13 @@
               if (ne && ne.label) { try { ne.label.show = true; } catch (e) {} }
             } catch (e) {}
           }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
-          const stopFollow = function () {
-            if (!followRef.current && !state.follow && !state._cockpitOn) return;
-            followRef.current = false;
-            unlockChaseCamera(Cesium, viewer, state);
-            setFollow(false);
-          };
-          try { handler.setInputAction(stopFollow, Cesium.ScreenSpaceEventType.WHEEL); } catch (e) {}
           try {
             const canvas = viewer.scene.canvas;
             canvas.addEventListener('wheel', function () {
               state._zoomLock = true;
               if (state._zoomLockTimer) global.clearTimeout(state._zoomLockTimer);
               state._zoomLockTimer = global.setTimeout(function () { state._zoomLock = false; }, 220);
-              stopFollow();
             }, { passive: true });
-            state._onWheelFollow = stopFollow;
           } catch (e) {}
           state.handler = handler;
 
