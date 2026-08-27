@@ -2863,7 +2863,9 @@
         try { ent.position = pos; } catch (eP) {}
         try {
           if (ent.billboard) {
-            ent.billboard.rotation = craftHeadingRad({ heading: pose.heading });
+            var shown = slewHeadingDeg(ent.__gm2SlewHdg, pose.heading, 9);
+            ent.__gm2SlewHdg = shown;
+            ent.billboard.rotation = craftHeadingRad({ heading: shown });
             ent.billboard.alignedAxis = craftAlignedAxis(Cesium, pos);
           }
         } catch (eB) {}
@@ -3398,6 +3400,7 @@
     if (!row) {
       upsertPolyline(Cesium, viewer, state, 'trailEntity', null);
       upsertPolyline(Cesium, viewer, state, 'selOrbitEntity', null);
+      upsertPolyline(Cesium, viewer, state, 'headingTickEntity', null);
       return;
     }
     if (row.type === 'flight' || row.type === 'ship' || row.type === 'military') {
@@ -3908,18 +3911,13 @@
       if (state) {
         try { if (state.bloomStage) state.bloomStage.enabled = false; } catch (e) {}
         try { if (state.fxaaStage) state.fxaaStage.enabled = true; } catch (e) {}
-        const sensors = state.sensorStages || {};
-        ['nvg', 'flir', 'crt'].forEach(function (k) {
-          if (sensors[k]) {
-            try { sensors[k].enabled = false; } catch (e2) {}
-          }
-        });
+        try { applySensorSkin(state, (state && state.skin) || 'eo'); } catch (eSkin) {}
       }
     } catch (e) {}
   }
 
   const GOOGLE_TILES_CACHE_BYTES = 512 * 1024 * 1024;
-  const GOOGLE_TILES_SSE = 1.0;
+  const GOOGLE_TILES_SSE = 0.5;
   const PHOTOREAL_PREFETCH_M = 1e12;
   const PHOTOREAL_UNLOAD_M = 1e12;
   const PHOTOREAL_SHOW_M = 1e12;
@@ -3928,9 +3926,9 @@
   function googleTilesetCreateOptions(extra) {
     const opts = {
       maximumScreenSpaceError: GOOGLE_TILES_SSE,
-      skipLevelOfDetail: true,
-      immediatelyLoadDesiredLevelOfDetail: false,
-      dynamicScreenSpaceError: true,
+      skipLevelOfDetail: false,
+      immediatelyLoadDesiredLevelOfDetail: true,
+      dynamicScreenSpaceError: false,
       loadSiblings: false,
       preloadWhenHidden: true,
       cullRequestsWhileMoving: true,
@@ -3981,10 +3979,10 @@
   function tuneGoogleTileset(tileset, heightM) {
     if (!tileset) return;
     const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
-    try { tileset.maximumScreenSpaceError = street ? 1.0 : 2.0; } catch (e) {}
-    try { tileset.dynamicScreenSpaceError = true; } catch (e) {}
-    try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = true; } catch (e) {}
-    try { tileset.immediatelyLoadDesiredLevelOfDetail = false; } catch (e) {}
+    try { tileset.maximumScreenSpaceError = street ? 0.5 : 1.0; } catch (e) {}
+    try { tileset.dynamicScreenSpaceError = !street; } catch (e) {}
+    try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = !street; } catch (e) {}
+    try { tileset.immediatelyLoadDesiredLevelOfDetail = !!street; } catch (e) {}
     try { tileset.loadSiblings = false; } catch (e) {}
     try { tileset.preloadWhenHidden = true; } catch (e) {}
     try { tileset.cullRequestsWhileMoving = true; } catch (e) {}
@@ -4153,7 +4151,7 @@
     const wantPrefetch = photorealWantPrefetch(h) || wantShow;
     if (wantShow) {
       applyStreetClarity(Cesium, viewer, 'City', state);
-      try { applySensorSkin(state, 'eo'); } catch (e) {}
+      try { applySensorSkin(state, (state && state.skin) || 'eo'); } catch (e) {}
       const ok = await tryEnableGooglePhotoreal(Cesium, viewer, state, { show: true });
       if (!ok) {
         state._photorealShown = false;
@@ -4274,20 +4272,22 @@
   }
 
   function applySensorSkin(state, skin) {
+    if (state) state.skin = skin || 'eo';
     const street = streetClarityActive(state);
     const stages = state.sensorStages || {};
+    const want = String(skin || 'eo');
     Object.keys(stages).forEach((k) => {
       if (k === 'bloom' || k === 'fxaa') return;
       if (stages[k]) {
-        try { stages[k].enabled = street ? false : (k === skin); } catch (e) {}
+        try { stages[k].enabled = (k === want && want !== 'eo'); } catch (e) {}
       }
     });
     if (state.bloomStage) {
-      try { state.bloomStage.enabled = !street; } catch (e) {}
+      try { state.bloomStage.enabled = !street && want === 'eo'; } catch (e) {}
     }
     try {
       const pps = state.viewer && state.viewer.scene && state.viewer.scene.postProcessStages;
-      if (pps && pps.bloom) pps.bloom.enabled = !street;
+      if (pps && pps.bloom) pps.bloom.enabled = !street && want === 'eo';
       if (pps && pps.fxaa) pps.fxaa.enabled = true;
       try { if (pps && typeof pps.fxaaEnabled !== 'undefined') pps.fxaaEnabled = true; } catch (eFx) {}
     } catch (e) {}
@@ -5376,7 +5376,7 @@
         let kind = "address";
         if (types.indexOf("locality") >= 0 || types.indexOf("administrative_area_level_1") >= 0 || types.indexOf("country") >= 0) kind = "city";
         else if (types.indexOf("route") >= 0) kind = "street";
-        best = { lat: lat, lng: lng, name: String(row.formatted_address || q), kind: kind, source: "google", locationType: lt };
+        best = { lat: lat, lng: lng, name: String(row.formatted_address || q), kind: kind, source: "google", locationType: lt, house: parseHouseNumber(row.formatted_address || q) || parseHouseNumber(q) };
       }
     }
     return best;
@@ -5885,14 +5885,20 @@
     const noCity = !!(wantHouse && !queryHasLocality(q));
     const googleP = settleTimeout(geocodeGoogleJsAll(q).catch(function () { return []; }), 2500, []);
     const osmP = settleTimeout(fetchOsmHits(q, parsed, noCity).catch(function () { return []; }), 2500, []);
-    let rows = [];
-    if (noCity) {
-      const pair = await Promise.all([googleP, osmP]);
-      rows = [].concat(pair[0] || [], pair[1] || []);
-      if (hitsAreAmbiguous(rows, q)) return mergeSuggestRows(syntheticSuggestRow(q), rows);
-    } else {
-      rows = await firstLatLngHits(googleP, osmP);
+    const pair = await Promise.all([googleP, osmP]);
+    let rows = [].concat(pair[0] || [], pair[1] || []);
+    if (wantHouse) {
+      rows.sort(function (a, b) {
+        const ah = housesEqual(a && a.house, wantHouse) ? 1 : 0;
+        const bh = housesEqual(b && b.house, wantHouse) ? 1 : 0;
+        const ar = String((a && a.locationType) || "") === "ROOFTOP" ? 1 : 0;
+        const br = String((b && b.locationType) || "") === "ROOFTOP" ? 1 : 0;
+        const ag = a && a.source === "google" ? 1 : 0;
+        const bg = b && b.source === "google" ? 1 : 0;
+        return (bh - ah) || (br - ar) || (bg - ag);
+      });
     }
+    if (noCity && hitsAreAmbiguous(rows, q)) return mergeSuggestRows(syntheticSuggestRow(q), rows);
     if (!rows.length && !looksAddr) {
       try {
         if (typeof geocodeDealCity === "function") {
@@ -5918,8 +5924,16 @@
   }
 
 
-  function flyToEntity(Cesium, viewer, row) {
+  function flyToEntity(Cesium, viewer, state, row) {
     if (!viewer || !row) return;
+    if (state && isCraftType(row.type)) {
+      try {
+        state.follow = true;
+        state.selectedId = String(row.id || state.selectedId || '');
+        chaseCockpitCamera(Cesium, viewer, state);
+      } catch (eC) {}
+      return;
+    }
     const lat = Number(row.lat);
     const lng = Number(row.lng);
     if (!validLatLng(lat, lng)) return;
@@ -5936,10 +5950,109 @@
     } catch (e) {}
   }
 
+  function slewHeadingDeg(current, target, maxStep) {
+    var from = ((Number(current) % 360) + 360) % 360;
+    var to = ((Number(target) % 360) + 360) % 360;
+    if (!Number.isFinite(from)) from = to;
+    if (!Number.isFinite(to)) return from;
+    var dh = to - from;
+    while (dh > 180) dh -= 360;
+    while (dh < -180) dh += 360;
+    var step = Number(maxStep);
+    if (!Number.isFinite(step) || step <= 0 || Math.abs(dh) <= step) return to;
+    return ((from + (dh > 0 ? step : -step)) + 360) % 360;
+  }
+
+  function rememberPoseTrail(row, pose) {
+    if (!row || !row.id || !pose) return;
+    var hist = trailHistory.get(row.id);
+    if (!hist) { hist = []; trailHistory.set(row.id, hist); }
+    var last = hist.length ? hist[hist.length - 1] : null;
+    if (last && Math.abs(last.lat - pose.lat) < 2e-6 && Math.abs(last.lng - pose.lng) < 2e-6) return;
+    hist.push({ lat: pose.lat, lng: pose.lng, altM: pose.altM, heading: pose.heading });
+    if (hist.length > 56) hist.shift();
+  }
+
+  function updateHeadingTick(Cesium, viewer, state, pose) {
+    if (!Cesium || !viewer || !state) return;
+    if (!pose || !Number.isFinite(pose.lat) || !Number.isFinite(pose.lng)) {
+      upsertPolyline(Cesium, viewer, state, 'headingTickEntity', null);
+      return;
+    }
+    var hdg = Number(pose.heading) || 0;
+    var rad = (hdg * Math.PI) / 180;
+    var len = Math.max(280, Math.min(1800, (Number(pose.altM) || 0) * 0.09 + 320));
+    var dLat = (len * Math.cos(rad)) / 111320;
+    var dLng = (len * Math.sin(rad)) / (111320 * Math.max(0.2, Math.cos(pose.lat * Math.PI / 180)));
+    var a = Cesium.Cartesian3.fromDegrees(pose.lng, pose.lat, Number(pose.altM) || 0);
+    var b = Cesium.Cartesian3.fromDegrees(pose.lng + dLng, pose.lat + dLat, Number(pose.altM) || 0);
+    if (!cartesianFinite(Cesium, a) || !cartesianFinite(Cesium, b)) return;
+    upsertPolyline(Cesium, viewer, state, 'headingTickEntity', [a, b], '#ffd60a', 2.4);
+  }
+
+  function unlockChaseCamera(Cesium, viewer, state) {
+    try { if (viewer) viewer.trackedEntity = undefined; } catch (e) {}
+    try { if (viewer && Cesium && Cesium.Matrix4) viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY); } catch (e2) {}
+    try {
+      if (Cesium && viewer) enableDesktopRotate(Cesium, viewer);
+    } catch (e3) {}
+    if (state) {
+      state.follow = false;
+      state._followId = '';
+      state._cockpitOn = false;
+      state._slewHdg = null;
+    }
+    try { if (Cesium && viewer && state) upsertPolyline(Cesium, viewer, state, 'headingTickEntity', null); } catch (e4) {}
+  }
+
+  function chaseCockpitCamera(Cesium, viewer, state) {
+    if (!state || !state.follow || !state.selectedId || !viewer || !Cesium) return false;
+    var ent = state.entityById.get(state.selectedId);
+    if (!ent || isDestroyedEnt(ent) || !ent.__gm2) return false;
+    var row = ent.__gm2;
+    if (!isCraftType(row.type)) return false;
+    var pose = interpolatedCraftPose(row, Date.now());
+    if (!pose || !Number.isFinite(pose.lat) || !Number.isFinite(pose.lng)) return false;
+    var shownHdg = slewHeadingDeg(state._slewHdg, pose.heading, 8);
+    state._slewHdg = shownHdg;
+    pose = { lat: pose.lat, lng: pose.lng, altM: pose.altM, heading: shownHdg };
+    var alt = Number(pose.altM) || 0;
+    var target = Cesium.Cartesian3.fromDegrees(pose.lng, pose.lat, alt);
+    if (!cartesianFinite(Cesium, target)) return false;
+    var headingRad = Cesium.Math.toRadians(shownHdg);
+    var range = Math.max(160, Math.min(2600, alt * 0.42 + 200));
+    var pitch = Cesium.Math.toRadians(-18);
+    try { viewer.trackedEntity = undefined; } catch (eT) {}
+    try {
+      var ssc = viewer.scene && viewer.scene.screenSpaceCameraController;
+      if (ssc) {
+        ssc.enableRotate = false;
+        ssc.enableTilt = false;
+        ssc.enableLook = false;
+        ssc.enableTranslate = false;
+        ssc.enableZoom = true;
+      }
+    } catch (eS) {}
+    try {
+      viewer.camera.lookAt(target, new Cesium.HeadingPitchRange(headingRad, pitch, range));
+    } catch (eL) { return false; }
+    try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false; } catch (eG) {}
+    state._cockpitOn = true;
+    state._followId = state.selectedId;
+    rememberPoseTrail(row, pose);
+    updateHeadingTick(Cesium, viewer, state, pose);
+    try { showSelectionTrail(Cesium, viewer, state, row); } catch (eTr) {}
+    return true;
+  }
+
   function lerpFollow(Cesium, viewer, state) {
     if (!state.follow || !state.selectedId || !viewer) return;
     const ent = state.entityById.get(state.selectedId);
     if (!ent || isDestroyedEnt(ent)) return;
+    if (ent.__gm2 && isCraftType(ent.__gm2.type)) {
+      chaseCockpitCamera(Cesium, viewer, state);
+      return;
+    }
     let pos = null;
     try {
       pos = ent.position?.getValue ? ent.position.getValue(viewer.clock.currentTime) : ent.position;
@@ -6056,6 +6169,7 @@
     state.trailEntity = null;
     state.selOrbitEntity = null;
     state.issOrbitEntity = null;
+    state.headingTickEntity = null;
     state.radarLayer = null;
     state.nightLayer = null;
     state.seamarkLayer = null;
@@ -6158,7 +6272,15 @@
       setSearchSuggests([]);
       setSuggestHi(-1);
     }, [selected]);
-    React.useEffect(() => { followRef.current = follow; stateRef.current.follow = follow; }, [follow]);
+    React.useEffect(() => {
+      followRef.current = follow;
+      stateRef.current.follow = follow;
+      const C = global.Cesium;
+      const st = stateRef.current;
+      if (!follow && C && st.viewer) {
+        try { unlockChaseCamera(C, st.viewer, st); } catch (eU) {}
+      }
+    }, [follow]);
     React.useEffect(() => { keysOpenRef.current = keysOpen; }, [keysOpen]);
     React.useEffect(() => { settingsOpenRef.current = settingsOpen; }, [settingsOpen]);
     React.useEffect(() => {
@@ -6645,17 +6767,20 @@
               setSelected(row);
               showSelectionTrail(Cesium, viewer, state, row);
               try {
-                if (isCraftType(row.type) && picked && picked.id) {
-                  viewer.trackedEntity = picked.id;
+                if (isCraftType(row.type)) {
+                  try { viewer.trackedEntity = undefined; } catch (eU0) {}
                   state.follow = true;
+                  state._cockpitOn = true;
                   followRef.current = true;
                   setFollow(true);
+                  chaseCockpitCamera(Cesium, viewer, state);
                 } else {
-                  viewer.trackedEntity = undefined;
+                  unlockChaseCamera(Cesium, viewer, state);
+                  setFollow(false);
                 }
               } catch (eT) {}
             } else {
-              try { viewer.trackedEntity = undefined; } catch (eU) {}
+              try { unlockChaseCamera(Cesium, viewer, state); setFollow(false); } catch (eU) {}
             }
           }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
           handler.setInputAction((movement) => {
@@ -6678,10 +6803,9 @@
             } catch (e) {}
           }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
           const stopFollow = function () {
-            if (!followRef.current && !state.follow) return;
+            if (!followRef.current && !state.follow && !state._cockpitOn) return;
             followRef.current = false;
-            state.follow = false;
-            state._followId = '';
+            unlockChaseCamera(Cesium, viewer, state);
             setFollow(false);
           };
           try { handler.setInputAction(stopFollow, Cesium.ScreenSpaceEventType.WHEEL); } catch (e) {}
@@ -7040,7 +7164,7 @@
 
     return React.createElement(
       'div',
-      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + ((streetMode || lod === 'City') ? 'eo' : skin) + (settingsOpen ? ' is-settings' : ''), role: 'dialog', 'aria-label': 'God mode earth view' },
+      { className: 'v4-godmode v4-gm2 v4-gm2-skin-' + skin + (settingsOpen ? ' is-settings' : ''), role: 'dialog', 'aria-label': 'God mode earth view' },
       React.createElement('div', { className: 'v4-godmode-backdrop', onClick: onClose }),
       React.createElement(
         'div',
@@ -7051,7 +7175,7 @@
           React.createElement('div', { className: 'v4-godmode-title' },
             React.createElement('span', { className: 'v4-godmode-eyebrow' }, 'Planetary ops'),
             React.createElement('strong', null, 'GOD MODE · CESIUM'),
-            React.createElement('span', { className: 'v4-godmode-sub' }, 'Phase 3e · lighting · bloom')
+            React.createElement('span', { className: 'v4-godmode-sub' }, 'an168 · photoreal · cockpit · NVG')
           ),
           React.createElement('div', { className: 'v4-godmode-stats' },
             [['flights', 'Flights'], ['sats', 'Sats'], ['ships', 'Ships'], ['launches', 'Launches'], ['events', 'Events'], ['weather', 'Wx']].map(([k, label]) =>
@@ -7103,6 +7227,19 @@
               },
                 React.createElement('span', { className: 'v4-godmode-layer-glyph' }, row.glyph),
                 React.createElement('span', null, row.label)
+              )
+            ),
+            React.createElement('div', { className: 'v4-gm2-settings-head' },
+              React.createElement('h4', null, 'Sensor')
+            ),
+            SKINS.map((s) =>
+              React.createElement('button', {
+                key: 'skin-' + s.id, type: 'button',
+                className: 'v4-godmode-layer' + (skin === s.id ? ' is-active' : ''),
+                onClick: () => setSkinAndApply(s.id),
+              },
+                React.createElement('span', null, s.label),
+                s.key ? React.createElement('span', { className: 'v4-gm2-keyhint' }, s.key) : null
               )
             )
           ) : null,
@@ -7267,14 +7404,24 @@
                   React.createElement('button', {
                     type: 'button',
                     className: 'v4-gm2-btn' + (follow ? ' is-active' : ''),
-                    onClick: () => setFollow((v) => !v),
-                  }, follow ? 'FOLLOW · ON' : 'FOLLOW'),
+                    onClick: () => {
+                      const next = !follow;
+                      setFollow(next);
+                      const C = global.Cesium;
+                      const st = stateRef.current;
+                      if (!C || !st.viewer) return;
+                      if (next) chaseCockpitCamera(C, st.viewer, st);
+                      else unlockChaseCamera(C, st.viewer, st);
+                    },
+                  }, (selected && (selected.type === 'flight' || selected.type === 'military' || selected.type === 'ship'))
+                    ? (follow ? 'COCKPIT · ON' : 'COCKPIT')
+                    : (follow ? 'FOLLOW · ON' : 'FOLLOW')),
                   React.createElement('button', {
                     type: 'button', className: 'v4-gm2-btn',
                     onClick: () => {
                       const Cesium = global.Cesium;
                       const viewer = stateRef.current.viewer;
-                      if (Cesium && viewer) flyToEntity(Cesium, viewer, selected);
+                      if (Cesium && viewer) flyToEntity(Cesium, viewer, stateRef.current, selected);
                     },
                   }, 'TRACK'),
                   React.createElement('button', {

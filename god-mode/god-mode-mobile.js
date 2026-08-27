@@ -238,6 +238,93 @@
     'https://unpkg.com/h3-js@3.7.2/dist/h3-js.js',
   ];
 
+
+  const PHONE_FLIGHT_RENDER_DELAY_MS = 40000;
+  const PHONE_SKINS = [
+    { id: 'eo', label: 'EO' },
+    { id: 'nvg', label: 'NVG' },
+    { id: 'flir', label: 'FLIR' },
+    { id: 'crt', label: 'CRT' },
+  ];
+  const PHONE_SHADER_NVG = [
+    'uniform sampler2D colorTexture;',
+    'in vec2 v_textureCoordinates;',
+    'void main() {',
+    '  vec4 c = texture(colorTexture, v_textureCoordinates);',
+    '  float l = dot(c.rgb, vec3(0.22, 0.72, 0.06));',
+    '  float g = pow(clamp(l * 1.45, 0.0, 1.0), 0.82);',
+    '  float n = fract(sin(dot(v_textureCoordinates * 240.0, vec2(12.9898, 78.233))) * 43758.5453);',
+    '  g = clamp(g + (n - 0.5) * 0.07, 0.0, 1.0);',
+    '  float vig = smoothstep(0.95, 0.32, length(v_textureCoordinates - vec2(0.5)));',
+    '  out_FragColor = vec4(0.02, g, 0.08, 1.0) * vig;',
+    '}',
+  ].join('\n');
+  const PHONE_SHADER_FLIR = [
+    'uniform sampler2D colorTexture;',
+    'in vec2 v_textureCoordinates;',
+    'void main() {',
+    '  vec4 c = texture(colorTexture, v_textureCoordinates);',
+    '  float l = pow(dot(c.rgb, vec3(0.299, 0.587, 0.114)), 0.72);',
+    '  vec3 cold = vec3(0.01, 0.02, 0.06);',
+    '  vec3 mid = vec3(0.78, 0.18, 0.02);',
+    '  vec3 hot = vec3(1.0, 0.94, 0.55);',
+    '  vec3 col = mix(cold, mid, clamp(l * 1.55, 0.0, 1.0));',
+    '  col = mix(col, hot, clamp((l - 0.52) * 2.3, 0.0, 1.0));',
+    '  out_FragColor = vec4(col, 1.0);',
+    '}',
+  ].join('\n');
+  const PHONE_SHADER_CRT = [
+    'uniform sampler2D colorTexture;',
+    'in vec2 v_textureCoordinates;',
+    'void main() {',
+    '  vec2 uv = v_textureCoordinates;',
+    '  vec2 center = uv - vec2(0.5);',
+    '  uv += center * dot(center, center) * 0.07;',
+    '  float r = texture(colorTexture, uv + vec2(0.0016, 0.0)).r;',
+    '  float g = texture(colorTexture, uv).g;',
+    '  float b = texture(colorTexture, uv - vec2(0.0016, 0.0)).b;',
+    '  float scan = 0.88 + 0.12 * sin(uv.y * 980.0);',
+    '  vec3 phos = vec3(r * 0.62, g * 1.08, b * 0.92) * scan;',
+    '  phos *= vec3(0.72, 1.08, 0.98);',
+    '  float vig = 1.0 - dot(center, center) * 0.85;',
+    '  out_FragColor = vec4(phos * vig, 1.0);',
+    '}',
+  ].join('\n');
+  function addPhoneSensorStages(Cesium, viewer, state) {
+    if (!Cesium || !viewer || !state) return;
+    state.sensorStages = { nvg: null, flir: null, crt: null };
+    state.skin = state.skin || 'eo';
+    const stages = viewer.scene && viewer.scene.postProcessStages;
+    if (!stages || !Cesium.PostProcessStage) return;
+    const addCustom = function (name, shader) {
+      try {
+        const st = stages.add(new Cesium.PostProcessStage({ fragmentShader: shader, name: 'gm-phone-' + name }));
+        st.enabled = false;
+        return st;
+      } catch (e) { return null; }
+    };
+    try {
+      if (Cesium.PostProcessStageLibrary && Cesium.PostProcessStageLibrary.createNightVisionStage) {
+        const nvg = stages.add(Cesium.PostProcessStageLibrary.createNightVisionStage());
+        nvg.enabled = false;
+        state.sensorStages.nvg = nvg;
+      }
+    } catch (e) {}
+    if (!state.sensorStages.nvg) state.sensorStages.nvg = addCustom('nvg', PHONE_SHADER_NVG);
+    state.sensorStages.flir = addCustom('flir', PHONE_SHADER_FLIR);
+    state.sensorStages.crt = addCustom('crt', PHONE_SHADER_CRT);
+  }
+  function applyPhoneSensorSkin(state, skin) {
+    if (!state) return;
+    state.skin = skin || 'eo';
+    const stages = state.sensorStages || {};
+    const want = String(state.skin || 'eo');
+    Object.keys(stages).forEach(function (k) {
+      if (stages[k]) {
+        try { stages[k].enabled = (k === want && want !== 'eo'); } catch (e) {}
+      }
+    });
+  }
   const GPSJAM_PHONE_CAP = 80;
   let h3LibPromise = null;
 
@@ -842,7 +929,7 @@
   const PHOTOREAL_PREFETCH_M = 1e12;
   const PHOTOREAL_SHOW_M = 1e12;
   const PHOTOREAL_HIDE_M = 1e12;
-  const GOOGLE_TILES_SSE = 1.0;
+  const GOOGLE_TILES_SSE = 0.5;
   function googleTilesetUrlOf(tileset) {
     try {
       const r = tileset && (tileset.resource || tileset._resource);
@@ -865,10 +952,10 @@
   function tunePhoneTileset(tileset, heightM) {
     if (!tileset) return;
     const street = Number.isFinite(Number(heightM)) && Number(heightM) < 2500;
-    try { tileset.maximumScreenSpaceError = street ? 0.8 : (Number(GOOGLE_TILES_SSE) || 1.0); } catch (e) {}
-    try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = false; } catch (e) {}
-    try { tileset.immediatelyLoadDesiredLevelOfDetail = false; } catch (e) {}
-    try { tileset.dynamicScreenSpaceError = true; } catch (e) {}
+    try { tileset.maximumScreenSpaceError = street ? 0.5 : (Number(GOOGLE_TILES_SSE) || 1.0); } catch (e) {}
+    try { if ('skipLevelOfDetail' in tileset) tileset.skipLevelOfDetail = !street; } catch (e) {}
+    try { tileset.immediatelyLoadDesiredLevelOfDetail = !!street; } catch (e) {}
+    try { tileset.dynamicScreenSpaceError = !street; } catch (e) {}
     try { tileset.loadSiblings = false; } catch (e) {}
     try { tileset.preloadWhenHidden = true; } catch (e) {}
     try { tileset.cullRequestsWhileMoving = true; } catch (e) {}
@@ -955,9 +1042,9 @@
       let tileset = null;
       const tileOpts = {
         maximumScreenSpaceError: GOOGLE_TILES_SSE,
-        skipLevelOfDetail: true,
-        immediatelyLoadDesiredLevelOfDetail: false,
-        dynamicScreenSpaceError: true,
+        skipLevelOfDetail: false,
+        immediatelyLoadDesiredLevelOfDetail: true,
+        dynamicScreenSpaceError: false,
         loadSiblings: false,
         preloadWhenHidden: true,
         cullRequestsWhileMoving: true,
@@ -1103,18 +1190,31 @@
         const dur = (Number(ms) || 0) / 1000;
         try { if (dur > 0.05 && state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eP) {}
         try {
-          if (dur > 0.05) viewer.camera.flyTo({
-            destination: dest,
-            orientation: { heading: 0, pitch: Cesium.Math.toRadians(altM < 4000 ? -35 : -89), roll: 0 },
-            duration: Math.max(dur, 2.2),
-            easingFunction: (Cesium.EasingFunction && Cesium.EasingFunction.CUBIC_IN_OUT) || undefined,
-            complete: function () {
-              try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eC) {}
-              try { enablePhonePhotoreal(Cesium, viewer, state, { show: true }); } catch (eP) {}
-              try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false; } catch (eG) {}
-            }
-          });
-          else viewer.camera.setView({ destination: dest, orientation: { heading: 0, pitch: Cesium.Math.toRadians(altM < 4000 ? -35 : -89), roll: 0 } });
+          const pitchDeg = altM < 4000 ? -32 : -89;
+          const finish = function () {
+            try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (eC) {}
+            try { enablePhonePhotoreal(Cesium, viewer, state, { show: true }); } catch (eP) {}
+            try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false; } catch (eG) {}
+          };
+          if (dur > 0.05 && altM <= 800 && Cesium.BoundingSphere && viewer.camera.flyToBoundingSphere) {
+            const target = Cesium.Cartesian3.fromDegrees(lng, lat, 12);
+            viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(target, 8), {
+              offset: new Cesium.HeadingPitchRange(0.4, Cesium.Math.toRadians(pitchDeg), Math.max(190, altM)),
+              duration: Math.max(dur, 2.2),
+              easingFunction: (Cesium.EasingFunction && Cesium.EasingFunction.CUBIC_IN_OUT) || undefined,
+              complete: finish,
+            });
+          } else if (dur > 0.05) {
+            viewer.camera.flyTo({
+              destination: dest,
+              orientation: { heading: 0, pitch: Cesium.Math.toRadians(pitchDeg), roll: 0 },
+              duration: Math.max(dur, 2.2),
+              easingFunction: (Cesium.EasingFunction && Cesium.EasingFunction.CUBIC_IN_OUT) || undefined,
+              complete: finish,
+            });
+          } else {
+            viewer.camera.setView({ destination: dest, orientation: { heading: 0, pitch: Cesium.Math.toRadians(pitchDeg), roll: 0 } });
+          }
         } catch (e) {}
         return adapter;
       },
@@ -1214,6 +1314,15 @@
           const ent = viewer.entities.add(def);
           ent.__gmPhone = row;
           pointEntities.push(ent);
+          if (craft) {
+            if (!state._craftHist) state._craftHist = new Map();
+            const id = String(row.id || (lat + ',' + lng));
+            let hist = state._craftHist.get(id);
+            if (!hist) { hist = []; state._craftHist.set(id, hist); }
+            hist.push({ t: Date.now(), lat: lat, lng: lng, altM: height, heading: heading });
+            if (hist.length > 6) hist.shift();
+            if (state._cockpitRow && String(state._cockpitRow.id || '') === id) state._cockpitRow = row;
+          }
         });
         return adapter;
       },
@@ -1226,6 +1335,91 @@
       pointsMerge: function () { return adapter; },
       pointsTransitionDuration: function () { return adapter; },
       pointLabel: function () { return adapter; },
+
+      startCockpit: function (row) {
+        state._cockpitRow = row || null;
+        state._cockpitOn = !!row;
+        state._slewHdg = Number(row && row.heading != null ? row.heading : (row && row.cog)) || 0;
+        try { if (state.pauseIdleSpin) state.pauseIdleSpin(); } catch (e) {}
+        adapter.tickCockpit();
+        return adapter;
+      },
+      stopCockpit: function () {
+        state._cockpitOn = false;
+        state._cockpitRow = null;
+        try { viewer.trackedEntity = undefined; } catch (e) {}
+        try { viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY); } catch (e2) {}
+        try {
+          const ssc = viewer.scene && viewer.scene.screenSpaceCameraController;
+          if (ssc) { ssc.enableRotate = true; ssc.enableTilt = true; ssc.enableZoom = true; ssc.enableLook = false; }
+        } catch (e3) {}
+        try { if (state._headingTick) { viewer.entities.remove(state._headingTick); state._headingTick = null; } } catch (e4) {}
+        try { if (state._trailEnt) { viewer.entities.remove(state._trailEnt); state._trailEnt = null; } } catch (e5) {}
+        return adapter;
+      },
+      tickCockpit: function () {
+        if (!state._cockpitOn || !state._cockpitRow) return adapter;
+        const row = state._cockpitRow;
+        let lat = Number(row.lat), lng = Number(row.lng), alt = Number(row.altM) || 0, hdg = Number(row.heading != null ? row.heading : row.cog) || 0;
+        const hist = state._craftHist && state._craftHist.get(String(row.id || ''));
+        const renderT = Date.now() - PHONE_FLIGHT_RENDER_DELAY_MS;
+        if (hist && hist.length) {
+          let pose = hist[hist.length - 1];
+          for (let i = 1; i < hist.length; i++) {
+            if (renderT >= hist[i - 1].t && renderT <= hist[i].t) {
+              const a = hist[i - 1], b = hist[i];
+              const u = (renderT - a.t) / Math.max(1, b.t - a.t);
+              let dh = b.heading - a.heading;
+              while (dh > 180) dh -= 360;
+              while (dh < -180) dh += 360;
+              pose = { lat: a.lat + (b.lat - a.lat) * u, lng: a.lng + (b.lng - a.lng) * u, altM: a.altM + (b.altM - a.altM) * u, heading: ((a.heading + dh * u) + 360) % 360 };
+              break;
+            }
+          }
+          lat = pose.lat; lng = pose.lng; alt = pose.altM; hdg = pose.heading;
+        }
+        let dhShow = hdg - (state._slewHdg || hdg);
+        while (dhShow > 180) dhShow -= 360;
+        while (dhShow < -180) dhShow += 360;
+        if (Math.abs(dhShow) > 8) hdg = ((state._slewHdg || hdg) + (dhShow > 0 ? 8 : -8) + 360) % 360;
+        state._slewHdg = hdg;
+        try {
+          const target = Cesium.Cartesian3.fromDegrees(lng, lat, alt);
+          const range = Math.max(160, Math.min(2200, alt * 0.42 + 200));
+          viewer.trackedEntity = undefined;
+          const ssc = viewer.scene && viewer.scene.screenSpaceCameraController;
+          if (ssc) { ssc.enableRotate = false; ssc.enableTilt = false; ssc.enableLook = false; }
+          viewer.camera.lookAt(target, new Cesium.HeadingPitchRange(Cesium.Math.toRadians(hdg), Cesium.Math.toRadians(-18), range));
+          if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false;
+        } catch (eL) {}
+        try {
+          const rad = (hdg * Math.PI) / 180;
+          const len = Math.max(280, Math.min(1400, alt * 0.09 + 280));
+          const dLat = (len * Math.cos(rad)) / 111320;
+          const dLng = (len * Math.sin(rad)) / (111320 * Math.max(0.2, Math.cos(lat * Math.PI / 180)));
+          const pts = [
+            Cesium.Cartesian3.fromDegrees(lng, lat, alt),
+            Cesium.Cartesian3.fromDegrees(lng + dLng, lat + dLat, alt)
+          ];
+          if (!state._headingTick) {
+            state._headingTick = viewer.entities.add({ polyline: { positions: pts, width: 2.2, material: Cesium.Color.fromCssColorString('#ffd60a') } });
+          } else {
+            state._headingTick.polyline.positions = pts;
+          }
+          const trail = (hist || []).slice(-16).map(function (p) {
+            return Cesium.Cartesian3.fromDegrees(p.lng, p.lat, p.altM || alt);
+          });
+          if (trail.length >= 2) {
+            if (!state._trailEnt) state._trailEnt = viewer.entities.add({ polyline: { positions: trail, width: 1.4, material: Cesium.Color.fromCssColorString('#ffd60a').withAlpha(0.85) } });
+            else state._trailEnt.polyline.positions = trail;
+          }
+        } catch (eH) {}
+        return adapter;
+      },
+      setSkin: function (id) {
+        applyPhoneSensorSkin(state, id);
+        return adapter;
+      },
       onPointClick: function (fn) { adapter._onPointClick = fn; return adapter; },
     };
     try {
@@ -1258,6 +1452,11 @@
       const firePhonePick = function (row) {
         if (!row || !adapter._onPointClick) return;
         try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (e) {}
+        try {
+          const kind = String(row.type || '');
+          if (kind === 'flight' || kind === 'military' || kind === 'ship') adapter.startCockpit(row);
+          else adapter.stopCockpit();
+        } catch (eC) {}
         try { adapter._onPointClick(row); } catch (e2) {}
       };
       const canvas = viewer.scene.canvas;
@@ -1271,7 +1470,10 @@
           if (e.target && e.target.closest && e.target.closest('.v4-gm-phone-search, .v4-gm-phone-chip, .v4-gm-phone-dock, .v4-gm-phone-card, .v4-gm-phone-close, .v4-gm-phone-top, .v4-gm-phone-settings')) return;
         } catch (eC) {}
         const row = nearestPhoneRow(eventPos(e));
-        if (!row) return;
+        if (!row) {
+          try { adapter.stopCockpit(); } catch (eStop) {}
+          return;
+        }
         firePhonePick(row);
         try { e.stopImmediatePropagation(); } catch (eS) {}
       };
@@ -1406,7 +1608,8 @@
         1.37e7
       ),
     });
-    const state = { googleTileset: null, handler: null };
+    const state = { googleTileset: null, handler: null, sensorStages: {}, skin: 'eo', _craftHist: new Map() };
+    try { addPhoneSensorStages(Cesium, viewer, state); } catch (eSens) {}
     const onMoveEnd = function () {
       try {
         const h = viewer.camera.positionCartographic && viewer.camera.positionCartographic.height;
@@ -1438,7 +1641,15 @@
     try { enablePhonePhotoreal(Cesium, viewer, state, { show: true }); } catch (eBootPr) {}
     try { if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false; } catch (eHide) {}
     try { installIdleOrbitSpin(Cesium, viewer, state); } catch (eSpin) {}
-    return makeCesiumPhoneAdapter(Cesium, viewer, state);
+    const adapter = makeCesiumPhoneAdapter(Cesium, viewer, state);
+    try {
+      const onCockpitTick = function () {
+        try { if (adapter && adapter.tickCockpit) adapter.tickCockpit(); } catch (eT) {}
+      };
+      viewer.clock.onTick.addEventListener(onCockpitTick);
+      state._onCockpitTick = onCockpitTick;
+    } catch (eTick) {}
+    return adapter;
   }
   function syncGlobeCameraNear(g) {
     if (!g || g.__cesium) return;
@@ -3810,6 +4021,10 @@
     '.v4-gm-phone-pano-turn.is-right{right:10px;}',
     '.v4-gm-phone-search{z-index:12;}',
     '.v4-gm-phone-suggest{z-index:13;}',
+    '.v4-gm-phone-sensor-fx{pointer-events:none;position:absolute;inset:0;z-index:3;opacity:0;}',
+    '.v4-gm-phone.v4-gm-phone-skin-nvg .v4-gm-phone-globe:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:radial-gradient(ellipse at center,rgba(20,80,40,.12),rgba(0,20,8,.35));}',
+    '.v4-gm-phone.v4-gm-phone-skin-flir .v4-gm-phone-globe:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:radial-gradient(ellipse at center,rgba(80,20,0,.1),rgba(10,0,0,.32));}',
+    '.v4-gm-phone.v4-gm-phone-skin-crt .v4-gm-phone-globe:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0,rgba(0,0,0,.16) 1px,transparent 2px,transparent 3px);}',
   ].join('');
   function injectPhoneCss() {
     let style = document.getElementById('v4-gm-phone-css');
@@ -4729,14 +4944,18 @@
     const noCity = !!(wantHouse && !queryHasLocality(q));
     const googleP = settleTimeout(geocodeGoogleJsAll(q).catch(function () { return []; }), 2500, []);
     const osmP = settleTimeout(fetchOsmHits(q, parsed, noCity).catch(function () { return []; }), 2500, []);
-    let rows = [];
-    if (noCity) {
-      const pair = await Promise.all([googleP, osmP]);
-      rows = [].concat(pair[0] || [], pair[1] || []);
-      if (hitsAreAmbiguous(rows, q)) return mergeSuggestRows(syntheticSuggestRow(q), rows);
-    } else {
-      rows = await firstLatLngHits(googleP, osmP);
+    const pair = await Promise.all([googleP, osmP]);
+    let rows = [].concat(pair[0] || [], pair[1] || []);
+    if (wantHouse) {
+      rows.sort(function (a, b) {
+        const ah = housesEqual(a && a.house, wantHouse) ? 1 : 0;
+        const bh = housesEqual(b && b.house, wantHouse) ? 1 : 0;
+        const ag = a && a.source === "google" ? 1 : 0;
+        const bg = b && b.source === "google" ? 1 : 0;
+        return (bh - ah) || (bg - ag);
+      });
     }
+    if (noCity && hitsAreAmbiguous(rows, q)) return mergeSuggestRows(syntheticSuggestRow(q), rows);
     if (!rows.length && !looksAddr) {
       try {
         if (typeof geocodeDealCity === "function") {
@@ -4778,6 +4997,7 @@
     const [deals, setDeals] = React.useState([]);
     const [gpsjam, setGpsjam] = React.useState([]);
     const [settingsOpen, setSettingsOpen] = React.useState(false);
+    const [skin, setSkin] = React.useState('eo');
     const [earthEvents, setEarthEvents] = React.useState([]);
     const [selected, setSelected] = React.useState(null);
     const [globeError, setGlobeError] = React.useState('');
@@ -4930,9 +5150,13 @@
       }).join("|");
       const onPick = function (pt) {
         setSelected(pt || null);
-        if (pt && Number.isFinite(Number(pt.lat))) {
-          try { globe.pointOfView({ lat: Number(pt.lat), lng: Number(pt.lng), altitude: SEARCH_ALT_RADII }, 700); } catch (e) {}
+        if (!pt || !Number.isFinite(Number(pt.lat))) return;
+        const kind = String(pt.type || '');
+        if (kind === 'flight' || kind === 'military' || kind === 'ship') {
+          try { if (globe && globe.startCockpit) globe.startCockpit(pt); } catch (eC) {}
+          return;
         }
+        try { globe.pointOfView({ lat: Number(pt.lat), lng: Number(pt.lng), altitude: SEARCH_ALT_RADII }, 700); } catch (e) {}
       };
       try { if (globe && typeof globe.onPointClick === 'function') globe.onPointClick(onPick); } catch (eB) {}
       if (fp === pointsFpRef.current) return;
@@ -5550,7 +5774,10 @@
       if (!f) { setSearchMsg('Search or tap a point first'); return; }
       enterStreet(f.lat, f.lng);
     };
-    const dismiss = function () { setSelected(null); };
+    const dismiss = function () {
+      setSelected(null);
+      try { const g = globeInstRef.current; if (g && g.stopCockpit) g.stopCockpit(); } catch (eD) {}
+    };
     const onCardTouchStart = function (e) {
       const t = e.changedTouches && e.changedTouches[0];
       swipeY.current = t ? t.clientY : null;
@@ -5577,6 +5804,13 @@
       el('div', { className: 'v4-gm-phone-card-name' }, selected.name || selected.label || 'Selected'),
       el('div', { className: 'v4-gm-phone-card-type' }, typeLabel(selected)),
       el('div', { className: 'v4-gm-phone-card-stat' }, oneStat(selected)),
+      (selected.type === 'flight' || selected.type === 'military' || selected.type === 'ship') ? el('button', Object.assign({
+        type: 'button',
+        className: 'v4-gm-phone-sv-card'
+      }, bindTap(function () {
+        const g = globeInstRef.current;
+        try { if (g && g.startCockpit) g.startCockpit(selected); } catch (eC) {}
+      })), 'Cockpit') : null,
       Number.isFinite(Number(selected.lat)) ? el('button', Object.assign({
         type: 'button',
         className: 'v4-gm-phone-sv-card'
@@ -5628,11 +5862,30 @@
           el('span', null, row.label),
           on ? el('span', { className: 'v4-gm-phone-settings-mark' }, 'On') : null
         );
+      }),
+      el('div', { className: 'v4-gm-phone-settings-title' }, 'Sensor'),
+      PHONE_SKINS.map(function (row) {
+        const on = skin === row.id;
+        return el('button', Object.assign({
+          key: 'skin-' + row.id,
+          type: 'button',
+          className: 'v4-gm-phone-settings-row' + (on ? ' is-on' : ''),
+          'aria-pressed': on ? 'true' : 'false'
+        }, bindTap(function () {
+          setSkin(row.id);
+          try {
+            const g = globeInstRef.current;
+            if (g && g.setSkin) g.setSkin(row.id);
+          } catch (eS) {}
+        })),
+          el('span', null, row.label),
+          on ? el('span', { className: 'v4-gm-phone-settings-mark' }, 'On') : null
+        );
       })
     ) : null;
     const goProps = Object.assign({ type: 'button', className: 'v4-gm-phone-search-go', 'aria-label': 'Search' }, bindTap(runSearch));
     const svProps = Object.assign({ type: 'button', className: 'v4-gm-phone-sv', 'aria-label': 'Street View' }, bindTap(goStreetView));
-    return el('div', { className: 'v4-gm-phone', role: 'dialog', 'aria-label': 'God Mode' },
+    return el('div', { className: 'v4-gm-phone v4-gm-phone-skin-' + skin, role: 'dialog', 'aria-label': 'God Mode' },
       el('div', { className: 'v4-gm-phone-globe', ref: globeRef }),
       el('div', { className: 'v4-gm-phone-top' },
         el('div', { className: 'v4-gm-phone-live' },
