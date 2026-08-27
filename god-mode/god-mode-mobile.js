@@ -1154,8 +1154,162 @@
     return phoneCraftIconCache[key];
   }
 
+
+
+  function phoneGlbUrl(name) {
+    var base = 'god-mode/models/';
+    try {
+      var scripts = document.getElementsByTagName('script');
+      for (var i = scripts.length - 1; i >= 0; i--) {
+        var src = scripts[i].src || '';
+        if (/god-mode\/(?:boot|god-mode-mobile)\.js/.test(src)) {
+          base = src.replace(/[^/]+(?:\?.*)?$/, '') + 'models/';
+          break;
+        }
+      }
+    } catch (e) {}
+    return base + name;
+  }
+  function phoneGlbSpec(row) {
+    if (row && row.type === 'ship') return { url: phoneGlbUrl('ship.glb'), offset: 180, minPx: 24 };
+    if (row && row.type === 'military') return { url: phoneGlbUrl('jet.glb'), offset: 180, minPx: 24 };
+    return { url: phoneGlbUrl('airplane.glb'), offset: 180, minPx: 24 };
+  }
+
+  function hideCockpitHud() {
+    var el = document.getElementById('an-cockpit-hud');
+    if (el) { el.hidden = true; el.setAttribute('aria-hidden', 'true'); }
+  }
+  function ensureCockpitHud() {
+    var el = document.getElementById('an-cockpit-hud');
+    if (el) return el;
+    var host = document.querySelector('.v4-gm-phone') || document.body;
+    el = document.createElement('div');
+    el.id = 'an-cockpit-hud';
+    el.className = 'an-cockpit-hud is-compact';
+    el.hidden = true;
+    el.innerHTML = '<div class="an-cp-callsign" id="an-cp-callsign">—</div><div class="an-cp-compass"><div class="an-cp-compass-tape" id="an-cp-compass-tape"></div><div class="an-cp-lubber"></div><div class="an-cp-hdg" id="an-cp-hdg">000</div></div><div class="an-cp-speed"><div class="an-cp-label">KTS</div><div class="an-cp-tape" id="an-cp-speed-tape"></div><div class="an-cp-value" id="an-cp-speed">000</div></div><div class="an-cp-alt"><div class="an-cp-label">ALT</div><div class="an-cp-tape" id="an-cp-alt-tape"></div><div class="an-cp-value" id="an-cp-alt">00000</div></div>';
+    host.appendChild(el);
+    return el;
+  }
+  function pad3(n) { return String(Math.max(0, Math.round(n))).padStart(3, '0'); }
+  function pad5(n) { return String(Math.max(0, Math.round(n))).padStart(5, '0'); }
+  function updateCockpitHud(row, pose) {
+    var el = ensureCockpitHud();
+    if (!el || !pose) return;
+    el.hidden = false;
+    var hdg = ((Number(pose.heading) % 360) + 360) % 360;
+    var altFt = row && row.type === 'ship' ? 0 : (Number(pose.altM) || 0) * 3.28084;
+    var kts = Number(row && (row.speedKts != null ? row.speedKts : row.sog)) || 0;
+    var cs = String((row && (row.callsign || row.name || row.label)) || 'LOCK').trim().slice(0, 10);
+    var csEl = document.getElementById('an-cp-callsign');
+    var hdgEl = document.getElementById('an-cp-hdg');
+    var spdEl = document.getElementById('an-cp-speed');
+    var altEl = document.getElementById('an-cp-alt');
+    if (csEl) csEl.textContent = cs || 'LOCK';
+    if (hdgEl) hdgEl.textContent = pad3(hdg);
+    if (spdEl) spdEl.textContent = pad3(kts);
+    if (altEl) altEl.textContent = pad5(altFt);
+    var tape = document.getElementById('an-cp-compass-tape');
+    if (tape) {
+      var center = Math.round(hdg / 30) * 30;
+      var labels = {0:'N',45:'NE',90:'E',135:'SE',180:'S',225:'SW',270:'W',315:'NW'};
+      var html = '';
+      [-90,-60,-30,0,30,60,90].forEach(function (off) {
+        var v = ((center + off) % 360 + 360) % 360;
+        html += '<span>' + (labels[v] || pad3(v)) + '</span>';
+      });
+      if (tape.dataset.sig !== html) { tape.innerHTML = html; tape.dataset.sig = html; }
+    }
+  }
+
   function makeCesiumPhoneAdapter(Cesium, viewer, state) {
     const pointEntities = [];
+    var phoneGlbModels = new Map();
+    var phoneGlbPending = new Set();
+    var phoneGlbColl = null;
+    var phoneGlbHpr = null;
+    var phoneGlbMtx = null;
+    function ensurePhoneGlbColl() {
+      if (phoneGlbColl && !(phoneGlbColl.isDestroyed && phoneGlbColl.isDestroyed())) return phoneGlbColl;
+      try {
+        phoneGlbColl = new Cesium.PrimitiveCollection({ destroyPrimitives: true, show: true });
+        viewer.scene.primitives.add(phoneGlbColl);
+      } catch (e) { phoneGlbColl = null; }
+      return phoneGlbColl;
+    }
+    function phoneGlbMatrix(pos, heading, offset) {
+      if (!phoneGlbHpr) phoneGlbHpr = new Cesium.HeadingPitchRoll(0, 0, 0);
+      if (!phoneGlbMtx) phoneGlbMtx = new Cesium.Matrix4();
+      phoneGlbHpr.heading = Cesium.Math.toRadians((Number(heading) || 0) + (Number(offset) || 0));
+      phoneGlbHpr.pitch = 0; phoneGlbHpr.roll = 0;
+      return Cesium.Transforms.headingPitchRollToFixedFrame(pos, phoneGlbHpr, Cesium.Ellipsoid.WGS84, undefined, phoneGlbMtx);
+    }
+    function releasePhoneGlb(id) {
+      var model = phoneGlbModels.get(id);
+      if (!model) return;
+      try { if (phoneGlbColl) phoneGlbColl.remove(model); } catch (e) {}
+      try { if (model && !model.isDestroyed()) model.destroy(); } catch (e2) {}
+      phoneGlbModels.delete(id);
+    }
+    function tickPhoneGlb() {
+      if (!Cesium.Model || typeof Cesium.Model.fromGltfAsync !== 'function') return;
+      var camPos = viewer.camera.positionWC;
+      var keep = Object.create(null);
+      var ranked = [];
+      for (var i = 0; i < pointEntities.length; i++) {
+        var ent = pointEntities[i];
+        var row = ent && ent.__gmPhone;
+        if (!row) continue;
+        var kind = String(row.type || '');
+        if (kind !== 'flight' && kind !== 'military' && kind !== 'ship') continue;
+        var pos = null;
+        try { pos = ent.position && ent.position.getValue(viewer.clock.currentTime); } catch (eP) {}
+        if (!pos) continue;
+        var dist = 1e12;
+        try { dist = Cesium.Cartesian3.distance(camPos, pos); } catch (eD) {}
+        ranked.push({ id: String(row.id || i), ent: ent, row: row, pos: pos, dist: dist });
+      }
+      ranked.sort(function (a, b) { return a.dist - b.dist; });
+      var cap = 12;
+      for (var r = 0; r < ranked.length && r < cap; r++) {
+        if (ranked[r].dist > 150000) continue;
+        keep[ranked[r].id] = ranked[r];
+      }
+      phoneGlbModels.forEach(function (model, id) {
+        if (!keep[id]) releasePhoneGlb(id);
+      });
+      Object.keys(keep).forEach(function (id) {
+        var c = keep[id];
+        var spec = phoneGlbSpec(c.row);
+        var model = phoneGlbModels.get(id);
+        if (!model) {
+          if (phoneGlbPending.has(id) || !ensurePhoneGlbColl()) return;
+          if (typeof Cesium.Model.fromGltfAsync !== 'function') return;
+          phoneGlbPending.add(id);
+          Cesium.Model.fromGltfAsync({ url: spec.url, asynchronous: true, minimumPixelSize: spec.minPx, scale: 1, id: c.ent }).then(function (m) {
+            phoneGlbPending.delete(id);
+            if (!phoneGlbColl || (phoneGlbColl.isDestroyed && phoneGlbColl.isDestroyed())) { try { m.destroy(); } catch (e) {} return; }
+            m.show = false;
+            phoneGlbColl.add(m);
+            phoneGlbModels.set(id, m);
+          }).catch(function () { phoneGlbPending.delete(id); });
+          return;
+        }
+        try {
+          var hdg = Number(c.row.heading != null ? c.row.heading : c.row.cog) || 0;
+          phoneGlbMatrix(c.pos, hdg, spec.offset);
+          Cesium.Matrix4.clone(phoneGlbMtx, model.modelMatrix);
+          model.show = true;
+          try { if (c.ent.billboard) c.ent.billboard.show = false; } catch (eB) {}
+        } catch (eM) {}
+      });
+    }
+    function destroyPhoneGlb() {
+      phoneGlbModels.forEach(function (_m, id) { releasePhoneGlb(id); });
+      try { if (phoneGlbColl && viewer.scene) viewer.scene.primitives.remove(phoneGlbColl); } catch (e) {}
+      phoneGlbColl = null;
+    }
     const fakeControls = {
       autoRotate: false,
       addEventListener: function () {},
@@ -1185,7 +1339,9 @@
       pauseAnimation: function () {},
       getGlobeRadius: function () { return EARTH_RADIUS_M; },
       pauseIdleSpin: function () { try { if (state && state.pauseIdleSpin) state.pauseIdleSpin(); } catch (e) {} },
+      tickNearbyModels: function () { try { tickPhoneGlb(); } catch (eG) {} return adapter; },
       _destructor: function () {
+        try { destroyPhoneGlb(); } catch (eG) {}
         try { if (state && state.stopIdleOrbitSpin) state.stopIdleOrbitSpin(); } catch (e) {}
         try { if (state && state.handler && state.handler.destroy) state.handler.destroy(); } catch (e) {}
         try {
@@ -1374,6 +1530,7 @@
       stopCockpit: function () {
         state._cockpitOn = false;
         state._cockpitRow = null;
+        try { hideCockpitHud(); } catch (eHud) {}
         try { viewer.trackedEntity = undefined; } catch (e) {}
         try { viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY); } catch (e2) {}
         try {
@@ -1418,6 +1575,7 @@
           if (ssc) { ssc.enableRotate = false; ssc.enableTilt = false; ssc.enableLook = false; }
           viewer.camera.lookAt(target, new Cesium.HeadingPitchRange(Cesium.Math.toRadians(hdg), Cesium.Math.toRadians(-18), range));
           if (viewer.scene && viewer.scene.globe) viewer.scene.globe.show = false;
+          try { updateCockpitHud(row, { lat: lat, lng: lng, altM: alt, heading: hdg }); } catch (eHud) {}
         } catch (eL) {}
         try {
           const rad = (hdg * Math.PI) / 180;
@@ -1672,6 +1830,7 @@
     try {
       const onCockpitTick = function () {
         try { if (adapter && adapter.tickCockpit) adapter.tickCockpit(); } catch (eT) {}
+        try { if (adapter && adapter.tickNearbyModels) adapter.tickNearbyModels(); } catch (eG) {}
       };
       viewer.clock.onTick.addEventListener(onCockpitTick);
       state._onCockpitTick = onCockpitTick;
@@ -3328,6 +3487,7 @@
       callsign: String(opts.callsign || '').trim(),
 
       dest: String(opts.dest || opts.destination || '').trim(),
+      speedKts: Number.isFinite(sog) ? sog : null,
 
       sog: Number.isFinite(sog) ? sog : null,
 
@@ -3703,14 +3863,86 @@
     }
   }
 
-  async function fetchShips() {
+
+  function readAisstreamKey() {
     try {
-  const proxied = await fetchShipsFromProxy();
-  if (proxied && proxied.rows && proxied.rows.length) return proxied;
+      const w = global.UNALIGNED_AISSTREAM_KEY;
+      if (w && String(w).trim()) return String(w).trim();
+    } catch (e) {}
+    try {
+      const ls = global.localStorage && global.localStorage.getItem('UNALIGNED_AISSTREAM_KEY');
+      if (ls && String(ls).trim()) return String(ls).trim();
+    } catch (e) {}
+    return '';
+  }
+  const aisstreamLive = new Map();
+  let aisstreamWs = null;
+  function mergeAisstream(rows, source) {
+    if (!aisstreamLive.size) return { rows: rows || [], source: source };
+    const by = new Map();
+    (rows || []).forEach((r) => { if (r && r.mmsi) by.set(String(r.mmsi), r); });
+    aisstreamLive.forEach((row, mmsi) => { if (!by.has(mmsi)) by.set(mmsi, row); });
+    const merged = capShips([].concat(Array.from(by.values())));
+    return { rows: merged, source: (source || 'AIS') + (aisstreamLive.size ? ' + AISStream' : ''), count: merged.length };
+  }
+  function startAisstream() {
+    const key = readAisstreamKey();
+    if (!key || aisstreamWs || typeof WebSocket === 'undefined') return;
+    try {
+      const ws = new WebSocket('wss://stream.aisstream.io/v0/stream');
+      aisstreamWs = ws;
+      ws.onopen = () => {
+        try {
+          ws.send(JSON.stringify({
+            APIKey: key,
+            BoundingBoxes: [[[-90, -180], [90, 180]], [[24.0, 55.5], [27.4, 58.5]]],
+            FilterMessageTypes: ['PositionReport'],
+          }));
+        } catch (e) {}
+      };
+      ws.onmessage = (ev) => {
+        try {
+          const msg = JSON.parse(ev.data);
+          const meta = msg.MetaData || {};
+          const pr = (msg.Message && (msg.Message.PositionReport || msg.Message.StandardClassBPositionReport)) || {};
+          const lat = Number(meta.latitude != null ? meta.latitude : pr.Latitude);
+          const lng = Number(meta.longitude != null ? meta.longitude : pr.Longitude);
+          const mmsi = String(meta.MMSI || pr.UserID || '').trim();
+          const row = makeShipRow({
+            lat: lat, lng: lng, mmsi: mmsi,
+            sog: pr.Sog != null ? pr.Sog : meta.sog, cog: pr.Cog, heading: pr.TrueHeading,
+            name: meta.ShipName, source: 'AISStream',
+          });
+          if (row) {
+            aisstreamLive.set(mmsi, row);
+            if (aisstreamLive.size > MAX_SHIP_POINTS) {
+              const first = aisstreamLive.keys().next().value;
+              if (first) aisstreamLive.delete(first);
+            }
+          }
+        } catch (e) {}
+      };
+      ws.onclose = () => { if (aisstreamWs === ws) aisstreamWs = null; };
+      ws.onerror = () => {};
+    } catch (e) { aisstreamWs = null; }
+  }
+
+  async function fetchShips() {
+    startAisstream();
+    try {
+      const proxied = await fetchShipsFromProxy();
+      if (proxied && proxied.rows && proxied.rows.length) return mergeAisstream(proxied.rows, proxied.source || 'proxy');
     } catch (e) {
-  console.warn('[god-mode-phone] ships proxy unavailable', e);
+      console.warn('[god-mode-phone] ships proxy unavailable', e);
     }
-    return await fetchDigitrafficShips();
+    try {
+      const live = await fetchDigitrafficShips();
+      return mergeAisstream((live && live.rows) || [], (live && live.source) || 'Digitraffic AIS');
+    } catch (e2) {
+      const merged = mergeAisstream([], 'none');
+      if (merged.rows && merged.rows.length) return merged;
+      throw e2;
+    }
   }
 
 
@@ -4052,6 +4284,7 @@
     '.v4-gm-phone.v4-gm-phone-skin-nvg .v4-gm-phone-globe:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:radial-gradient(ellipse at center,rgba(20,80,40,.12),rgba(0,20,8,.35));}',
     '.v4-gm-phone.v4-gm-phone-skin-flir .v4-gm-phone-globe:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:radial-gradient(ellipse at center,rgba(80,20,0,.1),rgba(10,0,0,.32));}',
     '.v4-gm-phone.v4-gm-phone-skin-crt .v4-gm-phone-globe:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0,rgba(0,0,0,.16) 1px,transparent 2px,transparent 3px);}',
+    '.an-cockpit-hud{position:absolute;inset:0;z-index:6;pointer-events:none;color:#e8f7ff;font-family:ui-monospace,Menlo,Consolas,monospace;text-shadow:0 0 8px rgba(100,210,255,.45),0 1px 2px #000}','.an-cockpit-hud[hidden]{display:none!important}','.an-cp-callsign{position:absolute;top:4px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#64d2ff;white-space:nowrap}','.an-cp-compass{position:absolute;top:22px;left:50%;transform:translateX(-50%);width:min(280px,86vw);height:28px;overflow:hidden}','.an-cp-compass-tape{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.1em;color:rgba(232,247,255,.82)}','.an-cp-lubber{position:absolute;left:50%;bottom:0;height:8px;border-left:1px solid #ffd60a;transform:translateX(-50%)}','.an-cp-hdg{position:absolute;left:50%;bottom:-1px;transform:translate(-50%,100%);font-size:11px;color:#ffd60a}','.an-cp-speed,.an-cp-alt{position:absolute;top:46%;width:52px;height:min(170px,32vh);transform:translateY(-50%);overflow:hidden}','.an-cp-speed{left:8px}','.an-cp-alt{right:8px}','.an-cp-label{font-size:7px;letter-spacing:.16em;color:rgba(100,210,255,.8)}','.an-cp-tape{position:relative;height:calc(100% - 36px)}','.an-cp-tape span{position:absolute;left:0;right:0;top:50%;transform:translateY(calc(-50% + var(--slot) * 20px));font-size:9px;color:#cfe8ff}','.an-cp-value{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:12px;color:#ffd60a;background:rgba(5,10,18,.55);border:1px solid rgba(100,210,255,.28);padding:3px 0}',
   ].join('');
   function injectPhoneCss() {
     let style = document.getElementById('v4-gm-phone-css');

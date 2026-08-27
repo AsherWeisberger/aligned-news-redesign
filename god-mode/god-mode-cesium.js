@@ -379,6 +379,28 @@
       '.v4-gm2.is-settings .v4-godmode-layers{visibility:hidden;pointer-events:none}',
       '@media (max-width:1024px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2 .v4-gm2-search{left:12px;top:8px;width:calc(100% - 24px);max-width:calc(100% - 24px)}.v4-gm2 .v4-gm2-search-msg{left:12px}.v4-gm2 .v4-gm2-hud-right{top:56px;max-width:min(320px,46vw)}}',
       '@media (max-width:700px){.v4-gm2 .v4-godmode-layers{display:none}.v4-gm2 .v4-gm2-hud-right{max-width:calc(100% - 16px);align-items:stretch}.v4-gm2 .v4-gm2-search{width:calc(100% - 24px);max-width:none}}',
+      '.an-cockpit-hud{position:absolute;inset:0;z-index:16;pointer-events:none;color:#e8f7ff;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-shadow:0 0 8px rgba(100,210,255,.45),0 1px 2px #000}',
+      '.an-cockpit-hud[hidden]{display:none!important}',
+      '.an-cp-callsign{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#64d2ff;white-space:nowrap}',
+      '.an-cp-compass{position:absolute;top:36px;left:50%;transform:translateX(-50%);width:min(420px,70vw);height:36px;overflow:hidden}',
+      '.an-cp-compass-tape{display:flex;justify-content:space-between;align-items:flex-end;height:22px;font-size:11px;letter-spacing:.12em;color:rgba(232,247,255,.82)}',
+      '.an-cp-lubber{position:absolute;left:50%;bottom:0;width:0;height:10px;border-left:1px solid #ffd60a;transform:translateX(-50%)}',
+      '.an-cp-hdg{position:absolute;left:50%;bottom:-2px;transform:translate(-50%,100%);font-size:12px;color:#ffd60a;letter-spacing:.14em}',
+      '.an-cp-speed,.an-cp-alt{position:absolute;top:50%;width:76px;height:min(280px,46vh);transform:translateY(-50%);overflow:hidden}',
+      '.an-cp-speed{left:18px}',
+      '.an-cp-alt{right:18px}',
+      '.an-cp-label{font-size:8px;letter-spacing:.18em;color:rgba(100,210,255,.8);margin-bottom:6px}',
+      '.an-cp-tape{position:relative;height:calc(100% - 44px)}',
+      '.an-cp-tape span{position:absolute;left:0;right:0;top:50%;transform:translateY(calc(-50% + var(--slot) * 28px));font-size:10px;letter-spacing:.08em;color:#cfe8ff;opacity:.85}',
+      '.an-cp-tape span.is-major{color:#fff;font-size:11px}',
+      '.an-cp-value{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:16px;color:#ffd60a;background:rgba(5,10,18,.55);border:1px solid rgba(100,210,255,.28);padding:4px 0}',
+      '.an-cockpit-hud.is-compact .an-cp-callsign{top:4px;font-size:11px;letter-spacing:.14em}',
+      '.an-cockpit-hud.is-compact .an-cp-compass{top:24px;width:min(280px,86vw);height:28px}',
+      '.an-cockpit-hud.is-compact .an-cp-speed,.an-cockpit-hud.is-compact .an-cp-alt{width:54px;height:min(180px,34vh)}',
+      '.an-cockpit-hud.is-compact .an-cp-speed{left:8px}',
+      '.an-cockpit-hud.is-compact .an-cp-alt{right:8px}',
+      '.an-cockpit-hud.is-compact .an-cp-value{font-size:13px}',
+      '.an-cockpit-hud.is-compact .an-cp-tape span{font-size:9px}',
     ].join('\n');
     let style = document.getElementById('v4-gm2-styles');
     if (!style) {
@@ -839,7 +861,12 @@
       const key = String(ac.hex || ac.icao || ac.flight || '').trim();
       if (key && seen.has(key)) continue;
       const row = flightRowFromCoords(lat, lng, altM, vel, Number(ac.track), ac.flight, '', key);
-      if (row) { if (key) seen.add(key); out.push(row); }
+      if (row) {
+        row.typeCode = String(ac.t || ac.tcode || ac.type || '').trim();
+        if (ac.category != null) row.category = ac.category;
+        if (key) seen.add(key);
+        out.push(row);
+      }
     }
     return out;
   }
@@ -1025,6 +1052,7 @@
       color: shipTypeColor(shipType, sog),
       source: opts.source || 'AIS',
       imo: opts.imo || '',
+      speedKts: Number.isFinite(sog) ? sog : null,
     };
   }
 
@@ -1195,7 +1223,8 @@
           ws.send(JSON.stringify({
             APIKey: key,
             BoundingBoxes: [
-              [[-90, -180], [90, 180]]
+              [[-90, -180], [90, 180]],
+              [[24.0, 55.5], [27.4, 58.5]]
             ],
             FilterMessageTypes: ['PositionReport'],
           }));
@@ -2819,7 +2848,7 @@
       lng: Number(row.lng),
       altM: Number(row.altM) || 0,
       heading: Number(row.heading != null ? row.heading : row.cog) || 0,
-      vel: Number(row.speedKts) || 0,
+      vel: Number(row.speedKts != null ? row.speedKts : row.sog) || 0,
     });
     if (hist.length > 6) hist.shift();
   }
@@ -2868,12 +2897,398 @@
     } catch (e) {}
     return Cesium.Cartesian3.UNIT_Z;
   }
+  var MODEL_NEAR_M = 150000;
+  var MODEL_KEEP_M = 172500;
+  var MODEL_MAX_LIVE = 36;
+  var MODEL_HEADING_OFFSET_DEG = 180;
+  var SHIP_HEADING_OFFSET_DEG = 180;
+  var _glbModels = new Map();
+  var _glbPending = new Set();
+  var _glbCollection = null;
+  var _glbWas3d = Object.create(null);
+  var _glbScratchHpr = null;
+  var _glbScratchMtx = null;
+  var _cockpitHudLastMs = 0;
+
+  function glbAssetUrl(name) {
+    var base = 'god-mode/models/';
+    try {
+      var scripts = document.getElementsByTagName('script');
+      for (var i = scripts.length - 1; i >= 0; i--) {
+        var src = scripts[i].src || '';
+        if (/god-mode\/(?:boot|god-mode-cesium|god-mode-mobile)\.js/.test(src)) {
+          base = src.replace(/[^/]+(?:\?.*)?$/, '') + 'models/';
+          break;
+        }
+      }
+    } catch (e) {}
+    return base + name;
+  }
+
+  var AC_HELI = { EC20: 1, B06: 1, B407: 1, S76: 1, H60: 1, UH1: 1, A109: 1, A139: 1, R44: 1, R66: 1, H47: 1, H64: 1, AS50: 1, AS32: 1, LYNX: 1, NH90: 1, PUMA: 1, B412: 1, B429: 1, S92: 1, B212: 1, B505: 1 };
+  var AC_WIDE = { A332: 1, A333: 1, A338: 1, A339: 1, A359: 1, A35K: 1, B763: 1, B764: 1, B772: 1, B77L: 1, B77W: 1, B788: 1, B789: 1, B78X: 1, MD11: 1, C17: 1, A388: 1, B744: 1, B748: 1, A306: 1, B767: 1, B777: 1, B787: 1 };
+  var AC_TPROP = { AT72: 1, AT73: 1, AT75: 1, AT76: 1, DH8D: 1, DH8A: 1, C130: 1, C208: 1, PC12: 1, E120: 1, SF34: 1, B190: 1, DHC6: 1, A400: 1, AT45: 1, BE20: 1 };
+  var AC_LIGHT = { C172: 1, C152: 1, C182: 1, PA28: 1, SR22: 1, DA40: 1, BE36: 1, P28A: 1, C150: 1, C177: 1, PA18: 1 };
+  var AC_BIZ = { C525: 1, C25B: 1, C56X: 1, C680: 1, CL30: 1, GLF4: 1, GLF5: 1, LJ45: 1, E55P: 1, C750: 1, FA7X: 1, C550: 1, C560: 1, GLEX: 1 };
+  var AC_UAV = { MQ9: 1, MQ1: 1, Q9: 1, RQ4: 1, TB2: 1, Q4: 1 };
+  var AC_FAST = { F16: 1, F15: 1, F18: 1, FA18: 1, F22: 1, F35: 1, A10: 1, TYPH: 1, EUFI: 1, SU27: 1, SU35: 1, HAWK: 1, T38: 1, AV8B: 1 };
+
+  function classifyAircraftRow(row) {
+    if (!row) return 'airliner';
+    if (row.type === 'ship') return 'ship';
+    var code = String(row.typeCode || row.t || '').trim().toUpperCase();
+    if (code) {
+      if (AC_FAST[code]) return 'fastjet';
+      if (AC_UAV[code]) return 'uav';
+      if (AC_HELI[code]) return 'helicopter';
+      if (AC_WIDE[code]) return 'widebody';
+      if (AC_TPROP[code]) return 'turboprop';
+      if (AC_BIZ[code]) return 'bizjet';
+      if (AC_LIGHT[code]) return 'light';
+    }
+    if (row.type === 'military') return 'fastjet';
+    var cat = row.category;
+    if (cat === 8 || cat === 'A7') return 'helicopter';
+    if (cat === 6 || cat === 'A5') return 'widebody';
+    if (cat === 7 || cat === 'A6') return 'fastjet';
+    if (cat === 2 || cat === 'A1' || cat === 'A2') return 'light';
+    return 'airliner';
+  }
+
+  function glbSpecForRow(row) {
+    var klass = classifyAircraftRow(row);
+    if (klass === 'ship') return { url: glbAssetUrl('ship.glb'), scale: 1, offset: SHIP_HEADING_OFFSET_DEG, minPx: 28, klass: klass };
+    if (klass === 'helicopter') return { url: glbAssetUrl('bell206.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 28, klass: klass };
+    if (klass === 'light') return { url: glbAssetUrl('c172.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 24, klass: klass };
+    if (klass === 'bizjet') return { url: glbAssetUrl('citation2.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 28, klass: klass };
+    if (klass === 'uav') return { url: glbAssetUrl('mq9.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 28, klass: klass };
+    if (klass === 'widebody') return { url: glbAssetUrl('b789.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 32, klass: klass };
+    if (klass === 'turboprop') return { url: glbAssetUrl('atr72.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 28, klass: klass };
+    if (klass === 'fastjet') return { url: glbAssetUrl('jet.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 28, klass: klass };
+    return { url: glbAssetUrl('airplane.glb'), scale: 1, offset: MODEL_HEADING_OFFSET_DEG, minPx: 28, klass: klass };
+  }
+
+  function ensureGlbCollection(Cesium, viewer, state) {
+    if (_glbCollection && !_glbCollection.isDestroyed && !_glbCollection.isDestroyed()) return _glbCollection;
+    try {
+      _glbCollection = new Cesium.PrimitiveCollection({ destroyPrimitives: true, show: true });
+      viewer.scene.primitives.add(_glbCollection);
+      if (state) state._glbCollection = _glbCollection;
+    } catch (e) { _glbCollection = null; }
+    return _glbCollection;
+  }
+
+  function glbModelMatrix(Cesium, pos, headingDeg, offsetDeg, result) {
+    if (!_glbScratchHpr) _glbScratchHpr = new Cesium.HeadingPitchRoll(0, 0, 0);
+    if (!_glbScratchMtx) _glbScratchMtx = new Cesium.Matrix4();
+    var out = result || _glbScratchMtx;
+    _glbScratchHpr.heading = Cesium.Math.toRadians((Number(headingDeg) || 0) + (Number(offsetDeg) || 0));
+    _glbScratchHpr.pitch = 0;
+    _glbScratchHpr.roll = 0;
+    return Cesium.Transforms.headingPitchRollToFixedFrame(pos, _glbScratchHpr, Cesium.Ellipsoid.WGS84, undefined, out);
+  }
+
+  function destroyGlbModels(state) {
+    try {
+      _glbModels.forEach(function (m) {
+        try { if (_glbCollection && !_glbCollection.isDestroyed()) _glbCollection.remove(m); } catch (eR) {}
+        try { if (m && !m.isDestroyed()) m.destroy(); } catch (eD) {}
+      });
+    } catch (e) {}
+    _glbModels.clear();
+    _glbPending.clear();
+    _glbWas3d = Object.create(null);
+    try {
+      if (_glbCollection && state && state.viewer && state.viewer.scene && !_glbCollection.isDestroyed()) {
+        state.viewer.scene.primitives.remove(_glbCollection);
+      }
+    } catch (e2) {}
+    _glbCollection = null;
+    if (state) state._glbCollection = null;
+  }
+
+  function releaseGlb(id) {
+    var m = _glbModels.get(id);
+    if (m) {
+      try { if (_glbCollection && !_glbCollection.isDestroyed()) _glbCollection.remove(m); } catch (e) {}
+      try { if (m && !m.isDestroyed()) m.destroy(); } catch (e2) {}
+      _glbModels.delete(id);
+    }
+  }
+
+  function ensureGlbModel(Cesium, viewer, state, row, spec) {
+    var id = String(row && row.id || '');
+    if (!id || _glbModels.has(id) || _glbPending.has(id)) return;
+    if ((_glbModels.size + _glbPending.size) >= MODEL_MAX_LIVE) return;
+    if (!Cesium.Model || typeof Cesium.Model.fromGltfAsync !== 'function') return;
+    var coll = ensureGlbCollection(Cesium, viewer, state);
+    if (!coll) return;
+    _glbPending.add(id);
+    var ent = state && state.entityById && state.entityById.get(id);
+    Cesium.Model.fromGltfAsync({
+      url: spec.url,
+      asynchronous: true,
+      minimumPixelSize: spec.minPx || 28,
+      scale: spec.scale || 1,
+      id: ent || { __gm2: row, id: id, __gm2Model: true },
+    }).then(function (model) {
+      _glbPending.delete(id);
+      if (!state || state.destroyed) { try { model.destroy(); } catch (e) {} return; }
+      if (!_glbCollection || _glbCollection.isDestroyed()) { try { model.destroy(); } catch (e) {} return; }
+      if (_glbModels.has(id) || _glbModels.size >= MODEL_MAX_LIVE) { try { model.destroy(); } catch (e) {} return; }
+      var liveEnt = state.entityById && state.entityById.get(id);
+      try { model.id = liveEnt || { __gm2: row, id: id, __gm2Model: true }; } catch (eI) {}
+      model.show = false;
+      model.__gm2Spec = spec.klass;
+      _glbCollection.add(model);
+      _glbModels.set(id, model);
+    }).catch(function () { _glbPending.delete(id); });
+  }
+
+  function craftSpeedKts(row) {
+    if (!row) return 0;
+    var v = Number(row.speedKts);
+    if (Number.isFinite(v)) return v;
+    v = Number(row.sog);
+    return Number.isFinite(v) ? v : 0;
+  }
+
+  function tickNearbyGlbModels(Cesium, viewer, state) {
+    if (!Cesium || !viewer || !state) return;
+    var camH = Infinity;
+    try { camH = viewer.camera.positionCartographic.height; } catch (eH) {}
+    var groups = ['flight', 'military', 'ship'];
+    var candidates = [];
+    for (var g = 0; g < groups.length; g++) {
+      var ids = state.groups && state.groups.get(groups[g]);
+      if (!ids) continue;
+      ids.forEach(function (id) {
+        var ent = state.entityById && state.entityById.get(id);
+        if (!ent || isDestroyedEnt(ent) || !ent.__gm2) return;
+        var row = ent.__gm2;
+        var pose = interpolatedCraftPose(row, Date.now());
+        if (!pose || !Number.isFinite(pose.lat) || !Number.isFinite(pose.lng)) return;
+        var pos = Cesium.Cartesian3.fromDegrees(pose.lng, pose.lat, pose.altM || 0);
+        if (!cartesianFinite(Cesium, pos)) return;
+        var dist = Infinity;
+        try { dist = Cesium.Cartesian3.distance(viewer.camera.positionWC, pos); } catch (eD) {}
+        candidates.push({ id: id, ent: ent, row: row, pose: pose, pos: pos, dist: dist, selected: state.selectedId === id });
+      });
+    }
+    candidates.sort(function (a, b) {
+      if (a.selected !== b.selected) return a.selected ? -1 : 1;
+      return a.dist - b.dist;
+    });
+    var keep = Object.create(null);
+    var admitted = 0;
+    for (var i = 0; i < candidates.length; i++) {
+      var c = candidates[i];
+      var was = !!_glbWas3d[c.id];
+      var enter = c.dist < MODEL_NEAR_M || (c.selected && camH < 250000);
+      var stay = c.dist < MODEL_KEEP_M || (c.selected && camH < 280000);
+      var want = was ? stay : enter;
+      if (want && admitted < MODEL_MAX_LIVE) {
+        keep[c.id] = c;
+        admitted += 1;
+      }
+    }
+    _glbModels.forEach(function (m, id) {
+      if (!keep[id]) {
+        releaseGlb(id);
+        _glbWas3d[id] = false;
+        var entOff = state.entityById && state.entityById.get(id);
+        try { if (entOff && entOff.billboard) entOff.billboard.show = true; } catch (eB) {}
+      }
+    });
+    Object.keys(keep).forEach(function (id) {
+      var c = keep[id];
+      var spec = glbSpecForRow(c.row);
+      var model = _glbModels.get(id);
+      if (!model) {
+        ensureGlbModel(Cesium, viewer, state, c.row, spec);
+        return;
+      }
+      try {
+        if (model.__gm2Spec && model.__gm2Spec !== spec.klass) {
+          releaseGlb(id);
+          ensureGlbModel(Cesium, viewer, state, c.row, spec);
+          return;
+        }
+        glbModelMatrix(Cesium, c.pos, c.pose.heading, spec.offset, model.modelMatrix);
+        model.show = true;
+        _glbWas3d[id] = true;
+        try { if (c.ent.billboard) c.ent.billboard.show = false; } catch (eH) {}
+        try { if (c.ent.point) c.ent.point.show = false; } catch (eP) {}
+      } catch (eM) {}
+    });
+  }
+
+  function normalizeHeadingTape(value) {
+    if (!Number.isFinite(value)) return 0;
+    return ((value % 360) + 360) % 360;
+  }
+  function compassDivisions(heading) {
+    var center = Math.round(normalizeHeadingTape(heading) / 30) * 30;
+    return [-90, -60, -30, 0, 30, 60, 90].map(function (offset) { return normalizeHeadingTape(center + offset); });
+  }
+  function formatCompassDivision(heading) {
+    var n = normalizeHeadingTape(heading);
+    var labels = { 0: 'N', 45: 'NE', 90: 'E', 135: 'SE', 180: 'S', 225: 'SW', 270: 'W', 315: 'NW' };
+    return labels[n] || String(Math.round(n)).padStart(3, '0');
+  }
+  function altitudeRulerStep(altitudeFt) {
+    if (!Number.isFinite(altitudeFt)) return 500;
+    var altitude = Math.max(0, altitudeFt);
+    if (altitude < 5000) return 100;
+    if (altitude < 15000) return 250;
+    return 500;
+  }
+  function altitudeRulerTicks(altitudeFt, count) {
+    if (!Number.isFinite(altitudeFt)) return [];
+    var tickCount = Math.max(3, Math.floor(count || 9) | 1);
+    var altitude = Math.max(0, altitudeFt);
+    var stepFt = altitudeRulerStep(altitude);
+    var altitudeUnits = altitude / stepFt;
+    var anchorUnits = Math.floor(altitudeUnits);
+    var half = Math.floor(tickCount / 2);
+    var out = [];
+    for (var index = 0; index < tickCount; index++) {
+      var tickUnits = anchorUnits + index - half;
+      out.push({ valueFt: Math.max(0, tickUnits * stepFt), slot: tickUnits - altitudeUnits, major: tickUnits % 2 === 0 });
+    }
+    return out;
+  }
+  function speedRulerStep(speedKt) {
+    if (!Number.isFinite(speedKt)) return 25;
+    var speed = Math.max(0, speedKt);
+    if (speed < 100) return 10;
+    if (speed < 300) return 20;
+    return 25;
+  }
+  function speedRulerTicks(speedKt, count) {
+    if (!Number.isFinite(speedKt)) return [];
+    var tickCount = Math.max(3, Math.floor(count || 9) | 1);
+    var speed = Math.max(0, speedKt);
+    var stepKt = speedRulerStep(speed);
+    var speedUnits = speed / stepKt;
+    var anchorUnits = Math.floor(speedUnits);
+    var half = Math.floor(tickCount / 2);
+    var out = [];
+    for (var index = 0; index < tickCount; index++) {
+      var tickUnits = anchorUnits + index - half;
+      out.push({ valueKt: Math.max(0, tickUnits * stepKt), slot: tickUnits - speedUnits, major: tickUnits % 2 === 0 });
+    }
+    return out;
+  }
+
+  function cockpitHudHost() {
+    return document.querySelector('.v4-gm2-stage') || document.querySelector('.v4-gm-phone') || document.body;
+  }
+
+  function ensureCockpitHud() {
+    var el = document.getElementById('an-cockpit-hud');
+    if (el) return el;
+    var host = cockpitHudHost();
+    if (!host) return null;
+    el = document.createElement('div');
+    el.id = 'an-cockpit-hud';
+    el.className = 'an-cockpit-hud';
+    el.hidden = true;
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = ''
+      + '<div class="an-cp-callsign" id="an-cp-callsign">—</div>'
+      + '<div class="an-cp-compass">'
+      +   '<div class="an-cp-compass-tape" id="an-cp-compass-tape"></div>'
+      +   '<div class="an-cp-lubber"></div>'
+      +   '<div class="an-cp-hdg" id="an-cp-hdg">000</div>'
+      + '</div>'
+      + '<div class="an-cp-speed"><div class="an-cp-label">GS KTS</div><div class="an-cp-tape" id="an-cp-speed-tape"></div><div class="an-cp-value" id="an-cp-speed">000</div></div>'
+      + '<div class="an-cp-alt"><div class="an-cp-label">ALT FT</div><div class="an-cp-tape" id="an-cp-alt-tape"></div><div class="an-cp-value" id="an-cp-alt">00000</div></div>';
+    host.appendChild(el);
+    try {
+      if (host.classList && host.classList.contains('v4-gm-phone')) el.classList.add('is-compact');
+      else if (window.matchMedia && window.matchMedia('(max-width: 430px)').matches) el.classList.add('is-compact');
+    } catch (e) {}
+    return el;
+  }
+
+  function hideCockpitHud() {
+    var el = document.getElementById('an-cockpit-hud');
+    if (el) { el.hidden = true; el.setAttribute('aria-hidden', 'true'); }
+  }
+
+  function updateCockpitHud(row, pose) {
+    var now = Date.now();
+    if (now - _cockpitHudLastMs < 80) return;
+    _cockpitHudLastMs = now;
+    var el = ensureCockpitHud();
+    if (!el || !pose) return;
+    el.hidden = false;
+    el.setAttribute('aria-hidden', 'false');
+    var compact = el.classList.contains('is-compact');
+    var hdg = normalizeHeadingTape(pose.heading);
+    var altFt = Number(pose.altM) * 3.28084;
+    if (row && row.type === 'ship') altFt = 0;
+    var kts = 0;
+    if (row) kts = craftSpeedKts(row);
+    var cs = String((row && (row.callsign || row.name || row.label)) || 'LOCK').trim().slice(0, compact ? 10 : 16);
+    var csEl = document.getElementById('an-cp-callsign');
+    var hdgEl = document.getElementById('an-cp-hdg');
+    var spdEl = document.getElementById('an-cp-speed');
+    var altEl = document.getElementById('an-cp-alt');
+    if (csEl) csEl.textContent = cs || 'LOCK';
+    if (hdgEl) hdgEl.textContent = String(Math.round(hdg)).padStart(3, '0');
+    if (spdEl) spdEl.textContent = String(Math.max(0, Math.round(kts))).padStart(3, '0');
+    if (altEl) altEl.textContent = String(Math.max(0, Math.round(altFt))).padStart(5, '0');
+    var tape = document.getElementById('an-cp-compass-tape');
+    if (tape) {
+      var divs = compassDivisions(hdg);
+      var html = '';
+      for (var i = 0; i < divs.length; i++) {
+        html += '<span>' + formatCompassDivision(divs[i]) + '</span>';
+      }
+      if (tape.dataset.sig !== html) { tape.innerHTML = html; tape.dataset.sig = html; }
+    }
+    var spdTape = document.getElementById('an-cp-speed-tape');
+    if (spdTape) {
+      var st = speedRulerTicks(kts, compact ? 5 : 9);
+      var sh = '';
+      for (var s = 0; s < st.length; s++) {
+        sh += '<span style="--slot:' + st[s].slot.toFixed(2) + '" class="' + (st[s].major ? 'is-major' : '') + '">' + String(Math.round(st[s].valueKt)).padStart(3, '0') + '</span>';
+      }
+      if (spdTape.dataset.sig !== sh) { spdTape.innerHTML = sh; spdTape.dataset.sig = sh; }
+    }
+    var altTape = document.getElementById('an-cp-alt-tape');
+    if (altTape) {
+      var at = altitudeRulerTicks(altFt, compact ? 5 : 9);
+      var ah = '';
+      for (var a = 0; a < at.length; a++) {
+        ah += '<span style="--slot:' + at[a].slot.toFixed(2) + '" class="' + (at[a].major ? 'is-major' : '') + '">' + String(Math.round(at[a].valueFt)).padStart(5, '0') + '</span>';
+      }
+      if (altTape.dataset.sig !== ah) { altTape.innerHTML = ah; altTape.dataset.sig = ah; }
+    }
+  }
+
+  function resolveGlbPickRow(picked, state) {
+    if (!picked) return null;
+    try {
+      var pid = picked.id;
+      if (pid && pid.__gm2) return pid.__gm2;
+      if (typeof pid === 'string' && state && state.entityById) {
+        var ent = state.entityById.get(pid);
+        if (ent && ent.__gm2) return ent.__gm2;
+      }
+      if (picked.primitive && picked.primitive.id && picked.primitive.id.__gm2) return picked.primitive.id.__gm2;
+    } catch (e) {}
+    return null;
+  }
+
   function tickCraftMotion(Cesium, viewer, state) {
     if (!Cesium || !viewer || !state) return;
     const now = Date.now();
     if (now - (state._craftTickMs || 0) < 80) return false;
     state._craftTickMs = now;
-    const groups = ['flight', 'military'];
+    const groups = ['flight', 'military', 'ship'];
     for (let g = 0; g < groups.length; g++) {
       const ids = state.groups && state.groups.get(groups[g]);
       if (!ids) continue;
@@ -2891,10 +3306,12 @@
             ent.__gm2SlewHdg = shown;
             ent.billboard.rotation = craftHeadingRad({ heading: shown });
             ent.billboard.alignedAxis = craftAlignedAxis(Cesium, pos);
+            if (!_glbWas3d[id]) ent.billboard.show = true;
           }
         } catch (eB) {}
       });
     }
+    try { tickNearbyGlbModels(Cesium, viewer, state); } catch (eGlb) {}
     return true;
   }
   function craftTrailCartesian(Cesium, row) {
@@ -3412,9 +3829,11 @@
         id: 'gm2-' + key,
         polyline: {
           positions, width: width || 2,
-          material: cesiumColor(Cesium, color || '#5ac8fa', 0.8),
+          material: cesiumColor(Cesium, color || '#5ac8fa', 0.85),
+          depthFailMaterial: cesiumColor(Cesium, color || '#5ac8fa', 0.4),
           clampToGround: false,
           disableDepthTestDistance: 0,
+          arcType: (Cesium.ArcType && Cesium.ArcType.GEODESIC) || undefined,
         },
       });
     } catch (e) {}
@@ -6029,6 +6448,7 @@
       state._cockpitOn = false;
       state._slewHdg = null;
     }
+    try { hideCockpitHud(); } catch (eH) {}
     try { if (Cesium && viewer && state) upsertPolyline(Cesium, viewer, state, 'headingTickEntity', null); } catch (e4) {}
   }
 
@@ -6069,6 +6489,7 @@
     rememberPoseTrail(row, pose);
     updateHeadingTick(Cesium, viewer, state, pose);
     try { showSelectionTrail(Cesium, viewer, state, row); } catch (eTr) {}
+    try { updateCockpitHud(row, pose); } catch (eHud) {}
     return true;
   }
 
@@ -6163,6 +6584,8 @@
     try { if (state.horizonCullRemove) state.horizonCullRemove(); } catch (e) {}
     try { if (state.aisWs) { state.aisWs.close(); state.aisWs = null; } } catch (e) {}
     try { stopAisstream(); } catch (e) {}
+    try { destroyGlbModels(state); } catch (eGlb) {}
+    try { hideCockpitHud(); } catch (eHud) {}
     try {
       if (state.googleTileset && !state.googleTileset.isDestroyed?.()) {
         try { state.viewer?.scene?.primitives?.remove(state.googleTileset); } catch (e) {}
@@ -6785,10 +7208,13 @@
             let row = null;
             if (Cesium.defined(picked) && picked.id && !picked.id.__gm2Decor) {
               row = picked.id.__gm2 || null;
+              if (!row) row = resolveGlbPickRow(picked, state);
               if (!row && picked.id.description) {
                 try { row = JSON.parse(picked.id.description.getValue?.(viewer.clock.currentTime) || picked.id.description); }
                 catch (e) {}
               }
+            } else if (Cesium.defined(picked)) {
+              row = resolveGlbPickRow(picked, state);
             }
             if (row && row.type) {
               highlightSelected(state, row.id);
@@ -7200,7 +7626,7 @@
           React.createElement('div', { className: 'v4-godmode-title' },
             React.createElement('span', { className: 'v4-godmode-eyebrow' }, 'Planetary ops'),
             React.createElement('strong', null, 'GOD MODE · CESIUM'),
-            React.createElement('span', { className: 'v4-godmode-sub' }, 'an168 · photoreal · cockpit · NVG')
+            React.createElement('span', { className: 'v4-godmode-sub' }, 'an169 · 3D · cockpit HUD · AIS')
           ),
           React.createElement('div', { className: 'v4-godmode-stats' },
             [['flights', 'Flights'], ['sats', 'Sats'], ['ships', 'Ships'], ['launches', 'Launches'], ['events', 'Events'], ['weather', 'Wx']].map(([k, label]) =>
