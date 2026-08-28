@@ -991,9 +991,26 @@ def normalize_sources(raw, source_url: str, host: str) -> list:
         if isinstance(src, str):
             url = src
             name = host_name(url) if url else host
+            list_name = ""
         elif isinstance(src, dict):
             url = src.get("url") or ""
-            name = src.get("name") or src.get("title") or host_name(url) or host
+            list_name = (
+                src.get("source_list_name")
+                or src.get("list_name")
+                or src.get("list")
+                or ""
+            )
+            list_name = str(list_name).strip()
+            name = (
+                list_name
+                or src.get("name")
+                or src.get("title")
+                or host_name(url)
+                or host
+            )
+            # Prefer real Scoble list names over "jason source post" titles
+            if list_name:
+                name = list_name
         else:
             continue
         key = (url or name).lower()
@@ -1005,6 +1022,8 @@ def normalize_sources(raw, source_url: str, host: str) -> list:
             entry["url"] = url
         if name:
             entry["name"] = name
+        if list_name:
+            entry["list"] = list_name
         if entry:
             out.append(entry)
     if source_url and source_url.lower() not in seen:
@@ -1043,7 +1062,6 @@ def api_item_to_story(item: dict, section_key: str) -> dict | None:
     topic_key, topic_label = topic_for_api(headline, body, section)
     section_label = SECTION_LABELS.get(section, section.replace("-", " ").title())
     source_label = (item.get("source_label") or "").strip()
-    source_list = source_label if source_label else section_label
     link = (item.get("source_url") or "").strip()
     host = host_name(link) if link else "alignednews.com"
     author_name = (item.get("author_name") or "").strip() or host
@@ -1052,6 +1070,30 @@ def api_item_to_story(item: dict, section_key: str) -> dict | None:
         handle = x_handle(link, author_name)
     story_id = str(item.get("id") or link or headline)
     why = why_it_matters_for(headline, summary, item.get("whythismatters") or "")
+    sources = normalize_sources(item.get("sources"), link, host)
+    list_names = []
+    seen_lists = set()
+    for src in sources:
+        nm = (src.get("list") or src.get("name") or "").strip()
+        if not nm:
+            continue
+        low = nm.lower()
+        if low in {"from scoble lists", "latest stories", "x.com", "alignednews.com"}:
+            continue
+        if low.endswith(" source post"):
+            continue
+        if low in seen_lists:
+            continue
+        seen_lists.add(low)
+        list_names.append(nm)
+    # API often stamps every row "From Scoble lists"; prefer real list names from sources.
+    generic_label = source_label.lower() in {"", "from scoble lists", "scoble lists", "lists"}
+    if list_names:
+        source_list = " + ".join(list_names[:3])
+    elif source_label and not generic_label:
+        source_list = source_label
+    else:
+        source_list = section_label
     story = {
         "id": story_id,
         "headline": headline,
@@ -1064,7 +1106,7 @@ def api_item_to_story(item: dict, section_key: str) -> dict | None:
         "author_name": author_name,
         "source_list": source_list,
         "source_url": link,
-        "sources": normalize_sources(item.get("sources"), link, host),
+        "sources": sources,
         "body": body,
         "kind": "story",
         "engagement": normalize_engagement(item.get("engagement")),

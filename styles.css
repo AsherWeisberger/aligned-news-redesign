@@ -5238,7 +5238,7 @@ html[data-theme="dark"] .lead-card-opener .lead-hero::after {
   font-style: normal;
   line-height: 1.12;
   letter-spacing: -0.038em;
-  max-width: 22ch;
+  max-width: 28ch;
   color: var(--text);
 }
 .lead-card-opener .lead-dek {

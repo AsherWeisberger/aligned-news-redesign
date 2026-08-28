@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-08-28T03:24:43.000Z",
-    "scrapedAt": "2026-08-28T03:24:43.000Z",
+    "generatedAt": "2026-08-28T09:36:56.000Z",
+    "scrapedAt": "2026-08-28T09:36:56.000Z",
     "source": "alignednews-news-feed",
     "note": "Pulled from /api/news-feed, 161 stories, events boxed",
     "rssLastBuildDate": "",
     "rssItemCount": 161,
     "rssKeptCount": 161,
-    "lastUpdatedTs": 1787887483523
+    "lastUpdatedTs": 1787909816809
   },
   "user": {
     "name": "Asher",
@@ -79,48 +79,18 @@
   ],
   "forYou": [
     {
-      "id": "e0384b1b-7ad9-46b8-894d-d59f751796c3",
-      "title": "Cohere introduces Parse 5 for high-volume document processing",
-      "text": "Cohere introduced Parse 5, a document-parsing model it positions for high-volume enterprise work with low per-page pricing and strong price-performance.",
+      "id": "165d8181-070f-4b06-b88f-071b185a863b",
+      "title": "jason: Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty",
+      "text": "jason says Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty. The post points to a development changing the immediate AI landscape.",
       "badge": "story",
       "topic_key": "models",
-      "source_url": "https://x.com/cohere/status/2092962399754055863",
-      "created_at": "2026-08-27T13:08:16.000Z",
+      "source_url": "https://x.com/Jason/status/2093085132492300310",
+      "created_at": "2026-08-27T21:15:57.000Z",
       "section_key": "models",
-      "section_label": "Products",
-      "source_list": "AI Companies #1",
+      "section_label": "Breaking",
+      "source_list": "Breaking",
       "topic_label": "Models",
-      "analysis": "Cohere introduced Parse 5, a document-parsing model it positions for high-volume enterprise work with low per-page pricing and strong price-performance.",
-      "media_url": "https://pbs.twimg.com/media/HQuv7F2W0AAw5mp.jpg?name=orig"
-    },
-    {
-      "id": "7c23cf35-dd3b-4038-a748-f7b042a0ee44",
-      "title": "Hugging Face announces Microduck open source robot",
-      "text": "Clement Delangue announced Microduck, describing a $399 open source robot that can be taught new tasks with reinforcement learning.",
-      "badge": "story",
-      "topic_key": "robotics",
-      "source_url": "https://x.com/ClementDelangue/status/2092931447644442635",
-      "created_at": "2026-08-27T11:05:16.000Z",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "source_list": "Clement Delangue on X",
-      "topic_label": "Robotics",
-      "analysis": "Clement Delangue announced Microduck, describing a $399 open source robot that can be taught new tasks with reinforcement learning."
-    },
-    {
-      "id": "3ae98b50-dc24-46d6-a0da-d249717b0d03",
-      "title": "Google Research introduces the planetary prediction engine: An experimental research capability that automates global geospatial modeling workflows",
-      "text": "Google Research says An experimental research capability that automates global geospatial modeling workflows. The post points to a development exposing a result that challenges normal expectations.",
-      "badge": "story",
-      "topic_key": "research",
-      "source_url": "https://x.com/GoogleResearch/status/2093040723499343992",
-      "created_at": "2026-08-27T18:19:29.000Z",
-      "section_key": "research",
-      "section_label": "Anomalies",
-      "source_list": "AI Companies #2",
-      "topic_label": "Research",
-      "analysis": "Google Research says An experimental research capability that automates global geospatial modeling workflows. The post points to a development exposing a result that challenges normal expectations.",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093040333320019968/img/VM2mb7KcrA5-4HlN.jpg"
+      "analysis": "jason says Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty. The post points to a development changing the immediate AI landscape."
     },
     {
       "id": "81eb4f95-a038-4c5a-83b9-275531e55221",
@@ -132,7 +102,7 @@
       "created_at": "2026-08-27T21:12:08.000Z",
       "section_key": "funding",
       "section_label": "Funding",
-      "source_list": "AI Newsmakers",
+      "source_list": "Funding",
       "topic_label": "Funding",
       "analysis": "Evan Solomon says Today in Thunder Bay, we announced funding for three AI projects across Northern Ontario, showing where technology capital is moving. The post points to a development showing where technology capital is moving.",
       "media_url": "https://pbs.twimg.com/media/HQwg9CrWcAAuaZq.jpg?name=orig"
@@ -147,95 +117,69 @@
       "created_at": "2026-08-27T20:55:56.000Z",
       "section_key": "agents",
       "section_label": "Agents",
-      "source_list": "AI Leaders #1",
+      "source_list": "Agents",
       "topic_label": "Agents",
       "analysis": "Nicolas Camara says Nicolas Camara introduces ocr in anydoc, making software agents more operational. The post points to a development making software agents more operational.",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093080040892416000/img/Qc2KGcetZxDjmIjh.jpg"
+    },
+    {
+      "id": "23290ea8-b420-4af6-91b2-132d1104b68c",
+      "title": "OpenAI: We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft",
+      "text": "OpenAI says We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft. The post points to a development changing the immediate AI landscape.",
+      "badge": "story",
+      "topic_key": "models",
+      "source_url": "https://x.com/OpenAI/status/2093074192636018977",
+      "created_at": "2026-08-27T20:32:29.000Z",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "source_list": "Breaking",
+      "topic_label": "Models",
+      "analysis": "OpenAI says We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft. The post points to a development changing the immediate AI landscape.",
+      "media_url": "https://pbs.twimg.com/media/HQwXk34asAAZ3WZ.png?name=orig"
+    },
+    {
+      "id": "a6ff8a37-4f4b-47f4-953c-5fd07364d61e",
+      "title": "Grummz: It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape",
+      "text": "Grummz says It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "badge": "story",
+      "topic_key": "models",
+      "source_url": "https://x.com/Grummz/status/2093073684366057625",
+      "created_at": "2026-08-27T20:30:28.000Z",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "source_list": "Breaking",
+      "topic_label": "Models",
+      "analysis": "Grummz says It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "media_url": "https://pbs.twimg.com/media/HQwHNQJXIAAigWG.jpg?name=orig"
     }
   ],
   "stories": [
     {
-      "id": "e0384b1b-7ad9-46b8-894d-d59f751796c3",
-      "headline": "Cohere introduces Parse 5 for high-volume document processing",
-      "summary": "Cohere introduced Parse 5, a document-parsing model it positions for high-volume enterprise work with low per-page pricing and strong price-performance.",
-      "section": "products",
+      "id": "165d8181-070f-4b06-b88f-071b185a863b",
+      "headline": "jason: Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty",
+      "summary": "jason says Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
       "section_key": "models",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-08-27T13:08:16.000Z",
-      "author_name": "Cohere",
-      "source_list": "AI Companies #1",
-      "source_url": "https://x.com/cohere/status/2092962399754055863",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T21:15:57.000Z",
+      "author_name": "@jason",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/Jason/status/2093085132492300310",
       "sources": [
         {
-          "url": "https://x.com/cohere/status/2092962399754055863",
-          "name": "x.com"
+          "url": "https://x.com/Jason/status/2093085132492300310",
+          "name": "jason source post"
         }
       ],
-      "body": "Cohere introduced Parse 5, a document-parsing model it positions for high-volume enterprise work with low per-page pricing and strong price-performance.",
+      "body": "jason says Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty. The post points to a development changing the immediate AI landscape.",
       "kind": "story",
       "engagement": {},
       "why_it_matters": "",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "cohere",
-      "desk_rank": 2,
-      "media_url": "https://pbs.twimg.com/media/HQuv7F2W0AAw5mp.jpg?name=orig"
-    },
-    {
-      "id": "7c23cf35-dd3b-4038-a748-f7b042a0ee44",
-      "headline": "Hugging Face announces Microduck open source robot",
-      "summary": "Clement Delangue announced Microduck, describing a $399 open source robot that can be taught new tasks with reinforcement learning.",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-08-27T11:05:16.000Z",
-      "author_name": "Clement Delangue",
-      "source_list": "Clement Delangue on X",
-      "source_url": "https://x.com/ClementDelangue/status/2092931447644442635",
-      "sources": [
-        {
-          "url": "https://x.com/ClementDelangue/status/2092931447644442635",
-          "name": "x.com"
-        }
-      ],
-      "body": "Clement Delangue announced Microduck, describing a $399 open source robot that can be taught new tasks with reinforcement learning.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "ClementDelangue",
-      "desk_rank": 1
-    },
-    {
-      "id": "3ae98b50-dc24-46d6-a0da-d249717b0d03",
-      "headline": "Google Research introduces the planetary prediction engine: An experimental research capability that automates global geospatial modeling workflows",
-      "summary": "Google Research says An experimental research capability that automates global geospatial modeling workflows. The post points to a development exposing a result that challenges normal expectations.",
-      "section": "anomalies",
-      "section_key": "research",
-      "section_label": "Anomalies",
-      "tag": "anomalies",
-      "published_at": "2026-08-27T18:19:29.000Z",
-      "author_name": "Google Research",
-      "source_list": "AI Companies #2",
-      "source_url": "https://x.com/GoogleResearch/status/2093040723499343992",
-      "sources": [
-        {
-          "url": "https://x.com/GoogleResearch/status/2093040723499343992",
-          "name": "Google Research source post"
-        }
-      ],
-      "body": "Google Research says An experimental research capability that automates global geospatial modeling workflows. The post points to a development exposing a result that challenges normal expectations.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "research",
-      "topic_label": "Research",
-      "x_handle": "GoogleResearch",
-      "desk_rank": 5,
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093040333320019968/img/VM2mb7KcrA5-4HlN.jpg"
+      "x_handle": "Jason",
+      "desk_rank": 14
     },
     {
       "id": "81eb4f95-a038-4c5a-83b9-275531e55221",
@@ -247,7 +191,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T21:12:08.000Z",
       "author_name": "Evan Solomon",
-      "source_list": "AI Newsmakers",
+      "source_list": "Funding",
       "source_url": "https://x.com/EvanLSolomon/status/2093084169337204743",
       "sources": [
         {
@@ -275,7 +219,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T20:55:56.000Z",
       "author_name": "Nicolas Camara",
-      "source_list": "AI Leaders #1",
+      "source_list": "Agents",
       "source_url": "https://x.com/nickscamara_/status/2093080092201386195",
       "sources": [
         {
@@ -294,6 +238,89 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093080040892416000/img/Qc2KGcetZxDjmIjh.jpg"
     },
     {
+      "id": "23290ea8-b420-4af6-91b2-132d1104b68c",
+      "headline": "OpenAI: We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft",
+      "summary": "OpenAI says We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T20:32:29.000Z",
+      "author_name": "OpenAI",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/OpenAI/status/2093074192636018977",
+      "sources": [
+        {
+          "url": "https://x.com/OpenAI/status/2093074192636018977",
+          "name": "OpenAI source post"
+        }
+      ],
+      "body": "OpenAI says We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft. The post points to a development changing the immediate AI landscape.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "OpenAI",
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQwXk34asAAZ3WZ.png?name=orig"
+    },
+    {
+      "id": "a6ff8a37-4f4b-47f4-953c-5fd07364d61e",
+      "headline": "Grummz: It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape",
+      "summary": "Grummz says It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T20:30:28.000Z",
+      "author_name": "Grummz",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/Grummz/status/2093073684366057625",
+      "sources": [
+        {
+          "url": "https://x.com/Grummz/status/2093073684366057625",
+          "name": "Grummz source post"
+        }
+      ],
+      "body": "Grummz says It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "Grummz",
+      "desk_rank": 13,
+      "media_url": "https://pbs.twimg.com/media/HQwHNQJXIAAigWG.jpg?name=orig"
+    },
+    {
+      "id": "dece632d-8f5c-414d-97cd-44a5fbbd7ae8",
+      "headline": "Sam Altman: this is a critically important moment for cyber defense with AI; there is not much time to act",
+      "summary": "Sam Altman says this is a critically important moment for cyber defense with AI; there is not much time to act. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T19:38:45.000Z",
+      "author_name": "Sam Altman",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/sama/status/2093060670472241368",
+      "sources": [
+        {
+          "url": "https://x.com/sama/status/2093060670472241368",
+          "name": "Sam Altman source post"
+        }
+      ],
+      "body": "Sam Altman says this is a critically important moment for cyber defense with AI; there is not much time to act. The post points to a development changing the immediate AI landscape.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "sama",
+      "desk_rank": 7
+    },
+    {
       "id": "030fb39f-e992-4b9c-9e73-1af2252359b7",
       "headline": "Gemini Notebook introduces Expert Intelligence, widening the available model choices",
       "summary": "Gemini Notebook says Gemini Notebook introduces Expert Intelligence, widening the available model choices. The post points to a development widening the available model choices.",
@@ -303,7 +330,7 @@
       "tag": "models",
       "published_at": "2026-08-27T19:34:16.000Z",
       "author_name": "Gemini Notebook",
-      "source_list": "AI Companies #2",
+      "source_list": "Models",
       "source_url": "https://x.com/Gemini_Notebook/status/2093059543362306369",
       "sources": [
         {
@@ -331,7 +358,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T18:19:55.000Z",
       "author_name": "Kenny Workman",
-      "source_list": "AI Community #4",
+      "source_list": "Research",
       "source_url": "https://x.com/kenbwork/status/2093040829799776430",
       "sources": [
         {
@@ -350,6 +377,90 @@
       "media_url": "https://pbs.twimg.com/media/HQv3dv9a8AA0eEd.jpg?name=orig"
     },
     {
+      "id": "3ae98b50-dc24-46d6-a0da-d249717b0d03",
+      "headline": "Google Research introduces the planetary prediction engine: An experimental research capability that automates global geospatial modeling workflows",
+      "summary": "Google Research says An experimental research capability that automates global geospatial modeling workflows. The post points to a development exposing a result that challenges normal expectations.",
+      "section": "anomalies",
+      "section_key": "research",
+      "section_label": "Anomalies",
+      "tag": "anomalies",
+      "published_at": "2026-08-27T18:19:29.000Z",
+      "author_name": "Google Research",
+      "source_list": "Anomalies",
+      "source_url": "https://x.com/GoogleResearch/status/2093040723499343992",
+      "sources": [
+        {
+          "url": "https://x.com/GoogleResearch/status/2093040723499343992",
+          "name": "Google Research source post"
+        }
+      ],
+      "body": "Google Research says An experimental research capability that automates global geospatial modeling workflows. The post points to a development exposing a result that challenges normal expectations.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "research",
+      "topic_label": "Research",
+      "x_handle": "GoogleResearch",
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093040333320019968/img/VM2mb7KcrA5-4HlN.jpg"
+    },
+    {
+      "id": "d570df7c-d100-45f4-b21c-39833311a075",
+      "headline": "Vantor: Our thoughts are with the communities affected by this week’s devastating flash floods in Nepal, changing the immediate AI landscape",
+      "summary": "Vantor says Our thoughts are with the communities affected by this week’s devastating flash floods in Nepal, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T18:10:43.000Z",
+      "author_name": "Vantor",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/vantortech/status/2093038515927842948",
+      "sources": [
+        {
+          "url": "https://x.com/vantortech/status/2093038515927842948",
+          "name": "Vantor source post"
+        }
+      ],
+      "body": "Vantor says Our thoughts are with the communities affected by this week’s devastating flash floods in Nepal, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "vantortech",
+      "desk_rank": 15,
+      "media_url": "https://pbs.twimg.com/media/HQv3Pv3WEAAfKRt.jpg?name=orig"
+    },
+    {
+      "id": "797e96a5-151d-4705-b8ce-10f754d6c6c9",
+      "headline": "ChatGPT: We heard your feedback that sometimes a Temporary chat becomes something worth saving, changing the immediate AI landscape",
+      "summary": "ChatGPT says We heard your feedback that sometimes a Temporary chat becomes something worth saving, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T18:05:16.000Z",
+      "author_name": "ChatGPT",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/ChatGPT/status/2093037143639851121",
+      "sources": [
+        {
+          "url": "https://x.com/ChatGPT/status/2093037143639851121",
+          "name": "ChatGPT source post"
+        }
+      ],
+      "body": "ChatGPT says We heard your feedback that sometimes a Temporary chat becomes something worth saving, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "ChatGPT",
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093036683549876224/img/_MXuRQxujDFEFfJ7.jpg"
+    },
+    {
       "id": "a4047f97-5f0c-49be-b0d1-acd8bd64e7be",
       "headline": "GMI Cloud introduces GMI Router, widening the available model choices",
       "summary": "GMI Cloud says GMI Cloud introduces GMI Router, widening the available model choices. The post points to a development widening the available model choices.",
@@ -359,7 +470,7 @@
       "tag": "models",
       "published_at": "2026-08-27T17:08:23.000Z",
       "author_name": "GMI Cloud",
-      "source_list": "AI Companies #2",
+      "source_list": "Models",
       "source_url": "https://x.com/gmi_cloud/status/2093022830493626670",
       "sources": [
         {
@@ -378,6 +489,34 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093020357527818240/img/ENTgqeX0_S3N-ddT.jpg"
     },
     {
+      "id": "d2db6f3a-4114-49c3-ade7-b0bfb3d4fc40",
+      "headline": "Martin Bauer: Coleman is absolutely correct, changing the immediate AI landscape",
+      "summary": "Martin Bauer says Coleman is absolutely correct, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T17:06:16.000Z",
+      "author_name": "Martin Bauer",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/martinmbauer/status/2093022295430148304",
+      "sources": [
+        {
+          "url": "https://x.com/martinmbauer/status/2093022295430148304",
+          "name": "Martin Bauer source post"
+        }
+      ],
+      "body": "Martin Bauer says Coleman is absolutely correct, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "martinmbauer",
+      "desk_rank": 11,
+      "media_url": "https://pbs.twimg.com/media/HQqlqdEaAAAQ5c2.jpg?name=orig"
+    },
+    {
       "id": "a0bbe27e-4b31-4522-9d0f-0494e462b318",
       "headline": "Brave on desktop just added Email Aliases, a feature that lets you sign up for online services without revealing your personal email address",
       "summary": "Brave says Brave on desktop just added Email Aliases, a feature that lets you sign up for online services without revealing your personal email address. The post points to a development changing the immediate AI landscape.",
@@ -387,7 +526,7 @@
       "tag": "breaking",
       "published_at": "2026-08-27T16:45:45.000Z",
       "author_name": "Brave",
-      "source_list": "AI Companies #1",
+      "source_list": "Breaking",
       "source_url": "https://x.com/brave/status/2093017131809923447",
       "sources": [
         {
@@ -406,6 +545,174 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092994719408082944/img/LBtFtQGnilueFcab.jpg"
     },
     {
+      "id": "ee6f642c-4f9a-44cb-ad6b-deede56fa7b9",
+      "headline": "freeCodeCamp.org: Running your own DevOps setup locally is one of the best ways to learn, changing the immediate AI landscape",
+      "summary": "freeCodeCamp.org says Running your own DevOps setup locally is one of the best ways to learn, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T16:04:12.000Z",
+      "author_name": "freeCodeCamp.org",
+      "source_list": "Breaking",
+      "source_url": "https://x.com/freeCodeCamp/status/2093006677993730164",
+      "sources": [
+        {
+          "url": "https://x.com/freeCodeCamp/status/2093006677993730164",
+          "name": "freeCodeCamp.org source post"
+        }
+      ],
+      "body": "freeCodeCamp.org says Running your own DevOps setup locally is one of the best ways to learn, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "freeCodeCamp",
+      "desk_rank": 12,
+      "media_url": "https://pbs.twimg.com/media/HQvae1uXUAArr6x.jpg?name=orig"
+    },
+    {
+      "id": "dd0ad4c2-5c53-4718-928b-9dc6f3ead361",
+      "headline": "US administration weighs chip tariffs that could reach laptops and consoles",
+      "summary": "Techmeme relays Politico reporting that the Trump administration is considering sweeping tariffs on chips and finished products including laptops and game consoles.",
+      "section": "breaking",
+      "section_key": "chips",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T13:25:14.000Z",
+      "author_name": "Techmeme",
+      "source_list": "Techmeme summary of Politico chip-tariff reporting",
+      "source_url": "https://x.com/Techmeme/status/2092966673242550385",
+      "sources": [
+        {
+          "url": "https://x.com/Techmeme/status/2092966673242550385",
+          "name": "Techmeme summary of Politico chip-tariff reporting"
+        }
+      ],
+      "body": "Techmeme relays Politico reporting that the Trump administration is considering sweeping tariffs on chips and finished products including laptops and game consoles.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "Techmeme",
+      "desk_rank": 2
+    },
+    {
+      "id": "e0384b1b-7ad9-46b8-894d-d59f751796c3",
+      "headline": "Cohere introduces Parse 5 for high-volume document processing",
+      "summary": "Cohere introduced Parse 5, a document-parsing model it positions for high-volume enterprise work with low per-page pricing and strong price-performance.",
+      "section": "products",
+      "section_key": "models",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-27T13:08:16.000Z",
+      "author_name": "Cohere",
+      "source_list": "AI Companies #1",
+      "source_url": "https://x.com/cohere/status/2092962399754055863",
+      "sources": [
+        {
+          "url": "https://x.com/cohere/status/2092962399754055863",
+          "name": "AI Companies #1",
+          "list": "AI Companies #1"
+        }
+      ],
+      "body": "Cohere introduced Parse 5, a document-parsing model it positions for high-volume enterprise work with low per-page pricing and strong price-performance.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "cohere",
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQuv7F2W0AAw5mp.jpg?name=orig"
+    },
+    {
+      "id": "743b7850-350e-4c94-8022-788fa30fdd51",
+      "headline": "Meta agrees to teen-safety settlement worth up to $16.7 billion",
+      "summary": "WIRED reports that Meta agreed to pay up to $16.7 billion to 51 US states and territories and make substantive changes to how teenagers engage with its platforms.",
+      "section": "breaking",
+      "section_key": "funding",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T12:17:17.000Z",
+      "author_name": "WIRED",
+      "source_list": "WIRED report on Meta teen-safety settlement",
+      "source_url": "https://x.com/WIRED/status/2092949569390743563",
+      "sources": [
+        {
+          "url": "https://x.com/WIRED/status/2092949569390743563",
+          "name": "WIRED report on Meta teen-safety settlement"
+        }
+      ],
+      "body": "WIRED reports that Meta agreed to pay up to $16.7 billion to 51 US states and territories and make substantive changes to how teenagers engage with its platforms.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "WIRED",
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/card_img/2092615484646514689/5KeipvNN?format=jpg&name=orig"
+    },
+    {
+      "id": "1c026192-e1fc-4e95-b2a1-e49c9aa0b795",
+      "headline": "Boston Scientific reports global medical-device disruption after cyberattack",
+      "summary": "TechRadar reports that Boston Scientific says a cyberattack is causing global disruption to its medical-device operations.",
+      "section": "breaking",
+      "section_key": "models",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-27T12:13:12.000Z",
+      "author_name": "TechRadar",
+      "source_list": "TechRadar report on Boston Scientific cyber disruption",
+      "source_url": "https://x.com/techradar/status/2092948544793772436",
+      "sources": [
+        {
+          "url": "https://x.com/techradar/status/2092948544793772436",
+          "name": "TechRadar report on Boston Scientific cyber disruption"
+        }
+      ],
+      "body": "TechRadar reports that Boston Scientific says a cyberattack is causing global disruption to its medical-device operations.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "techradar",
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/card_img/2092948545523605504/FydJ4-Rn?format=jpg&name=orig"
+    },
+    {
+      "id": "7c23cf35-dd3b-4038-a748-f7b042a0ee44",
+      "headline": "Hugging Face announces Microduck open source robot",
+      "summary": "Clement Delangue announced Microduck, describing a $399 open source robot that can be taught new tasks with reinforcement learning.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-27T11:05:16.000Z",
+      "author_name": "Clement Delangue",
+      "source_list": "AI Leaders #1",
+      "source_url": "https://x.com/ClementDelangue/status/2092931447644442635",
+      "sources": [
+        {
+          "url": "https://x.com/ClementDelangue/status/2092931447644442635",
+          "name": "AI Leaders #1",
+          "list": "AI Leaders #1"
+        }
+      ],
+      "body": "Clement Delangue announced Microduck, describing a $399 open source robot that can be taught new tasks with reinforcement learning.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "ClementDelangue",
+      "desk_rank": 1
+    },
+    {
       "id": "ac1b43b2-46c9-45fe-8303-017c95489b1e",
       "headline": "RSI-Exam introduces 88 executable research tasks across six domains",
       "summary": "Huaxiu Yao introduces RSI-Exam as 88 executable research tasks across six domains for examining whether frontier agents can improve a weak method on hidden data.",
@@ -415,7 +722,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T01:01:48.000Z",
       "author_name": "Huaxiu Yao",
-      "source_list": "AI Community #2",
+      "source_list": "Research",
       "source_url": "https://x.com/HuaxiuYaoML/status/2092779580004474985",
       "sources": [
         {
@@ -448,7 +755,8 @@
       "sources": [
         {
           "url": "https://x.com/antigravity/status/2092750545383551281",
-          "name": "x.com"
+          "name": "AI Companies #1",
+          "list": "AI Companies #1"
         }
       ],
       "body": "Google Antigravity says its agent can now create interactive artifacts such as dynamic data visualizations and 3D explanations when text, images, or Mermaid diagrams are insufficient.",
@@ -462,338 +770,6 @@
       "media_url": "https://pbs.twimg.com/media/HQrxh8uXgAAvEci.jpg?name=orig"
     },
     {
-      "id": "165d8181-070f-4b06-b88f-071b185a863b",
-      "headline": "jason: Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty",
-      "summary": "jason says Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T21:15:57.000Z",
-      "author_name": "@jason",
-      "source_list": "AI Investors, AI Newsmakers",
-      "source_url": "https://x.com/Jason/status/2093085132492300310",
-      "sources": [
-        {
-          "url": "https://x.com/Jason/status/2093085132492300310",
-          "name": "jason source post"
-        }
-      ],
-      "body": "jason says Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "Jason",
-      "desk_rank": 14
-    },
-    {
-      "id": "23290ea8-b420-4af6-91b2-132d1104b68c",
-      "headline": "OpenAI: We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft",
-      "summary": "OpenAI says We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T20:32:29.000Z",
-      "author_name": "OpenAI",
-      "source_list": "AI Companies #1, AI Newsmakers",
-      "source_url": "https://x.com/OpenAI/status/2093074192636018977",
-      "sources": [
-        {
-          "url": "https://x.com/OpenAI/status/2093074192636018977",
-          "name": "OpenAI source post"
-        }
-      ],
-      "body": "OpenAI says We have a limited window to strengthen cyber defenses, and together with organizations including AnthropicAI, awscloud, Google, Microsoft. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "OpenAI",
-      "desk_rank": 8,
-      "media_url": "https://pbs.twimg.com/media/HQwXk34asAAZ3WZ.png?name=orig"
-    },
-    {
-      "id": "a6ff8a37-4f4b-47f4-953c-5fd07364d61e",
-      "headline": "Grummz: It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape",
-      "summary": "Grummz says It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T20:30:28.000Z",
-      "author_name": "Grummz",
-      "source_list": "List 2050823188528205973",
-      "source_url": "https://x.com/Grummz/status/2093073684366057625",
-      "sources": [
-        {
-          "url": "https://x.com/Grummz/status/2093073684366057625",
-          "name": "Grummz source post"
-        }
-      ],
-      "body": "Grummz says It's easily seen in the trailer...there is a TON of mocap, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "Grummz",
-      "desk_rank": 13,
-      "media_url": "https://pbs.twimg.com/media/HQwHNQJXIAAigWG.jpg?name=orig"
-    },
-    {
-      "id": "dece632d-8f5c-414d-97cd-44a5fbbd7ae8",
-      "headline": "Sam Altman: this is a critically important moment for cyber defense with AI; there is not much time to act",
-      "summary": "Sam Altman says this is a critically important moment for cyber defense with AI; there is not much time to act. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T19:38:45.000Z",
-      "author_name": "Sam Altman",
-      "source_list": "AI Leaders #1",
-      "source_url": "https://x.com/sama/status/2093060670472241368",
-      "sources": [
-        {
-          "url": "https://x.com/sama/status/2093060670472241368",
-          "name": "Sam Altman source post"
-        }
-      ],
-      "body": "Sam Altman says this is a critically important moment for cyber defense with AI; there is not much time to act. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "sama",
-      "desk_rank": 7
-    },
-    {
-      "id": "d570df7c-d100-45f4-b21c-39833311a075",
-      "headline": "Vantor: Our thoughts are with the communities affected by this week’s devastating flash floods in Nepal, changing the immediate AI landscape",
-      "summary": "Vantor says Our thoughts are with the communities affected by this week’s devastating flash floods in Nepal, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T18:10:43.000Z",
-      "author_name": "Vantor",
-      "source_list": "AI Companies #2",
-      "source_url": "https://x.com/vantortech/status/2093038515927842948",
-      "sources": [
-        {
-          "url": "https://x.com/vantortech/status/2093038515927842948",
-          "name": "Vantor source post"
-        }
-      ],
-      "body": "Vantor says Our thoughts are with the communities affected by this week’s devastating flash floods in Nepal, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "vantortech",
-      "desk_rank": 15,
-      "media_url": "https://pbs.twimg.com/media/HQv3Pv3WEAAfKRt.jpg?name=orig"
-    },
-    {
-      "id": "797e96a5-151d-4705-b8ce-10f754d6c6c9",
-      "headline": "ChatGPT: We heard your feedback that sometimes a Temporary chat becomes something worth saving, changing the immediate AI landscape",
-      "summary": "ChatGPT says We heard your feedback that sometimes a Temporary chat becomes something worth saving, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T18:05:16.000Z",
-      "author_name": "ChatGPT",
-      "source_list": "AI Companies #1",
-      "source_url": "https://x.com/ChatGPT/status/2093037143639851121",
-      "sources": [
-        {
-          "url": "https://x.com/ChatGPT/status/2093037143639851121",
-          "name": "ChatGPT source post"
-        }
-      ],
-      "body": "ChatGPT says We heard your feedback that sometimes a Temporary chat becomes something worth saving, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "ChatGPT",
-      "desk_rank": 9,
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093036683549876224/img/_MXuRQxujDFEFfJ7.jpg"
-    },
-    {
-      "id": "d2db6f3a-4114-49c3-ade7-b0bfb3d4fc40",
-      "headline": "Martin Bauer: Coleman is absolutely correct, changing the immediate AI landscape",
-      "summary": "Martin Bauer says Coleman is absolutely correct, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T17:06:16.000Z",
-      "author_name": "Martin Bauer",
-      "source_list": "AI Community #1",
-      "source_url": "https://x.com/martinmbauer/status/2093022295430148304",
-      "sources": [
-        {
-          "url": "https://x.com/martinmbauer/status/2093022295430148304",
-          "name": "Martin Bauer source post"
-        }
-      ],
-      "body": "Martin Bauer says Coleman is absolutely correct, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "martinmbauer",
-      "desk_rank": 11,
-      "media_url": "https://pbs.twimg.com/media/HQqlqdEaAAAQ5c2.jpg?name=orig"
-    },
-    {
-      "id": "ee6f642c-4f9a-44cb-ad6b-deede56fa7b9",
-      "headline": "freeCodeCamp.org: Running your own DevOps setup locally is one of the best ways to learn, changing the immediate AI landscape",
-      "summary": "freeCodeCamp.org says Running your own DevOps setup locally is one of the best ways to learn, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T16:04:12.000Z",
-      "author_name": "freeCodeCamp.org",
-      "source_list": "AI Organizations",
-      "source_url": "https://x.com/freeCodeCamp/status/2093006677993730164",
-      "sources": [
-        {
-          "url": "https://x.com/freeCodeCamp/status/2093006677993730164",
-          "name": "freeCodeCamp.org source post"
-        }
-      ],
-      "body": "freeCodeCamp.org says Running your own DevOps setup locally is one of the best ways to learn, changing the immediate AI landscape. The post points to a development changing the immediate AI landscape.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "freeCodeCamp",
-      "desk_rank": 12,
-      "media_url": "https://pbs.twimg.com/media/HQvae1uXUAArr6x.jpg?name=orig"
-    },
-    {
-      "id": "dd0ad4c2-5c53-4718-928b-9dc6f3ead361",
-      "headline": "US administration weighs chip tariffs that could reach laptops and consoles",
-      "summary": "Techmeme relays Politico reporting that the Trump administration is considering sweeping tariffs on chips and finished products including laptops and game consoles.",
-      "section": "breaking",
-      "section_key": "chips",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T13:25:14.000Z",
-      "author_name": "Techmeme",
-      "source_list": "Techmeme citing Politico via Tech News Outlets",
-      "source_url": "https://x.com/Techmeme/status/2092966673242550385",
-      "sources": [
-        {
-          "url": "https://x.com/Techmeme/status/2092966673242550385",
-          "name": "Techmeme summary of Politico chip-tariff reporting"
-        }
-      ],
-      "body": "Techmeme relays Politico reporting that the Trump administration is considering sweeping tariffs on chips and finished products including laptops and game consoles.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "chips",
-      "topic_label": "Chips",
-      "x_handle": "Techmeme",
-      "desk_rank": 2
-    },
-    {
-      "id": "743b7850-350e-4c94-8022-788fa30fdd51",
-      "headline": "Meta agrees to teen-safety settlement worth up to $16.7 billion",
-      "summary": "WIRED reports that Meta agreed to pay up to $16.7 billion to 51 US states and territories and make substantive changes to how teenagers engage with its platforms.",
-      "section": "breaking",
-      "section_key": "funding",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T12:17:17.000Z",
-      "author_name": "WIRED",
-      "source_list": "WIRED via Tech News Outlets",
-      "source_url": "https://x.com/WIRED/status/2092949569390743563",
-      "sources": [
-        {
-          "url": "https://x.com/WIRED/status/2092949569390743563",
-          "name": "WIRED report on Meta teen-safety settlement"
-        }
-      ],
-      "body": "WIRED reports that Meta agreed to pay up to $16.7 billion to 51 US states and territories and make substantive changes to how teenagers engage with its platforms.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "funding",
-      "topic_label": "Funding",
-      "x_handle": "WIRED",
-      "desk_rank": 1,
-      "media_url": "https://pbs.twimg.com/card_img/2092615484646514689/5KeipvNN?format=jpg&name=800x419"
-    },
-    {
-      "id": "1c026192-e1fc-4e95-b2a1-e49c9aa0b795",
-      "headline": "Boston Scientific reports global medical-device disruption after cyberattack",
-      "summary": "TechRadar reports that Boston Scientific says a cyberattack is causing global disruption to its medical-device operations.",
-      "section": "breaking",
-      "section_key": "models",
-      "section_label": "Breaking",
-      "tag": "breaking",
-      "published_at": "2026-08-27T12:13:12.000Z",
-      "author_name": "TechRadar",
-      "source_list": "TechRadar via Tech News Outlets",
-      "source_url": "https://x.com/techradar/status/2092948544793772436",
-      "sources": [
-        {
-          "url": "https://x.com/techradar/status/2092948544793772436",
-          "name": "TechRadar report on Boston Scientific cyber disruption"
-        }
-      ],
-      "body": "TechRadar reports that Boston Scientific says a cyberattack is causing global disruption to its medical-device operations.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "techradar",
-      "desk_rank": 3,
-      "media_url": "https://pbs.twimg.com/card_img/2092948545523605504/FydJ4-Rn?format=jpg&name=800x419"
-    },
-    {
-      "id": "7c1399df-96a1-4d00-ad60-f7b93223f81a",
-      "headline": "The Desktop Became The New AI Battleground Tonight",
-      "summary": "Plain-text NotebookLM source synchronized from the current evening essay.",
-      "section": "notebook-lm",
-      "section_key": "models",
-      "section_label": "Briefing",
-      "tag": "notebook-lm",
-      "published_at": "2026-08-17T01:07:35.000Z",
-      "author_name": "Aligned News",
-      "source_list": "Briefing",
-      "source_url": "https://alignednews.com/ai",
-      "sources": [
-        {
-          "url": "https://alignednews.com/ai",
-          "name": "alignednews.com"
-        }
-      ],
-      "body": "The strongest AI signal tonight was not a new benchmark. It was the race to own the place where agents actually work. The desktop is becoming an agent control room Nous Research is bringing bots to Hermes Desktop . Hermes is also making sessions load faster . These sound like product updates, but together they reveal a bigger move. The agent is leaving the chat box and becoming a persistent worker with a place to live. A useful agent needs more than intelligence. It needs identity, memory, tools, permissions, schedules, and a visible history of what it did. The company that organizes those pieces can own the user relationship even when the underlying model changes. Memory is now product infrastructure Lindy replaced the memory system behind Teammate . That is a profound kind of product work. Better memory changes whether an agent can continue a project, respect a preference, recover from an interruption, and avoid asking the same question twice. Users are already feeling the opposite problem. One OpenClaw user described context splitting across Chat, Claude, and OpenClaw . Model choice creates freedom, but fragmented memory creates friction. Portability of state may become as important as portability of files. The orchestrator is gaining power Abacus.AI is mapping tasks to model choices . Fetch.ai describes agents through reasoning, tools, and protocols . Both point toward the same architecture. Users will increasingly ask for an outcome while software decides which model, tool, and execution path should handle each step. That makes orchestration a strategic layer. Routing controls cost. Permissions control risk. Context controls quality. Review controls trust. The best model can still lose the workflow if another product makes the whole loop easier to operate. Review becomes the scarce resource GitHub added selectable depth for Copilot code review . That feature matters because generated output is becoming abundant. Human attention is not. Teams need systems that decide what deserves a quick check and what deserves a deep inspection. The same logic will spread beyond code. Agent actions in finance, research, customer support, and operations will need different review thresholds. Control is not one approval button. It is a policy for allocating attention. The software layer still depends on physical capacity Neocloud operators are converting mining assets into AI capacity . ROCmFPX is extending native NVFP4 execution on AMD hardware . The agent control room may look like software, but its economics are set by memory, power, accelerators, and deployment choices. Local systems will win where privacy, responsiveness, and ownership matter. Large clusters will win where training and heavy inference demand scale. The orchestrator that can move intelligently between those environments will be more valuable than one locked to a single compute path. Robots expose the cost of bad control A hybrid robot combines hopping and flight for rough terrain . GITAI reports a spacecraft autonomy demonstration in orbit . Physical systems make orchestration visible. A wrong tool call in software can be reversed. A wrong movement in the world can damage hardware, waste energy, or end a mission. That is why the agent stack is becoming a control stack. Models provide capability. Memory provides continuity. Tools provide reach. Review provides trust. Compute provides endurance. The product that binds them together becomes the place where work happens. Tonight, the center of gravity moved from the answer to the operating system around it.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "AlignedNews",
-      "media_url": "https://alignednews.com/og-image.png"
-    },
-    {
       "id": "4a351988-7e99-4401-8d98-81add87e89da",
       "headline": "Kevin O'Leary aka Mr. Wonderful says think institutional crypto is becoming a two asset market, Bitcoin and Ethereum",
       "summary": "Kevin O'Leary aka Mr. Wonderful says Kevin O'Leary aka Mr. Wonderful says think institutional crypto is becoming a two asset market, Bitcoin and Ethereum. The post points to a development changing the rules or safeguards around deployment.",
@@ -803,7 +779,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T22:26:39.000Z",
       "author_name": "Kevin O'Leary aka Mr. Wonderful",
-      "source_list": "AI Investors",
+      "source_list": "Policy",
       "source_url": "https://x.com/kevinolearytv/status/2093102921760256024",
       "sources": [
         {
@@ -831,7 +807,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T22:01:49.000Z",
       "author_name": "Maya Bakhai 🌶️",
-      "source_list": "AI Investors",
+      "source_list": "Chips",
       "source_url": "https://x.com/MayaBakhai/status/2093096675342754273",
       "sources": [
         {
@@ -846,7 +822,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "MayaBakhai",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQwpUXlXcAAIcjn.jpg?name=orig"
     },
     {
       "id": "4d146c03-7705-4754-93a0-e0574a515ecc",
@@ -858,7 +835,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T22:00:32.000Z",
       "author_name": "NVIDIA AI Infrastructure",
-      "source_list": "AI Companies #1, AI Newsmakers",
+      "source_list": "Creative",
       "source_url": "https://x.com/NVIDIAAIInfra/status/2093096350959186197",
       "sources": [
         {
@@ -873,7 +850,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "NVIDIAAIInfra",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093096241332621312/img/dFC7a7r3W63jkrr1.jpg"
     },
     {
       "id": "b399887e-7383-4630-81c5-b06efc499aee",
@@ -885,7 +863,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T21:52:50.000Z",
       "author_name": "Amir Efrati",
-      "source_list": "AI Newsmakers",
+      "source_list": "Funding",
       "source_url": "https://x.com/amir/status/2093094414872989722",
       "sources": [
         {
@@ -900,7 +878,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "amir",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQwqIfyaIAAGiiy.jpg?name=orig"
     },
     {
       "id": "0ef468eb-b826-4b7f-bc0e-3f3e51e78ee8",
@@ -912,7 +891,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T21:51:04.000Z",
       "author_name": "Philip Kiely",
-      "source_list": "AI Community #5",
+      "source_list": "Funding",
       "source_url": "https://x.com/philipkiely/status/2093093967852384322",
       "sources": [
         {
@@ -927,7 +906,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "philipkiely",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQwSyNHasAA9xBl.jpg?name=orig"
     },
     {
       "id": "f332bc63-a60e-4f99-ba85-24188f66b5da",
@@ -939,7 +919,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T21:48:03.000Z",
       "author_name": "stephen balaban",
-      "source_list": "AI Leaders #1",
+      "source_list": "Creative",
       "source_url": "https://x.com/stephenbalaban/status/2093093210503749857",
       "sources": [
         {
@@ -954,7 +934,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "stephenbalaban",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/card_img/2090910775401406464/c9taN70f?format=jpg&name=orig"
     },
     {
       "id": "9f4ebc9a-b1df-4984-9342-dac29fcd4620",
@@ -966,7 +947,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T21:41:00.000Z",
       "author_name": "Hedgie",
-      "source_list": "AI Newsmakers",
+      "source_list": "Policy",
       "source_url": "https://x.com/HedgieMarkets/status/2093091434064670861",
       "sources": [
         {
@@ -981,7 +962,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "HedgieMarkets",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQwTO6tWwAANpBk.jpg?name=orig"
     },
     {
       "id": "7e502af9-57fc-45e3-a4c1-ce878ae10a22",
@@ -993,7 +975,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T21:36:20.000Z",
       "author_name": "️",
-      "source_list": "List 2050823188528205973",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/blankspeaker/status/2093090261748662346",
       "sources": [
         {
@@ -1008,7 +990,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "blankspeaker",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQwmVugbEAALVw2.jpg?name=orig"
     },
     {
       "id": "1404931f-b931-44ce-a7b8-c3b2e2f7baf6",
@@ -1020,7 +1003,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T21:33:08.000Z",
       "author_name": "Google Antigravity",
-      "source_list": "AI Companies #1, AI Newsmakers",
+      "source_list": "Agents",
       "source_url": "https://x.com/antigravity/status/2093089456312172930",
       "sources": [
         {
@@ -1035,7 +1018,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "antigravity",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HQwlmbJb0AE5xj5.jpg?name=orig"
     },
     {
       "id": "a3354726-5ed7-4ecc-aba6-aebbdafe4469",
@@ -1047,7 +1031,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T21:28:00.000Z",
       "author_name": "Varunram Ganesh",
-      "source_list": "AI Leaders #2, AI Newsmakers",
+      "source_list": "Funding",
       "source_url": "https://x.com/varunram/status/2093088164839854226",
       "sources": [
         {
@@ -1074,7 +1058,7 @@
       "tag": "anomalies",
       "published_at": "2026-08-27T21:19:29.000Z",
       "author_name": "Adam Shuaib",
-      "source_list": "AI Investors",
+      "source_list": "Anomalies",
       "source_url": "https://x.com/adamshuaib/status/2093086018048082116",
       "sources": [
         {
@@ -1101,7 +1085,7 @@
       "tag": "labs",
       "published_at": "2026-08-27T21:09:21.000Z",
       "author_name": "Jason Kelly",
-      "source_list": "AI Leaders #2",
+      "source_list": "Labs",
       "source_url": "https://x.com/jrkelly/status/2093083468787781894",
       "sources": [
         {
@@ -1116,7 +1100,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "jrkelly",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg"
     },
     {
       "id": "61513761-75d1-4e04-b8ce-8d8b75a0d4c4",
@@ -1128,7 +1113,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T20:52:50.000Z",
       "author_name": "Bindu Reddy",
-      "source_list": "AI Leaders #1, AI Newsmakers",
+      "source_list": "Agents",
       "source_url": "https://x.com/bindureddy/status/2093079314489364951",
       "sources": [
         {
@@ -1155,7 +1140,7 @@
       "tag": "models",
       "published_at": "2026-08-27T20:52:46.000Z",
       "author_name": "Epoch AI",
-      "source_list": "AI Companies #1, AI Companies #2, AI Organizations",
+      "source_list": "Models",
       "source_url": "https://x.com/EpochAIResearch/status/2093079297724735906",
       "sources": [
         {
@@ -1170,7 +1155,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "EpochAIResearch",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQwch2WbAAA3O5s.jpg?name=orig"
     },
     {
       "id": "351ec1e3-92ce-4fea-99c0-d98eb5858d75",
@@ -1182,7 +1168,7 @@
       "tag": "openclaw",
       "published_at": "2026-08-27T20:39:05.000Z",
       "author_name": "Mark Jeffrey",
-      "source_list": "AI Investors",
+      "source_list": "Open source",
       "source_url": "https://x.com/markjeffrey/status/2093075852875665460",
       "sources": [
         {
@@ -1197,7 +1183,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "markjeffrey",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQwV43_aAAAzC6W.jpg?name=orig"
     },
     {
       "id": "1ae5144a-656e-480c-927c-cf06c89f1e60",
@@ -1209,7 +1196,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T20:39:00.000Z",
       "author_name": "The Startup Ideas Podcast (SIP) 🧃",
-      "source_list": "AI Newsmakers",
+      "source_list": "Policy",
       "source_url": "https://x.com/startupideaspod/status/2093075832311013392",
       "sources": [
         {
@@ -1224,7 +1211,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "startupideaspod",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093075751784611840/img/-ullg8YDriJ1dJGW.jpg"
     },
     {
       "id": "c0ad6e3e-9f41-4396-a3fe-d523b1f81c1c",
@@ -1236,7 +1224,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T20:34:56.000Z",
       "author_name": "LeRobot",
-      "source_list": "AI Companies #2, Robot AI",
+      "source_list": "Policy",
       "source_url": "https://x.com/LeRobotHF/status/2093074808141385788",
       "sources": [
         {
@@ -1251,7 +1239,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "LeRobotHF",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093069349636501504/img/vyjk3fJLAeYqijpy.jpg"
     },
     {
       "id": "ec37cf77-93c1-4de4-bcbc-41004f94ca14",
@@ -1263,7 +1252,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T20:25:56.000Z",
       "author_name": "Brad Smith",
-      "source_list": "AI Newsmakers",
+      "source_list": "Funding",
       "source_url": "https://x.com/BradSmi/status/2093072542454153337",
       "sources": [
         {
@@ -1278,7 +1267,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "BradSmi",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093071107121430528/img/XSScXPPi-24-UyS9.jpg"
     },
     {
       "id": "4ae1e591-d0ae-401f-ba3e-1fe85c6cca71",
@@ -1290,7 +1280,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T20:25:09.000Z",
       "author_name": "Lachlan Phillips exo/acc 👾",
-      "source_list": "AI Leaders #2",
+      "source_list": "Policy",
       "source_url": "https://x.com/bitcloud/status/2093072345078399232",
       "sources": [
         {
@@ -1305,7 +1295,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "bitcloud",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQwEMEPWsAA7Ifm.jpg?name=orig"
     },
     {
       "id": "633dee71-685a-4a17-b8ba-27a360de75a8",
@@ -1317,7 +1308,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T20:24:20.000Z",
       "author_name": "jonathan liu",
-      "source_list": "AI Leaders #2",
+      "source_list": "Funding",
       "source_url": "https://x.com/jonathanzliu/status/2093072141574922543",
       "sources": [
         {
@@ -1344,7 +1335,7 @@
       "tag": "models",
       "published_at": "2026-08-27T20:19:01.000Z",
       "author_name": "Steven Zhang",
-      "source_list": "AI Leaders #2",
+      "source_list": "Models",
       "source_url": "https://x.com/stevenzhang/status/2093070803156005026",
       "sources": [
         {
@@ -1359,7 +1350,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "stevenzhang",
-      "desk_rank": 12
+      "desk_rank": 12,
+      "media_url": "https://pbs.twimg.com/media/HQwUx3baUAAi50e.jpg?name=orig"
     },
     {
       "id": "e66ad603-3566-4818-b545-d7cda016034e",
@@ -1371,7 +1363,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T20:18:08.000Z",
       "author_name": "Bipul Sinha",
-      "source_list": "AI Leaders #1",
+      "source_list": "Funding",
       "source_url": "https://x.com/bipulsinha/status/2093070582476927450",
       "sources": [
         {
@@ -1386,7 +1378,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "bipulsinha",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQwSGivaoAAWfda.jpg?name=orig"
     },
     {
       "id": "c8e7d3a4-7ac1-448c-bf39-a5b1dd09ee43",
@@ -1398,7 +1391,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T20:16:24.000Z",
       "author_name": "Chubby♨️",
-      "source_list": "AI Newsmakers",
+      "source_list": "Chips",
       "source_url": "https://x.com/kimmonismus/status/2093070145208152261",
       "sources": [
         {
@@ -1413,7 +1406,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "kimmonismus",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQwUMpzbsAA8x_M.jpg?name=orig"
     },
     {
       "id": "9e263734-1dd6-4e43-bc02-aefc52ba3509",
@@ -1425,7 +1419,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T20:14:26.000Z",
       "author_name": "NVIDIA AI Infrastructure",
-      "source_list": "AI Companies #1, AI Newsmakers",
+      "source_list": "Research",
       "source_url": "https://x.com/NVIDIAAIInfra/status/2093069651383067073",
       "sources": [
         {
@@ -1440,7 +1434,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "NVIDIAAIInfra",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQwTwWXWwAAGx5G.png?name=orig"
     },
     {
       "id": "e20e0e92-08de-4d9c-83e5-6c85deebfb6a",
@@ -1452,7 +1447,7 @@
       "tag": "models",
       "published_at": "2026-08-27T20:10:17.000Z",
       "author_name": "fal",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/fal/status/2093068605114204456",
       "sources": [
         {
@@ -1467,7 +1462,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "fal",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQrNRQzWoAA8Q-P.jpg?name=orig"
     },
     {
       "id": "eea6962e-6c84-4d17-a941-f24be7bce3f3",
@@ -1479,7 +1475,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T20:03:36.000Z",
       "author_name": "emil",
-      "source_list": "AI Community #3",
+      "source_list": "Creative",
       "source_url": "https://x.com/emilwidlund/status/2093066923693011027",
       "sources": [
         {
@@ -1494,7 +1490,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "emilwidlund",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093066252377862144/img/32e1AJx4Q8Fa9YEB.jpg"
     },
     {
       "id": "10941390-5cfd-49fc-8d09-ec3bcbe356e6",
@@ -1506,7 +1503,7 @@
       "tag": "labs",
       "published_at": "2026-08-27T20:01:05.000Z",
       "author_name": "Taelin",
-      "source_list": "AI Leaders #1",
+      "source_list": "Labs",
       "source_url": "https://x.com/VictorTaelin/status/2093066291112190433",
       "sources": [
         {
@@ -1533,7 +1530,7 @@
       "tag": "labs",
       "published_at": "2026-08-27T19:59:50.000Z",
       "author_name": "Charles Yang",
-      "source_list": "AI Community #1",
+      "source_list": "Labs",
       "source_url": "https://x.com/charlesxjyang/status/2093065977286262847",
       "sources": [
         {
@@ -1548,7 +1545,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "charlesxjyang",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg"
     },
     {
       "id": "50b9218c-fecb-4328-98b5-f9acb8322e32",
@@ -1560,7 +1558,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T19:53:08.000Z",
       "author_name": "Teknium 🪽",
-      "source_list": "AI Leaders #1",
+      "source_list": "Agents",
       "source_url": "https://x.com/Teknium/status/2093064288877547760",
       "sources": [
         {
@@ -1575,7 +1573,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "Teknium",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQwOmIyaUAAAJkS.jpg?name=orig"
     },
     {
       "id": "ebd52edd-28df-4eab-8d25-8da768551bb2",
@@ -1587,7 +1586,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T19:47:29.000Z",
       "author_name": "PlanetScale",
-      "source_list": "AI Companies #2",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/PlanetScale/status/2093062869101494327",
       "sources": [
         {
@@ -1602,7 +1601,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "PlanetScale",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQwLYuMWgAAKSAO.jpg?name=orig"
     },
     {
       "id": "1618707e-bf7e-4d22-a7a3-6ed8af1cd256",
@@ -1614,7 +1614,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T19:36:23.000Z",
       "author_name": "Ethan Mollick",
-      "source_list": "AI Leaders #1",
+      "source_list": "Research",
       "source_url": "https://x.com/emollick/status/2093060075870925311",
       "sources": [
         {
@@ -1641,7 +1641,7 @@
       "tag": "science",
       "published_at": "2026-08-27T19:32:28.000Z",
       "author_name": "Claude",
-      "source_list": "AI Companies #2",
+      "source_list": "Science",
       "source_url": "https://x.com/claudeai/status/2093059087298601113",
       "sources": [
         {
@@ -1656,7 +1656,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "claudeai",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093049007329116160/img/5X2ymmLb8kxUv3r9.jpg"
     },
     {
       "id": "a3ad4ce0-a6e7-4bab-9687-d3a0e88d5bff",
@@ -1668,7 +1669,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T19:23:03.000Z",
       "author_name": "AMD GPUOpen",
-      "source_list": "AI Organizations",
+      "source_list": "Chips",
       "source_url": "https://x.com/GPUOpen/status/2093056717303013497",
       "sources": [
         {
@@ -1683,7 +1684,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "GPUOpen",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/card_img/2093053326489169920/R95gAMRD?format=jpg&name=orig"
     },
     {
       "id": "47a36ad5-e59f-4232-a992-85f88ba28fb5",
@@ -1695,7 +1697,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T19:10:23.000Z",
       "author_name": "NEAR Protocol",
-      "source_list": "AI Companies #2",
+      "source_list": "Agents",
       "source_url": "https://x.com/NEARProtocol/status/2093053532438155754",
       "sources": [
         {
@@ -1710,7 +1712,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "NEARProtocol",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQwFGBCXEAA2DJM.jpg?name=orig"
     },
     {
       "id": "f624b600-b61b-493f-b26b-949f6ef8c8e2",
@@ -1722,7 +1725,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T18:56:30.000Z",
       "author_name": "the tiny corp",
-      "source_list": "AI Companies #1",
+      "source_list": "Chips",
       "source_url": "https://x.com/__tinygrad__/status/2093050035122610207",
       "sources": [
         {
@@ -1749,7 +1752,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T18:55:10.000Z",
       "author_name": "Jason Locasale",
-      "source_list": "AI Community #2",
+      "source_list": "Funding",
       "source_url": "https://x.com/LocasaleLab/status/2093049700551106897",
       "sources": [
         {
@@ -1776,7 +1779,7 @@
       "tag": "anomalies",
       "published_at": "2026-08-27T18:50:55.000Z",
       "author_name": "Nathan Calvin",
-      "source_list": "AI Community #2",
+      "source_list": "Anomalies",
       "source_url": "https://x.com/_NathanCalvin/status/2093048631288877464",
       "sources": [
         {
@@ -1791,7 +1794,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "_NathanCalvin",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/media/HQv-2xvWgAAajqP.jpg?name=orig"
     },
     {
       "id": "3df40fe6-2b8c-4e4e-9606-bac48ecd5e39",
@@ -1803,7 +1807,7 @@
       "tag": "products",
       "published_at": "2026-08-27T18:25:12.000Z",
       "author_name": "Grass",
-      "source_list": "AI Companies #1",
+      "source_list": "Products",
       "source_url": "https://x.com/grass/status/2093042161621111174",
       "sources": [
         {
@@ -1830,7 +1834,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T18:25:10.000Z",
       "author_name": "Tianyu Li",
-      "source_list": "Robot AI",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/tianyurobot/status/2093042150145773771",
       "sources": [
         {
@@ -1845,7 +1849,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "tianyurobot",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg"
     },
     {
       "id": "3b2a59c5-e30f-48f5-bf9a-246053b24990",
@@ -1857,7 +1862,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T18:21:26.000Z",
       "author_name": "York Yang",
-      "source_list": "Robot AI",
+      "source_list": "Robotics",
       "source_url": "https://x.com/YorkYang5050/status/2093041211066208564",
       "sources": [
         {
@@ -1872,7 +1877,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "YorkYang5050",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg"
     },
     {
       "id": "c72ec01b-1edb-43a3-b182-b34ecf9775dc",
@@ -1884,7 +1890,7 @@
       "tag": "products",
       "published_at": "2026-08-27T18:16:33.000Z",
       "author_name": "Brave",
-      "source_list": "AI Companies #1",
+      "source_list": "Products",
       "source_url": "https://x.com/brave/status/2093039984735408292",
       "sources": [
         {
@@ -1899,7 +1905,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "brave",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092994719408082944/img/LBtFtQGnilueFcab.jpg"
     },
     {
       "id": "7c886fdb-888b-4d18-af97-8c33922f1ee6",
@@ -1911,7 +1918,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T18:16:32.000Z",
       "author_name": "Brave",
-      "source_list": "AI Companies #1",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/brave/status/2093039979530195062",
       "sources": [
         {
@@ -1938,7 +1945,7 @@
       "tag": "products",
       "published_at": "2026-08-27T18:16:30.000Z",
       "author_name": "Brave",
-      "source_list": "AI Companies #1",
+      "source_list": "Products",
       "source_url": "https://x.com/brave/status/2093039970839658576",
       "sources": [
         {
@@ -1953,7 +1960,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "brave",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HQvwE_iWMAAQcXr.jpg?name=orig"
     },
     {
       "id": "9a7250c6-1591-489b-a400-7b64629756d3",
@@ -1965,7 +1973,7 @@
       "tag": "anomalies",
       "published_at": "2026-08-27T18:16:30.000Z",
       "author_name": "Brave",
-      "source_list": "AI Companies #1",
+      "source_list": "Anomalies",
       "source_url": "https://x.com/brave/status/2093039972836147587",
       "sources": [
         {
@@ -1992,7 +2000,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T18:13:14.000Z",
       "author_name": "Dyna Robotics",
-      "source_list": "AI Companies #2, Robot AI",
+      "source_list": "Robotics",
       "source_url": "https://x.com/DynaRobotics/status/2093039148169154615",
       "sources": [
         {
@@ -2007,7 +2015,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "DynaRobotics",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093037639024939008/img/y3RRLmmFzhMCV62S.jpg"
     },
     {
       "id": "dd62b063-442f-4464-83d9-f24af95cfe47",
@@ -2019,7 +2028,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T18:13:13.000Z",
       "author_name": "Dyna Robotics",
-      "source_list": "AI Companies #2, Robot AI",
+      "source_list": "Robotics",
       "source_url": "https://x.com/DynaRobotics/status/2093039146357178475",
       "sources": [
         {
@@ -2034,7 +2043,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "DynaRobotics",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg"
     },
     {
       "id": "c8b9a876-3e82-4f12-946c-2a3e73a59281",
@@ -2046,7 +2056,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T18:10:23.000Z",
       "author_name": "Anthropic",
-      "source_list": "AI Companies #1",
+      "source_list": "Robotics",
       "source_url": "https://x.com/AnthropicAI/status/2093038432302080019",
       "sources": [
         {
@@ -2061,7 +2071,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "AnthropicAI",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/card_img/2093150703636328448/KMttB5Uj?format=jpg&name=orig"
     },
     {
       "id": "d4e00a52-7236-43e1-8b23-f5fe217b4e65",
@@ -2073,7 +2084,7 @@
       "tag": "products",
       "published_at": "2026-08-27T18:10:23.000Z",
       "author_name": "Anthropic",
-      "source_list": "AI Companies #1",
+      "source_list": "Products",
       "source_url": "https://x.com/AnthropicAI/status/2093038429936529897",
       "sources": [
         {
@@ -2100,7 +2111,7 @@
       "tag": "models",
       "published_at": "2026-08-27T18:10:22.000Z",
       "author_name": "Anthropic",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
       "sources": [
         {
@@ -2115,7 +2126,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "AnthropicAI",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg"
     },
     {
       "id": "93b97ff4-676f-4ef2-9312-634f91201e6f",
@@ -2127,7 +2139,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T18:10:22.000Z",
       "author_name": "Anthropic",
-      "source_list": "AI Companies #1",
+      "source_list": "Agents",
       "source_url": "https://x.com/AnthropicAI/status/2093038428757918070",
       "sources": [
         {
@@ -2154,7 +2166,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T18:10:22.000Z",
       "author_name": "Anthropic",
-      "source_list": "AI Companies #1",
+      "source_list": "Agents",
       "source_url": "https://x.com/AnthropicAI/status/2093038427642134590",
       "sources": [
         {
@@ -2181,7 +2193,7 @@
       "tag": "science",
       "published_at": "2026-08-27T18:10:13.000Z",
       "author_name": "Iagon",
-      "source_list": "AI Companies #2",
+      "source_list": "Science",
       "source_url": "https://x.com/IagonOfficial/status/2093038391558373592",
       "sources": [
         {
@@ -2196,7 +2208,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "IagonOfficial",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQv3LNDWkAAKeWi.jpg?name=orig"
     },
     {
       "id": "4329a86a-4ca0-41b4-9a18-ac0b00ab536f",
@@ -2208,7 +2221,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T18:08:27.000Z",
       "author_name": "Xanadu",
-      "source_list": "AI Companies #1",
+      "source_list": "Chips",
       "source_url": "https://x.com/XanaduAI/status/2093037944000905476",
       "sources": [
         {
@@ -2223,7 +2236,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "XanaduAI",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093035994375180288/img/JVrWkTLNnznwD5EX.jpg"
     },
     {
       "id": "b77c8e51-00be-4600-9e93-ba5a7cc777d8",
@@ -2235,7 +2249,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T18:06:28.000Z",
       "author_name": "Rei",
-      "source_list": "AI Companies #2",
+      "source_list": "Policy",
       "source_url": "https://x.com/rei_labs/status/2093037444291768343",
       "sources": [
         {
@@ -2250,7 +2264,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "rei_labs",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQv2drybwAAChXu.jpg?name=orig"
     },
     {
       "id": "ffb971fb-252b-4007-a28f-ebc8ba29a3ad",
@@ -2262,7 +2277,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T18:04:43.000Z",
       "author_name": "Will Eastcott",
-      "source_list": "AI Community #3",
+      "source_list": "Creative",
       "source_url": "https://x.com/willeastcott/status/2093037005974172139",
       "sources": [
         {
@@ -2277,7 +2292,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "willeastcott",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093036155063123968/img/Aw0cUCcAa2H8Is3c.jpg"
     },
     {
       "id": "e1faf504-b1ec-4fb0-bb67-f1538d4aa5a3",
@@ -2289,7 +2305,7 @@
       "tag": "products",
       "published_at": "2026-08-27T18:00:11.000Z",
       "author_name": "Expo",
-      "source_list": "AI Companies #2",
+      "source_list": "Products",
       "source_url": "https://x.com/expo/status/2093035865878728704",
       "sources": [
         {
@@ -2316,7 +2332,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T17:45:06.000Z",
       "author_name": "CoreWeave",
-      "source_list": "AI Companies #1",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/CoreWeave/status/2093032070255624436",
       "sources": [
         {
@@ -2331,7 +2347,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "CoreWeave",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQvxjzOXIAA4PhJ.jpg?name=orig"
     },
     {
       "id": "6ff585b2-aa7c-45e1-87f3-936bd6405f77",
@@ -2343,7 +2360,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T17:44:45.000Z",
       "author_name": "BitRobot 🦾",
-      "source_list": "AI Companies #2, Robot AI",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/BitRobotNetwork/status/2093031981621592334",
       "sources": [
         {
@@ -2358,7 +2375,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "BitRobotNetwork",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093031504272113664/img/GFi0OY8n6g3_5Yh0.jpg"
     },
     {
       "id": "38af645f-a0db-405b-a5bd-dbcc61b1c663",
@@ -2370,7 +2388,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T17:41:56.000Z",
       "author_name": "AI on Base",
-      "source_list": "AI Companies #2",
+      "source_list": "Funding",
       "source_url": "https://x.com/AIonBase_/status/2093031271371043215",
       "sources": [
         {
@@ -2385,7 +2403,8 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "AIonBase_",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQvw0WlaMAAxZwx.jpg?name=orig"
     },
     {
       "id": "dd1e1035-71f8-4e63-8300-46e9fb1d1390",
@@ -2397,7 +2416,7 @@
       "tag": "labs",
       "published_at": "2026-08-27T17:41:51.000Z",
       "author_name": "Mustafa",
-      "source_list": "Robot AI",
+      "source_list": "Labs",
       "source_url": "https://x.com/oprydai/status/2093031249707200857",
       "sources": [
         {
@@ -2412,7 +2431,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "oprydai",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQvwzOfX0AAJ7an.jpg?name=orig"
     },
     {
       "id": "231f6516-40fa-4468-b546-f3fc2b94ae12",
@@ -2424,7 +2444,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T17:39:44.000Z",
       "author_name": "Ofir Press",
-      "source_list": "AI Community #1",
+      "source_list": "Research",
       "source_url": "https://x.com/OfirPress/status/2093030719190597647",
       "sources": [
         {
@@ -2439,7 +2459,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "OfirPress",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQvv0oOWMAAA9Hn.png?name=orig"
     },
     {
       "id": "7e6a3f00-d2a0-4a82-856c-d4ad3a5cbf75",
@@ -2451,7 +2472,7 @@
       "tag": "models",
       "published_at": "2026-08-27T17:38:58.000Z",
       "author_name": "Tavus",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/tavus/status/2093030526785589582",
       "sources": [
         {
@@ -2466,7 +2487,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "tavus",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030114472976384/img/-0k4tmKewCjRhb5i.jpg"
     },
     {
       "id": "eaf11ab1-cd40-4630-9ccf-76025c5792b6",
@@ -2478,7 +2500,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T17:36:46.000Z",
       "author_name": "Arena.ai",
-      "source_list": "AI Companies #1",
+      "source_list": "Agents",
       "source_url": "https://x.com/arena/status/2093029971342381232",
       "sources": [
         {
@@ -2493,7 +2515,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "arena",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQvtkZ9awAAl-qu.jpg?name=orig"
     },
     {
       "id": "4e8e83e8-932e-4d1f-803c-f5e049a68d57",
@@ -2505,7 +2528,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T17:36:44.000Z",
       "author_name": "Nikhil Mourya",
-      "source_list": "AI Community #3",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/GonnabeNikhil/status/2093029964690153962",
       "sources": [
         {
@@ -2520,7 +2543,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "GonnabeNikhil",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQvvp2WaIAADm9w.jpg?name=orig"
     },
     {
       "id": "988e7f09-3de2-443d-9d4c-b77d93217b54",
@@ -2532,7 +2556,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T17:33:29.000Z",
       "author_name": "Architect Labs",
-      "source_list": "AI Companies #2",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/architectlabs/status/2093029147102842997",
       "sources": [
         {
@@ -2559,7 +2583,7 @@
       "tag": "funding",
       "published_at": "2026-08-27T17:33:27.000Z",
       "author_name": "aixbt",
-      "source_list": "AI Companies #2",
+      "source_list": "Funding",
       "source_url": "https://x.com/aixbt_agent/status/2093029136667480536",
       "sources": [
         {
@@ -2586,7 +2610,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T17:33:17.000Z",
       "author_name": "Architect Labs",
-      "source_list": "AI Companies #2",
+      "source_list": "Creative",
       "source_url": "https://x.com/architectlabs/status/2093029094279782596",
       "sources": [
         {
@@ -2601,7 +2625,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "architectlabs",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQvu22dbAAAjw5z.jpg?name=orig"
     },
     {
       "id": "aa3e1b4d-b6ea-4bd3-a28b-5f22331a6398",
@@ -2613,7 +2638,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T17:32:58.000Z",
       "author_name": "Architect Labs",
-      "source_list": "AI Companies #2",
+      "source_list": "Chips",
       "source_url": "https://x.com/architectlabs/status/2093029014587990147",
       "sources": [
         {
@@ -2640,7 +2665,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T17:31:22.000Z",
       "author_name": "BrainChip",
-      "source_list": "AI Companies #1",
+      "source_list": "Chips",
       "source_url": "https://x.com/BrainChip_inc/status/2093028611569721823",
       "sources": [
         {
@@ -2655,7 +2680,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "BrainChip_inc",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HQvuT7UWwAA9seP.jpg?name=orig"
     },
     {
       "id": "9d3629ba-c6f5-4131-9ee1-fb6b4bb96223",
@@ -2667,7 +2693,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T17:17:59.000Z",
       "author_name": "Anush Elangovan",
-      "source_list": "AI Community #1",
+      "source_list": "Agents",
       "source_url": "https://x.com/AnushElangovan/status/2093025244000972977",
       "sources": [
         {
@@ -2682,7 +2708,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "AnushElangovan",
-      "desk_rank": 11
+      "desk_rank": 11,
+      "media_url": "https://pbs.twimg.com/media/HQvkw3QXgAAxASF.jpg?name=orig"
     },
     {
       "id": "102ec192-a0ab-42a6-9409-740d7307753d",
@@ -2694,7 +2721,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T17:16:35.000Z",
       "author_name": "Ricursive Intelligence",
-      "source_list": "AI Organizations",
+      "source_list": "Chips",
       "source_url": "https://x.com/RicursiveAI/status/2093024891083821423",
       "sources": [
         {
@@ -2709,7 +2736,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "RicursiveAI",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQvq_WXa0AAvhkb.jpg?name=orig"
     },
     {
       "id": "b377e458-3b5e-4191-9603-a92a470826fc",
@@ -2721,7 +2749,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T17:05:11.000Z",
       "author_name": "Azalia Mirhoseini",
-      "source_list": "AI Community #1",
+      "source_list": "Chips",
       "source_url": "https://x.com/Azaliamirh/status/2093022025011142894",
       "sources": [
         {
@@ -2736,7 +2764,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "Azaliamirh",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQvm2P5aAAAb1Iu.jpg?name=orig"
     },
     {
       "id": "3d7d9e9a-c6ca-43ed-afae-41ee6bcb00ae",
@@ -2748,7 +2777,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T17:00:11.000Z",
       "author_name": "vellum",
-      "source_list": "AI Companies #1",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/vellum_ai/status/2093020764400136289",
       "sources": [
         {
@@ -2763,7 +2792,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "vellum_ai",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093015856405942272/img/WyZd_F2iyiMRjGT2.jpg"
     },
     {
       "id": "b8c173be-a70d-4d71-9e34-bf71f0b8ebe4",
@@ -2775,7 +2805,7 @@
       "tag": "anomalies",
       "published_at": "2026-08-27T16:58:03.000Z",
       "author_name": "White House OSTP 47",
-      "source_list": "AI Organizations",
+      "source_list": "Anomalies",
       "source_url": "https://x.com/WHOSTP47/status/2093020228087054402",
       "sources": [
         {
@@ -2790,7 +2820,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "WHOSTP47",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/card_img/2092705601336086528/d9izm0YU?format=jpg&name=orig"
     },
     {
       "id": "42ec490e-152a-4b45-9ffe-27d1513f6441",
@@ -2802,7 +2833,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T16:55:40.000Z",
       "author_name": "Google DeepMind",
-      "source_list": "AI Organizations",
+      "source_list": "Robotics",
       "source_url": "https://x.com/GoogleDeepMind/status/2093019627437662680",
       "sources": [
         {
@@ -2817,7 +2848,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "GoogleDeepMind",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093005819432341504/img/jqUW-VbiHMZl9RHU.jpg"
     },
     {
       "id": "f847a919-1a59-4e85-96b8-58f8726e4c79",
@@ -2829,7 +2861,7 @@
       "tag": "openclaw",
       "published_at": "2026-08-27T16:55:08.000Z",
       "author_name": "Microsoft Developer",
-      "source_list": "AI Companies #1",
+      "source_list": "Open source",
       "source_url": "https://x.com/msdev/status/2093019494432313460",
       "sources": [
         {
@@ -2844,7 +2876,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "msdev",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/card_img/2093013710076014595/hjy1qPuz?format=jpg&name=orig"
     },
     {
       "id": "0f8978ec-b24e-4d92-b252-cad922cbc8ec",
@@ -2856,7 +2889,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T16:45:57.000Z",
       "author_name": "Ouster",
-      "source_list": "Robot AI",
+      "source_list": "Creative",
       "source_url": "https://x.com/ousterlidar/status/2093017181776662628",
       "sources": [
         {
@@ -2871,7 +2904,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "ousterlidar",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQvkBZiW0AALwEA.jpg?name=orig"
     },
     {
       "id": "ee764323-8c53-4ac7-a51d-5a68b9d568ef",
@@ -2883,7 +2917,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T16:41:57.000Z",
       "author_name": "Suno",
-      "source_list": "AI Companies #1",
+      "source_list": "Creative",
       "source_url": "https://x.com/suno/status/2093016178587271506",
       "sources": [
         {
@@ -2898,7 +2932,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "suno",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/card_img/2092960430389874688/EYxx2ATG?format=jpg&name=orig"
     },
     {
       "id": "67d8c04a-687e-4816-9f84-7a9ce63b2606",
@@ -2910,7 +2945,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T16:39:49.000Z",
       "author_name": "The Humanoid Hub",
-      "source_list": "Robot AI",
+      "source_list": "Robotics",
       "source_url": "https://x.com/TheHumanoidHub/status/2093015638331769030",
       "sources": [
         {
@@ -2925,7 +2960,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "TheHumanoidHub",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093015323037650944/img/HeSVxZJDf6JECVCG.jpg"
     },
     {
       "id": "0238aa27-f44b-4a1c-b621-5b075451ca88",
@@ -2937,7 +2973,7 @@
       "tag": "models",
       "published_at": "2026-08-27T16:39:33.000Z",
       "author_name": "Arena.ai",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/arena/status/2093015572212846673",
       "sources": [
         {
@@ -2952,7 +2988,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "arena",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQviKJyacAYsycF.jpg?name=orig"
     },
     {
       "id": "6e11de75-ba3d-4ec4-9c6e-9f0a33932bbd",
@@ -2964,7 +3001,7 @@
       "tag": "models",
       "published_at": "2026-08-27T16:38:18.000Z",
       "author_name": "Together AI",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/togethercompute/status/2093015257560281099",
       "sources": [
         {
@@ -2979,7 +3016,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "togethercompute",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092817516360089600/img/K8vk3wwW9xp7gFtb.jpg"
     },
     {
       "id": "e8afed78-9bfd-4e16-8126-daa688f1eaa7",
@@ -2991,7 +3029,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T16:32:21.000Z",
       "author_name": "CyberRobo",
-      "source_list": "Robot AI",
+      "source_list": "Policy",
       "source_url": "https://x.com/CyberRobooo/status/2093013762601324794",
       "sources": [
         {
@@ -3006,7 +3044,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "CyberRobooo",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093013501958844416/img/sIn57jj9rfLLwfpH.jpg"
     },
     {
       "id": "8f0e9ea4-4111-4d42-ac4b-da539642f55a",
@@ -3018,7 +3057,7 @@
       "tag": "models",
       "published_at": "2026-08-27T16:17:33.000Z",
       "author_name": "Simular",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/SimularAI/status/2093010034502316440",
       "sources": [
         {
@@ -3033,7 +3072,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "SimularAI",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093009993138102272/img/aif-6H12cNlCbNEH.jpg"
     },
     {
       "id": "89f57908-3560-41d8-9f53-bd9021f055a6",
@@ -3045,7 +3085,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T16:17:22.000Z",
       "author_name": "Simular",
-      "source_list": "AI Companies #1",
+      "source_list": "Research",
       "source_url": "https://x.com/SimularAI/status/2093009990663434361",
       "sources": [
         {
@@ -3060,7 +3100,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "SimularAI",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQvdfgBXQAA0Sys.jpg?name=orig"
     },
     {
       "id": "c60f1122-f23d-4b50-a978-c1c7aac56716",
@@ -3072,7 +3113,7 @@
       "tag": "openclaw",
       "published_at": "2026-08-27T16:13:54.000Z",
       "author_name": "GitHub",
-      "source_list": "AI Companies #1",
+      "source_list": "Open source",
       "source_url": "https://x.com/github/status/2093009115895243031",
       "sources": [
         {
@@ -3087,7 +3128,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "github",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/card_img/2093013710076014595/hjy1qPuz?format=jpg&name=orig"
     },
     {
       "id": "1c5d96fa-d652-4aae-a9b3-8a5f41b3d4e4",
@@ -3099,7 +3141,7 @@
       "tag": "infrastructure",
       "published_at": "2026-08-27T16:10:19.000Z",
       "author_name": "Ultralytics",
-      "source_list": "AI Companies #1",
+      "source_list": "Infrastructure",
       "source_url": "https://x.com/ultralytics/status/2093008215692677168",
       "sources": [
         {
@@ -3114,7 +3156,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "ultralytics",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQvb3PiXoAAoOju.jpg"
     },
     {
       "id": "265d60b9-3782-4b64-a5cb-10a8eed1a5f6",
@@ -3126,7 +3169,7 @@
       "tag": "policy",
       "published_at": "2026-08-27T16:06:33.000Z",
       "author_name": "Jonathan Whitaker",
-      "source_list": "AI Community #1",
+      "source_list": "Policy",
       "source_url": "https://x.com/johnowhitaker/status/2093007265783836772",
       "sources": [
         {
@@ -3141,7 +3184,8 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "johnowhitaker",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/media/HQvah0QbsAA3PBB.jpg?name=orig"
     },
     {
       "id": "82634458-4edd-49b5-89a4-d5d01158303f",
@@ -3153,7 +3197,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T16:00:00.000Z",
       "author_name": "NVIDIA Robotics",
-      "source_list": "AI Organizations",
+      "source_list": "Robotics",
       "source_url": "https://x.com/NVIDIARobotics/status/2093005620072849457",
       "sources": [
         {
@@ -3168,7 +3212,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "NVIDIARobotics",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092832749740515328/img/8FBaQL13XPi1da4V.jpg"
     },
     {
       "id": "92809e5a-dc25-403b-94cc-36bacd84274e",
@@ -3180,7 +3225,7 @@
       "tag": "chips",
       "published_at": "2026-08-27T15:52:48.000Z",
       "author_name": "NVIDIA AI Infrastructure",
-      "source_list": "AI Companies #1",
+      "source_list": "Chips",
       "source_url": "https://x.com/NVIDIAAIInfra/status/2093003805713424565",
       "sources": [
         {
@@ -3195,7 +3240,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "NVIDIAAIInfra",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQvX3miWAAAtb9S.jpg?name=orig"
     },
     {
       "id": "43eafea8-4cbd-4977-a522-fcea7b8401de",
@@ -3207,7 +3253,7 @@
       "tag": "agents",
       "published_at": "2026-08-27T15:34:25.000Z",
       "author_name": "Vercel",
-      "source_list": "AI Companies #1",
+      "source_list": "Agents",
       "source_url": "https://x.com/vercel/status/2092999180780556643",
       "sources": [
         {
@@ -3222,7 +3268,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "vercel",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092999146655645696/img/FgRJeSsf_c3kJSlF.jpg"
     },
     {
       "id": "58baa5b5-0d43-4e9f-8e18-e8936fe1cf41",
@@ -3234,7 +3281,7 @@
       "tag": "science",
       "published_at": "2026-08-27T15:07:50.000Z",
       "author_name": "biohub",
-      "source_list": "AI Organizations",
+      "source_list": "Science",
       "source_url": "https://x.com/biohub/status/2092992490089705791",
       "sources": [
         {
@@ -3249,7 +3296,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "biohub",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQvLh9wa8AA6uaM.jpg?name=orig"
     },
     {
       "id": "9c200119-2363-4b2d-aa79-bb4257630b98",
@@ -3261,7 +3309,7 @@
       "tag": "anomalies",
       "published_at": "2026-08-27T15:06:45.000Z",
       "author_name": "Saronic",
-      "source_list": "AI Companies #1",
+      "source_list": "Anomalies",
       "source_url": "https://x.com/Saronic/status/2092992216734060757",
       "sources": [
         {
@@ -3276,7 +3324,8 @@
       "topic_key": "companies",
       "topic_label": "Companies",
       "x_handle": "Saronic",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQjc3BqbQAAuTEP.jpg?name=orig"
     },
     {
       "id": "4c96433f-96c4-4c38-a291-a30ab310de60",
@@ -3288,7 +3337,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T15:06:00.000Z",
       "author_name": "Ariel",
-      "source_list": "AI Community #1",
+      "source_list": "Creative",
       "source_url": "https://x.com/ArielKwiat/status/2092992030704029721",
       "sources": [
         {
@@ -3315,7 +3364,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T15:01:34.000Z",
       "author_name": "Bek",
-      "source_list": "AI Community #2",
+      "source_list": "Creative",
       "source_url": "https://x.com/rkulidzan/status/2092990916155802071",
       "sources": [
         {
@@ -3342,7 +3391,7 @@
       "tag": "robotics",
       "published_at": "2026-08-27T14:47:17.000Z",
       "author_name": "MIT CSAIL",
-      "source_list": "AI Organizations",
+      "source_list": "Robotics",
       "source_url": "https://x.com/MIT_CSAIL/status/2092987317661098197",
       "sources": [
         {
@@ -3357,7 +3406,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "MIT_CSAIL",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/media/HQvH3PoXkAALS9B.jpg?name=orig"
     },
     {
       "id": "c714cd88-ccca-4eae-ade9-e81cc0761436",
@@ -3369,7 +3419,7 @@
       "tag": "science",
       "published_at": "2026-08-27T14:45:39.000Z",
       "author_name": "Kording Lab 🦖",
-      "source_list": "AI Community #1",
+      "source_list": "Science",
       "source_url": "https://x.com/KordingLab/status/2092986906711589100",
       "sources": [
         {
@@ -3384,7 +3434,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "KordingLab",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/card_img/2091739921228644352/QQ6cXHTn?format=png&name=orig"
     },
     {
       "id": "3fa7bc74-9ba2-46db-8065-8f74db10398c",
@@ -3396,7 +3447,7 @@
       "tag": "models",
       "published_at": "2026-08-27T14:43:53.000Z",
       "author_name": "Unsloth AI",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/UnslothAI/status/2092986464196002094",
       "sources": [
         {
@@ -3411,7 +3462,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "UnslothAI",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQvH_IVbsAATp_D.jpg?name=orig"
     },
     {
       "id": "b393ab1c-5a70-4fcf-9a29-ae4239ffcc8f",
@@ -3423,7 +3475,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T14:27:41.000Z",
       "author_name": "Abraham Owodunni",
-      "source_list": "AI Community #1",
+      "source_list": "Research",
       "source_url": "https://x.com/AbrahamOwos/status/2092982386040377592",
       "sources": [
         {
@@ -3438,7 +3490,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "AbrahamOwos",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092982225482469376/img/gAKiaidzb7ty566j.jpg"
     },
     {
       "id": "c37191a5-297a-4848-841a-fcb539ba7e4c",
@@ -3450,7 +3503,7 @@
       "tag": "creatives",
       "published_at": "2026-08-27T14:11:49.000Z",
       "author_name": "Isomorphic Labs",
-      "source_list": "AI Organizations",
+      "source_list": "Creative",
       "source_url": "https://x.com/IsomorphicLabs/status/2092978395411820940",
       "sources": [
         {
@@ -3465,7 +3518,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "IsomorphicLabs",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092976424168673280/img/IXQJkxtgUl71onEd.jpg"
     },
     {
       "id": "cd64db80-e058-4da4-99da-5d2bfa0c6380",
@@ -3477,12 +3531,13 @@
       "tag": "robotics",
       "published_at": "2026-08-27T13:03:09.000Z",
       "author_name": "GITAI",
-      "source_list": "GITAI on X",
+      "source_list": "AI Companies #1",
       "source_url": "https://x.com/GITAI_HQ/status/2092961115651158283",
       "sources": [
         {
           "url": "https://x.com/GITAI_HQ/status/2092961115651158283",
-          "name": "x.com"
+          "name": "AI Companies #1",
+          "list": "AI Companies #1"
         }
       ],
       "body": "GITAI reported a hot-fire thrust vector control test and linked the work to actuator and control technology developed for its space robotics efforts.",
@@ -3492,7 +3547,8 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "GITAI_HQ",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2092961084911038464/pu/img/LZ59HT-5tixT25VD.jpg"
     },
     {
       "id": "f37e5750-8c30-4892-b016-22e3843b90f5",
@@ -3504,7 +3560,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T12:59:00.000Z",
       "author_name": "Niklas Muennighoff",
-      "source_list": "AI Community #5",
+      "source_list": "Research",
       "source_url": "https://x.com/Muennighoff/status/2092960068685692974",
       "sources": [
         {
@@ -3519,7 +3575,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "Muennighoff",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQsscKCbQAAkQiC.jpg?name=orig"
     },
     {
       "id": "b9fab0b0-09f6-4f95-95ca-c2ca75787c4a",
@@ -3536,7 +3593,8 @@
       "sources": [
         {
           "url": "https://x.com/qoder_ai_ide/status/2092945029765742864",
-          "name": "x.com"
+          "name": "AI Companies #2",
+          "list": "AI Companies #2"
         }
       ],
       "body": "Qoder introduced a coding platform it says can understand context, plan work, use tools, execute tasks, and verify results while retaining user control.",
@@ -3546,7 +3604,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "qoder_ai_ide",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQuh05ObgAAdudG.jpg?name=orig"
     },
     {
       "id": "4f0a4264-5987-4fff-b495-dc5049795551",
@@ -3558,7 +3617,7 @@
       "tag": "anomalies",
       "published_at": "2026-08-27T11:24:32.000Z",
       "author_name": "zeb",
-      "source_list": "zeb via AI Community #1",
+      "source_list": "zeb’s first-person local-model cost comparison",
       "source_url": "https://x.com/zebassembly/status/2092936296507310266",
       "sources": [
         {
@@ -3590,7 +3649,8 @@
       "sources": [
         {
           "url": "https://x.com/shannholmberg/status/2092934478805299278",
-          "name": "x.com"
+          "name": "List 2026213443632861286",
+          "list": "List 2026213443632861286"
         }
       ],
       "body": "Shann Holmberg describes a marketing-agent workflow with company context, campaign-specific memory, a research harness, specialist agents, and human decision control.",
@@ -3600,7 +3660,8 @@
       "topic_key": "agents",
       "topic_label": "Agents",
       "x_handle": "shannholmberg",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/media/HQuY0GKawAATtGd.jpg?name=orig"
     },
     {
       "id": "c3b3cf05-e860-4d09-aa83-e76af4b85e11",
@@ -3617,7 +3678,8 @@
       "sources": [
         {
           "url": "https://x.com/MaxfusionAI/status/2092930123003769272",
-          "name": "x.com"
+          "name": "AI Companies #2",
+          "list": "AI Companies #2"
         }
       ],
       "body": "Maxfusion introduced Ad Mutator in Maxfusion MCP, a workflow for creating ad variants by changing actors, locations, outfits, products, and other creative elements.",
@@ -3627,7 +3689,8 @@
       "topic_key": "creative",
       "topic_label": "Creative",
       "x_handle": "MaxfusionAI",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092920371594903552/img/o2ue5WoyLQctfic2.jpg"
     },
     {
       "id": "258cb7a9-c3fb-4185-9f64-676a30f9551e",
@@ -3639,7 +3702,7 @@
       "tag": "anomalies",
       "published_at": "2026-08-27T10:04:23.000Z",
       "author_name": "Tom’s Hardware",
-      "source_list": "Tom’s Hardware via Tech News Outlets",
+      "source_list": "Tom’s Hardware report on data-center opposition polling",
       "source_url": "https://x.com/tomshardware/status/2092916124300251512",
       "sources": [
         {
@@ -3654,7 +3717,8 @@
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "tomshardware",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/card_img/2092916125130747904/FmcHvByV?format=jpg&name=orig"
     },
     {
       "id": "79fc3860-16cc-4c44-9405-3dbe61626b39",
@@ -3666,7 +3730,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T09:54:41.000Z",
       "author_name": "Ryohei Sasaki@engineer",
-      "source_list": "AI Community #5; Robot AI",
+      "source_list": "Research",
       "source_url": "https://x.com/rsasaki0109/status/2092913684033257594",
       "sources": [
         {
@@ -3681,7 +3745,8 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "rsasaki0109",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092913634875977728/img/8sbIPOO4_1Nc-MM1.jpg"
     },
     {
       "id": "03f500bd-3a57-44b8-98ac-8c1cff62053c",
@@ -3698,7 +3763,8 @@
       "sources": [
         {
           "url": "https://x.com/TencentAI_News/status/2092898942635880579",
-          "name": "x.com"
+          "name": "AI Companies #2",
+          "list": "AI Companies #2"
         }
       ],
       "body": "Tencent AI says Human-AI Co-writing is now live globally in WorkBuddy, with simultaneous edits visible and document context selectable by sentence, cell range, or whole document.",
@@ -3708,7 +3774,8 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TencentAI_News",
-      "desk_rank": 5
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092898667703488512/img/0tN2DPMItz0ur8Wt.jpg"
     },
     {
       "id": "4516b6a0-baa0-4f30-8176-10d4cf8db058",
@@ -3725,7 +3792,8 @@
       "sources": [
         {
           "url": "https://x.com/Apodex_AI/status/2092869876759285791",
-          "name": "x.com"
+          "name": "AI Companies #2",
+          "list": "AI Companies #2"
         }
       ],
       "body": "Apodex says version 1.1 is available through open weights, an open-source harness, and Core Model APIs, with the APIs free for an initial two-week period.",
@@ -3735,7 +3803,8 @@
       "topic_key": "open-source",
       "topic_label": "Open source",
       "x_handle": "Apodex_AI",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/media/HQtdYtMbwAAALea.jpg?name=orig"
     },
     {
       "id": "bca67684-daab-4077-b9de-bc30cb7b1187",
@@ -3747,7 +3816,7 @@
       "tag": "models",
       "published_at": "2026-08-27T06:12:46.000Z",
       "author_name": "Qwen",
-      "source_list": "AI Companies #1",
+      "source_list": "Models",
       "source_url": "https://x.com/Alibaba_Qwen/status/2092857839299826095",
       "sources": [
         {
@@ -3774,7 +3843,7 @@
       "tag": "papers",
       "published_at": "2026-08-27T05:17:36.000Z",
       "author_name": "Sumit",
-      "source_list": "AI Community #1",
+      "source_list": "Research",
       "source_url": "https://x.com/_reachsumit/status/2092843953183924341",
       "sources": [
         {
@@ -3789,60 +3858,35 @@
       "topic_key": "research",
       "topic_label": "Research",
       "x_handle": "_reachsumit",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/card_img/2092122463044034561/L1jw6jB-?format=jpg&name=orig"
     },
     {
-      "id": "ab05f958-425b-49de-9bdc-137e66015538",
-      "headline": "Day ZERO adds an AI builder gathering at Pier 48",
-      "summary": "Day ZERO is scheduled for September 29, 2026, at Pier 48 in San Francisco, with workshops and a live AI Hack Day.",
-      "section": "events-dinners",
-      "section_key": "events",
-      "section_label": "Events",
-      "tag": "events-dinners",
-      "published_at": "2026-08-28T03:24:25.000Z",
-      "author_name": "The AI Conference",
-      "source_list": "Day ZERO official event page",
-      "source_url": "https://aiconference.com/dz/",
+      "id": "7c1399df-96a1-4d00-ad60-f7b93223f81a",
+      "headline": "The Desktop Became The New AI Battleground Tonight",
+      "summary": "Plain-text NotebookLM source synchronized from the current evening essay.",
+      "section": "notebook-lm",
+      "section_key": "models",
+      "section_label": "Briefing",
+      "tag": "notebook-lm",
+      "published_at": "2026-08-17T01:07:35.000Z",
+      "author_name": "Aligned News",
+      "source_list": "Briefing",
+      "source_url": "https://alignednews.com/ai",
       "sources": [
         {
-          "url": "https://aiconference.com/dz/",
-          "name": "Day ZERO official event page"
+          "url": "https://alignednews.com/ai",
+          "name": "alignednews.com"
         }
       ],
-      "body": "Day ZERO is scheduled for September 29, 2026, at Pier 48 in San Francisco, with workshops and a live AI Hack Day.",
+      "body": "The strongest AI signal tonight was not a new benchmark. It was the race to own the place where agents actually work. The desktop is becoming an agent control room Nous Research is bringing bots to Hermes Desktop . Hermes is also making sessions load faster . These sound like product updates, but together they reveal a bigger move. The agent is leaving the chat box and becoming a persistent worker with a place to live. A useful agent needs more than intelligence. It needs identity, memory, tools, permissions, schedules, and a visible history of what it did. The company that organizes those pieces can own the user relationship even when the underlying model changes. Memory is now product infrastructure Lindy replaced the memory system behind Teammate . That is a profound kind of product work. Better memory changes whether an agent can continue a project, respect a preference, recover from an interruption, and avoid asking the same question twice. Users are already feeling the opposite problem. One OpenClaw user described context splitting across Chat, Claude, and OpenClaw . Model choice creates freedom, but fragmented memory creates friction. Portability of state may become as important as portability of files. The orchestrator is gaining power Abacus.AI is mapping tasks to model choices . Fetch.ai describes agents through reasoning, tools, and protocols . Both point toward the same architecture. Users will increasingly ask for an outcome while software decides which model, tool, and execution path should handle each step. That makes orchestration a strategic layer. Routing controls cost. Permissions control risk. Context controls quality. Review controls trust. The best model can still lose the workflow if another product makes the whole loop easier to operate. Review becomes the scarce resource GitHub added selectable depth for Copilot code review . That feature matters because generated output is becoming abundant. Human attention is not. Teams need systems that decide what deserves a quick check and what deserves a deep inspection. The same logic will spread beyond code. Agent actions in finance, research, customer support, and operations will need different review thresholds. Control is not one approval button. It is a policy for allocating attention. The software layer still depends on physical capacity Neocloud operators are converting mining assets into AI capacity . ROCmFPX is extending native NVFP4 execution on AMD hardware . The agent control room may look like software, but its economics are set by memory, power, accelerators, and deployment choices. Local systems will win where privacy, responsiveness, and ownership matter. Large clusters will win where training and heavy inference demand scale. The orchestrator that can move intelligently between those environments will be more valuable than one locked to a single compute path. Robots expose the cost of bad control A hybrid robot combines hopping and flight for rough terrain . GITAI reports a spacecraft autonomy demonstration in orbit . Physical systems make orchestration visible. A wrong tool call in software can be reversed. A wrong movement in the world can damage hardware, waste energy, or end a mission. That is why the agent stack is becoming a control stack. Models provide capability. Memory provides continuity. Tools provide reach. Review provides trust. Compute provides endurance. The product that binds them together becomes the place where work happens. Tonight, the center of gravity moved from the answer to the operating system around it.",
       "kind": "story",
       "engagement": {},
       "why_it_matters": "",
-      "topic_key": "events",
-      "topic_label": "Events",
-      "desk_rank": 2
-    },
-    {
-      "id": "843c6396-7be9-469d-842c-264a76d56c71",
-      "headline": "Ritwik Pavan: NEW: Speedo just unveiled racing goggles with a tiny tracker built into the side",
-      "summary": "Ritwik Pavan says NEW: Speedo just unveiled racing goggles with a tiny tracker built into the side. The post points to a development making the development visible through a media artifact.",
-      "section": "videos",
-      "section_key": "videos",
-      "section_label": "Videos",
-      "tag": "videos",
-      "published_at": "2026-08-27T19:21:45.000Z",
-      "author_name": "Ritwik Pavan",
-      "source_list": "Robot AI",
-      "source_url": "https://x.com/ritwikpavan/status/2093056392911528177",
-      "sources": [
-        {
-          "url": "https://x.com/ritwikpavan/status/2093056392911528177",
-          "name": "Ritwik Pavan source post"
-        }
-      ],
-      "body": "Ritwik Pavan says NEW: Speedo just unveiled racing goggles with a tiny tracker built into the side. The post points to a development making the development visible through a media artifact.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "videos",
-      "topic_label": "Videos",
-      "x_handle": "ritwikpavan",
-      "desk_rank": 5
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "AlignedNews",
+      "media_url": "https://alignednews.com/og-image.png"
     },
     {
       "id": "e1defe59-3345-4004-a2e2-208490bd5a40",
@@ -3852,7 +3896,7 @@
       "section_key": "events",
       "section_label": "Events",
       "tag": "events-conferences",
-      "published_at": "2026-08-28T03:24:25.000Z",
+      "published_at": "2026-08-28T09:36:37.000Z",
       "author_name": "reinvent.awsevents.com",
       "source_list": "AWS re:Invent official event website",
       "source_url": "https://reinvent.awsevents.com/",
@@ -3878,7 +3922,7 @@
       "section_key": "events",
       "section_label": "Events",
       "tag": "events-conferences",
-      "published_at": "2026-08-28T03:24:25.000Z",
+      "published_at": "2026-08-28T09:36:37.000Z",
       "author_name": "techcrunch.com",
       "source_list": "TechCrunch Disrupt official event website",
       "source_url": "https://techcrunch.com/events/tc-disrupt-2026/",
@@ -3894,7 +3938,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://techcrunch.com/wp-content/uploads/2025/10/TC26_Disrupt_General_Article_Headers_1920x1080.png?resize=1200,675"
     },
     {
       "id": "ee09f930-b5c6-49cf-b746-2ff3d12f1d38",
@@ -3904,7 +3949,7 @@
       "section_key": "events",
       "section_label": "Events",
       "tag": "events-conferences",
-      "published_at": "2026-08-28T03:24:25.000Z",
+      "published_at": "2026-08-28T09:36:37.000Z",
       "author_name": "events.linuxfoundation.org",
       "source_list": "Linux Foundation official KubeCon + CloudNativeCon event website",
       "source_url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
@@ -3920,7 +3965,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://events.linuxfoundation.org/wp-content/uploads/2026/03/kccnc-na-26-social-snackable.png"
     },
     {
       "id": "494c2afc-4d5a-4dc1-bb0b-5416a17b10b4",
@@ -3930,9 +3976,9 @@
       "section_key": "events",
       "section_label": "Events",
       "tag": "events-hackathons",
-      "published_at": "2026-08-28T03:24:25.000Z",
+      "published_at": "2026-08-28T09:36:37.000Z",
       "author_name": "HackStorm",
-      "source_list": "Events",
+      "source_list": "HackStorm official event website",
       "source_url": "https://www.hackstorm.ai/",
       "sources": [
         {
@@ -3949,32 +3995,6 @@
       "desk_rank": 1
     },
     {
-      "id": "b100826a-c850-4632-9127-abd8703c00c4",
-      "headline": "AI Hackathon – #SFTechWeek",
-      "summary": "AI Hackathon – #SFTechWeek is scheduled for October 10–11, 2026, at UCSC Extension Silicon Valley, 3175 Bowers Avenue, Santa Clara, California 95054.",
-      "section": "events-hackathons",
-      "section_key": "events",
-      "section_label": "Events",
-      "tag": "events-hackathons",
-      "published_at": "2026-08-28T03:24:25.000Z",
-      "author_name": "Partiful",
-      "source_list": "Events",
-      "source_url": "https://partiful.com/e/GVAGHxWG1np8sOJB2ueX",
-      "sources": [
-        {
-          "url": "https://partiful.com/e/GVAGHxWG1np8sOJB2ueX",
-          "name": "AI Hackathon – #SFTechWeek official Partiful event page"
-        }
-      ],
-      "body": "AI Hackathon – #SFTechWeek is scheduled for October 10–11, 2026, at UCSC Extension Silicon Valley, 3175 Bowers Avenue, Santa Clara, California 95054.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "events",
-      "topic_label": "Events",
-      "desk_rank": 2
-    },
-    {
       "id": "9bf80939-2bef-481b-8898-7c9288fcd90b",
       "headline": "Recruit Holdings Hackathon “Innovation Cup” 2026",
       "summary": "Recruit Holdings Hackathon “Innovation Cup” is scheduled for September 25–27, 2026, in Silicon Valley, California, USA.",
@@ -3982,9 +4002,9 @@
       "section_key": "events",
       "section_label": "Events",
       "tag": "events-hackathons",
-      "published_at": "2026-08-28T03:24:25.000Z",
+      "published_at": "2026-08-28T09:36:37.000Z",
       "author_name": "Recruit Holdings",
-      "source_list": "Events",
+      "source_list": "Recruit Holdings Innovation Cup official Devpost event page",
       "source_url": "https://innovation-cup2026.devpost.com/",
       "sources": [
         {
@@ -3998,7 +4018,35 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/871/062/datas/original.jpg"
+    },
+    {
+      "id": "b100826a-c850-4632-9127-abd8703c00c4",
+      "headline": "AI Hackathon – #SFTechWeek",
+      "summary": "AI Hackathon – #SFTechWeek is scheduled for October 10–11, 2026, at UCSC Extension Silicon Valley, 3175 Bowers Avenue, Santa Clara, California 95054.",
+      "section": "events-hackathons",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-hackathons",
+      "published_at": "2026-08-28T09:36:37.000Z",
+      "author_name": "Partiful",
+      "source_list": "AI Hackathon – #SFTechWeek official Partiful event page",
+      "source_url": "https://partiful.com/e/GVAGHxWG1np8sOJB2ueX",
+      "sources": [
+        {
+          "url": "https://partiful.com/e/GVAGHxWG1np8sOJB2ueX",
+          "name": "AI Hackathon – #SFTechWeek official Partiful event page"
+        }
+      ],
+      "body": "AI Hackathon – #SFTechWeek is scheduled for October 10–11, 2026, at UCSC Extension Silicon Valley, 3175 Bowers Avenue, Santa Clara, California 95054.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "events",
+      "topic_label": "Events",
+      "desk_rank": 2,
+      "media_url": "https://partiful.imgix.net/external/user/aqo0Sa870vgMb8eI9KhspIdMhii1/DpylGYzNaUL5gIZLH9JyG?w=1000&h=539&fit=clip"
     },
     {
       "id": "61010184-ddcb-4064-af4e-64531eb71e2f",
@@ -4008,7 +4056,7 @@
       "section_key": "events",
       "section_label": "Events",
       "tag": "events-dinners",
-      "published_at": "2026-08-28T03:24:25.000Z",
+      "published_at": "2026-08-28T09:36:37.000Z",
       "author_name": "OpenAI",
       "source_list": "OpenAI DevDay 2026 official page",
       "source_url": "https://openai.com/index/devday-2026/",
@@ -4024,7 +4072,35 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://images.ctfassets.net/kftzwdyauwt9/6E6hS38rOnhhKPPmfUflDh/710cc08ecff66835d93a9989c8ece826/SEO_16_9.png?w=1600&h=900&fit=fill"
+    },
+    {
+      "id": "ab05f958-425b-49de-9bdc-137e66015538",
+      "headline": "Day ZERO adds an AI builder gathering at Pier 48",
+      "summary": "Day ZERO is scheduled for September 29, 2026, at Pier 48 in San Francisco, with workshops and a live AI Hack Day.",
+      "section": "events-dinners",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events-dinners",
+      "published_at": "2026-08-28T09:36:37.000Z",
+      "author_name": "The AI Conference",
+      "source_list": "Day ZERO official event page",
+      "source_url": "https://aiconference.com/dz/",
+      "sources": [
+        {
+          "url": "https://aiconference.com/dz/",
+          "name": "Day ZERO official event page"
+        }
+      ],
+      "body": "Day ZERO is scheduled for September 29, 2026, at Pier 48 in San Francisco, with workshops and a live AI Hack Day.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "events",
+      "topic_label": "Events",
+      "desk_rank": 2,
+      "media_url": "https://aiconference.com/wp-content/uploads/2026/03/Day-Zero-Share.jpg"
     },
     {
       "id": "f767578e-9c6f-4c4d-a026-bdd90da51d6b",
@@ -4034,7 +4110,7 @@
       "section_key": "events",
       "section_label": "Events",
       "tag": "events-dinners",
-      "published_at": "2026-08-28T03:24:25.000Z",
+      "published_at": "2026-08-28T09:36:37.000Z",
       "author_name": "Salesforce",
       "source_list": "Dreamforce 2026 official event page",
       "source_url": "https://www.salesforce.com/dreamforce/",
@@ -4050,7 +4126,8 @@
       "why_it_matters": "",
       "topic_key": "events",
       "topic_label": "Events",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2026/04/og-featured-image-1440x810-df.png?w=1024"
     },
     {
       "id": "82668e3e-01a2-451d-9d61-11acc22bb8d6",
@@ -4062,7 +4139,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T22:46:17.000Z",
       "author_name": "Joscha Bach",
-      "source_list": "AI Newsmakers",
+      "source_list": "Videos",
       "source_url": "https://x.com/Plinz/status/2093107863719919859",
       "sources": [
         {
@@ -4089,7 +4166,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T22:42:09.000Z",
       "author_name": "@jason",
-      "source_list": "AI Investors, AI Newsmakers",
+      "source_list": "Videos",
       "source_url": "https://x.com/Jason/status/2093106825344287063",
       "sources": [
         {
@@ -4104,7 +4181,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "Jason",
-      "desk_rank": 10
+      "desk_rank": 10,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093042460335218689/img/-Vc4KcbE_2H4j245.jpg"
     },
     {
       "id": "27d9c474-24c5-4af9-bd32-e3895ad8bd20",
@@ -4116,7 +4194,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T21:50:54.000Z",
       "author_name": "꩜",
-      "source_list": "AI Leaders #1",
+      "source_list": "Jobs",
       "source_url": "https://x.com/doriandargan/status/2093093927523873135",
       "sources": [
         {
@@ -4143,7 +4221,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T21:26:29.000Z",
       "author_name": "Kevin Bass",
-      "source_list": "List 2050823188528205973",
+      "source_list": "Jobs",
       "source_url": "https://x.com/kevinnbass/status/2093087783317279044",
       "sources": [
         {
@@ -4158,7 +4236,8 @@
       "topic_key": "jobs",
       "topic_label": "Jobs",
       "x_handle": "kevinnbass",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/media/HQwkIhAXEAAucif.jpg?name=orig"
     },
     {
       "id": "8fada8bf-020b-45a0-8715-62d24a857407",
@@ -4170,7 +4249,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T21:03:55.000Z",
       "author_name": "Ethan Mollick",
-      "source_list": "AI Leaders #1, AI Newsmakers",
+      "source_list": "Videos",
       "source_url": "https://x.com/emollick/status/2093082102312923351",
       "sources": [
         {
@@ -4185,7 +4264,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "emollick",
-      "desk_rank": 1
+      "desk_rank": 1,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093081917214093312/img/qO-f89SD77vx3VTq.jpg"
     },
     {
       "id": "0052b9e9-ecd5-45c8-b9a3-fd30304cee1f",
@@ -4197,7 +4277,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T20:59:23.000Z",
       "author_name": "Anjney Midha",
-      "source_list": "AI Investors, AI Leaders #1, AI Newsmakers",
+      "source_list": "Jobs",
       "source_url": "https://x.com/AnjneyMidha/status/2093080960380371186",
       "sources": [
         {
@@ -4224,7 +4304,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T20:56:00.000Z",
       "author_name": "Austin Walker 🛴",
-      "source_list": "AI Investors, AI Leaders #1",
+      "source_list": "Jobs",
       "source_url": "https://x.com/austinxwalker/status/2093080111289700619",
       "sources": [
         {
@@ -4251,7 +4331,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T20:40:47.000Z",
       "author_name": "Kevin Bass",
-      "source_list": "List 2050823188528205973",
+      "source_list": "Jobs",
       "source_url": "https://x.com/kevinnbass/status/2093076279922692207",
       "sources": [
         {
@@ -4269,6 +4349,34 @@
       "desk_rank": 3
     },
     {
+      "id": "843c6396-7be9-469d-842c-264a76d56c71",
+      "headline": "Ritwik Pavan: NEW: Speedo just unveiled racing goggles with a tiny tracker built into the side",
+      "summary": "Ritwik Pavan says NEW: Speedo just unveiled racing goggles with a tiny tracker built into the side. The post points to a development making the development visible through a media artifact.",
+      "section": "videos",
+      "section_key": "videos",
+      "section_label": "Videos",
+      "tag": "videos",
+      "published_at": "2026-08-27T19:21:45.000Z",
+      "author_name": "Ritwik Pavan",
+      "source_list": "Videos",
+      "source_url": "https://x.com/ritwikpavan/status/2093056392911528177",
+      "sources": [
+        {
+          "url": "https://x.com/ritwikpavan/status/2093056392911528177",
+          "name": "Ritwik Pavan source post"
+        }
+      ],
+      "body": "Ritwik Pavan says NEW: Speedo just unveiled racing goggles with a tiny tracker built into the side. The post points to a development making the development visible through a media artifact.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "",
+      "topic_key": "videos",
+      "topic_label": "Videos",
+      "x_handle": "ritwikpavan",
+      "desk_rank": 5,
+      "media_url": "https://pbs.twimg.com/media/HQwHlbXbMAA6Pti.jpg?name=orig"
+    },
+    {
       "id": "b6d9fb24-ca1d-4f52-a1c6-50430a654ca2",
       "headline": "Karata says posted this video of a storm in my area and just realized the app posted it twice, making the development visible through a media artifact",
       "summary": "Karata says Karata says posted this video of a storm in my area and just realized the app posted it twice, making the development visible through a media artifact. The post points to a development making the development visible through a…",
@@ -4278,7 +4386,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T19:14:52.000Z",
       "author_name": "Karata",
-      "source_list": "AI Community #6",
+      "source_list": "Videos",
       "source_url": "https://x.com/karatademada/status/2093054658591740101",
       "sources": [
         {
@@ -4293,7 +4401,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "karatademada",
-      "desk_rank": 9
+      "desk_rank": 9,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093010627497218049/img/I21yxTbUIgfx6HkE.jpg"
     },
     {
       "id": "8c3b812d-d2eb-419b-b590-ff9c91af5667",
@@ -4305,7 +4414,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T18:54:47.000Z",
       "author_name": "Lama Ahmad لمى احمد",
-      "source_list": "AI Community #1",
+      "source_list": "Jobs",
       "source_url": "https://x.com/_lamaahmad/status/2093049604367413590",
       "sources": [
         {
@@ -4320,7 +4429,8 @@
       "topic_key": "jobs",
       "topic_label": "Jobs",
       "x_handle": "_lamaahmad",
-      "desk_rank": 4
+      "desk_rank": 4,
+      "media_url": "https://pbs.twimg.com/card_img/2092641235974385664/dJvsdkr2?format=jpg&name=orig"
     },
     {
       "id": "7b1a86d1-4e10-4db7-973b-5efb5769fa96",
@@ -4332,7 +4442,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T18:22:34.000Z",
       "author_name": "PlanetScale",
-      "source_list": "AI Companies #2",
+      "source_list": "Videos",
       "source_url": "https://x.com/PlanetScale/status/2093041496325025902",
       "sources": [
         {
@@ -4359,7 +4469,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T17:49:44.000Z",
       "author_name": "LAION",
-      "source_list": "AI Companies #1",
+      "source_list": "Videos",
       "source_url": "https://x.com/laion_ai/status/2093033234279842119",
       "sources": [
         {
@@ -4374,7 +4484,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "laion_ai",
-      "desk_rank": 3
+      "desk_rank": 3,
+      "media_url": "https://pbs.twimg.com/media/HQvyoYdWAAE-Nhs.jpg?name=orig"
     },
     {
       "id": "ce9a5a25-23d5-4bd7-a708-c6a7c99d2f79",
@@ -4386,7 +4497,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T17:35:03.000Z",
       "author_name": "Score",
-      "source_list": "AI Companies #2",
+      "source_list": "Videos",
       "source_url": "https://x.com/webuildscore/status/2093029541216505887",
       "sources": [
         {
@@ -4401,7 +4512,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "webuildscore",
-      "desk_rank": 2
+      "desk_rank": 2,
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093027279785836544/img/HCU9WPT7okDhcRzO.jpg"
     },
     {
       "id": "90f859bb-dae1-4776-a1e0-e211e50c42db",
@@ -4413,7 +4525,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T17:20:06.000Z",
       "author_name": "Ultralytics",
-      "source_list": "AI Companies #1",
+      "source_list": "Videos",
       "source_url": "https://x.com/ultralytics/status/2093025778350850207",
       "sources": [
         {
@@ -4428,7 +4540,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "ultralytics",
-      "desk_rank": 7
+      "desk_rank": 7,
+      "media_url": "https://pbs.twimg.com/media/HQvr1m2XAAACnE0.jpg?name=orig"
     },
     {
       "id": "538a431e-7d30-4ea7-af5f-228db493ada2",
@@ -4440,7 +4553,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T16:08:11.000Z",
       "author_name": "Stanford HAI",
-      "source_list": "AI Organizations",
+      "source_list": "Jobs",
       "source_url": "https://x.com/StanfordHAI/status/2093007676909420761",
       "sources": [
         {
@@ -4455,7 +4568,8 @@
       "topic_key": "jobs",
       "topic_label": "Jobs",
       "x_handle": "StanfordHAI",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/media/HQvbXX4akAARGJ0.jpg?name=orig"
     },
     {
       "id": "e1102d27-0fb1-4305-95cf-c9cee05d7c9b",
@@ -4467,7 +4581,7 @@
       "tag": "jobs",
       "published_at": "2026-08-27T16:03:04.000Z",
       "author_name": "WeMakeDevs",
-      "source_list": "AI Organizations",
+      "source_list": "Jobs",
       "source_url": "https://x.com/WeMakeDevs/status/2093006389782434285",
       "sources": [
         {
@@ -4482,7 +4596,8 @@
       "topic_key": "jobs",
       "topic_label": "Jobs",
       "x_handle": "WeMakeDevs",
-      "desk_rank": 8
+      "desk_rank": 8,
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQvWHPdbQAAfQIO.jpg"
     },
     {
       "id": "f5229e69-2153-4571-85b8-7d2f92de744c",
@@ -4494,7 +4609,7 @@
       "tag": "videos",
       "published_at": "2026-08-27T14:44:35.000Z",
       "author_name": "fal",
-      "source_list": "AI Companies #1",
+      "source_list": "Videos",
       "source_url": "https://x.com/fal/status/2092986642176852162",
       "sources": [
         {
@@ -4509,7 +4624,8 @@
       "topic_key": "videos",
       "topic_label": "Videos",
       "x_handle": "fal",
-      "desk_rank": 6
+      "desk_rank": 6,
+      "media_url": "https://pbs.twimg.com/card_img/2092986646153072641/3v72nUZ0?format=jpg&name=orig"
     }
   ],
   "signals": [
