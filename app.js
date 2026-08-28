@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an173";
+  var DATA_URL = "live-data.json?v=an174";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -280,8 +280,17 @@
     bits.push(t("first_seen") + " " + when);
     var eng = item.engagement || {};
     var views = Number(eng.impression_count || eng.view_count || item.views || item.view_count || 0);
+    var likes = Number(eng.like_count || item.likes || 0);
+    var replies = Number(eng.reply_count || item.replies || 0);
+    var reposts = Number(eng.retweet_count || item.reposts || 0);
     var shown = compactCount(views);
     if (shown) bits.push(shown + " " + t("views_n"));
+    shown = compactCount(likes);
+    if (shown) bits.push(shown + " " + t("likes_n"));
+    shown = compactCount(replies);
+    if (shown) bits.push(shown + " " + t("replies_n"));
+    shown = compactCount(reposts);
+    if (shown) bits.push(shown + " " + t("reposts_n"));
     return bits.join(" · ");
   }
 
@@ -3290,6 +3299,7 @@
         if (candMedia && !isAvatarMedia(candMedia)) score += 90;
         var sec = String(cand.section || cand.tag || "").toLowerCase();
         var topic = String(cand.topic_key || "").toLowerCase();
+        if (Number(cand.list_count || 0) >= 2) score += 420;
         if (sec === "breaking") score += 240;
         if (sec === "models" || topic === "models") score += 160;
         if (sec === "labs") score += 150;
@@ -3394,13 +3404,22 @@
         return '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + t("rest_desk") + '</h2></li>';
       }
       groups.forEach(function (group, gi) {
-        var items = group.items;
+        var items = group.items.slice().sort(function (a, b) {
+          var la = Number(a.list_count || 0);
+          var lb = Number(b.list_count || 0);
+          if (lb !== la) return lb - la;
+          return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+        });
         // Comfortable: first story in the whole feed is the magazine opener,
         // even when that group is Yesterday (no stories dated today).
         var allowLead = gi === 0;
         if (allowLead) {
           items = pickLeadInGroup(items);
         }
+        var lastMulti = -1;
+        items.forEach(function (s, i) {
+          if (Number(s.list_count || 0) >= 2) lastMulti = i;
+        });
         html +=
           '<li class="feed-day-head" role="presentation">' +
             '<h2 class="feed-day-label">' + escapeHtml(group.label) + "</h2>" +
@@ -3408,17 +3427,16 @@
         items.forEach(function (s, i) {
           html += renderStoryItem(s, i, allowLead, restStarted);
           html += takeBanner();
-          if (!eventsInserted && boxedEvents.length && allowLead && (i + 1) === 12) {
+          if (i === lastMulti || (lastMulti < 0 && i === 0 && allowLead)) html += restHeadHtml();
+          if (!eventsInserted && boxedEvents.length && allowLead && restStarted) {
             html += eventsBoxHtml(boxedEvents);
             eventsInserted = true;
           }
-          if (rankCounter >= 12) html += restHeadHtml();
         });
         if (!eventsInserted && boxedEvents.length && gi === 0) {
           html += eventsBoxHtml(boxedEvents);
           eventsInserted = true;
         }
-        if (rankCounter >= 12) html += restHeadHtml();
       });
       if (!eventsInserted && boxedEvents.length) html += eventsBoxHtml(boxedEvents);
     }
