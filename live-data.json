@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-28T09:36:56.000Z",
-    "scrapedAt": "2026-08-28T09:36:56.000Z",
-    "source": "alignednews-news-feed",
-    "note": "Pulled from /api/news-feed, 161 stories, events boxed",
+    "generatedAt": "2026-08-28T22:42:24.000Z",
+    "scrapedAt": "2026-08-28T22:42:24.000Z",
+    "source": "scobleizer-chrome-lists",
+    "note": "Chrome lists, 104 posts, 78 woven, 3 multi-list first",
     "rssLastBuildDate": "",
     "rssItemCount": 161,
     "rssKeptCount": 161,
@@ -154,6 +154,2268 @@
     }
   ],
   "stories": [
+    {
+      "id": "x-2093465735049654497",
+      "headline": "Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning (arxiv.org/abs/2608.26622)",
+      "summary": "Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning (arxiv.org/abs/2608.26622)",
+      "section": "breaking",
+      "section_key": "breaking",
+      "section_label": "Breaking",
+      "tag": "breaking",
+      "published_at": "2026-08-28T22:28:20.000Z",
+      "author_name": "OWW",
+      "source_list": "AI Robotics, AI Orgs & Events",
+      "source_url": "https://x.com/OWW/status/2093465735049654497",
+      "sources": [
+        {
+          "label": "@OWW",
+          "url": "https://x.com/OWW/status/2093465735049654497"
+        }
+      ],
+      "body": "Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning (arxiv.org/abs/2608.26622)",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@OWW on AI Robotics, AI Orgs & Events",
+      "topic_key": "breaking",
+      "topic_label": "Breaking",
+      "x_handle": "OWW",
+      "media_url": "https://pbs.twimg.com/media/HQ17_g9X0AAs8a_?format=png&name=small",
+      "list_count": 2,
+      "desk_rank": 1
+    },
+    {
+      "id": "x-2093397471137513831",
+      "headline": "So apparently people are getting flown out of floods by drones in China now - like literally hanging beneath a…",
+      "summary": "so apparently people are getting flown out of floods by drones in China now - like literally hanging beneath a giant DJI drone and getting flown to dry ground; during the recent floods in Guangxi, more than 400 drone pilots showed up with o",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T17:57:05.000Z",
+      "author_name": "itsolelehmann",
+      "source_list": "AI Community #1 of 9, AI Investors",
+      "source_url": "https://x.com/itsolelehmann/status/2093397471137513831",
+      "sources": [
+        {
+          "label": "@itsolelehmann",
+          "url": "https://x.com/itsolelehmann/status/2093397471137513831"
+        }
+      ],
+      "body": "so apparently people are getting flown out of floods by drones in China now - like literally hanging beneath a giant DJI drone and getting flown to dry ground; during the recent floods in Guangxi, more than 400 drone pilots showed up with over 300 aircraft",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@itsolelehmann on AI Community #1 of 9, AI Investors",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "itsolelehmann",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093397453240438784/img/mcNMNgxFNNnVKBrL.jpg",
+      "list_count": 2,
+      "desk_rank": 2
+    },
+    {
+      "id": "x-2093465579042849052",
+      "headline": "Thanks @gracegongGG for the amazing summit!",
+      "summary": "Thanks @gracegongGG for the amazing summit! Excited to share stage with @juliechoi CMO of @cerebras, @jakeserval, @spirosx and @AbridgeHQ CTO San Oo.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:27:43.000Z",
+      "author_name": "sang_wen",
+      "source_list": "AI Founders #1 of 3, AI Investors",
+      "source_url": "https://x.com/sang_wen/status/2093465579042849052",
+      "sources": [
+        {
+          "label": "@sang_wen",
+          "url": "https://x.com/sang_wen/status/2093465579042849052"
+        }
+      ],
+      "body": "Thanks @gracegongGG for the amazing summit! Excited to share stage with @juliechoi CMO of @cerebras, @jakeserval, @spirosx and @AbridgeHQ CTO San Oo.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@sang_wen on AI Founders #1 of 3, AI Investors",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "sang_wen",
+      "media_url": "https://pbs.twimg.com/media/HQ10EuvbcAA5Kcl?format=jpg&name=small",
+      "list_count": 2,
+      "desk_rank": 3
+    },
+    {
+      "id": "x-2093014818647339026",
+      "headline": "Introducing PhoneLLM, an open model for voice agents",
+      "summary": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-27T16:36:33.000Z",
+      "author_name": "kwindla",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/kwindla/status/2093014818647339026",
+      "sources": [
+        {
+          "label": "@kwindla",
+          "url": "https://x.com/kwindla/status/2093014818647339026"
+        }
+      ],
+      "body": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@kwindla · AI Founders #1 of 3",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "kwindla",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093013293560709120/img/y0b0JFTxKUQ4XDS8.jpg",
+      "list_count": 1,
+      "desk_rank": 4
+    },
+    {
+      "id": "x-2093435554159329567",
+      "headline": "The smartest open-weight model at 743B params, 1M token context, US only, ZDR",
+      "summary": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T20:28:24.000Z",
+      "author_name": "baseten",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/baseten/status/2093435554159329567",
+      "sources": [
+        {
+          "label": "@baseten",
+          "url": "https://x.com/baseten/status/2093435554159329567"
+        }
+      ],
+      "body": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@baseten · AI Founders #1 of 3",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "baseten",
+      "media_url": "https://pbs.twimg.com/media/HQ1gCSFXIAEOqrU?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 5
+    },
+    {
+      "id": "x-2093459644878626914",
+      "headline": "REGULATED DIGITAL SECURITIES INFRASTRUCTURE LAUNCHES ON SUI!",
+      "summary": "REGULATED DIGITAL SECURITIES INFRASTRUCTURE LAUNCHES ON SUI! tZERO is deploying over seven years of regulated securities tech to the Sui network.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:04:08.000Z",
+      "author_name": "iamrahulinc",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/iamrahulinc/status/2093459644878626914",
+      "sources": [
+        {
+          "label": "@iamrahulinc",
+          "url": "https://x.com/iamrahulinc/status/2093459644878626914"
+        }
+      ],
+      "body": "REGULATED DIGITAL SECURITIES INFRASTRUCTURE LAUNCHES ON SUI! tZERO is deploying over seven years of regulated securities tech to the Sui network.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@iamrahulinc · Computer Vision",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "iamrahulinc",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2093459634027950080/pu/img/oOuwCLOKW9dMaI8b.jpg",
+      "list_count": 1,
+      "desk_rank": 6
+    },
+    {
+      "id": "x-2093465254554644701",
+      "headline": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut…",
+      "summary": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:26:26.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/HuntressLabs/status/2093465254554644701",
+      "sources": [
+        {
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093465254554644701"
+        }
+      ],
+      "body": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@HuntressLabs · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HuntressLabs",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 7
+    },
+    {
+      "id": "x-2093465666590286263",
+      "headline": "A mesh-free multiresolution deep energy method with phase-field modeling of brittle fracture…",
+      "summary": "A mesh-free multiresolution deep energy method with phase-field modeling of brittle fracture (arxiv.org/abs/2608.24126)",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T22:28:04.000Z",
+      "author_name": "Memoirs",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/Memoirs/status/2093465666590286263",
+      "sources": [
+        {
+          "label": "@Memoirs",
+          "url": "https://x.com/Memoirs/status/2093465666590286263"
+        }
+      ],
+      "body": "A mesh-free multiresolution deep energy method with phase-field modeling of brittle fracture (arxiv.org/abs/2608.24126)",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Memoirs · AI Orgs & Events",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "Memoirs",
+      "media_url": "https://pbs.twimg.com/media/HQ177hrXYAADrZG?format=png&name=small",
+      "list_count": 1,
+      "desk_rank": 8
+    },
+    {
+      "id": "x-2093465891191042057",
+      "headline": "Is this one of the most successful robot launches in history?",
+      "summary": "We sold over $2,500,000 worth of Microducks in the first 24 hours. Is this one of the most successful robot launches in history?",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:28:57.000Z",
+      "author_name": "RemiFabreRobot",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
+      "sources": [
+        {
+          "label": "@RemiFabreRobot",
+          "url": "https://x.com/RemiFabreRobot/status/2093465891191042057"
+        }
+      ],
+      "body": "We sold over $2,500,000 worth of Microducks in the first 24 hours. Is this one of the most successful robot launches in history?",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@RemiFabreRobot · AI Robotics",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "RemiFabreRobot",
+      "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 9
+    },
+    {
+      "id": "x-2093466163200307616",
+      "headline": "OpenReview adds an AI code reviewer to your GitHub projects",
+      "summary": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:30:02.000Z",
+      "author_name": "GithubProjects",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
+      "sources": [
+        {
+          "label": "@GithubProjects",
+          "url": "https://x.com/GithubProjects/status/2093466163200307616"
+        }
+      ],
+      "body": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@GithubProjects · AI Orgs & Events",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "GithubProjects",
+      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 10
+    },
+    {
+      "id": "x-2092964444607328324",
+      "headline": "I finally finished \"The Last Light\" music video",
+      "summary": "I finally finished \"The Last Light\" music video. A short about Lumina, a guardian of light and the unexpected visitor who changes her world.",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-27T13:16:23.000Z",
+      "author_name": "icreatelife",
+      "source_list": "Creative with AI",
+      "source_url": "https://x.com/icreatelife/status/2092964444607328324",
+      "sources": [
+        {
+          "label": "@icreatelife",
+          "url": "https://x.com/icreatelife/status/2092964444607328324"
+        }
+      ],
+      "body": "I finally finished \"The Last Light\" music video. A short about Lumina, a guardian of light and the unexpected visitor who changes her world.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@icreatelife · Creative with AI",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "icreatelife",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092960177855029248/img/ZpklT4504EOi9fWd.jpg",
+      "list_count": 1,
+      "desk_rank": 11
+    },
+    {
+      "id": "x-2092969326164738377",
+      "headline": "How is @baseten consistently mogging priority providers with their normal tier on literally every metric?",
+      "summary": "how is @baseten consistently mogging priority providers with their normal tier on literally every metric?",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-27T13:35:47.000Z",
+      "author_name": "alephtr",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/alephtr/status/2092969326164738377",
+      "sources": [
+        {
+          "label": "@alephtr",
+          "url": "https://x.com/alephtr/status/2092969326164738377"
+        }
+      ],
+      "body": "how is @baseten consistently mogging priority providers with their normal tier on literally every metric?",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@alephtr · AI Founders #1 of 3",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "alephtr",
+      "media_url": "https://pbs.twimg.com/media/HQu3OuKXYAAA9qi?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 12
+    },
+    {
+      "id": "x-2092971899659681881",
+      "headline": "The best cold call I've heard in a while:",
+      "summary": "The best cold call I've heard in a while:",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-27T13:46:01.000Z",
+      "author_name": "TechSalesGuy",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/TechSalesGuy/status/2092971899659681881",
+      "sources": [
+        {
+          "label": "@TechSalesGuy",
+          "url": "https://x.com/TechSalesGuy/status/2092971899659681881"
+        }
+      ],
+      "body": "The best cold call I've heard in a while:",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@TechSalesGuy · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "TechSalesGuy",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092971699553570816/img/YHU9b0iRvzdgzOGU.jpg",
+      "list_count": 1,
+      "desk_rank": 13
+    },
+    {
+      "id": "x-2093022699081625791",
+      "headline": "A SITE YOU DEFINITELY NEED TO CHECK BEFORE BUYING A HOUSE",
+      "summary": "A SITE YOU DEFINITELY NEED TO CHECK BEFORE BUYING A HOUSE. An excellent site that shows from which directions the sun hits the building at what times.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-27T17:07:52.000Z",
+      "author_name": "yapayaracIar",
+      "source_list": "AI Community #1 of 9",
+      "source_url": "https://x.com/yapayaracIar/status/2093022699081625791",
+      "sources": [
+        {
+          "label": "@yapayaracIar",
+          "url": "https://x.com/yapayaracIar/status/2093022699081625791"
+        }
+      ],
+      "body": "A SITE YOU DEFINITELY NEED TO CHECK BEFORE BUYING A HOUSE. An excellent site that shows from which directions the sun hits the building at what times.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@yapayaracIar · AI Community #1 of 9",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "yapayaracIar",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2061413643460214786/img/6lZeR0yi-xbpnKP_.jpg",
+      "list_count": 1,
+      "desk_rank": 14
+    },
+    {
+      "id": "x-2093038426140651791",
+      "headline": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard…",
+      "summary": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-27T18:10:22.000Z",
+      "author_name": "AnthropicAI",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
+      "sources": [
+        {
+          "label": "@AnthropicAI",
+          "url": "https://x.com/AnthropicAI/status/2093038426140651791"
+        }
+      ],
+      "body": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@AnthropicAI · AI Robotics",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "AnthropicAI",
+      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
+      "list_count": 1,
+      "desk_rank": 15
+    },
+    {
+      "id": "x-2093161411400610118",
+      "headline": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF",
+      "summary": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T02:19:04.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
+      "sources": [
+        {
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
+        }
+      ],
+      "body": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@HuntressLabs · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HuntressLabs",
+      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 16
+    },
+    {
+      "id": "x-2093161440907608224",
+      "headline": "Orgs should immediately remove PaperCut Application Servers from public exposure, restrict access to trusted…",
+      "summary": "Orgs should immediately remove PaperCut Application Servers from public exposure, restrict access to trusted networks, and apply emergency updates for versions 25 and 26.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T02:19:11.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/HuntressLabs/status/2093161440907608224",
+      "sources": [
+        {
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093161440907608224"
+        }
+      ],
+      "body": "Orgs should immediately remove PaperCut Application Servers from public exposure, restrict access to trusted networks, and apply emergency updates for versions 25 and 26.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@HuntressLabs · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HuntressLabs",
+      "media_url": "https://pbs.twimg.com/media/HQxnPMqWMAAuB6b?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 17
+    },
+    {
+      "id": "x-2093195886809756095",
+      "headline": "Since when did solidarity with an oppressed people become a crime?",
+      "summary": "Since when did solidarity with an oppressed people become a crime?",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T04:36:03.000Z",
+      "author_name": "clifroz",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/clifroz/status/2093195886809756095",
+      "sources": [
+        {
+          "label": "@clifroz",
+          "url": "https://x.com/clifroz/status/2093195886809756095"
+        }
+      ],
+      "body": "Since when did solidarity with an oppressed people become a crime?",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@clifroz · Computer Vision",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "clifroz",
+      "media_url": "https://pbs.twimg.com/media/HQxs15EacAAdg9b?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 18
+    },
+    {
+      "id": "x-2093308245121159679",
+      "headline": "New grey area deposit gathering strategy",
+      "summary": "New grey area deposit gathering strategy. Qualia software promotes parking escrow at a recommended bank, get credits.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T12:02:32.000Z",
+      "author_name": "Schornack",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/Schornack/status/2093308245121159679",
+      "sources": [
+        {
+          "label": "@Schornack",
+          "url": "https://x.com/Schornack/status/2093308245121159679"
+        }
+      ],
+      "body": "New grey area deposit gathering strategy. Qualia software promotes parking escrow at a recommended bank, get credits.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Schornack · AI Orgs & Events",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "Schornack",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 19
+    },
+    {
+      "id": "x-2093338716647625139",
+      "headline": "Ready for a Friday night-out?",
+      "summary": "Ready for a Friday night-out?",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-28T14:03:37.000Z",
+      "author_name": "Wookiee3958961",
+      "source_list": "Creative with AI",
+      "source_url": "https://x.com/Wookiee3958961/status/2093338716647625139",
+      "sources": [
+        {
+          "label": "@Wookiee3958961",
+          "url": "https://x.com/Wookiee3958961/status/2093338716647625139"
+        }
+      ],
+      "body": "Ready for a Friday night-out?",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Wookiee3958961 · Creative with AI",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "Wookiee3958961",
+      "media_url": "https://pbs.twimg.com/media/HQ0IXplbMAA9Vgm?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 20
+    },
+    {
+      "id": "x-2093352004080849144",
+      "headline": "In-Context Learning Results Hint at a \"GPT Moment\" for Robotics",
+      "summary": "In-Context Learning Results Hint at a \"GPT Moment\" for Robotics. For general-purpose robots to be useful and economical, you need to be able to teach them new skills on the fly.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T14:56:25.000Z",
+      "author_name": "chris_j_paxton",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/chris_j_paxton/status/2093352004080849144",
+      "sources": [
+        {
+          "label": "@chris_j_paxton",
+          "url": "https://x.com/chris_j_paxton/status/2093352004080849144"
+        }
+      ],
+      "body": "In-Context Learning Results Hint at a \"GPT Moment\" for Robotics. For general-purpose robots to be useful and economical, you need to be able to teach them new skills on the fly.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@chris_j_paxton · Robot Influencers/Media",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "chris_j_paxton",
+      "media_url": "https://pbs.twimg.com/media/HQ0UiXkWwAAGWjf?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 21
+    },
+    {
+      "id": "x-2093368006093238678",
+      "headline": "Elon Musk's extreme sense of urgency is unmatched:",
+      "summary": "Elon Musk's extreme sense of urgency is unmatched:",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T16:00:00.000Z",
+      "author_name": "sam_stoffel",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/sam_stoffel/status/2093368006093238678",
+      "sources": [
+        {
+          "label": "@sam_stoffel",
+          "url": "https://x.com/sam_stoffel/status/2093368006093238678"
+        }
+      ],
+      "body": "Elon Musk's extreme sense of urgency is unmatched:",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@sam_stoffel · Robot Influencers/Media",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "sam_stoffel",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092204804218957824/img/mHH6yf4RTxGxVgK_.jpg",
+      "list_count": 1,
+      "desk_rank": 22
+    },
+    {
+      "id": "x-2093374017109635247",
+      "headline": "What does it take for a humanoid robot to move beyond demos and perform real work?",
+      "summary": "What does it take for a humanoid robot to move beyond demos and perform real work? At DQ's Wujiang Road store in Shanghai, Sharpa North autonomously makes an Oreo Blizzard through a 55-step workflow.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T16:23:53.000Z",
+      "author_name": "MarilynLiu97",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/MarilynLiu97/status/2093374017109635247",
+      "sources": [
+        {
+          "label": "@MarilynLiu97",
+          "url": "https://x.com/MarilynLiu97/status/2093374017109635247"
+        }
+      ],
+      "body": "What does it take for a humanoid robot to move beyond demos and perform real work? At DQ's Wujiang Road store in Shanghai, Sharpa North autonomously makes an Oreo Blizzard through a 55-step workflow.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@MarilynLiu97 · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "MarilynLiu97",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093373127946547210/img/bUSOYSJNsJPdgvsF.jpg",
+      "list_count": 1,
+      "desk_rank": 23
+    },
+    {
+      "id": "x-2093375558876860540",
+      "headline": "Wrist camera is now available for ProGlove",
+      "summary": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T16:30:00.000Z",
+      "author_name": "JayLiStanford",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/JayLiStanford/status/2093375558876860540",
+      "sources": [
+        {
+          "label": "@JayLiStanford",
+          "url": "https://x.com/JayLiStanford/status/2093375558876860540"
+        }
+      ],
+      "body": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@JayLiStanford · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "JayLiStanford",
+      "media_url": "https://pbs.twimg.com/media/HQxclBNbsAAkfIu?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 24
+    },
+    {
+      "id": "x-2093379958731137484",
+      "headline": "While I do love all things bank/financial accounting, I do think it is the responsibility of a serious crypto…",
+      "summary": "While I do love all things bank/financial accounting, I do think it is the responsibility of a serious crypto enthusiast to write about the proposed accounting treatment for stablecoins.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T16:47:29.000Z",
+      "author_name": "khaslett",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/khaslett/status/2093379958731137484",
+      "sources": [
+        {
+          "label": "@khaslett",
+          "url": "https://x.com/khaslett/status/2093379958731137484"
+        }
+      ],
+      "body": "While I do love all things bank/financial accounting, I do think it is the responsibility of a serious crypto enthusiast to write about the proposed accounting treatment for stablecoins.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@khaslett · AI Orgs & Events",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "khaslett",
+      "media_url": "https://pbs.twimg.com/media/HQ0toLXXcAEl3vu?format=png&name=small",
+      "list_count": 1,
+      "desk_rank": 25
+    },
+    {
+      "id": "x-2093383065548492982",
+      "headline": "BREAKING: President Donald J",
+      "summary": "BREAKING: President Donald J. Trump just signed an Executive Order establishing a new federal academy, THE UNITED STATES SPACE ACADEMY.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T16:59:50.000Z",
+      "author_name": "WhiteHouse",
+      "source_list": "AI Investors",
+      "source_url": "https://x.com/WhiteHouse/status/2093383065548492982",
+      "sources": [
+        {
+          "label": "@WhiteHouse",
+          "url": "https://x.com/WhiteHouse/status/2093383065548492982"
+        }
+      ],
+      "body": "BREAKING: President Donald J. Trump just signed an Executive Order establishing a new federal academy, THE UNITED STATES SPACE ACADEMY.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@WhiteHouse · AI Investors",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "WhiteHouse",
+      "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 26
+    },
+    {
+      "id": "x-2093435417412698467",
+      "headline": "Succession - Ascension Remix",
+      "summary": "Succession - Ascension Remix. Our species will be but a speck in time but it's the succession of man that determines how bright that speck will be.",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-28T20:27:52.000Z",
+      "author_name": "FussyPastor",
+      "source_list": "Creative with AI",
+      "source_url": "https://x.com/FussyPastor/status/2093435417412698467",
+      "sources": [
+        {
+          "label": "@FussyPastor",
+          "url": "https://x.com/FussyPastor/status/2093435417412698467"
+        }
+      ],
+      "body": "Succession - Ascension Remix. Our species will be but a speck in time but it's the succession of man that determines how bright that speck will be.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@FussyPastor · Creative with AI",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "FussyPastor",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093428883018461184/img/6v_ay_wmGC2XVFx6.jpg",
+      "list_count": 1,
+      "desk_rank": 27
+    },
+    {
+      "id": "x-2093443450360271338",
+      "headline": "Discounted Full Pass (15% OFF) and Free Expo Pass Registration links",
+      "summary": "Discounted Full Pass (15% OFF) and Free Expo Pass Registration links",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T20:59:47.000Z",
+      "author_name": "humanoidpress",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/humanoidpress/status/2093443450360271338",
+      "sources": [
+        {
+          "label": "@humanoidpress",
+          "url": "https://x.com/humanoidpress/status/2093443450360271338"
+        }
+      ],
+      "body": "Discounted Full Pass (15% OFF) and Free Expo Pass Registration links",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@humanoidpress · Robot Influencers/Media",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "humanoidpress",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 28
+    },
+    {
+      "id": "x-2093446121477582871",
+      "headline": "Winners of the Creative Coding Night event by @QuiverAI, @a16z, and @cursor_ai",
+      "summary": "Winners of the Creative Coding Night event by @QuiverAI, @a16z, and @cursor_ai",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T21:10:24.000Z",
+      "author_name": "joanrod_ai",
+      "source_list": "AI Investors",
+      "source_url": "https://x.com/joanrod_ai/status/2093446121477582871",
+      "sources": [
+        {
+          "label": "@joanrod_ai",
+          "url": "https://x.com/joanrod_ai/status/2093446121477582871"
+        }
+      ],
+      "body": "Winners of the Creative Coding Night event by @QuiverAI, @a16z, and @cursor_ai",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@joanrod_ai · AI Investors",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "joanrod_ai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093442580642238464/img/k0dMkRh6jB-vcGiF.jpg",
+      "list_count": 1,
+      "desk_rank": 29
+    },
+    {
+      "id": "x-2093446857842450898",
+      "headline": "I've noticed that \"political correctness\" and \"wokeness\" have largely lost popularity",
+      "summary": "I've noticed that \"political correctness\" and \"wokeness\" have largely lost popularity...",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T21:13:19.000Z",
+      "author_name": "radbackwards",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/radbackwards/status/2093446857842450898",
+      "sources": [
+        {
+          "label": "@radbackwards",
+          "url": "https://x.com/radbackwards/status/2093446857842450898"
+        }
+      ],
+      "body": "I've noticed that \"political correctness\" and \"wokeness\" have largely lost popularity...",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@radbackwards · Robot Influencers/Media",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "radbackwards",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 30
+    },
+    {
+      "id": "x-2093448261562687735",
+      "headline": "My best guess is this is simply copying actions from the nearest human demo (based on distance in some visual…",
+      "summary": "my best guess is this is simply copying actions from the nearest human demo (based on distance in some visual representation space). would love to see a one-shot version of this!",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T21:18:54.000Z",
+      "author_name": "anag004",
+      "source_list": "AI Community #1 of 9",
+      "source_url": "https://x.com/anag004/status/2093448261562687735",
+      "sources": [
+        {
+          "label": "@anag004",
+          "url": "https://x.com/anag004/status/2093448261562687735"
+        }
+      ],
+      "body": "my best guess is this is simply copying actions from the nearest human demo (based on distance in some visual representation space). would love to see a one-shot version of this!",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@anag004 · AI Community #1 of 9",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "anag004",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093400115663036416/img/U8M3Fr_UXgDJ9SCU.jpg",
+      "list_count": 1,
+      "desk_rank": 31
+    },
+    {
+      "id": "x-2093450678173843923",
+      "headline": "COMMITTED TO CALE",
+      "summary": "COMMITTED TO CALE. We have signed defenseman Cale Makar to an eight-year contract extension through the 2034-35 season.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T21:28:30.000Z",
+      "author_name": "Avalanche",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/Avalanche/status/2093450678173843923",
+      "sources": [
+        {
+          "label": "@Avalanche",
+          "url": "https://x.com/Avalanche/status/2093450678173843923"
+        }
+      ],
+      "body": "COMMITTED TO CALE. We have signed defenseman Cale Makar to an eight-year contract extension through the 2034-35 season.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Avalanche · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "Avalanche",
+      "media_url": "https://pbs.twimg.com/media/HQ1uS-OacAEF74W?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 32
+    },
+    {
+      "id": "x-2093453780109197322",
+      "headline": "My transit loving friends are going to hate me for this",
+      "summary": "My transit loving friends are going to hate me for this. It make NO SENSE WHATSOEVER to build virtually any sort of mass transit ever again.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T21:40:50.000Z",
+      "author_name": "zachcoelius",
+      "source_list": "AI Investors",
+      "source_url": "https://x.com/zachcoelius/status/2093453780109197322",
+      "sources": [
+        {
+          "label": "@zachcoelius",
+          "url": "https://x.com/zachcoelius/status/2093453780109197322"
+        }
+      ],
+      "body": "My transit loving friends are going to hate me for this. It make NO SENSE WHATSOEVER to build virtually any sort of mass transit ever again.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@zachcoelius · AI Investors",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "zachcoelius",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 33
+    },
+    {
+      "id": "x-2093455025833971850",
+      "headline": "Does anyone know what app this is?",
+      "summary": "does anyone know what app this is?",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T21:45:47.000Z",
+      "author_name": "thdxr",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/thdxr/status/2093455025833971850",
+      "sources": [
+        {
+          "label": "@thdxr",
+          "url": "https://x.com/thdxr/status/2093455025833971850"
+        }
+      ],
+      "body": "does anyone know what app this is?",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@thdxr · AI Founders #1 of 3",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "thdxr",
+      "media_url": "https://pbs.twimg.com/media/HQ1yPoRWkAAlMMP?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 34
+    },
+    {
+      "id": "x-2093455811901034678",
+      "headline": "No background in robotics?",
+      "summary": "No background in robotics? No problem. Viam 101 teaches the fundamentals, free and at your own pace without hardware.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T21:48:54.000Z",
+      "author_name": "viamrobotics",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/viamrobotics/status/2093455811901034678",
+      "sources": [
+        {
+          "label": "@viamrobotics",
+          "url": "https://x.com/viamrobotics/status/2093455811901034678"
+        }
+      ],
+      "body": "No background in robotics? No problem. Viam 101 teaches the fundamentals, free and at your own pace without hardware.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@viamrobotics · Robot Influencers/Media",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "viamrobotics",
+      "media_url": "https://pbs.twimg.com/media/HQ1o0BsWYAAOA-1?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 35
+    },
+    {
+      "id": "x-2093457607751336344",
+      "headline": "Tag the most cracked hardware founders + show me cool demos",
+      "summary": "Tag the most cracked hardware founders + show me cool demos. I wanna invite them to our campus in SF.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T21:56:02.000Z",
+      "author_name": "hthieblot",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/hthieblot/status/2093457607751336344",
+      "sources": [
+        {
+          "label": "@hthieblot",
+          "url": "https://x.com/hthieblot/status/2093457607751336344"
+        }
+      ],
+      "body": "Tag the most cracked hardware founders + show me cool demos. I wanna invite them to our campus in SF.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@hthieblot · Robot Influencers/Media",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "hthieblot",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 36
+    },
+    {
+      "id": "x-2093459206850695505",
+      "headline": "VALIDATORS GREENLIGHT 30% DISINFLATION!",
+      "summary": "VALIDATORS GREENLIGHT 30% DISINFLATION! Solana's validator community voted to double the network's annual disinflation rate, moving from 15% to 30%.",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T22:02:24.000Z",
+      "author_name": "iamrahulinc",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/iamrahulinc/status/2093459206850695505",
+      "sources": [
+        {
+          "label": "@iamrahulinc",
+          "url": "https://x.com/iamrahulinc/status/2093459206850695505"
+        }
+      ],
+      "body": "VALIDATORS GREENLIGHT 30% DISINFLATION! Solana's validator community voted to double the network's annual disinflation rate, moving from 15% to 30%.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@iamrahulinc · Computer Vision",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "iamrahulinc",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2093459196113219584/pu/img/OksLcZTEhXmznlg3.jpg",
+      "list_count": 1,
+      "desk_rank": 37
+    },
+    {
+      "id": "x-2093459328535605276",
+      "headline": "Michael Jackson dance performance by a robot!",
+      "summary": "Michael Jackson dance performance by a robot!",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:02:53.000Z",
+      "author_name": "clankrmedia",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/clankrmedia/status/2093459328535605276",
+      "sources": [
+        {
+          "label": "@clankrmedia",
+          "url": "https://x.com/clankrmedia/status/2093459328535605276"
+        }
+      ],
+      "body": "Michael Jackson dance performance by a robot!",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@clankrmedia · Robot Influencers/Media",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "clankrmedia",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2093459147140276224/pu/img/gFKF0sx5rlQGVM32.jpg",
+      "list_count": 1,
+      "desk_rank": 38
+    },
+    {
+      "id": "x-2093460113193672902",
+      "headline": "QT with your 4 Art pieces and Artists",
+      "summary": "QT with your 4 Art pieces and Artists",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-28T22:06:00.000Z",
+      "author_name": "RoyalKongz",
+      "source_list": "Creative with AI",
+      "source_url": "https://x.com/RoyalKongz/status/2093460113193672902",
+      "sources": [
+        {
+          "label": "@RoyalKongz",
+          "url": "https://x.com/RoyalKongz/status/2093460113193672902"
+        }
+      ],
+      "body": "QT with your 4 Art pieces and Artists",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@RoyalKongz · Creative with AI",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "RoyalKongz",
+      "media_url": "https://pbs.twimg.com/media/HQ1xqaAXgAEzGPb?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 39
+    },
+    {
+      "id": "x-2093460474201588111",
+      "headline": "I love the hardware innovation going on around data capture for robotics",
+      "summary": "I love the hardware innovation going on around data capture for robotics. Next week I drop a video of @senseirobotics' new capture device.",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T22:07:26.000Z",
+      "author_name": "jonstephens85",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/jonstephens85/status/2093460474201588111",
+      "sources": [
+        {
+          "label": "@jonstephens85",
+          "url": "https://x.com/jonstephens85/status/2093460474201588111"
+        }
+      ],
+      "body": "I love the hardware innovation going on around data capture for robotics. Next week I drop a video of @senseirobotics' new capture device.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@jonstephens85 · Computer Vision",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "jonstephens85",
+      "media_url": "https://pbs.twimg.com/media/HQ13NO0aoAAA8z_?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 40
+    },
+    {
+      "id": "x-2093461752273105194",
+      "headline": "CANADA'S ECONOMY GROWS FASTEST IN 3 YEARS!",
+      "summary": "CANADA'S ECONOMY GROWS FASTEST IN 3 YEARS! Canada reported its quickest expansion in three years.",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T22:12:31.000Z",
+      "author_name": "iamrahulinc",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/iamrahulinc/status/2093461752273105194",
+      "sources": [
+        {
+          "label": "@iamrahulinc",
+          "url": "https://x.com/iamrahulinc/status/2093461752273105194"
+        }
+      ],
+      "body": "CANADA'S ECONOMY GROWS FASTEST IN 3 YEARS! Canada reported its quickest expansion in three years.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@iamrahulinc · Computer Vision",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "iamrahulinc",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2093461741594415104/pu/img/-RVFGauer8po2otz.jpg",
+      "list_count": 1,
+      "desk_rank": 41
+    },
+    {
+      "id": "x-2093461823710171560",
+      "headline": "Good night, frens",
+      "summary": "Good night, frens. What song for tonight?",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T22:12:48.000Z",
+      "author_name": "altphotos_pl",
+      "source_list": "AI Community #1 of 9",
+      "source_url": "https://x.com/altphotos_pl/status/2093461823710171560",
+      "sources": [
+        {
+          "label": "@altphotos_pl",
+          "url": "https://x.com/altphotos_pl/status/2093461823710171560"
+        }
+      ],
+      "body": "Good night, frens. What song for tonight?",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@altphotos_pl · AI Community #1 of 9",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "altphotos_pl",
+      "media_url": "https://pbs.twimg.com/media/HQ14bbHXQAALtcg?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 42
+    },
+    {
+      "id": "x-2093462269162103000",
+      "headline": "Thanks a lot, Jinx!",
+      "summary": "Thanks a lot, Jinx! I really enjoyed making it, the music was such a big surprise to bring it all together.",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-28T22:14:34.000Z",
+      "author_name": "icreatelife",
+      "source_list": "Creative with AI",
+      "source_url": "https://x.com/icreatelife/status/2093462269162103000",
+      "sources": [
+        {
+          "label": "@icreatelife",
+          "url": "https://x.com/icreatelife/status/2093462269162103000"
+        }
+      ],
+      "body": "Thanks a lot, Jinx! I really enjoyed making it, the music was such a big surprise to bring it all together.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@icreatelife · Creative with AI",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "icreatelife",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 43
+    },
+    {
+      "id": "x-2093462455901147412",
+      "headline": "Great to welcome @jeffwang and the @cognition team to @genspark_ai HQ",
+      "summary": "Great to welcome @jeffwang and the @cognition team to @genspark_ai HQ. Cognition is pushing...",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:15:18.000Z",
+      "author_name": "sang_wen",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/sang_wen/status/2093462455901147412",
+      "sources": [
+        {
+          "label": "@sang_wen",
+          "url": "https://x.com/sang_wen/status/2093462455901147412"
+        }
+      ],
+      "body": "Great to welcome @jeffwang and the @cognition team to @genspark_ai HQ. Cognition is pushing...",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@sang_wen · AI Companies #1 of 2",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "sang_wen",
+      "media_url": "https://pbs.twimg.com/media/HQ15AV9awAA6Av1?format=jpg&name=360x360",
+      "list_count": 1,
+      "desk_rank": 44
+    },
+    {
+      "id": "x-2093462880213700761",
+      "headline": "I'm certain @dhh appreciates how herdr installs in the blink of an eye",
+      "summary": "I'm certain @dhh appreciates how herdr installs in the blink of an eye.",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T22:16:59.000Z",
+      "author_name": "FrankPreiswerk",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/FrankPreiswerk/status/2093462880213700761",
+      "sources": [
+        {
+          "label": "@FrankPreiswerk",
+          "url": "https://x.com/FrankPreiswerk/status/2093462880213700761"
+        }
+      ],
+      "body": "I'm certain @dhh appreciates how herdr installs in the blink of an eye.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@FrankPreiswerk · Computer Vision",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "FrankPreiswerk",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 45
+    },
+    {
+      "id": "x-2093463605836386747",
+      "headline": "\"We don't have good approaches for understanding/overseeing the activity\" yeah I'm sure you feel that way when you…",
+      "summary": "\"We don't have good approaches for understanding/overseeing the activity\" yeah I'm sure you feel that way when you don't know how IR and cyber security works.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:19:52.000Z",
+      "author_name": "HeidyKhlaaf",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/HeidyKhlaaf/status/2093463605836386747",
+      "sources": [
+        {
+          "label": "@HeidyKhlaaf",
+          "url": "https://x.com/HeidyKhlaaf/status/2093463605836386747"
+        }
+      ],
+      "body": "\"We don't have good approaches for understanding/overseeing the activity\" yeah I'm sure you feel that way when you don't know how IR and cyber security works.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@HeidyKhlaaf · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HeidyKhlaaf",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 46
+    },
+    {
+      "id": "x-2093463828755517455",
+      "headline": "中国实现地月双向激光通信，下行速率可达100Mbps，上行1.25Mbps。深空通信正式迈入高速时代。",
+      "summary": "中国实现地月双向激光通信，下行速率可达100Mbps，上行1.25Mbps。深空通信正式迈入高速时代。",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:20:46.000Z",
+      "author_name": "maide89699220",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/maide89699220/status/2093463828755517455",
+      "sources": [
+        {
+          "label": "@maide89699220",
+          "url": "https://x.com/maide89699220/status/2093463828755517455"
+        }
+      ],
+      "body": "中国实现地月双向激光通信，下行速率可达100Mbps，上行1.25Mbps。深空通信正式迈入高速时代。",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@maide89699220 · Robot Influencers/Media",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "maide89699220",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093461348869148672/img/1wlkusFag0c-PMmq.jpg",
+      "list_count": 1,
+      "desk_rank": 47
+    },
+    {
+      "id": "x-2093463910321885458",
+      "headline": "Bumblebees Roll Wooden Balls for No Reward",
+      "summary": "Bumblebees Roll Wooden Balls for No Reward. Sources from sciencedirect and scientificamerican",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:21:05.000Z",
+      "author_name": "ask_pandi",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/ask_pandi/status/2093463910321885458",
+      "sources": [
+        {
+          "label": "@ask_pandi",
+          "url": "https://x.com/ask_pandi/status/2093463910321885458"
+        }
+      ],
+      "body": "Bumblebees Roll Wooden Balls for No Reward. Sources from sciencedirect and scientificamerican",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@ask_pandi · AI Companies #1 of 2",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "ask_pandi",
+      "media_url": "https://pbs.twimg.com/media/HQ16QuMXkAApO_-.jpg",
+      "list_count": 1,
+      "desk_rank": 48
+    },
+    {
+      "id": "x-2093463938880913474",
+      "headline": "Tired of this pattern in domain marketplaces: I list clear Buy Now pricing yet I get contact requests that go nowhere",
+      "summary": "Tired of this pattern in domain marketplaces: I list clear Buy Now pricing yet I get contact requests that go nowhere.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:21:12.000Z",
+      "author_name": "metachargers",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/metachargers/status/2093463938880913474",
+      "sources": [
+        {
+          "label": "@metachargers",
+          "url": "https://x.com/metachargers/status/2093463938880913474"
+        }
+      ],
+      "body": "Tired of this pattern in domain marketplaces: I list clear Buy Now pricing yet I get contact requests that go nowhere.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@metachargers · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "metachargers",
+      "media_url": "https://pbs.twimg.com/media/HQ16Wf7W4AAdvQs?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 49
+    },
+    {
+      "id": "x-2093464103989948691",
+      "headline": "AI domain sales have skyrocketed!",
+      "summary": "AI domain sales have skyrocketed! Not sure if Agt.ai will reach this price, but wouldn't be shocked as it's also a 3L domain.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:21:51.000Z",
+      "author_name": "SoldXyz",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/SoldXyz/status/2093464103989948691",
+      "sources": [
+        {
+          "label": "@SoldXyz",
+          "url": "https://x.com/SoldXyz/status/2093464103989948691"
+        }
+      ],
+      "body": "AI domain sales have skyrocketed! Not sure if Agt.ai will reach this price, but wouldn't be shocked as it's also a 3L domain.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@SoldXyz · AI Companies #1 of 2",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "SoldXyz",
+      "media_url": "https://pbs.twimg.com/media/HQ16ga_bEAAhyx5?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 50
+    },
+    {
+      "id": "x-2093464110826692920",
+      "headline": "Green or white?",
+      "summary": "Green or white? Which pillow is ready for simulation? Both assets were AI generated but not equal. The green one came from @LightwheelAI's SimReadyGen pipeline.",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T22:21:53.000Z",
+      "author_name": "jonstephens85",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/jonstephens85/status/2093464110826692920",
+      "sources": [
+        {
+          "label": "@jonstephens85",
+          "url": "https://x.com/jonstephens85/status/2093464110826692920"
+        }
+      ],
+      "body": "Green or white? Which pillow is ready for simulation? Both assets were AI generated but not equal. The green one came from @LightwheelAI's SimReadyGen pipeline.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@jonstephens85 · Computer Vision",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "jonstephens85",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093463115203833856/img/bE9tywbo9CowI1IK.jpg",
+      "list_count": 1,
+      "desk_rank": 51
+    },
+    {
+      "id": "x-2093464220386119912",
+      "headline": "Zango & Morgen Turn Your NFT Project Into a Game Powered by TSI_ORG",
+      "summary": "Zango & Morgen Turn Your NFT Project Into a Game Powered by TSI_ORG",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:22:19.000Z",
+      "author_name": "AiArsenals",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/AiArsenals/status/2093464220386119912",
+      "sources": [
+        {
+          "label": "@AiArsenals",
+          "url": "https://x.com/AiArsenals/status/2093464220386119912"
+        }
+      ],
+      "body": "Zango & Morgen Turn Your NFT Project Into a Game Powered by TSI_ORG",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@AiArsenals · AI Orgs & Events",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "AiArsenals",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 52
+    },
+    {
+      "id": "x-2093464251364942017",
+      "headline": "Huge follow rec for alfredo!",
+      "summary": "huge follow rec for alfredo! you may know of his collab with openai+co on the gluon+graviton results; now he has follow-up work w/ collaborators interpretting those results further within existing matrix theory",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T22:22:26.000Z",
+      "author_name": "marikgoldstein",
+      "source_list": "AI Community #1 of 9",
+      "source_url": "https://x.com/marikgoldstein/status/2093464251364942017",
+      "sources": [
+        {
+          "label": "@marikgoldstein",
+          "url": "https://x.com/marikgoldstein/status/2093464251364942017"
+        }
+      ],
+      "body": "huge follow rec for alfredo! you may know of his collab with openai+co on the gluon+graviton results; now he has follow-up work w/ collaborators interpretting those results further within existing matrix theory",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@marikgoldstein · AI Community #1 of 9",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "marikgoldstein",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 53
+    },
+    {
+      "id": "x-2093464900093768123",
+      "headline": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a…",
+      "summary": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:25:01.000Z",
+      "author_name": "OracleDevs",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
+      "sources": [
+        {
+          "label": "@OracleDevs",
+          "url": "https://x.com/OracleDevs/status/2093464900093768123"
+        }
+      ],
+      "body": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@OracleDevs · AI Orgs & Events",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "OracleDevs",
+      "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 54
+    },
+    {
+      "id": "x-2093464976941781127",
+      "headline": "3) The Replit Growth Kit",
+      "summary": "3) The Replit Growth Kit. You built the product. Now build the business. A new set of skills you can drop into your Replit project: cold email outreach, pricing structure, funnels and analytics, onboarding experiments.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:25:19.000Z",
+      "author_name": "Replit",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/Replit/status/2093464976941781127",
+      "sources": [
+        {
+          "label": "@Replit",
+          "url": "https://x.com/Replit/status/2093464976941781127"
+        }
+      ],
+      "body": "3) The Replit Growth Kit. You built the product. Now build the business. A new set of skills you can drop into your Replit project: cold email outreach, pricing structure, funnels and analytics, onboarding experiments.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Replit · AI Companies #1 of 2",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "Replit",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 55
+    },
+    {
+      "id": "x-2093464978909004284",
+      "headline": "Full Friday Showcase replay",
+      "summary": "Full Friday Showcase replay. We went deep on Intelligent Model Routing with Peter Zhong and Daniel Furman from the AI team.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T22:25:20.000Z",
+      "author_name": "Replit",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/Replit/status/2093464978909004284",
+      "sources": [
+        {
+          "label": "@Replit",
+          "url": "https://x.com/Replit/status/2093464978909004284"
+        }
+      ],
+      "body": "Full Friday Showcase replay. We went deep on Intelligent Model Routing with Peter Zhong and Daniel Furman from the AI team.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Replit · AI Companies #1 of 2",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "Replit",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 56
+    },
+    {
+      "id": "x-2093465119376146810",
+      "headline": "I can't believe @LoganBlack made it into the infographic",
+      "summary": "I can't believe @LoganBlack made it into the infographic. Has to be because he mentioned uploading his videos to YT.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T22:25:53.000Z",
+      "author_name": "IamEXS",
+      "source_list": "AI Community #1 of 9",
+      "source_url": "https://x.com/IamEXS/status/2093465119376146810",
+      "sources": [
+        {
+          "label": "@IamEXS",
+          "url": "https://x.com/IamEXS/status/2093465119376146810"
+        }
+      ],
+      "body": "I can't believe @LoganBlack made it into the infographic. Has to be because he mentioned uploading his videos to YT.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@IamEXS · AI Community #1 of 9",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "IamEXS",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 57
+    },
+    {
+      "id": "x-2093465190100582457",
+      "headline": "Getting too many HTTP 429 errors?",
+      "summary": "Getting too many HTTP 429 errors? A good API client or scraper should know when to slow down. In our latest blog post, we break down what \"Too Many Requests\" actually means, why rate limits exist, and how to handle them.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:26:10.000Z",
+      "author_name": "serp_api",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/serp_api/status/2093465190100582457",
+      "sources": [
+        {
+          "label": "@serp_api",
+          "url": "https://x.com/serp_api/status/2093465190100582457"
+        }
+      ],
+      "body": "Getting too many HTTP 429 errors? A good API client or scraper should know when to slow down. In our latest blog post, we break down what \"Too Many Requests\" actually means, why rate limits exist, and how to handle them.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@serp_api · AI Companies #1 of 2",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "serp_api",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 58
+    },
+    {
+      "id": "x-2093465361869906386",
+      "headline": "The AI security capability on your shortlist may already be in your stack, perhaps as a feature of a platform you…",
+      "summary": "The AI security capability on your shortlist may already be in your stack, perhaps as a feature of a platform you license or a control another team operates.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:26:51.000Z",
+      "author_name": "lennyzeltser",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/lennyzeltser/status/2093465361869906386",
+      "sources": [
+        {
+          "label": "@lennyzeltser",
+          "url": "https://x.com/lennyzeltser/status/2093465361869906386"
+        }
+      ],
+      "body": "The AI security capability on your shortlist may already be in your stack, perhaps as a feature of a platform you license or a control another team operates.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@lennyzeltser · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "lennyzeltser",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 59
+    },
+    {
+      "id": "x-2093465373563605117",
+      "headline": "Me and my chud SDR tracking planes and listening to classical music",
+      "summary": "Me and my chud SDR tracking planes and listening to classical music",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T22:26:54.000Z",
+      "author_name": "mazeyar",
+      "source_list": "Computer Vision",
+      "source_url": "https://x.com/mazeyar/status/2093465373563605117",
+      "sources": [
+        {
+          "label": "@mazeyar",
+          "url": "https://x.com/mazeyar/status/2093465373563605117"
+        }
+      ],
+      "body": "Me and my chud SDR tracking planes and listening to classical music",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@mazeyar · Computer Vision",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "mazeyar",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093465287068631040/img/s2m_0nFvOz9VpeX0.jpg",
+      "list_count": 1,
+      "desk_rank": 60
+    },
+    {
+      "id": "x-2093465445999448569",
+      "headline": "People love saying certain systems could not be created with AI",
+      "summary": "People love saying certain systems could not be created with AI. It's not that the system can't be created, it's that the person can't comprehend how to create it.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:27:11.000Z",
+      "author_name": "Kipnis_a",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/Kipnis_a/status/2093465445999448569",
+      "sources": [
+        {
+          "label": "@Kipnis_a",
+          "url": "https://x.com/Kipnis_a/status/2093465445999448569"
+        }
+      ],
+      "body": "People love saying certain systems could not be created with AI. It's not that the system can't be created, it's that the person can't comprehend how to create it.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Kipnis_a · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "Kipnis_a",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 61
+    },
+    {
+      "id": "x-2093465625473560864",
+      "headline": "I finetuned LoRA adapters today for Gemma and what I can say is data is all that matters in training LLMs",
+      "summary": "i finetuned LoRA adapters today for Gemma and what I can say is data is all that matters in training LLMs",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:27:54.000Z",
+      "author_name": "chiefofautism",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/chiefofautism/status/2093465625473560864",
+      "sources": [
+        {
+          "label": "@chiefofautism",
+          "url": "https://x.com/chiefofautism/status/2093465625473560864"
+        }
+      ],
+      "body": "i finetuned LoRA adapters today for Gemma and what I can say is data is all that matters in training LLMs",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@chiefofautism · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "chiefofautism",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 62
+    },
+    {
+      "id": "x-2093465641319879074",
+      "headline": "I've been telling people to prompt it the way we used to prompt GPT-4",
+      "summary": "I've been telling people to prompt it the way we used to prompt GPT-4.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T22:27:58.000Z",
+      "author_name": "kwindla",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/kwindla/status/2093465641319879074",
+      "sources": [
+        {
+          "label": "@kwindla",
+          "url": "https://x.com/kwindla/status/2093465641319879074"
+        }
+      ],
+      "body": "I've been telling people to prompt it the way we used to prompt GPT-4.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@kwindla · AI Founders #1 of 3",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "kwindla",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 63
+    },
+    {
+      "id": "x-2093465647938154778",
+      "headline": "Take the digits of 197 and start a sequence where each term is the sum of the previous three: 1, 9, 7, 17, 33, 57,…",
+      "summary": "Take the digits of 197 and start a sequence where each term is the sum of the previous three: 1, 9, 7, 17, 33, 57, 107, 197. This is what defines a Keith number.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:27:59.000Z",
+      "author_name": "fermatslibrary",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/fermatslibrary/status/2093465647938154778",
+      "sources": [
+        {
+          "label": "@fermatslibrary",
+          "url": "https://x.com/fermatslibrary/status/2093465647938154778"
+        }
+      ],
+      "body": "Take the digits of 197 and start a sequence where each term is the sum of the previous three: 1, 9, 7, 17, 33, 57, 107, 197. This is what defines a Keith number.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@fermatslibrary · AI Companies #1 of 2",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "fermatslibrary",
+      "media_url": "https://pbs.twimg.com/media/HQ176dyWoAEinWW?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 64
+    },
+    {
+      "id": "x-2093465653130752217",
+      "headline": "To be fair, I get it in some cases where there's no listed price",
+      "summary": "To be fair, I get it in some cases where there's no listed price... but I'm seeing accelerated numbers of these ghost after contact cases across the board now.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:28:01.000Z",
+      "author_name": "metachargers",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/metachargers/status/2093465653130752217",
+      "sources": [
+        {
+          "label": "@metachargers",
+          "url": "https://x.com/metachargers/status/2093465653130752217"
+        }
+      ],
+      "body": "To be fair, I get it in some cases where there's no listed price... but I'm seeing accelerated numbers of these ghost after contact cases across the board now.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@metachargers · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "metachargers",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 65
+    },
+    {
+      "id": "x-2093465758495858896",
+      "headline": "Ughh what is all this text for?!",
+      "summary": "ughh what is all this text for?!",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:28:26.000Z",
+      "author_name": "uncertainsys",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/uncertainsys/status/2093465758495858896",
+      "sources": [
+        {
+          "label": "@uncertainsys",
+          "url": "https://x.com/uncertainsys/status/2093465758495858896"
+        }
+      ],
+      "body": "ughh what is all this text for?!",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@uncertainsys · AI Founders #1 of 3",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "uncertainsys",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 66
+    },
+    {
+      "id": "x-2093465763235446948",
+      "headline": "When I was little my dad and I used to go to the theater to see the James Bond movies",
+      "summary": "When I was little my dad and I used to go to the theater to see the James Bond movies...",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:28:27.000Z",
+      "author_name": "jon_stokes",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/jon_stokes/status/2093465763235446948",
+      "sources": [
+        {
+          "label": "@jon_stokes",
+          "url": "https://x.com/jon_stokes/status/2093465763235446948"
+        }
+      ],
+      "body": "When I was little my dad and I used to go to the theater to see the James Bond movies...",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@jon_stokes · AI Founders #1 of 3",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "jon_stokes",
+      "media_url": "https://pbs.twimg.com/media/HQ17wz_WsAAbF1Q?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 67
+    },
+    {
+      "id": "x-2093465809381405088",
+      "headline": "RSVP now before it's gone: luma.com/eg2lvyxq DM me for VIP discount (up to $1,400) to the summit!",
+      "summary": "RSVP now before it's gone: luma.com/eg2lvyxq DM me for VIP discount (up to $1,400) to the summit!",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:28:38.000Z",
+      "author_name": "sang_wen",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/sang_wen/status/2093465809381405088",
+      "sources": [
+        {
+          "label": "@sang_wen",
+          "url": "https://x.com/sang_wen/status/2093465809381405088"
+        }
+      ],
+      "body": "RSVP now before it's gone: luma.com/eg2lvyxq DM me for VIP discount (up to $1,400) to the summit!",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@sang_wen · AI Founders #1 of 3",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "sang_wen",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 68
+    },
+    {
+      "id": "x-2093465885247991869",
+      "headline": "The opp is much much bigger",
+      "summary": "the opp is much much bigger.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:28:56.000Z",
+      "author_name": "rexsalisbury",
+      "source_list": "AI Investors",
+      "source_url": "https://x.com/rexsalisbury/status/2093465885247991869",
+      "sources": [
+        {
+          "label": "@rexsalisbury",
+          "url": "https://x.com/rexsalisbury/status/2093465885247991869"
+        }
+      ],
+      "body": "the opp is much much bigger.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@rexsalisbury · AI Investors",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "rexsalisbury",
+      "media_url": "https://pbs.twimg.com/media/HQ18F04bsAAXsyN?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 69
+    },
+    {
+      "id": "x-2093465901316345977",
+      "headline": "Small and mid-sized manufacturers don't have a robotics division",
+      "summary": "Small and mid-sized manufacturers don't have a robotics division. They have a production line that needs to run tomorrow - Formic exists for that gap.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:29:00.000Z",
+      "author_name": "goformic",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/goformic/status/2093465901316345977",
+      "sources": [
+        {
+          "label": "@goformic",
+          "url": "https://x.com/goformic/status/2093465901316345977"
+        }
+      ],
+      "body": "Small and mid-sized manufacturers don't have a robotics division. They have a production line that needs to run tomorrow - Formic exists for that gap.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@goformic · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "goformic",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQvgP4NbkAAUwbq.jpg",
+      "list_count": 1,
+      "desk_rank": 70
+    },
+    {
+      "id": "x-2093465911067840706",
+      "headline": "My Dad Is in Prison",
+      "summary": "My Dad Is in Prison. Here's Why I Built an AI Chatbot for His Electronic Tablet. - The Marshall Project",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:29:02.000Z",
+      "author_name": "AI_Breakthrough",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/AI_Breakthrough/status/2093465911067840706",
+      "sources": [
+        {
+          "label": "@AI_Breakthrough",
+          "url": "https://x.com/AI_Breakthrough/status/2093465911067840706"
+        }
+      ],
+      "body": "My Dad Is in Prison. Here's Why I Built an AI Chatbot for His Electronic Tablet. - The Marshall Project",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@AI_Breakthrough · AI Orgs & Events",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "AI_Breakthrough",
+      "media_url": "https://pbs.twimg.com/media/HQ18JxEX0AA2H0k?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 71
+    },
+    {
+      "id": "x-2093465925374595091",
+      "headline": "If you know you know",
+      "summary": "If you know you know... omarchy.org + @Docker",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:29:05.000Z",
+      "author_name": "MichaiMorin",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/MichaiMorin/status/2093465925374595091",
+      "sources": [
+        {
+          "label": "@MichaiMorin",
+          "url": "https://x.com/MichaiMorin/status/2093465925374595091"
+        }
+      ],
+      "body": "If you know you know... omarchy.org + @Docker",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@MichaiMorin · AI Founders #1 of 3",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "MichaiMorin",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 72
+    },
+    {
+      "id": "x-2093466153335107669",
+      "headline": "Yale researchers asked 3,635 people over 50 how much they read, then followed them for twelve years",
+      "summary": "Yale researchers asked 3,635 people over 50 how much they read, then followed them for twelve years. Book readers had a 20 percent lower risk of dying over that period.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T22:30:00.000Z",
+      "author_name": "anishmoonka",
+      "source_list": "AI Investors",
+      "source_url": "https://x.com/anishmoonka/status/2093466153335107669",
+      "sources": [
+        {
+          "label": "@anishmoonka",
+          "url": "https://x.com/anishmoonka/status/2093466153335107669"
+        }
+      ],
+      "body": "Yale researchers asked 3,635 people over 50 how much they read, then followed them for twelve years. Book readers had a 20 percent lower risk of dying over that period.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@anishmoonka · AI Investors",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "anishmoonka",
+      "media_url": "https://pbs.twimg.com/media/HQy8vhibQAAdzqU?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 73
+    },
+    {
+      "id": "x-2093466256204861673",
+      "headline": "The Pope asks whether we'll still be able to control the machines",
+      "summary": "The Pope asks whether we'll still be able to control the machines. You and me both, Papa.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:30:24.000Z",
+      "author_name": "Ciszek",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/Ciszek/status/2093466256204861673",
+      "sources": [
+        {
+          "label": "@Ciszek",
+          "url": "https://x.com/Ciszek/status/2093466256204861673"
+        }
+      ],
+      "body": "The Pope asks whether we'll still be able to control the machines. You and me both, Papa.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Ciszek · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "Ciszek",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 74
+    },
+    {
+      "id": "x-2093466260457869623",
+      "headline": "Does anyone have a harness that actually works fully autonomously and doesn't spew nonsense over time?",
+      "summary": "Does anyone have a harness that actually works fully autonomously and doesn't spew nonsense over time?",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:30:25.000Z",
+      "author_name": "praveenvnktsh",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/praveenvnktsh/status/2093466260457869623",
+      "sources": [
+        {
+          "label": "@praveenvnktsh",
+          "url": "https://x.com/praveenvnktsh/status/2093466260457869623"
+        }
+      ],
+      "body": "Does anyone have a harness that actually works fully autonomously and doesn't spew nonsense over time?",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@praveenvnktsh · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "praveenvnktsh",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 75
+    },
+    {
+      "id": "x-2093466257299525979",
+      "headline": "\"se in futuro sara possibile controllare queste macchine\" - \"whether it will be possible in the future to control…",
+      "summary": "\"se in futuro sara possibile controllare queste macchine\" - \"whether it will be possible in the future to control these machines.\"",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:30:25.000Z",
+      "author_name": "Ciszek",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/Ciszek/status/2093466257299525979",
+      "sources": [
+        {
+          "label": "@Ciszek",
+          "url": "https://x.com/Ciszek/status/2093466257299525979"
+        }
+      ],
+      "body": "\"se in futuro sara possibile controllare queste macchine\" - \"whether it will be possible in the future to control these machines.\"",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@Ciszek · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "Ciszek",
+      "media_url": "",
+      "list_count": 1,
+      "desk_rank": 76
+    },
+    {
+      "id": "x-2093466428582076655",
+      "headline": "When evaluating a DSPM or AI Governance platform, don't just ask what it can do",
+      "summary": "When evaluating a DSPM or AI Governance platform, don't just ask what it can do. Ask how it's built.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:31:05.000Z",
+      "author_name": "bigidsecure",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/bigidsecure/status/2093466428582076655",
+      "sources": [
+        {
+          "label": "@bigidsecure",
+          "url": "https://x.com/bigidsecure/status/2093466428582076655"
+        }
+      ],
+      "body": "When evaluating a DSPM or AI Governance platform, don't just ask what it can do. Ask how it's built.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@bigidsecure · Cybersecurity",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "bigidsecure",
+      "media_url": "https://pbs.twimg.com/media/HQ18mzPWQAAFg9S?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 77
+    },
+    {
+      "id": "x-2093443320659767782",
+      "headline": "TODAY is the last day for Early Bird tickets to @AI Infra Summit (Sept 15-17, Santa Clara)!",
+      "summary": "TODAY is the last day for Early Bird tickets to @AI Infra Summit (Sept 15-17, Santa Clara)! Keynote: Turing Award winner Dave Patterson. AMD joins as Diamond Sponsor.",
+      "section": "events",
+      "section_key": "events",
+      "section_label": "Events",
+      "tag": "events",
+      "published_at": "2026-08-28T20:59:16.000Z",
+      "author_name": "humanoidpress",
+      "source_list": "Robot Influencers/Media",
+      "source_url": "https://x.com/humanoidpress/status/2093443320659767782",
+      "sources": [
+        {
+          "label": "@humanoidpress",
+          "url": "https://x.com/humanoidpress/status/2093443320659767782"
+        }
+      ],
+      "body": "TODAY is the last day for Early Bird tickets to @AI Infra Summit (Sept 15-17, Santa Clara)! Keynote: Turing Award winner Dave Patterson. AMD joins as Diamond Sponsor.",
+      "kind": "event",
+      "engagement": {},
+      "why_it_matters": "@humanoidpress · Robot Influencers/Media",
+      "topic_key": "events",
+      "topic_label": "Events",
+      "x_handle": "humanoidpress",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ1njQiWgAAHcsc.jpg",
+      "list_count": 1,
+      "desk_rank": 78
+    },
     {
       "id": "165d8181-070f-4b06-b88f-071b185a863b",
       "headline": "jason: Haven’t been watching the price of bittensor:native, but have been watching people realize the value of AI sovereignty",
@@ -2100,34 +4362,6 @@
       "topic_label": "Open source",
       "x_handle": "AnthropicAI",
       "desk_rank": 7
-    },
-    {
-      "id": "104777e2-eb3b-4410-8ce3-a8f913ec1857",
-      "headline": "Anthropic kicking off the first phase of the research preview for Model Hardware Standard (MHS), widening the available model choices",
-      "summary": "Anthropic says Anthropic kicking off the first phase of the research preview for Model Hardware Standard (MHS), widening the available model choices. The post points to a development widening the available model choices.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-27T18:10:22.000Z",
-      "author_name": "Anthropic",
-      "source_list": "Models",
-      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
-      "sources": [
-        {
-          "url": "https://x.com/AnthropicAI/status/2093038426140651791",
-          "name": "Anthropic source post"
-        }
-      ],
-      "body": "Anthropic says Anthropic kicking off the first phase of the research preview for Model Hardware Standard (MHS), widening the available model choices. The post points to a development widening the available model choices.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "AnthropicAI",
-      "desk_rank": 2,
-      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg"
     },
     {
       "id": "93b97ff4-676f-4ef2-9312-634f91201e6f",

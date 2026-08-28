@@ -27,8 +27,8 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an172";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an172";
+  var DATA_URL = "live-data.json?v=an173";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
     newsletter: [],
@@ -102,12 +102,9 @@
 
   function isHardNewsItem(item) {
     var sec = String((item && (item.section || item.tag)) || "").toLowerCase();
-    // models/labs/chips/etc stay hard news; bare "breaking" needs a news verb
-    if (/^(models|labs|chips|papers|robotics|openclaw|products)$/.test(sec)) return true;
+    if (/^(breaking|models|labs|chips|papers|robotics|openclaw)$/.test(sec)) return true;
     var hay = itemHay(item);
-    var newsVerb = /\b(release[sd]?|launches?|launched|announces?|unveils?|introduces?|arxiv|paper|benchmark|sota|parameter|moe|open[- ]?weight|550-billion|deepseek|grok 4|settlement|funding|raises?|acquires?|cyber defens\w*|ransomware|vulnerability)\b/i.test(hay);
-    if (sec === "breaking" && newsVerb) return true;
-    return newsVerb;
+    return /\b(release[sd]?|launches?|launched|announces?|unveils?|arxiv|paper|benchmark|sota|parameter|moe|open[- ]?weight|550-billion|deepseek|grok 4)\b/i.test(hay);
   }
 
   function isHotTakeItem(item) {
@@ -116,11 +113,6 @@
     var hay = itemHay(item);
     var sec = String((item && item.section) || "").toLowerCase();
     if (sec === "anomalies" && !isHardNewsItem(item)) return true;
-    if (/\b(watching the price|haven'?t been watching|thoughts are with|our thoughts are with|trailer\b.*\bmocap|\bmocap\b.*trailer)\b/i.test(hay)) return true;
-    // Author: chatter without a news verb — keep product posts, demote status tweets
-    if (/^[A-Za-z0-9_ .]{2,40}:\s+/.test(title) && !isHardNewsItem(item) && !/\b(introduces?|announces?|launches?|releases?|raises?|acquires?|unveils?|opens?|ships?)\b/i.test(title)) {
-      return true;
-    }
     return /\b(hot take|i think|imo\b|seems like|hype cycle|vibes?|can't believe|wild that|this is fine)\b|\?{2,}|!{2,}/i.test(hay);
   }
 
@@ -278,43 +270,14 @@
     return parts.join(" · ");
   }
 
-  function listProvenanceNames(item) {
-    var names = [];
-    var seen = {};
-    function push(raw) {
-      var n = String(raw || "").replace(/\s+/g, " ").trim();
-      if (!n) return;
-      var low = n.toLowerCase();
-      if (/^from scoble lists$|^scoble lists$|^latest stories$|^x\.com$|^alignednews\.com$| source post$/i.test(low)) return;
-      if (seen[low]) return;
-      seen[low] = 1;
-      names.push(n);
-    }
-    if (item && item.source_list) {
-      String(item.source_list).split(/\s*[·|,+/]\s*|\s+\+\s+/).forEach(push);
-    }
-    ((item && item.sources) || []).forEach(function (s) {
-      if (!s) return;
-      push(s.list || s.source_list_name || s.name);
-    });
-    return names;
-  }
-
   function storyFeedMeta(item) {
     var when = fallbackTime(item.published_at || item.created_at) || t("recently");
     var bits = [];
-    var handle = (item && item.x_handle) || xHandleFrom(item);
-    if (handle) bits.push("@" + String(handle).replace(/^@/, ""));
-    var lists = listProvenanceNames(item);
-    if (lists.length) {
-      bits.push(lists.slice(0, 2).join(" + "));
-    } else {
-      var n = 0;
-      if (item.sources && item.sources.length) n = item.sources.length;
-      else if (item.source_url) n = 1;
-      if (!handle && n > 0) bits.push(n + " " + (n === 1 ? t("source_one") : t("sources")));
-    }
-    bits.push(when);
+    var n = 0;
+    if (item.sources && item.sources.length) n = item.sources.length;
+    else if (item.source_url) n = 1;
+    if (n > 0) bits.push(n + " " + (n === 1 ? t("source_one") : t("sources")));
+    bits.push(t("first_seen") + " " + when);
     var eng = item.engagement || {};
     var views = Number(eng.impression_count || eng.view_count || item.views || item.view_count || 0);
     var shown = compactCount(views);
