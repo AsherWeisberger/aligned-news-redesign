@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an181";
+  var DATA_URL = "live-data.json?v=an182";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3278,39 +3278,9 @@
 
     function pickLeadInGroup(items) {
       if (!showLead || !items || !items.length) return items;
-      var bestIdx = -1;
-      var bestWhen = -1;
-      for (var bi = 0; bi < items.length; bi++) {
-        var cand = items[bi];
-        if (isEventItem(cand) || isSideDeskItem(cand)) continue;
-        if (!isAiRelevant(cand)) continue;
-        if (isHotTakeItem(cand)) continue;
-        var hay = String(cand.body || cand.summary || cand.headline || "");
-        if (/arxiv\.org\/(abs|pdf)|papers\.app\.nz/i.test(hay)) continue;
-        var sec = String(cand.section_key || cand.section || cand.topic_key || "").toLowerCase();
-        if (!/^(models|products|labs|chips)$/.test(sec)) continue;
-        if (/scoble\s*:-?\)|scoble smile/i.test(String(cand.headline || cand.title || ""))) continue;
-        var leadTitle = String(cand.headline || cand.title || "");
-        if (/\bsingularity\b/i.test(leadTitle) && /researchers|theoretical result/i.test(leadTitle)) continue;
-        var when = Date.parse(storyTimeIso(cand) || 0);
-        if (!when) continue;
-        var ageH = (Date.now() - when) / 36e5;
-        if (ageH > 36) continue;
-        if (when > bestWhen) { bestWhen = when; bestIdx = bi; }
-      }
-      if (bestIdx < 0) {
-        for (var bj = 0; bj < items.length; bj++) {
-          if (!isEventItem(items[bj]) && !isSideDeskItem(items[bj])) {
-            bestIdx = bj;
-            break;
-          }
-        }
-        if (bestIdx < 0) return items;
-      }
-      var next = items.slice();
-      var lead = next.splice(bestIdx, 1)[0];
-      next.unshift(lead);
-      return next;
+      return items.slice().sort(function (a, b) {
+        return Number(a.desk_rank || 9999) - Number(b.desk_rank || 9999);
+      });
     }
 
     function renderStoryItem(s, i, allowLead, rest) {
@@ -3384,21 +3354,9 @@
       });
     } else if (showLead) {
       var items = stories.slice().sort(function (a, b) {
-        var ta = Date.parse(storyTimeIso(a) || 0);
-        var tb = Date.parse(storyTimeIso(b) || 0);
-        if (tb !== ta) return tb - ta;
-        return Number(b.list_count || 0) - Number(a.list_count || 0);
+        return Number(a.desk_rank || 9999) - Number(b.desk_rank || 9999);
       });
       items = pickLeadInGroup(items);
-      if (items.length) {
-        var leadItem = items[0];
-        var restRanked = items.slice(1).sort(function (a, b) {
-          var lc = Number(b.list_count || 0) - Number(a.list_count || 0);
-          if (lc) return lc;
-          return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
-        });
-        items = [leadItem].concat(restRanked);
-      }
       html +=
         '<li class="feed-day-head" role="presentation">' +
           '<h2 class="feed-day-label">' + t("today") + "</h2>" +

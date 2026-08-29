@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T01:43:04.000Z",
-    "scrapedAt": "2026-08-29T01:43:04.000Z",
+    "generatedAt": "2026-08-29T01:52:06.000Z",
+    "scrapedAt": "2026-08-29T01:52:06.000Z",
     "source": "scobleizer-chrome-lists",
     "note": "Chrome lists, 1031 posts, 23 news-worthy, 5 multi-list, 906 with counts",
     "rssLastBuildDate": "",
@@ -155,38 +155,73 @@
   ],
   "stories": [
     {
-      "id": "x-2093506470449156193",
-      "headline": "Open-weight FastH3 generates 15 seconds of video in 13 seconds",
-      "summary": "45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3. Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup. Big shoutout to the folks at @fal and @isidentical for helping us run an eval against H3. As ",
+      "id": "x-2093355759132119165",
+      "headline": "GLM-5.3 is out as a free open-weight model",
+      "summary": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-29T01:10:12.000Z",
-      "author_name": "haoailab",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/haoailab/status/2093506470449156193",
+      "published_at": "2026-08-28T15:11:20.000Z",
+      "author_name": "gigazine",
+      "source_list": "AI Community #7 of 9",
+      "source_url": "https://x.com/gigazine/status/2093355759132119165",
       "sources": [
         {
-          "label": "@haoailab",
-          "url": "https://x.com/haoailab/status/2093506470449156193"
+          "label": "@gigazine",
+          "url": "https://x.com/gigazine/status/2093355759132119165"
         }
       ],
-      "body": "45% preferred FastVideo FastH3 or are neutral compared with \n@MiniMax_AI\n  H3. \n\nOur open-weight FastH3 achieves 15s generation in 13s and 14x speedup. \n\nBig shoutout to the folks at \n@fal\n and \n@isidentical\n for helping us run an eval against H3. As an open source project we always",
+      "body": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol",
       "kind": "story",
       "engagement": {
-        "impression_count": 24,
-        "like_count": 2,
-        "retweet_count": 1
+        "impression_count": 93358,
+        "like_count": 925,
+        "reply_count": 10,
+        "retweet_count": 137
       },
-      "why_it_matters": "@haoailab · AI Orgs & Events. 45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3.",
+      "why_it_matters": "@gigazine · AI Community #7 of 9. Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol.",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "haoailab",
-      "media_url": "https://pbs.twimg.com/media/HQ2e0ilbEAAsyTa?format=jpg&name=small",
+      "x_handle": "gigazine",
+      "media_url": "https://pbs.twimg.com/media/HQ0X-ESWQAAIBUs?format=jpg&name=small",
       "list_count": 1,
-      "views": 24,
+      "views": 93358,
       "desk_rank": 1
+    },
+    {
+      "id": "x-2093421604315562432",
+      "headline": "a16z raises $1.1B for a Machine Age hardware fund",
+      "summary": "a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips. This venture capital firm announced the establishment of the Machine Age Fund, with a scope that includes chips, memory, networking, storage, as well as data cent",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T19:32:59.000Z",
+      "author_name": "pirrer",
+      "source_list": "SpaceX_AI",
+      "source_url": "https://x.com/pirrer/status/2093421604315562432",
+      "sources": [
+        {
+          "label": "@pirrer",
+          "url": "https://x.com/pirrer/status/2093421604315562432"
+        }
+      ],
+      "body": "a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips.\n\nThis venture capital firm announced the establishment of the Machine Age Fund, with a scope that includes chips, memory, networking, storage, as well as data centers, robotics, and home AI devices. The",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 584,
+        "like_count": 8,
+        "retweet_count": 1
+      },
+      "why_it_matters": "@pirrer · SpaceX_AI. a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "pirrer",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg",
+      "list_count": 1,
+      "views": 584,
+      "desk_rank": 2
     },
     {
       "id": "x-2093465891191042057",
@@ -221,42 +256,41 @@
       "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=small",
       "list_count": 3,
       "views": 13736,
-      "desk_rank": 2
+      "desk_rank": 3
     },
     {
-      "id": "x-2093491572083949972",
-      "headline": "Databricks serves GLM-5.3 on day zero",
-      "summary": "GLM 5.3 is available as a day 0 release on Databricks! GLM 5.3 is the smartest open-weight model available today and joins GLM 5.3 Flash and 30+ open-source and frontier models available natively on Databricks. We host GLM 5.3 on secure GPU",
+      "id": "x-2093506470449156193",
+      "headline": "Open-weight FastH3 generates 15 seconds of video in 13 seconds",
+      "summary": "45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3. Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup. Big shoutout to the folks at @fal and @isidentical for helping us run an eval against H3. As ",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-29T00:11:00.000Z",
-      "author_name": "databricks",
-      "source_list": "AI Companies #1 of 2, AI Enterprise or Work",
-      "source_url": "https://x.com/databricks/status/2093491572083949972",
+      "published_at": "2026-08-29T01:10:12.000Z",
+      "author_name": "haoailab",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/haoailab/status/2093506470449156193",
       "sources": [
         {
-          "label": "@databricks",
-          "url": "https://x.com/databricks/status/2093491572083949972"
+          "label": "@haoailab",
+          "url": "https://x.com/haoailab/status/2093506470449156193"
         }
       ],
-      "body": "GLM 5.3 is available as a day 0 release on Databricks!\n\nGLM 5.3 is the smartest open-weight model available today and joins GLM 5.3 Flash and 30+ open-source and frontier models available natively on Databricks.\n\nWe host GLM 5.3 on secure GPUs owned by Databricks so you can use",
+      "body": "45% preferred FastVideo FastH3 or are neutral compared with \n@MiniMax_AI\n  H3. \n\nOur open-weight FastH3 achieves 15s generation in 13s and 14x speedup. \n\nBig shoutout to the folks at \n@fal\n and \n@isidentical\n for helping us run an eval against H3. As an open source project we always",
       "kind": "story",
       "engagement": {
-        "impression_count": 964,
-        "like_count": 18,
-        "reply_count": 4,
-        "retweet_count": 6
+        "impression_count": 24,
+        "like_count": 2,
+        "retweet_count": 1
       },
-      "why_it_matters": "@databricks on AI Companies #1 of 2, AI Enterprise or Work. GLM 5.3 is available as a day 0 release on Databricks!.",
+      "why_it_matters": "@haoailab · AI Orgs & Events. 45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3.",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "databricks",
-      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F.jpg",
-      "list_count": 2,
-      "views": 964,
-      "desk_rank": 3
+      "x_handle": "haoailab",
+      "media_url": "https://pbs.twimg.com/media/HQ2e0ilbEAAsyTa?format=jpg&name=small",
+      "list_count": 1,
+      "views": 24,
+      "desk_rank": 4
     },
     {
       "id": "x-2093375835679977570",
@@ -291,65 +325,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
       "list_count": 2,
       "views": 239990,
-      "desk_rank": 4
-    },
-    {
-      "id": "x-2093466163200307616",
-      "headline": "OpenReview adds an AI code reviewer for GitHub",
-      "summary": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-08-28T22:30:02.000Z",
-      "author_name": "GithubProjects",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
-      "sources": [
-        {
-          "label": "@GithubProjects",
-          "url": "https://x.com/GithubProjects/status/2093466163200307616"
-        }
-      ],
-      "body": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@GithubProjects · AI Orgs & Events. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "GithubProjects",
-      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=small",
-      "list_count": 1,
       "desk_rank": 5
-    },
-    {
-      "id": "x-2093465254554644701",
-      "headline": "PaperCut ships a second emergency patch for an active zero-day",
-      "summary": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-08-28T22:26:26.000Z",
-      "author_name": "HuntressLabs",
-      "source_list": "Cybersecurity",
-      "source_url": "https://x.com/HuntressLabs/status/2093465254554644701",
-      "sources": [
-        {
-          "label": "@HuntressLabs",
-          "url": "https://x.com/HuntressLabs/status/2093465254554644701"
-        }
-      ],
-      "body": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@HuntressLabs · Cybersecurity. Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "HuntressLabs",
-      "media_url": "",
-      "list_count": 1,
-      "desk_rank": 6
     },
     {
       "id": "x-2093464900093768123",
@@ -378,140 +354,133 @@
       "x_handle": "OracleDevs",
       "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=small",
       "list_count": 1,
+      "desk_rank": 6
+    },
+    {
+      "id": "x-2093466163200307616",
+      "headline": "OpenReview adds an AI code reviewer for GitHub",
+      "summary": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:30:02.000Z",
+      "author_name": "GithubProjects",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
+      "sources": [
+        {
+          "label": "@GithubProjects",
+          "url": "https://x.com/GithubProjects/status/2093466163200307616"
+        }
+      ],
+      "body": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@GithubProjects · AI Orgs & Events. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "GithubProjects",
+      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=small",
+      "list_count": 1,
       "desk_rank": 7
     },
     {
-      "id": "x-2093435554159329567",
-      "headline": "Baseten serves a 743B open-weight model with 1M context",
-      "summary": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-28T20:28:24.000Z",
-      "author_name": "baseten",
-      "source_list": "AI Founders #1 of 3",
-      "source_url": "https://x.com/baseten/status/2093435554159329567",
+      "id": "x-2093226786377404554",
+      "headline": "A world-models-for-robots survey was accepted",
+      "summary": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T06:38:50.000Z",
+      "author_name": "ttyharada",
+      "source_list": "AI Community #1 of 9",
+      "source_url": "https://x.com/ttyharada/status/2093226786377404554",
       "sources": [
         {
-          "label": "@baseten",
-          "url": "https://x.com/baseten/status/2093435554159329567"
+          "label": "@ttyharada",
+          "url": "https://x.com/ttyharada/status/2093226786377404554"
         }
       ],
-      "body": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
+      "body": "A survey paper on world models in robot learning has been accepted to IJRR",
       "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@baseten · AI Founders #1 of 3. GLM-5.3 is live on Baseten Model APIs, day 0.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "baseten",
-      "media_url": "https://pbs.twimg.com/media/HQ1gCSFXIAEOqrU?format=jpg&name=small",
+      "engagement": {
+        "impression_count": 9143,
+        "like_count": 120,
+        "retweet_count": 24
+      },
+      "why_it_matters": "@ttyharada · AI Community #1 of 9. A survey paper on world models in robot learning has been accepted to IJRR.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "ttyharada",
+      "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=small",
       "list_count": 1,
+      "views": 9143,
       "desk_rank": 8
     },
     {
-      "id": "x-2093421604315562432",
-      "headline": "a16z raises $1.1B for a Machine Age hardware fund",
-      "summary": "a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips. This venture capital firm announced the establishment of the Machine Age Fund, with a scope that includes chips, memory, networking, storage, as well as data cent",
-      "section": "funding",
-      "section_key": "funding",
-      "section_label": "Funding",
-      "tag": "funding",
-      "published_at": "2026-08-28T19:32:59.000Z",
-      "author_name": "pirrer",
-      "source_list": "SpaceX_AI",
-      "source_url": "https://x.com/pirrer/status/2093421604315562432",
+      "id": "x-2093492209169375438",
+      "headline": "Lightwheel releases EgoSuite-Open100K for robot learning",
+      "summary": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-29T00:13:32.000Z",
+      "author_name": "bgxc",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/bgxc/status/2093492209169375438",
       "sources": [
         {
-          "label": "@pirrer",
-          "url": "https://x.com/pirrer/status/2093421604315562432"
+          "label": "@bgxc",
+          "url": "https://x.com/bgxc/status/2093492209169375438"
         }
       ],
-      "body": "a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips.\n\nThis venture capital firm announced the establishment of the Machine Age Fund, with a scope that includes chips, memory, networking, storage, as well as data centers, robotics, and home AI devices. The",
+      "body": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
       "kind": "story",
       "engagement": {
-        "impression_count": 584,
-        "like_count": 8,
-        "retweet_count": 1
+        "impression_count": 67,
+        "like_count": 1,
+        "reply_count": 1
       },
-      "why_it_matters": "@pirrer · SpaceX_AI. a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips.",
-      "topic_key": "funding",
-      "topic_label": "Funding",
-      "x_handle": "pirrer",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg",
+      "why_it_matters": "@bgxc · AI Robotics. Proud of the Lightwheel team for releasing EgoSuite-Open100K.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "bgxc",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090799806478491648/img/6b5b0Ihqlz8mYlvh.jpg",
       "list_count": 1,
-      "views": 584,
+      "views": 67,
       "desk_rank": 9
     },
     {
-      "id": "x-2093402996293910938",
-      "headline": "Meta Superintelligence Labs ran Muse Spark 1.2 in Daytona sandboxes",
-      "summary": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month) Someone from their team also said the terminal coding agent (Muse Code) experience would not be",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-28T18:19:02.000Z",
-      "author_name": "ivanburazin",
-      "source_list": "Investors #1 of 2",
-      "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
+      "id": "x-2093375558876860540",
+      "headline": "ProGlove ships a wrist camera for tactile robot data",
+      "summary": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T16:30:00.000Z",
+      "author_name": "JayLiStanford",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/JayLiStanford/status/2093375558876860540",
       "sources": [
         {
-          "label": "@ivanburazin",
-          "url": "https://x.com/ivanburazin/status/2093402996293910938"
+          "label": "@JayLiStanford",
+          "url": "https://x.com/JayLiStanford/status/2093375558876860540"
         }
       ],
-      "body": "Meta Superintelligence Labs used \n@daytonaio\n sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month)\n\nSomeone from their team also said the terminal coding agent (Muse Code) experience would not be practical without us",
+      "body": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
       "kind": "story",
-      "engagement": {
-        "impression_count": 5513,
-        "like_count": 64,
-        "reply_count": 2,
-        "retweet_count": 10
-      },
-      "why_it_matters": "@ivanburazin · Investors #1 of 2. Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month) Someone from their team also said the terminal coding agent (Muse Code) experience would not be practical without us.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "ivanburazin",
-      "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=small",
+      "engagement": {},
+      "why_it_matters": "@JayLiStanford · AI Robotics. Wrist camera is now available for ProGlove.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "JayLiStanford",
+      "media_url": "https://pbs.twimg.com/media/HQxclBNbsAAkfIu?format=jpg&name=small",
       "list_count": 1,
-      "views": 5513,
       "desk_rank": 10
-    },
-    {
-      "id": "x-2093355759132119165",
-      "headline": "GLM-5.3 is out as a free open-weight model",
-      "summary": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-28T15:11:20.000Z",
-      "author_name": "gigazine",
-      "source_list": "AI Community #7 of 9",
-      "source_url": "https://x.com/gigazine/status/2093355759132119165",
-      "sources": [
-        {
-          "label": "@gigazine",
-          "url": "https://x.com/gigazine/status/2093355759132119165"
-        }
-      ],
-      "body": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 93358,
-        "like_count": 925,
-        "reply_count": 10,
-        "retweet_count": 137
-      },
-      "why_it_matters": "@gigazine · AI Community #7 of 9. Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "gigazine",
-      "media_url": "https://pbs.twimg.com/media/HQ0X-ESWQAAIBUs?format=jpg&name=small",
-      "list_count": 1,
-      "views": 93358,
-      "desk_rank": 11
     },
     {
       "id": "x-2093323034195378306",
@@ -546,128 +515,106 @@
       "media_url": "https://pbs.twimg.com/media/HQz6NJrbkAAlZeE?format=jpg&name=small",
       "list_count": 1,
       "views": 25834,
+      "desk_rank": 11
+    },
+    {
+      "id": "x-2093402996293910938",
+      "headline": "Meta Superintelligence Labs ran Muse Spark 1.2 in Daytona sandboxes",
+      "summary": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month) Someone from their team also said the terminal coding agent (Muse Code) experience would not be",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T18:19:02.000Z",
+      "author_name": "ivanburazin",
+      "source_list": "Investors #1 of 2",
+      "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
+      "sources": [
+        {
+          "label": "@ivanburazin",
+          "url": "https://x.com/ivanburazin/status/2093402996293910938"
+        }
+      ],
+      "body": "Meta Superintelligence Labs used \n@daytonaio\n sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month)\n\nSomeone from their team also said the terminal coding agent (Muse Code) experience would not be practical without us",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5513,
+        "like_count": 64,
+        "reply_count": 2,
+        "retweet_count": 10
+      },
+      "why_it_matters": "@ivanburazin · Investors #1 of 2. Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month) Someone from their team also said the terminal coding agent (Muse Code) experience would not be practical without us.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "ivanburazin",
+      "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=small",
+      "list_count": 1,
+      "views": 5513,
       "desk_rank": 12
     },
     {
-      "id": "x-2093226786377404554",
-      "headline": "A world-models-for-robots survey was accepted",
-      "summary": "A survey paper on world models in robot learning has been accepted to IJRR",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-28T06:38:50.000Z",
-      "author_name": "ttyharada",
-      "source_list": "AI Community #1 of 9",
-      "source_url": "https://x.com/ttyharada/status/2093226786377404554",
+      "id": "x-2093491572083949972",
+      "headline": "Databricks serves GLM-5.3 on day zero",
+      "summary": "GLM 5.3 is available as a day 0 release on Databricks! GLM 5.3 is the smartest open-weight model available today and joins GLM 5.3 Flash and 30+ open-source and frontier models available natively on Databricks. We host GLM 5.3 on secure GPU",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-29T00:11:00.000Z",
+      "author_name": "databricks",
+      "source_list": "AI Companies #1 of 2, AI Enterprise or Work",
+      "source_url": "https://x.com/databricks/status/2093491572083949972",
       "sources": [
         {
-          "label": "@ttyharada",
-          "url": "https://x.com/ttyharada/status/2093226786377404554"
+          "label": "@databricks",
+          "url": "https://x.com/databricks/status/2093491572083949972"
         }
       ],
-      "body": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "body": "GLM 5.3 is available as a day 0 release on Databricks!\n\nGLM 5.3 is the smartest open-weight model available today and joins GLM 5.3 Flash and 30+ open-source and frontier models available natively on Databricks.\n\nWe host GLM 5.3 on secure GPUs owned by Databricks so you can use",
       "kind": "story",
       "engagement": {
-        "impression_count": 9143,
-        "like_count": 120,
-        "retweet_count": 24
+        "impression_count": 964,
+        "like_count": 18,
+        "reply_count": 4,
+        "retweet_count": 6
       },
-      "why_it_matters": "@ttyharada · AI Community #1 of 9. A survey paper on world models in robot learning has been accepted to IJRR.",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "ttyharada",
-      "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=small",
-      "list_count": 1,
-      "views": 9143,
+      "why_it_matters": "@databricks on AI Companies #1 of 2, AI Enterprise or Work. GLM 5.3 is available as a day 0 release on Databricks!.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "databricks",
+      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F.jpg",
+      "list_count": 2,
+      "views": 964,
       "desk_rank": 13
     },
     {
-      "id": "x-2093161411400610118",
-      "headline": "Huntress flags a PaperCut zero-day under active exploit",
-      "summary": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-08-28T02:19:04.000Z",
-      "author_name": "HuntressLabs",
-      "source_list": "Cybersecurity",
-      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
+      "id": "x-2093435554159329567",
+      "headline": "Baseten serves a 743B open-weight model with 1M context",
+      "summary": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T20:28:24.000Z",
+      "author_name": "baseten",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/baseten/status/2093435554159329567",
       "sources": [
         {
-          "label": "@HuntressLabs",
-          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
+          "label": "@baseten",
+          "url": "https://x.com/baseten/status/2093435554159329567"
         }
       ],
-      "body": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "body": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@HuntressLabs · Cybersecurity. Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "HuntressLabs",
-      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
+      "why_it_matters": "@baseten · AI Founders #1 of 3. GLM-5.3 is live on Baseten Model APIs, day 0.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "baseten",
+      "media_url": "https://pbs.twimg.com/media/HQ1gCSFXIAEOqrU?format=jpg&name=small",
       "list_count": 1,
       "desk_rank": 14
-    },
-    {
-      "id": "x-2093038426140651791",
-      "headline": "Anthropic opens a Model Hardware Standard research preview",
-      "summary": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-27T18:10:22.000Z",
-      "author_name": "AnthropicAI",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
-      "sources": [
-        {
-          "label": "@AnthropicAI",
-          "url": "https://x.com/AnthropicAI/status/2093038426140651791"
-        }
-      ],
-      "body": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@AnthropicAI · AI Robotics. Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "AnthropicAI",
-      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
-      "list_count": 1,
-      "desk_rank": 15
-    },
-    {
-      "id": "x-2093014818647339026",
-      "headline": "PhoneLLM is an open model for voice agents",
-      "summary": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-27T16:36:33.000Z",
-      "author_name": "kwindla",
-      "source_list": "AI Founders #1 of 3",
-      "source_url": "https://x.com/kwindla/status/2093014818647339026",
-      "sources": [
-        {
-          "label": "@kwindla",
-          "url": "https://x.com/kwindla/status/2093014818647339026"
-        }
-      ],
-      "body": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@kwindla · AI Founders #1 of 3. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "kwindla",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093013293560709120/img/y0b0JFTxKUQ4XDS8.jpg",
-      "list_count": 1,
-      "desk_rank": 16
     },
     {
       "id": "x-2093491123130155360",
@@ -702,7 +649,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2S2rSakAAi_-3",
       "list_count": 3,
       "views": 61,
-      "desk_rank": 17
+      "desk_rank": 15
     },
     {
       "id": "x-2093383065548492982",
@@ -737,41 +684,36 @@
       "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=small",
       "list_count": 3,
       "views": 2135824,
-      "desk_rank": 18
+      "desk_rank": 16
     },
     {
-      "id": "x-2093492209169375438",
-      "headline": "Lightwheel releases EgoSuite-Open100K for robot learning",
-      "summary": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-08-29T00:13:32.000Z",
-      "author_name": "bgxc",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/bgxc/status/2093492209169375438",
+      "id": "x-2093465254554644701",
+      "headline": "PaperCut ships a second emergency patch for an active zero-day",
+      "summary": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T22:26:26.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/HuntressLabs/status/2093465254554644701",
       "sources": [
         {
-          "label": "@bgxc",
-          "url": "https://x.com/bgxc/status/2093492209169375438"
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093465254554644701"
         }
       ],
-      "body": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
+      "body": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
       "kind": "story",
-      "engagement": {
-        "impression_count": 67,
-        "like_count": 1,
-        "reply_count": 1
-      },
-      "why_it_matters": "@bgxc · AI Robotics. Proud of the Lightwheel team for releasing EgoSuite-Open100K.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "bgxc",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090799806478491648/img/6b5b0Ihqlz8mYlvh.jpg",
+      "engagement": {},
+      "why_it_matters": "@HuntressLabs · Cybersecurity. Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HuntressLabs",
+      "media_url": "",
       "list_count": 1,
-      "views": 67,
-      "desk_rank": 19
+      "desk_rank": 17
     },
     {
       "id": "x-2093463828755517455",
@@ -800,36 +742,36 @@
       "x_handle": "maide89699220",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093461348869148672/img/1wlkusFag0c-PMmq.jpg",
       "list_count": 1,
-      "desk_rank": 20
+      "desk_rank": 18
     },
     {
-      "id": "x-2093375558876860540",
-      "headline": "ProGlove ships a wrist camera for tactile robot data",
-      "summary": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-08-28T16:30:00.000Z",
-      "author_name": "JayLiStanford",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/JayLiStanford/status/2093375558876860540",
+      "id": "x-2093161411400610118",
+      "headline": "Huntress flags a PaperCut zero-day under active exploit",
+      "summary": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T02:19:04.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
       "sources": [
         {
-          "label": "@JayLiStanford",
-          "url": "https://x.com/JayLiStanford/status/2093375558876860540"
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
         }
       ],
-      "body": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
+      "body": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@JayLiStanford · AI Robotics. Wrist camera is now available for ProGlove.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "JayLiStanford",
-      "media_url": "https://pbs.twimg.com/media/HQxclBNbsAAkfIu?format=jpg&name=small",
+      "why_it_matters": "@HuntressLabs · Cybersecurity. Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HuntressLabs",
+      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 21
+      "desk_rank": 19
     },
     {
       "id": "x-2093501647804596569",
@@ -863,6 +805,64 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
       "list_count": 1,
       "views": 8,
+      "desk_rank": 20
+    },
+    {
+      "id": "x-2093038426140651791",
+      "headline": "Anthropic opens a Model Hardware Standard research preview",
+      "summary": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-27T18:10:22.000Z",
+      "author_name": "AnthropicAI",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
+      "sources": [
+        {
+          "label": "@AnthropicAI",
+          "url": "https://x.com/AnthropicAI/status/2093038426140651791"
+        }
+      ],
+      "body": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@AnthropicAI · AI Robotics. Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "AnthropicAI",
+      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
+      "list_count": 1,
+      "desk_rank": 21
+    },
+    {
+      "id": "x-2093014818647339026",
+      "headline": "PhoneLLM is an open model for voice agents",
+      "summary": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-27T16:36:33.000Z",
+      "author_name": "kwindla",
+      "source_list": "AI Founders #1 of 3",
+      "source_url": "https://x.com/kwindla/status/2093014818647339026",
+      "sources": [
+        {
+          "label": "@kwindla",
+          "url": "https://x.com/kwindla/status/2093014818647339026"
+        }
+      ],
+      "body": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@kwindla · AI Founders #1 of 3. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "kwindla",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093013293560709120/img/y0b0JFTxKUQ4XDS8.jpg",
+      "list_count": 1,
       "desk_rank": 22
     },
     {
