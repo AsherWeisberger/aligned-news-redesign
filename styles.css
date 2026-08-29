@@ -1738,14 +1738,14 @@ body[data-page="signals"] .feed-row {
   .top-actions .user-name { display: none; }
   .live-time { display: none; }
   .top-actions { gap: 0.35rem; flex-shrink: 0; }
-  .feed-row {
-    grid-template-columns: 1.7rem minmax(0, 1fr);
-    padding: 0.95rem 0;
-  }
+  .feed-row,
   .feed-row:has(.row-thumb) {
-    grid-template-columns: 1.7rem minmax(0, 1fr) auto;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    padding: 0.95rem 0 1.2rem;
   }
-  .row-thumb { width: 64px; height: 64px; border-radius: 10px; }
+  .row-thumb { width: 100%; height: auto; aspect-ratio: 16 / 10; border-radius: 12px; }
   .row-thumb-label { font-size: 0.5rem; padding: 0.1rem 0.28rem; }
   .row-thumb-author { width: 18px; height: 18px; font-size: 0.52rem; }
   .row-thumb-icon { width: 22px; height: 22px; }
@@ -6177,50 +6177,46 @@ body[data-page="newsletter"]:not(.nl-reading) .nl-reader {
   .user-pill.is-compact { padding: 0.12rem; border: 0; background: transparent; }
   .user-pill.is-compact .avatar { width: 24px; height: 24px; }
 
-  /* Today river: numbered, one-line dek, photo thumb, two+ stories on screen */
+  /* an213: magazine cards on phone. No rank column, full-width photo. */
   body[data-page="today"] .why-here,
   .feed-row .why-here,
   .lead-card-opener .why-here { display: none !important; }
 
-  .feed-row {
-    padding: 0.52rem 0;
-    gap: 0.28rem 0.5rem;
-    grid-template-columns: 1.4rem minmax(0, 1fr);
-  }
-  .feed-row:has(.row-thumb) {
-    grid-template-columns: 1.4rem minmax(0, 1fr);
-  }
+  .feed-row,
+  .feed-row:has(.row-thumb),
   .feed-row:has(.row-thumb.has-media) {
-    grid-template-columns: 1.4rem minmax(0, 1fr) auto;
+    display: flex !important;
+    flex-direction: column;
+    grid-template-columns: none !important;
+    padding: 0 0 1.25rem;
+    gap: 0.55rem;
   }
-  .rank {
-    font-size: 0.78rem;
-    padding-top: 0.18rem;
-    font-weight: 600;
-  }
+  .rank { display: none !important; }
   .story-title {
-    font-size: 1.02rem;
+    font-size: 1.18rem;
     line-height: 1.28;
-    letter-spacing: -0.018em;
-    margin: 0 0 0.1rem;
+    letter-spacing: -0.022em;
+    margin: 0 0 0.28rem;
   }
   .feed-row .excerpt,
   .excerpt {
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    font-size: 0.8rem;
-    line-height: 1.35;
-    margin: 0 0 0.16rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0 0 0.28rem;
   }
-  .feed-row .meta { font-size: 0.68rem; }
+  .feed-row .meta { font-size: 0.78rem; }
   .row-thumb:not(.has-media) { display: none !important; }
   .feed-row .row-thumb {
-    width: 54px;
-    height: 54px;
-    border-radius: 2px;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 168px;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    order: -1;
   }
 
-  /* an113: story #1 keeps the magazine hero; stories 2+ stay numbered rows */
   .lead-card.lead-card-opener,
   .lead-card-photo.lead-card-opener {
     display: flex !important;
@@ -6996,16 +6992,14 @@ html[data-density="compact"] .feed-rest-label {
   body[data-page="signals"] .feed-row,
   html[data-density="compact"] body[data-page="signals"] .feed-row,
   html[data-density="compact"] .feed-row {
-    grid-template-columns: 1.25rem minmax(0, 1fr) !important;
-    gap: 0.35rem 0.4rem !important;
+    display: flex !important;
+    flex-direction: column;
+    grid-template-columns: none !important;
+    gap: 0.55rem !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  .rank {
-    text-align: left;
-    font-size: 0.82rem;
-    padding-top: 0.15rem;
-  }
+  .rank { display: none !important; }
   .mobile-dock-bar {
     width: max-content !important;
     min-width: 0 !important;
@@ -7479,4 +7473,25 @@ html[data-density="compact"] .feed-row {
     margin-bottom: 0.75rem;
   }
   .top-pull-title a { text-decoration: none !important; }
+}
+
+
+/* an213 phone 390 lock */
+@media (max-width: 430px) {
+  .rank { display: none !important; }
+  .feed-row,
+  .feed-row:has(.row-thumb),
+  .feed-row:has(.row-thumb.has-media) {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+  }
+  .feed-row .row-thumb {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 168px !important;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+  }
 }
