@@ -2338,27 +2338,31 @@
     pin(dock.querySelector(".mobile-dock-stage"), {
       width: "100%",
       "max-width": "100%",
+      display: "flex",
+      "justify-content": "center",
       "box-sizing": "border-box"
     });
     pin(dock.querySelector(".mobile-dock-bar"), {
       display: "flex",
-      width: "100%",
+      width: "auto",
       "max-width": "100%",
       "align-items": "center",
+      "justify-content": "center",
       gap: "8px",
       "box-sizing": "border-box",
       "pointer-events": "none"
     });
     var compact = dock.classList.contains("is-compact");
     var h = compact ? "36px" : "48px";
+    var slot = compact ? "36px" : "44px";
     pin(dock.querySelector(".mobile-dock-inner"), {
       display: "flex",
-      flex: "1 1 auto",
-      width: "100%",
+      flex: "0 0 auto",
+      width: "auto",
       "max-width": "100%",
       height: h,
       "align-items": "center",
-      "justify-content": "space-evenly",
+      "justify-content": "center",
       "box-sizing": "border-box",
       "pointer-events": "auto"
     });
@@ -2371,13 +2375,12 @@
     });
     var items = dock.querySelectorAll(".mobile-dock-item");
     for (var i = 0; i < items.length; i++) {
-      var on = items[i].classList.contains("is-active");
       pin(items[i], {
-        flex: (on && !compact) ? "2.2 1 auto" : "1 1 auto",
-        width: "auto",
-        "min-width": compact ? "32px" : "44px",
-        "max-width": "none",
-        overflow: compact ? "hidden" : "visible"
+        flex: "0 0 " + slot,
+        width: slot,
+        "min-width": slot,
+        "max-width": slot,
+        overflow: "hidden"
       });
     }
   }
