@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T02:38:37.000Z",
-    "scrapedAt": "2026-08-29T02:38:37.000Z",
+    "generatedAt": "2026-08-29T02:39:47.000Z",
+    "scrapedAt": "2026-08-29T02:39:47.000Z",
     "source": "scobleizer-chrome-lists",
     "note": "CONTEXT writeup, 13 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809
@@ -124,6 +124,46 @@
   ],
   "stories": [
     {
+      "id": "tencent-hy4-preview",
+      "headline": "Tencent open sources Hy4 preview at 770B with 49B active",
+      "summary": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, Cod",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T06:23:31.000Z",
+      "author_name": "TencentHunyuan",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/TencentHunyuan/status/2093222928720761009",
+      "sources": [
+        {
+          "label": "@TencentHunyuan",
+          "url": "https://x.com/TencentHunyuan/status/2093222928720761009"
+        }
+      ],
+      "body": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, CodeBuddy, Yuanbao, and ima, with API access on Tencent Cloud TokenHub and OpenRouter. WorkBuddy and CodeBuddy get two weeks free. TechNode listed OpenRouter pricing at $0.834 per million input tokens and $2.501 per million output.\n\nThis is a same day open weight flagship, not a teaser card. The GitHub model card describes 78 layers, 256 routed experts, top 8 plus a shared expert, gated sparse attention, and a native MTP layer for speculative decoding. Tencent says it is built for coding, office work, and research, and that the next Hy4 batch is close.\n\nHis community lists carried the Hunyuan lab post. Watch how it actually runs at 1 million context, and whether the preview’s extra checking on hard reasoning shows up as latency in the API.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1212547,
+        "reply_count": 292,
+        "retweet_count": 878
+      },
+      "why_it_matters": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. One desk only, so this is a lab note the community caught, not a weave across desks.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "TencentHunyuan",
+      "media_url": "",
+      "list_count": 1,
+      "views": 1212547,
+      "desk_rank": 1
+    },
+    {
       "id": "glm-5-3-day-0",
       "headline": "Z.ai GLM 5.3 goes live on Databricks, Ollama, and Baseten",
       "summary": "Databricks posted GLM 5.3 as a day 0 model on its platform, hosted on GPUs it owns, sitting next to GLM 5.3 Flash and more than 30 other open and closed models. Ollama said GLM 5.3 and Flash are fully rolled out on Ollama cloud, and that Claude Desktop can point at GLM 5.3. Baset",
@@ -164,46 +204,6 @@
       "media_url": "",
       "list_count": 2,
       "views": 964,
-      "desk_rank": 1
-    },
-    {
-      "id": "tencent-hy4-preview",
-      "headline": "Tencent open sources Hy4 preview at 770B with 49B active",
-      "summary": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, Cod",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-28T06:23:31.000Z",
-      "author_name": "TencentHunyuan",
-      "source_list": "AI Community",
-      "list_names": [
-        "AI Community #1 of 9"
-      ],
-      "chip_labels": [
-        "AI Community"
-      ],
-      "source_url": "https://x.com/TencentHunyuan/status/2093222928720761009",
-      "sources": [
-        {
-          "label": "@TencentHunyuan",
-          "url": "https://x.com/TencentHunyuan/status/2093222928720761009"
-        }
-      ],
-      "body": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, CodeBuddy, Yuanbao, and ima, with API access on Tencent Cloud TokenHub and OpenRouter. WorkBuddy and CodeBuddy get two weeks free. TechNode listed OpenRouter pricing at $0.834 per million input tokens and $2.501 per million output.\n\nThis is a same day open weight flagship, not a teaser card. The GitHub model card describes 78 layers, 256 routed experts, top 8 plus a shared expert, gated sparse attention, and a native MTP layer for speculative decoding. Tencent says it is built for coding, office work, and research, and that the next Hy4 batch is close.\n\nHis community lists carried the Hunyuan lab post. Watch how it actually runs at 1 million context, and whether the preview’s extra checking on hard reasoning shows up as latency in the API.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 1212547,
-        "reply_count": 292,
-        "retweet_count": 878
-      },
-      "why_it_matters": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. One desk only, so this is a lab note the community caught, not a weave across desks.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "TencentHunyuan",
-      "media_url": "",
-      "list_count": 1,
-      "views": 1212547,
       "desk_rank": 2
     },
     {
@@ -670,23 +670,25 @@
   ],
   "signals": [
     {
-      "id": "sig-tencent-hy4-preview",
-      "title": "Tencent open sources Hy4 preview at 770B with 49B active",
-      "text": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. One desk only, so this is a lab note the community caught, not a weave across desks.",
+      "id": "sig-glm-5-3-day-0",
+      "title": "Z.ai GLM 5.3 goes live on Databricks, Ollama, and Baseten",
+      "text": "Robert’s company and enterprise lists carried Databricks. His developer tools lists had operators telling people to run reasoning effort high, and his founders lists had Bindhu Reddy grouping GLM with DeepSeek, Qwen, and Kimi as public weights that now compound on each other.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. One desk only, so this is a lab note the community caught, not a weave across desks.",
+      "source_list": "Robert’s company and enterprise lists carried Databricks. His developer tools lists had operators telling people to run reasoning effort high, and his founders lists had Bindhu Reddy grouping GLM with DeepSeek, Qwen, and Kimi as public weights that now compound on each other.",
       "list_names": [
-        "AI Community #1 of 9"
+        "AI Companies #1 of 2",
+        "AI Enterprise or Work"
       ],
       "chip_labels": [
-        "AI Community"
+        "AI Companies",
+        "AI Enterprise"
       ],
-      "created_at": "2026-08-28T06:23:31.000Z",
-      "source_url": "https://x.com/TencentHunyuan/status/2093222928720761009",
-      "analysis": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. One desk only, so this is a lab note the community caught, not a weave across desks.",
+      "created_at": "2026-08-29T00:11:00.000Z",
+      "source_url": "https://x.com/databricks/status/2093491572083949972",
+      "analysis": "Robert’s company and enterprise lists carried Databricks. His developer tools lists had operators telling people to run reasoning effort high, and his founders lists had Bindhu Reddy grouping GLM with DeepSeek, Qwen, and Kimi as public weights that now compound on each other.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -985,10 +987,10 @@
   "bundles": [],
   "ai_sections": [],
   "top_pulls": [
+    "glm-5-3-day-0",
     "fastvideo-fasth3",
-    "lerobot-teleoperator",
+    "a16z-machine-age-fund",
     "pollen-microducks",
-    "tencent-hy4-preview",
-    "a16z-machine-age-fund"
+    "lerobot-teleoperator"
   ]
 }
