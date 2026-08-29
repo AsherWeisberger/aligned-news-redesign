@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an183";
+  var DATA_URL = "live-data.json?v=an184";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3650,7 +3650,7 @@
     var badge = desk ? "Unaligned" : t("archive");
     var credit = desk ? t("written_desk") : t("from_archive");
     var source = desk
-      ? 'The live desk keeps ranking the same lists: <a href="https://alignednews.com/ai" target="_blank" rel="noopener noreferrer">alignednews.com/ai</a>'
+      ? 'Ranked from Robert Scoble’s lists.'
       : t("nl_source_archive");
     root.hidden = false;
     root.innerHTML =
