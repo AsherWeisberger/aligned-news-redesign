@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an184";
+  var DATA_URL = "live-data.json?v=an185";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -1891,12 +1891,7 @@
     }
     var list = $("#topSignalsList");
     if (list && !(topSignals && topSignals.hidden)) {
-      var items = (state.data.signals || []).slice().sort(function (a, b) {
-            return (b.engagement_score || 0) - (a.engagement_score || 0);
-          }).slice(0, 5);
-      if (!items.length && state.data.forYou && state.data.forYou.length) {
-        items = state.data.forYou.slice(0, 5);
-      }
+      var items = (state.data.signals || []).slice(0, 5);
       if (!items.length) {
         list.innerHTML = '<li class="empty" style="padding:0.5rem 0;text-align:left;opacity:1;animation:none">' + t("no_signals") + '</li>';
       } else {
@@ -3486,8 +3481,6 @@
         if (hay.indexOf(q) === -1) return false;
       }
       return true;
-    }).slice().sort(function (a, b) {
-      return rankScore(b) - rankScore(a);
     });
     if (!items.length) {
       list.innerHTML = '<li class="empty">' + t("no_signals_match") + '</li>';
