@@ -3568,10 +3568,10 @@ body[data-page="auth"] .app {
       margin 0.42s cubic-bezier(0.22, 1.15, 0.32, 1);
   }
   .mobile-dock-item.is-active .mobile-dock-label {
-    max-width: 0;
-    opacity: 0;
-    margin-left: 0;
-    overflow: hidden;
+    max-width: 7.5rem;
+    opacity: 1;
+    margin-left: 0.35rem;
+    overflow: visible;
   }
   html:not([data-theme="dark"]) .mobile-dock-item {
     color: var(--muted);
@@ -3603,14 +3603,16 @@ body[data-page="auth"] .app {
     transform: none;
   }
   .mobile-dock-item.is-active {
-    flex: 0 0 44px;
-    background: transparent;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    background: color-mix(in srgb, #fff 12%, transparent);
     color: #fff;
-    padding: 0;
-    overflow: hidden;
+    padding: 0 12px 0 10px;
+    overflow: visible;
   }
   html:not([data-theme="dark"]) .mobile-dock-item.is-active {
-    background: transparent;
+    background: color-mix(in srgb, var(--ink) 8%, transparent);
     color: var(--ink);
   }
   .mobile-dock-plus {
@@ -6732,27 +6734,33 @@ body[data-page="newsletter"] .desk-hero-compact h1 {
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
-    width: 214px !important;
-    min-width: 214px !important;
-    max-width: 214px !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: min(22rem, calc(100vw - 1.5rem)) !important;
     box-sizing: border-box !important;
   }
   .mobile-dock-inner {
     display: flex !important;
-    flex: 0 0 164px !important;
-    width: 164px !important;
-    min-width: 164px !important;
-    max-width: 164px !important;
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: min(18rem, calc(100vw - 4.5rem)) !important;
     justify-content: center !important;
     align-items: center !important;
     box-sizing: border-box !important;
   }
-  .mobile-dock-item,
+  .mobile-dock-item {
+    flex: 0 0 40px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    justify-content: center !important;
+  }
   .mobile-dock-item.is-active {
-    flex: 0 0 44px !important;
-    width: 44px !important;
-    min-width: 44px !important;
-    max-width: 44px !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 40px !important;
+    max-width: none !important;
     justify-content: center !important;
   }
   .mobile-dock-inner {
@@ -6991,22 +6999,21 @@ html[data-density="compact"] .feed-rest-label {
     padding-top: 0.15rem;
   }
   .mobile-dock-bar {
-    width: 214px !important;
-    min-width: 214px !important;
-    max-width: 214px !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: min(22rem, calc(100vw - 1.5rem)) !important;
     margin: 0 auto !important;
     gap: 6px !important;
   }
   .mobile-dock-inner {
-    flex: 0 0 164px !important;
-    width: 164px !important;
-    min-width: 164px !important;
-    max-width: 164px !important;
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: min(18rem, calc(100vw - 4.5rem)) !important;
     height: 44px !important;
     padding: 0 2px !important;
   }
-  .mobile-dock-item,
-  .mobile-dock-item.is-active {
+  .mobile-dock-item {
     flex: 0 0 40px !important;
     width: 40px !important;
     min-width: 40px !important;
@@ -7014,13 +7021,40 @@ html[data-density="compact"] .feed-rest-label {
     height: 40px !important;
     padding: 0 !important;
   }
-  .mobile-dock-label,
-  .mobile-dock-item.is-active .mobile-dock-label {
-    display: none !important;
+  .mobile-dock-item.is-active {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 40px !important;
+    max-width: none !important;
+    height: 40px !important;
+    padding: 0 12px 0 10px !important;
+  }
+  .mobile-dock-label {
+    display: block !important;
     max-width: 0 !important;
-    width: 0 !important;
+    width: auto !important;
     opacity: 0 !important;
     overflow: hidden !important;
+    margin: 0 !important;
+  }
+  .mobile-dock-item.is-active .mobile-dock-label {
+    display: block !important;
+    max-width: 7.5rem !important;
+    width: auto !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    margin-left: 0.35rem !important;
+  }
+  .mobile-dock.is-compact .mobile-dock-item.is-active {
+    flex: 0 0 32px !important;
+    width: 32px !important;
+    max-width: 32px !important;
+    padding: 0 !important;
+  }
+  .mobile-dock.is-compact .mobile-dock-item.is-active .mobile-dock-label {
+    display: none !important;
+    max-width: 0 !important;
+    opacity: 0 !important;
     margin: 0 !important;
   }
   .mobile-dock-plus {

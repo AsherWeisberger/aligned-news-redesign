@@ -2345,13 +2345,11 @@
     var compact = dock.classList.contains("is-compact");
     var h = compact ? "34px" : "44px";
     var slot = compact ? "32px" : "40px";
-    var barW = compact ? "168px" : "214px";
-    var innerW = compact ? "128px" : "164px";
     pin(dock.querySelector(".mobile-dock-bar"), {
       display: "flex",
-      width: barW,
-      "min-width": barW,
-      "max-width": barW,
+      width: "max-content",
+      "min-width": "0",
+      "max-width": "min(22rem, calc(100vw - 1.5rem))",
       "align-items": "center",
       "justify-content": "center",
       gap: "6px",
@@ -2360,10 +2358,10 @@
     });
     pin(dock.querySelector(".mobile-dock-inner"), {
       display: "flex",
-      flex: "0 0 " + innerW,
-      width: innerW,
-      "min-width": innerW,
-      "max-width": innerW,
+      flex: "0 0 auto",
+      width: "max-content",
+      "min-width": "0",
+      "max-width": "min(18rem, calc(100vw - 4.5rem))",
       height: h,
       "align-items": "center",
       "justify-content": "center",
@@ -2379,12 +2377,13 @@
     });
     var items = dock.querySelectorAll(".mobile-dock-item");
     for (var i = 0; i < items.length; i++) {
+      var on = items[i].classList.contains("is-active") && !compact;
       pin(items[i], {
-        flex: "0 0 " + slot,
-        width: slot,
+        flex: on ? "0 0 auto" : "0 0 " + slot,
+        width: on ? "auto" : slot,
         "min-width": slot,
-        "max-width": slot,
-        overflow: "hidden"
+        "max-width": on ? "none" : slot,
+        overflow: on ? "visible" : "hidden"
       });
     }
   }
@@ -2419,7 +2418,7 @@
     if (dock.parentNode !== document.body) document.body.appendChild(dock);
     document.documentElement.classList.add("has-mobile-dock");
     var wasOpen = dock.classList.contains("is-open");
-    if (dock.dataset.built === "an205" && dock.querySelector(".mobile-dock-inner") && !dock.querySelector(".mobile-dock-label")) {
+    if (dock.dataset.built === "an206" && dock.querySelector(".mobile-dock-inner") && dock.querySelector(".mobile-dock-label")) {
       if (dock.dataset.morphing !== "1") {
         var nodes = dock.querySelectorAll(".mobile-dock-item");
         for (var si = 0; si < items.length && si < nodes.length; si++) {
@@ -2467,6 +2466,7 @@
               '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
               (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
               '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
+              '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
               "</a>"
             );
           }).join("") +
@@ -2477,7 +2477,7 @@
         "</div>" +
       "</div>";
     if (wasOpen) dock.classList.add("is-open");
-    dock.dataset.built = "an205";
+    dock.dataset.built = "an206";
     pinMobileDockLayout(dock);
     wireDockScroll(dock);
     if (!dock.dataset.wired) {
@@ -2495,6 +2495,8 @@
         }
         var tab = e.target.closest(".mobile-dock-item");
         if (tab) {
+          dock.classList.remove("is-compact");
+          pinMobileDockLayout(dock);
           if (tab.classList.contains("is-active") || dock.dataset.morphing === "1") {
             e.preventDefault();
             return;
