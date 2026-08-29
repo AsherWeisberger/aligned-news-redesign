@@ -7366,3 +7366,117 @@ html:not(.fonts-ready) .brand-align-sub em {
   .top-pull-title { font-size: 1.12rem; max-width: 28ch; }
   .top-pull-dek { font-size: 0.9rem; max-width: 42ch; }
 }
+
+
+/* an212 magazine cards — photo first, no ranks, no roster, views only */
+.rank { display: none !important; }
+.avatar-stack { display: none !important; }
+.story-title a,
+.lead-title a,
+.story-title a:hover,
+.lead-title a:hover,
+.feed-row:hover .story-title a,
+.lead-card:hover .lead-title a,
+.story-title a:visited,
+.lead-title a:visited {
+  text-decoration: none !important;
+  background-image: none !important;
+  background-size: 0 !important;
+}
+
+.lead-hero {
+  display: block !important;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 180px;
+  max-height: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0 0 0.85rem;
+  background: var(--bg-soft);
+}
+.lead-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lead-card,
+.lead-card-photo,
+.lead-card-opener {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  padding: 0 0 1.35rem;
+  gap: 0;
+}
+.lead-card .rank,
+.lead-card-photo .rank { display: none !important; }
+
+.feed-row,
+.feed-row:has(.row-thumb),
+html:not([data-density="compact"]) .feed-row,
+html[data-density="compact"] .feed-row {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  gap: 0.55rem;
+  padding: 0 0 1.35rem;
+  align-items: stretch;
+}
+.feed-row .row-thumb,
+.feed-row.has-photo .row-thumb {
+  order: -1;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 168px;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  justify-self: stretch;
+}
+.feed-row .row-thumb-label,
+.feed-row .row-thumb-author { display: none; }
+.feed-row .row-thumb-tile { display: none; }
+.card-views,
+.feed-row .meta-line,
+.lead-card .meta-line {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+.feed-row .meta {
+  margin-top: 0.15rem;
+}
+.feed-chips-slot {
+  list-style: none;
+  margin: 0.15rem 0 1.05rem;
+  padding: 0.35rem 0 0.55rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.feed-chips-slot .chips {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 0.4rem;
+  padding: 0.45rem 0;
+}
+.chips-home:empty { display: none; }
+
+@media (max-width: 720px) {
+  .feed-row,
+  .feed-row:has(.row-thumb) {
+    grid-template-columns: none !important;
+  }
+  .feed-row .row-thumb {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 160px;
+    aspect-ratio: 16 / 10;
+  }
+  .lead-hero {
+    min-height: 200px;
+    margin-bottom: 0.75rem;
+  }
+  .top-pull-title a { text-decoration: none !important; }
+}

@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an211";
+  var DATA_URL = "live-data.json?v=an212";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -264,27 +264,22 @@
   }
 
   function storyFeedMeta(item) {
-    var when = fallbackTime(item.published_at || item.created_at) || t("recently");
-    var bits = [];
-    var n = 0;
-    if (item.sources && item.sources.length) n = item.sources.length;
-    else if (item.source_url) n = 1;
-    if (n > 0) bits.push(n + " " + (n === 1 ? t("source_one") : t("sources")));
-    bits.push(t("first_seen") + " " + when);
+    return storyCardViews(item);
+  }
+
+  function storyCardViews(item) {
+    if (!item) return "";
     var eng = item.engagement || {};
     var views = Number(eng.impression_count || eng.view_count || item.views || item.view_count || 0);
-    var likes = Number(eng.like_count || item.likes || 0);
-    var replies = Number(eng.reply_count || item.replies || 0);
-    var reposts = Number(eng.retweet_count || item.reposts || 0);
     var shown = compactCount(views);
-    if (shown) bits.push(shown + " " + t("views_n"));
-    shown = compactCount(likes);
-    if (shown) bits.push(shown + " " + t("likes_n"));
-    shown = compactCount(replies);
-    if (shown) bits.push(shown + " " + t("replies_n"));
-    shown = compactCount(reposts);
-    if (shown) bits.push(shown + " " + t("reposts_n"));
-    return bits.join(" · ");
+    return shown ? shown + " " + t("views_n") : "";
+  }
+
+  function stripPostedThat(text) {
+    var s = String(text || "").replace(/\s+/g, " ").trim();
+    s = s.replace(/^[A-Z][\w .,'&\/-]{0,48}\s+posted that\s+/i, "");
+    s = s.replace(/^[A-Z][\w .,'&\/-]{0,48}\s+(said|says) that\s+/i, "");
+    return s.trim();
   }
 
   function viewerFollowsHandle(handle) {
@@ -350,7 +345,7 @@
   }
 
   function leadBrief(item, headline) {
-    var body = displayText((item && (item.body || item.summary)) || "").replace(/\s+/g, " ").trim();
+    var body = stripPostedThat(displayText((item && (item.body || item.summary)) || "").replace(/\s+/g, " ").trim());
     if (!body) return uniqueDek(item, headline, 220);
     var parts = body.split(/(?<=[.!?])\s+/).filter(Boolean);
     var out = [];
@@ -378,11 +373,11 @@
 
   function uniqueDek(item, headline, maxLen) {
     maxLen = maxLen || 160;
-    var body = displayText(item.summary || item.body || "").replace(/\s+/g, " ").trim();
+    var body = stripPostedThat(displayText(item.summary || item.body || "").replace(/\s+/g, " ").trim());
     var parts = body.split(/(?<=[.!?])\s+/).filter(Boolean);
     var h = String(headline || "").toLowerCase();
     for (var i = 0; i < parts.length; i++) {
-      var p = parts[i].replace(/^RT\s+@[A-Za-z0-9_]+:\s*/i, "").trim();
+      var p = stripPostedThat(parts[i].replace(/^RT\s+@[A-Za-z0-9_]+:\s*/i, "").trim());
       if (!p) continue;
       if (p.toLowerCase() === h) continue;
       if (h && p.toLowerCase().indexOf(h.slice(0, Math.min(28, h.length))) === 0 && p.length < h.length + 12) continue;
@@ -3239,10 +3234,23 @@
     } catch (e) {}
   }
 
+  function parkChips() {
+    var chips = document.getElementById("chips");
+    var home = document.getElementById("chipsHome") || (chips && chips.parentElement);
+    if (chips && home && chips.parentNode !== home) home.appendChild(chips);
+  }
+
+  function placeChipsInFeed() {
+    var chips = document.getElementById("chips");
+    var slot = document.getElementById("feedChipsSlot");
+    if (chips && slot) slot.appendChild(chips);
+  }
+
   function renderTodayFeed() {
     destroyLeadScatter();
     var list = $("#feed");
     if (!list || !state.data) return;
+    parkChips();
     renderRightRail();
     renderIntelStrip();
     var live = state.data.stories || [];
@@ -3367,19 +3375,14 @@
         rankCounter = 1;
         return (
           '<li class="lead-card lead-card-opener lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
-            '<div class="rank">1</div>' +
+            hero +
             '<div class="lead-copy">' +
               '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || t("today")) + "</p>" +
               '<h2 class="lead-title"><a href="' + href + '"' + txSrc(leadHeadline) + '>' + escapeHtml(leadHeadline) + "</a></h2>" +
             "</div>" +
-            hero +
             '<div class="lead-after">' +
               (dek ? '<p class="lead-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
-              '<div class="lead-meta">' +
-                avatarStackHtml(s) +
-                '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
-              "</div>" +
-              whyHereHtml(s) +
+              (metaLine ? '<div class="lead-meta"><span class="meta-line card-views">' + escapeHtml(metaLine) + "</span></div>" : "") +
             "</div>" +
           "</li>"
         );
@@ -3390,18 +3393,13 @@
       var excerpt = uniqueDek(s, headline, 110);
       var thumb = photoThumb || (quiet ? "" : rowThumbHtml(s, key, sectionPretty));
       return (
-        '<li class="feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
-          '<div class="rank">' + rank + "</div>" +
+        '<li class="feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + (media ? " has-photo" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
+          thumb +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="' + href + '"' + txSrc(headline) + '>' + escapeHtml(headline) + "</a></h2>" +
             (excerpt ? '<p class="excerpt"' + txSrc(excerpt) + '>' + escapeHtml(excerpt) + "</p>" : "") +
-            '<div class="meta">' +
-              avatarStackHtml(s) +
-              '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
-            "</div>" +
-            whyHereHtml(s) +
+            (metaLine ? '<div class="meta"><span class="meta-line card-views">' + escapeHtml(metaLine) + "</span></div>" : "") +
           "</div>" +
-          thumb +
         "</li>"
       );
     }
@@ -3440,10 +3438,20 @@
           }
         }
       });
+      if (pulls.length < 4) {
+        items.forEach(function (s) {
+          if (pulls.length >= 5) return;
+          if (used[s.id]) return;
+          pulls.push(s);
+          used[s.id] = true;
+        });
+      }
+      if (pulls.length > 5) pulls = pulls.slice(0, 5);
       if (pulls.length) {
         html += '<li class="top-pulls-wrap" role="presentation"><ul class="top-pulls">' +
           pulls.map(renderPullCard).join("") + "</ul></li>";
       }
+      html += '<li class="feed-chips-slot" id="feedChipsSlot" role="presentation"></li>';
       var rest = items.filter(function (s) { return !used[s.id]; });
       var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "world"];
       sectionOrder.forEach(function (key) {
@@ -3481,6 +3489,7 @@
     }
 
     list.innerHTML = html;
+    if (showLead) placeChipsInFeed();
     enableCardNavigation(list);
     renderTodayDeskModules();
     mountLeadScatter();
@@ -3587,13 +3596,11 @@
       ]);
       return (
         '<li class="feed-row" ' + staggerStyle(i) + ' data-href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '" role="link" tabindex="0">' +
-          '<div class="rank">' + (i + 1) + "</div>" +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="story.html?id=' + encodeURIComponent("sigstory-" + s.id) + '"' + txSrc(title) + '>' +
               escapeHtml(title) + "</a></h2>" +
             (excerpt ? '<p class="excerpt"' + txSrc(excerpt) + '>' + escapeHtml(excerpt) + "</p>" : "") +
             '<div class="meta">' +
-              avatarStackHtml(s) +
               '<span class="' + badgeClass(s.badge) + '">' + escapeHtml((s.badge || "signal").toUpperCase()) + "</span>" +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
