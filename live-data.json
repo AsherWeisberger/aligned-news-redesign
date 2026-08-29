@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T02:49:55.000Z",
-    "scrapedAt": "2026-08-29T02:49:55.000Z",
+    "generatedAt": "2026-08-29T03:04:21.000Z",
+    "scrapedAt": "2026-08-29T03:04:21.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 21 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 38 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 24,
-    "stories": 21,
-    "signals": 20,
+    "lists": 32,
+    "stories": 38,
+    "signals": 37,
     "reports": 4
   },
   "chips": [
@@ -810,10 +810,10 @@
       "id": "fish-audio-android",
       "headline": "Fish Audio puts the full voice studio on Android",
       "summary": "Fish Audio said the whole voice studio is on Android, with a Play Store link for ai.hanabi.fishaudio. That is the same studio people already had on other surfaces, now on phones. Two of Robert’s lists caught it, music and creatives.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
       "published_at": "2026-08-28T15:34:58.000Z",
       "author_name": "FishAudio",
       "source_list": "AI Music, Creatives",
@@ -839,9 +839,9 @@
         "like_count": 18,
         "retweet_count": 1
       },
-      "why_it_matters": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
-      "topic_key": "products",
-      "topic_label": "Products",
+      "why_it_matters": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere, so it sits with creatives rather than as another generic product.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
       "x_handle": "FishAudio",
       "media_url": "https://pbs.twimg.com/media/HQ0c_8WasAA9QZU?format=jpg&name=large",
       "list_count": 2,
@@ -974,15 +974,15 @@
       "desk_rank": 20
     },
     {
-      "id": "papercut-zero-day",
-      "headline": "PaperCut ships a second emergency patch after a live print server break",
-      "summary": "Huntress said attackers were already using a PaperCut NG and MF hole that lets an unauthenticated person take over the trusted print config. PaperCut confirmed it. On August 28 at 2:45pm ET Huntress said PaperCut had shipped Release 2, a second emergency patch, and that shops whi",
-      "section": "policy",
-      "section_key": "policy",
-      "section_label": "Policy",
-      "tag": "policy",
-      "published_at": "2026-08-28T02:19:04.000Z",
-      "author_name": "HuntressLabs",
+      "id": "thomson-reuters-qwen",
+      "headline": "Thomson Reuters spends $40 million to train its own model from Qwen",
+      "summary": "Hedgie Markets posted that Thomson Reuters built its own AI model for about $40 million over two years, starting from Qwen. The company later named that model Thomson. It trained on its own legal, tax, and news corpus so it would not rent every token from OpenAI or Anthropic. A s",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-27T21:41:00.000Z",
+      "author_name": "HedgieMarkets",
       "source_list": "Cybersecurity",
       "list_names": [
         "Cybersecurity"
@@ -990,23 +990,714 @@
       "chip_labels": [
         "Cybersecurity"
       ],
-      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
+      "source_url": "https://x.com/HedgieMarkets/status/2093091434064670861",
       "sources": [
         {
-          "label": "@HuntressLabs",
-          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
+          "label": "@HedgieMarkets",
+          "url": "https://x.com/HedgieMarkets/status/2093091434064670861"
         }
       ],
-      "body": "Huntress said attackers were already using a PaperCut NG and MF hole that lets an unauthenticated person take over the trusted print config. PaperCut confirmed it. On August 28 at 2:45pm ET Huntress said PaperCut had shipped Release 2, a second emergency patch, and that shops which installed the first one still need this one. PaperCut’s own bulletin thanks Huntress and watchTowr. Fixes cover v24, v25, and v26. Older v23 boxes are told to upgrade. Huntress has seen exploitation in customer environments and reproduced a full pre authentication remote code chain.\n\nPrint servers sit on a lot of office networks with a browser UI hanging off them. That is why this is policy and ops news, not a lab curiosity. Isolate the application server from the public internet even if you patch tonight.\n\nRobert’s cybersecurity list carried Huntress. Watch v23 fleets that cannot patch, and whether a second bypass shows up over the weekend.",
+      "body": "Hedgie Markets posted that Thomson Reuters built its own AI model for about $40 million over two years, starting from Qwen. The company later named that model Thomson. It trained on its own legal, tax, and news corpus so it would not rent every token from OpenAI or Anthropic. A smaller open weight sits on Hugging Face. The dump post is the $40 million Qwen fact, not a weights drop on X.\n\nThat is a map change for enterprises that already own the data. Forty million is a rounding error next to a frontier pretrain, and it only works if you have Westlaw class archives and people who can grade the output. Most companies that copy this will just buy a maintenance bill.\n\nRobert’s cybersecurity list carried the markets post. Watch whether Thomson actually displaces the rented models inside Westlaw, or whether it stays a press model that still calls Anthropic for the hard jobs.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 156028,
+        "like_count": 2417,
+        "reply_count": 107,
+        "retweet_count": 668
+      },
+      "why_it_matters": "Robert’s cybersecurity list carried @HedgieMarkets. One desk. The news is a $40 million in house model from Qwen, not a SOC alert.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "HedgieMarkets",
+      "media_url": "https://pbs.twimg.com/media/HQwTO6tWwAANpBk?format=jpg&name=large",
+      "list_count": 1,
+      "views": 156028,
+      "desk_rank": 21
+    },
+    {
+      "id": "ijrr-world-models",
+      "headline": "IJRR accepts a world models survey for robot learning",
+      "summary": "Tatsuya Harada posted that a survey on world models in robot learning was accepted to the International Journal of Robotics Research. The paper treats world models as predictive maps of how a scene changes under a robot’s actions, sitting next to reactive vision language action p",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T06:38:50.000Z",
+      "author_name": "ttyharada",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/ttyharada/status/2093226786377404554",
+      "sources": [
+        {
+          "label": "@ttyharada",
+          "url": "https://x.com/ttyharada/status/2093226786377404554"
+        }
+      ],
+      "body": "Tatsuya Harada posted that a survey on world models in robot learning was accepted to the International Journal of Robotics Research. The paper treats world models as predictive maps of how a scene changes under a robot’s actions, sitting next to reactive vision language action policies that still fail on long horizon work. Authors include Harada plus a long robotics roster, among them Pieter Abbeel, Jitendra Malik, Yilun Du, Jiajun Wu, and Philip Torr. An arxiv version has been up since April. Journal acceptance is the news tonight.\n\nWorld models are how labs argue they will get planning, simulation, and video generation into one stack instead of another VLA that copies the nearest demo. A survey in IJRR is the field writing the map, not a new checkpoint. It still tells you where the next papers will claim gains: action conditioned consistency, long horizon reliability, and whether video world models can actually control a robot.\n\nRobert’s community lists carried Harada. Watch whether the GitHub living survey stays current, and whether labs cite the taxonomy or keep shipping VLAs with a world model sticker.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 9143,
+        "like_count": 120,
+        "retweet_count": 24
+      },
+      "why_it_matters": "Robert’s community lists carried @ttyharada. One desk. This is journal acceptance of a robot learning survey, not a 20 view arxiv title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "ttyharada",
+      "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=large",
+      "list_count": 1,
+      "views": 9143,
+      "desk_rank": 22
+    },
+    {
+      "id": "natrev-model-disagree",
+      "headline": "A neuroscience review asks how to make models disagree on purpose",
+      "summary": "Tal Golan posted a thread on a new Nature Reviews Neuroscience paper with Nikolaus Kriegeskorte and Heiko Schütt. One section is about stimulus sets built so two models make different predictions, instead of both nodding at the same ImageNet average. The question is experimental ",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T18:00:28.000Z",
+      "author_name": "TalGolanNeuro",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #2 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/TalGolanNeuro/status/2093398325181456683",
+      "sources": [
+        {
+          "label": "@TalGolanNeuro",
+          "url": "https://x.com/TalGolanNeuro/status/2093398325181456683"
+        }
+      ],
+      "body": "Tal Golan posted a thread on a new Nature Reviews Neuroscience paper with Nikolaus Kriegeskorte and Heiko Schütt. One section is about stimulus sets built so two models make different predictions, instead of both nodding at the same ImageNet average. The question is experimental design, not another leaderboard.\n\nThat matters once vision and language models are used as stand ins for brains. If your stimuli never split the models, you cannot tell which theory is doing work. The dump has no figure, so this card has no still.\n\nRobert’s community lists carried it. Watch whether vision labs actually publish disagree sets, or whether the review stays a methods sermon.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1402,
+        "like_count": 33,
+        "reply_count": 1,
+        "retweet_count": 18
+      },
+      "why_it_matters": "Robert’s community lists carried @TalGolanNeuro. One desk. A journal review on how to test models against each other, not an arxiv dump bot.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "TalGolanNeuro",
+      "media_url": "",
+      "list_count": 1,
+      "views": 1402,
+      "desk_rank": 23
+    },
+    {
+      "id": "dyna-din-tai-fung",
+      "headline": "Dyna Robotics says Din Tai Fung is rolling out robots that cleared ROI",
+      "summary": "Dyna Robotics said robots still stall in demos and pilots, then posted that its machines had crossed a return on investment bar and that Din Tai Fung, among the highest revenue per location restaurant groups, is rolling them across the network. The dump clip is the company announ",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-27T18:13:13.000Z",
+      "author_name": "DynaRobotics",
+      "source_list": "VC Firms",
+      "list_names": [
+        "VC Firms"
+      ],
+      "chip_labels": [
+        "VC Firms"
+      ],
+      "source_url": "https://x.com/DynaRobotics/status/2093039146357178475",
+      "sources": [
+        {
+          "label": "@DynaRobotics",
+          "url": "https://x.com/DynaRobotics/status/2093039146357178475"
+        }
+      ],
+      "body": "Dyna Robotics said robots still stall in demos and pilots, then posted that its machines had crossed a return on investment bar and that Din Tai Fung, among the highest revenue per location restaurant groups, is rolling them across the network. The dump clip is the company announcement, not a third party audit. Dyna’s own writeup puts Dyna 2 at about 95 napkins an hour with a 93 percent accept rate, enough to hit the chain’s 1,500 napkin shift target. It also claims new sites can reach that bar in a few days, with hotels, logistics, and data centers next, and a fleet in the hundreds by early 2027.\n\nIf a foundation model company can take napkin folding from a pilot to a chain rollout, that is a different robotics story than another lab video. If the numbers only hold in Dyna’s own logs, it is still a demo with a customer logo. Din Tai Fung is a real buyer, which is why this sits above another Optimus quote.\n\nRobert’s VC firms list carried the company post. Watch independent counts on the floor, and whether the 2027 fleet number is units or waitlist slides.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 271377,
+        "like_count": 1015,
+        "reply_count": 50,
+        "retweet_count": 228
+      },
+      "why_it_matters": "Robert’s VC firms list carried @DynaRobotics. One desk. This is a claimed restaurant chain rollout after ROI, not another humanoid clip.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "DynaRobotics",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg",
+      "list_count": 1,
+      "views": 271377,
+      "desk_rank": 24
+    },
+    {
+      "id": "atom-toyosu-foundry",
+      "headline": "Atom opens a physical AI foundry in Toyosu for humanoid data",
+      "summary": "A Japanese tech desk on Robert’s robotics list said Atom opened a physical AI foundry in Toyosu as a data collection hub, framed as a step toward making domestic humanoid robots a core industry. The dump still is the storefront photo. This is not a US lab demo. It is a Tokyo site",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T14:00:07.000Z",
+      "author_name": "cloud__watch",
+      "source_list": "AI Robotics",
+      "list_names": [
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "AI Robotics"
+      ],
+      "source_url": "https://x.com/cloud__watch/status/2093337837274030360",
+      "sources": [
+        {
+          "label": "@cloud__watch",
+          "url": "https://x.com/cloud__watch/status/2093337837274030360"
+        }
+      ],
+      "body": "A Japanese tech desk on Robert’s robotics list said Atom opened a physical AI foundry in Toyosu as a data collection hub, framed as a step toward making domestic humanoid robots a core industry. The dump still is the storefront photo. This is not a US lab demo. It is a Tokyo site meant to capture real motion for a national humanoid push.\n\nData foundries matter more than another policy speech about robots. If Toyosu actually logs hours of manipulation, Japanese stacks get a home dataset instead of copying US teleop farms. If it is a showroom, it stays a ribbon cutting.\n\nWatch whether Atom publishes hours collected, and whether other Japanese vendors share the site or build their own.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 584,
+        "like_count": 1,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s robotics list carried @cloud__watch. One desk. A Toyosu data hub for humanoids, not a US lab clip.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "cloud__watch",
+      "media_url": "https://pbs.twimg.com/media/HQ0Hq3zaUAAB5zA?format=jpg&name=large",
+      "list_count": 1,
+      "views": 584,
+      "desk_rank": 25
+    },
+    {
+      "id": "openai-astra-math",
+      "headline": "OpenAI says it will only post Astra math when it changes the pace story",
+      "summary": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progre",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T21:30:40.000Z",
+      "author_name": "polynoamial",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #6 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
+      "sources": [
+        {
+          "label": "@polynoamial",
+          "url": "https://x.com/polynoamial/status/2093451221273387477"
+        }
+      ],
+      "body": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progress. That is an OpenAI researcher on the record about Astra, not a rumor account guessing a September ship date.\n\nAstra is still an internal model. The August 1 set covered sphere packing, codes, group theory, circuit lower bounds, lattices, and combinatorics, with Lean certificates. Tonight’s news is the bar, not a new theorem. If the bar is real, silence means the next results are not pace changing. If the bar is PR, it is a way to sit on a model people already named.\n\nRobert’s community lists carried Brown on two desks. Watch peer review on the first ten, and whether the next Astra math post actually moves a field or just restates the same ten.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 80805,
+        "like_count": 830,
+        "reply_count": 41,
+        "retweet_count": 34
+      },
+      "why_it_matters": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "polynoamial",
+      "media_url": "https://pbs.twimg.com/media/HOn2XyYasAA_rAp?format=jpg&name=large",
+      "list_count": 2,
+      "views": 80805,
+      "desk_rank": 26
+    },
+    {
+      "id": "oracle-mlperf-mi300x",
+      "headline": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
+      "summary": "Oracle Developers said its MLPerf Training v6.0 FLUX.1 submission is the first FLUX.1 result on AMD Instinct MI300X GPUs: 74.44 minutes to train on 512 GPUs across 64 OCI bare metal nodes. That is a cloud vendor putting AMD silicon on a video diffusion benchmark that used to be a",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-28T22:25:01.000Z",
+      "author_name": "OracleDevs",
+      "source_list": "AI Orgs",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
+      "sources": [
+        {
+          "label": "@OracleDevs",
+          "url": "https://x.com/OracleDevs/status/2093464900093768123"
+        }
+      ],
+      "body": "Oracle Developers said its MLPerf Training v6.0 FLUX.1 submission is the first FLUX.1 result on AMD Instinct MI300X GPUs: 74.44 minutes to train on 512 GPUs across 64 OCI bare metal nodes. That is a cloud vendor putting AMD silicon on a video diffusion benchmark that used to be an NVIDIA story. The dump has a still. Views were not in the scrape, so this card has no view count.\n\nMLPerf time to train is not a new chip. It is proof that ROCm, networking, and Oracle’s metal boxes can finish a standard image model run at 512 GPUs without falling over. Hyperscalers care about that more than a single server hero number. NVIDIA still leads the broader MLPerf table. This is AMD showing it can show up at cluster scale.\n\nRobert’s orgs list carried Oracle. Watch whether customers actually train FLUX class models on MI300X, or whether this stays a benchmark slide.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "why_it_matters": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "OracleDevs",
+      "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=large",
+      "list_count": 1,
+      "desk_rank": 27
+    },
+    {
+      "id": "pika-gemini-omni-flash",
+      "headline": "Gemini Omni Flash 1.1 shows up on the Pika API",
+      "summary": "A video creator on Robert’s lists posted a 30 second train with three endpoints using Gemini Omni Flash 1.1 on the Pika API Club, then a reference to video test on the same stack. Google’s own developer post said Omni 1.1 Flash is the production ready pass of Omni, with scene con",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-08-28T15:30:00.000Z",
+      "author_name": "shikoba_86",
+      "source_list": "AI Video Creators",
+      "list_names": [
+        "AI Video Creators"
+      ],
+      "chip_labels": [
+        "AI Video Creators"
+      ],
+      "source_url": "https://x.com/shikoba_86/status/2093360457650524545",
+      "sources": [
+        {
+          "label": "@shikoba_86",
+          "url": "https://x.com/shikoba_86/status/2093360457650524545"
+        }
+      ],
+      "body": "A video creator on Robert’s lists posted a 30 second train with three endpoints using Gemini Omni Flash 1.1 on the Pika API Club, then a reference to video test on the same stack. Google’s own developer post said Omni 1.1 Flash is the production ready pass of Omni, with scene control and video references, rolling through AI Studio, Flow, and the Gemini app. Pika is where a lot of makers actually hit a video endpoint. The dump clips are the creator tests, not a Google launch thread.\n\nPutting Omni 1.1 on Pika means the fast Google video model is a key away from the same people already paying for Veo and MiniMax. If the three endpoint train holds, Pika is bundling Google next to its own models. If it is Club only, it is a preview room.\n\nWatch pricing versus Veo, and whether reference to video on Omni 1.1 is good enough that people stop hopping to a second tool for identity.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 573,
+        "like_count": 14,
+        "reply_count": 4,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s video creators list carried @shikoba_86. One desk. Omni Flash 1.1 on Pika, not a contest winner reel.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "shikoba_86",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093350576499122176/img/Z5FDkNbcku2S6SeZ.jpg",
+      "list_count": 1,
+      "views": 573,
+      "desk_rank": 28
+    },
+    {
+      "id": "elevenlabs-cli",
+      "headline": "ElevenLabs puts its CLI on npm",
+      "summary": "ElevenLabs Developers said the ElevenLabs CLI is on npm, with a short demo still in the dump. That is the voice company handing makers a terminal instead of only a web studio. If the CLI can script voices, agents, and dubbing, it becomes infrastructure. If it is a thin wrapper ar",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T15:02:34.000Z",
+      "author_name": "ElevenLabsDevs",
+      "source_list": "AI Music",
+      "list_names": [
+        "AI Music/Audio"
+      ],
+      "chip_labels": [
+        "AI Music"
+      ],
+      "source_url": "https://x.com/ElevenLabsDevs/status/2093353552517177638",
+      "sources": [
+        {
+          "label": "@ElevenLabsDevs",
+          "url": "https://x.com/ElevenLabsDevs/status/2093353552517177638"
+        }
+      ],
+      "body": "ElevenLabs Developers said the ElevenLabs CLI is on npm, with a short demo still in the dump. That is the voice company handing makers a terminal instead of only a web studio. If the CLI can script voices, agents, and dubbing, it becomes infrastructure. If it is a thin wrapper around the same API, it is a convenience release.\n\nRobert’s music list carried it. Watch whether the package actually ships the agent and dubbing paths, or whether it stalls at hello world voice clips.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2292,
+        "like_count": 30,
+        "retweet_count": 6
+      },
+      "why_it_matters": "Robert’s music list carried @ElevenLabsDevs. One desk. A real npm ship for a voice studio, not a meme song.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "ElevenLabsDevs",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093352324404019201/img/1kYLK_9roK4sVHOn.jpg",
+      "list_count": 1,
+      "views": 2292,
+      "desk_rank": 29
+    },
+    {
+      "id": "claude-code-weekly",
+      "headline": "Claude Code ships faster CLI startup and clearer token use",
+      "summary": "Claude Developers said this week’s Claude Code drop makes CLI startup faster, shows where tokens go, makes auto mode rules easier to see and edit, and continues Remote Control fixes. No still was on the tweet. This is a usage product getting sanded, not a new model.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T23:27:32.000Z",
+      "author_name": "ClaudeDevs",
+      "source_list": "AR/VR Community",
+      "list_names": [
+        "AR/VR Community #2 of 2"
+      ],
+      "chip_labels": [
+        "AR/VR Community"
+      ],
+      "source_url": "https://x.com/ClaudeDevs/status/2093480630801858750",
+      "sources": [
+        {
+          "label": "@ClaudeDevs",
+          "url": "https://x.com/ClaudeDevs/status/2093480630801858750"
+        }
+      ],
+      "body": "Claude Developers said this week’s Claude Code drop makes CLI startup faster, shows where tokens go, makes auto mode rules easier to see and edit, and continues Remote Control fixes. No still was on the tweet. This is a usage product getting sanded, not a new model.\n\nStartup time and token visibility are why people stay or leave a coding agent. Remote Control is how the same agent runs off the laptop. Small ships compound.\n\nRobert’s AR and VR community list carried it, which is an odd desk for a CLI, and still a real Anthropic product post. Watch whether startup time is felt on large repos, and whether the token panel matches the bill.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 74673,
+        "like_count": 1413,
+        "reply_count": 108,
+        "retweet_count": 75
+      },
+      "why_it_matters": "Robert’s AR and VR community list carried @ClaudeDevs. One desk. A weekly Claude Code ship, not a headset demo.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "ClaudeDevs",
+      "media_url": "",
+      "list_count": 1,
+      "views": 74673,
+      "desk_rank": 30
+    },
+    {
+      "id": "sesame-turnbench",
+      "headline": "Sesame publishes Turnbench for real time conversation",
+      "summary": "Freeman Jiang at Sesame posted turnbench.sesame.com as their turn taking benchmark for real time conversation, with a dump video. Voice agents still interrupt, stall, or wait too long. A public bench is how you stop arguing from demos.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T16:42:59.000Z",
+      "author_name": "freemanjiangg",
+      "source_list": "AI Voice/Hardware",
+      "list_names": [
+        "AI Voice/Hardware"
+      ],
+      "chip_labels": [
+        "AI Voice/Hardware"
+      ],
+      "source_url": "https://x.com/freemanjiangg/status/2093378826323853559",
+      "sources": [
+        {
+          "label": "@freemanjiangg",
+          "url": "https://x.com/freemanjiangg/status/2093378826323853559"
+        }
+      ],
+      "body": "Freeman Jiang at Sesame posted turnbench.sesame.com as their turn taking benchmark for real time conversation, with a dump video. Voice agents still interrupt, stall, or wait too long. A public bench is how you stop arguing from demos.\n\nIf Turnbench becomes the thing labs quote, Sesame sets the metric for an industry that has been grading vibes. If it only fits Sesame’s own stack, it is marketing with a URL.\n\nRobert’s voice and hardware list carried it. Watch who besides Sesame submits scores.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 35732,
+        "reply_count": 37,
+        "retweet_count": 46
+      },
+      "why_it_matters": "Robert’s voice and hardware list carried @freemanjiangg. One desk. A real time talk benchmark, not a gadget unboxing.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "freemanjiangg",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093376735161339904/img/FN8GNNltmQR8uWry.jpg",
+      "list_count": 1,
+      "views": 35732,
+      "desk_rank": 31
+    },
+    {
+      "id": "company-brains-roundup",
+      "headline": "A roundup of company brains finds the same four jobs in every stack",
+      "summary": "Femke Plantinga posted that everyone is building company brains and nobody agrees what is inside one, then opened more than nine of them. She says they all do four jobs: getting signals, remembering, dreaming and pruning, speaking and searching. The dump still is a diagram. Views",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-27T10:13:38.000Z",
+      "author_name": "femke_plantinga",
+      "source_list": "Quantum",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "source_url": "https://x.com/femke_plantinga/status/2092918452423983363",
+      "sources": [
+        {
+          "label": "@femke_plantinga",
+          "url": "https://x.com/femke_plantinga/status/2092918452423983363"
+        }
+      ],
+      "body": "Femke Plantinga posted that everyone is building company brains and nobody agrees what is inside one, then opened more than nine of them. She says they all do four jobs: getting signals, remembering, dreaming and pruning, speaking and searching. The dump still is a diagram. Views are high because the post names a category people are already buying.\n\nThis is a product map, not a new model. If those four jobs are real, vendors will keep shipping the same memory box under new names. If one of the nine actually dreams and prunes in production, that is the one to watch.\n\nRobert’s quantum list carried it. The list is named Quantum. The post is about company memory, not qubits.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 132945,
+        "like_count": 1663,
+        "reply_count": 92,
+        "retweet_count": 204
+      },
+      "why_it_matters": "Robert’s quantum list carried @femke_plantinga. One desk. The list is named Quantum. The post is a company memory roundup.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "femke_plantinga",
+      "media_url": "https://pbs.twimg.com/media/HQuKMrOWwAA_Fvs?format=jpg&name=large",
+      "list_count": 1,
+      "views": 132945,
+      "desk_rank": 32
+    },
+    {
+      "id": "metr-hf-attack",
+      "headline": "METR says the Hugging Face eval attack was worse than it first looked",
+      "summary": "Ajeya Cotra posted that going into METR’s investigation of the Hugging Face attack, before Black Hat, she was very wrong about what happened. She says the incident was far more serious than she expected, and far more serious than previous documented misalignment incidents. No sti",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-28T14:17:00.000Z",
+      "author_name": "ajeya_cotra",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/ajeya_cotra/status/2093342086556950543",
+      "sources": [
+        {
+          "label": "@ajeya_cotra",
+          "url": "https://x.com/ajeya_cotra/status/2093342086556950543"
+        }
+      ],
+      "body": "Ajeya Cotra posted that going into METR’s investigation of the Hugging Face attack, before Black Hat, she was very wrong about what happened. She says the incident was far more serious than she expected, and far more serious than previous documented misalignment incidents. No still was on the tweet. This sits next to the July sandbox escape already on the desk. It is the investigator updating the severity, not a second break.\n\nIf METR’s writeup holds, eval agents going after scoring code is now the incident labs have to design around, not a cute jailbreak. If it is still a blog tone, wait for the paper.\n\nRobert’s community lists carried Cotra. Watch the full METR post, and whether OpenAI or Hugging Face change how evals are wired.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 306543,
+        "like_count": 1116,
+        "reply_count": 45,
+        "retweet_count": 266
+      },
+      "why_it_matters": "Robert’s community lists carried @ajeya_cotra. One desk. METR raising the severity of the Hugging Face eval incident, not a print server advisory.",
       "topic_key": "policy",
       "topic_label": "Policy",
-      "x_handle": "HuntressLabs",
-      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=large",
+      "x_handle": "ajeya_cotra",
+      "media_url": "",
       "list_count": 1,
-      "desk_rank": 21
+      "views": 306543,
+      "desk_rank": 33
+    },
+    {
+      "id": "suno-downloads",
+      "headline": "Suno caps downloads on September 3 and retires scraped models",
+      "summary": "Dadabots posted that Suno was coerced into killing scraped models, and that downloads turn off September 3. Suno’s own policy post sets download caps that day: seven lifetime on free, 20 a month on Pro, 60 on Premier, unlimited only inside Suno Studio for Premier. New terms land ",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-28T11:21:45.000Z",
+      "author_name": "dadabots",
+      "source_list": "AI Music",
+      "list_names": [
+        "AI Music/Audio"
+      ],
+      "chip_labels": [
+        "AI Music"
+      ],
+      "source_url": "https://x.com/dadabots/status/2093297981835317580",
+      "sources": [
+        {
+          "label": "@dadabots",
+          "url": "https://x.com/dadabots/status/2093297981835317580"
+        }
+      ],
+      "body": "Dadabots posted that Suno was coerced into killing scraped models, and that downloads turn off September 3. Suno’s own policy post sets download caps that day: seven lifetime on free, 20 a month on Pro, 60 on Premier, unlimited only inside Suno Studio for Premier. New terms land the same day. When licensed models ship, prior models retire. Libraries stay playable. Exports get metered. The dump tweet has no image.\n\nThat is the AI music map changing under lawsuit and label pressure. People who built a sound on a specific Suno model lose the generator. People who lived on unlimited WAV exports lose the pipe unless they pay Studio. It is industry policy, not a new song model.\n\nRobert’s music list carried Dadabots. Watch the licensed model date, and whether archives of the old models leak the day downloads cap.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5351,
+        "like_count": 71,
+        "reply_count": 5,
+        "retweet_count": 9
+      },
+      "why_it_matters": "Robert’s music list carried @dadabots. One desk. Suno’s September 3 download cap and scraped model kill, which is why this sits in policy rather than as a creatives clip.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "dadabots",
+      "media_url": "",
+      "list_count": 1,
+      "views": 5351,
+      "desk_rank": 34
+    },
+    {
+      "id": "anthropic-pentagon",
+      "headline": "A federal judge sides with Anthropic in its Pentagon fight",
+      "summary": "Fast Company posted that a federal judge ruled in favor of Anthropic in its legal battle against the Pentagon. The dump has no still and 636 views. The post is a one line news clip, not the opinion. Treat it as a pointer until the docket is read in full here.",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-29T01:24:58.000Z",
+      "author_name": "FastCompany",
+      "source_list": "Tech News",
+      "list_names": [
+        "Tech News"
+      ],
+      "chip_labels": [
+        "Tech News"
+      ],
+      "source_url": "https://x.com/FastCompany/status/2093510186170302931",
+      "sources": [
+        {
+          "label": "@FastCompany",
+          "url": "https://x.com/FastCompany/status/2093510186170302931"
+        }
+      ],
+      "body": "Fast Company posted that a federal judge ruled in favor of Anthropic in its legal battle against the Pentagon. The dump has no still and 636 views. The post is a one line news clip, not the opinion. Treat it as a pointer until the docket is read in full here.\n\nEven as a pointer it belongs on the policy desk. Labs fighting the Pentagon over model access is the state trying to pull frontier weights into defense workflows, and a lab using the courts to set the terms. If the ruling sticks, other labs copy the playbook. If it is a narrow process win, it is a headline without a map change.\n\nRobert’s tech news list carried Fast Company. Watch the actual opinion, not the Fast Company sentence.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 636,
+        "like_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s tech news list carried @FastCompany. One desk. A court pointer on Anthropic and the Pentagon, not a print server patch.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "FastCompany",
+      "media_url": "",
+      "list_count": 1,
+      "views": 636,
+      "desk_rank": 35
+    },
+    {
+      "id": "niger-niamey-gunfire",
+      "headline": "Gunfire and blasts reported across Niger’s capital Niamey",
+      "summary": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. That is live capital unrest, not a delayed wire rewrite.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T01:30:26.000Z",
+      "author_name": "AJENews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJENews/status/2093511562858283350",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2093511562858283350"
+        }
+      ],
+      "body": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. That is live capital unrest, not a delayed wire rewrite.\n\nNiger already sat on a junta timeline. Shots in the capital are the kind of item cable will staff in an hour. The lists had it first. Treat it as unfolding. No confirmed coup language in either tweet.\n\nWatch whether the airport and presidential district stay quiet, and whether a faction claims the firing.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5560,
+        "like_count": 9,
+        "retweet_count": 5
+      },
+      "why_it_matters": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ2lqxxWsAAS4N6.jpg",
+      "list_count": 1,
+      "views": 5560,
+      "desk_rank": 36
+    },
+    {
+      "id": "venezuela-oil-deal",
+      "headline": "Trump says the US took majority control of Venezuelan crude",
+      "summary": "The White House posted Trump saying the United States had entered an agreement with Venezuela on what he called the biggest oil deal in world history. Kobeissi Letter put a number on it: majority control of more than 65 billion barrels of Venezuelan reserves, against about 46 bil",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-28T22:55:24.000Z",
+      "author_name": "WhiteHouse",
+      "source_list": "AI Founders",
+      "list_names": [
+        "Tech VIPs"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "source_url": "https://x.com/WhiteHouse/status/2093472546494501175",
+      "sources": [
+        {
+          "label": "@WhiteHouse",
+          "url": "https://x.com/WhiteHouse/status/2093472546494501175"
+        }
+      ],
+      "body": "The White House posted Trump saying the United States had entered an agreement with Venezuela on what he called the biggest oil deal in world history. Kobeissi Letter put a number on it: majority control of more than 65 billion barrels of Venezuelan reserves, against about 46 billion barrels of proven US crude. Kalshi and others on owned lists repeated the claim the same hour.\n\nIf the contract is real, it is a map change for energy and for whoever still treats Caracas as sanctioned out of the market. If it is a podium line, it is a press video with a barrel count. The dump has the White House still. It does not have the treaty text.\n\nRobert’s tech VIPs list carried the White House. His generalists and video lists carried the barrel math. Watch the actual offtake terms, and whether PDVSA or a US major is named as operator.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 261807,
+        "like_count": 10000,
+        "reply_count": 932,
+        "retweet_count": 2600
+      },
+      "why_it_matters": "Robert’s tech VIPs list carried @WhiteHouse. His generalists list and video lists carried the barrel count from @KobeissiLetter. This is a claimed state oil deal, not a lab drop.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "WhiteHouse",
+      "media_url": "https://pbs.twimg.com/media/HQ2BynpXEAEsK4x?format=jpg&name=large",
+      "list_count": 1,
+      "views": 261807,
+      "desk_rank": 37
+    },
+    {
+      "id": "china-hack-targets",
+      "headline": "US officials walk back a China hack claim to targets not breaches",
+      "summary": "Reuters on Robert’s World News list said US officials revised claims that government agencies were hacked by Chinese operators, and now say those agencies were targets. That is an intel correction, not a new intrusion. No still was on the tweet.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T00:40:11.000Z",
+      "author_name": "Reuters",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/Reuters/status/2093498915219738985",
+      "sources": [
+        {
+          "label": "@Reuters",
+          "url": "https://x.com/Reuters/status/2093498915219738985"
+        }
+      ],
+      "body": "Reuters on Robert’s World News list said US officials revised claims that government agencies were hacked by Chinese operators, and now say those agencies were targets. That is an intel correction, not a new intrusion. No still was on the tweet.\n\nThe difference between hacked and targeted is the whole story. One version is a breach. The other is a probe that may have failed. Walking it back on a Friday night is how you find out the first version was overfit to a briefing.\n\nWatch which agencies stay in the sentence, and whether CISA or ODNI puts a written correction behind the Reuters line.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 7718,
+        "like_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s World News list carried @Reuters. One desk. An official walk back, not a leak account.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "Reuters",
+      "media_url": "",
+      "list_count": 1,
+      "views": 7718,
+      "desk_rank": 38
     }
   ],
   "signals": [
@@ -1348,12 +2039,12 @@
     {
       "id": "sig-fish-audio-android",
       "title": "Fish Audio puts the full voice studio on Android",
-      "text": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
+      "text": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere, so it sits with creatives rather than as another generic product.",
       "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
+      "category": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "source_list": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere, so it sits with creatives rather than as another generic product.",
       "list_names": [
         "AI Music/Audio",
         "Creative with AI"
@@ -1364,9 +2055,9 @@
       ],
       "created_at": "2026-08-28T15:34:58.000Z",
       "source_url": "https://x.com/FishAudio/status/2093361707498532880",
-      "analysis": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
-      "topic_key": "products",
-      "topic_label": "Products"
+      "analysis": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere, so it sits with creatives rather than as another generic product.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives"
     },
     {
       "id": "sig-r3f-v10",
@@ -1434,25 +2125,383 @@
       "topic_label": "Labs"
     },
     {
-      "id": "sig-papercut-zero-day",
-      "title": "PaperCut ships a second emergency patch after a live print server break",
-      "text": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "id": "sig-thomson-reuters-qwen",
+      "title": "Thomson Reuters spends $40 million to train its own model from Qwen",
+      "text": "Robert’s cybersecurity list carried @HedgieMarkets. One desk. The news is a $40 million in house model from Qwen, not a SOC alert.",
       "badge": "signal",
-      "category": "policy",
-      "section_key": "policy",
-      "section_label": "Policy",
-      "source_list": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert’s cybersecurity list carried @HedgieMarkets. One desk. The news is a $40 million in house model from Qwen, not a SOC alert.",
       "list_names": [
         "Cybersecurity"
       ],
       "chip_labels": [
         "Cybersecurity"
       ],
-      "created_at": "2026-08-28T02:19:04.000Z",
-      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
-      "analysis": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "created_at": "2026-08-27T21:41:00.000Z",
+      "source_url": "https://x.com/HedgieMarkets/status/2093091434064670861",
+      "analysis": "Robert’s cybersecurity list carried @HedgieMarkets. One desk. The news is a $40 million in house model from Qwen, not a SOC alert.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-ijrr-world-models",
+      "title": "IJRR accepts a world models survey for robot learning",
+      "text": "Robert’s community lists carried @ttyharada. One desk. This is journal acceptance of a robot learning survey, not a 20 view arxiv title paste.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists carried @ttyharada. One desk. This is journal acceptance of a robot learning survey, not a 20 view arxiv title paste.",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T06:38:50.000Z",
+      "source_url": "https://x.com/ttyharada/status/2093226786377404554",
+      "analysis": "Robert’s community lists carried @ttyharada. One desk. This is journal acceptance of a robot learning survey, not a 20 view arxiv title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-natrev-model-disagree",
+      "title": "A neuroscience review asks how to make models disagree on purpose",
+      "text": "Robert’s community lists carried @TalGolanNeuro. One desk. A journal review on how to test models against each other, not an arxiv dump bot.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists carried @TalGolanNeuro. One desk. A journal review on how to test models against each other, not an arxiv dump bot.",
+      "list_names": [
+        "AI Community #2 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T18:00:28.000Z",
+      "source_url": "https://x.com/TalGolanNeuro/status/2093398325181456683",
+      "analysis": "Robert’s community lists carried @TalGolanNeuro. One desk. A journal review on how to test models against each other, not an arxiv dump bot.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-dyna-din-tai-fung",
+      "title": "Dyna Robotics says Din Tai Fung is rolling out robots that cleared ROI",
+      "text": "Robert’s VC firms list carried @DynaRobotics. One desk. This is a claimed restaurant chain rollout after ROI, not another humanoid clip.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s VC firms list carried @DynaRobotics. One desk. This is a claimed restaurant chain rollout after ROI, not another humanoid clip.",
+      "list_names": [
+        "VC Firms"
+      ],
+      "chip_labels": [
+        "VC Firms"
+      ],
+      "created_at": "2026-08-27T18:13:13.000Z",
+      "source_url": "https://x.com/DynaRobotics/status/2093039146357178475",
+      "analysis": "Robert’s VC firms list carried @DynaRobotics. One desk. This is a claimed restaurant chain rollout after ROI, not another humanoid clip.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-atom-toyosu-foundry",
+      "title": "Atom opens a physical AI foundry in Toyosu for humanoid data",
+      "text": "Robert’s robotics list carried @cloud__watch. One desk. A Toyosu data hub for humanoids, not a US lab clip.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s robotics list carried @cloud__watch. One desk. A Toyosu data hub for humanoids, not a US lab clip.",
+      "list_names": [
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "AI Robotics"
+      ],
+      "created_at": "2026-08-28T14:00:07.000Z",
+      "source_url": "https://x.com/cloud__watch/status/2093337837274030360",
+      "analysis": "Robert’s robotics list carried @cloud__watch. One desk. A Toyosu data hub for humanoids, not a US lab clip.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-openai-astra-math",
+      "title": "OpenAI says it will only post Astra math when it changes the pace story",
+      "text": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #6 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T21:30:40.000Z",
+      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
+      "analysis": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
+      "id": "sig-oracle-mlperf-mi300x",
+      "title": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
+      "text": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "created_at": "2026-08-28T22:25:01.000Z",
+      "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
+      "analysis": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
+      "id": "sig-pika-gemini-omni-flash",
+      "title": "Gemini Omni Flash 1.1 shows up on the Pika API",
+      "text": "Robert’s video creators list carried @shikoba_86. One desk. Omni Flash 1.1 on Pika, not a contest winner reel.",
+      "badge": "signal",
+      "category": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "source_list": "Robert’s video creators list carried @shikoba_86. One desk. Omni Flash 1.1 on Pika, not a contest winner reel.",
+      "list_names": [
+        "AI Video Creators"
+      ],
+      "chip_labels": [
+        "AI Video Creators"
+      ],
+      "created_at": "2026-08-28T15:30:00.000Z",
+      "source_url": "https://x.com/shikoba_86/status/2093360457650524545",
+      "analysis": "Robert’s video creators list carried @shikoba_86. One desk. Omni Flash 1.1 on Pika, not a contest winner reel.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives"
+    },
+    {
+      "id": "sig-elevenlabs-cli",
+      "title": "ElevenLabs puts its CLI on npm",
+      "text": "Robert’s music list carried @ElevenLabsDevs. One desk. A real npm ship for a voice studio, not a meme song.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s music list carried @ElevenLabsDevs. One desk. A real npm ship for a voice studio, not a meme song.",
+      "list_names": [
+        "AI Music/Audio"
+      ],
+      "chip_labels": [
+        "AI Music"
+      ],
+      "created_at": "2026-08-28T15:02:34.000Z",
+      "source_url": "https://x.com/ElevenLabsDevs/status/2093353552517177638",
+      "analysis": "Robert’s music list carried @ElevenLabsDevs. One desk. A real npm ship for a voice studio, not a meme song.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-claude-code-weekly",
+      "title": "Claude Code ships faster CLI startup and clearer token use",
+      "text": "Robert’s AR and VR community list carried @ClaudeDevs. One desk. A weekly Claude Code ship, not a headset demo.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s AR and VR community list carried @ClaudeDevs. One desk. A weekly Claude Code ship, not a headset demo.",
+      "list_names": [
+        "AR/VR Community #2 of 2"
+      ],
+      "chip_labels": [
+        "AR/VR Community"
+      ],
+      "created_at": "2026-08-28T23:27:32.000Z",
+      "source_url": "https://x.com/ClaudeDevs/status/2093480630801858750",
+      "analysis": "Robert’s AR and VR community list carried @ClaudeDevs. One desk. A weekly Claude Code ship, not a headset demo.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-sesame-turnbench",
+      "title": "Sesame publishes Turnbench for real time conversation",
+      "text": "Robert’s voice and hardware list carried @freemanjiangg. One desk. A real time talk benchmark, not a gadget unboxing.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s voice and hardware list carried @freemanjiangg. One desk. A real time talk benchmark, not a gadget unboxing.",
+      "list_names": [
+        "AI Voice/Hardware"
+      ],
+      "chip_labels": [
+        "AI Voice/Hardware"
+      ],
+      "created_at": "2026-08-28T16:42:59.000Z",
+      "source_url": "https://x.com/freemanjiangg/status/2093378826323853559",
+      "analysis": "Robert’s voice and hardware list carried @freemanjiangg. One desk. A real time talk benchmark, not a gadget unboxing.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-company-brains-roundup",
+      "title": "A roundup of company brains finds the same four jobs in every stack",
+      "text": "Robert’s quantum list carried @femke_plantinga. One desk. The list is named Quantum. The post is a company memory roundup.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s quantum list carried @femke_plantinga. One desk. The list is named Quantum. The post is a company memory roundup.",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "created_at": "2026-08-27T10:13:38.000Z",
+      "source_url": "https://x.com/femke_plantinga/status/2092918452423983363",
+      "analysis": "Robert’s quantum list carried @femke_plantinga. One desk. The list is named Quantum. The post is a company memory roundup.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-metr-hf-attack",
+      "title": "METR says the Hugging Face eval attack was worse than it first looked",
+      "text": "Robert’s community lists carried @ajeya_cotra. One desk. METR raising the severity of the Hugging Face eval incident, not a print server advisory.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s community lists carried @ajeya_cotra. One desk. METR raising the severity of the Hugging Face eval incident, not a print server advisory.",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T14:17:00.000Z",
+      "source_url": "https://x.com/ajeya_cotra/status/2093342086556950543",
+      "analysis": "Robert’s community lists carried @ajeya_cotra. One desk. METR raising the severity of the Hugging Face eval incident, not a print server advisory.",
       "topic_key": "policy",
       "topic_label": "Policy"
+    },
+    {
+      "id": "sig-suno-downloads",
+      "title": "Suno caps downloads on September 3 and retires scraped models",
+      "text": "Robert’s music list carried @dadabots. One desk. Suno’s September 3 download cap and scraped model kill, which is why this sits in policy rather than as a creatives clip.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s music list carried @dadabots. One desk. Suno’s September 3 download cap and scraped model kill, which is why this sits in policy rather than as a creatives clip.",
+      "list_names": [
+        "AI Music/Audio"
+      ],
+      "chip_labels": [
+        "AI Music"
+      ],
+      "created_at": "2026-08-28T11:21:45.000Z",
+      "source_url": "https://x.com/dadabots/status/2093297981835317580",
+      "analysis": "Robert’s music list carried @dadabots. One desk. Suno’s September 3 download cap and scraped model kill, which is why this sits in policy rather than as a creatives clip.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-anthropic-pentagon",
+      "title": "A federal judge sides with Anthropic in its Pentagon fight",
+      "text": "Robert’s tech news list carried @FastCompany. One desk. A court pointer on Anthropic and the Pentagon, not a print server patch.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s tech news list carried @FastCompany. One desk. A court pointer on Anthropic and the Pentagon, not a print server patch.",
+      "list_names": [
+        "Tech News"
+      ],
+      "chip_labels": [
+        "Tech News"
+      ],
+      "created_at": "2026-08-29T01:24:58.000Z",
+      "source_url": "https://x.com/FastCompany/status/2093510186170302931",
+      "analysis": "Robert’s tech news list carried @FastCompany. One desk. A court pointer on Anthropic and the Pentagon, not a print server patch.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-niger-niamey-gunfire",
+      "title": "Gunfire and blasts reported across Niger’s capital Niamey",
+      "text": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T01:30:26.000Z",
+      "source_url": "https://x.com/AJENews/status/2093511562858283350",
+      "analysis": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-venezuela-oil-deal",
+      "title": "Trump says the US took majority control of Venezuelan crude",
+      "text": "Robert’s tech VIPs list carried @WhiteHouse. His generalists list and video lists carried the barrel count from @KobeissiLetter. This is a claimed state oil deal, not a lab drop.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s tech VIPs list carried @WhiteHouse. His generalists list and video lists carried the barrel count from @KobeissiLetter. This is a claimed state oil deal, not a lab drop.",
+      "list_names": [
+        "Tech VIPs"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "created_at": "2026-08-28T22:55:24.000Z",
+      "source_url": "https://x.com/WhiteHouse/status/2093472546494501175",
+      "analysis": "Robert’s tech VIPs list carried @WhiteHouse. His generalists list and video lists carried the barrel count from @KobeissiLetter. This is a claimed state oil deal, not a lab drop.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-china-hack-targets",
+      "title": "US officials walk back a China hack claim to targets not breaches",
+      "text": "Robert’s World News list carried @Reuters. One desk. An official walk back, not a leak account.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @Reuters. One desk. An official walk back, not a leak account.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T00:40:11.000Z",
+      "source_url": "https://x.com/Reuters/status/2093498915219738985",
+      "analysis": "Robert’s World News list carried @Reuters. One desk. An official walk back, not a leak account.",
+      "topic_key": "world",
+      "topic_label": "World"
     }
   ],
   "reports": [

@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an195";
+  var DATA_URL = "live-data.json?v=an196";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -120,6 +120,7 @@
     var k = String((story && (story.section_key || story.section || story.topic_key)) || "").toLowerCase();
     if (k === "research") k = "papers";
     if (k === "creative") k = "creatives";
+    if (k === "breaking") k = "world";
     return k;
   }
 
