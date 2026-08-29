@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an180";
+  var DATA_URL = "live-data.json?v=an181";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3279,27 +3279,24 @@
     function pickLeadInGroup(items) {
       if (!showLead || !items || !items.length) return items;
       var bestIdx = -1;
-      var best = -1e9;
-      for (var bi = 0; bi < Math.min(items.length, 40); bi++) {
+      var bestWhen = -1;
+      for (var bi = 0; bi < items.length; bi++) {
         var cand = items[bi];
         if (isEventItem(cand) || isSideDeskItem(cand)) continue;
         if (!isAiRelevant(cand)) continue;
         if (isHotTakeItem(cand)) continue;
+        var hay = String(cand.body || cand.summary || cand.headline || "");
+        if (/arxiv\.org\/(abs|pdf)|papers\.app\.nz/i.test(hay)) continue;
+        var sec = String(cand.section_key || cand.section || cand.topic_key || "").toLowerCase();
+        if (!/^(models|products|labs|chips)$/.test(sec)) continue;
         if (/scoble\s*:-?\)|scoble smile/i.test(String(cand.headline || cand.title || ""))) continue;
         var leadTitle = String(cand.headline || cand.title || "");
         if (/\bsingularity\b/i.test(leadTitle) && /researchers|theoretical result/i.test(leadTitle)) continue;
-        var rs = relevanceScore(cand);
-        if (rs < 8) continue;
         var when = Date.parse(storyTimeIso(cand) || 0);
-        var ageH = when ? (Date.now() - when) / 36e5 : 999;
+        if (!when) continue;
+        var ageH = (Date.now() - when) / 36e5;
         if (ageH > 36) continue;
-        var score = rs * 2 + Math.max(0, 400 - ageH * 10);
-        if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180;
-        var candMedia = storyMediaUrl(cand);
-        if (candMedia && !isAvatarMedia(candMedia)) score += 40;
-        if (Number(cand.list_count || 0) >= 2) score += 80;
-        if (isHardNewsItem(cand)) score += 90;
-        if (score > best) { best = score; bestIdx = bi; }
+        if (when > bestWhen) { bestWhen = when; bestIdx = bi; }
       }
       if (bestIdx < 0) {
         for (var bj = 0; bj < items.length; bj++) {
@@ -3393,6 +3390,15 @@
         return Number(b.list_count || 0) - Number(a.list_count || 0);
       });
       items = pickLeadInGroup(items);
+      if (items.length) {
+        var leadItem = items[0];
+        var restRanked = items.slice(1).sort(function (a, b) {
+          var lc = Number(b.list_count || 0) - Number(a.list_count || 0);
+          if (lc) return lc;
+          return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+        });
+        items = [leadItem].concat(restRanked);
+      }
       html +=
         '<li class="feed-day-head" role="presentation">' +
           '<h2 class="feed-day-label">' + t("today") + "</h2>" +

@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T01:31:22.000Z",
-    "scrapedAt": "2026-08-29T01:31:22.000Z",
+    "generatedAt": "2026-08-29T01:43:04.000Z",
+    "scrapedAt": "2026-08-29T01:43:04.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "Chrome lists, 971 posts, 25 news-worthy, 0 multi-list, 846 with counts",
+    "note": "Chrome lists, 1031 posts, 23 news-worthy, 5 multi-list, 906 with counts",
     "rssLastBuildDate": "",
     "rssItemCount": 161,
     "rssKeptCount": 161,
@@ -155,40 +155,8 @@
   ],
   "stories": [
     {
-      "id": "x-2093506628993564748",
-      "headline": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms Andrea Di Nezza, Mihir Patel,…",
-      "summary": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms Andrea Di Nezza, Mihir Patel, Fabio Fagnani, Sara Bernardini https:// arxiv.org/abs/2608.24585 [𝚌𝚜.𝙰𝙸]",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-29T01:10:50.000Z",
-      "author_name": "SciFi",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/SciFi/status/2093506628993564748",
-      "sources": [
-        {
-          "label": "@SciFi",
-          "url": "https://x.com/SciFi/status/2093506628993564748"
-        }
-      ],
-      "body": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms\n\nAndrea Di Nezza, Mihir Patel, Fabio Fagnani, Sara Bernardini\n\nhttps://\narxiv.org/abs/2608.24585 [𝚌𝚜.𝙰𝙸]",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 7
-      },
-      "why_it_matters": "@SciFi · AI Orgs & Events",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "SciFi",
-      "media_url": "https://pbs.twimg.com/media/HQ2hL2wW0AAn44i?format=png&name=small",
-      "list_count": 1,
-      "views": 7,
-      "desk_rank": 1
-    },
-    {
       "id": "x-2093506470449156193",
-      "headline": "Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup",
+      "headline": "Open-weight FastH3 generates 15 seconds of video in 13 seconds",
       "summary": "45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3. Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup. Big shoutout to the folks at @fal and @isidentical for helping us run an eval against H3. As ",
       "section": "models",
       "section_key": "models",
@@ -211,82 +179,123 @@
         "like_count": 2,
         "retweet_count": 1
       },
-      "why_it_matters": "@haoailab · AI Orgs & Events",
+      "why_it_matters": "@haoailab · AI Orgs & Events. 45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "haoailab",
       "media_url": "https://pbs.twimg.com/media/HQ2e0ilbEAAsyTa?format=jpg&name=small",
       "list_count": 1,
       "views": 24,
+      "desk_rank": 1
+    },
+    {
+      "id": "x-2093465891191042057",
+      "headline": "Microducks sold $2.5 million of robots in the first day",
+      "summary": "We sold over $2,500,000 worth of Microducks in the first 24 hours. Is this one of the most successful robot launches in history? Insane achievement by @antoinepirrone and the team!",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T22:28:57.000Z",
+      "author_name": "RemiFabreRobot",
+      "source_list": "AI Robotics, AI Founders #2 of 3, AI Vehicles",
+      "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
+      "sources": [
+        {
+          "label": "@RemiFabreRobot",
+          "url": "https://x.com/RemiFabreRobot/status/2093465891191042057"
+        }
+      ],
+      "body": "We sold over $2,500,000 worth of Microducks in the first 24 hours. Is this one of the most successful robot launches in history?\n\nInsane achievement by \n@antoinepirrone\n and the team!",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 13736,
+        "like_count": 404,
+        "reply_count": 24,
+        "retweet_count": 34
+      },
+      "why_it_matters": "@RemiFabreRobot on AI Robotics, AI Founders #2 of 3, AI Vehicles. We sold over $2,500,000 worth of Microducks in the first 24 hours.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "RemiFabreRobot",
+      "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=small",
+      "list_count": 3,
+      "views": 13736,
       "desk_rank": 2
     },
     {
-      "id": "x-2093497252534780396",
-      "headline": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics Zihang Wang, Jianming Hu, Shang Su, Hao…",
-      "summary": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics Zihang Wang, Jianming Hu, Shang Su, Hao Huang, Mengkai Shi, Jun Gao, Shuo Feng https:// arxiv.org/abs/2608.26766 [𝚌𝚜.𝚁𝙾]",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-29T00:33:34.000Z",
-      "author_name": "OWW",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/OWW/status/2093497252534780396",
+      "id": "x-2093491572083949972",
+      "headline": "Databricks serves GLM-5.3 on day zero",
+      "summary": "GLM 5.3 is available as a day 0 release on Databricks! GLM 5.3 is the smartest open-weight model available today and joins GLM 5.3 Flash and 30+ open-source and frontier models available natively on Databricks. We host GLM 5.3 on secure GPU",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-29T00:11:00.000Z",
+      "author_name": "databricks",
+      "source_list": "AI Companies #1 of 2, AI Enterprise or Work",
+      "source_url": "https://x.com/databricks/status/2093491572083949972",
       "sources": [
         {
-          "label": "@OWW",
-          "url": "https://x.com/OWW/status/2093497252534780396"
+          "label": "@databricks",
+          "url": "https://x.com/databricks/status/2093491572083949972"
         }
       ],
-      "body": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics\n\nZihang Wang, Jianming Hu, Shang Su, Hao Huang, Mengkai Shi, Jun Gao, Shuo Feng\n\nhttps://\narxiv.org/abs/2608.26766 [𝚌𝚜.𝚁𝙾]",
+      "body": "GLM 5.3 is available as a day 0 release on Databricks!\n\nGLM 5.3 is the smartest open-weight model available today and joins GLM 5.3 Flash and 30+ open-source and frontier models available natively on Databricks.\n\nWe host GLM 5.3 on secure GPUs owned by Databricks so you can use",
       "kind": "story",
       "engagement": {
-        "impression_count": 17
+        "impression_count": 964,
+        "like_count": 18,
+        "reply_count": 4,
+        "retweet_count": 6
       },
-      "why_it_matters": "@OWW · AI Robotics",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "OWW",
-      "media_url": "https://pbs.twimg.com/media/HQ2YqDsXoAAH7EY?format=png&name=small",
-      "list_count": 1,
-      "views": 17,
+      "why_it_matters": "@databricks on AI Companies #1 of 2, AI Enterprise or Work. GLM 5.3 is available as a day 0 release on Databricks!.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "databricks",
+      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F.jpg",
+      "list_count": 2,
+      "views": 964,
       "desk_rank": 3
     },
     {
-      "id": "x-2093496017639326083",
-      "headline": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime",
-      "summary": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime. Salvador J. Robles-Perez, Salvador Castillo-Rivera. arxiv.org/abs/2608.26690",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-29T00:28:40.000Z",
-      "author_name": "QuantumPapers",
-      "source_list": "Quantum",
-      "source_url": "https://x.com/QuantumPapers/status/2093496017639326083",
+      "id": "x-2093375835679977570",
+      "headline": "Firecrawl opens a free keyless search API for agents",
+      "summary": "introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art search accuracy (94.7% on simpleqa) - sub-3s scrapes, any page into clean markdown - no api key, no signup npx -y firecrawl-cli",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T16:31:06.000Z",
+      "author_name": "ericciarla",
+      "source_list": "AI Companies #1 of 2, AI Developer Tools",
+      "source_url": "https://x.com/ericciarla/status/2093375835679977570",
       "sources": [
         {
-          "label": "@QuantumPapers",
-          "url": "https://x.com/QuantumPapers/status/2093496017639326083"
+          "label": "@ericciarla",
+          "url": "https://x.com/ericciarla/status/2093375835679977570"
         }
       ],
-      "body": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime. Salvador J. Robles-Perez, Salvador Castillo-Rivera. arxiv.org/abs/2608.26690",
+      "body": "introducing firecrawl free keyless\n\nnow your ai agents can search and scrape the web 100% free\n\n- state-of-the-art search accuracy (94.7% on simpleqa)\n- sub-3s scrapes, any page into clean markdown\n- no api key, no signup\n\nnpx -y firecrawl-cli@latest init --all --browser",
       "kind": "story",
       "engagement": {
-        "impression_count": 45
+        "impression_count": 239990,
+        "like_count": 3427,
+        "reply_count": 117,
+        "retweet_count": 221
       },
-      "why_it_matters": "@QuantumPapers · Quantum",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "QuantumPapers",
-      "media_url": "https://pbs.twimg.com/media/HQ2XiMDXMAA0XNb?format=png&name=small",
-      "list_count": 1,
-      "views": 45,
+      "why_it_matters": "@ericciarla on AI Companies #1 of 2, AI Developer Tools. introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art search accuracy (94.7% on simpleqa) - sub-3s scrapes, any page into clean markdown - no api key, no signup npx -y firecrawl-cli@latest init --all --browser.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "ericciarla",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
+      "list_count": 2,
+      "views": 239990,
       "desk_rank": 4
     },
     {
       "id": "x-2093466163200307616",
-      "headline": "OpenReview adds an AI code reviewer to your GitHub projects",
+      "headline": "OpenReview adds an AI code reviewer for GitHub",
       "summary": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
       "section": "labs",
       "section_key": "labs",
@@ -305,7 +314,7 @@
       "body": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@GithubProjects · AI Orgs & Events",
+      "why_it_matters": "@GithubProjects · AI Orgs & Events. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "GithubProjects",
@@ -314,101 +323,8 @@
       "desk_rank": 5
     },
     {
-      "id": "x-2093465891191042057",
-      "headline": "Is this one of the most successful robot launches in history?",
-      "summary": "We sold over $2,500,000 worth of Microducks in the first 24 hours. Is this one of the most successful robot launches in history?",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-08-28T22:28:57.000Z",
-      "author_name": "RemiFabreRobot",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
-      "sources": [
-        {
-          "label": "@RemiFabreRobot",
-          "url": "https://x.com/RemiFabreRobot/status/2093465891191042057"
-        }
-      ],
-      "body": "We sold over $2,500,000 worth of Microducks in the first 24 hours. Is this one of the most successful robot launches in history?",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 7481,
-        "like_count": 234,
-        "reply_count": 14,
-        "retweet_count": 22
-      },
-      "why_it_matters": "@RemiFabreRobot · AI Robotics",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "RemiFabreRobot",
-      "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=small",
-      "list_count": 1,
-      "views": 7481,
-      "desk_rank": 6
-    },
-    {
-      "id": "x-2093465735049654497",
-      "headline": "Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning (arxiv.org/abs/2608.26622)",
-      "summary": "Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning (arxiv.org/abs/2608.26622)",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-28T22:28:20.000Z",
-      "author_name": "OWW",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/OWW/status/2093465735049654497",
-      "sources": [
-        {
-          "label": "@OWW",
-          "url": "https://x.com/OWW/status/2093465735049654497"
-        }
-      ],
-      "body": "Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning (arxiv.org/abs/2608.26622)",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@OWW · AI Orgs & Events",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "OWW",
-      "media_url": "https://pbs.twimg.com/media/HQ17_g9X0AAs8a_?format=png&name=small",
-      "list_count": 1,
-      "desk_rank": 7
-    },
-    {
-      "id": "x-2093465666590286263",
-      "headline": "A mesh-free multiresolution deep energy method with phase-field modeling of brittle fracture…",
-      "summary": "A mesh-free multiresolution deep energy method with phase-field modeling of brittle fracture (arxiv.org/abs/2608.24126)",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-28T22:28:04.000Z",
-      "author_name": "Memoirs",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/Memoirs/status/2093465666590286263",
-      "sources": [
-        {
-          "label": "@Memoirs",
-          "url": "https://x.com/Memoirs/status/2093465666590286263"
-        }
-      ],
-      "body": "A mesh-free multiresolution deep energy method with phase-field modeling of brittle fracture (arxiv.org/abs/2608.24126)",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@Memoirs · AI Orgs & Events",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "Memoirs",
-      "media_url": "https://pbs.twimg.com/media/HQ177hrXYAADrZG?format=png&name=small",
-      "list_count": 1,
-      "desk_rank": 8
-    },
-    {
       "id": "x-2093465254554644701",
-      "headline": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut…",
+      "headline": "PaperCut ships a second emergency patch for an active zero-day",
       "summary": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
       "section": "products",
       "section_key": "products",
@@ -427,17 +343,46 @@
       "body": "Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@HuntressLabs · Cybersecurity",
+      "why_it_matters": "@HuntressLabs · Cybersecurity. Update: 8/28/26 @ 2:45PM ET PaperCut has released a second emergency patch, referred to as Release 2, for PaperCut NG and PaperCut MF.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "HuntressLabs",
       "media_url": "",
       "list_count": 1,
-      "desk_rank": 9
+      "desk_rank": 6
+    },
+    {
+      "id": "x-2093464900093768123",
+      "headline": "Oracle posts first FLUX.1 MLPerf numbers on AMD MI300X",
+      "summary": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-28T22:25:01.000Z",
+      "author_name": "OracleDevs",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
+      "sources": [
+        {
+          "label": "@OracleDevs",
+          "url": "https://x.com/OracleDevs/status/2093464900093768123"
+        }
+      ],
+      "body": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@OracleDevs · AI Orgs & Events. Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "OracleDevs",
+      "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 7
     },
     {
       "id": "x-2093435554159329567",
-      "headline": "The smartest open-weight model at 743B params, 1M token context, US only, ZDR",
+      "headline": "Baseten serves a 743B open-weight model with 1M context",
       "summary": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
       "section": "models",
       "section_key": "models",
@@ -456,52 +401,86 @@
       "body": "GLM-5.3 is live on Baseten Model APIs, day 0. The smartest open-weight model at 743B params, 1M token context, US only, ZDR.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@baseten · AI Founders #1 of 3",
+      "why_it_matters": "@baseten · AI Founders #1 of 3. GLM-5.3 is live on Baseten Model APIs, day 0.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "baseten",
       "media_url": "https://pbs.twimg.com/media/HQ1gCSFXIAEOqrU?format=jpg&name=small",
       "list_count": 1,
+      "desk_rank": 8
+    },
+    {
+      "id": "x-2093421604315562432",
+      "headline": "a16z raises $1.1B for a Machine Age hardware fund",
+      "summary": "a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips. This venture capital firm announced the establishment of the Machine Age Fund, with a scope that includes chips, memory, networking, storage, as well as data cent",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T19:32:59.000Z",
+      "author_name": "pirrer",
+      "source_list": "SpaceX_AI",
+      "source_url": "https://x.com/pirrer/status/2093421604315562432",
+      "sources": [
+        {
+          "label": "@pirrer",
+          "url": "https://x.com/pirrer/status/2093421604315562432"
+        }
+      ],
+      "body": "a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips.\n\nThis venture capital firm announced the establishment of the Machine Age Fund, with a scope that includes chips, memory, networking, storage, as well as data centers, robotics, and home AI devices. The",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 584,
+        "like_count": 8,
+        "retweet_count": 1
+      },
+      "why_it_matters": "@pirrer · SpaceX_AI. a16z Raises $1.1 Billion, with Investments Planned for Hardware Around Chips.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "pirrer",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg",
+      "list_count": 1,
+      "views": 584,
+      "desk_rank": 9
+    },
+    {
+      "id": "x-2093402996293910938",
+      "headline": "Meta Superintelligence Labs ran Muse Spark 1.2 in Daytona sandboxes",
+      "summary": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month) Someone from their team also said the terminal coding agent (Muse Code) experience would not be",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T18:19:02.000Z",
+      "author_name": "ivanburazin",
+      "source_list": "Investors #1 of 2",
+      "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
+      "sources": [
+        {
+          "label": "@ivanburazin",
+          "url": "https://x.com/ivanburazin/status/2093402996293910938"
+        }
+      ],
+      "body": "Meta Superintelligence Labs used \n@daytonaio\n sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month)\n\nSomeone from their team also said the terminal coding agent (Muse Code) experience would not be practical without us",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5513,
+        "like_count": 64,
+        "reply_count": 2,
+        "retweet_count": 10
+      },
+      "why_it_matters": "@ivanburazin · Investors #1 of 2. Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2 - released earlier this month) Someone from their team also said the terminal coding agent (Muse Code) experience would not be practical without us.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "ivanburazin",
+      "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=small",
+      "list_count": 1,
+      "views": 5513,
       "desk_rank": 10
     },
     {
-      "id": "x-2093375835679977570",
-      "headline": "Introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art…",
-      "summary": "introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art search accuracy (94.7% on simpleqa) - sub-3s scrapes, any page into clean markdown - no api key, no signup npx -y firecrawl-cli",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-08-28T16:31:06.000Z",
-      "author_name": "ericciarla",
-      "source_list": "AI Companies #1 of 2",
-      "source_url": "https://x.com/ericciarla/status/2093375835679977570",
-      "sources": [
-        {
-          "label": "@ericciarla",
-          "url": "https://x.com/ericciarla/status/2093375835679977570"
-        }
-      ],
-      "body": "introducing firecrawl free keyless\n\nnow your ai agents can search and scrape the web 100% free\n\n- state-of-the-art search accuracy (94.7% on simpleqa)\n- sub-3s scrapes, any page into clean markdown\n- no api key, no signup\n\nnpx -y firecrawl-cli@latest init --all --browser",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 239629,
-        "like_count": 3424,
-        "reply_count": 117,
-        "retweet_count": 221
-      },
-      "why_it_matters": "@ericciarla · AI Companies #1 of 2",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "ericciarla",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
-      "list_count": 1,
-      "views": 239629,
-      "desk_rank": 11
-    },
-    {
       "id": "x-2093355759132119165",
-      "headline": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable…",
+      "headline": "GLM-5.3 is out as a free open-weight model",
       "summary": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol",
       "section": "models",
       "section_key": "models",
@@ -525,18 +504,18 @@
         "reply_count": 10,
         "retweet_count": 137
       },
-      "why_it_matters": "@gigazine · AI Community #7 of 9",
+      "why_it_matters": "@gigazine · AI Community #7 of 9. Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "gigazine",
       "media_url": "https://pbs.twimg.com/media/HQ0X-ESWQAAIBUs?format=jpg&name=small",
       "list_count": 1,
       "views": 93358,
-      "desk_rank": 12
+      "desk_rank": 11
     },
     {
       "id": "x-2093323034195378306",
-      "headline": "Impressive new paper from Google DeepMind",
+      "headline": "DeepMind circulates a new paper on the desk",
       "summary": "Impressive new paper from Google DeepMind. (bookmark it) It takes Co-Scientist out of simulation and into real-world experiments. A summary of the results: In computer science, it found an inference-time scaling architecture that beat six f",
       "section": "papers",
       "section_key": "papers",
@@ -560,18 +539,18 @@
         "reply_count": 16,
         "retweet_count": 38
       },
-      "why_it_matters": "@omarsar0 · AI’s Best",
+      "why_it_matters": "@omarsar0 · AI’s Best. Impressive new paper from Google DeepMind.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "omarsar0",
       "media_url": "https://pbs.twimg.com/media/HQz6NJrbkAAlZeE?format=jpg&name=small",
       "list_count": 1,
       "views": 25834,
-      "desk_rank": 13
+      "desk_rank": 12
     },
     {
       "id": "x-2093226786377404554",
-      "headline": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "headline": "A world-models-for-robots survey was accepted",
       "summary": "A survey paper on world models in robot learning has been accepted to IJRR",
       "section": "papers",
       "section_key": "papers",
@@ -594,18 +573,76 @@
         "like_count": 120,
         "retweet_count": 24
       },
-      "why_it_matters": "@ttyharada · AI Community #1 of 9",
+      "why_it_matters": "@ttyharada · AI Community #1 of 9. A survey paper on world models in robot learning has been accepted to IJRR.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "ttyharada",
       "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=small",
       "list_count": 1,
       "views": 9143,
+      "desk_rank": 13
+    },
+    {
+      "id": "x-2093161411400610118",
+      "headline": "Huntress flags a PaperCut zero-day under active exploit",
+      "summary": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T02:19:04.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
+      "sources": [
+        {
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
+        }
+      ],
+      "body": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@HuntressLabs · Cybersecurity. Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HuntressLabs",
+      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
+      "list_count": 1,
       "desk_rank": 14
     },
     {
+      "id": "x-2093038426140651791",
+      "headline": "Anthropic opens a Model Hardware Standard research preview",
+      "summary": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-27T18:10:22.000Z",
+      "author_name": "AnthropicAI",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
+      "sources": [
+        {
+          "label": "@AnthropicAI",
+          "url": "https://x.com/AnthropicAI/status/2093038426140651791"
+        }
+      ],
+      "body": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@AnthropicAI · AI Robotics. Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "AnthropicAI",
+      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
+      "list_count": 1,
+      "desk_rank": 15
+    },
+    {
       "id": "x-2093014818647339026",
-      "headline": "Introducing PhoneLLM, an open model for voice agents",
+      "headline": "PhoneLLM is an open model for voice agents",
       "summary": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
       "section": "models",
       "section_key": "models",
@@ -624,51 +661,87 @@
       "body": "Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@kwindla · AI Founders #1 of 3",
+      "why_it_matters": "@kwindla · AI Founders #1 of 3. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the latency and 1/18 the cost.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "kwindla",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093013293560709120/img/y0b0JFTxKUQ4XDS8.jpg",
       "list_count": 1,
-      "desk_rank": 15
-    },
-    {
-      "id": "x-2093501647804596569",
-      "headline": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day",
-      "summary": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-08-29T00:51:02.000Z",
-      "author_name": "_AIAcceleration",
-      "source_list": "AI Community #6 of 9",
-      "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
-      "sources": [
-        {
-          "label": "@_AIAcceleration",
-          "url": "https://x.com/_AIAcceleration/status/2093501647804596569"
-        }
-      ],
-      "body": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 8,
-        "like_count": 1,
-        "reply_count": 1
-      },
-      "why_it_matters": "@_AIAcceleration · AI Community #6 of 9",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "_AIAcceleration",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
-      "list_count": 1,
-      "views": 8,
       "desk_rank": 16
     },
     {
+      "id": "x-2093491123130155360",
+      "headline": "BlueJay launched MIVAS, a speech-to-speech model",
+      "summary": "Earlier this week at @getbluejay_ai we launched MIVAS: the most comprehensive speech-to-speech benchmark for production voice AI. @farazmsiddiqi and Yash Savalia built production-grade, multi-agent simulation environments across healthcare,",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-29T00:09:13.000Z",
+      "author_name": "RohanVasishth",
+      "source_list": "AI Enterprise or Work, AI Music/Audio, AI Voice/Hardware",
+      "source_url": "https://x.com/RohanVasishth/status/2093491123130155360",
+      "sources": [
+        {
+          "label": "@RohanVasishth",
+          "url": "https://x.com/RohanVasishth/status/2093491123130155360"
+        }
+      ],
+      "body": "Earlier this week at \n@getbluejay_ai\n we launched MIVAS: the most comprehensive speech-to-speech benchmark for production voice AI.\n\n\n@farazmsiddiqi\n and Yash Savalia built production-grade, multi-agent simulation environments across healthcare, legal, and customer support.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 61,
+        "like_count": 5,
+        "reply_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "@RohanVasishth on AI Enterprise or Work, AI Music/Audio, AI Voice/Hardware. Earlier this week at @getbluejay_ai we launched MIVAS: the most comprehensive speech-to-speech benchmark for production voice AI.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "RohanVasishth",
+      "media_url": "https://pbs.twimg.com/media/HQ2S2rSakAAi_-3",
+      "list_count": 3,
+      "views": 61,
+      "desk_rank": 17
+    },
+    {
+      "id": "x-2093383065548492982",
+      "headline": "Trump signs an executive order for a US Space Academy",
+      "summary": "BREAKING: President Donald J. Trump just signed an Executive Order establishing a new federal academy, THE UNITED STATES SPACE ACADEMY.",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-28T16:59:50.000Z",
+      "author_name": "WhiteHouse",
+      "source_list": "AI Investors, Founders #3 of 3, Cybersecurity",
+      "source_url": "https://x.com/WhiteHouse/status/2093383065548492982",
+      "sources": [
+        {
+          "label": "@WhiteHouse",
+          "url": "https://x.com/WhiteHouse/status/2093383065548492982"
+        }
+      ],
+      "body": "BREAKING: President Donald J. Trump just signed an Executive Order establishing a new federal academy, THE UNITED STATES SPACE ACADEMY.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2135824,
+        "like_count": 19087,
+        "reply_count": 1353,
+        "retweet_count": 4135
+      },
+      "why_it_matters": "@WhiteHouse on AI Investors, Founders #3 of 3, Cybersecurity",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "WhiteHouse",
+      "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=small",
+      "list_count": 3,
+      "views": 2135824,
+      "desk_rank": 18
+    },
+    {
       "id": "x-2093492209169375438",
-      "headline": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
+      "headline": "Lightwheel releases EgoSuite-Open100K for robot learning",
       "summary": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
       "section": "robotics",
       "section_key": "robotics",
@@ -691,82 +764,18 @@
         "like_count": 1,
         "reply_count": 1
       },
-      "why_it_matters": "@bgxc · AI Robotics",
+      "why_it_matters": "@bgxc · AI Robotics. Proud of the Lightwheel team for releasing EgoSuite-Open100K.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "bgxc",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090799806478491648/img/6b5b0Ihqlz8mYlvh.jpg",
       "list_count": 1,
       "views": 67,
-      "desk_rank": 17
-    },
-    {
-      "id": "x-2093491123130155360",
-      "headline": "Earlier this week at @getbluejay_ai we launched MIVAS: speech-to-speech benchmark for production voice AI",
-      "summary": "Earlier this week at @getbluejay_ai we launched MIVAS: speech-to-speech benchmark for production voice AI",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-29T00:09:13.000Z",
-      "author_name": "RohanVasishth",
-      "source_list": "AI Enterprise or Work",
-      "source_url": "https://x.com/RohanVasishth/status/2093491123130155360",
-      "sources": [
-        {
-          "label": "@RohanVasishth",
-          "url": "https://x.com/RohanVasishth/status/2093491123130155360"
-        }
-      ],
-      "body": "Earlier this week at @getbluejay_ai we launched MIVAS: speech-to-speech benchmark for production voice AI",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 56,
-        "like_count": 5,
-        "reply_count": 1,
-        "retweet_count": 1
-      },
-      "why_it_matters": "@RohanVasishth · AI Enterprise or Work",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "RohanVasishth",
-      "media_url": "https://pbs.twimg.com/media/HQ2S2rSakAAi_-3",
-      "list_count": 1,
-      "views": 56,
-      "desk_rank": 18
-    },
-    {
-      "id": "x-2093464900093768123",
-      "headline": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a…",
-      "summary": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
-      "section": "chips",
-      "section_key": "chips",
-      "section_label": "Chips",
-      "tag": "chips",
-      "published_at": "2026-08-28T22:25:01.000Z",
-      "author_name": "OracleDevs",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
-      "sources": [
-        {
-          "label": "@OracleDevs",
-          "url": "https://x.com/OracleDevs/status/2093464900093768123"
-        }
-      ],
-      "body": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@OracleDevs · AI Orgs & Events",
-      "topic_key": "chips",
-      "topic_label": "Chips",
-      "x_handle": "OracleDevs",
-      "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=small",
-      "list_count": 1,
       "desk_rank": 19
     },
     {
       "id": "x-2093463828755517455",
-      "headline": "中国实现地月双向激光通信，下行速率可达100Mbps，上行1.25Mbps。深空通信正式迈入高速时代。",
+      "headline": "China demonstrates Earth-Moon two-way laser comms",
       "summary": "中国实现地月双向激光通信，下行速率可达100Mbps，上行1.25Mbps。深空通信正式迈入高速时代。",
       "section": "robotics",
       "section_key": "robotics",
@@ -785,7 +794,7 @@
       "body": "中国实现地月双向激光通信，下行速率可达100Mbps，上行1.25Mbps。深空通信正式迈入高速时代。",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@maide89699220 · Robot Influencers/Media",
+      "why_it_matters": "@maide89699220 · Robot Influencers/Media. 中国实现地月双向激光通信，下行速率可达100Mbps，上行1.25Mbps。深空通信正式迈入高速时代。.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "maide89699220",
@@ -794,43 +803,8 @@
       "desk_rank": 20
     },
     {
-      "id": "x-2093402996293910938",
-      "headline": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2,…",
-      "summary": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2, released earlier this month)",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-28T18:19:02.000Z",
-      "author_name": "ivanburazin",
-      "source_list": "Investors #1 of 2",
-      "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
-      "sources": [
-        {
-          "label": "@ivanburazin",
-          "url": "https://x.com/ivanburazin/status/2093402996293910938"
-        }
-      ],
-      "body": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2, released earlier this month)",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 5513,
-        "like_count": 64,
-        "reply_count": 2,
-        "retweet_count": 10
-      },
-      "why_it_matters": "@ivanburazin · Investors #1 of 2",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "ivanburazin",
-      "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=small",
-      "list_count": 1,
-      "views": 5513,
-      "desk_rank": 21
-    },
-    {
       "id": "x-2093375558876860540",
-      "headline": "Wrist camera is now available for ProGlove",
+      "headline": "ProGlove ships a wrist camera for tactile robot data",
       "summary": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
       "section": "robotics",
       "section_key": "robotics",
@@ -849,75 +823,51 @@
       "body": "Wrist camera is now available for ProGlove. The demand for tactile data keeps growing.",
       "kind": "story",
       "engagement": {},
-      "why_it_matters": "@JayLiStanford · AI Robotics",
+      "why_it_matters": "@JayLiStanford · AI Robotics. Wrist camera is now available for ProGlove.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "JayLiStanford",
       "media_url": "https://pbs.twimg.com/media/HQxclBNbsAAkfIu?format=jpg&name=small",
       "list_count": 1,
+      "desk_rank": 21
+    },
+    {
+      "id": "x-2093501647804596569",
+      "headline": "An OpenAI eval had models escape a sandbox",
+      "summary": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-29T00:51:02.000Z",
+      "author_name": "_AIAcceleration",
+      "source_list": "AI Community #6 of 9",
+      "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
+      "sources": [
+        {
+          "label": "@_AIAcceleration",
+          "url": "https://x.com/_AIAcceleration/status/2093501647804596569"
+        }
+      ],
+      "body": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 8,
+        "like_count": 1,
+        "reply_count": 1
+      },
+      "why_it_matters": "@_AIAcceleration · AI Community #6 of 9. OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "_AIAcceleration",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
+      "list_count": 1,
+      "views": 8,
       "desk_rank": 22
     },
     {
-      "id": "x-2093161411400610118",
-      "headline": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has…",
-      "summary": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-08-28T02:19:04.000Z",
-      "author_name": "HuntressLabs",
-      "source_list": "Cybersecurity",
-      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
-      "sources": [
-        {
-          "label": "@HuntressLabs",
-          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
-        }
-      ],
-      "body": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@HuntressLabs · Cybersecurity",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "HuntressLabs",
-      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
-      "list_count": 1,
-      "desk_rank": 23
-    },
-    {
-      "id": "x-2093038426140651791",
-      "headline": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard…",
-      "summary": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-27T18:10:22.000Z",
-      "author_name": "AnthropicAI",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
-      "sources": [
-        {
-          "label": "@AnthropicAI",
-          "url": "https://x.com/AnthropicAI/status/2093038426140651791"
-        }
-      ],
-      "body": "Today, we're kicking off the first phase of the research preview for Model Hardware Standard (MHS): a new standard for AI agents to safely operate physical equipment.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@AnthropicAI · AI Robotics",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "AnthropicAI",
-      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
-      "list_count": 1,
-      "desk_rank": 24
-    },
-    {
       "id": "x-2092300842900865389",
-      "headline": "Introducing S1, our new foundation model that learns from one example",
+      "headline": "Skild S1 learns long robot tasks from one example",
       "summary": "Introducing S1, our new foundation model that learns from one example. It can be taught 10-minute long tasks that it has never seen before, from one video prompt without any fine-tuning. Watch S1 operate in real-time via in-context learning",
       "section": "models",
       "section_key": "models",
@@ -941,14 +891,14 @@
         "reply_count": 412,
         "retweet_count": 1539
       },
-      "why_it_matters": "@SkildAI · AI Robotics",
+      "why_it_matters": "@SkildAI · AI Robotics. Introducing S1, our new foundation model that learns from one example.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "SkildAI",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092297474786680832/img/GSDLOl1WS7n1oMUT.jpg",
       "list_count": 1,
       "views": 3337706,
-      "desk_rank": 25
+      "desk_rank": 23
     }
   ],
   "signals": [
