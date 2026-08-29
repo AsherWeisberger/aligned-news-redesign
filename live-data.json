@@ -57,6 +57,10 @@
     {
       "id": "creatives",
       "label": "Creatives"
+    },
+    {
+      "id": "world",
+      "label": "World"
     }
   ],
   "forYou": [

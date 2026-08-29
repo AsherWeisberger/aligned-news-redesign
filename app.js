@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an194";
+  var DATA_URL = "live-data.json?v=an195";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -123,7 +123,7 @@
     return k;
   }
 
-  var PILL_ORDER = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy", "creatives"];
+  var PILL_ORDER = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy", "creatives", "world"];
 
   function storyMatchesChip(story, filter) {
     if (!filter || filter === "all") return true;
@@ -406,7 +406,7 @@
       policy: "Policy", chips: "Chips", "open-source": "Open source", events: "Events",
       research: "Papers", papers: "Papers", creative: "Creatives", creatives: "Creatives", compute: "Compute", industry: "Industry",
       scoble: "Scoble", labs: "Labs", jobs: "Jobs", companies: "Companies", industry: "Companies",
-      breaking: "Breaking", videos: "Videos"
+      breaking: "Breaking", videos: "Videos", world: "World"
     };
     var tkey = "topic_" + String(key || "").replace(/-/g, "_");
     var translated = t(tkey);
@@ -1429,7 +1429,7 @@
   function engagementScore(item) {
     var e = item && item.engagement;
     if (!e) return item && item.engagement_score != null ? Number(item.engagement_score) : 0;
-    return (e.like_count || 0) * 3 + (e.retweet_count || 0) * 4 + (e.reply_count || 0) * 2 + (e.quote_count || 0) * 3 + Math.round((e.impression_count || 0) / 100);
+    return 0;
   }
 
   var AI_RE = /\b(ai|llm|gpt|claude|gemini|openai|anthropic|nvidia|model|agent|robot|chip|gpu|ml|neural|transformer|cursor|fireworks|scoble|aligned|startup|funding|benchmark|inference|open[- ]?source|agi|sota|copilot|qwen|lindy|github)\b/i;
