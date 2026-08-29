@@ -7102,3 +7102,99 @@ html[data-density="compact"] .feed-rest-label {
 .story-intel-views { font-variant-numeric: tabular-nums; }
 .story-intel-meta, .story-intel-dot { color: var(--muted); }
 .story-intel-heroes, .story-intel-hero, .story-intel-kicker, .story-intel-num, .story-intel-sub { display: none !important; }
+
+
+/* an207: overnight — magazine lead readable above the fold, even pulls */
+body[data-page="today"] .feed-module-head {
+  margin-bottom: 0;
+  min-height: 0;
+}
+body[data-page="today"] .chips {
+  margin: 0.04rem 0 0.55rem;
+}
+
+@media (min-width: 900px) {
+  html:not([data-density="compact"]) .lead-card.lead-card-opener,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.12fr) minmax(240px, 0.88fr);
+    grid-template-areas: "copy hero";
+    gap: 0.35rem 1.45rem;
+    align-items: start;
+    padding: 0.05rem 0 1.25rem;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-copy {
+    grid-area: copy;
+    padding: 0.1rem 0 0;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero {
+    grid-area: hero;
+    width: 100%;
+    margin: 0;
+    min-height: 0;
+    max-height: 268px;
+    aspect-ratio: 4 / 3;
+    align-self: start;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-title,
+  html:not([data-density="compact"]) .lead-card-opener.lead-card-photo .lead-title {
+    font-size: clamp(2.05rem, 3.3vw, 2.72rem);
+    max-width: 18ch;
+    line-height: 1.08;
+    letter-spacing: -0.042em;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-dek {
+    max-width: 38ch;
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media (max-width: 899px) {
+  .lead-card-opener .lead-hero {
+    min-height: 148px;
+    max-height: 176px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 0.7rem;
+  }
+  .lead-card-opener .lead-title,
+  .lead-card-opener.lead-card-photo .lead-title {
+    font-size: 1.62rem;
+    letter-spacing: -0.038em;
+  }
+  body[data-page="today"] .chips {
+    mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 32px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 32px), transparent 100%);
+  }
+}
+
+.top-pulls-wrap {
+  padding: 0.2rem 0 0.85rem;
+}
+.top-pulls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 1.4rem;
+  align-items: start;
+}
+.top-pull {
+  padding: 0.55rem 0 0.15rem;
+}
+.top-pull-title {
+  font-size: 1.08rem;
+  line-height: 1.22;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.top-pull-dek {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 0;
+}
+@media (max-width: 720px) {
+  .top-pulls { grid-template-columns: 1fr 1fr; gap: 0.45rem 0.85rem; }
+  .top-pull-title { font-size: 0.98rem; }
+}
