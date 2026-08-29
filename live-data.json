@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T05:12:29.000Z",
-    "scrapedAt": "2026-08-29T05:12:29.000Z",
+    "generatedAt": "2026-08-29T12:37:04.000Z",
+    "scrapedAt": "2026-08-29T12:37:04.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 60 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 68 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 44,
-    "stories": 60,
-    "signals": 59,
+    "lists": 52,
+    "stories": 68,
+    "signals": 67,
     "reports": 4
   },
   "chips": [
@@ -152,7 +152,10 @@
       "author_name": "TencentHunyuan",
       "source_list": "AI Community",
       "list_names": [
-        "AI Community #1 of 9"
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Community"
@@ -167,17 +170,18 @@
       "body": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, CodeBuddy, Yuanbao, and ima, with API access on Tencent Cloud TokenHub and OpenRouter. WorkBuddy and CodeBuddy get two weeks free. TechNode listed OpenRouter pricing at $0.834 per million input tokens and $2.501 per million output.\n\nThis is a same day open weight flagship, not a teaser card. The GitHub model card describes 78 layers, 256 routed experts, top 8 plus a shared expert, gated sparse attention, and a native MTP layer for speculative decoding. Tencent says it is built for coding, office work, and research, and that the next Hy4 batch is close.\n\nHis community lists carried the Hunyuan lab post. Watch how it actually runs at 1 million context, and whether the preview’s extra checking on hard reasoning shows up as latency in the API.",
       "kind": "story",
       "engagement": {
-        "impression_count": 1212547,
-        "reply_count": 292,
-        "retweet_count": 878
+        "impression_count": 1545332,
+        "like_count": 5077,
+        "reply_count": 312,
+        "retweet_count": 917
       },
-      "why_it_matters": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. One desk only, so this is a lab note the community caught, not a weave across desks.",
+      "why_it_matters": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TencentHunyuan",
       "media_url": "https://pbs.twimg.com/media/HQyfABta8AAq3x7?format=jpg&name=large",
-      "list_count": 1,
-      "views": 1212547,
+      "list_count": 4,
+      "views": 1545332,
       "desk_rank": 1
     },
     {
@@ -190,14 +194,18 @@
       "tag": "models",
       "published_at": "2026-08-29T00:11:00.000Z",
       "author_name": "databricks",
-      "source_list": "AI Companies, AI Enterprise",
+      "source_list": "AI Companies, AI Enterprise, @Scobleizer/AI Enterprise or Work, AI Community",
       "list_names": [
         "AI Companies #1 of 2",
-        "AI Enterprise or Work"
+        "AI Enterprise or Work",
+        "@Scobleizer/AI Enterprise or Work",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
         "AI Companies",
-        "AI Enterprise"
+        "AI Enterprise",
+        "@Scobleizer/AI Enterprise or Work",
+        "AI Community"
       ],
       "source_url": "https://x.com/databricks/status/2093491572083949972",
       "sources": [
@@ -209,18 +217,18 @@
       "body": "Z.ai posted that GLM 5.3 is now open weight: download, run, and customize, with weights on Hugging Face and a tech blog on z.ai. Databricks, Ollama, and Baseten already had it as a day 0 API. Baseten called the big model about 744B total and 40B active, US only, zero data retention. Flash weights were already public. Full 5.3 weights were the missing piece.\n\nThe map change is the weights, not another host card. Z.ai has been selling coding, long horizon work, and cyber jumps from the 5.2 base. Closed models still lead several exploit benches. Open weights plus US clouds is how this one actually gets used.\n\nWatch whether those Hugging Face files match the API model, and whether US hosts keep the traffic Chinese chips already carried for Ox Alpha.",
       "kind": "story",
       "engagement": {
-        "impression_count": 964,
-        "like_count": 18,
-        "reply_count": 4,
-        "retweet_count": 6
+        "impression_count": 3302,
+        "like_count": 52,
+        "reply_count": 5,
+        "retweet_count": 12
       },
       "why_it_matters": "Robert’s community lists carried @Zai_org on the weights. His company and enterprise lists carried Databricks day 0. His developer tools lists had Ollama rolling GLM 5.3 and Flash on cloud.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "databricks",
-      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F?format=jpg&name=large",
-      "list_count": 2,
-      "views": 964,
+      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F.jpg",
+      "list_count": 4,
+      "views": 3302,
       "desk_rank": 2
     },
     {
@@ -233,12 +241,15 @@
       "tag": "models",
       "published_at": "2026-08-28T18:39:12.000Z",
       "author_name": "aisearchio",
-      "source_list": "AI Community",
+      "source_list": "AI Community, Decentralized AI",
       "list_names": [
-        "AI Community #3 of 9"
+        "AI Community #3 of 9",
+        "Decentralized AI",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
-        "AI Community"
+        "AI Community",
+        "Decentralized AI"
       ],
       "source_url": "https://x.com/aisearchio/status/2093408069728571540",
       "sources": [
@@ -250,18 +261,18 @@
       "body": "Hao AI Lab’s FastVideo posted an open weight FastH3 preview distilled from MiniMax H3. The Hugging Face checkpoint FastVideo FastH3 4 step Preview v1 generates synced video and audio from text in four transformer forwards. The lab said a 15 second clip generates in 13 seconds, about 14 times faster than the base, and that 45 percent of raters preferred FastH3 or called it a draw versus MiniMax H3, in an eval run with help from fal and @isidentical. The card lists about 35B parameters in BF16 and says it inherits the MiniMax H3 Community License.\n\nThis is a speed recipe on a frontier video model, not a new base. FastVideo warns hard motion, fine detail, and some audio still trail H3, and that FL2VA and Ref2VA were not distilled. The tested path wants FastVideo’s VSA H3 attention backend. Defaults were four B200 GPUs. GPU count has to divide H3’s 56 attention heads.\n\nHis community lists carried the speed clip. His orgs list later carried the lab’s own note. Training code is promised. Watch whether this runs on anything smaller than a B200 box, and whether the next Omni Ref pass closes the quality gap.",
       "kind": "story",
       "engagement": {
-        "impression_count": 35175,
-        "like_count": 810,
-        "reply_count": 24,
-        "retweet_count": 64
+        "impression_count": 88587,
+        "like_count": 1386,
+        "reply_count": 29,
+        "retweet_count": 111
       },
       "why_it_matters": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "aisearchio",
       "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large",
-      "list_count": 1,
-      "views": 35175,
+      "list_count": 3,
+      "views": 88587,
       "desk_rank": 3
     },
     {
@@ -274,16 +285,22 @@
       "tag": "products",
       "published_at": "2026-08-29T00:12:18.000Z",
       "author_name": "perplexity_ai",
-      "source_list": "AI Companies, AI Education, AI Writing",
+      "source_list": "AI Companies, AI Education, AI Writing, @Scobleizer/AI Education, Tech Journalists, AI Community",
       "list_names": [
         "AI Companies #1 of 2",
         "AI Education",
-        "AI Writing or Marketing"
+        "AI Writing or Marketing",
+        "@Scobleizer/AI Education",
+        "Tech Journalists",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Companies",
         "AI Education",
-        "AI Writing"
+        "AI Writing",
+        "@Scobleizer/AI Education",
+        "Tech Journalists",
+        "AI Community"
       ],
       "source_url": "https://x.com/perplexity_ai/status/2093491900405956993",
       "sources": [
@@ -295,18 +312,18 @@
       "body": "Perplexity said its Search API now holds the top three spots on the Artificial Analysis Search Index. The public board dated August 27 puts Perplexity Search medium at 80, high at 79, and low at 77. Parallel Search advanced and Brave Search sit at 75. Perplexity said the medium setting scored five points above the prior leaders and sat on the quality cost frontier at about $0.091 per task. Artificial Analysis isolates the search API by holding the agent model fixed at GPT 5.6 Luna in the Stirrup harness across DeepSearchQA, BrowseComp, and AA Omniscience.\n\nSearch APIs are becoming a product category with a real bakeoff, not a side feature of a chatbot. Medium is $62.30 search plus $29.09 model per 1,000 tasks, about 28.6 seconds per task. Firecrawl Search is on the same board at 73.\n\nHis company, education, and writing lists all carried the company chart. Watch whether medium stays ahead of high once more providers join, and whether that $0.091 figure holds once people stop using the benchmark’s bundled model cost.",
       "kind": "story",
       "engagement": {
-        "impression_count": 9884,
-        "like_count": 49,
-        "reply_count": 10,
-        "retweet_count": 5
+        "impression_count": 32486,
+        "like_count": 216,
+        "reply_count": 21,
+        "retweet_count": 23
       },
       "why_it_matters": "Robert’s company, education, and writing lists all carried @perplexity_ai. Three desks noticed the same chart. The five point gap is versus Parallel and Brave at 75, not versus a year ago.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "perplexity_ai",
       "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large",
-      "list_count": 3,
-      "views": 9884,
+      "list_count": 6,
+      "views": 32486,
       "desk_rank": 4
     },
     {
@@ -319,14 +336,20 @@
       "tag": "products",
       "published_at": "2026-08-28T16:31:06.000Z",
       "author_name": "ericciarla",
-      "source_list": "AI Companies, AI Developer Tools",
+      "source_list": "AI Companies, AI Developer Tools, AI Community, @Scobleizer/AI Developer Tools, @Scobleizer/AI Companies",
       "list_names": [
         "AI Companies #1 of 2",
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "AI Community #3 of 9",
+        "@Scobleizer/AI Developer Tools",
+        "@Scobleizer/AI Companies #1 of 2"
       ],
       "chip_labels": [
         "AI Companies",
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "AI Community",
+        "@Scobleizer/AI Developer Tools",
+        "@Scobleizer/AI Companies"
       ],
       "source_url": "https://x.com/ericciarla/status/2093375835679977570",
       "sources": [
@@ -338,18 +361,18 @@
       "body": "Firecrawl cofounder Eric Ciarla pushed a keyless path tonight: agents can search and scrape without an API key, with a claim of 94.7 percent on SimpleQA and page scrapes into markdown in under 3 seconds. The company follow up from @firecrawl pointed at the same offer. Firecrawl’s own blog describing keyless MCP, CLI, and REST access with 1,000 free credits a month is dated June 16, so this is a list surge around a product that already existed, not a same hour launch.\n\nThe point for builders is still real. Coding agents in Claude Code, Cursor, and other MCP hosts can hit https://mcp.firecrawl.dev/v2/mcp without a human pasting a secret. That is the friction the post is selling. Artificial Analysis currently lists Firecrawl Search at 73 on the Search Index, behind Perplexity’s 80.\n\nHis company and developer tools lists both carried Ciarla. Watch paid conversion after the free credits, and whether keyless stays open once agent traffic scales.",
       "kind": "story",
       "engagement": {
-        "impression_count": 239990,
-        "like_count": 3427,
-        "reply_count": 117,
-        "retweet_count": 221
+        "impression_count": 303017,
+        "like_count": 3734,
+        "reply_count": 139,
+        "retweet_count": 246
       },
       "why_it_matters": "Robert’s company and developer tools lists carried @ericciarla, with @firecrawl repeating the same offer. Two desks. Do not read the June blog date as a today launch. The lists treated keyless access as the product news tonight.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "ericciarla",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
-      "list_count": 2,
-      "views": 239990,
+      "list_count": 5,
+      "views": 303017,
       "desk_rank": 5
     },
     {
@@ -414,7 +437,7 @@
       "body": "Andreessen Horowitz posted the Machine Age Fund today, signed by Ben Horowitz, Martin Casado, Raghu Raghuram, David Ulevitch, and David George. The firm said it raised 1.1 billion to invest in the physical stack AI runs on: chips, memory, networking, storage, data centers, robotics, and home AI appliances. The note lists rack power moving toward 1 megawatt, campuses at hundreds of megawatts, and hardware deal flow now over 20 percent of what they see. Names already in the book include Unconventional AI, Nexthop, Volta, Atoms, Heron Power, and Mind Robotics, plus older checks in Skydio, SpaceX, Anduril, and Waymo.\n\nThis is a dedicated hardware motion from a firm people still treat as a software shop. The argument is that software demand hit the wall of physics and supply chain, so the next platform work is down at electricity, interconnect, and memory. Guido Appenzeller, Shangda Xu, and Erin Price Wright are on the hardware side of the team.\n\nHis SpaceX AI list carried Pirrer’s summary of the fund. A separate Horowitz clip on community and founders lists is about startup lead time, not the fund itself, so do not count that as overlap. Watch first checks out of the 1.1 billion, especially silicon, power, and robotics.",
       "kind": "story",
       "engagement": {
-        "impression_count": 584,
+        "impression_count": 760,
         "like_count": 8,
         "retweet_count": 1
       },
@@ -424,7 +447,7 @@
       "x_handle": "pirrer",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg",
       "list_count": 1,
-      "views": 584,
+      "views": 760,
       "desk_rank": 7
     },
     {
@@ -477,16 +500,28 @@
       "tag": "robotics",
       "published_at": "2026-08-28T22:28:57.000Z",
       "author_name": "RemiFabreRobot",
-      "source_list": "AI Founders, AI Robotics, AI Vehicles",
+      "source_list": "AI Founders, AI Robotics, AI Vehicles, Robot Influencers/Media, Spatial Computing, Tech Journalists, AI Community, Investors",
       "list_names": [
         "AI Founders #2 of 3",
         "AI Robotics",
-        "AI Vehicles"
+        "AI Vehicles",
+        "Robot Influencers/Media",
+        "Spatial Computing",
+        "Tech Journalists",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "Investors #2 of 2"
       ],
       "chip_labels": [
         "AI Founders",
         "AI Robotics",
-        "AI Vehicles"
+        "AI Vehicles",
+        "Robot Influencers/Media",
+        "Spatial Computing",
+        "Tech Journalists",
+        "AI Community",
+        "Investors"
       ],
       "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
       "sources": [
@@ -498,18 +533,18 @@
       "body": "Rémi Fabre said Pollen Robotics sold more than $2,500,000 of Microducks in the first 24 hours, crediting Antoine Pirrone and the team, and asked if that is one of the most successful robot launches on record. Pollen’s own post on August 27 described Microduck as a 25 centimeter biped, under 800 grams, 15 motors, camera, depth sensor, two IMUs, and a beak that can pick things up, at $399 before tax and shipping, with first deliveries aimed before Christmas 2026 in North America, Europe, and the UK. Software and RL tools are open. Reachy Mini, the desk robot, is already past 10,000 units.\n\nIf the 2.5 million figure holds, that is on the order of 6,000 units at the $399 price, before tax. UFBots already said a Microduck is joining its competition fleet. The pitch is a cheap, fall and recover platform for sim to real, not another talking desk head.\n\nHis founders, robotics, and vehicles lists all carried Fabre. Watch cancellations versus paid preorders, and whether a flock of 25 centimeter bipeds actually ships before Christmas.",
       "kind": "story",
       "engagement": {
-        "impression_count": 13736,
-        "like_count": 404,
-        "reply_count": 24,
-        "retweet_count": 34
+        "impression_count": 98000,
+        "like_count": 2209,
+        "reply_count": 110,
+        "retweet_count": 203
       },
       "why_it_matters": "Robert’s founders, robotics, and vehicles lists carried @RemiFabreRobot. Three desks. The 2.5 million figure is Fabre’s, posted about a day after Pollen’s $399 preorder page. His community lists also had him telling people to slow down because the robot was not even a day old.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "RemiFabreRobot",
       "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large",
-      "list_count": 3,
-      "views": 13736,
+      "list_count": 10,
+      "views": 98000,
       "desk_rank": 9
     },
     {
@@ -522,12 +557,20 @@
       "tag": "robotics",
       "published_at": "2026-08-28T12:58:50.000Z",
       "author_name": "LeRobotHF",
-      "source_list": "San Francisco Robotics",
+      "source_list": "San Francisco Robotics, AI Robotics, Neuroscience, AI Community",
       "list_names": [
-        "San Francisco Robotics"
+        "San Francisco Robotics",
+        "AI Robotics",
+        "Neuroscience",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "San Francisco Robotics"
+        "San Francisco Robotics",
+        "AI Robotics",
+        "Neuroscience",
+        "AI Community"
       ],
       "source_url": "https://x.com/LeRobotHF/status/2093322414960546116",
       "sources": [
@@ -539,18 +582,18 @@
       "body": "Hugging Face’s LeRobot account posted a $28 3D printed teleoperator, open source, with clean cable routing and the same rest pose as the SO ARM 101. Optional rubber bands are there to make teleop feel better. The clip shows it driving a MuJoCo sim, with the same hardware meant to talk to the real arm.\n\nThis is a cheap, copyable input device, not a new robot. At $28 it undercuts the usual teleop bill of materials and matches a popular open arm so classrooms and garage labs can actually share policies. San Francisco robotics lists carried it at 12960 views.\n\nWatch whether the STLs and BOM land in the LeRobot repo in a form people can print this weekend, and whether the sim to real mapping holds once the rubber bands leave the video.",
       "kind": "story",
       "engagement": {
-        "impression_count": 12960,
-        "like_count": 247,
-        "reply_count": 5,
-        "retweet_count": 22
+        "impression_count": 17006,
+        "like_count": 309,
+        "reply_count": 6,
+        "retweet_count": 35
       },
       "why_it_matters": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "LeRobotHF",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg",
-      "list_count": 1,
-      "views": 12960,
+      "list_count": 6,
+      "views": 17006,
       "desk_rank": 10
     },
     {
@@ -563,16 +606,24 @@
       "tag": "labs",
       "published_at": "2026-08-28T16:49:21.000Z",
       "author_name": "SRSchmidgall",
-      "source_list": "AI Founders, AI Policy, Computer Vision",
+      "source_list": "AI Founders, AI Policy, Computer Vision, AI Community, Quantum",
       "list_names": [
         "AI Founders #3 of 3",
         "AI Policy",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community #5 of 9",
+        "Quantum",
+        "Tech VIPs",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Founders",
         "AI Policy",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community",
+        "Quantum"
       ],
       "source_url": "https://x.com/SRSchmidgall/status/2093380426924708082",
       "sources": [
@@ -584,18 +635,18 @@
       "body": "Samuel Schmidgall said a Gemini based extension of Co Scientist is now collaborating with scientists in materials, biology, and computer science, not only writing hypotheses. Coverage of the August work describes closed loop runs: propose, plan, drive equipment or code, read results, write up. Materials examples include first try growth of semiconductor thin films with Gemini 3 Deep Think on a reactor, with humans still loading samples. In computer science, the team says an inference time architecture beat six frontier models on HealthBench Hard. Humans still sit in the loop. Schmidgall said there is a long journey before these systems handle the physical mess of a real lab.\n\nThis is early lab progress, not a product you can buy. Google first showed Co Scientist in 2025 as a hypothesis engine. The new claim is execution against real equipment and unpublished measurements. Sample sizes are small. The HealthBench comparison does not name the six models in the abstract.\n\nHis founders, policy, and computer vision lists carried Schmidgall. Watch whether other labs reproduce the thin film recipes, and whether Google publishes the HealthBench protocol in full.",
       "kind": "story",
       "engagement": {
-        "impression_count": 50078,
-        "like_count": 335,
-        "reply_count": 11,
-        "retweet_count": 76
+        "impression_count": 88129,
+        "like_count": 603,
+        "reply_count": 19,
+        "retweet_count": 115
       },
       "why_it_matters": "Robert’s founders, policy, and computer vision lists carried @SRSchmidgall. Three desks. Omar Sarwar on his best of AI list is the same result from the research side. The headline is the lab move, not the paper title.",
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "SRSchmidgall",
       "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large",
-      "list_count": 3,
-      "views": 50078,
+      "list_count": 9,
+      "views": 88129,
       "desk_rank": 11
     },
     {
@@ -608,12 +659,17 @@
       "tag": "creatives",
       "published_at": "2026-08-28T08:24:29.000Z",
       "author_name": "midjourney",
-      "source_list": "Creatives",
+      "source_list": "Creatives, AI Video Creators, AI Community",
       "list_names": [
-        "Creative with AI"
+        "Creative with AI",
+        "AI Video Creators",
+        "AI Community #1 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Creatives"
+        "Creatives",
+        "AI Video Creators",
+        "AI Community"
       ],
       "source_url": "https://x.com/midjourney/status/2093253371650031949",
       "sources": [
@@ -625,18 +681,18 @@
       "body": "Midjourney said it is testing its first V8.2 edit model: instruction edits, image to image with up to four references, brush inpainting, outpainting, plus personalization, moodboards, and srefs. A later post said the team updated the same model for better image quality.\n\nThis is a creator tool increment, not a new base model launch. Edit with instructions is the piece that matters. Four reference images plus inpaint and outpaint is the rest of the job people already do in other editors.\n\nHis creatives list carried the first post. A later quality note landed on his community lists. Watch whether V8.2 stays in test or becomes the default edit path, and whether the four reference limit holds.",
       "kind": "story",
       "engagement": {
-        "impression_count": 64860,
-        "like_count": 841,
-        "reply_count": 56,
-        "retweet_count": 87
+        "impression_count": 92047,
+        "like_count": 947,
+        "reply_count": 61,
+        "retweet_count": 104
       },
       "why_it_matters": "Robert’s creatives lists carried @midjourney. One desk on the test announcement. A later quality note landed on his community lists.",
       "topic_key": "creatives",
       "topic_label": "Creatives",
       "x_handle": "midjourney",
-      "media_url": "https://pbs.twimg.com/media/HQ2XHJ0aoAAOHRQ?format=jpg&name=large",
-      "list_count": 1,
-      "views": 64860,
+      "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=240x240",
+      "list_count": 4,
+      "views": 92047,
       "desk_rank": 12
     },
     {
@@ -649,12 +705,18 @@
       "tag": "papers",
       "published_at": "2026-08-28T13:06:03.000Z",
       "author_name": "dair_ai",
-      "source_list": "Quantum",
+      "source_list": "Quantum, AI Community",
       "list_names": [
-        "Quantum"
+        "Quantum",
+        "AI Community #3 of 9",
+        "AI Community #1 of 9",
+        "AI Community #2 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Quantum"
+        "Quantum",
+        "AI Community"
       ],
       "source_url": "https://x.com/dair_ai/status/2093324233158045788",
       "sources": [
@@ -666,18 +728,18 @@
       "body": "A Google paper circulating on Robert’s lists splits how agents learn from work into three buckets that most skill systems smash together: raw execution traces that never get edited, a lasting wiki of what those traces taught, and the skills the agent actually runs. dair.ai posted it as a bookmark for anyone who keeps a skill library. Authors include Liyan Tang, Cyrus Rashtchian, Chun Sung Ferng, Andrew Tomkins, Da Cheng Juan, and Tu Vu. The loop is collect traces, write the wiki, propose a small skill edit, keep it only if a held out check improves.\n\nThat is the map change for agent memory. Skills stop being a side effect of the last training run. They become something you can transfer across models. The writeup says smaller models with evolved skills can beat larger models with none, and that skills grown by one model family can help another. Ablations say the wiki is the piece that matters. The dump post is not a title paste. It is the three layer claim.\n\nWatch whether labs actually keep a wiki in production agents, or whether this stays a paper that people bookmark and never wire up.",
       "kind": "story",
       "engagement": {
-        "impression_count": 196861,
-        "like_count": 2165,
-        "reply_count": 50,
-        "retweet_count": 196
+        "impression_count": 305498,
+        "like_count": 3105,
+        "reply_count": 66,
+        "retweet_count": 304
       },
       "why_it_matters": "Robert’s quantum list carried @dair_ai. One desk. The list is named Quantum. The paper is about agent skills, not qubits.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "dair_ai",
       "media_url": "https://pbs.twimg.com/media/HQz7S7XaMAEpfUG?format=jpg&name=large",
-      "list_count": 1,
-      "views": 196861,
+      "list_count": 6,
+      "views": 305498,
       "desk_rank": 13
     },
     {
@@ -690,12 +752,18 @@
       "tag": "chips",
       "published_at": "2026-08-28T15:31:57.000Z",
       "author_name": "NVIDIAAI",
-      "source_list": "AI Developer Tools",
+      "source_list": "AI Developer Tools, @Scobleizer/AI Developer Tools, Spatial Computing, AI Community",
       "list_names": [
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "@Scobleizer/AI Developer Tools",
+        "Spatial Computing",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "@Scobleizer/AI Developer Tools",
+        "Spatial Computing",
+        "AI Community"
       ],
       "source_url": "https://x.com/NVIDIAAI/status/2093360947608113363",
       "sources": [
@@ -707,18 +775,18 @@
       "body": "NVIDIA’s AI account said Warp has crossed 10 million downloads. Warp is the Python layer for physics and simulation that compiles kernels instead of making you leave Python for CUDA. The company has been pushing it as the way robotics, geometry, and physical AI people write GPU code without a second language.\n\nTen million is a install base, not a new chip. It still belongs on the chips desk because Warp is how a lot of sim to real work actually touches NVIDIA silicon. If the physics stack lives in Python, the next model that needs a world will find Warp already in the repo.\n\nRobert’s developer tools list carried the company post. Watch whether Warp stays a research library or becomes the default runtime next to CUDA in production robotics stacks.",
       "kind": "story",
       "engagement": {
-        "impression_count": 15182,
-        "like_count": 263,
-        "reply_count": 15,
-        "retweet_count": 46
+        "impression_count": 20263,
+        "like_count": 396,
+        "reply_count": 16,
+        "retweet_count": 58
       },
       "why_it_matters": "Robert’s developer tools list carried @NVIDIAAI. One desk. The news is the 10 million download mark on Warp, not a new GPU SKU.",
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "NVIDIAAI",
       "media_url": "https://pbs.twimg.com/media/HQ0cfFAaQAAMPTw?format=jpg&name=large",
-      "list_count": 1,
-      "views": 15182,
+      "list_count": 4,
+      "views": 20263,
       "desk_rank": 14
     },
     {
@@ -731,14 +799,16 @@
       "tag": "creatives",
       "published_at": "2026-08-28T15:34:58.000Z",
       "author_name": "FishAudio",
-      "source_list": "AI Music, Creatives",
+      "source_list": "AI Music, Creatives, AI Voice/Hardware",
       "list_names": [
         "AI Music/Audio",
-        "Creative with AI"
+        "Creative with AI",
+        "AI Voice/Hardware"
       ],
       "chip_labels": [
         "AI Music",
-        "Creatives"
+        "Creatives",
+        "AI Voice/Hardware"
       ],
       "source_url": "https://x.com/FishAudio/status/2093361707498532880",
       "sources": [
@@ -750,8 +820,8 @@
       "body": "Fish Audio said the whole voice studio is on Android, with a Play Store link for ai.hanabi.fishaudio. That is the same studio people already had on other surfaces, now on phones. Two of Robert’s lists caught it, music and creatives.\n\nVoice cloning and studio work moving to a phone is a product change, not a research teaser. If the Android build is actually the full studio, creators stop needing a desktop for the last mile. If it is a thin player, the post oversold it.\n\nWatch whether the Play listing matches the desktop feature set, and whether Fish keeps the model weights on device or in the cloud.",
       "kind": "story",
       "engagement": {
-        "impression_count": 1899,
-        "like_count": 18,
+        "impression_count": 2300,
+        "like_count": 22,
         "retweet_count": 1
       },
       "why_it_matters": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere, so it sits with creatives rather than as another generic product.",
@@ -759,8 +829,8 @@
       "topic_label": "Creatives",
       "x_handle": "FishAudio",
       "media_url": "https://pbs.twimg.com/media/HQ0c_8WasAA9QZU?format=jpg&name=large",
-      "list_count": 2,
-      "views": 1899,
+      "list_count": 3,
+      "views": 2300,
       "desk_rank": 15
     },
     {
@@ -792,10 +862,10 @@
       "body": "The Poimandres account said R3F v10 is in preview with first class WebGPU and TSL, a rebuilt useFrame scheduler, multi canvas out of the box, and three essentials moved from Drei into core. Install is the alpha tag of react three fiber. Two lists caught it, orgs and spatial computing.\n\nThis is how a lot of 3D and spatial demos actually render in the browser. WebGPU in core means those scenes can leave WebGL hacks. A new scheduler is the unsexy part that decides whether 3D UIs hitch when an agent is also drawing.\n\nWatch whether the alpha lands as a real v10, and whether Three.js scenes in AI tools pick it up this cycle.",
       "kind": "story",
       "engagement": {
-        "impression_count": 4236,
-        "like_count": 77,
-        "reply_count": 2,
-        "retweet_count": 16
+        "impression_count": 5100,
+        "like_count": 86,
+        "reply_count": 3,
+        "retweet_count": 19
       },
       "why_it_matters": "Robert’s orgs and spatial computing lists carried @pmndrs. Two desks. This is a WebGPU renderer preview, not a conference dinner.",
       "topic_key": "products",
@@ -803,7 +873,7 @@
       "x_handle": "pmndrs",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093367434400915456/img/iGhButUQQ6pSuiRS.jpg",
       "list_count": 2,
-      "views": 4236,
+      "views": 5100,
       "desk_rank": 16
     },
     {
@@ -816,12 +886,14 @@
       "tag": "robotics",
       "published_at": "2026-08-28T03:43:59.000Z",
       "author_name": "asimovinc",
-      "source_list": "AI Robotics",
+      "source_list": "AI Robotics, AI Community",
       "list_names": [
-        "AI Robotics"
+        "AI Robotics",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
-        "AI Robotics"
+        "AI Robotics",
+        "AI Community"
       ],
       "source_url": "https://x.com/asimovinc/status/2093182782432522568",
       "sources": [
@@ -833,18 +905,18 @@
       "body": "Asimov said you can train a policy in simulation and run it on Asimov 1 with no tuning in between, and pointed orders at menlo.ai. That is the sim to real promise a lot of labs still fail. The dump clip is the company showing the transfer, not a third party bakeoff.\n\nIf the no tune claim holds on a robot you can actually order, garage and lab buyers stop spending a week on domain randomization for every new skill. If it only holds on the company’s own tasks, it is a demo. The post sits on Robert’s robotics list.\n\nWatch independent policies, not the launch clip, and whether Menlo ships units or waitlists them.",
       "kind": "story",
       "engagement": {
-        "impression_count": 4629,
-        "like_count": 118,
-        "reply_count": 3,
-        "retweet_count": 10
+        "impression_count": 5434,
+        "like_count": 133,
+        "reply_count": 5,
+        "retweet_count": 11
       },
       "why_it_matters": "Robert’s robotics list carried @asimovinc. One desk. The claim is sim to real with no extra tune on a robot you can order.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "asimovinc",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093182759040921600/img/k5UX1gRM6pjgifNn.jpg",
-      "list_count": 1,
-      "views": 4629,
+      "list_count": 2,
+      "views": 5434,
       "desk_rank": 17
     },
     {
@@ -857,12 +929,15 @@
       "tag": "labs",
       "published_at": "2026-08-28T18:19:02.000Z",
       "author_name": "ivanburazin",
-      "source_list": "Investors",
+      "source_list": "Investors, AI Community",
       "list_names": [
-        "Investors #1 of 2"
+        "Investors #1 of 2",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Investors"
+        "Investors",
+        "AI Community"
       ],
       "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
       "sources": [
@@ -874,18 +949,18 @@
       "body": "Ivan Burazin said Meta Superintelligence Labs used Daytona sandboxes to run Muse Spark 1.2, a multimodal reasoning model the lab released earlier this month, and that someone there told him Muse Code would not be practical without that sandbox. This is a vendor post. Treat the quote as Daytona’s, not a Meta blog.\n\nIt still tells you how a frontier lab is wiring coding agents: a model plus a real sandbox, not a chat box. Muse Spark 1.2 itself is not a today drop. The news on the lists is that Meta’s superintelligence group is running it in Daytona.\n\nRobert’s investors list carried it. Watch whether Meta publishes Muse Code, and whether Daytona remains the box or gets replaced by an in house runtime.",
       "kind": "story",
       "engagement": {
-        "impression_count": 5513,
-        "like_count": 64,
+        "impression_count": 7985,
+        "like_count": 92,
         "reply_count": 2,
-        "retweet_count": 10
+        "retweet_count": 14
       },
       "why_it_matters": "Robert’s investors list carried @ivanburazin. One desk. Daytona is the poster. Meta is the lab named in the post.",
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "ivanburazin",
       "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=large",
-      "list_count": 1,
-      "views": 5513,
+      "list_count": 3,
+      "views": 7985,
       "desk_rank": 18
     },
     {
@@ -898,12 +973,14 @@
       "tag": "models",
       "published_at": "2026-08-27T21:41:00.000Z",
       "author_name": "HedgieMarkets",
-      "source_list": "Cybersecurity",
+      "source_list": "Cybersecurity, AI Community",
       "list_names": [
-        "Cybersecurity"
+        "Cybersecurity",
+        "AI Community #1 of 9"
       ],
       "chip_labels": [
-        "Cybersecurity"
+        "Cybersecurity",
+        "AI Community"
       ],
       "source_url": "https://x.com/HedgieMarkets/status/2093091434064670861",
       "sources": [
@@ -915,18 +992,18 @@
       "body": "Hedgie Markets posted that Thomson Reuters built its own AI model for about $40 million over two years, starting from Qwen. The company later named that model Thomson. It trained on its own legal, tax, and news corpus so it would not rent every token from OpenAI or Anthropic. A smaller open weight sits on Hugging Face. The dump post is the $40 million Qwen fact, not a weights drop on X.\n\nThat is a map change for enterprises that already own the data. Forty million is a rounding error next to a frontier pretrain, and it only works if you have Westlaw class archives and people who can grade the output. Most companies that copy this will just buy a maintenance bill.\n\nRobert’s cybersecurity list carried the markets post. Watch whether Thomson actually displaces the rented models inside Westlaw, or whether it stays a press model that still calls Anthropic for the hard jobs.",
       "kind": "story",
       "engagement": {
-        "impression_count": 156028,
-        "like_count": 2417,
-        "reply_count": 107,
-        "retweet_count": 668
+        "impression_count": 176496,
+        "like_count": 2526,
+        "reply_count": 111,
+        "retweet_count": 686
       },
       "why_it_matters": "Robert’s cybersecurity list carried @HedgieMarkets. One desk. The news is a $40 million in house model from Qwen, not a SOC alert.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "HedgieMarkets",
       "media_url": "https://pbs.twimg.com/media/HQwTO6tWwAANpBk?format=jpg&name=large",
-      "list_count": 1,
-      "views": 156028,
+      "list_count": 2,
+      "views": 176496,
       "desk_rank": 19
     },
     {
@@ -956,9 +1033,9 @@
       "body": "Tatsuya Harada posted that a survey on world models in robot learning was accepted to the International Journal of Robotics Research. The paper treats world models as predictive maps of how a scene changes under a robot’s actions, sitting next to reactive vision language action policies that still fail on long horizon work. Authors include Harada plus a long robotics roster, among them Pieter Abbeel, Jitendra Malik, Yilun Du, Jiajun Wu, and Philip Torr. An arxiv version has been up since April. Journal acceptance is the news tonight.\n\nWorld models are how labs argue they will get planning, simulation, and video generation into one stack instead of another VLA that copies the nearest demo. A survey in IJRR is the field writing the map, not a new checkpoint. It still tells you where the next papers will claim gains: action conditioned consistency, long horizon reliability, and whether video world models can actually control a robot.\n\nRobert’s community lists carried Harada. Watch whether the GitHub living survey stays current, and whether labs cite the taxonomy or keep shipping VLAs with a world model sticker.",
       "kind": "story",
       "engagement": {
-        "impression_count": 9143,
-        "like_count": 120,
-        "retweet_count": 24
+        "impression_count": 11492,
+        "like_count": 165,
+        "retweet_count": 29
       },
       "why_it_matters": "Robert’s community lists carried @ttyharada. One desk. This is journal acceptance of a robot learning survey, not a 20 view arxiv title paste.",
       "topic_key": "papers",
@@ -966,7 +1043,7 @@
       "x_handle": "ttyharada",
       "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=large",
       "list_count": 1,
-      "views": 9143,
+      "views": 11492,
       "desk_rank": 20
     },
     {
@@ -979,12 +1056,18 @@
       "tag": "robotics",
       "published_at": "2026-08-27T18:13:13.000Z",
       "author_name": "DynaRobotics",
-      "source_list": "VC Firms",
+      "source_list": "VC Firms, AI Robotics, AI Community",
       "list_names": [
-        "VC Firms"
+        "VC Firms",
+        "AI Robotics",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "VC Firms"
+        "VC Firms",
+        "AI Robotics",
+        "AI Community"
       ],
       "source_url": "https://x.com/DynaRobotics/status/2093039146357178475",
       "sources": [
@@ -996,18 +1079,18 @@
       "body": "Dyna Robotics said robots still stall in demos and pilots, then posted that its machines had crossed a return on investment bar and that Din Tai Fung, among the highest revenue per location restaurant groups, is rolling them across the network. The dump clip is the company announcement, not a third party audit. Dyna’s own writeup puts Dyna 2 at about 95 napkins an hour with a 93 percent accept rate, enough to hit the chain’s 1,500 napkin shift target. It also claims new sites can reach that bar in a few days, with hotels, logistics, and data centers next, and a fleet in the hundreds by early 2027.\n\nIf a foundation model company can take napkin folding from a pilot to a chain rollout, that is a different robotics story than another lab video. If the numbers only hold in Dyna’s own logs, it is still a demo with a customer logo. Din Tai Fung is a real buyer, which is why this sits above another Optimus quote.\n\nRobert’s VC firms list carried the company post. Watch independent counts on the floor, and whether the 2027 fleet number is units or waitlist slides.",
       "kind": "story",
       "engagement": {
-        "impression_count": 271377,
-        "like_count": 1015,
-        "reply_count": 50,
-        "retweet_count": 228
+        "impression_count": 283083,
+        "like_count": 1033,
+        "reply_count": 51,
+        "retweet_count": 232
       },
       "why_it_matters": "Robert’s VC firms list carried @DynaRobotics. One desk. This is a claimed restaurant chain rollout after ROI, not another humanoid clip.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "DynaRobotics",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg",
-      "list_count": 1,
-      "views": 271377,
+      "list_count": 5,
+      "views": 283083,
       "desk_rank": 21
     },
     {
@@ -1051,48 +1134,6 @@
       "desk_rank": 22
     },
     {
-      "id": "openai-astra-math",
-      "headline": "OpenAI says it will only post Astra math when it changes the pace story",
-      "summary": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progre",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-08-28T21:30:40.000Z",
-      "author_name": "polynoamial",
-      "source_list": "AI Community",
-      "list_names": [
-        "AI Community #3 of 9",
-        "AI Community #6 of 9"
-      ],
-      "chip_labels": [
-        "AI Community"
-      ],
-      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
-      "sources": [
-        {
-          "label": "@polynoamial",
-          "url": "https://x.com/polynoamial/status/2093451221273387477"
-        }
-      ],
-      "body": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progress. That is an OpenAI researcher on the record about Astra, not a rumor account guessing a September ship date.\n\nAstra is still an internal model. The August 1 set covered sphere packing, codes, group theory, circuit lower bounds, lattices, and combinatorics, with Lean certificates. Tonight’s news is the bar, not a new theorem. If the bar is real, silence means the next results are not pace changing. If the bar is PR, it is a way to sit on a model people already named.\n\nRobert’s community lists carried Brown on two desks. Watch peer review on the first ten, and whether the next Astra math post actually moves a field or just restates the same ten.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 80805,
-        "like_count": 830,
-        "reply_count": 41,
-        "retweet_count": 34
-      },
-      "why_it_matters": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "polynoamial",
-      "media_url": "https://pbs.twimg.com/media/HOn2XyYasAA_rAp?format=jpg&name=large",
-      "list_count": 2,
-      "views": 80805,
-      "desk_rank": 23
-    },
-    {
       "id": "oracle-mlperf-mi300x",
       "headline": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
       "summary": "Oracle Developers said its MLPerf Training v6.0 FLUX.1 submission is the first FLUX.1 result on AMD Instinct MI300X GPUs: 74.44 minutes to train on 512 GPUs across 64 OCI bare metal nodes. That is a cloud vendor putting AMD silicon on a video diffusion benchmark that used to be a",
@@ -1102,12 +1143,14 @@
       "tag": "chips",
       "published_at": "2026-08-28T22:25:01.000Z",
       "author_name": "OracleDevs",
-      "source_list": "AI Orgs",
+      "source_list": "AI Orgs, Tech Companies",
       "list_names": [
-        "AI Orgs & Events"
+        "AI Orgs & Events",
+        "Tech Companies"
       ],
       "chip_labels": [
-        "AI Orgs"
+        "AI Orgs",
+        "Tech Companies"
       ],
       "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
       "sources": [
@@ -1118,13 +1161,17 @@
       ],
       "body": "Oracle Developers said its MLPerf Training v6.0 FLUX.1 submission is the first FLUX.1 result on AMD Instinct MI300X GPUs: 74.44 minutes to train on 512 GPUs across 64 OCI bare metal nodes. That is a cloud vendor putting AMD silicon on a video diffusion benchmark that used to be an NVIDIA story. The dump has a still. Views were not in the scrape, so this card has no view count.\n\nMLPerf time to train is not a new chip. It is proof that ROCm, networking, and Oracle’s metal boxes can finish a standard image model run at 512 GPUs without falling over. Hyperscalers care about that more than a single server hero number. NVIDIA still leads the broader MLPerf table. This is AMD showing it can show up at cluster scale.\n\nRobert’s orgs list carried Oracle. Watch whether customers actually train FLUX class models on MI300X, or whether this stays a benchmark slide.",
       "kind": "story",
-      "engagement": {},
+      "engagement": {
+        "impression_count": 847,
+        "like_count": 5
+      },
       "why_it_matters": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "OracleDevs",
       "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=large",
-      "list_count": 1,
+      "list_count": 2,
+      "views": 847,
       "desk_rank": 24
     },
     {
@@ -1195,8 +1242,8 @@
       "body": "ElevenLabs Developers said the ElevenLabs CLI is on npm, with a short demo still in the dump. That is the voice company handing makers a terminal instead of only a web studio. If the CLI can script voices, agents, and dubbing, it becomes infrastructure. If it is a thin wrapper around the same API, it is a convenience release.\n\nRobert’s music list carried it. Watch whether the package actually ships the agent and dubbing paths, or whether it stalls at hello world voice clips.",
       "kind": "story",
       "engagement": {
-        "impression_count": 2292,
-        "like_count": 30,
+        "impression_count": 2508,
+        "like_count": 33,
         "retweet_count": 6
       },
       "why_it_matters": "Robert’s music list carried @ElevenLabsDevs. One desk. A real npm ship for a voice studio, not a meme song.",
@@ -1205,7 +1252,7 @@
       "x_handle": "ElevenLabsDevs",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093352324404019201/img/1kYLK_9roK4sVHOn.jpg",
       "list_count": 1,
-      "views": 2292,
+      "views": 2508,
       "desk_rank": 26
     },
     {
@@ -1218,12 +1265,16 @@
       "tag": "products",
       "published_at": "2026-08-28T16:42:59.000Z",
       "author_name": "freemanjiangg",
-      "source_list": "AI Voice/Hardware",
+      "source_list": "AI Voice/Hardware, AI Community",
       "list_names": [
-        "AI Voice/Hardware"
+        "AI Voice/Hardware",
+        "AI Community #6 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "AI Voice/Hardware"
+        "AI Voice/Hardware",
+        "AI Community"
       ],
       "source_url": "https://x.com/freemanjiangg/status/2093378826323853559",
       "sources": [
@@ -1235,17 +1286,18 @@
       "body": "Freeman Jiang at Sesame posted turnbench.sesame.com as their turn taking benchmark for real time conversation, with a dump video. Voice agents still interrupt, stall, or wait too long. A public bench is how you stop arguing from demos.\n\nIf Turnbench becomes the thing labs quote, Sesame sets the metric for an industry that has been grading vibes. If it only fits Sesame’s own stack, it is marketing with a URL.\n\nRobert’s voice and hardware list carried it. Watch who besides Sesame submits scores.",
       "kind": "story",
       "engagement": {
-        "impression_count": 35732,
-        "reply_count": 37,
-        "retweet_count": 46
+        "impression_count": 53838,
+        "like_count": 765,
+        "reply_count": 46,
+        "retweet_count": 60
       },
       "why_it_matters": "Robert’s voice and hardware list carried @freemanjiangg. One desk. A real time talk benchmark, not a gadget unboxing.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "freemanjiangg",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093376735161339904/img/FN8GNNltmQR8uWry.jpg",
-      "list_count": 1,
-      "views": 35732,
+      "list_count": 4,
+      "views": 53838,
       "desk_rank": 27
     },
     {
@@ -1258,12 +1310,15 @@
       "tag": "products",
       "published_at": "2026-08-27T10:13:38.000Z",
       "author_name": "femke_plantinga",
-      "source_list": "Quantum",
+      "source_list": "Quantum, AI Community",
       "list_names": [
-        "Quantum"
+        "Quantum",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
-        "Quantum"
+        "Quantum",
+        "AI Community"
       ],
       "source_url": "https://x.com/femke_plantinga/status/2092918452423983363",
       "sources": [
@@ -1275,18 +1330,18 @@
       "body": "Femke Plantinga posted that everyone is building company brains and nobody agrees what is inside one, then opened more than nine of them. She says they all do four jobs: getting signals, remembering, dreaming and pruning, speaking and searching. The dump still is a diagram. Views are high because the post names a category people are already buying.\n\nThis is a product map, not a new model. If those four jobs are real, vendors will keep shipping the same memory box under new names. If one of the nine actually dreams and prunes in production, that is the one to watch.\n\nRobert’s quantum list carried it. The list is named Quantum. The post is about company memory, not qubits.",
       "kind": "story",
       "engagement": {
-        "impression_count": 132945,
-        "like_count": 1663,
-        "reply_count": 92,
-        "retweet_count": 204
+        "impression_count": 138405,
+        "like_count": 1726,
+        "reply_count": 95,
+        "retweet_count": 221
       },
       "why_it_matters": "Robert’s quantum list carried @femke_plantinga. One desk. The list is named Quantum. The post is a company memory roundup.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "femke_plantinga",
       "media_url": "https://pbs.twimg.com/media/HQuKMrOWwAA_Fvs?format=jpg&name=large",
-      "list_count": 1,
-      "views": 132945,
+      "list_count": 3,
+      "views": 138405,
       "desk_rank": 28
     },
     {
@@ -1339,12 +1394,14 @@
       "tag": "world",
       "published_at": "2026-08-28T22:55:24.000Z",
       "author_name": "WhiteHouse",
-      "source_list": "AI Founders",
+      "source_list": "AI Founders, AI Community",
       "list_names": [
-        "Tech VIPs"
+        "Tech VIPs",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "AI Founders"
+        "AI Founders",
+        "AI Community"
       ],
       "source_url": "https://x.com/WhiteHouse/status/2093472546494501175",
       "sources": [
@@ -1356,18 +1413,18 @@
       "body": "The White House posted Trump saying the United States had entered an agreement with Venezuela on what he called the biggest oil deal in world history. Kobeissi Letter put a number on it: majority control of more than 65 billion barrels of Venezuelan reserves, against about 46 billion barrels of proven US crude. Kalshi and others on owned lists repeated the claim the same hour.\n\nIf the contract is real, it is a map change for energy and for whoever still treats Caracas as sanctioned out of the market. If it is a podium line, it is a press video with a barrel count. The dump has the White House still. It does not have the treaty text.\n\nRobert’s tech VIPs list carried the White House. His generalists and video lists carried the barrel math. Watch the actual offtake terms, and whether PDVSA or a US major is named as operator.",
       "kind": "story",
       "engagement": {
-        "impression_count": 261807,
-        "like_count": 10000,
-        "reply_count": 932,
-        "retweet_count": 2600
+        "impression_count": 798591,
+        "like_count": 22459,
+        "reply_count": 2358,
+        "retweet_count": 5438
       },
       "why_it_matters": "Robert’s tech VIPs list carried @WhiteHouse. World News later carried @AJEnglish with the same barrel claim and a skeptic. This is a claimed state oil deal, not a lab drop.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "WhiteHouse",
       "media_url": "https://pbs.twimg.com/media/HQ2BynpXEAEsK4x?format=jpg&name=large",
-      "list_count": 1,
-      "views": 261807,
+      "list_count": 2,
+      "views": 798591,
       "desk_rank": 30
     },
     {
@@ -1487,10 +1544,10 @@
       "body": "Katie Miller posted court records on twenty three lawsuits that blame ChatGPT for death or self harm. One named case is Rita Chesterton, who received more than 1,600 messages in nine days and had to ask the bot to stop so she could sleep. The dump photo is the court list, not a quote card.\n\nThat is policy, not product marketing. The count is large enough that OpenAI’s safety stack is now a litigation stack. Robert’s founders lists and his AI community lists carried it with a photo, which is why it sits here instead of a rumor thread.\n\nWatch filings, not tweets, for whether OpenAI treats this as product risk or as a PR wave.",
       "kind": "story",
       "engagement": {
-        "impression_count": 5897,
-        "like_count": 96,
-        "reply_count": 10,
-        "retweet_count": 30
+        "impression_count": 8274,
+        "like_count": 118,
+        "reply_count": 15,
+        "retweet_count": 38
       },
       "why_it_matters": "Robert’s founders lists and his AI community lists carried @KatieMiller with the court photo. Policy desk, not a product launch.",
       "topic_key": "policy",
@@ -1498,7 +1555,7 @@
       "x_handle": "KatieMiller",
       "media_url": "https://pbs.twimg.com/media/HQ2QL27X0AAt4-_?format=jpg&name=large",
       "list_count": 2,
-      "views": 5897,
+      "views": 8274,
       "desk_rank": 33
     },
     {
@@ -1511,12 +1568,15 @@
       "tag": "labs",
       "published_at": "2026-08-28T16:59:40.000Z",
       "author_name": "boltz_bio",
-      "source_list": "AI Medical/Health/Science",
+      "source_list": "AI Medical/Health/Science, AI Community",
       "list_names": [
-        "AI Medical/Health/Science"
+        "AI Medical/Health/Science",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "AI Medical/Health/Science"
+        "AI Medical/Health/Science",
+        "AI Community"
       ],
       "source_url": "https://x.com/boltz_bio/status/2093383021256937927",
       "sources": [
@@ -1528,18 +1588,18 @@
       "body": "Boltz posted that OpenAI launched Rosalind Workbench, a research preview that puts frontier models, scientific tools, and guided workflows in one workspace. Boltz said its molecule design API is plugged in from day one. The dump photo is the lab card, not a keynote still.\n\nA named workbench from OpenAI is a lab move. If biologists keep it open, that is a product. If access stays gated, it is a press hit. Robert’s medical and science lists caught it first.\n\nWatch who gets seats, and whether Rosalind ships next to ChatGPT or stays a research toy.",
       "kind": "story",
       "engagement": {
-        "impression_count": 4145,
-        "like_count": 32,
+        "impression_count": 5789,
+        "like_count": 37,
         "reply_count": 3,
-        "retweet_count": 10
+        "retweet_count": 11
       },
       "why_it_matters": "Robert’s medical and science lists carried @boltz_bio. One desk. A named OpenAI lab tool, not a paper paste.",
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "boltz_bio",
       "media_url": "https://pbs.twimg.com/media/HQ0wsMSaAAAFLeF?format=jpg&name=large",
-      "list_count": 1,
-      "views": 4145,
+      "list_count": 3,
+      "views": 5789,
       "desk_rank": 34
     },
     {
@@ -1652,10 +1712,10 @@
       "body": "Vercel posted that it built vgpu.sh to ship shaders on Vercel, and that the library is now open source. The note lists a small WebGPU library for agents, browser or headless Node, CPU sandboxes and CI tests, and reusable wgsl modules. The dump clip is the launch video.\n\nThis is a real product drop, not a shader meme. Agents that generate GPU code need a sandbox that is not a full cloud GPU. Robert’s community lists carried the company account.\n\nWatch whether vgpu.sh actually runs in CI without a GPU, and whether anyone besides Vercel adopts the modules.",
       "kind": "story",
       "engagement": {
-        "impression_count": 825991,
-        "like_count": 4551,
-        "reply_count": 138,
-        "retweet_count": 465
+        "impression_count": 850341,
+        "like_count": 4720,
+        "reply_count": 144,
+        "retweet_count": 483
       },
       "why_it_matters": "Robert’s community lists carried @vercel. One desk. An open source WebGPU library, not a blog tease.",
       "topic_key": "products",
@@ -1663,7 +1723,7 @@
       "x_handle": "vercel",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092999146655645696/img/FgRJeSsf_c3kJSlF.jpg",
       "list_count": 1,
-      "views": 825991,
+      "views": 850341,
       "desk_rank": 37
     },
     {
@@ -1710,41 +1770,50 @@
     },
     {
       "id": "kyiv-bucha-blast",
-      "headline": "Warehouse blast in Kyiv Bucha district kills several",
-      "summary": "Hindustan Times posted that a massive explosion hit Kyiv’s Bucha district on August 28, with a large fire, secondary blasts, and a mushroom shaped cloud over the capital region. The warehouse blast reportedly killed several people and injured six, with more than 200 residents aff",
+      "headline": "Russian strike on Kyiv Bucha district kills at least 27",
+      "summary": "Kyiv Post reported at least 27 people killed and 42 injured, including four children, after a Russian attack in the Bucha district of the Kyiv region, according to Tymur Tkachenko. Rescuers evacuated 381 people. About 50 homes were damaged. The New York Post hit five of Robert’s ",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
-      "published_at": "2026-08-29T03:58:22.000Z",
-      "author_name": "htTweets",
-      "source_list": "World News",
+      "published_at": "2026-08-29T10:26:15.000Z",
+      "author_name": "nypost",
+      "source_list": "AI Founders, AI Investors, Generalists, Investors",
       "list_names": [
-        "World News"
+        "AI Founders #2 of 3",
+        "AI Founders #3 of 3",
+        "AI Investors",
+        "Generalists #2 of 3",
+        "Investors #2 of 2"
       ],
       "chip_labels": [
-        "World News"
+        "AI Founders",
+        "AI Investors",
+        "Generalists",
+        "Investors"
       ],
-      "source_url": "https://x.com/htTweets/status/2093548788891984191",
+      "source_url": "https://x.com/nypost/status/2093646404958716217",
       "sources": [
         {
-          "label": "@htTweets",
-          "url": "https://x.com/htTweets/status/2093548788891984191"
+          "label": "@nypost",
+          "url": "https://x.com/nypost/status/2093646404958716217"
         }
       ],
-      "body": "Hindustan Times posted that a massive explosion hit Kyiv’s Bucha district on August 28, with a large fire, secondary blasts, and a mushroom shaped cloud over the capital region. The warehouse blast reportedly killed several people and injured six, with more than 200 residents affected. Robert’s World News list carried @htTweets with the photo.\n\nBucha is not a random suburb in this war. An explosion there is a map item even when the first wire is thin on who fired.\n\nWatch official Kyiv casualty numbers, and whether this is logged as a strike or as an industrial blast.",
+      "body": "Kyiv Post reported at least 27 people killed and 42 injured, including four children, after a Russian attack in the Bucha district of the Kyiv region, according to Tymur Tkachenko. Rescuers evacuated 381 people. About 50 homes were damaged. The New York Post hit five of Robert’s lists with the same death count. Piotr Kaszuwara said the capital was in a third day of strikes, past 60 hours, with UNICEF warehouses among the overnight targets.\n\nThis is no longer a warehouse blast with a thin first wire. It is a mass casualty strike on the capital region. The lists had the 27 before most English homepages moved the number.\n\nWatch the official Kyiv city tally, and whether UNICEF confirms the warehouse hit.",
       "kind": "story",
       "engagement": {
-        "impression_count": 2300,
-        "like_count": 1
+        "impression_count": 61000,
+        "like_count": 34,
+        "reply_count": 13,
+        "retweet_count": 128
       },
-      "why_it_matters": "Robert’s World News list carried @htTweets. One desk. A capital region blast, not a sports brief.",
+      "why_it_matters": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
       "topic_key": "world",
       "topic_label": "World",
-      "x_handle": "htTweets",
-      "media_url": "https://pbs.twimg.com/media/HQ3HbrQacAA6ZBI?format=jpg&name=large",
-      "list_count": 1,
-      "views": 2300,
+      "x_handle": "nypost",
+      "media_url": "https://pbs.twimg.com/media/HQ4gTg_WEAAifog?format=jpg&name=large",
+      "list_count": 5,
+      "views": 61000,
       "desk_rank": 39
     },
     {
@@ -1828,14 +1897,14 @@
     },
     {
       "id": "nepal-china-floods",
-      "headline": "Nepal China floods leave more than 2,400 missing as 586 bodies are found",
-      "summary": "Arab News posted that the number of missing in the Nepal China floods passed 2,400 on Friday, with emergency teams recovering 586 bodies, some swept as far as India. Robert’s World News list carried @arabnews with the photo. Nine hundred seventy seven views. Still a disaster coun",
+      "headline": "Nepal Tibet floods reach 629 dead and 1,924 missing",
+      "summary": "Al Jazeera posted Nepal police figures of at least 629 deaths and 1,924 missing on the Nepal Tibet border, with the toll still rising. China reported five deaths and 558 missing in Tibet, with rescue paused then resumed. Sky News was at a teaching college in Kathmandu where famil",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
-      "published_at": "2026-08-29T04:00:03.000Z",
-      "author_name": "arabnews",
+      "published_at": "2026-08-29T05:00:01.000Z",
+      "author_name": "AJEnglish",
       "source_list": "World News",
       "list_names": [
         "World News"
@@ -1843,27 +1912,28 @@
       "chip_labels": [
         "World News"
       ],
-      "source_url": "https://x.com/arabnews/status/2093549212122169837",
+      "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
       "sources": [
         {
-          "label": "@arabnews",
-          "url": "https://x.com/arabnews/status/2093549212122169837"
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Arab News posted that the number of missing in the Nepal China floods passed 2,400 on Friday, with emergency teams recovering 586 bodies, some swept as far as India. Robert’s World News list carried @arabnews with the photo. Nine hundred seventy seven views. Still a disaster count, not a vibe post.\n\nA four digit missing number on a shared border river is the kind of item ministries staff overnight. The lists had it before most English homepages moved the figure.\n\nWatch the next official missing count, and whether Beijing and Kathmandu keep issuing separate tallies.",
+      "body": "Al Jazeera posted Nepal police figures of at least 629 deaths and 1,924 missing on the Nepal Tibet border, with the toll still rising. China reported five deaths and 558 missing in Tibet, with rescue paused then resumed. Sky News was at a teaching college in Kathmandu where families were still arriving for names. Robert’s World News list carried both wires.\n\nThe overnight number was 586 bodies and 2,400 missing. The morning number is a police death count plus a still open missing list. Write the new count.\n\nWatch the next Nepal police bulletin, and whether Beijing and Kathmandu keep separate tallies.",
       "kind": "story",
       "engagement": {
-        "impression_count": 977,
-        "like_count": 2,
-        "retweet_count": 2
+        "impression_count": 32858,
+        "like_count": 95,
+        "reply_count": 3,
+        "retweet_count": 43
       },
-      "why_it_matters": "Robert’s World News list carried @arabnews. One desk. A four digit missing count, not a weather meme.",
+      "why_it_matters": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
       "topic_key": "world",
       "topic_label": "World",
-      "x_handle": "arabnews",
-      "media_url": "https://pbs.twimg.com/media/HQ3H6GPW0AA6muH?format=jpg&name=large",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/media/HQ3LBwhaoAA2P45?format=jpg&name=large",
       "list_count": 1,
-      "views": 977,
+      "views": 32858,
       "desk_rank": 42
     },
     {
@@ -1914,18 +1984,22 @@
       "tag": "policy",
       "published_at": "2026-08-28T16:59:50.000Z",
       "author_name": "WhiteHouse",
-      "source_list": "AI Investors, AI Orgs, Blockchain/Web 3, SpaceX AI",
+      "source_list": "AI Investors, AI Orgs, Blockchain/Web 3, SpaceX AI, AI Community",
       "list_names": [
         "AI Investors",
         "AI Orgs & Events",
         "Blockchain/Web 3 #2 of 2",
-        "SpaceX_AI"
+        "SpaceX_AI",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Investors",
         "AI Orgs",
         "Blockchain/Web 3",
-        "SpaceX AI"
+        "SpaceX AI",
+        "AI Community"
       ],
       "source_url": "https://x.com/WhiteHouse/status/2093383065548492982",
       "sources": [
@@ -1937,18 +2011,18 @@
       "body": "The White House posted that President Trump signed an executive order establishing a new federal academy, the United States Space Academy. Four of Robert’s lists carried the clip, including his SpaceX AI desk and his investors lists. Michael Kratsios said the commission is led by the NASA administrator and will design a NASA led federal academy. Fox News, on the same SpaceX AI list, said Trump also announced a nuclear powered interplanetary spacecraft aimed at Mars in 2028.\n\nA named federal space academy is policy, not a merch drop. It puts NASA in the academy business and puts a Mars ship date on the same afternoon. Treat the order as signed. Treat the 2028 ship as a claim until NASA posts hardware.\n\nWatch the commission roster, the campus fight, and whether the Mars ship is a NASA line or a podium line.",
       "kind": "story",
       "engagement": {
-        "impression_count": 3700000,
-        "like_count": 24228,
-        "reply_count": 1605,
-        "retweet_count": 5107
+        "impression_count": 5246893,
+        "like_count": 27797,
+        "reply_count": 1815,
+        "retweet_count": 5858
       },
       "why_it_matters": "Robert’s SpaceX AI list, his investors lists, and his orgs lists carried @WhiteHouse. Four desks. A signed executive order, not a rally recap.",
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "WhiteHouse",
       "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=large",
-      "list_count": 4,
-      "views": 3700000,
+      "list_count": 7,
+      "views": 5246893,
       "desk_rank": 44
     },
     {
@@ -2001,14 +2075,16 @@
       "tag": "policy",
       "published_at": "2026-08-29T03:19:38.000Z",
       "author_name": "MTSlive",
-      "source_list": "Tech News, Tech Journalists",
+      "source_list": "Tech News, Tech Journalists, AI Community",
       "list_names": [
         "Tech News",
-        "Tech Journalists"
+        "Tech Journalists",
+        "AI Community #1 of 9"
       ],
       "chip_labels": [
         "Tech News",
-        "Tech Journalists"
+        "Tech Journalists",
+        "AI Community"
       ],
       "source_url": "https://x.com/MTSlive/status/2093539044244570592",
       "sources": [
@@ -2020,18 +2096,18 @@
       "body": "Music Tech Solutions posted that Sony Music and Warner Chappell sued Anthropic and founders Dario Amodei and Benjamin Mann. The complaint says they ran a campaign of torrenting, scraping, and downloading. Robert’s tech news and journalists lists both carried @MTSlive with the filing photo.\n\nTwo major publishers suing a frontier lab is policy with a docket number. It sits next to the ChatGPT death suits, not next to a model card.\n\nWatch the actual complaint, and whether Anthropic treats this as training risk or as noise.",
       "kind": "story",
       "engagement": {
-        "impression_count": 3500,
-        "like_count": 51,
-        "reply_count": 4,
-        "retweet_count": 4
+        "impression_count": 10355,
+        "like_count": 145,
+        "reply_count": 9,
+        "retweet_count": 9
       },
       "why_it_matters": "Robert’s tech news list and his journalists list carried @MTSlive. Two desks. A publisher lawsuit, not a blog recap.",
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "MTSlive",
       "media_url": "https://pbs.twimg.com/media/HQ298vabEAAEdQD?format=jpg&name=large",
-      "list_count": 2,
-      "views": 3500,
+      "list_count": 3,
+      "views": 10355,
       "desk_rank": 46
     },
     {
@@ -2049,7 +2125,10 @@
         "AI Community #5 of 9",
         "@Scobleizer/AI Education",
         "AI Medical/Health/Science",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Community",
@@ -2067,18 +2146,18 @@
       "body": "Claude’s account posted that 10,000 scientists across math, chemistry, physics, and more can get Claude through a new Claude Team plan for scientists. Standard seats are free. Premium seats come with five times the usage. Four of Robert’s lists carried the clip, including medical and education desks. The dump has the launch video.\n\nFree seats for working scientists is a lab distribution move, not a coupon. If the 10,000 actually log in, Claude is sitting next to lab notebooks this week.\n\nWatch who fills the seats, and whether the premium cap is enough for wet lab work.",
       "kind": "story",
       "engagement": {
-        "impression_count": 3066618,
-        "like_count": 11146,
-        "reply_count": 450,
-        "retweet_count": 1375
+        "impression_count": 3419949,
+        "like_count": 11677,
+        "reply_count": 466,
+        "retweet_count": 1463
       },
       "why_it_matters": "Robert’s community lists, his education lists, his medical lists, and his computer vision list carried @claudeai. Four desks. A scientist plan, not a demo day.",
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "claudeai",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093049007329116160/img/5X2ymmLb8kxUv3r9.jpg",
-      "list_count": 4,
-      "views": 3066618,
+      "list_count": 7,
+      "views": 3419949,
       "desk_rank": 47
     },
     {
@@ -2095,7 +2174,9 @@
       "list_names": [
         "AI Robotics",
         "AI Community #3 of 9",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Robotics",
@@ -2112,18 +2193,18 @@
       "body": "Anthropic posted the first phase of a research preview for Model Hardware Standard, a standard for AI agents to operate physical equipment safely. Three of Robert’s lists carried @AnthropicAI, robotics through computer vision. The dump has the product still.\n\nA named hardware standard from Anthropic is how agents leave the chat box. If labs and robot shops adopt MHS, that is a product. If it stays a PDF, it is a press kit.\n\nWatch who implements the spec, and whether it shows up on a real bench this month.",
       "kind": "story",
       "engagement": {
-        "impression_count": 2684159,
-        "like_count": 10017,
-        "reply_count": 436,
-        "retweet_count": 1970
+        "impression_count": 2793870,
+        "like_count": 10344,
+        "reply_count": 450,
+        "retweet_count": 2054
       },
       "why_it_matters": "Robert’s robotics lists, his community lists, and his computer vision list carried @AnthropicAI. Three desks. A hardware standard, not a model drop.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "AnthropicAI",
       "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
-      "list_count": 3,
-      "views": 2684159,
+      "list_count": 5,
+      "views": 2793870,
       "desk_rank": 48
     },
     {
@@ -2136,12 +2217,14 @@
       "tag": "chips",
       "published_at": "2026-08-28T21:03:31.000Z",
       "author_name": "NVIDIAAI",
-      "source_list": "Tech Companies",
+      "source_list": "Tech Companies, AI Community",
       "list_names": [
-        "Tech Companies"
+        "Tech Companies",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
-        "Tech Companies"
+        "Tech Companies",
+        "AI Community"
       ],
       "source_url": "https://x.com/NVIDIAAI/status/2093444391797158049",
       "sources": [
@@ -2153,18 +2236,18 @@
       "body": "NVIDIA posted a five minute explainer on Dynamo: it sits around engines like SGLang, vLLM, and TensorRT LLM to scale inference across GPUs and nodes. Robert’s company lists carried @NVIDIAAI with the video thumb. This is the company account, not a recap blog.\n\nIf you already run an engine, Dynamo is the layer that fans work across boxes. That is chips software, not a new GPU SKU.\n\nWatch whether Dynamo actually shows up in production vLLM deploys this month, or stays a keynote diagram.",
       "kind": "story",
       "engagement": {
-        "impression_count": 12000,
-        "like_count": 140,
-        "reply_count": 38,
-        "retweet_count": 25
+        "impression_count": 17323,
+        "like_count": 209,
+        "reply_count": 44,
+        "retweet_count": 33
       },
       "why_it_matters": "Robert’s company lists carried @NVIDIAAI. One desk. A Dynamo explainer from NVIDIA, not a podcast recap.",
       "topic_key": "chips",
       "topic_label": "Chips",
       "x_handle": "NVIDIAAI",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093442877464735744/img/9flouWJYMrEF2i2l.jpg",
-      "list_count": 1,
-      "views": 12000,
+      "list_count": 2,
+      "views": 17323,
       "desk_rank": 49
     },
     {
@@ -2258,12 +2341,15 @@
       "tag": "papers",
       "published_at": "2026-08-28T17:49:39.000Z",
       "author_name": "matt_dz",
-      "source_list": "Quantum",
+      "source_list": "Quantum, AI Community",
       "list_names": [
-        "Quantum"
+        "Quantum",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Quantum"
+        "Quantum",
+        "AI Community"
       ],
       "source_url": "https://x.com/matt_dz/status/2093395599986966854",
       "sources": [
@@ -2275,17 +2361,17 @@
       "body": "Matt posted Accel Sim 2.0 as validated GPU simulation with full Hopper support, plus a paper on asynchronous distributed GPUs, arxiv 2608.22602, and code on the accel sim GitHub. Robert’s quantum list carried @matt_dz with the figure. Three thousand nine hundred views. Low views is not a reason to drop a real simulator drop.\n\nHopper in a public simulator is how people debug GPU ideas without a B200 queue. That is a paper with working code.\n\nWatch whether the GitHub actually replays Hopper traces, and who forks it this week.",
       "kind": "story",
       "engagement": {
-        "impression_count": 3900,
-        "like_count": 69,
-        "retweet_count": 11
+        "impression_count": 6283,
+        "like_count": 94,
+        "retweet_count": 15
       },
       "why_it_matters": "Robert’s quantum list carried @matt_dz. One desk. A Hopper simulator paper with a GitHub, not a title paste.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "matt_dz",
       "media_url": "https://pbs.twimg.com/media/HQ070mkXkAAGGIb?format=jpg&name=large",
-      "list_count": 1,
-      "views": 3900,
+      "list_count": 3,
+      "views": 6283,
       "desk_rank": 52
     },
     {
@@ -2300,7 +2386,9 @@
       "author_name": "hsteven9",
       "source_list": "AI Community",
       "list_names": [
-        "AI Community #2 of 9"
+        "AI Community #2 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Community"
@@ -2315,18 +2403,18 @@
       "body": "Steven posted a preprint that brain alignment in deep nets is almost done in the first 3 percent of training, while classification is still poor. The features that predict the brain are largely independent of the features that classify. Robert’s community lists carried @hsteven9 with the figure.\n\nIf that split holds, brain likeness is not a side effect of getting ImageNet right. It shows up early, then the net goes off and learns a different trick.\n\nWatch a replication on a second architecture, not a quote tweet.",
       "kind": "story",
       "engagement": {
-        "impression_count": 2798,
-        "like_count": 39,
+        "impression_count": 3283,
+        "like_count": 50,
         "reply_count": 4,
-        "retweet_count": 7
+        "retweet_count": 11
       },
       "why_it_matters": "Robert’s community lists carried @hsteven9. One desk. A preprint with a split finding, not a paper title dump.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "hsteven9",
       "media_url": "https://pbs.twimg.com/media/HQvBb9bWIAAvxvy?format=jpg&name=large",
-      "list_count": 1,
-      "views": 2798,
+      "list_count": 3,
+      "views": 3283,
       "desk_rank": 53
     },
     {
@@ -2341,7 +2429,9 @@
       "author_name": "TracyKe7",
       "source_list": "AI Community",
       "list_names": [
-        "AI Community #3 of 9"
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Community"
@@ -2356,18 +2446,18 @@
       "body": "Tracy Ke posted The Gold Rush in AI4Math as an empirical study of 32,944 math papers: whether substantive AI use is rising, which subfields moved, which problems got solved, who wrote them, and which models they used. The paper is arxiv 2608.24961. Robert’s community lists carried @TracyKe7 with the figure. Six hundred sixty nine views.\n\nThis is a count, not a manifesto. Thirty two thousand papers is enough to say whether the gold rush is in the literature or only on timelines.\n\nWatch which models the study names, and whether the solved problems are new results or restatements.",
       "kind": "story",
       "engagement": {
-        "impression_count": 669,
-        "like_count": 7,
-        "reply_count": 2,
-        "retweet_count": 3
+        "impression_count": 6597,
+        "like_count": 71,
+        "reply_count": 6,
+        "retweet_count": 19
       },
       "why_it_matters": "Robert’s community lists carried @TracyKe7. One desk. A 32,944 paper count, not a title paste.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "TracyKe7",
       "media_url": "https://pbs.twimg.com/media/HQ2ajOxXAAAIB3g?format=jpg&name=large",
-      "list_count": 1,
-      "views": 669,
+      "list_count": 3,
+      "views": 6597,
       "desk_rank": 54
     },
     {
@@ -2588,12 +2678,14 @@
       "tag": "policy",
       "published_at": "2026-08-28T17:37:30.000Z",
       "author_name": "JeremyKonyndyk",
-      "source_list": "Climate and Weather",
+      "source_list": "Climate and Weather, AI Community",
       "list_names": [
-        "Climate and Weather"
+        "Climate and Weather",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
-        "Climate and Weather"
+        "Climate and Weather",
+        "AI Community"
       ],
       "source_url": "https://x.com/JeremyKonyndyk/status/2093392544885325879",
       "sources": [
@@ -2605,19 +2697,347 @@
       "body": "Jeremy Konyndyk posted that DOGE used keyword searches such as climate to kill federal grants, including a USAID and NASA collaboration on flood prediction, early warning, disaster readiness, glacier inventories, and mapping dangerous glacial lakes in Nepal. Robert’s climate list carried @JeremyKonyndyk with the document photo. Four hundred twenty three thousand views.\n\nNepal is in the water this week. A killed flood warning project is policy with a body count next door, not a culture war snippet.\n\nWatch whether NASA or USAID restores the map work, and whether the glacial lake list is public without it.",
       "kind": "story",
       "engagement": {
-        "impression_count": 423565,
-        "like_count": 18232,
-        "reply_count": 178,
-        "retweet_count": 3462
+        "impression_count": 564829,
+        "like_count": 24044,
+        "reply_count": 254,
+        "retweet_count": 4580
       },
       "why_it_matters": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "JeremyKonyndyk",
       "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
-      "list_count": 1,
-      "views": 423565,
+      "list_count": 2,
+      "views": 564829,
       "desk_rank": 60
+    },
+    {
+      "id": "hy4-gguf-200gib",
+      "headline": "Tencent packs Hy4 preview into about 200GiB of GGUF",
+      "summary": "Tencent Hunyuan posted that it compressed Hy4 preview from 1.5TB to about 200GiB of GGUF and that it still runs well. The recipe is MIX STQ1 0: calibration data picks each layer’s bit width, some down to 1.31 bit STQ1 0, some up to 2.06 bit IQ2 XXS. Three of Robert’s community li",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-29T05:31:29.000Z",
+      "author_name": "TencentHunyuan",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/TencentHunyuan/status/2093572224342954019",
+      "sources": [
+        {
+          "label": "@TencentHunyuan",
+          "url": "https://x.com/TencentHunyuan/status/2093572224342954019"
+        }
+      ],
+      "body": "Tencent Hunyuan posted that it compressed Hy4 preview from 1.5TB to about 200GiB of GGUF and that it still runs well. The recipe is MIX STQ1 0: calibration data picks each layer’s bit width, some down to 1.31 bit STQ1 0, some up to 2.06 bit IQ2 XXS. Three of Robert’s community lists carried the lab card.\n\nA 770B Apache model that fits in 200GiB is how local boxes actually load it. The map change yesterday was the weights. This morning is the file you can copy.\n\nWatch whether the GGUF matches the full model on hard reasoning, and whether llama cpp picks it up today.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 73582,
+        "like_count": 778,
+        "reply_count": 40,
+        "retweet_count": 106
+      },
+      "why_it_matters": "Robert’s community lists carried @TencentHunyuan on three desks. A 200GiB GGUF of the same Hy4 preview, not a new base model.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "TencentHunyuan",
+      "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=large",
+      "list_count": 3,
+      "views": 73582,
+      "desk_rank": 61
+    },
+    {
+      "id": "orca-glm-flash-uncensored",
+      "headline": "OrcaRouter posts uncensored FP8 weights for GLM 5.3 Flash",
+      "summary": "OrcaRouter posted uncensored GLM 5.3 Flash weights at native FP8: 320B total, 18B active, no LoRA, no jailbreak prompt. Refusal removal is baked into the weights. Robert’s founders lists carried @OrcaRouter. One hundred eighty one thousand views.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-29T08:11:36.000Z",
+      "author_name": "OrcaRouter",
+      "source_list": "AI Founders",
+      "list_names": [
+        "AI Founders #3 of 3"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "source_url": "https://x.com/OrcaRouter/status/2093612518396871075",
+      "sources": [
+        {
+          "label": "@OrcaRouter",
+          "url": "https://x.com/OrcaRouter/status/2093612518396871075"
+        }
+      ],
+      "body": "OrcaRouter posted uncensored GLM 5.3 Flash weights at native FP8: 320B total, 18B active, no LoRA, no jailbreak prompt. Refusal removal is baked into the weights. Robert’s founders lists carried @OrcaRouter. One hundred eighty one thousand views.\n\nThis is a third party weight drop on Z.ai’s Flash line, not Z.ai itself. If the files are real, the refusal layer is gone in the matrix, not in a system prompt.\n\nWatch a hash check against the official Flash, and whether Z.ai answers.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 181000,
+        "like_count": 921,
+        "reply_count": 31,
+        "retweet_count": 83
+      },
+      "why_it_matters": "Robert’s founders lists carried @OrcaRouter. One desk. A third party uncensored Flash dump, not a Z.ai post.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "OrcaRouter",
+      "media_url": "https://pbs.twimg.com/media/HQ4Bd3iaoAE0-uy?format=jpg&name=large",
+      "list_count": 1,
+      "views": 181000,
+      "desk_rank": 62
+    },
+    {
+      "id": "levjepa-lecun-video",
+      "headline": "LeCun and Balestriero extend LeJEPA to video as LeVJEPA",
+      "summary": "The Turing Post posted a new paper from Yann LeCun, Randall Balestriero, and colleagues extending LeJEPA to video. LeVJEPA aims to make video training cheaper and simpler with one encoder and a small projector that is thrown away after training. Robert’s community lists carried @",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-29T10:19:19.000Z",
+      "author_name": "TheTuringPost",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/TheTuringPost/status/2093644660900327453",
+      "sources": [
+        {
+          "label": "@TheTuringPost",
+          "url": "https://x.com/TheTuringPost/status/2093644660900327453"
+        }
+      ],
+      "body": "The Turing Post posted a new paper from Yann LeCun, Randall Balestriero, and colleagues extending LeJEPA to video. LeVJEPA aims to make video training cheaper and simpler with one encoder and a small projector that is thrown away after training. Robert’s community lists carried @TheTuringPost. Fourteen hundred views.\n\nA LeCun video JEPA that trains without a fat decoder is a real paper. Low views do not make it a title paste. The method is named and the goal is cost.\n\nWatch the arxiv, and whether the projector trick holds on a public video set.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1400,
+        "like_count": 31,
+        "reply_count": 8,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "TheTuringPost",
+      "media_url": "https://pbs.twimg.com/media/HQ4euTeaUAAtxiX?format=jpg&name=large",
+      "list_count": 1,
+      "views": 1400,
+      "desk_rank": 63
+    },
+    {
+      "id": "changxin-sues-pentagon",
+      "headline": "China memory champion ChangXin sues the Pentagon over a military list",
+      "summary": "Al Arabiya posted that ChangXin Memory Technologies, China’s top memory chipmaker, sued the Pentagon over being placed on a list of companies the US says are aiding Beijing’s military. Robert’s World News list carried @AlArabiya_Eng with the photo.",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-29T07:12:22.000Z",
+      "author_name": "AlArabiya_Eng",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AlArabiya_Eng/status/2093597613379518624",
+      "sources": [
+        {
+          "label": "@AlArabiya_Eng",
+          "url": "https://x.com/AlArabiya_Eng/status/2093597613379518624"
+        }
+      ],
+      "body": "Al Arabiya posted that ChangXin Memory Technologies, China’s top memory chipmaker, sued the Pentagon over being placed on a list of companies the US says are aiding Beijing’s military. Robert’s World News list carried @AlArabiya_Eng with the photo.\n\nA Chinese DRAM house taking DoD to court is policy with a docket, and it is chips. It sits next to the Anthropic blacklist fight, not next to a yield slide.\n\nWatch the filing, and whether Commerce or Defense answers in public.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2124,
+        "like_count": 1,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert’s World News list carried @AlArabiya_Eng. One desk. A chipmaker suing the Pentagon, not a trade blog.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "AlArabiya_Eng",
+      "media_url": "https://pbs.twimg.com/media/HQ3z71OXwAAXSIU?format=jpg&name=large",
+      "list_count": 1,
+      "views": 2124,
+      "desk_rank": 64
+    },
+    {
+      "id": "iceland-eu-vote",
+      "headline": "Iceland votes on whether to reopen talks to join the EU",
+      "summary": "Al Jazeera posted that Icelanders head to the polls Saturday on whether to reopen negotiations to join the European Union, a vote with economic and security weight beyond a small Arctic state. Robert’s World News list carried @AJEnglish with the photo.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T05:28:08.000Z",
+      "author_name": "AJEnglish",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJEnglish/status/2093571382693245417",
+      "sources": [
+        {
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2093571382693245417"
+        }
+      ],
+      "body": "Al Jazeera posted that Icelanders head to the polls Saturday on whether to reopen negotiations to join the European Union, a vote with economic and security weight beyond a small Arctic state. Robert’s World News list carried @AJEnglish with the photo.\n\nAn EU door vote in the North Atlantic is geopolitics, even at 30,000 views. NATO already has Reykjavik. Brussels is the open question.\n\nWatch the count, and whether a yes forces a real accession timetable.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 30011,
+        "like_count": 16,
+        "reply_count": 7,
+        "retweet_count": 8
+      },
+      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/media/HQ3bgilaMAAZ-IJ?format=jpg&name=large",
+      "list_count": 1,
+      "views": 30011,
+      "desk_rank": 65
+    },
+    {
+      "id": "gaza-balloons-kites",
+      "headline": "Israel to treat Gaza balloons and kites as military drones",
+      "summary": "Al Jazeera posted that Amnesty International condemned an Israeli cabinet statement treating balloons and kites flown in Gaza as military drones, saying it strips away moments of joy for children. Robert’s World News list carried @AJEnglish.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T07:30:55.000Z",
+      "author_name": "AJEnglish",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJEnglish/status/2093602281816256620",
+      "sources": [
+        {
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2093602281816256620"
+        }
+      ],
+      "body": "Al Jazeera posted that Amnesty International condemned an Israeli cabinet statement treating balloons and kites flown in Gaza as military drones, saying it strips away moments of joy for children. Robert’s World News list carried @AJEnglish.\n\nA cabinet rule that turns a kite into a target is a rules of engagement change. That is war policy, not a color piece.\n\nWatch the cabinet text, and whether IDF units get that order in writing.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 29154,
+        "like_count": 122,
+        "reply_count": 9,
+        "retweet_count": 87
+      },
+      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. A rules of engagement change, not a charity recap.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/media/HQ34HnaaMAAkkfD?format=jpg&name=large",
+      "list_count": 1,
+      "views": 29154,
+      "desk_rank": 66
+    },
+    {
+      "id": "iran-sanctions-stand",
+      "headline": "Iran says it will stand firm against US sanctions",
+      "summary": "Al Jazeera posted Iran pledging to stand firm against US sanctions and what it calls US Israeli conspiracies, with diplomacy and defense called complementary tools. Robert’s World News list carried @AJEnglish with the live photo.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T05:45:16.000Z",
+      "author_name": "AJEnglish",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJEnglish/status/2093575693431185650",
+      "sources": [
+        {
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2093575693431185650"
+        }
+      ],
+      "body": "Al Jazeera posted Iran pledging to stand firm against US sanctions and what it calls US Israeli conspiracies, with diplomacy and defense called complementary tools. Robert’s World News list carried @AJEnglish with the live photo.\n\nSix months into the Iran war coverage on these lists, a stand firm line is not a ceasefire. It is the state saying the oil and the talks both stay.\n\nWatch whether the next tanker week matches the Fars budget claim, and whether talks actually get a date.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 35759,
+        "like_count": 127,
+        "reply_count": 12,
+        "retweet_count": 25
+      },
+      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. A sanctions line in an active war file, not an op ed dump.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/media/HQ3f_eYbEAAUd2u?format=jpg&name=large",
+      "list_count": 1,
+      "views": 35759,
+      "desk_rank": 67
+    },
+    {
+      "id": "judge-student-visa-rule",
+      "headline": "Judge blocks Trump era visa cancellations over campus speech",
+      "summary": "Al Arabiya posted that a federal judge ruled the laws the Trump administration used to cancel visas and start deportations against noncitizen college students over pro Palestinian advocacy and criticism of Israel are unconstitutional. Robert’s World News list carried @AlArabiya_E",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-29T07:48:11.000Z",
+      "author_name": "AlArabiya_Eng",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AlArabiya_Eng/status/2093606623654576209",
+      "sources": [
+        {
+          "label": "@AlArabiya_Eng",
+          "url": "https://x.com/AlArabiya_Eng/status/2093606623654576209"
+        }
+      ],
+      "body": "Al Arabiya posted that a federal judge ruled the laws the Trump administration used to cancel visas and start deportations against noncitizen college students over pro Palestinian advocacy and criticism of Israel are unconstitutional. Robert’s World News list carried @AlArabiya_Eng.\n\nA speech based visa kill list losing in court is policy. Students on those lists are the map.\n\nWatch whether DHS appeals, and whether the named students get status back.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2009,
+        "like_count": 1,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert’s World News list carried @AlArabiya_Eng. One desk. A court order on visas, not a campus rally clip.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "AlArabiya_Eng",
+      "media_url": "https://pbs.twimg.com/media/HQ38IK-XEAAfZHv?format=jpg&name=large",
+      "list_count": 1,
+      "views": 2009,
+      "desk_rank": 68
     }
   ],
   "signals": [
@@ -2632,11 +3052,15 @@
       "source_list": "Robert’s community lists carried @Zai_org on the weights. His company and enterprise lists carried Databricks day 0. His developer tools lists had Ollama rolling GLM 5.3 and Flash on cloud.",
       "list_names": [
         "AI Companies #1 of 2",
-        "AI Enterprise or Work"
+        "AI Enterprise or Work",
+        "@Scobleizer/AI Enterprise or Work",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
         "AI Companies",
-        "AI Enterprise"
+        "AI Enterprise",
+        "@Scobleizer/AI Enterprise or Work",
+        "AI Community"
       ],
       "created_at": "2026-08-29T00:11:00.000Z",
       "source_url": "https://x.com/databricks/status/2093491572083949972",
@@ -2654,10 +3078,13 @@
       "section_label": "Models",
       "source_list": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "list_names": [
-        "AI Community #3 of 9"
+        "AI Community #3 of 9",
+        "Decentralized AI",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
-        "AI Community"
+        "AI Community",
+        "Decentralized AI"
       ],
       "created_at": "2026-08-28T18:39:12.000Z",
       "source_url": "https://x.com/aisearchio/status/2093408069728571540",
@@ -2677,12 +3104,18 @@
       "list_names": [
         "AI Companies #1 of 2",
         "AI Education",
-        "AI Writing or Marketing"
+        "AI Writing or Marketing",
+        "@Scobleizer/AI Education",
+        "Tech Journalists",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Companies",
         "AI Education",
-        "AI Writing"
+        "AI Writing",
+        "@Scobleizer/AI Education",
+        "Tech Journalists",
+        "AI Community"
       ],
       "created_at": "2026-08-29T00:12:18.000Z",
       "source_url": "https://x.com/perplexity_ai/status/2093491900405956993",
@@ -2701,11 +3134,17 @@
       "source_list": "Robert’s company and developer tools lists carried @ericciarla, with @firecrawl repeating the same offer. Two desks. Do not read the June blog date as a today launch. The lists treated keyless access as the product news tonight.",
       "list_names": [
         "AI Companies #1 of 2",
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "AI Community #3 of 9",
+        "@Scobleizer/AI Developer Tools",
+        "@Scobleizer/AI Companies #1 of 2"
       ],
       "chip_labels": [
         "AI Companies",
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "AI Community",
+        "@Scobleizer/AI Developer Tools",
+        "@Scobleizer/AI Companies"
       ],
       "created_at": "2026-08-28T16:31:06.000Z",
       "source_url": "https://x.com/ericciarla/status/2093375835679977570",
@@ -2788,12 +3227,24 @@
       "list_names": [
         "AI Founders #2 of 3",
         "AI Robotics",
-        "AI Vehicles"
+        "AI Vehicles",
+        "Robot Influencers/Media",
+        "Spatial Computing",
+        "Tech Journalists",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "Investors #2 of 2"
       ],
       "chip_labels": [
         "AI Founders",
         "AI Robotics",
-        "AI Vehicles"
+        "AI Vehicles",
+        "Robot Influencers/Media",
+        "Spatial Computing",
+        "Tech Journalists",
+        "AI Community",
+        "Investors"
       ],
       "created_at": "2026-08-28T22:28:57.000Z",
       "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
@@ -2811,10 +3262,18 @@
       "section_label": "Robotics",
       "source_list": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
       "list_names": [
-        "San Francisco Robotics"
+        "San Francisco Robotics",
+        "AI Robotics",
+        "Neuroscience",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "San Francisco Robotics"
+        "San Francisco Robotics",
+        "AI Robotics",
+        "Neuroscience",
+        "AI Community"
       ],
       "created_at": "2026-08-28T12:58:50.000Z",
       "source_url": "https://x.com/LeRobotHF/status/2093322414960546116",
@@ -2834,12 +3293,20 @@
       "list_names": [
         "AI Founders #3 of 3",
         "AI Policy",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community #5 of 9",
+        "Quantum",
+        "Tech VIPs",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Founders",
         "AI Policy",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community",
+        "Quantum"
       ],
       "created_at": "2026-08-28T16:49:21.000Z",
       "source_url": "https://x.com/SRSchmidgall/status/2093380426924708082",
@@ -2857,10 +3324,15 @@
       "section_label": "Creatives",
       "source_list": "Robert’s creatives lists carried @midjourney. One desk on the test announcement. A later quality note landed on his community lists.",
       "list_names": [
-        "Creative with AI"
+        "Creative with AI",
+        "AI Video Creators",
+        "AI Community #1 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Creatives"
+        "Creatives",
+        "AI Video Creators",
+        "AI Community"
       ],
       "created_at": "2026-08-28T08:24:29.000Z",
       "source_url": "https://x.com/midjourney/status/2093253371650031949",
@@ -2878,10 +3350,16 @@
       "section_label": "Papers",
       "source_list": "Robert’s quantum list carried @dair_ai. One desk. The list is named Quantum. The paper is about agent skills, not qubits.",
       "list_names": [
-        "Quantum"
+        "Quantum",
+        "AI Community #3 of 9",
+        "AI Community #1 of 9",
+        "AI Community #2 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Quantum"
+        "Quantum",
+        "AI Community"
       ],
       "created_at": "2026-08-28T13:06:03.000Z",
       "source_url": "https://x.com/dair_ai/status/2093324233158045788",
@@ -2899,10 +3377,16 @@
       "section_label": "Chips",
       "source_list": "Robert’s developer tools list carried @NVIDIAAI. One desk. The news is the 10 million download mark on Warp, not a new GPU SKU.",
       "list_names": [
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "@Scobleizer/AI Developer Tools",
+        "Spatial Computing",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
-        "AI Developer Tools"
+        "AI Developer Tools",
+        "@Scobleizer/AI Developer Tools",
+        "Spatial Computing",
+        "AI Community"
       ],
       "created_at": "2026-08-28T15:31:57.000Z",
       "source_url": "https://x.com/NVIDIAAI/status/2093360947608113363",
@@ -2921,11 +3405,13 @@
       "source_list": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere, so it sits with creatives rather than as another generic product.",
       "list_names": [
         "AI Music/Audio",
-        "Creative with AI"
+        "Creative with AI",
+        "AI Voice/Hardware"
       ],
       "chip_labels": [
         "AI Music",
-        "Creatives"
+        "Creatives",
+        "AI Voice/Hardware"
       ],
       "created_at": "2026-08-28T15:34:58.000Z",
       "source_url": "https://x.com/FishAudio/status/2093361707498532880",
@@ -2966,10 +3452,12 @@
       "section_label": "Robotics",
       "source_list": "Robert’s robotics list carried @asimovinc. One desk. The claim is sim to real with no extra tune on a robot you can order.",
       "list_names": [
-        "AI Robotics"
+        "AI Robotics",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
-        "AI Robotics"
+        "AI Robotics",
+        "AI Community"
       ],
       "created_at": "2026-08-28T03:43:59.000Z",
       "source_url": "https://x.com/asimovinc/status/2093182782432522568",
@@ -2987,10 +3475,13 @@
       "section_label": "Labs",
       "source_list": "Robert’s investors list carried @ivanburazin. One desk. Daytona is the poster. Meta is the lab named in the post.",
       "list_names": [
-        "Investors #1 of 2"
+        "Investors #1 of 2",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Investors"
+        "Investors",
+        "AI Community"
       ],
       "created_at": "2026-08-28T18:19:02.000Z",
       "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
@@ -3008,10 +3499,12 @@
       "section_label": "Models",
       "source_list": "Robert’s cybersecurity list carried @HedgieMarkets. One desk. The news is a $40 million in house model from Qwen, not a SOC alert.",
       "list_names": [
-        "Cybersecurity"
+        "Cybersecurity",
+        "AI Community #1 of 9"
       ],
       "chip_labels": [
-        "Cybersecurity"
+        "Cybersecurity",
+        "AI Community"
       ],
       "created_at": "2026-08-27T21:41:00.000Z",
       "source_url": "https://x.com/HedgieMarkets/status/2093091434064670861",
@@ -3050,10 +3543,16 @@
       "section_label": "Robotics",
       "source_list": "Robert’s VC firms list carried @DynaRobotics. One desk. This is a claimed restaurant chain rollout after ROI, not another humanoid clip.",
       "list_names": [
-        "VC Firms"
+        "VC Firms",
+        "AI Robotics",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "VC Firms"
+        "VC Firms",
+        "AI Robotics",
+        "AI Community"
       ],
       "created_at": "2026-08-27T18:13:13.000Z",
       "source_url": "https://x.com/DynaRobotics/status/2093039146357178475",
@@ -3083,28 +3582,6 @@
       "topic_label": "Robotics"
     },
     {
-      "id": "sig-openai-astra-math",
-      "title": "OpenAI says it will only post Astra math when it changes the pace story",
-      "text": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "badge": "signal",
-      "category": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "source_list": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "list_names": [
-        "AI Community #3 of 9",
-        "AI Community #6 of 9"
-      ],
-      "chip_labels": [
-        "AI Community"
-      ],
-      "created_at": "2026-08-28T21:30:40.000Z",
-      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
-      "analysis": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "topic_key": "labs",
-      "topic_label": "Labs"
-    },
-    {
       "id": "sig-oracle-mlperf-mi300x",
       "title": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
       "text": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
@@ -3114,10 +3591,12 @@
       "section_label": "Chips",
       "source_list": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
       "list_names": [
-        "AI Orgs & Events"
+        "AI Orgs & Events",
+        "Tech Companies"
       ],
       "chip_labels": [
-        "AI Orgs"
+        "AI Orgs",
+        "Tech Companies"
       ],
       "created_at": "2026-08-28T22:25:01.000Z",
       "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
@@ -3177,10 +3656,14 @@
       "section_label": "Products",
       "source_list": "Robert’s voice and hardware list carried @freemanjiangg. One desk. A real time talk benchmark, not a gadget unboxing.",
       "list_names": [
-        "AI Voice/Hardware"
+        "AI Voice/Hardware",
+        "AI Community #6 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "AI Voice/Hardware"
+        "AI Voice/Hardware",
+        "AI Community"
       ],
       "created_at": "2026-08-28T16:42:59.000Z",
       "source_url": "https://x.com/freemanjiangg/status/2093378826323853559",
@@ -3198,10 +3681,13 @@
       "section_label": "Products",
       "source_list": "Robert’s quantum list carried @femke_plantinga. One desk. The list is named Quantum. The post is a company memory roundup.",
       "list_names": [
-        "Quantum"
+        "Quantum",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
-        "Quantum"
+        "Quantum",
+        "AI Community"
       ],
       "created_at": "2026-08-27T10:13:38.000Z",
       "source_url": "https://x.com/femke_plantinga/status/2092918452423983363",
@@ -3240,10 +3726,12 @@
       "section_label": "World",
       "source_list": "Robert’s tech VIPs list carried @WhiteHouse. World News later carried @AJEnglish with the same barrel claim and a skeptic. This is a claimed state oil deal, not a lab drop.",
       "list_names": [
-        "Tech VIPs"
+        "Tech VIPs",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "AI Founders"
+        "AI Founders",
+        "AI Community"
       ],
       "created_at": "2026-08-28T22:55:24.000Z",
       "source_url": "https://x.com/WhiteHouse/status/2093472546494501175",
@@ -3332,10 +3820,13 @@
       "section_label": "Labs",
       "source_list": "Robert’s medical and science lists carried @boltz_bio. One desk. A named OpenAI lab tool, not a paper paste.",
       "list_names": [
-        "AI Medical/Health/Science"
+        "AI Medical/Health/Science",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "AI Medical/Health/Science"
+        "AI Medical/Health/Science",
+        "AI Community"
       ],
       "created_at": "2026-08-28T16:59:40.000Z",
       "source_url": "https://x.com/boltz_bio/status/2093383021256937927",
@@ -3433,22 +3924,29 @@
     },
     {
       "id": "sig-kyiv-bucha-blast",
-      "title": "Warehouse blast in Kyiv Bucha district kills several",
-      "text": "Robert’s World News list carried @htTweets. One desk. A capital region blast, not a sports brief.",
+      "title": "Russian strike on Kyiv Bucha district kills at least 27",
+      "text": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @htTweets. One desk. A capital region blast, not a sports brief.",
+      "source_list": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
       "list_names": [
-        "World News"
+        "AI Founders #2 of 3",
+        "AI Founders #3 of 3",
+        "AI Investors",
+        "Generalists #2 of 3",
+        "Investors #2 of 2"
       ],
       "chip_labels": [
-        "World News"
+        "AI Founders",
+        "AI Investors",
+        "Generalists",
+        "Investors"
       ],
-      "created_at": "2026-08-29T03:58:22.000Z",
-      "source_url": "https://x.com/htTweets/status/2093548788891984191",
-      "analysis": "Robert’s World News list carried @htTweets. One desk. A capital region blast, not a sports brief.",
+      "created_at": "2026-08-29T10:26:15.000Z",
+      "source_url": "https://x.com/nypost/status/2093646404958716217",
+      "analysis": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -3496,22 +3994,22 @@
     },
     {
       "id": "sig-nepal-china-floods",
-      "title": "Nepal China floods leave more than 2,400 missing as 586 bodies are found",
-      "text": "Robert’s World News list carried @arabnews. One desk. A four digit missing count, not a weather meme.",
+      "title": "Nepal Tibet floods reach 629 dead and 1,924 missing",
+      "text": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @arabnews. One desk. A four digit missing count, not a weather meme.",
+      "source_list": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
       "list_names": [
         "World News"
       ],
       "chip_labels": [
         "World News"
       ],
-      "created_at": "2026-08-29T04:00:03.000Z",
-      "source_url": "https://x.com/arabnews/status/2093549212122169837",
-      "analysis": "Robert’s World News list carried @arabnews. One desk. A four digit missing count, not a weather meme.",
+      "created_at": "2026-08-29T05:00:01.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
+      "analysis": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -3549,13 +4047,17 @@
         "AI Investors",
         "AI Orgs & Events",
         "Blockchain/Web 3 #2 of 2",
-        "SpaceX_AI"
+        "SpaceX_AI",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Investors",
         "AI Orgs",
         "Blockchain/Web 3",
-        "SpaceX AI"
+        "SpaceX AI",
+        "AI Community"
       ],
       "created_at": "2026-08-28T16:59:50.000Z",
       "source_url": "https://x.com/WhiteHouse/status/2093383065548492982",
@@ -3595,11 +4097,13 @@
       "source_list": "Robert’s tech news list and his journalists list carried @MTSlive. Two desks. A publisher lawsuit, not a blog recap.",
       "list_names": [
         "Tech News",
-        "Tech Journalists"
+        "Tech Journalists",
+        "AI Community #1 of 9"
       ],
       "chip_labels": [
         "Tech News",
-        "Tech Journalists"
+        "Tech Journalists",
+        "AI Community"
       ],
       "created_at": "2026-08-29T03:19:38.000Z",
       "source_url": "https://x.com/MTSlive/status/2093539044244570592",
@@ -3620,7 +4124,10 @@
         "AI Community #5 of 9",
         "@Scobleizer/AI Education",
         "AI Medical/Health/Science",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Community",
@@ -3646,7 +4153,9 @@
       "list_names": [
         "AI Robotics",
         "AI Community #3 of 9",
-        "Computer Vision"
+        "Computer Vision",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Robotics",
@@ -3669,10 +4178,12 @@
       "section_label": "Chips",
       "source_list": "Robert’s company lists carried @NVIDIAAI. One desk. A Dynamo explainer from NVIDIA, not a podcast recap.",
       "list_names": [
-        "Tech Companies"
+        "Tech Companies",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
-        "Tech Companies"
+        "Tech Companies",
+        "AI Community"
       ],
       "created_at": "2026-08-28T21:03:31.000Z",
       "source_url": "https://x.com/NVIDIAAI/status/2093444391797158049",
@@ -3732,10 +4243,13 @@
       "section_label": "Papers",
       "source_list": "Robert’s quantum list carried @matt_dz. One desk. A Hopper simulator paper with a GitHub, not a title paste.",
       "list_names": [
-        "Quantum"
+        "Quantum",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Quantum"
+        "Quantum",
+        "AI Community"
       ],
       "created_at": "2026-08-28T17:49:39.000Z",
       "source_url": "https://x.com/matt_dz/status/2093395599986966854",
@@ -3753,7 +4267,9 @@
       "section_label": "Papers",
       "source_list": "Robert’s community lists carried @hsteven9. One desk. A preprint with a split finding, not a paper title dump.",
       "list_names": [
-        "AI Community #2 of 9"
+        "AI Community #2 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Community"
@@ -3774,7 +4290,9 @@
       "section_label": "Papers",
       "source_list": "Robert’s community lists carried @TracyKe7. One desk. A 32,944 paper count, not a title paste.",
       "list_names": [
-        "AI Community #3 of 9"
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
         "AI Community"
@@ -3904,14 +4422,186 @@
       "section_label": "Policy",
       "source_list": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
       "list_names": [
-        "Climate and Weather"
+        "Climate and Weather",
+        "AI Community #3 of 9"
       ],
       "chip_labels": [
-        "Climate and Weather"
+        "Climate and Weather",
+        "AI Community"
       ],
       "created_at": "2026-08-28T17:37:30.000Z",
       "source_url": "https://x.com/JeremyKonyndyk/status/2093392544885325879",
       "analysis": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-hy4-gguf-200gib",
+      "title": "Tencent packs Hy4 preview into about 200GiB of GGUF",
+      "text": "Robert’s community lists carried @TencentHunyuan on three desks. A 200GiB GGUF of the same Hy4 preview, not a new base model.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert’s community lists carried @TencentHunyuan on three desks. A 200GiB GGUF of the same Hy4 preview, not a new base model.",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-29T05:31:29.000Z",
+      "source_url": "https://x.com/TencentHunyuan/status/2093572224342954019",
+      "analysis": "Robert’s community lists carried @TencentHunyuan on three desks. A 200GiB GGUF of the same Hy4 preview, not a new base model.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-orca-glm-flash-uncensored",
+      "title": "OrcaRouter posts uncensored FP8 weights for GLM 5.3 Flash",
+      "text": "Robert’s founders lists carried @OrcaRouter. One desk. A third party uncensored Flash dump, not a Z.ai post.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert’s founders lists carried @OrcaRouter. One desk. A third party uncensored Flash dump, not a Z.ai post.",
+      "list_names": [
+        "AI Founders #3 of 3"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "created_at": "2026-08-29T08:11:36.000Z",
+      "source_url": "https://x.com/OrcaRouter/status/2093612518396871075",
+      "analysis": "Robert’s founders lists carried @OrcaRouter. One desk. A third party uncensored Flash dump, not a Z.ai post.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-levjepa-lecun-video",
+      "title": "LeCun and Balestriero extend LeJEPA to video as LeVJEPA",
+      "text": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "list_names": [
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-29T10:19:19.000Z",
+      "source_url": "https://x.com/TheTuringPost/status/2093644660900327453",
+      "analysis": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-changxin-sues-pentagon",
+      "title": "China memory champion ChangXin sues the Pentagon over a military list",
+      "text": "Robert’s World News list carried @AlArabiya_Eng. One desk. A chipmaker suing the Pentagon, not a trade blog.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s World News list carried @AlArabiya_Eng. One desk. A chipmaker suing the Pentagon, not a trade blog.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T07:12:22.000Z",
+      "source_url": "https://x.com/AlArabiya_Eng/status/2093597613379518624",
+      "analysis": "Robert’s World News list carried @AlArabiya_Eng. One desk. A chipmaker suing the Pentagon, not a trade blog.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-iceland-eu-vote",
+      "title": "Iceland votes on whether to reopen talks to join the EU",
+      "text": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T05:28:08.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2093571382693245417",
+      "analysis": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-gaza-balloons-kites",
+      "title": "Israel to treat Gaza balloons and kites as military drones",
+      "text": "Robert’s World News list carried @AJEnglish. One desk. A rules of engagement change, not a charity recap.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJEnglish. One desk. A rules of engagement change, not a charity recap.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T07:30:55.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2093602281816256620",
+      "analysis": "Robert’s World News list carried @AJEnglish. One desk. A rules of engagement change, not a charity recap.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-iran-sanctions-stand",
+      "title": "Iran says it will stand firm against US sanctions",
+      "text": "Robert’s World News list carried @AJEnglish. One desk. A sanctions line in an active war file, not an op ed dump.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJEnglish. One desk. A sanctions line in an active war file, not an op ed dump.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T05:45:16.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2093575693431185650",
+      "analysis": "Robert’s World News list carried @AJEnglish. One desk. A sanctions line in an active war file, not an op ed dump.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-judge-student-visa-rule",
+      "title": "Judge blocks Trump era visa cancellations over campus speech",
+      "text": "Robert’s World News list carried @AlArabiya_Eng. One desk. A court order on visas, not a campus rally clip.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s World News list carried @AlArabiya_Eng. One desk. A court order on visas, not a campus rally clip.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T07:48:11.000Z",
+      "source_url": "https://x.com/AlArabiya_Eng/status/2093606623654576209",
+      "analysis": "Robert’s World News list carried @AlArabiya_Eng. One desk. A court order on visas, not a campus rally clip.",
       "topic_key": "policy",
       "topic_label": "Policy"
     }
