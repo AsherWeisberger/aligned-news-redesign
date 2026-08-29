@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T12:43:37.000Z",
-    "scrapedAt": "2026-08-29T12:43:37.000Z",
+    "generatedAt": "2026-08-29T20:52:00.000Z",
+    "scrapedAt": "2026-08-29T20:52:00.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 79 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 88 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 52,
-    "stories": 79,
-    "signals": 78,
+    "lists": 53,
+    "stories": 88,
+    "signals": 87,
     "reports": 4
   },
   "chips": [
@@ -635,10 +635,10 @@
       "body": "Samuel Schmidgall said a Gemini based extension of Co Scientist is now collaborating with scientists in materials, biology, and computer science, not only writing hypotheses. Coverage of the August work describes closed loop runs: propose, plan, drive equipment or code, read results, write up. Materials examples include first try growth of semiconductor thin films with Gemini 3 Deep Think on a reactor, with humans still loading samples. In computer science, the team says an inference time architecture beat six frontier models on HealthBench Hard. Humans still sit in the loop. Schmidgall said there is a long journey before these systems handle the physical mess of a real lab.\n\nThis is early lab progress, not a product you can buy. Google first showed Co Scientist in 2025 as a hypothesis engine. The new claim is execution against real equipment and unpublished measurements. Sample sizes are small. The HealthBench comparison does not name the six models in the abstract.\n\nHis founders, policy, and computer vision lists carried Schmidgall. Watch whether other labs reproduce the thin film recipes, and whether Google publishes the HealthBench protocol in full.",
       "kind": "story",
       "engagement": {
-        "impression_count": 88129,
-        "like_count": 603,
-        "reply_count": 19,
-        "retweet_count": 115
+        "impression_count": 123433,
+        "like_count": 773,
+        "reply_count": 26,
+        "retweet_count": 153
       },
       "why_it_matters": "Robert’s founders, policy, and computer vision lists carried @SRSchmidgall. Three desks. Omar Sarwar on his best of AI list is the same result from the research side. The headline is the lab move, not the paper title.",
       "topic_key": "labs",
@@ -646,7 +646,7 @@
       "x_handle": "SRSchmidgall",
       "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large",
       "list_count": 9,
-      "views": 88129,
+      "views": 123433,
       "desk_rank": 11
     },
     {
@@ -1134,52 +1134,6 @@
       "desk_rank": 22
     },
     {
-      "id": "openai-astra-math",
-      "headline": "OpenAI says it will only post Astra math when it changes the pace story",
-      "summary": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progre",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-08-28T21:30:40.000Z",
-      "author_name": "polynoamial",
-      "source_list": "AI Community, Quantum",
-      "list_names": [
-        "AI Community #3 of 9",
-        "AI Community #6 of 9",
-        "Quantum",
-        "AI Community #4 of 9",
-        "AI Community #5 of 9"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "Quantum"
-      ],
-      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
-      "sources": [
-        {
-          "label": "@polynoamial",
-          "url": "https://x.com/polynoamial/status/2093451221273387477"
-        }
-      ],
-      "body": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progress. That is an OpenAI researcher on the record about Astra, not a rumor account guessing a September ship date.\n\nAstra is still an internal model. The August 1 set covered sphere packing, codes, group theory, circuit lower bounds, lattices, and combinatorics, with Lean certificates. Tonight’s news is the bar, not a new theorem. If the bar is real, silence means the next results are not pace changing. If the bar is PR, it is a way to sit on a model people already named.\n\nRobert’s community lists carried Brown on two desks. Watch peer review on the first ten, and whether the next Astra math post actually moves a field or just restates the same ten.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 161970,
-        "like_count": 1418,
-        "reply_count": 62,
-        "retweet_count": 59
-      },
-      "why_it_matters": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "polynoamial",
-      "media_url": "https://pbs.twimg.com/media/HOn2XyYasAA_rAp?format=jpg&name=large",
-      "list_count": 5,
-      "views": 161970,
-      "desk_rank": 23
-    },
-    {
       "id": "oracle-mlperf-mi300x",
       "headline": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
       "summary": "Oracle Developers said its MLPerf Training v6.0 FLUX.1 submission is the first FLUX.1 result on AMD Instinct MI300X GPUs: 74.44 minutes to train on 512 GPUs across 64 OCI bare metal nodes. That is a cloud vendor putting AMD silicon on a video diffusion benchmark that used to be a",
@@ -1392,13 +1346,13 @@
     },
     {
       "id": "niger-niamey-gunfire",
-      "headline": "Gunfire and blasts reported across Niger’s capital Niamey",
-      "summary": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. Al Arabiya later said television broadcasts were cut in Niger af",
+      "headline": "Niger presidential guard retakes a Niamey base from mutineers",
+      "summary": "Al Jazeera posted breaking: Niger’s presidential guard has retaken a key military base in the capital Niamey from mutinous soldiers, according to diplomatic and security sources cited by AFP. That follows this morning’s gunfire and blasts across the city, and Al Arabiya’s report ",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
-      "published_at": "2026-08-29T01:30:26.000Z",
+      "published_at": "2026-08-29T20:04:40.000Z",
       "author_name": "AJENews",
       "source_list": "World News",
       "list_names": [
@@ -1407,27 +1361,28 @@
       "chip_labels": [
         "World News"
       ],
-      "source_url": "https://x.com/AJENews/status/2093511562858283350",
+      "source_url": "https://x.com/AJENews/status/2093791969067905108",
       "sources": [
         {
           "label": "@AJENews",
-          "url": "https://x.com/AJENews/status/2093511562858283350"
+          "url": "https://x.com/AJENews/status/2093791969067905108"
         }
       ],
-      "body": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. Al Arabiya later said television broadcasts were cut in Niger after the gunfire.\n\nNiger already sat on a junta timeline. Shots in the capital plus a TV blackout are the kind of item cable will staff in an hour. The lists had it first. Treat it as unfolding. No confirmed coup language in the first wires.\n\nWatch whether the airport and presidential district stay quiet, and whether a faction claims the firing.",
+      "body": "Al Jazeera posted breaking: Niger’s presidential guard has retaken a key military base in the capital Niamey from mutinous soldiers, according to diplomatic and security sources cited by AFP. That follows this morning’s gunfire and blasts across the city, and Al Arabiya’s report that television broadcasts were cut.\n\nA guard retaking a base is the first named faction move, not just noise in the capital. Treat it as unfolding. The first wires still did not call it a coup.\n\nWatch who holds the presidential district tonight, and whether the junta speaks.",
       "kind": "story",
       "engagement": {
-        "impression_count": 5560,
-        "like_count": 9,
-        "retweet_count": 5
+        "impression_count": 5691,
+        "like_count": 3,
+        "reply_count": 3,
+        "retweet_count": 3
       },
-      "why_it_matters": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "why_it_matters": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJENews",
-      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ2lqxxWsAAS4N6.jpg",
+      "media_url": "https://pbs.twimg.com/media/HQ6knjxbgAAn2OH?format=jpg&name=large",
       "list_count": 1,
-      "views": 5560,
+      "views": 5691,
       "desk_rank": 29
     },
     {
@@ -2743,10 +2698,10 @@
       "body": "Jeremy Konyndyk posted that DOGE used keyword searches such as climate to kill federal grants, including a USAID and NASA collaboration on flood prediction, early warning, disaster readiness, glacier inventories, and mapping dangerous glacial lakes in Nepal. Robert’s climate list carried @JeremyKonyndyk with the document photo. Four hundred twenty three thousand views.\n\nNepal is in the water this week. A killed flood warning project is policy with a body count next door, not a culture war snippet.\n\nWatch whether NASA or USAID restores the map work, and whether the glacial lake list is public without it.",
       "kind": "story",
       "engagement": {
-        "impression_count": 564829,
-        "like_count": 24044,
-        "reply_count": 254,
-        "retweet_count": 4580
+        "impression_count": 755894,
+        "like_count": 29577,
+        "reply_count": 496,
+        "retweet_count": 5541
       },
       "why_it_matters": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
       "topic_key": "policy",
@@ -2754,7 +2709,7 @@
       "x_handle": "JeremyKonyndyk",
       "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
       "list_count": 2,
-      "views": 564829,
+      "views": 755894,
       "desk_rank": 60
     },
     {
@@ -2873,10 +2828,10 @@
       "body": "Lukas Kuhn posted LeVJEPA as a stable end to end video pretraining method that matches VJEPA 2 at up to 20 times less compute, with no target encoder, no masked prediction, and no teacher student schedule. Randall Balestriero posted the SIGReg recipe as open source. Five of Robert’s lists carried both. The Turing Post had the LeCun lab note later.\n\nA 20 times cheaper video JEPA is a paper with a number. Rank by the five desk author posts, not the recap.\n\nWatch the code, and whether the compute claim holds on a public video set.",
       "kind": "story",
       "engagement": {
-        "impression_count": 106693,
+        "impression_count": 129397,
         "like_count": 1095,
-        "reply_count": 17,
-        "retweet_count": 121
+        "reply_count": 19,
+        "retweet_count": 142
       },
       "why_it_matters": "Robert’s community lists and his tech VIPs list carried @lukaskuhn77 and @randall_balestr. Five desks. A 20 times compute claim, not a title paste.",
       "topic_key": "papers",
@@ -2884,7 +2839,7 @@
       "x_handle": "lukaskuhn77",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093294057317388288/img/7s5GlcU2WRd35uEW.jpg",
       "list_count": 5,
-      "views": 106693,
+      "views": 129397,
       "desk_rank": 63
     },
     {
@@ -3566,6 +3521,374 @@
       "list_count": 2,
       "views": 437066,
       "desk_rank": 79
+    },
+    {
+      "id": "sanders-flock-ban",
+      "headline": "Bernie Sanders to introduce a bill banning Flock cameras",
+      "summary": "Pubity posted that US Senator Bernie Sanders will soon introduce a bill to completely ban Flock cameras, and that Flock and other AI mass surveillance systems would be banned in the US if it passes. Robert’s founders lists and his investors lists carried @pubity. Four hundred six",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-29T13:00:00.000Z",
+      "author_name": "pubity",
+      "source_list": "AI Founders, AI Investors",
+      "list_names": [
+        "AI Founders #2 of 3",
+        "AI Investors"
+      ],
+      "chip_labels": [
+        "AI Founders",
+        "AI Investors"
+      ],
+      "source_url": "https://x.com/pubity/status/2093685098147430777",
+      "sources": [
+        {
+          "label": "@pubity",
+          "url": "https://x.com/pubity/status/2093685098147430777"
+        }
+      ],
+      "body": "Pubity posted that US Senator Bernie Sanders will soon introduce a bill to completely ban Flock cameras, and that Flock and other AI mass surveillance systems would be banned in the US if it passes. Robert’s founders lists and his investors lists carried @pubity. Four hundred sixteen thousand views.\n\nA named Senate bill against plate cameras is policy, even before the text is dropped. Flock is already in city contracts. This is the first national kill shot on these lists today.\n\nWatch the bill text, and whether any House sponsor signs on.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 416000,
+        "like_count": 32517,
+        "reply_count": 419,
+        "retweet_count": 3535
+      },
+      "why_it_matters": "Robert’s founders lists and his investors lists carried @pubity. Two desks. A Senate ban bill, not a meme card.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "pubity",
+      "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=large",
+      "list_count": 2,
+      "views": 416000,
+      "desk_rank": 80
+    },
+    {
+      "id": "nbc-west-bank-beating",
+      "headline": "Israeli settlers beat an NBC team covering West Bank unrest",
+      "summary": "Sent Defender posted that eight members of an NBC news team were attacked and beaten by Israeli settlers with clubs in the West Bank while covering a wave of attacks and unrest that has displaced hundreds of Palestinians. Robert’s generalists lists carried @sentdefender with the ",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T18:13:10.000Z",
+      "author_name": "sentdefender",
+      "source_list": "Generalists",
+      "list_names": [
+        "Generalists #3 of 3"
+      ],
+      "chip_labels": [
+        "Generalists"
+      ],
+      "source_url": "https://x.com/sentdefender/status/2093763905873199240",
+      "sources": [
+        {
+          "label": "@sentdefender",
+          "url": "https://x.com/sentdefender/status/2093763905873199240"
+        }
+      ],
+      "body": "Sent Defender posted that eight members of an NBC news team were attacked and beaten by Israeli settlers with clubs in the West Bank while covering a wave of attacks and unrest that has displaced hundreds of Palestinians. Robert’s generalists lists carried @sentdefender with the video. Three hundred forty six thousand views.\n\nA named US network crew beaten on a Saturday raid is war coverage, not a local crime brief. AFP later had Netanyahu condemning criminal acts of violence in two Palestinian villages.\n\nWatch NBC’s own report, and whether anyone is charged.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 346000,
+        "like_count": 4534,
+        "reply_count": 279,
+        "retweet_count": 1445
+      },
+      "why_it_matters": "Robert’s generalists lists carried @sentdefender. One desk. A beaten press crew, not a sports brief.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "sentdefender",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093763775404879872/img/XGiCeflgtTFkTmEx.jpg",
+      "list_count": 1,
+      "views": 346000,
+      "desk_rank": 81
+    },
+    {
+      "id": "china-censors-nepal-flood",
+      "headline": "China censors footage of the Nepal Tibet flood at Gyirong",
+      "summary": "The Telegraph posted that Beijing removed footage of people fleeing before a wall of mud hit the Gyirong border crossing, and that a Nepalese politician accused Beijing of a lack of transparency. Robert’s journalists list carried @Telegraph. Forty four thousand views.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T16:00:54.000Z",
+      "author_name": "Telegraph",
+      "source_list": "Tech Journalists",
+      "list_names": [
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Tech Journalists"
+      ],
+      "source_url": "https://x.com/Telegraph/status/2093730620992065537",
+      "sources": [
+        {
+          "label": "@Telegraph",
+          "url": "https://x.com/Telegraph/status/2093730620992065537"
+        }
+      ],
+      "body": "The Telegraph posted that Beijing removed footage of people fleeing before a wall of mud hit the Gyirong border crossing, and that a Nepalese politician accused Beijing of a lack of transparency. Robert’s journalists list carried @Telegraph. Forty four thousand views.\n\nThe death count is still moving. Censoring the crossing video is a second story: who is allowed to see the flood.\n\nWatch whether the Gyirong clip stays down, and whether Kathmandu repeats the charge.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 44000,
+        "like_count": 966,
+        "reply_count": 51,
+        "retweet_count": 278
+      },
+      "why_it_matters": "Robert’s journalists list carried @Telegraph. One desk. A censored flood clip, not a weather meme.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "Telegraph",
+      "media_url": "https://pbs.twimg.com/media/HQ5s5xDW0AA0aNi?format=jpg&name=large",
+      "list_count": 1,
+      "views": 44000,
+      "desk_rank": 82
+    },
+    {
+      "id": "wemm-embedding-apache",
+      "headline": "Tencent puts WeMM Embedding under an Apache 2.0 license",
+      "summary": "Niels Rogge posted that Tencent updated the license on its multimodal embedding models to Apache 2.0. WeMM Embedding dropped this week with a technical report and is trending on Papers with Code. He says it outperforms Gemini Embedding 2 and Qwen3 VL Embedding. Robert’s community",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-29T17:20:59.000Z",
+      "author_name": "NielsRogge",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/NielsRogge/status/2093750775608447415",
+      "sources": [
+        {
+          "label": "@NielsRogge",
+          "url": "https://x.com/NielsRogge/status/2093750775608447415"
+        }
+      ],
+      "body": "Niels Rogge posted that Tencent updated the license on its multimodal embedding models to Apache 2.0. WeMM Embedding dropped this week with a technical report and is trending on Papers with Code. He says it outperforms Gemini Embedding 2 and Qwen3 VL Embedding. Robert’s community lists carried @NielsRogge.\n\nA SOTA embedder moving to Apache is a model license change people can actually ship. Low views. Still a real paper plus weights.\n\nWatch the Hugging Face files, and whether the Apache tag is on every checkpoint.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1248,
+        "like_count": 18,
+        "reply_count": 2,
+        "retweet_count": 6
+      },
+      "why_it_matters": "Robert’s community lists carried @NielsRogge. One desk. An Apache license on a SOTA embedder, not a title paste.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "NielsRogge",
+      "media_url": "https://pbs.twimg.com/media/HQ5-jyyWwAAbg0c?format=jpg&name=large",
+      "list_count": 1,
+      "views": 1248,
+      "desk_rank": 83
+    },
+    {
+      "id": "sparklab-dgx-spark",
+      "headline": "SparkLab runs open weights on a single 128GB DGX Spark",
+      "summary": "OakMind posted SparkLab, an open source inference runtime for frontier open weight models on one 128GB DGX Spark, native to GB10. Robert’s community lists carried @OakMindAI. Forty five views. A real runtime still counts.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-29T15:37:14.000Z",
+      "author_name": "OakMindAI",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/OakMindAI/status/2093724666552582574",
+      "sources": [
+        {
+          "label": "@OakMindAI",
+          "url": "https://x.com/OakMindAI/status/2093724666552582574"
+        }
+      ],
+      "body": "OakMind posted SparkLab, an open source inference runtime for frontier open weight models on one 128GB DGX Spark, native to GB10. Robert’s community lists carried @OakMindAI. Forty five views. A real runtime still counts.\n\nLocal 128GB boxes need a stack that is not a cloud queue. If SparkLab actually loads Hy4 GGUF or GLM Flash, that is the product.\n\nWatch the GitHub, and whether a second lab reproduces on Spark hardware.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 45,
+        "like_count": 2,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s community lists carried @OakMindAI. One desk. An open inference runtime, not a meetup RSVP.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "OakMindAI",
+      "media_url": "https://pbs.twimg.com/media/HQ5nbuIXMAADBjN?format=jpg&name=large",
+      "list_count": 1,
+      "views": 45,
+      "desk_rank": 84
+    },
+    {
+      "id": "instinct-2-5b-valuation",
+      "headline": "Instinct agent jumps from $500 million to a $2.5 billion valuation",
+      "summary": "Forbes posted that Instinct, an AI agent that reads messages and books flights, was valued at $500 million earlier in August and has now jumped to $2.5 billion in a new round a few weeks later, sources say. Robert’s World News list carried @Forbes.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-29T20:00:11.000Z",
+      "author_name": "Forbes",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/Forbes/status/2093790841211154459",
+      "sources": [
+        {
+          "label": "@Forbes",
+          "url": "https://x.com/Forbes/status/2093790841211154459"
+        }
+      ],
+      "body": "Forbes posted that Instinct, an AI agent that reads messages and books flights, was valued at $500 million earlier in August and has now jumped to $2.5 billion in a new round a few weeks later, sources say. Robert’s World News list carried @Forbes.\n\nA five times jump in weeks is real money if the round is real. Treat the $2.5 billion as a sourced claim until the firm names the lead.\n\nWatch the investor list, and whether Instinct is a wrapper or a booked P and L.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5712,
+        "like_count": 1,
+        "reply_count": 5
+      },
+      "why_it_matters": "Robert’s World News list carried @Forbes. One desk. A $2.5 billion round claim, not a demo day.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "Forbes",
+      "media_url": "https://pbs.twimg.com/media/HQ6jpNibUAAiSPw?format=jpg&name=large",
+      "list_count": 1,
+      "views": 5712,
+      "desk_rank": 85
+    },
+    {
+      "id": "ice-robot-dogs",
+      "headline": "ICE orders $2 million in robot dogs that open doors",
+      "summary": "Chris Webb posted that ICE is ordering $2 million of robot dogs that can open doors, track people, and see 360 degrees, and that it also approved shock gloves up to 380 volts, alongside Flock cameras. Robert’s founders lists carried @cwebbonline with the clip. Twenty three thousa",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-29T13:58:51.000Z",
+      "author_name": "cwebbonline",
+      "source_list": "AI Founders",
+      "list_names": [
+        "AI Founders #3 of 3"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "source_url": "https://x.com/cwebbonline/status/2093699907458842879",
+      "sources": [
+        {
+          "label": "@cwebbonline",
+          "url": "https://x.com/cwebbonline/status/2093699907458842879"
+        }
+      ],
+      "body": "Chris Webb posted that ICE is ordering $2 million of robot dogs that can open doors, track people, and see 360 degrees, and that it also approved shock gloves up to 380 volts, alongside Flock cameras. Robert’s founders lists carried @cwebbonline with the clip. Twenty three thousand views.\n\nA procurement number on door opening dogs is policy with a SKU. It sits next to the Sanders Flock bill, not next to a robot fail compilation.\n\nWatch the actual solicitation, and whether DHS posts the vendor.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 23000,
+        "like_count": 1203,
+        "reply_count": 92,
+        "retweet_count": 891
+      },
+      "why_it_matters": "Robert’s founders lists carried @cwebbonline. One desk. A $2 million ICE robot buy, not a dystopia meme.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "cwebbonline",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093699820221517824/img/PKO4eSlRByCiSeLT.jpg",
+      "list_count": 1,
+      "views": 23000,
+      "desk_rank": 86
+    },
+    {
+      "id": "mit-agent-swarm",
+      "headline": "MIT swarm of identical agents splits into explorers and builders",
+      "summary": "Derya posted a clip of emergent behavior from Markus’s team at MIT: a swarm of identical agents spontaneously splits into explorers, builders, caretakers, and coordinators. Robert’s community lists carried @DeryaTR_. Ninety six thousand views.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-29T12:52:41.000Z",
+      "author_name": "DeryaTR_",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/DeryaTR_/status/2093683256293990524",
+      "sources": [
+        {
+          "label": "@DeryaTR_",
+          "url": "https://x.com/DeryaTR_/status/2093683256293990524"
+        }
+      ],
+      "body": "Derya posted a clip of emergent behavior from Markus’s team at MIT: a swarm of identical agents spontaneously splits into explorers, builders, caretakers, and coordinators. Robert’s community lists carried @DeryaTR_. Ninety six thousand views.\n\nRole split without a script is a lab result people will try to copy. The post is a recap, not MIT’s account. Treat the roles as the claim.\n\nWatch the paper or code, and whether the split survives a second seed.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 96364,
+        "reply_count": 38,
+        "retweet_count": 105
+      },
+      "why_it_matters": "Robert’s community lists carried @DeryaTR_. One desk. A MIT swarm result, not a trailer.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "DeryaTR_",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093625620957708288/img/3YMGXzMwH1skG3R.jpg",
+      "list_count": 1,
+      "views": 96364,
+      "desk_rank": 87
+    },
+    {
+      "id": "hezbollah-iran-orders",
+      "headline": "State Department says Hezbollah will not disarm on Iran’s orders",
+      "summary": "Al Jazeera posted breaking: the US State Department said Hezbollah does not want to disarm because it is simply taking orders from Iran. Robert’s World News list carried @AJENews.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T19:46:13.000Z",
+      "author_name": "AJENews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJENews/status/2093787323276124467",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2093787323276124467"
+        }
+      ],
+      "body": "Al Jazeera posted breaking: the US State Department said Hezbollah does not want to disarm because it is simply taking orders from Iran. Robert’s World News list carried @AJENews.\n\nThat is a Washington line on a live Lebanon file, not a color piece. It sits next to the Iran stand firm brief.\n\nWatch whether Beirut or Hezbollah answers in public tonight.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 9503,
+        "like_count": 10,
+        "reply_count": 2,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert’s World News list carried @AJENews. One desk. A State Department line on Hezbollah, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ6geUAXIAAvZMn.jpg",
+      "list_count": 1,
+      "views": 9503,
+      "desk_rank": 88
     }
   ],
   "signals": [
@@ -4110,32 +4433,6 @@
       "topic_label": "Robotics"
     },
     {
-      "id": "sig-openai-astra-math",
-      "title": "OpenAI says it will only post Astra math when it changes the pace story",
-      "text": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "badge": "signal",
-      "category": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "source_list": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "list_names": [
-        "AI Community #3 of 9",
-        "AI Community #6 of 9",
-        "Quantum",
-        "AI Community #4 of 9",
-        "AI Community #5 of 9"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "Quantum"
-      ],
-      "created_at": "2026-08-28T21:30:40.000Z",
-      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
-      "analysis": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
-      "topic_key": "labs",
-      "topic_label": "Labs"
-    },
-    {
       "id": "sig-oracle-mlperf-mi300x",
       "title": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
       "text": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
@@ -4251,22 +4548,22 @@
     },
     {
       "id": "sig-niger-niamey-gunfire",
-      "title": "Gunfire and blasts reported across Niger’s capital Niamey",
-      "text": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "title": "Niger presidential guard retakes a Niamey base from mutineers",
+      "text": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "source_list": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
       "list_names": [
         "World News"
       ],
       "chip_labels": [
         "World News"
       ],
-      "created_at": "2026-08-29T01:30:26.000Z",
-      "source_url": "https://x.com/AJENews/status/2093511562858283350",
-      "analysis": "Robert’s World News list carried @AJENews, then @ReutersWorld on the same minutes. Two wires, one capital.",
+      "created_at": "2026-08-29T20:04:40.000Z",
+      "source_url": "https://x.com/AJENews/status/2093791969067905108",
+      "analysis": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -5420,6 +5717,197 @@
       "analysis": "Robert’s community lists carried @ClaudeDevs on two desks. A desktop resume ship, not a changelog dump.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-sanders-flock-ban",
+      "title": "Bernie Sanders to introduce a bill banning Flock cameras",
+      "text": "Robert’s founders lists and his investors lists carried @pubity. Two desks. A Senate ban bill, not a meme card.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s founders lists and his investors lists carried @pubity. Two desks. A Senate ban bill, not a meme card.",
+      "list_names": [
+        "AI Founders #2 of 3",
+        "AI Investors"
+      ],
+      "chip_labels": [
+        "AI Founders",
+        "AI Investors"
+      ],
+      "created_at": "2026-08-29T13:00:00.000Z",
+      "source_url": "https://x.com/pubity/status/2093685098147430777",
+      "analysis": "Robert’s founders lists and his investors lists carried @pubity. Two desks. A Senate ban bill, not a meme card.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-nbc-west-bank-beating",
+      "title": "Israeli settlers beat an NBC team covering West Bank unrest",
+      "text": "Robert’s generalists lists carried @sentdefender. One desk. A beaten press crew, not a sports brief.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s generalists lists carried @sentdefender. One desk. A beaten press crew, not a sports brief.",
+      "list_names": [
+        "Generalists #3 of 3"
+      ],
+      "chip_labels": [
+        "Generalists"
+      ],
+      "created_at": "2026-08-29T18:13:10.000Z",
+      "source_url": "https://x.com/sentdefender/status/2093763905873199240",
+      "analysis": "Robert’s generalists lists carried @sentdefender. One desk. A beaten press crew, not a sports brief.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-china-censors-nepal-flood",
+      "title": "China censors footage of the Nepal Tibet flood at Gyirong",
+      "text": "Robert’s journalists list carried @Telegraph. One desk. A censored flood clip, not a weather meme.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s journalists list carried @Telegraph. One desk. A censored flood clip, not a weather meme.",
+      "list_names": [
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Tech Journalists"
+      ],
+      "created_at": "2026-08-29T16:00:54.000Z",
+      "source_url": "https://x.com/Telegraph/status/2093730620992065537",
+      "analysis": "Robert’s journalists list carried @Telegraph. One desk. A censored flood clip, not a weather meme.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-wemm-embedding-apache",
+      "title": "Tencent puts WeMM Embedding under an Apache 2.0 license",
+      "text": "Robert’s community lists carried @NielsRogge. One desk. An Apache license on a SOTA embedder, not a title paste.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert’s community lists carried @NielsRogge. One desk. An Apache license on a SOTA embedder, not a title paste.",
+      "list_names": [
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-29T17:20:59.000Z",
+      "source_url": "https://x.com/NielsRogge/status/2093750775608447415",
+      "analysis": "Robert’s community lists carried @NielsRogge. One desk. An Apache license on a SOTA embedder, not a title paste.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-sparklab-dgx-spark",
+      "title": "SparkLab runs open weights on a single 128GB DGX Spark",
+      "text": "Robert’s community lists carried @OakMindAI. One desk. An open inference runtime, not a meetup RSVP.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s community lists carried @OakMindAI. One desk. An open inference runtime, not a meetup RSVP.",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-29T15:37:14.000Z",
+      "source_url": "https://x.com/OakMindAI/status/2093724666552582574",
+      "analysis": "Robert’s community lists carried @OakMindAI. One desk. An open inference runtime, not a meetup RSVP.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-instinct-2-5b-valuation",
+      "title": "Instinct agent jumps from $500 million to a $2.5 billion valuation",
+      "text": "Robert’s World News list carried @Forbes. One desk. A $2.5 billion round claim, not a demo day.",
+      "badge": "signal",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "Robert’s World News list carried @Forbes. One desk. A $2.5 billion round claim, not a demo day.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T20:00:11.000Z",
+      "source_url": "https://x.com/Forbes/status/2093790841211154459",
+      "analysis": "Robert’s World News list carried @Forbes. One desk. A $2.5 billion round claim, not a demo day.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
+    },
+    {
+      "id": "sig-ice-robot-dogs",
+      "title": "ICE orders $2 million in robot dogs that open doors",
+      "text": "Robert’s founders lists carried @cwebbonline. One desk. A $2 million ICE robot buy, not a dystopia meme.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s founders lists carried @cwebbonline. One desk. A $2 million ICE robot buy, not a dystopia meme.",
+      "list_names": [
+        "AI Founders #3 of 3"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "created_at": "2026-08-29T13:58:51.000Z",
+      "source_url": "https://x.com/cwebbonline/status/2093699907458842879",
+      "analysis": "Robert’s founders lists carried @cwebbonline. One desk. A $2 million ICE robot buy, not a dystopia meme.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-mit-agent-swarm",
+      "title": "MIT swarm of identical agents splits into explorers and builders",
+      "text": "Robert’s community lists carried @DeryaTR_. One desk. A MIT swarm result, not a trailer.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert’s community lists carried @DeryaTR_. One desk. A MIT swarm result, not a trailer.",
+      "list_names": [
+        "AI Community #3 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-29T12:52:41.000Z",
+      "source_url": "https://x.com/DeryaTR_/status/2093683256293990524",
+      "analysis": "Robert’s community lists carried @DeryaTR_. One desk. A MIT swarm result, not a trailer.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
+      "id": "sig-hezbollah-iran-orders",
+      "title": "State Department says Hezbollah will not disarm on Iran’s orders",
+      "text": "Robert’s World News list carried @AJENews. One desk. A State Department line on Hezbollah, not a calendar note.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJENews. One desk. A State Department line on Hezbollah, not a calendar note.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T19:46:13.000Z",
+      "source_url": "https://x.com/AJENews/status/2093787323276124467",
+      "analysis": "Robert’s World News list carried @AJENews. One desk. A State Department line on Hezbollah, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World"
     }
   ],
   "reports": [
