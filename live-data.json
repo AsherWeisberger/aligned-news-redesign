@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T02:32:02.000Z",
-    "scrapedAt": "2026-08-29T02:32:02.000Z",
+    "generatedAt": "2026-08-29T02:37:31.000Z",
+    "scrapedAt": "2026-08-29T02:37:31.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 12 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 13 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809
   },
   "user": {
@@ -11,9 +11,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 19,
-    "stories": 12,
-    "signals": 11,
+    "lists": 20,
+    "stories": 13,
+    "signals": 12,
     "reports": 4
   },
   "chips": [
@@ -22,67 +22,31 @@
       "label": "All"
     },
     {
-      "id": "AI Companies",
-      "label": "AI Companies"
+      "id": "models",
+      "label": "Models"
     },
     {
-      "id": "AI Enterprise",
-      "label": "AI Enterprise"
+      "id": "products",
+      "label": "Products"
     },
     {
-      "id": "AI Community",
-      "label": "AI Community"
+      "id": "robotics",
+      "label": "Robotics"
     },
     {
-      "id": "AI Education",
-      "label": "AI Education"
+      "id": "labs",
+      "label": "Labs"
     },
     {
-      "id": "AI Writing",
-      "label": "AI Writing"
+      "id": "funding",
+      "label": "Funding"
     },
     {
-      "id": "AI Music",
-      "label": "AI Music"
+      "id": "policy",
+      "label": "Policy"
     },
     {
-      "id": "AI Creatives",
-      "label": "AI Creatives"
-    },
-    {
-      "id": "AI Developer Tools",
-      "label": "AI Developer Tools"
-    },
-    {
-      "id": "AI Orgs",
-      "label": "AI Orgs"
-    },
-    {
-      "id": "SpaceX AI",
-      "label": "SpaceX AI"
-    },
-    {
-      "id": "AI Founders",
-      "label": "AI Founders"
-    },
-    {
-      "id": "AI Robotics",
-      "label": "AI Robotics"
-    },
-    {
-      "id": "AI Vehicles",
-      "label": "AI Vehicles"
-    },
-    {
-      "id": "AI Policy",
-      "label": "AI Policy"
-    },
-    {
-      "id": "Computer Vision",
-      "label": "Computer Vision"
-    },
-    {
-      "id": "Creatives",
+      "id": "creatives",
       "label": "Creatives"
     }
   ],
@@ -581,6 +545,47 @@
       "desk_rank": 10
     },
     {
+      "id": "lerobot-teleoperator",
+      "headline": "LeRobot posts a $28 open source 3D printed teleoperator",
+      "summary": "Hugging Face’s LeRobot account posted a $28 3D printed teleoperator, open source, with clean cable routing and the same rest pose as the SO ARM 101. Optional rubber bands are there to make teleop feel better. The clip shows it driving a MuJoCo sim, with the same hardware meant to",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T12:58:50.000Z",
+      "author_name": "LeRobotHF",
+      "source_list": "San Francisco Robotics",
+      "list_names": [
+        "San Francisco Robotics"
+      ],
+      "chip_labels": [
+        "San Francisco Robotics"
+      ],
+      "source_url": "https://x.com/LeRobotHF/status/2093322414960546116",
+      "sources": [
+        {
+          "label": "@LeRobotHF",
+          "url": "https://x.com/LeRobotHF/status/2093322414960546116"
+        }
+      ],
+      "body": "Hugging Face’s LeRobot account posted a $28 3D printed teleoperator, open source, with clean cable routing and the same rest pose as the SO ARM 101. Optional rubber bands are there to make teleop feel better. The clip shows it driving a MuJoCo sim, with the same hardware meant to talk to the real arm.\n\nThis is a cheap, copyable input device, not a new robot. At $28 it undercuts the usual teleop bill of materials and matches a popular open arm so classrooms and garage labs can actually share policies. San Francisco robotics lists carried it at 12960 views.\n\nWatch whether the STLs and BOM land in the LeRobot repo in a form people can print this weekend, and whether the sim to real mapping holds once the rubber bands leave the video.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 12960,
+        "like_count": 247,
+        "reply_count": 5,
+        "retweet_count": 22
+      },
+      "why_it_matters": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "LeRobotHF",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg",
+      "list_count": 1,
+      "views": 12960,
+      "desk_rank": 11
+    },
+    {
       "id": "gemini-co-scientist",
       "headline": "Google Gemini Co Scientist moves from simulation into live lab work",
       "summary": "Samuel Schmidgall said a Gemini based extension of Co Scientist is now collaborating with scientists in materials, biology, and computer science, not only writing hypotheses. Coverage of the August work describes closed loop runs: propose, plan, drive equipment or code, read resu",
@@ -623,7 +628,7 @@
       "media_url": "",
       "list_count": 3,
       "views": 50078,
-      "desk_rank": 11
+      "desk_rank": 12
     },
     {
       "id": "midjourney-v82",
@@ -664,7 +669,7 @@
       "media_url": "",
       "list_count": 1,
       "views": 64860,
-      "desk_rank": 12
+      "desk_rank": 13
     }
   ],
   "signals": [
@@ -868,6 +873,27 @@
       "created_at": "2026-08-28T22:28:57.000Z",
       "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
       "analysis": "Robert’s founders, robotics, and vehicles lists carried @RemiFabreRobot. Three desks. The 2.5 million figure is Fabre’s, posted about a day after Pollen’s $399 preorder page. His community lists also had him telling people to slow down because the robot was not even a day old.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-lerobot-teleoperator",
+      "title": "LeRobot posts a $28 open source 3D printed teleoperator",
+      "text": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
+      "list_names": [
+        "San Francisco Robotics"
+      ],
+      "chip_labels": [
+        "San Francisco Robotics"
+      ],
+      "created_at": "2026-08-28T12:58:50.000Z",
+      "source_url": "https://x.com/LeRobotHF/status/2093322414960546116",
+      "analysis": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
       "topic_key": "robotics",
       "topic_label": "Robotics"
     },

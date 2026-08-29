@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an187";
+  var DATA_URL = "live-data.json?v=an188";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -123,24 +123,22 @@
     return k;
   }
 
+  var PILL_ORDER = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy", "creatives"];
+
   function storyMatchesChip(story, filter) {
     if (!filter || filter === "all") return true;
-    var labels = (story && story.chip_labels) || [];
-    for (var i = 0; i < labels.length; i++) {
-      if (labels[i] === filter) return true;
-    }
-    return false;
+    return storySectionKey(story) === filter;
   }
 
   function deskChipsFromStories(stories) {
-    var seen = { all: true };
-    var chips = [{ id: "all", label: "All" }];
+    var have = {};
     (stories || []).forEach(function (s) {
-      ((s && s.chip_labels) || []).forEach(function (n) {
-        if (!n || seen[n] || /#\d+\s+of\s+\d+/.test(n)) return;
-        seen[n] = true;
-        chips.push({ id: n, label: n });
-      });
+      var k = storySectionKey(s);
+      if (PILL_ORDER.indexOf(k) >= 0) have[k] = true;
+    });
+    var chips = [{ id: "all", label: "All" }];
+    PILL_ORDER.forEach(function (k) {
+      if (have[k]) chips.push({ id: k, label: labelFor(k, k) });
     });
     return chips;
   }
@@ -416,7 +414,7 @@
           s._analysis_placeholder = false;
         }
       });
-      data.chips = (data.chips && data.chips.length > 1 && !/#\d+\s+of\s+\d+/.test(JSON.stringify(data.chips))) ? data.chips : deskChipsFromStories(data.stories);
+      data.chips = deskChipsFromStories(data.stories);
       return data;
     }
 
@@ -2769,7 +2767,7 @@
     el.innerHTML = chips.map(function (c) {
       return (
         '<button type="button" class="chip" data-filter="' + escapeHtml(c.id) + '" aria-pressed="' +
-        (state.filter === c.id ? "true" : "false") + '">' + escapeHtml(c.id === "all" ? t("all") : (c.label || c.id)) + "</button>"
+        (state.filter === c.id ? "true" : "false") + '">' + escapeHtml(prettyChipLabel(c.id, c.label)) + "</button>"
       );
     }).join("");
     $all(".chip", el).forEach(function (btn) {
