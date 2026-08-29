@@ -6961,3 +6961,90 @@ html[data-density="compact"] .feed-rest-label {
   line-height: 1.1;
   letter-spacing: -0.04em;
 }
+
+
+/* an204: phone feed flush left, dock hugs icons */
+@media (max-width: 899px) {
+  .page-layout {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+  }
+  html.has-mobile-dock .main {
+    padding-left: 0.7rem !important;
+    padding-right: 0.7rem !important;
+  }
+  .feed-row,
+  .feed-row:has(.row-thumb),
+  body[data-page="signals"] .feed-row,
+  html[data-density="compact"] body[data-page="signals"] .feed-row,
+  html[data-density="compact"] .feed-row {
+    grid-template-columns: 1.25rem minmax(0, 1fr) !important;
+    gap: 0.35rem 0.4rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .rank {
+    text-align: left;
+    font-size: 0.82rem;
+    padding-top: 0.15rem;
+  }
+  .mobile-dock-bar {
+    width: max-content !important;
+    max-width: calc(100% - 1.25rem) !important;
+    margin: 0 auto !important;
+    gap: 0.35rem !important;
+  }
+  .mobile-dock-inner {
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    max-width: 11.5rem !important;
+    height: 44px !important;
+    padding: 0 2px !important;
+  }
+  .mobile-dock-item,
+  .mobile-dock-item.is-active {
+    flex: 0 0 40px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+  }
+  .mobile-dock-label,
+  .mobile-dock-item.is-active .mobile-dock-label {
+    display: none !important;
+    max-width: 0 !important;
+    width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+  }
+  .mobile-dock-plus {
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+  html.has-mobile-dock .mobile-dock.is-compact .mobile-dock-inner {
+    height: 34px !important;
+    max-width: 10rem !important;
+  }
+  html.has-mobile-dock .mobile-dock.is-compact .mobile-dock-item,
+  html.has-mobile-dock .mobile-dock.is-compact .mobile-dock-item.is-active {
+    flex: 0 0 32px !important;
+    width: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+    height: 30px !important;
+  }
+  html.has-mobile-dock .mobile-dock.is-compact .mobile-dock-plus {
+    flex: 0 0 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+  html.has-mobile-dock .topbar {
+    grid-template-columns: 1fr auto !important;
+    grid-template-areas:
+      "brand actions"
+      "search search" !important;
+  }
+}

@@ -2342,24 +2342,24 @@
       "justify-content": "center",
       "box-sizing": "border-box"
     });
+    var compact = dock.classList.contains("is-compact");
+    var h = compact ? "34px" : "44px";
+    var slot = compact ? "32px" : "40px";
     pin(dock.querySelector(".mobile-dock-bar"), {
       display: "flex",
-      width: "auto",
-      "max-width": "100%",
+      width: "max-content",
+      "max-width": "calc(100% - 1.25rem)",
       "align-items": "center",
       "justify-content": "center",
-      gap: "8px",
+      gap: "6px",
       "box-sizing": "border-box",
       "pointer-events": "none"
     });
-    var compact = dock.classList.contains("is-compact");
-    var h = compact ? "36px" : "48px";
-    var slot = compact ? "36px" : "44px";
     pin(dock.querySelector(".mobile-dock-inner"), {
       display: "flex",
       flex: "0 0 auto",
-      width: "auto",
-      "max-width": "100%",
+      width: "max-content",
+      "max-width": compact ? "10rem" : "11.5rem",
       height: h,
       "align-items": "center",
       "justify-content": "center",
