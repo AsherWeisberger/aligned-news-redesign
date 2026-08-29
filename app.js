@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an188";
+  var DATA_URL = "live-data.json?v=an189";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -123,7 +123,7 @@
     return k;
   }
 
-  var PILL_ORDER = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy", "creatives"];
+  var PILL_ORDER = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy"];
 
   function storyMatchesChip(story, filter) {
     if (!filter || filter === "all") return true;
@@ -331,6 +331,33 @@
   function whyRankedHtml(item) {
     var label = whyRankedLabel(item);
     return '<span class="why-ranked" title="' + t("why_ranked") + '">' + escapeHtml(label) + "</span>";
+  }
+
+  function leadBrief(item, headline) {
+    var body = displayText((item && (item.body || item.summary)) || "").replace(/\s+/g, " ").trim();
+    if (!body) return uniqueDek(item, headline, 220);
+    var parts = body.split(/(?<=[.!?])\s+/).filter(Boolean);
+    var out = [];
+    var n = 0;
+    for (var i = 0; i < parts.length && out.length < 4; i++) {
+      out.push(parts[i]);
+      n += parts[i].length;
+      if (n > 380) break;
+    }
+    var t = out.join(" ");
+    return t.length > 520 ? softClamp(t, 500) : t;
+  }
+
+  function renderPullCard(s, i) {
+    var href = "story.html?id=" + encodeURIComponent(s.id);
+    var headline = editorialTitle(s, 72);
+    var dek = uniqueDek(s, headline, 92);
+    return (
+      '<li class="top-pull" data-href="' + href + '" role="link" tabindex="0">' +
+        '<h3 class="top-pull-title"><a href="' + href + '"' + txSrc(headline) + '>' + escapeHtml(headline) + "</a></h3>" +
+        (dek ? '<p class="top-pull-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
+      "</li>"
+    );
   }
 
   function uniqueDek(item, headline, maxLen) {
@@ -3277,7 +3304,7 @@
       // Compact / rest-of-desk = dense headline+meta — no lead hero / why.
       if (!quiet && allowLead && showLead && i === 0) {
         var leadHeadline = editorialTitle(s, 88);
-        var dek = uniqueDek(s, leadHeadline, 110);
+        var dek = leadBrief(s, leadHeadline);
         var hero = leadHeroHtml(s, key, sectionPretty);
         rankCounter = 1;
         return (
@@ -3344,7 +3371,24 @@
         html += renderStoryItem(items[0], 0, true, false);
         html += takeBanner();
       }
-      var rest = items.slice(1);
+      var pullIds = ((state.data && state.data.top_pulls) || []).slice();
+      var used = {};
+      if (items[0]) used[items[0].id] = true;
+      var pulls = [];
+      pullIds.forEach(function (id) {
+        for (var pi = 0; pi < items.length; pi++) {
+          if (items[pi].id === id && !used[id]) {
+            pulls.push(items[pi]);
+            used[id] = true;
+            break;
+          }
+        }
+      });
+      if (pulls.length) {
+        html += '<li class="top-pulls-wrap" role="presentation"><ul class="top-pulls">' +
+          pulls.map(renderPullCard).join("") + "</ul></li>";
+      }
+      var rest = items.filter(function (s) { return !used[s.id]; });
       var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "breaking"];
       sectionOrder.forEach(function (key) {
         var bucket = rest.filter(function (s) {
