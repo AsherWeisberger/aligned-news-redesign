@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an177";
+  var DATA_URL = "live-data.json?v=an178";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3290,22 +3290,15 @@
         if (/\bsingularity\b/i.test(leadTitle) && /researchers|theoretical result/i.test(leadTitle)) continue;
         var rs = relevanceScore(cand);
         if (rs < 8) continue;
-        var score = rankScore(cand) + rs * 2;
+        var when = Date.parse(storyTimeIso(cand) || 0);
+        var ageH = when ? (Date.now() - when) / 36e5 : 999;
+        if (ageH > 36) continue;
+        var score = rs * 2 + Math.max(0, 400 - ageH * 10);
         if (/^RT\s+@/i.test(String(cand.headline || ""))) score -= 180;
         var candMedia = storyMediaUrl(cand);
-        if (candMedia && !isAvatarMedia(candMedia)) score += 90;
-        var sec = String(cand.section || cand.tag || "").toLowerCase();
-        var topic = String(cand.topic_key || "").toLowerCase();
-        if (Number(cand.list_count || 0) >= 2) score += 420;
-        if (sec === "breaking") score += 240;
-        if (sec === "models" || topic === "models") score += 160;
-        if (sec === "labs") score += 150;
-        if (sec === "chips" || topic === "chips") score += 150;
-        if (sec === "papers" || topic === "research") score += 130;
-        if (sec === "robotics" || topic === "robotics") score += 130;
-        if (sec === "openclaw" || topic === "open-source") score += 110;
-        if (isHardNewsItem(cand)) score += 80;
-        if (/\b(github|copilot|gpt-?\s*5|qwen|lindy)\b/i.test(itemHay(cand))) score += 140;
+        if (candMedia && !isAvatarMedia(candMedia)) score += 40;
+        if (Number(cand.list_count || 0) >= 2) score += 80;
+        if (isHardNewsItem(cand)) score += 90;
         if (score > best) { best = score; bestIdx = bi; }
       }
       if (bestIdx < 0) {
@@ -3394,10 +3387,10 @@
       });
     } else if (showLead) {
       var items = stories.slice().sort(function (a, b) {
-        var la = Number(a.list_count || 0);
-        var lb = Number(b.list_count || 0);
-        if (lb !== la) return lb - la;
-        return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+        var ta = Date.parse(storyTimeIso(a) || 0);
+        var tb = Date.parse(storyTimeIso(b) || 0);
+        if (tb !== ta) return tb - ta;
+        return Number(b.list_count || 0) - Number(a.list_count || 0);
       });
       items = pickLeadInGroup(items);
       html +=

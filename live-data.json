@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T01:21:57.000Z",
-    "scrapedAt": "2026-08-29T01:21:57.000Z",
+    "generatedAt": "2026-08-29T01:26:52.000Z",
+    "scrapedAt": "2026-08-29T01:26:52.000Z",
     "source": "scobleizer-chrome-lists",
     "note": "Chrome lists, 867 posts, 22 news-worthy, 0 multi-list, 749 with counts",
     "rssLastBuildDate": "",
@@ -155,143 +155,163 @@
   ],
   "stories": [
     {
-      "id": "x-2092300842900865389",
-      "headline": "Introducing S1, our new foundation model that learns from one example",
-      "summary": "Introducing S1, our new foundation model that learns from one example. It can be taught 10-minute long tasks that it has never seen before, from one video prompt without any fine-tuning. Watch S1 operate in real-time via in-context learning",
+      "id": "x-2093506628993564748",
+      "headline": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms Andrea Di Nezza, Mihir Patel,…",
+      "summary": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms Andrea Di Nezza, Mihir Patel, Fabio Fagnani, Sara Bernardini https:// arxiv.org/abs/2608.24585 [𝚌𝚜.𝙰𝙸]",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-29T01:10:50.000Z",
+      "author_name": "SciFi",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/SciFi/status/2093506628993564748",
+      "sources": [
+        {
+          "label": "@SciFi",
+          "url": "https://x.com/SciFi/status/2093506628993564748"
+        }
+      ],
+      "body": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms\n\nAndrea Di Nezza, Mihir Patel, Fabio Fagnani, Sara Bernardini\n\nhttps://\narxiv.org/abs/2608.24585 [𝚌𝚜.𝙰𝙸]",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 7
+      },
+      "why_it_matters": "@SciFi · AI Orgs & Events",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "SciFi",
+      "media_url": "https://pbs.twimg.com/media/HQ2hL2wW0AAn44i?format=png&name=small",
+      "list_count": 1,
+      "views": 7,
+      "desk_rank": 1
+    },
+    {
+      "id": "x-2093506470449156193",
+      "headline": "Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup",
+      "summary": "45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3. Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup. Big shoutout to the folks at @fal and @isidentical for helping us run an eval against H3. As ",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-08-25T17:19:28.000Z",
-      "author_name": "SkildAI",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/SkildAI/status/2092300842900865389",
+      "published_at": "2026-08-29T01:10:12.000Z",
+      "author_name": "haoailab",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/haoailab/status/2093506470449156193",
       "sources": [
         {
-          "label": "@SkildAI",
-          "url": "https://x.com/SkildAI/status/2092300842900865389"
+          "label": "@haoailab",
+          "url": "https://x.com/haoailab/status/2093506470449156193"
         }
       ],
-      "body": "Introducing S1, our new foundation model that learns from one example.\n\nIt can be taught 10-minute long tasks that it has never seen before, from one video prompt without any fine-tuning.\n\nWatch S1 operate in real-time via in-context learning:",
+      "body": "45% preferred FastVideo FastH3 or are neutral compared with \n@MiniMax_AI\n  H3. \n\nOur open-weight FastH3 achieves 15s generation in 13s and 14x speedup. \n\nBig shoutout to the folks at \n@fal\n and \n@isidentical\n for helping us run an eval against H3. As an open source project we always",
       "kind": "story",
       "engagement": {
-        "impression_count": 3337706,
-        "like_count": 7054,
-        "reply_count": 412,
-        "retweet_count": 1539
+        "impression_count": 24,
+        "like_count": 2,
+        "retweet_count": 1
       },
-      "why_it_matters": "@SkildAI · AI Robotics",
+      "why_it_matters": "@haoailab · AI Orgs & Events",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "SkildAI",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092297474786680832/img/GSDLOl1WS7n1oMUT.jpg",
+      "x_handle": "haoailab",
+      "media_url": "https://pbs.twimg.com/media/HQ2e0ilbEAAsyTa?format=jpg&name=small",
       "list_count": 1,
-      "views": 3337706,
-      "desk_rank": 1
-    },
-    {
-      "id": "x-2093375835679977570",
-      "headline": "Introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art…",
-      "summary": "introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art search accuracy (94.7% on simpleqa) - sub-3s scrapes, any page into clean markdown - no api key, no signup npx -y firecrawl-cli",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-08-28T16:31:06.000Z",
-      "author_name": "ericciarla",
-      "source_list": "AI Companies #1 of 2",
-      "source_url": "https://x.com/ericciarla/status/2093375835679977570",
-      "sources": [
-        {
-          "label": "@ericciarla",
-          "url": "https://x.com/ericciarla/status/2093375835679977570"
-        }
-      ],
-      "body": "introducing firecrawl free keyless\n\nnow your ai agents can search and scrape the web 100% free\n\n- state-of-the-art search accuracy (94.7% on simpleqa)\n- sub-3s scrapes, any page into clean markdown\n- no api key, no signup\n\nnpx -y firecrawl-cli@latest init --all --browser",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 239629,
-        "like_count": 3424,
-        "reply_count": 117,
-        "retweet_count": 221
-      },
-      "why_it_matters": "@ericciarla · AI Companies #1 of 2",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "ericciarla",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
-      "list_count": 1,
-      "views": 239629,
+      "views": 24,
       "desk_rank": 2
     },
     {
-      "id": "x-2093323034195378306",
-      "headline": "Impressive new paper from Google DeepMind",
-      "summary": "Impressive new paper from Google DeepMind. (bookmark it) It takes Co-Scientist out of simulation and into real-world experiments. A summary of the results: In computer science, it found an inference-time scaling architecture that beat six f",
+      "id": "x-2093497252534780396",
+      "headline": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics Zihang Wang, Jianming Hu, Shang Su, Hao…",
+      "summary": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics Zihang Wang, Jianming Hu, Shang Su, Hao Huang, Mengkai Shi, Jun Gao, Shuo Feng https:// arxiv.org/abs/2608.26766 [𝚌𝚜.𝚁𝙾]",
       "section": "papers",
       "section_key": "papers",
       "section_label": "Papers",
       "tag": "papers",
-      "published_at": "2026-08-28T13:01:18.000Z",
-      "author_name": "omarsar0",
-      "source_list": "AI’s Best",
-      "source_url": "https://x.com/omarsar0/status/2093323034195378306",
+      "published_at": "2026-08-29T00:33:34.000Z",
+      "author_name": "OWW",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/OWW/status/2093497252534780396",
       "sources": [
         {
-          "label": "@omarsar0",
-          "url": "https://x.com/omarsar0/status/2093323034195378306"
+          "label": "@OWW",
+          "url": "https://x.com/OWW/status/2093497252534780396"
         }
       ],
-      "body": "Impressive new paper from Google DeepMind.\n\n(bookmark it)\n\nIt takes Co-Scientist out of simulation and into real-world experiments.\n\nA summary of the results:\n\nIn computer science, it found an inference-time scaling architecture that beat six frontier models on HealthBench Hard",
+      "body": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics\n\nZihang Wang, Jianming Hu, Shang Su, Hao Huang, Mengkai Shi, Jun Gao, Shuo Feng\n\nhttps://\narxiv.org/abs/2608.26766 [𝚌𝚜.𝚁𝙾]",
       "kind": "story",
       "engagement": {
-        "impression_count": 25834,
-        "like_count": 249,
-        "reply_count": 16,
-        "retweet_count": 38
+        "impression_count": 17
       },
-      "why_it_matters": "@omarsar0 · AI’s Best",
+      "why_it_matters": "@OWW · AI Robotics",
       "topic_key": "papers",
       "topic_label": "Papers",
-      "x_handle": "omarsar0",
-      "media_url": "https://pbs.twimg.com/media/HQz6NJrbkAAlZeE?format=jpg&name=small",
+      "x_handle": "OWW",
+      "media_url": "https://pbs.twimg.com/media/HQ2YqDsXoAAH7EY?format=png&name=small",
       "list_count": 1,
-      "views": 25834,
+      "views": 17,
       "desk_rank": 3
     },
     {
-      "id": "x-2093226786377404554",
-      "headline": "A survey paper on world models in robot learning has been accepted to IJRR",
-      "summary": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "id": "x-2093496017639326083",
+      "headline": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime",
+      "summary": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime. Salvador J. Robles-Perez, Salvador Castillo-Rivera. arxiv.org/abs/2608.26690",
       "section": "papers",
       "section_key": "papers",
       "section_label": "Papers",
       "tag": "papers",
-      "published_at": "2026-08-28T06:38:50.000Z",
-      "author_name": "ttyharada",
-      "source_list": "AI Community #1 of 9",
-      "source_url": "https://x.com/ttyharada/status/2093226786377404554",
+      "published_at": "2026-08-29T00:28:40.000Z",
+      "author_name": "QuantumPapers",
+      "source_list": "Quantum",
+      "source_url": "https://x.com/QuantumPapers/status/2093496017639326083",
       "sources": [
         {
-          "label": "@ttyharada",
-          "url": "https://x.com/ttyharada/status/2093226786377404554"
+          "label": "@QuantumPapers",
+          "url": "https://x.com/QuantumPapers/status/2093496017639326083"
         }
       ],
-      "body": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "body": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime. Salvador J. Robles-Perez, Salvador Castillo-Rivera. arxiv.org/abs/2608.26690",
       "kind": "story",
       "engagement": {
-        "impression_count": 9143,
-        "like_count": 120,
-        "retweet_count": 24
+        "impression_count": 45
       },
-      "why_it_matters": "@ttyharada · AI Community #1 of 9",
+      "why_it_matters": "@QuantumPapers · Quantum",
       "topic_key": "papers",
       "topic_label": "Papers",
-      "x_handle": "ttyharada",
-      "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=small",
+      "x_handle": "QuantumPapers",
+      "media_url": "https://pbs.twimg.com/media/HQ2XiMDXMAA0XNb?format=png&name=small",
       "list_count": 1,
-      "views": 9143,
+      "views": 45,
       "desk_rank": 4
+    },
+    {
+      "id": "x-2093466163200307616",
+      "headline": "OpenReview adds an AI code reviewer to your GitHub projects",
+      "summary": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T22:30:02.000Z",
+      "author_name": "GithubProjects",
+      "source_list": "AI Orgs & Events",
+      "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
+      "sources": [
+        {
+          "label": "@GithubProjects",
+          "url": "https://x.com/GithubProjects/status/2093466163200307616"
+        }
+      ],
+      "body": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@GithubProjects · AI Orgs & Events",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "GithubProjects",
+      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=small",
+      "list_count": 1,
+      "desk_rank": 5
     },
     {
       "id": "x-2093465891191042057",
@@ -326,166 +346,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=small",
       "list_count": 1,
       "views": 7481,
-      "desk_rank": 5
-    },
-    {
-      "id": "x-2093496017639326083",
-      "headline": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime",
-      "summary": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime. Salvador J. Robles-Perez, Salvador Castillo-Rivera. arxiv.org/abs/2608.26690",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-29T00:28:40.000Z",
-      "author_name": "QuantumPapers",
-      "source_list": "Quantum",
-      "source_url": "https://x.com/QuantumPapers/status/2093496017639326083",
-      "sources": [
-        {
-          "label": "@QuantumPapers",
-          "url": "https://x.com/QuantumPapers/status/2093496017639326083"
-        }
-      ],
-      "body": "Adiabatic Otto-like quantum thermodynamical cycle in the non-quasi-static regime. Salvador J. Robles-Perez, Salvador Castillo-Rivera. arxiv.org/abs/2608.26690",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 45
-      },
-      "why_it_matters": "@QuantumPapers · Quantum",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "QuantumPapers",
-      "media_url": "https://pbs.twimg.com/media/HQ2XiMDXMAA0XNb?format=png&name=small",
-      "list_count": 1,
-      "views": 45,
       "desk_rank": 6
-    },
-    {
-      "id": "x-2093506470449156193",
-      "headline": "Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup",
-      "summary": "45% preferred FastVideo FastH3 or are neutral compared with @MiniMax_AI H3. Our open-weight FastH3 achieves 15s generation in 13s and 14x speedup. Big shoutout to the folks at @fal and @isidentical for helping us run an eval against H3. As ",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-08-29T01:10:12.000Z",
-      "author_name": "haoailab",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/haoailab/status/2093506470449156193",
-      "sources": [
-        {
-          "label": "@haoailab",
-          "url": "https://x.com/haoailab/status/2093506470449156193"
-        }
-      ],
-      "body": "45% preferred FastVideo FastH3 or are neutral compared with \n@MiniMax_AI\n  H3. \n\nOur open-weight FastH3 achieves 15s generation in 13s and 14x speedup. \n\nBig shoutout to the folks at \n@fal\n and \n@isidentical\n for helping us run an eval against H3. As an open source project we always",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 24,
-        "like_count": 2,
-        "retweet_count": 1
-      },
-      "why_it_matters": "@haoailab · AI Orgs & Events",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "haoailab",
-      "media_url": "https://pbs.twimg.com/media/HQ2e0ilbEAAsyTa?format=jpg&name=small",
-      "list_count": 1,
-      "views": 24,
-      "desk_rank": 7
-    },
-    {
-      "id": "x-2093497252534780396",
-      "headline": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics Zihang Wang, Jianming Hu, Shang Su, Hao…",
-      "summary": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics Zihang Wang, Jianming Hu, Shang Su, Hao Huang, Mengkai Shi, Jun Gao, Shuo Feng https:// arxiv.org/abs/2608.26766 [𝚌𝚜.𝚁𝙾]",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-29T00:33:34.000Z",
-      "author_name": "OWW",
-      "source_list": "AI Robotics",
-      "source_url": "https://x.com/OWW/status/2093497252534780396",
-      "sources": [
-        {
-          "label": "@OWW",
-          "url": "https://x.com/OWW/status/2093497252534780396"
-        }
-      ],
-      "body": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics\n\nZihang Wang, Jianming Hu, Shang Su, Hao Huang, Mengkai Shi, Jun Gao, Shuo Feng\n\nhttps://\narxiv.org/abs/2608.26766 [𝚌𝚜.𝚁𝙾]",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 17
-      },
-      "why_it_matters": "@OWW · AI Robotics",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "OWW",
-      "media_url": "https://pbs.twimg.com/media/HQ2YqDsXoAAH7EY?format=png&name=small",
-      "list_count": 1,
-      "views": 17,
-      "desk_rank": 8
-    },
-    {
-      "id": "x-2093506628993564748",
-      "headline": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms Andrea Di Nezza, Mihir Patel,…",
-      "summary": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms Andrea Di Nezza, Mihir Patel, Fabio Fagnani, Sara Bernardini https:// arxiv.org/abs/2608.24585 [𝚌𝚜.𝙰𝙸]",
-      "section": "papers",
-      "section_key": "papers",
-      "section_label": "Papers",
-      "tag": "papers",
-      "published_at": "2026-08-29T01:10:50.000Z",
-      "author_name": "SciFi",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/SciFi/status/2093506628993564748",
-      "sources": [
-        {
-          "label": "@SciFi",
-          "url": "https://x.com/SciFi/status/2093506628993564748"
-        }
-      ],
-      "body": "Pivot-and-Station Multi-Agent Path Finding: Solvability, Complexity, and Algorithms\n\nAndrea Di Nezza, Mihir Patel, Fabio Fagnani, Sara Bernardini\n\nhttps://\narxiv.org/abs/2608.24585 [𝚌𝚜.𝙰𝙸]",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 7
-      },
-      "why_it_matters": "@SciFi · AI Orgs & Events",
-      "topic_key": "papers",
-      "topic_label": "Papers",
-      "x_handle": "SciFi",
-      "media_url": "https://pbs.twimg.com/media/HQ2hL2wW0AAn44i?format=png&name=small",
-      "list_count": 1,
-      "views": 7,
-      "desk_rank": 9
-    },
-    {
-      "id": "x-2093466163200307616",
-      "headline": "OpenReview adds an AI code reviewer to your GitHub projects",
-      "summary": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-08-28T22:30:02.000Z",
-      "author_name": "GithubProjects",
-      "source_list": "AI Orgs & Events",
-      "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
-      "sources": [
-        {
-          "label": "@GithubProjects",
-          "url": "https://x.com/GithubProjects/status/2093466163200307616"
-        }
-      ],
-      "body": "OpenReview adds an AI code reviewer to your GitHub projects. It reviews code when you ask, can fix simple mistakes itself, and you host it on your own servers.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@GithubProjects · AI Orgs & Events",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "GithubProjects",
-      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=small",
-      "list_count": 1,
-      "desk_rank": 10
     },
     {
       "id": "x-2093465735049654497",
@@ -514,7 +375,7 @@
       "x_handle": "OWW",
       "media_url": "https://pbs.twimg.com/media/HQ17_g9X0AAs8a_?format=png&name=small",
       "list_count": 1,
-      "desk_rank": 11
+      "desk_rank": 7
     },
     {
       "id": "x-2093465666590286263",
@@ -543,7 +404,7 @@
       "x_handle": "Memoirs",
       "media_url": "https://pbs.twimg.com/media/HQ177hrXYAADrZG?format=png&name=small",
       "list_count": 1,
-      "desk_rank": 12
+      "desk_rank": 8
     },
     {
       "id": "x-2093465254554644701",
@@ -572,7 +433,7 @@
       "x_handle": "HuntressLabs",
       "media_url": "",
       "list_count": 1,
-      "desk_rank": 13
+      "desk_rank": 9
     },
     {
       "id": "x-2093435554159329567",
@@ -601,7 +462,111 @@
       "x_handle": "baseten",
       "media_url": "https://pbs.twimg.com/media/HQ1gCSFXIAEOqrU?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 14
+      "desk_rank": 10
+    },
+    {
+      "id": "x-2093375835679977570",
+      "headline": "Introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art…",
+      "summary": "introducing firecrawl free keyless now your ai agents can search and scrape the web 100% free - state-of-the-art search accuracy (94.7% on simpleqa) - sub-3s scrapes, any page into clean markdown - no api key, no signup npx -y firecrawl-cli",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T16:31:06.000Z",
+      "author_name": "ericciarla",
+      "source_list": "AI Companies #1 of 2",
+      "source_url": "https://x.com/ericciarla/status/2093375835679977570",
+      "sources": [
+        {
+          "label": "@ericciarla",
+          "url": "https://x.com/ericciarla/status/2093375835679977570"
+        }
+      ],
+      "body": "introducing firecrawl free keyless\n\nnow your ai agents can search and scrape the web 100% free\n\n- state-of-the-art search accuracy (94.7% on simpleqa)\n- sub-3s scrapes, any page into clean markdown\n- no api key, no signup\n\nnpx -y firecrawl-cli@latest init --all --browser",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 239629,
+        "like_count": 3424,
+        "reply_count": 117,
+        "retweet_count": 221
+      },
+      "why_it_matters": "@ericciarla · AI Companies #1 of 2",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "ericciarla",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
+      "list_count": 1,
+      "views": 239629,
+      "desk_rank": 11
+    },
+    {
+      "id": "x-2093323034195378306",
+      "headline": "Impressive new paper from Google DeepMind",
+      "summary": "Impressive new paper from Google DeepMind. (bookmark it) It takes Co-Scientist out of simulation and into real-world experiments. A summary of the results: In computer science, it found an inference-time scaling architecture that beat six f",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T13:01:18.000Z",
+      "author_name": "omarsar0",
+      "source_list": "AI’s Best",
+      "source_url": "https://x.com/omarsar0/status/2093323034195378306",
+      "sources": [
+        {
+          "label": "@omarsar0",
+          "url": "https://x.com/omarsar0/status/2093323034195378306"
+        }
+      ],
+      "body": "Impressive new paper from Google DeepMind.\n\n(bookmark it)\n\nIt takes Co-Scientist out of simulation and into real-world experiments.\n\nA summary of the results:\n\nIn computer science, it found an inference-time scaling architecture that beat six frontier models on HealthBench Hard",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 25834,
+        "like_count": 249,
+        "reply_count": 16,
+        "retweet_count": 38
+      },
+      "why_it_matters": "@omarsar0 · AI’s Best",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "omarsar0",
+      "media_url": "https://pbs.twimg.com/media/HQz6NJrbkAAlZeE?format=jpg&name=small",
+      "list_count": 1,
+      "views": 25834,
+      "desk_rank": 12
+    },
+    {
+      "id": "x-2093226786377404554",
+      "headline": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "summary": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T06:38:50.000Z",
+      "author_name": "ttyharada",
+      "source_list": "AI Community #1 of 9",
+      "source_url": "https://x.com/ttyharada/status/2093226786377404554",
+      "sources": [
+        {
+          "label": "@ttyharada",
+          "url": "https://x.com/ttyharada/status/2093226786377404554"
+        }
+      ],
+      "body": "A survey paper on world models in robot learning has been accepted to IJRR",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 9143,
+        "like_count": 120,
+        "retweet_count": 24
+      },
+      "why_it_matters": "@ttyharada · AI Community #1 of 9",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "ttyharada",
+      "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=small",
+      "list_count": 1,
+      "views": 9143,
+      "desk_rank": 13
     },
     {
       "id": "x-2093014818647339026",
@@ -630,6 +595,40 @@
       "x_handle": "kwindla",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093013293560709120/img/y0b0JFTxKUQ4XDS8.jpg",
       "list_count": 1,
+      "desk_rank": 14
+    },
+    {
+      "id": "x-2093501647804596569",
+      "headline": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day",
+      "summary": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-29T00:51:02.000Z",
+      "author_name": "_AIAcceleration",
+      "source_list": "AI Community #6 of 9",
+      "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
+      "sources": [
+        {
+          "label": "@_AIAcceleration",
+          "url": "https://x.com/_AIAcceleration/status/2093501647804596569"
+        }
+      ],
+      "body": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 8,
+        "like_count": 1,
+        "reply_count": 1
+      },
+      "why_it_matters": "@_AIAcceleration · AI Community #6 of 9",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "_AIAcceleration",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
+      "list_count": 1,
+      "views": 8,
       "desk_rank": 15
     },
     {
@@ -668,40 +667,6 @@
       "desk_rank": 16
     },
     {
-      "id": "x-2093501647804596569",
-      "headline": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day",
-      "summary": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-08-29T00:51:02.000Z",
-      "author_name": "_AIAcceleration",
-      "source_list": "AI Community #6 of 9",
-      "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
-      "sources": [
-        {
-          "label": "@_AIAcceleration",
-          "url": "https://x.com/_AIAcceleration/status/2093501647804596569"
-        }
-      ],
-      "body": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 8,
-        "like_count": 1,
-        "reply_count": 1
-      },
-      "why_it_matters": "@_AIAcceleration · AI Community #6 of 9",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "_AIAcceleration",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
-      "list_count": 1,
-      "views": 8,
-      "desk_rank": 17
-    },
-    {
       "id": "x-2093464900093768123",
       "headline": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a…",
       "summary": "Our MLPerf Training v6.0 FLUX.1 submission delivers the first FLUX.1 results on AMD Instinct MI300X GPUs: a verified 74.44-minute time-to-train on 512 GPUs across 64 OCI bare metal nodes.",
@@ -728,7 +693,7 @@
       "x_handle": "OracleDevs",
       "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 18
+      "desk_rank": 17
     },
     {
       "id": "x-2093463828755517455",
@@ -757,7 +722,7 @@
       "x_handle": "maide89699220",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093461348869148672/img/1wlkusFag0c-PMmq.jpg",
       "list_count": 1,
-      "desk_rank": 19
+      "desk_rank": 18
     },
     {
       "id": "x-2093375558876860540",
@@ -786,7 +751,7 @@
       "x_handle": "JayLiStanford",
       "media_url": "https://pbs.twimg.com/media/HQxclBNbsAAkfIu?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 20
+      "desk_rank": 19
     },
     {
       "id": "x-2093161411400610118",
@@ -815,7 +780,7 @@
       "x_handle": "HuntressLabs",
       "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 21
+      "desk_rank": 20
     },
     {
       "id": "x-2093038426140651791",
@@ -844,6 +809,41 @@
       "x_handle": "AnthropicAI",
       "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
       "list_count": 1,
+      "desk_rank": 21
+    },
+    {
+      "id": "x-2092300842900865389",
+      "headline": "Introducing S1, our new foundation model that learns from one example",
+      "summary": "Introducing S1, our new foundation model that learns from one example. It can be taught 10-minute long tasks that it has never seen before, from one video prompt without any fine-tuning. Watch S1 operate in real-time via in-context learning",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-25T17:19:28.000Z",
+      "author_name": "SkildAI",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/SkildAI/status/2092300842900865389",
+      "sources": [
+        {
+          "label": "@SkildAI",
+          "url": "https://x.com/SkildAI/status/2092300842900865389"
+        }
+      ],
+      "body": "Introducing S1, our new foundation model that learns from one example.\n\nIt can be taught 10-minute long tasks that it has never seen before, from one video prompt without any fine-tuning.\n\nWatch S1 operate in real-time via in-context learning:",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3337706,
+        "like_count": 7054,
+        "reply_count": 412,
+        "retweet_count": 1539
+      },
+      "why_it_matters": "@SkildAI · AI Robotics",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "SkildAI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092297474786680832/img/GSDLOl1WS7n1oMUT.jpg",
+      "list_count": 1,
+      "views": 3337706,
       "desk_rank": 22
     }
   ],
