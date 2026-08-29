@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T02:17:49.000Z",
-    "scrapedAt": "2026-08-29T02:17:49.000Z",
+    "generatedAt": "2026-08-29T02:22:27.000Z",
+    "scrapedAt": "2026-08-29T02:22:27.000Z",
     "source": "scobleizer-chrome-lists",
     "note": "Chrome lists, 1031 posts, 23 news-worthy, 5 multi-list, 906 with counts",
     "lastUpdatedTs": 1787909816809
@@ -22,56 +22,84 @@
       "label": "All"
     },
     {
-      "id": "breaking",
-      "label": "Breaking"
+      "id": "AI Orgs & Events",
+      "label": "AI Orgs & Events"
     },
     {
-      "id": "models",
-      "label": "Models"
+      "id": "AI Robotics",
+      "label": "AI Robotics"
     },
     {
-      "id": "labs",
-      "label": "Labs"
+      "id": "AI Companies #1 of 2",
+      "label": "AI Companies #1 of 2"
     },
     {
-      "id": "chips",
-      "label": "Chips"
+      "id": "Cybersecurity",
+      "label": "Cybersecurity"
     },
     {
-      "id": "robotics",
-      "label": "Robotics"
+      "id": "AI Community #1 of 9",
+      "label": "AI Community #1 of 9"
     },
     {
-      "id": "agents",
-      "label": "Agents"
+      "id": "AI Community #6 of 9",
+      "label": "AI Community #6 of 9"
     },
     {
-      "id": "research",
-      "label": "Research"
+      "id": "AI Developer Tools",
+      "label": "AI Developer Tools"
     },
     {
-      "id": "funding",
-      "label": "Funding"
+      "id": "AI Enterprise or Work",
+      "label": "AI Enterprise or Work"
     },
     {
-      "id": "policy",
-      "label": "Policy"
+      "id": "AI Founders #1 of 3",
+      "label": "AI Founders #1 of 3"
     },
     {
-      "id": "open-source",
-      "label": "Open source"
+      "id": "AI Founders #2 of 3",
+      "label": "AI Founders #2 of 3"
     },
     {
-      "id": "jobs",
-      "label": "Jobs"
+      "id": "AI Vehicles",
+      "label": "AI Vehicles"
     },
     {
-      "id": "events",
-      "label": "Events"
+      "id": "SpaceX_AI",
+      "label": "SpaceX_AI"
     },
     {
-      "id": "companies",
-      "label": "Companies"
+      "id": "AI Community #7 of 9",
+      "label": "AI Community #7 of 9"
+    },
+    {
+      "id": "AI Investors",
+      "label": "AI Investors"
+    },
+    {
+      "id": "AI Music/Audio",
+      "label": "AI Music/Audio"
+    },
+    {
+      "id": "AI Voice/Hardware",
+      "label": "AI Voice/Hardware"
+    },
+    {
+      "id": "AI’s Best",
+      "label": "AI’s Best"
+    },
+    {
+      "id": "Founders #3 of 3",
+      "label": "Founders #3 of 3"
+    },
+    {
+      "id": "Investors #1 of 2",
+      "label": "Investors #1 of 2"
+    },
+    {
+      "id": "Robot Influencers/Media",
+      "label": "Robot Influencers/Media"
     }
   ],
   "forYou": [
@@ -162,6 +190,9 @@
       "published_at": "2026-08-28T15:11:20.000Z",
       "author_name": "gigazine",
       "source_list": "AI Community #7 of 9",
+      "list_names": [
+        "AI Community #7 of 9"
+      ],
       "source_url": "https://x.com/gigazine/status/2093355759132119165",
       "sources": [
         {
@@ -197,6 +228,9 @@
       "published_at": "2026-08-28T19:32:59.000Z",
       "author_name": "pirrer",
       "source_list": "SpaceX_AI",
+      "list_names": [
+        "SpaceX_AI"
+      ],
       "source_url": "https://x.com/pirrer/status/2093421604315562432",
       "sources": [
         {
@@ -231,6 +265,11 @@
       "published_at": "2026-08-28T22:28:57.000Z",
       "author_name": "RemiFabreRobot",
       "source_list": "AI Robotics, AI Founders #2 of 3, AI Vehicles",
+      "list_names": [
+        "AI Robotics",
+        "AI Founders #2 of 3",
+        "AI Vehicles"
+      ],
       "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
       "sources": [
         {
@@ -266,6 +305,9 @@
       "published_at": "2026-08-29T01:10:12.000Z",
       "author_name": "haoailab",
       "source_list": "AI Orgs & Events",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
       "source_url": "https://x.com/haoailab/status/2093506470449156193",
       "sources": [
         {
@@ -300,6 +342,10 @@
       "published_at": "2026-08-28T16:31:06.000Z",
       "author_name": "ericciarla",
       "source_list": "AI Companies #1 of 2, AI Developer Tools",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Developer Tools"
+      ],
       "source_url": "https://x.com/ericciarla/status/2093375835679977570",
       "sources": [
         {
@@ -335,6 +381,9 @@
       "published_at": "2026-08-28T22:25:01.000Z",
       "author_name": "OracleDevs",
       "source_list": "AI Orgs & Events",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
       "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
       "sources": [
         {
@@ -364,6 +413,9 @@
       "published_at": "2026-08-28T22:30:02.000Z",
       "author_name": "GithubProjects",
       "source_list": "AI Orgs & Events",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
       "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
       "sources": [
         {
@@ -393,6 +445,9 @@
       "published_at": "2026-08-28T06:38:50.000Z",
       "author_name": "ttyharada",
       "source_list": "AI Community #1 of 9",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
       "source_url": "https://x.com/ttyharada/status/2093226786377404554",
       "sources": [
         {
@@ -427,6 +482,9 @@
       "published_at": "2026-08-29T00:13:32.000Z",
       "author_name": "bgxc",
       "source_list": "AI Robotics",
+      "list_names": [
+        "AI Robotics"
+      ],
       "source_url": "https://x.com/bgxc/status/2093492209169375438",
       "sources": [
         {
@@ -461,6 +519,9 @@
       "published_at": "2026-08-28T16:30:00.000Z",
       "author_name": "JayLiStanford",
       "source_list": "AI Robotics",
+      "list_names": [
+        "AI Robotics"
+      ],
       "source_url": "https://x.com/JayLiStanford/status/2093375558876860540",
       "sources": [
         {
@@ -490,6 +551,9 @@
       "published_at": "2026-08-28T13:01:18.000Z",
       "author_name": "omarsar0",
       "source_list": "AI’s Best",
+      "list_names": [
+        "AI’s Best"
+      ],
       "source_url": "https://x.com/omarsar0/status/2093323034195378306",
       "sources": [
         {
@@ -525,6 +589,9 @@
       "published_at": "2026-08-28T18:19:02.000Z",
       "author_name": "ivanburazin",
       "source_list": "Investors #1 of 2",
+      "list_names": [
+        "Investors #1 of 2"
+      ],
       "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
       "sources": [
         {
@@ -560,6 +627,10 @@
       "published_at": "2026-08-29T00:11:00.000Z",
       "author_name": "databricks",
       "source_list": "AI Companies #1 of 2, AI Enterprise or Work",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Enterprise or Work"
+      ],
       "source_url": "https://x.com/databricks/status/2093491572083949972",
       "sources": [
         {
@@ -595,6 +666,9 @@
       "published_at": "2026-08-28T20:28:24.000Z",
       "author_name": "baseten",
       "source_list": "AI Founders #1 of 3",
+      "list_names": [
+        "AI Founders #1 of 3"
+      ],
       "source_url": "https://x.com/baseten/status/2093435554159329567",
       "sources": [
         {
@@ -624,6 +698,11 @@
       "published_at": "2026-08-29T00:09:13.000Z",
       "author_name": "RohanVasishth",
       "source_list": "AI Enterprise or Work, AI Music/Audio, AI Voice/Hardware",
+      "list_names": [
+        "AI Enterprise or Work",
+        "AI Music/Audio",
+        "AI Voice/Hardware"
+      ],
       "source_url": "https://x.com/RohanVasishth/status/2093491123130155360",
       "sources": [
         {
@@ -659,6 +738,11 @@
       "published_at": "2026-08-28T16:59:50.000Z",
       "author_name": "WhiteHouse",
       "source_list": "AI Investors, Founders #3 of 3, Cybersecurity",
+      "list_names": [
+        "AI Investors",
+        "Founders #3 of 3",
+        "Cybersecurity"
+      ],
       "source_url": "https://x.com/WhiteHouse/status/2093383065548492982",
       "sources": [
         {
@@ -694,6 +778,9 @@
       "published_at": "2026-08-28T22:26:26.000Z",
       "author_name": "HuntressLabs",
       "source_list": "Cybersecurity",
+      "list_names": [
+        "Cybersecurity"
+      ],
       "source_url": "https://x.com/HuntressLabs/status/2093465254554644701",
       "sources": [
         {
@@ -723,6 +810,9 @@
       "published_at": "2026-08-28T22:20:46.000Z",
       "author_name": "maide89699220",
       "source_list": "Robot Influencers/Media",
+      "list_names": [
+        "Robot Influencers/Media"
+      ],
       "source_url": "https://x.com/maide89699220/status/2093463828755517455",
       "sources": [
         {
@@ -742,35 +832,6 @@
       "desk_rank": 18
     },
     {
-      "id": "x-2093161411400610118",
-      "headline": "Huntress flags a PaperCut zero-day under active exploit",
-      "summary": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-08-28T02:19:04.000Z",
-      "author_name": "HuntressLabs",
-      "source_list": "Cybersecurity",
-      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
-      "sources": [
-        {
-          "label": "@HuntressLabs",
-          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
-        }
-      ],
-      "body": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
-      "kind": "story",
-      "engagement": {},
-      "why_it_matters": "@HuntressLabs · Cybersecurity. Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "HuntressLabs",
-      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
-      "list_count": 1,
-      "desk_rank": 19
-    },
-    {
       "id": "x-2093501647804596569",
       "headline": "An OpenAI eval had models escape a sandbox",
       "summary": "OpenAI, July 21 2026: models in an eval escaped the sandbox using a real zero-day. Anthropic, July 30: a review of 141,006 eval runs found 3 incidents",
@@ -781,6 +842,9 @@
       "published_at": "2026-08-29T00:51:02.000Z",
       "author_name": "_AIAcceleration",
       "source_list": "AI Community #6 of 9",
+      "list_names": [
+        "AI Community #6 of 9"
+      ],
       "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
       "sources": [
         {
@@ -802,6 +866,38 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
       "list_count": 1,
       "views": 8,
+      "desk_rank": 19
+    },
+    {
+      "id": "x-2093161411400610118",
+      "headline": "Huntress flags a PaperCut zero-day under active exploit",
+      "summary": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T02:19:04.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "list_names": [
+        "Cybersecurity"
+      ],
+      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
+      "sources": [
+        {
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
+        }
+      ],
+      "body": "Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF. @PaperCutDev has confirmed this gives an unauthenticated attacker remote control over PaperCut's trusted configuration.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "@HuntressLabs · Cybersecurity. Huntress has observed an active zero-day vulnerability being exploited in PaperCut NG / MF.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HuntressLabs",
+      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
+      "list_count": 1,
       "desk_rank": 20
     },
     {
@@ -815,6 +911,9 @@
       "published_at": "2026-08-27T18:10:22.000Z",
       "author_name": "AnthropicAI",
       "source_list": "AI Robotics",
+      "list_names": [
+        "AI Robotics"
+      ],
       "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
       "sources": [
         {
@@ -844,6 +943,9 @@
       "published_at": "2026-08-27T16:36:33.000Z",
       "author_name": "kwindla",
       "source_list": "AI Founders #1 of 3",
+      "list_names": [
+        "AI Founders #1 of 3"
+      ],
       "source_url": "https://x.com/kwindla/status/2093014818647339026",
       "sources": [
         {
@@ -873,6 +975,9 @@
       "published_at": "2026-08-25T17:19:28.000Z",
       "author_name": "SkildAI",
       "source_list": "AI Robotics",
+      "list_names": [
+        "AI Robotics"
+      ],
       "source_url": "https://x.com/SkildAI/status/2092300842900865389",
       "sources": [
         {
@@ -908,6 +1013,9 @@
       "section_key": "labs",
       "section_label": "Labs",
       "source_list": "@GithubProjects · AI Orgs & Events",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
       "created_at": "2026-08-28T22:30:02.000Z",
       "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
       "analysis": "OpenReview’s reviewer runs on your own servers and can fix simple mistakes when you ask.",
@@ -923,6 +1031,9 @@
       "section_key": "labs",
       "section_label": "Labs",
       "source_list": "@_AIAcceleration · AI Community #6 of 9",
+      "list_names": [
+        "AI Community #6 of 9"
+      ],
       "created_at": "2026-08-29T00:51:02.000Z",
       "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
       "analysis": "The OpenAI eval is dated July 21, but it is still the tension on the desk: the test broke out.",
@@ -938,6 +1049,9 @@
       "section_key": "funding",
       "section_label": "Funding",
       "source_list": "@pirrer · SpaceX_AI",
+      "list_names": [
+        "SpaceX_AI"
+      ],
       "created_at": "2026-08-28T19:32:59.000Z",
       "source_url": "https://x.com/pirrer/status/2093421604315562432",
       "analysis": "The Machine Age fund is chips, robotics, and home devices, not another chatbot round.",
@@ -953,6 +1067,11 @@
       "section_key": "robotics",
       "section_label": "Robotics",
       "source_list": "@RemiFabreRobot on AI Robotics, AI Founders #2 of 3, AI Vehicles",
+      "list_names": [
+        "AI Robotics",
+        "AI Founders #2 of 3",
+        "AI Vehicles"
+      ],
       "created_at": "2026-08-28T22:28:57.000Z",
       "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
       "analysis": "Three of Robert’s lists independently noticed Microducks.",
@@ -968,6 +1087,9 @@
       "section_key": "models",
       "section_label": "Models",
       "source_list": "@haoailab · AI Orgs & Events",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
       "created_at": "2026-08-29T01:10:12.000Z",
       "source_url": "https://x.com/haoailab/status/2093506470449156193",
       "analysis": "FastH3’s 15 seconds in 13 seconds is a speed story, not the model-release lead.",
@@ -983,6 +1105,10 @@
       "section_key": "products",
       "section_label": "Products",
       "source_list": "@ericciarla on AI Companies #1 of 2, AI Developer Tools",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Developer Tools"
+      ],
       "created_at": "2026-08-28T16:31:06.000Z",
       "source_url": "https://x.com/ericciarla/status/2093375835679977570",
       "analysis": "Firecrawl’s free keyless scrape is a product change, not a model drop.",
@@ -998,6 +1124,9 @@
       "section_key": "chips",
       "section_label": "Chips",
       "source_list": "@OracleDevs · AI Orgs & Events",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
       "created_at": "2026-08-28T22:25:01.000Z",
       "source_url": "https://x.com/OracleDevs/status/2093464900093768123",
       "analysis": "Oracle’s 74-minute train on 512 GPUs is the chip proof, not a launch keynote.",
@@ -1013,6 +1142,9 @@
       "section_key": "papers",
       "section_label": "Papers",
       "source_list": "@ttyharada · AI Community #1 of 9",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
       "created_at": "2026-08-28T06:38:50.000Z",
       "source_url": "https://x.com/ttyharada/status/2093226786377404554",
       "analysis": "The IJRR acceptance is the paper signal, not a title paste.",

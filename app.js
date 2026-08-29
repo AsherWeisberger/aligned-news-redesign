@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an185";
+  var DATA_URL = "live-data.json?v=an186";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -116,47 +116,40 @@
     return /\b(hot take|i think|imo\b|seems like|hype cycle|vibes?|can't believe|wild that|this is fine)\b|\?{2,}|!{2,}/i.test(hay);
   }
 
-  function storyMatchesChip(story, filter) {
-    if (!filter || filter === "all") return true;
-    var sec = String(story.section || story.tag || "").toLowerCase();
-    var topic = String(story.topic_key || story.section_key || "").toLowerCase();
-    if (filter === "breaking") return sec === "breaking";
-    if (filter === "labs") return sec === "labs";
-    if (filter === "jobs") return sec === "jobs" || topic === "jobs";
-    if (filter === "events") return isEventItem(story);
-    if (filter === "open-source") return isOpenSourceItem(story);
-    if (filter === "research") return topic === "research" || sec === "papers" || sec === "science";
-    if (filter === "videos") return sec === "videos" || topic === "videos";
-    if (topic === filter || sec === filter) return true;
-    return mapSectionKey(sec) === filter;
+  function listNamesOn(item) {
+    var names = (item && item.list_names) || [];
+    if (names && names.length) return names;
+    var sl = String((item && item.source_list) || "");
+    if (!sl || /^from scoble lists/i.test(sl)) return [];
+    return sl.split(",").map(function (x) { return x.trim(); }).filter(Boolean);
   }
 
-  var DESK_CHIP_ORDER = [
-    { id: "all", label: "All" },
-    { id: "breaking", label: "Breaking" },
-    { id: "models", label: "Models" },
-    { id: "labs", label: "Labs" },
-    { id: "chips", label: "Chips" },
-    { id: "robotics", label: "Robotics" },
-    { id: "agents", label: "Agents" },
-    { id: "research", label: "Research" },
-    { id: "funding", label: "Funding" },
-    { id: "policy", label: "Policy" },
-    { id: "open-source", label: "Open source" },
-    { id: "jobs", label: "Jobs" },
-    { id: "events", label: "Events" },
-    { id: "companies", label: "Companies" }
-  ];
+  function storyMatchesChip(story, filter) {
+    if (!filter || filter === "all") return true;
+    var names = listNamesOn(story);
+    for (var i = 0; i < names.length; i++) {
+      if (names[i] === filter) return true;
+    }
+    return false;
+  }
 
-  function deskChipsFromStories(stories) {
-    var list = stories || [];
-    return DESK_CHIP_ORDER.filter(function (chip) {
-      if (chip.id === "all") return true;
-      for (var i = 0; i < list.length; i++) {
-        if (storyMatchesChip(list[i], chip.id)) return true;
-      }
-      return false;
-    }).map(function (chip) { return { id: chip.id, label: chip.label }; });
+  function deskChipsFromStories(stories, signals) {
+    var counts = {};
+    function add(item) {
+      listNamesOn(item).forEach(function (n) {
+        if (!n || /^from scoble lists/i.test(n)) return;
+        counts[n] = (counts[n] || 0) + 1;
+      });
+    }
+    (stories || []).forEach(add);
+    (signals || []).forEach(add);
+    var names = Object.keys(counts).sort(function (a, b) {
+      if (counts[b] !== counts[a]) return counts[b] - counts[a];
+      return a.localeCompare(b);
+    });
+    return [{ id: "all", label: "All" }].concat(names.map(function (n) {
+      return { id: n, label: n };
+    }));
   }
 
   function deskTakeFor(item) {
@@ -430,7 +423,7 @@
           s._analysis_placeholder = false;
         }
       });
-      data.chips = deskChipsFromStories(data.stories);
+      data.chips = deskChipsFromStories(data.stories, data.signals);
       return data;
     }
 
@@ -564,7 +557,7 @@
         s._analysis_placeholder = false;
       }
     });
-    var chips = deskChipsFromStories(stories);
+    var chips = deskChipsFromStories(stories, signals);
     if (chips.length <= 1 && data.chips && data.chips.length) {
       chips = data.chips.map(function (c) {
         return { id: c.id, label: prettyChipLabel(c.id, c.label) };
@@ -2783,7 +2776,7 @@
     el.innerHTML = chips.map(function (c) {
       return (
         '<button type="button" class="chip" data-filter="' + escapeHtml(c.id) + '" aria-pressed="' +
-        (state.filter === c.id ? "true" : "false") + '">' + escapeHtml(prettyChipLabel(c.id, c.label)) + "</button>"
+        (state.filter === c.id ? "true" : "false") + '">' + escapeHtml(c.id === "all" ? t("all") : (c.label || c.id)) + "</button>"
       );
     }).join("");
     $all(".chip", el).forEach(function (btn) {
@@ -3474,7 +3467,7 @@
     renderRightRail();
     var items = (state.data.signals || []).filter(function (s) {
       if (isRetweetNoise(s)) return false;
-      if (state.filter && state.filter !== "all" && (s.topic_key || s.section_key || "") !== state.filter) return false;
+      if (state.filter && state.filter !== "all" && !storyMatchesChip(s, state.filter)) return false;
       if (state.query) {
         var q = state.query.toLowerCase();
         var hay = [s.title, s.text, s.category, s.badge, s.source_list, s.analysis].join(" ").toLowerCase();
