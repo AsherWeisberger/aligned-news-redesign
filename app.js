@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an196";
+  var DATA_URL = "live-data.json?v=an197";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -1403,7 +1403,7 @@
       models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
       companies: "Companies", research: "Papers", papers: "Papers", chips: "Chips",
       "open-source": "Open source", policy: "Policy", creative: "Creative", all: "All",
-      breaking: "Breaking", labs: "Labs", products: "Products", jobs: "Jobs", events: "Events", videos: "Videos", creatives: "Creatives"
+      breaking: "Breaking", labs: "Labs", products: "Products", jobs: "Jobs", events: "Events", videos: "Videos", creatives: "Creatives", world: "World"
     };
     var tkey = "topic_" + String(id || "").replace(/-/g, "_");
     var translated = t(tkey);
@@ -3364,10 +3364,6 @@
         return Number(a.desk_rank || 9999) - Number(b.desk_rank || 9999);
       });
       items = pickLeadInGroup(items);
-      html +=
-        '<li class="feed-day-head" role="presentation">' +
-          '<h2 class="feed-day-label">' + t("today") + "</h2>" +
-        "</li>";
       if (items.length) {
         html += renderStoryItem(items[0], 0, true, false);
         html += takeBanner();
@@ -3390,13 +3386,10 @@
           pulls.map(renderPullCard).join("") + "</ul></li>";
       }
       var rest = items.filter(function (s) { return !used[s.id]; });
-      var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "breaking"];
+      var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "world"];
       sectionOrder.forEach(function (key) {
         var bucket = rest.filter(function (s) {
-          var k = String(s.section_key || s.section || s.topic_key || "").toLowerCase();
-          if (key === "papers" && (k === "research" || k === "papers")) return true;
-          if (key === "creatives" && (k === "creative" || k === "creatives")) return true;
-          return k === key;
+          return storySectionKey(s) === key;
         });
         if (!bucket.length) return;
         bucket.sort(function (a, b) {
