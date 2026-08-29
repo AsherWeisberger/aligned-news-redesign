@@ -3496,18 +3496,17 @@ body[data-page="auth"] .app {
     flex: 1 1 auto;
     width: 100%;
     min-width: 0;
-    height: 56px;
-    overflow: visible;
-    padding: 0 0.2rem;
+    height: 48px;
+    overflow: hidden;
+    padding: 0 0.15rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: color-mix(in srgb, #1c1c1e 86%, transparent);
-    backdrop-filter: saturate(1.5) blur(22px);
-    -webkit-backdrop-filter: saturate(1.5) blur(22px);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.08) inset,
-      0 12px 32px rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1c1c1e;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     transition:
+      height 0.22s cubic-bezier(0.22, 1, 0.36, 1),
       opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
       filter 0.32s ease;
@@ -3516,11 +3515,9 @@ body[data-page="auth"] .app {
   html:not([data-theme="dark"]) .mobile-dock-inner,
   html:not([data-theme="dark"]) .mobile-dock-plus,
   html:not([data-theme="dark"]) .mobile-dock-sheet {
-    background: color-mix(in srgb, var(--bg-elev) 82%, transparent);
-    border-color: color-mix(in srgb, var(--border-strong) 70%, transparent);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.42) inset,
-      0 10px 28px rgba(12, 13, 16, 0.14);
+    background: var(--bg-elev);
+    border-color: var(--border-strong);
+    box-shadow: 0 8px 20px rgba(12, 13, 16, 0.10);
   }
   .mobile-dock-item {
     position: relative;
@@ -3611,24 +3608,22 @@ body[data-page="auth"] .app {
   }
   .mobile-dock-plus {
     pointer-events: auto;
-    flex: 0 0 56px;
-    width: 56px;
-    height: 56px;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: color-mix(in srgb, #1c1c1e 86%, transparent);
-    backdrop-filter: saturate(1.5) blur(22px);
-    -webkit-backdrop-filter: saturate(1.5) blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1c1c1e;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     color: #fff;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.08) inset,
-      0 12px 32px rgba(0, 0, 0, 0.28);
-    transition: transform 0.32s cubic-bezier(0.22, 1.2, 0.36, 1), background 0.2s ease, color 0.2s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    transition: width 0.22s cubic-bezier(0.22, 1, 0.36, 1), height 0.22s cubic-bezier(0.22, 1, 0.36, 1), flex-basis 0.22s cubic-bezier(0.22, 1, 0.36, 1), transform 0.32s cubic-bezier(0.22, 1.2, 0.36, 1), background 0.2s ease, color 0.2s ease;
   }
   html:not([data-theme="dark"]) .mobile-dock-plus {
     color: var(--ink);
@@ -3674,6 +3669,34 @@ body[data-page="auth"] .app {
     transform: scale(1);
     filter: none;
   }
+
+  .mobile-dock.is-compact .mobile-dock-inner {
+    height: 36px;
+  }
+  .mobile-dock.is-compact .mobile-dock-plus {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+  .mobile-dock.is-compact .mobile-dock-item {
+    height: 32px;
+    padding: 0 4px;
+  }
+  .mobile-dock.is-compact .mobile-dock-item.is-active {
+    flex: 1 1 auto;
+    padding: 0 4px;
+  }
+  .mobile-dock.is-compact .mobile-dock-item.is-active .mobile-dock-label {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+  }
+  .mobile-dock.is-compact .mobile-dock-ico {
+    width: 18px;
+    height: 18px;
+  }
+  .dock-metal-cv { display: none !important; }
+
   .mobile-dock.is-open .mobile-dock-inner {
     opacity: 0;
     transform: scale(0.72);
@@ -6714,10 +6737,25 @@ body[data-page="newsletter"] .desk-hero-compact h1 {
     max-width: none !important;
     justify-content: center !important;
   }
+  .mobile-dock-inner {
+    height: 48px !important;
+  }
   .mobile-dock-plus {
-    flex: 0 0 56px !important;
-    width: 56px !important;
-    height: 56px !important;
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+  html.has-mobile-dock .mobile-dock.is-compact .mobile-dock-inner {
+    height: 36px !important;
+  }
+  html.has-mobile-dock .mobile-dock.is-compact .mobile-dock-plus {
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+  html.has-mobile-dock .mobile-dock.is-compact .mobile-dock-item {
+    min-width: 32px !important;
+    height: 32px !important;
   }
 }
 
