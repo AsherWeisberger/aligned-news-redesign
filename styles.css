@@ -6833,3 +6833,17 @@ html[data-theme="dark"] .dock-tile-ico .theme-moon-cut {
     transition: none !important;
   }
 }
+
+.story-lead-media {
+  margin: 0.6rem 0 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.story-lead-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+}
+.story-prose p + p { margin-top: 0.85em; }

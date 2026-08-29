@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an193";
+  var DATA_URL = "live-data.json?v=an194";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3975,7 +3975,7 @@
     var bookmarks = Number(engagement.bookmark_count || 0);
     var handle = String(story.x_handle || xHandleFrom(story) || "").replace(/^@/, "");
     var author = displayText(story.author_name || handle || story.source_list || t("original_source"));
-    var originalText = body || summary;
+    var originalText = "";
 
     var firstSeen = story.published_at ? fallbackTime(story.published_at) : "";
     var sourceBit = sources.length ? (String(sources.length) + " " + (sources.length === 1 ? t("source_one") : t("sources"))) : "";
@@ -4003,8 +4003,7 @@
       "<section class=\"story-block original-post-section\"><h2>" + t("original_post") + "</h2>" +
         "<a class=\"original-post-card\" href=\"" + escapeHtml(sourceUrl) + "\" target=\"_blank\" rel=\"noopener\">" +
           "<span class=\"original-post-meta\"><span><strong>" + escapeHtml(author) + "</strong>" + (handle ? " <span>@" + escapeHtml(handle) + "</span>" : "") + "</span><time>" + escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "") + "</time></span>" +
-          (originalText ? "<span class=\"original-post-copy\"" + txSrc(originalText) + ">" + escapeHtml(originalText) + "</span>" : "") +
-          (media ? "<span class=\"original-post-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"lazy\" onerror=\"this.parentNode.hidden=true\"></span>" : "") +
+          (media ? "<span class=\"original-post-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"></span>" : "") +
           "<span class=\"open-on-x\">" + t("open_on_x") + "</span>" +
         "</a></section>"
     ) : "";
@@ -4015,6 +4014,15 @@
         return "<a href=\"" + escapeHtml(source.url) + "\" target=\"_blank\" rel=\"noopener\"><strong>" + escapeHtml(source.label) + "</strong><span>" + escapeHtml(source.host) + " ↗</span></a>";
       }).join("") + "</div></section>"
     ) : "";
+
+    var paras = storyBodyParagraphs(story).slice(0, 3);
+    if (!paras.length && whatHappened) paras = [whatHappened];
+    var articleHtml = paras.map(function (p) {
+      return "<p" + txSrc(p) + ">" + escapeHtml(p) + "</p>";
+    }).join("");
+    var heroHtml = (media && !isAvatarMedia(media))
+      ? "<div class=\"story-lead-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"eager\" referrerpolicy=\"no-referrer\"></div>"
+      : "";
 
     var topic = story.topic_key || topicKeyFor(story);
     var related = (state.data.stories || []).filter(function (item) {
@@ -4033,10 +4041,11 @@
       "<a class=\"back-link\" href=\"index.html\">← " + t("back_today") + "</a>" +
       "<header class=\"story-header\"><div class=\"article-kicker\"><span class=\"badge badge-signal\">" + escapeHtml(story.topic_label || labelFor(topic)) + "</span><span class=\"meta-line\">" + escapeHtml(storyMetaLine(story)) + "</span></div><h1" + txSrc(title) + ">" + escapeHtml(title) + "</h1></header>" +
       intelHtml +
+      heroHtml +
       originalHtml +
       "<div class=\"article-actions article-actions-quiet\"><button type=\"button\" class=\"text-action\" id=\"saveBtn\">" + (saved ? t("saved") : t("save_later")) + "</button><button type=\"button\" class=\"text-action\" id=\"readBtn\">" + t("mark_unread") + "</button></div>" +
       "<div class=\"story-layout\"><div class=\"story-main\">" +
-        "<section class=\"story-block story-explainer\"><h2>" + t("what_happened") + "</h2><div class=\"story-prose\"><p" + txSrc(whatHappened) + ">" + escapeHtml(whatHappened) + "</p></div></section>" +
+        "<section class=\"story-block story-explainer\"><div class=\"story-prose\">" + articleHtml + "</div></section>" +
         (whyIsDifferent ? "<section class=\"story-block story-explainer\"><h2>" + t("why_it_matters") + "</h2><div class=\"story-prose\"><p" + txSrc(why) + ">" + escapeHtml(why) + "</p></div></section>" : "") +
         (watch ? "<section class=\"story-block story-explainer\"><h2>" + t("what_to_watch") + "</h2><div class=\"story-prose\"><p" + txSrc(watch) + ">" + escapeHtml(watch) + "</p></div></section>" : "") +
         usefulLinksHtml + relatedHtml +
