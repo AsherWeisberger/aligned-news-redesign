@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an182";
+  var DATA_URL = "live-data.json?v=an183";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3366,7 +3366,7 @@
         html += takeBanner();
       }
       var rest = items.slice(1);
-      var sectionOrder = ["breaking", "products", "robotics", "models", "labs", "papers", "chips", "policy", "funding", "creatives"];
+      var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "breaking"];
       sectionOrder.forEach(function (key) {
         var bucket = rest.filter(function (s) {
           var k = String(s.section_key || s.section || s.topic_key || "").toLowerCase();
@@ -3375,6 +3375,12 @@
           return k === key;
         });
         if (!bucket.length) return;
+        bucket.sort(function (a, b) {
+          var ma = Number(a.list_count || 0) >= 2 ? 1 : 0;
+          var mb = Number(b.list_count || 0) >= 2 ? 1 : 0;
+          if (mb !== ma) return mb - ma;
+          return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+        });
         html += '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + escapeHtml(prettyChipLabel(key, key)) + "</h2></li>";
         bucket.forEach(function (s) {
           html += renderStoryItem(s, 1, false, false);
