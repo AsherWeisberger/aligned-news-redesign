@@ -1251,7 +1251,7 @@
 
     if (!list) return;
     list.classList.add("is-ready");
-    var cards = list.querySelectorAll(".lead-card, .feed-row");
+    var cards = list.querySelectorAll(".lead-card, .feed-row, .report-item");
     var i;
     for (i = 0; i < cards.length; i++) {
       (function (card) {
@@ -3515,10 +3515,10 @@
         repHost.innerHTML = reports.map(function (r) {
           var title = displayText(r.title || "").trim();
           var date = fmtDateShort(r.published_at) || fallbackTime(r.published_at);
-          var href = r.url || "reports.html";
+          var href = "story.html?id=" + encodeURIComponent(r.id);
           return (
             '<li class="desk-mod-item">' +
-              '<a href="' + escapeHtml(href) + '">' +
+              '<a href="' + href + '">' +
                 '<p class="desk-mod-title"' + txSrc(title) + '>' + escapeHtml(title) + "</p>" +
                 (date ? '<p class="desk-mod-meta">' + escapeHtml(date) + "</p>" : "") +
               "</a>" +
@@ -3809,9 +3809,10 @@
       return;
     }
     list.innerHTML = items.map(function (r, i) {
+      var href = "story.html?id=" + encodeURIComponent(r.id);
       return (
-        '<li class="report-item" ' + staggerStyle(i) + '>' +
-          "<h2" + txSrc(displayText(r.title)) + ">" + escapeHtml(displayText(r.title)) + "</h2>" +
+        '<li class="report-item" ' + staggerStyle(i) + ' data-href="' + href + '" role="link" tabindex="0">' +
+          "<h2" + txSrc(displayText(r.title)) + '><a href="' + href + '">' + escapeHtml(displayText(r.title)) + "</a></h2>" +
           (r.summary ? "<p" + txSrc(firstSentence(r.summary, 200)) + ">" + escapeHtml(firstSentence(r.summary, 200)) + "</p>" : "") +
           '<div class="meta"><span class="meta-line">' + escapeHtml(joinMeta([
             (r.type || "report").replace(/_/g, " "),
@@ -3822,6 +3823,7 @@
         "</li>"
       );
     }).join("");
+    enableCardNavigation(list);
     afterContentPaint();
   }
 
@@ -3851,6 +3853,26 @@
           author_name: "Aligned News",
           kind: "signal-story",
           _body_placeholder: !!sig._analysis_placeholder || hasSamplePlaceholder(sig.analysis || ""),
+        };
+      }
+    }
+    var reports = state.data.reports || [];
+    for (var k = 0; k < reports.length; k++) {
+      if (reports[k].id === id) {
+        var r = reports[k];
+        var src = realSourceUrl(r.url);
+        return {
+          id: r.id,
+          headline: r.title,
+          summary: r.summary || "",
+          section_label: (r.type || "report").replace(/_/g, " "),
+          section: "reports",
+          published_at: r.published_at,
+          author_name: r.author || "Aligned News Research",
+          source_url: src,
+          sources: src ? [{ url: src, name: r.author || "Source" }] : [],
+          body: displayText(r.summary || ""),
+          kind: "report"
         };
       }
     }

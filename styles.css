@@ -1659,6 +1659,7 @@ html[data-theme="dark"] .badge-interview { background: #500724; color: #f9a8d4; 
   opacity: 0;
   animation: row-in 0.38s var(--ease-out) forwards;
   transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-soft);
+  cursor: pointer;
 }
 .report-item:hover {
   transform: translateY(-2px);
