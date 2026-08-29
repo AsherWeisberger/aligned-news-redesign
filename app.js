@@ -11,6 +11,14 @@
       (window.innerWidth || 0) > 0 && (window.innerWidth || 0) <= 899) {
     document.documentElement.classList.add("has-mobile-dock");
   }
+  function markFontsReady() {
+    document.documentElement.classList.add("fonts-ready");
+  }
+  try {
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(markFontsReady);
+    else markFontsReady();
+  } catch (e) { markFontsReady(); }
+  setTimeout(markFontsReady, 1400);
 
 
   function t(key, vars) {
@@ -316,6 +324,13 @@
   function whyHereHtml(item) {
     var line = whyHereLine(item);
     if (!line) return "";
+    var dek = displayText((item && (item.summary || item.body)) || "").replace(/\s+/g, " ").trim().toLowerCase();
+    var l = line.toLowerCase();
+    if (dek) {
+      var a = l.slice(0, Math.min(48, l.length));
+      var b = dek.slice(0, Math.min(48, dek.length));
+      if ((a && dek.indexOf(a) !== -1) || (b && l.indexOf(b) !== -1)) return "";
+    }
     return '<p class="why-here"' + txSrc(line) + '>' + escapeHtml(line) + "</p>";
   }
 
@@ -373,8 +388,6 @@
       if (h && p.toLowerCase().indexOf(h.slice(0, Math.min(28, h.length))) === 0 && p.length < h.length + 12) continue;
       return firstSentence(p, maxLen);
     }
-    var why = whyItMatters(item);
-    if (why && why.toLowerCase().indexOf(h) !== 0) return firstSentence(why, maxLen);
     return "";
   }
 
