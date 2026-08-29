@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T01:26:52.000Z",
-    "scrapedAt": "2026-08-29T01:26:52.000Z",
+    "generatedAt": "2026-08-29T01:30:26.000Z",
+    "scrapedAt": "2026-08-29T01:30:26.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "Chrome lists, 867 posts, 22 news-worthy, 0 multi-list, 749 with counts",
+    "note": "Chrome lists, 971 posts, 25 news-worthy, 0 multi-list, 846 with counts",
     "rssLastBuildDate": "",
     "rssItemCount": 161,
     "rssKeptCount": 161,
@@ -500,6 +500,41 @@
       "desk_rank": 11
     },
     {
+      "id": "x-2093355759132119165",
+      "headline": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable…",
+      "summary": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T15:11:20.000Z",
+      "author_name": "gigazine",
+      "source_list": "AI Community #7 of 9",
+      "source_url": "https://x.com/gigazine/status/2093355759132119165",
+      "sources": [
+        {
+          "label": "@gigazine",
+          "url": "https://x.com/gigazine/status/2093355759132119165"
+        }
+      ],
+      "body": "Chinese-made AI model \"GLM-5.3\" is released for free as a promised open model, a high-performance model comparable to Claude Fable 5 or GPT-5.6 Sol",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 93358,
+        "like_count": 925,
+        "reply_count": 10,
+        "retweet_count": 137
+      },
+      "why_it_matters": "@gigazine · AI Community #7 of 9",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "gigazine",
+      "media_url": "https://pbs.twimg.com/media/HQ0X-ESWQAAIBUs?format=jpg&name=small",
+      "list_count": 1,
+      "views": 93358,
+      "desk_rank": 12
+    },
+    {
       "id": "x-2093323034195378306",
       "headline": "Impressive new paper from Google DeepMind",
       "summary": "Impressive new paper from Google DeepMind. (bookmark it) It takes Co-Scientist out of simulation and into real-world experiments. A summary of the results: In computer science, it found an inference-time scaling architecture that beat six f",
@@ -532,7 +567,7 @@
       "media_url": "https://pbs.twimg.com/media/HQz6NJrbkAAlZeE?format=jpg&name=small",
       "list_count": 1,
       "views": 25834,
-      "desk_rank": 12
+      "desk_rank": 13
     },
     {
       "id": "x-2093226786377404554",
@@ -566,7 +601,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=small",
       "list_count": 1,
       "views": 9143,
-      "desk_rank": 13
+      "desk_rank": 14
     },
     {
       "id": "x-2093014818647339026",
@@ -595,7 +630,7 @@
       "x_handle": "kwindla",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093013293560709120/img/y0b0JFTxKUQ4XDS8.jpg",
       "list_count": 1,
-      "desk_rank": 14
+      "desk_rank": 15
     },
     {
       "id": "x-2093501647804596569",
@@ -629,7 +664,41 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
       "list_count": 1,
       "views": 8,
-      "desk_rank": 15
+      "desk_rank": 16
+    },
+    {
+      "id": "x-2093492209169375438",
+      "headline": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
+      "summary": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-29T00:13:32.000Z",
+      "author_name": "bgxc",
+      "source_list": "AI Robotics",
+      "source_url": "https://x.com/bgxc/status/2093492209169375438",
+      "sources": [
+        {
+          "label": "@bgxc",
+          "url": "https://x.com/bgxc/status/2093492209169375438"
+        }
+      ],
+      "body": "Proud of the Lightwheel team for releasing EgoSuite-Open100K",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 67,
+        "like_count": 1,
+        "reply_count": 1
+      },
+      "why_it_matters": "@bgxc · AI Robotics",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "bgxc",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2090799806478491648/img/6b5b0Ihqlz8mYlvh.jpg",
+      "list_count": 1,
+      "views": 67,
+      "desk_rank": 17
     },
     {
       "id": "x-2093491123130155360",
@@ -664,7 +733,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2S2rSakAAi_-3",
       "list_count": 1,
       "views": 56,
-      "desk_rank": 16
+      "desk_rank": 18
     },
     {
       "id": "x-2093464900093768123",
@@ -693,7 +762,7 @@
       "x_handle": "OracleDevs",
       "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 17
+      "desk_rank": 19
     },
     {
       "id": "x-2093463828755517455",
@@ -722,7 +791,42 @@
       "x_handle": "maide89699220",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093461348869148672/img/1wlkusFag0c-PMmq.jpg",
       "list_count": 1,
-      "desk_rank": 18
+      "desk_rank": 20
+    },
+    {
+      "id": "x-2093402996293910938",
+      "headline": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2,…",
+      "summary": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2, released earlier this month)",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-08-28T18:19:02.000Z",
+      "author_name": "ivanburazin",
+      "source_list": "Investors #1 of 2",
+      "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
+      "sources": [
+        {
+          "label": "@ivanburazin",
+          "url": "https://x.com/ivanburazin/status/2093402996293910938"
+        }
+      ],
+      "body": "Meta Superintelligence Labs used @daytonaio sandboxes to run their new multimodal reasoning model (Muse Spark 1.2, released earlier this month)",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5513,
+        "like_count": 64,
+        "reply_count": 2,
+        "retweet_count": 10
+      },
+      "why_it_matters": "@ivanburazin · Investors #1 of 2",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "ivanburazin",
+      "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=small",
+      "list_count": 1,
+      "views": 5513,
+      "desk_rank": 21
     },
     {
       "id": "x-2093375558876860540",
@@ -751,7 +855,7 @@
       "x_handle": "JayLiStanford",
       "media_url": "https://pbs.twimg.com/media/HQxclBNbsAAkfIu?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 19
+      "desk_rank": 22
     },
     {
       "id": "x-2093161411400610118",
@@ -780,7 +884,7 @@
       "x_handle": "HuntressLabs",
       "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=small",
       "list_count": 1,
-      "desk_rank": 20
+      "desk_rank": 23
     },
     {
       "id": "x-2093038426140651791",
@@ -809,7 +913,7 @@
       "x_handle": "AnthropicAI",
       "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
       "list_count": 1,
-      "desk_rank": 21
+      "desk_rank": 24
     },
     {
       "id": "x-2092300842900865389",
@@ -844,7 +948,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092297474786680832/img/GSDLOl1WS7n1oMUT.jpg",
       "list_count": 1,
       "views": 3337706,
-      "desk_rank": 22
+      "desk_rank": 25
     }
   ],
   "signals": [
