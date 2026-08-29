@@ -2345,10 +2345,13 @@
     var compact = dock.classList.contains("is-compact");
     var h = compact ? "34px" : "44px";
     var slot = compact ? "32px" : "40px";
+    var barW = compact ? "168px" : "214px";
+    var innerW = compact ? "128px" : "164px";
     pin(dock.querySelector(".mobile-dock-bar"), {
       display: "flex",
-      width: "max-content",
-      "max-width": "calc(100% - 1.25rem)",
+      width: barW,
+      "min-width": barW,
+      "max-width": barW,
       "align-items": "center",
       "justify-content": "center",
       gap: "6px",
@@ -2357,9 +2360,10 @@
     });
     pin(dock.querySelector(".mobile-dock-inner"), {
       display: "flex",
-      flex: "0 0 auto",
-      width: "max-content",
-      "max-width": compact ? "10rem" : "11.5rem",
+      flex: "0 0 " + innerW,
+      width: innerW,
+      "min-width": innerW,
+      "max-width": innerW,
       height: h,
       "align-items": "center",
       "justify-content": "center",
@@ -2415,7 +2419,7 @@
     if (dock.parentNode !== document.body) document.body.appendChild(dock);
     document.documentElement.classList.add("has-mobile-dock");
     var wasOpen = dock.classList.contains("is-open");
-    if (dock.dataset.built === "1" && dock.querySelector(".mobile-dock-inner") && !dock.querySelector(".dock-metal-cv")) {
+    if (dock.dataset.built === "an205" && dock.querySelector(".mobile-dock-inner") && !dock.querySelector(".mobile-dock-label")) {
       if (dock.dataset.morphing !== "1") {
         var nodes = dock.querySelectorAll(".mobile-dock-item");
         for (var si = 0; si < items.length && si < nodes.length; si++) {
@@ -2463,7 +2467,6 @@
               '<a class="mobile-dock-item' + (active ? " is-active" : "") + '" href="' + item.href + '"' +
               (active ? ' aria-current="page"' : "") + ' title="' + escapeHtml(item.label) + '">' +
               '<span class="mobile-dock-ico">' + dockIcon(item.id, active) + "</span>" +
-              '<span class="mobile-dock-label">' + escapeHtml(item.label) + "</span>" +
               "</a>"
             );
           }).join("") +
@@ -2474,7 +2477,7 @@
         "</div>" +
       "</div>";
     if (wasOpen) dock.classList.add("is-open");
-    dock.dataset.built = "1";
+    dock.dataset.built = "an205";
     pinMobileDockLayout(dock);
     wireDockScroll(dock);
     if (!dock.dataset.wired) {
@@ -4037,28 +4040,29 @@
     var subBits = [];
     if (sourceBit) subBits.push(sourceBit);
     if (firstSeen) subBits.push(t("first_seen") + " " + firstSeen);
-    var viewsLabel = compactCount(views) || t("not_measured");
-    var rankHtml = rank
-      ? "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">" + t("desk_rank") + "</span><strong class=\"story-intel-num\">#" + rank + "</strong></div>"
-      : "";
-    var viewsHtml = "<div class=\"story-intel-hero\"><span class=\"story-intel-kicker\">" + t("views") + "</span><strong class=\"story-intel-num\">" + escapeHtml(viewsLabel) + "</strong>" +
-      (subBits.length ? "<p class=\"story-intel-sub\">" + escapeHtml(subBits.join(" · ")) + "</p>" : "") + "</div>";
+    var viewsLabel = compactCount(views);
+    var lineBits = [];
+    if (rank) lineBits.push('<span class="story-intel-rank">#' + rank + "</span>");
+    if (viewsLabel) lineBits.push('<span class="story-intel-views">' + escapeHtml(viewsLabel) + " " + t("views") + "</span>");
+    if (subBits.length) lineBits.push('<span class="story-intel-meta">' + escapeHtml(subBits.join(" · ")) + "</span>");
     var reactions = [
       intelReaction("like", t("likes"), likes),
       intelReaction("reply", t("replies"), replies),
       intelReaction("repost", t("reposts"), reposts),
       intelReaction("save", t("saves"), bookmarks)
     ].filter(Boolean).join("");
-    var intelHtml = "<section class=\"story-intel\" aria-label=\"" + t("original_metrics") + "\">" +
-      "<div class=\"story-intel-heroes\">" + rankHtml + viewsHtml + "</div>" +
-      (reactions ? "<ul class=\"story-intel-reactions\">" + reactions + "</ul>" : "") +
-      "</section>";
+    var intelHtml = (lineBits.length || reactions)
+      ? '<section class="story-intel" aria-label="' + t("original_metrics") + '">' +
+        (lineBits.length ? '<p class="story-intel-line">' + lineBits.join('<span class="story-intel-dot" aria-hidden="true">·</span>') + "</p>" : "") +
+        (reactions ? '<ul class="story-intel-reactions">' + reactions + "</ul>" : "") +
+        "</section>"
+      : "";
 
     var originalHtml = sourceUrl ? (
       "<section class=\"story-block original-post-section\"><h2>" + t("original_post") + "</h2>" +
         "<a class=\"original-post-card\" href=\"" + escapeHtml(sourceUrl) + "\" target=\"_blank\" rel=\"noopener\">" +
           "<span class=\"original-post-meta\"><span><strong>" + escapeHtml(author) + "</strong>" + (handle ? " <span>@" + escapeHtml(handle) + "</span>" : "") + "</span><time>" + escapeHtml(story.published_at ? fallbackTimeLong(story.published_at) : "") + "</time></span>" +
-          (media ? "<span class=\"original-post-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"></span>" : "") +
+          (media && !isAvatarMedia(media) ? "<span class=\"original-post-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer\"></span>" : "") +
           "<span class=\"open-on-x\">" + t("open_on_x") + "</span>" +
         "</a></section>"
     ) : "";
@@ -4075,7 +4079,7 @@
     var articleHtml = paras.map(function (p) {
       return "<p" + txSrc(p) + ">" + escapeHtml(p) + "</p>";
     }).join("");
-    var heroHtml = (media && !isAvatarMedia(media))
+    var heroHtml = (media && !isAvatarMedia(media) && !sourceUrl)
       ? "<div class=\"story-lead-media\"><img src=\"" + escapeHtml(String(media)) + "\" alt=\"\" loading=\"eager\" referrerpolicy=\"no-referrer\"></div>"
       : "";
 
