@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T05:07:44.000Z",
-    "scrapedAt": "2026-08-29T05:07:44.000Z",
+    "generatedAt": "2026-08-29T05:10:43.000Z",
+    "scrapedAt": "2026-08-29T05:10:43.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 43 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 48 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 35,
-    "stories": 43,
-    "signals": 42,
+    "lists": 40,
+    "stories": 48,
+    "signals": 47,
     "reports": 4
   },
   "chips": [
@@ -1903,6 +1903,228 @@
       "list_count": 1,
       "views": 1100,
       "desk_rank": 43
+    },
+    {
+      "id": "us-space-academy-eo",
+      "headline": "Trump signs an order creating a United States Space Academy",
+      "summary": "The White House posted that President Trump signed an executive order establishing a new federal academy, the United States Space Academy. Four of Robert’s lists carried the clip, including his SpaceX AI desk and his investors lists. Michael Kratsios said the commission is led by",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-28T16:59:50.000Z",
+      "author_name": "WhiteHouse",
+      "source_list": "AI Investors, AI Orgs, Blockchain/Web 3, SpaceX AI",
+      "list_names": [
+        "AI Investors",
+        "AI Orgs & Events",
+        "Blockchain/Web 3 #2 of 2",
+        "SpaceX_AI"
+      ],
+      "chip_labels": [
+        "AI Investors",
+        "AI Orgs",
+        "Blockchain/Web 3",
+        "SpaceX AI"
+      ],
+      "source_url": "https://x.com/WhiteHouse/status/2093383065548492982",
+      "sources": [
+        {
+          "label": "@WhiteHouse",
+          "url": "https://x.com/WhiteHouse/status/2093383065548492982"
+        }
+      ],
+      "body": "The White House posted that President Trump signed an executive order establishing a new federal academy, the United States Space Academy. Four of Robert’s lists carried the clip, including his SpaceX AI desk and his investors lists. Michael Kratsios said the commission is led by the NASA administrator and will design a NASA led federal academy. Fox News, on the same SpaceX AI list, said Trump also announced a nuclear powered interplanetary spacecraft aimed at Mars in 2028.\n\nA named federal space academy is policy, not a merch drop. It puts NASA in the academy business and puts a Mars ship date on the same afternoon. Treat the order as signed. Treat the 2028 ship as a claim until NASA posts hardware.\n\nWatch the commission roster, the campus fight, and whether the Mars ship is a NASA line or a podium line.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3700000,
+        "like_count": 24228,
+        "reply_count": 1605,
+        "retweet_count": 5107
+      },
+      "why_it_matters": "Robert’s SpaceX AI list, his investors lists, and his orgs lists carried @WhiteHouse. Four desks. A signed executive order, not a rally recap.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "WhiteHouse",
+      "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=large",
+      "list_count": 4,
+      "views": 3700000,
+      "desk_rank": 44
+    },
+    {
+      "id": "radiant-army-750m",
+      "headline": "US Army awards Radiant Nuclear $750 million for portable reactors",
+      "summary": "Tim Draper posted that the US Army handed Radiant Nuclear a $750 million contract for 15 portable reactors. He said he and BoostVC were early investors and co led the Series D. Robert’s tech VIPs list carried @TimDraper with the photo.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T16:01:03.000Z",
+      "author_name": "TimDraper",
+      "source_list": "AI Founders",
+      "list_names": [
+        "Tech VIPs"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "source_url": "https://x.com/TimDraper/status/2093368272557367625",
+      "sources": [
+        {
+          "label": "@TimDraper",
+          "url": "https://x.com/TimDraper/status/2093368272557367625"
+        }
+      ],
+      "body": "Tim Draper posted that the US Army handed Radiant Nuclear a $750 million contract for 15 portable reactors. He said he and BoostVC were early investors and co led the Series D. Robert’s tech VIPs list carried @TimDraper with the photo.\n\nSeven hundred fifty million for field reactors is real money, not a pitch deck. If the Army is buying 15 units, portable nuclear just left the demo tent.\n\nWatch whether the Army posts the contract, and how fast Radiant has to deliver the first core.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 28000,
+        "like_count": 37,
+        "retweet_count": 5
+      },
+      "why_it_matters": "Robert’s tech VIPs list carried @TimDraper. One desk. A $750 million Army contract, not a fundraise tweet.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "TimDraper",
+      "media_url": "https://pbs.twimg.com/media/HQ0jWaGbQAAR_4k?format=jpg&name=large",
+      "list_count": 1,
+      "views": 28000,
+      "desk_rank": 45
+    },
+    {
+      "id": "sony-warner-anthropic-suit",
+      "headline": "Sony Music and Warner Chappell sue Anthropic over training data",
+      "summary": "Music Tech Solutions posted that Sony Music and Warner Chappell sued Anthropic and founders Dario Amodei and Benjamin Mann. The complaint says they ran a campaign of torrenting, scraping, and downloading. Robert’s tech news and journalists lists both carried @MTSlive with the fil",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-29T03:19:38.000Z",
+      "author_name": "MTSlive",
+      "source_list": "Tech News, Tech Journalists",
+      "list_names": [
+        "Tech News",
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Tech News",
+        "Tech Journalists"
+      ],
+      "source_url": "https://x.com/MTSlive/status/2093539044244570592",
+      "sources": [
+        {
+          "label": "@MTSlive",
+          "url": "https://x.com/MTSlive/status/2093539044244570592"
+        }
+      ],
+      "body": "Music Tech Solutions posted that Sony Music and Warner Chappell sued Anthropic and founders Dario Amodei and Benjamin Mann. The complaint says they ran a campaign of torrenting, scraping, and downloading. Robert’s tech news and journalists lists both carried @MTSlive with the filing photo.\n\nTwo major publishers suing a frontier lab is policy with a docket number. It sits next to the ChatGPT death suits, not next to a model card.\n\nWatch the actual complaint, and whether Anthropic treats this as training risk or as noise.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3500,
+        "like_count": 51,
+        "reply_count": 4,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert’s tech news list and his journalists list carried @MTSlive. Two desks. A publisher lawsuit, not a blog recap.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "MTSlive",
+      "media_url": "https://pbs.twimg.com/media/HQ298vabEAAEdQD?format=jpg&name=large",
+      "list_count": 2,
+      "views": 3500,
+      "desk_rank": 46
+    },
+    {
+      "id": "claude-scientists-plan",
+      "headline": "Anthropic opens a Claude plan for 10,000 scientists",
+      "summary": "Claude’s account posted that 10,000 scientists across math, chemistry, physics, and more can get Claude through a new Claude Team plan for scientists. Standard seats are free. Premium seats come with five times the usage. Four of Robert’s lists carried the clip, including medical",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-27T19:32:28.000Z",
+      "author_name": "claudeai",
+      "source_list": "AI Community, @Scobleizer/AI Education, AI Medical/Health/Science, Computer Vision",
+      "list_names": [
+        "AI Community #5 of 9",
+        "@Scobleizer/AI Education",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "@Scobleizer/AI Education",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "source_url": "https://x.com/claudeai/status/2093059087298601113",
+      "sources": [
+        {
+          "label": "@claudeai",
+          "url": "https://x.com/claudeai/status/2093059087298601113"
+        }
+      ],
+      "body": "Claude’s account posted that 10,000 scientists across math, chemistry, physics, and more can get Claude through a new Claude Team plan for scientists. Standard seats are free. Premium seats come with five times the usage. Four of Robert’s lists carried the clip, including medical and education desks. The dump has the launch video.\n\nFree seats for working scientists is a lab distribution move, not a coupon. If the 10,000 actually log in, Claude is sitting next to lab notebooks this week.\n\nWatch who fills the seats, and whether the premium cap is enough for wet lab work.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3066618,
+        "like_count": 11146,
+        "reply_count": 450,
+        "retweet_count": 1375
+      },
+      "why_it_matters": "Robert’s community lists, his education lists, his medical lists, and his computer vision list carried @claudeai. Four desks. A scientist plan, not a demo day.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "claudeai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093049007329116160/img/5X2ymmLb8kxUv3r9.jpg",
+      "list_count": 4,
+      "views": 3066618,
+      "desk_rank": 47
+    },
+    {
+      "id": "anthropic-mhs-preview",
+      "headline": "Anthropic opens a hardware standard so agents can run equipment",
+      "summary": "Anthropic posted the first phase of a research preview for Model Hardware Standard, a standard for AI agents to operate physical equipment safely. Three of Robert’s lists carried @AnthropicAI, robotics through computer vision. The dump has the product still.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-27T18:10:22.000Z",
+      "author_name": "AnthropicAI",
+      "source_list": "AI Robotics, AI Community, Computer Vision",
+      "list_names": [
+        "AI Robotics",
+        "AI Community #3 of 9",
+        "Computer Vision"
+      ],
+      "chip_labels": [
+        "AI Robotics",
+        "AI Community",
+        "Computer Vision"
+      ],
+      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
+      "sources": [
+        {
+          "label": "@AnthropicAI",
+          "url": "https://x.com/AnthropicAI/status/2093038426140651791"
+        }
+      ],
+      "body": "Anthropic posted the first phase of a research preview for Model Hardware Standard, a standard for AI agents to operate physical equipment safely. Three of Robert’s lists carried @AnthropicAI, robotics through computer vision. The dump has the product still.\n\nA named hardware standard from Anthropic is how agents leave the chat box. If labs and robot shops adopt MHS, that is a product. If it stays a PDF, it is a press kit.\n\nWatch who implements the spec, and whether it shows up on a real bench this month.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2684159,
+        "like_count": 10017,
+        "reply_count": 436,
+        "retweet_count": 1970
+      },
+      "why_it_matters": "Robert’s robotics lists, his community lists, and his computer vision list carried @AnthropicAI. Three desks. A hardware standard, not a model drop.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "AnthropicAI",
+      "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
+      "list_count": 3,
+      "views": 2684159,
+      "desk_rank": 48
     }
   ],
   "signals": [
@@ -2820,6 +3042,129 @@
       "analysis": "Robert’s World News list carried @Independent. One desk. A former president sentenced, not a local crime brief.",
       "topic_key": "world",
       "topic_label": "World"
+    },
+    {
+      "id": "sig-us-space-academy-eo",
+      "title": "Trump signs an order creating a United States Space Academy",
+      "text": "Robert’s SpaceX AI list, his investors lists, and his orgs lists carried @WhiteHouse. Four desks. A signed executive order, not a rally recap.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s SpaceX AI list, his investors lists, and his orgs lists carried @WhiteHouse. Four desks. A signed executive order, not a rally recap.",
+      "list_names": [
+        "AI Investors",
+        "AI Orgs & Events",
+        "Blockchain/Web 3 #2 of 2",
+        "SpaceX_AI"
+      ],
+      "chip_labels": [
+        "AI Investors",
+        "AI Orgs",
+        "Blockchain/Web 3",
+        "SpaceX AI"
+      ],
+      "created_at": "2026-08-28T16:59:50.000Z",
+      "source_url": "https://x.com/WhiteHouse/status/2093383065548492982",
+      "analysis": "Robert’s SpaceX AI list, his investors lists, and his orgs lists carried @WhiteHouse. Four desks. A signed executive order, not a rally recap.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-radiant-army-750m",
+      "title": "US Army awards Radiant Nuclear $750 million for portable reactors",
+      "text": "Robert’s tech VIPs list carried @TimDraper. One desk. A $750 million Army contract, not a fundraise tweet.",
+      "badge": "signal",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "Robert’s tech VIPs list carried @TimDraper. One desk. A $750 million Army contract, not a fundraise tweet.",
+      "list_names": [
+        "Tech VIPs"
+      ],
+      "chip_labels": [
+        "AI Founders"
+      ],
+      "created_at": "2026-08-28T16:01:03.000Z",
+      "source_url": "https://x.com/TimDraper/status/2093368272557367625",
+      "analysis": "Robert’s tech VIPs list carried @TimDraper. One desk. A $750 million Army contract, not a fundraise tweet.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
+    },
+    {
+      "id": "sig-sony-warner-anthropic-suit",
+      "title": "Sony Music and Warner Chappell sue Anthropic over training data",
+      "text": "Robert’s tech news list and his journalists list carried @MTSlive. Two desks. A publisher lawsuit, not a blog recap.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s tech news list and his journalists list carried @MTSlive. Two desks. A publisher lawsuit, not a blog recap.",
+      "list_names": [
+        "Tech News",
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Tech News",
+        "Tech Journalists"
+      ],
+      "created_at": "2026-08-29T03:19:38.000Z",
+      "source_url": "https://x.com/MTSlive/status/2093539044244570592",
+      "analysis": "Robert’s tech news list and his journalists list carried @MTSlive. Two desks. A publisher lawsuit, not a blog recap.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-claude-scientists-plan",
+      "title": "Anthropic opens a Claude plan for 10,000 scientists",
+      "text": "Robert’s community lists, his education lists, his medical lists, and his computer vision list carried @claudeai. Four desks. A scientist plan, not a demo day.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert’s community lists, his education lists, his medical lists, and his computer vision list carried @claudeai. Four desks. A scientist plan, not a demo day.",
+      "list_names": [
+        "AI Community #5 of 9",
+        "@Scobleizer/AI Education",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "@Scobleizer/AI Education",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "created_at": "2026-08-27T19:32:28.000Z",
+      "source_url": "https://x.com/claudeai/status/2093059087298601113",
+      "analysis": "Robert’s community lists, his education lists, his medical lists, and his computer vision list carried @claudeai. Four desks. A scientist plan, not a demo day.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
+      "id": "sig-anthropic-mhs-preview",
+      "title": "Anthropic opens a hardware standard so agents can run equipment",
+      "text": "Robert’s robotics lists, his community lists, and his computer vision list carried @AnthropicAI. Three desks. A hardware standard, not a model drop.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s robotics lists, his community lists, and his computer vision list carried @AnthropicAI. Three desks. A hardware standard, not a model drop.",
+      "list_names": [
+        "AI Robotics",
+        "AI Community #3 of 9",
+        "Computer Vision"
+      ],
+      "chip_labels": [
+        "AI Robotics",
+        "AI Community",
+        "Computer Vision"
+      ],
+      "created_at": "2026-08-27T18:10:22.000Z",
+      "source_url": "https://x.com/AnthropicAI/status/2093038426140651791",
+      "analysis": "Robert’s robotics lists, his community lists, and his computer vision list carried @AnthropicAI. Three desks. A hardware standard, not a model drop.",
+      "topic_key": "products",
+      "topic_label": "Products"
     }
   ],
   "reports": [
