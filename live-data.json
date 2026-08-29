@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T02:39:47.000Z",
-    "scrapedAt": "2026-08-29T02:39:47.000Z",
+    "generatedAt": "2026-08-29T02:41:49.000Z",
+    "scrapedAt": "2026-08-29T02:41:49.000Z",
     "source": "scobleizer-chrome-lists",
     "note": "CONTEXT writeup, 13 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809
@@ -158,7 +158,7 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TencentHunyuan",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQyfABta8AAq3x7?format=jpg&name=large",
       "list_count": 1,
       "views": 1212547,
       "desk_rank": 1
@@ -201,7 +201,7 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "databricks",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F?format=jpg&name=large",
       "list_count": 2,
       "views": 964,
       "desk_rank": 2
@@ -242,7 +242,7 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "aisearchio",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large",
       "list_count": 1,
       "views": 35175,
       "desk_rank": 3
@@ -287,7 +287,7 @@
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "perplexity_ai",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large",
       "list_count": 3,
       "views": 9884,
       "desk_rank": 4
@@ -375,7 +375,7 @@
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "ericciarla",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
       "list_count": 2,
       "views": 239990,
       "desk_rank": 6
@@ -411,7 +411,7 @@
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "GithubProjects",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=large",
       "list_count": 1,
       "desk_rank": 7
     },
@@ -450,7 +450,7 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "pirrer",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg",
       "list_count": 1,
       "views": 584,
       "desk_rank": 8
@@ -490,7 +490,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "_AIAcceleration",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
       "list_count": 1,
       "views": 8,
       "desk_rank": 9
@@ -535,7 +535,7 @@
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "RemiFabreRobot",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large",
       "list_count": 3,
       "views": 13736,
       "desk_rank": 10
@@ -621,7 +621,7 @@
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "SRSchmidgall",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large",
       "list_count": 3,
       "views": 50078,
       "desk_rank": 12
@@ -662,7 +662,7 @@
       "topic_key": "creatives",
       "topic_label": "Creatives",
       "x_handle": "midjourney",
-      "media_url": "",
+      "media_url": "https://pbs.twimg.com/media/HQ2XHJ0aoAAOHRQ?format=jpg&name=large",
       "list_count": 1,
       "views": 64860,
       "desk_rank": 13
