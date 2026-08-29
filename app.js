@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an175";
+  var DATA_URL = "live-data.json?v=an176";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -318,18 +318,14 @@
   function whyHereLine(item) {
     if (!item) return "";
     if (isEventItem(item) || isSideDeskItem(item)) return "";
-    var nSources = (item.sources && item.sources.length) || 0;
-    var e = item.engagement || {};
-    var likes = Number(e.like_count) || 0;
-    var replies = Number(e.reply_count) || 0;
-    var quotes = Number(e.quote_count) || 0;
-    var talk = replies + quotes;
-    var bits = [];
-    if (nSources >= 2) bits.push(t("hit_n_lists", { n: nSources }));
-    if (talk > likes && talk > 0) bits.push(t("talking"));
-    else if (likes > 0 && talk === 0) bits.push(t("likes_wont"));
-    if (!bits.length) return "";
-    return bits.join(". ").replace(/^./, function (c) { return c.toUpperCase(); }) + ".";
+    var cap = displayText(item.why_it_matters || "").trim();
+    if (cap && !/^from scoble lists/i.test(cap)) return cap;
+    var lists = displayText(item.source_list || "").trim();
+    var who = item.x_handle ? ("@" + String(item.x_handle).replace(/^@/, "")) : "";
+    if (lists && !/^from scoble lists/i.test(lists)) {
+      return who ? (who + " · " + lists) : lists;
+    }
+    return who;
   }
 
   function whyHereHtml(item) {
@@ -381,7 +377,8 @@
     if (s.indexOf("chip") !== -1 || s.indexOf("hardware") !== -1) return "chips";
     if (s.indexOf("job") !== -1) return "jobs";
     if (s.indexOf("hackathon") !== -1 || s.indexOf("dinner") !== -1 || s.indexOf("conference") !== -1 || s.indexOf("event") !== -1) return "events";
-    if (s.indexOf("paper") !== -1 || s.indexOf("science") !== -1 || s.indexOf("research") !== -1) return "research";
+    if (s.indexOf("paper") !== -1) return "papers";
+    if (s.indexOf("science") !== -1 || s.indexOf("research") !== -1) return "papers";
     if (s.indexOf("infra") !== -1 || s.indexOf("compute") !== -1) return "chips";
     if (s.indexOf("lab") !== -1) return "labs";
     if (s.indexOf("creative") !== -1) return "creative";
@@ -396,7 +393,7 @@
     var map = {
       models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
       policy: "Policy", chips: "Chips", "open-source": "Open source", events: "Events",
-      research: "Research", creative: "Creative", compute: "Compute", industry: "Industry",
+      research: "Papers", papers: "Papers", creative: "Creatives", creatives: "Creatives", compute: "Compute", industry: "Industry",
       scoble: "Scoble", labs: "Labs", jobs: "Jobs", companies: "Companies", industry: "Companies",
       breaking: "Breaking", videos: "Videos"
     };
@@ -1392,9 +1389,9 @@
   function prettyChipLabel(id, label) {
     var known = {
       models: "Models", agents: "Agents", robotics: "Robotics", funding: "Funding",
-      companies: "Companies", research: "Research", chips: "Chips",
+      companies: "Companies", research: "Papers", papers: "Papers", chips: "Chips",
       "open-source": "Open source", policy: "Policy", creative: "Creative", all: "All",
-      breaking: "Breaking", labs: "Labs", jobs: "Jobs", events: "Events", videos: "Videos"
+      breaking: "Breaking", labs: "Labs", products: "Products", jobs: "Jobs", events: "Events", videos: "Videos", creatives: "Creatives"
     };
     var tkey = "topic_" + String(id || "").replace(/-/g, "_");
     var translated = t(tkey);
@@ -3376,7 +3373,7 @@
               avatarStackHtml(s) +
               '<span class="meta-line">' + escapeHtml(metaLine) + "</span>" +
             "</div>" +
-            (quiet ? "" : whyHereHtml(s)) +
+            whyHereHtml(s) +
           "</div>" +
           thumb +
         "</li>"
@@ -3395,50 +3392,53 @@
         html += renderStoryItem(s, i, false);
         storyCount += 1;
       });
+    } else if (showLead) {
+      var items = stories.slice().sort(function (a, b) {
+        var la = Number(a.list_count || 0);
+        var lb = Number(b.list_count || 0);
+        if (lb !== la) return lb - la;
+        return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
+      });
+      items = pickLeadInGroup(items);
+      html +=
+        '<li class="feed-day-head" role="presentation">' +
+          '<h2 class="feed-day-label">' + t("today") + "</h2>" +
+        "</li>";
+      if (items.length) {
+        html += renderStoryItem(items[0], 0, true, false);
+        html += takeBanner();
+      }
+      var rest = items.slice(1);
+      var sectionOrder = ["breaking", "products", "robotics", "models", "labs", "papers", "chips", "policy", "funding", "creatives"];
+      sectionOrder.forEach(function (key) {
+        var bucket = rest.filter(function (s) {
+          var k = String(s.section_key || s.section || s.topic_key || "").toLowerCase();
+          if (key === "papers" && (k === "research" || k === "papers")) return true;
+          if (key === "creatives" && (k === "creative" || k === "creatives")) return true;
+          return k === key;
+        });
+        if (!bucket.length) return;
+        html += '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + escapeHtml(prettyChipLabel(key, key)) + "</h2></li>";
+        bucket.forEach(function (s) {
+          html += renderStoryItem(s, 1, false, false);
+          html += takeBanner();
+        });
+      });
+      if (boxedEvents.length) html += eventsBoxHtml(boxedEvents);
     } else {
       var groups = groupStoriesByDay(stories);
-      var restStarted = false;
-      function restHeadHtml() {
-        if (restStarted || isCompactDensity() || state.filter !== "all" || state.query) return "";
-        restStarted = true;
-        return '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + t("rest_desk") + '</h2></li>';
-      }
       groups.forEach(function (group, gi) {
-        var items = group.items.slice().sort(function (a, b) {
-          var la = Number(a.list_count || 0);
-          var lb = Number(b.list_count || 0);
-          if (lb !== la) return lb - la;
-          return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
-        });
-        // Comfortable: first story in the whole feed is the magazine opener,
-        // even when that group is Yesterday (no stories dated today).
-        var allowLead = gi === 0;
-        if (allowLead) {
-          items = pickLeadInGroup(items);
-        }
-        var lastMulti = -1;
-        items.forEach(function (s, i) {
-          if (Number(s.list_count || 0) >= 2) lastMulti = i;
-        });
+        var items = group.items;
         html +=
           '<li class="feed-day-head" role="presentation">' +
             '<h2 class="feed-day-label">' + escapeHtml(group.label) + "</h2>" +
           "</li>";
         items.forEach(function (s, i) {
-          html += renderStoryItem(s, i, allowLead, restStarted);
+          html += renderStoryItem(s, i, false, false);
           html += takeBanner();
-          if (i === lastMulti || (lastMulti < 0 && i === 0 && allowLead)) html += restHeadHtml();
-          if (!eventsInserted && boxedEvents.length && allowLead && restStarted) {
-            html += eventsBoxHtml(boxedEvents);
-            eventsInserted = true;
-          }
         });
-        if (!eventsInserted && boxedEvents.length && gi === 0) {
-          html += eventsBoxHtml(boxedEvents);
-          eventsInserted = true;
-        }
       });
-      if (!eventsInserted && boxedEvents.length) html += eventsBoxHtml(boxedEvents);
+      if (boxedEvents.length) html += eventsBoxHtml(boxedEvents);
     }
 
     list.innerHTML = html;
