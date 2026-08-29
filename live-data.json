@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T05:10:43.000Z",
-    "scrapedAt": "2026-08-29T05:10:43.000Z",
+    "generatedAt": "2026-08-29T05:12:29.000Z",
+    "scrapedAt": "2026-08-29T05:12:29.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 48 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 60 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 40,
-    "stories": 48,
-    "signals": 47,
+    "lists": 44,
+    "stories": 60,
+    "signals": 59,
     "reports": 4
   },
   "chips": [
@@ -2125,6 +2125,499 @@
       "list_count": 3,
       "views": 2684159,
       "desk_rank": 48
+    },
+    {
+      "id": "nvidia-dynamo-inference",
+      "headline": "NVIDIA shows where Dynamo sits around vLLM and TensorRT",
+      "summary": "NVIDIA posted a five minute explainer on Dynamo: it sits around engines like SGLang, vLLM, and TensorRT LLM to scale inference across GPUs and nodes. Robert’s company lists carried @NVIDIAAI with the video thumb. This is the company account, not a recap blog.",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-28T21:03:31.000Z",
+      "author_name": "NVIDIAAI",
+      "source_list": "Tech Companies",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "source_url": "https://x.com/NVIDIAAI/status/2093444391797158049",
+      "sources": [
+        {
+          "label": "@NVIDIAAI",
+          "url": "https://x.com/NVIDIAAI/status/2093444391797158049"
+        }
+      ],
+      "body": "NVIDIA posted a five minute explainer on Dynamo: it sits around engines like SGLang, vLLM, and TensorRT LLM to scale inference across GPUs and nodes. Robert’s company lists carried @NVIDIAAI with the video thumb. This is the company account, not a recap blog.\n\nIf you already run an engine, Dynamo is the layer that fans work across boxes. That is chips software, not a new GPU SKU.\n\nWatch whether Dynamo actually shows up in production vLLM deploys this month, or stays a keynote diagram.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 12000,
+        "like_count": 140,
+        "reply_count": 38,
+        "retweet_count": 25
+      },
+      "why_it_matters": "Robert’s company lists carried @NVIDIAAI. One desk. A Dynamo explainer from NVIDIA, not a podcast recap.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "NVIDIAAI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093442877464735744/img/9flouWJYMrEF2i2l.jpg",
+      "list_count": 1,
+      "views": 12000,
+      "desk_rank": 49
+    },
+    {
+      "id": "qualcomm-npu-on-phone",
+      "headline": "A Qualcomm NPU runs speech, a language model, and voice on a phone",
+      "summary": "RunAnywhere posted a table of speech to text, a language model, and speech out all running on a phone’s Qualcomm NPU, with the chip named for each stage. The note says a lot of phones already ship that NPU and almost no app uses it. Robert’s voice and hardware list carried the cl",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-27T23:41:22.000Z",
+      "author_name": "RunAnywhereAI",
+      "source_list": "AI Voice/Hardware",
+      "list_names": [
+        "AI Voice/Hardware"
+      ],
+      "chip_labels": [
+        "AI Voice/Hardware"
+      ],
+      "source_url": "https://x.com/RunAnywhereAI/status/2093121727618506810",
+      "sources": [
+        {
+          "label": "@RunAnywhereAI",
+          "url": "https://x.com/RunAnywhereAI/status/2093121727618506810"
+        }
+      ],
+      "body": "RunAnywhere posted a table of speech to text, a language model, and speech out all running on a phone’s Qualcomm NPU, with the chip named for each stage. The note says a lot of phones already ship that NPU and almost no app uses it. Robert’s voice and hardware list carried the clip.\n\nOn device inference on a shipping NPU is a chips story. If the table holds, the phone already had the silicon and the software was the missing piece.\n\nWatch a third party reproduce the table on a retail phone, not a bench unit.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1471,
+        "like_count": 28,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert’s voice and hardware list carried @RunAnywhereAI. One desk. An on device NPU demo, not a roadmap slide.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "RunAnywhereAI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093120275714027520/img/douV7w3Vc6IQvbP1.jpg",
+      "list_count": 1,
+      "views": 1471,
+      "desk_rank": 50
+    },
+    {
+      "id": "tamu-vision-superpod",
+      "headline": "Texas A&M VISION SuperPOD tops the June academic supercomputer list",
+      "summary": "NVIDIA posted that Texas A&M’s VISION, a DGX SuperPOD, is the most powerful academic supercomputer on the June 2026 TOP500 and is serving researchers across seven institutions. Robert’s company lists carried @nvidia with the photo. Thirty thousand views.",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-28T23:42:28.000Z",
+      "author_name": "nvidia",
+      "source_list": "Tech Companies",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "source_url": "https://x.com/nvidia/status/2093484389682270429",
+      "sources": [
+        {
+          "label": "@nvidia",
+          "url": "https://x.com/nvidia/status/2093484389682270429"
+        }
+      ],
+      "body": "NVIDIA posted that Texas A&M’s VISION, a DGX SuperPOD, is the most powerful academic supercomputer on the June 2026 TOP500 and is serving researchers across seven institutions. Robert’s company lists carried @nvidia with the photo. Thirty thousand views.\n\nA named academic SuperPOD at the top of the academic list is a chips install, not a gamescom recap. If TOP500 has it, the box is real.\n\nWatch who actually gets cycles, and whether the seven schools publish on it this fall.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 30000,
+        "like_count": 259,
+        "reply_count": 24,
+        "retweet_count": 41
+      },
+      "why_it_matters": "Robert’s company lists carried @nvidia. One desk. A named SuperPOD on TOP500, not a giveaway tweet.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "nvidia",
+      "media_url": "https://pbs.twimg.com/media/HQ2M9QSXoAAJL_G?format=jpg&name=large",
+      "list_count": 1,
+      "views": 30000,
+      "desk_rank": 51
+    },
+    {
+      "id": "accel-sim-2-hopper",
+      "headline": "Accel Sim 2.0 adds full Hopper support for GPU simulation",
+      "summary": "Matt posted Accel Sim 2.0 as validated GPU simulation with full Hopper support, plus a paper on asynchronous distributed GPUs, arxiv 2608.22602, and code on the accel sim GitHub. Robert’s quantum list carried @matt_dz with the figure. Three thousand nine hundred views. Low views ",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T17:49:39.000Z",
+      "author_name": "matt_dz",
+      "source_list": "Quantum",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "source_url": "https://x.com/matt_dz/status/2093395599986966854",
+      "sources": [
+        {
+          "label": "@matt_dz",
+          "url": "https://x.com/matt_dz/status/2093395599986966854"
+        }
+      ],
+      "body": "Matt posted Accel Sim 2.0 as validated GPU simulation with full Hopper support, plus a paper on asynchronous distributed GPUs, arxiv 2608.22602, and code on the accel sim GitHub. Robert’s quantum list carried @matt_dz with the figure. Three thousand nine hundred views. Low views is not a reason to drop a real simulator drop.\n\nHopper in a public simulator is how people debug GPU ideas without a B200 queue. That is a paper with working code.\n\nWatch whether the GitHub actually replays Hopper traces, and who forks it this week.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3900,
+        "like_count": 69,
+        "retweet_count": 11
+      },
+      "why_it_matters": "Robert’s quantum list carried @matt_dz. One desk. A Hopper simulator paper with a GitHub, not a title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "matt_dz",
+      "media_url": "https://pbs.twimg.com/media/HQ070mkXkAAGGIb?format=jpg&name=large",
+      "list_count": 1,
+      "views": 3900,
+      "desk_rank": 52
+    },
+    {
+      "id": "brain-alignment-early-training",
+      "headline": "Brain matching in neural nets finishes in the first 3 percent of training",
+      "summary": "Steven posted a preprint that brain alignment in deep nets is almost done in the first 3 percent of training, while classification is still poor. The features that predict the brain are largely independent of the features that classify. Robert’s community lists carried @hsteven9 ",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-27T14:18:40.000Z",
+      "author_name": "hsteven9",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #2 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/hsteven9/status/2092980119061102954",
+      "sources": [
+        {
+          "label": "@hsteven9",
+          "url": "https://x.com/hsteven9/status/2092980119061102954"
+        }
+      ],
+      "body": "Steven posted a preprint that brain alignment in deep nets is almost done in the first 3 percent of training, while classification is still poor. The features that predict the brain are largely independent of the features that classify. Robert’s community lists carried @hsteven9 with the figure.\n\nIf that split holds, brain likeness is not a side effect of getting ImageNet right. It shows up early, then the net goes off and learns a different trick.\n\nWatch a replication on a second architecture, not a quote tweet.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2798,
+        "like_count": 39,
+        "reply_count": 4,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert’s community lists carried @hsteven9. One desk. A preprint with a split finding, not a paper title dump.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "hsteven9",
+      "media_url": "https://pbs.twimg.com/media/HQvBb9bWIAAvxvy?format=jpg&name=large",
+      "list_count": 1,
+      "views": 2798,
+      "desk_rank": 53
+    },
+    {
+      "id": "ai4math-gold-rush-study",
+      "headline": "A study of 32,944 math papers asks where AI actually showed up",
+      "summary": "Tracy Ke posted The Gold Rush in AI4Math as an empirical study of 32,944 math papers: whether substantive AI use is rising, which subfields moved, which problems got solved, who wrote them, and which models they used. The paper is arxiv 2608.24961. Robert’s community lists carrie",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-29T00:48:09.000Z",
+      "author_name": "TracyKe7",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/TracyKe7/status/2093500922353668530",
+      "sources": [
+        {
+          "label": "@TracyKe7",
+          "url": "https://x.com/TracyKe7/status/2093500922353668530"
+        }
+      ],
+      "body": "Tracy Ke posted The Gold Rush in AI4Math as an empirical study of 32,944 math papers: whether substantive AI use is rising, which subfields moved, which problems got solved, who wrote them, and which models they used. The paper is arxiv 2608.24961. Robert’s community lists carried @TracyKe7 with the figure. Six hundred sixty nine views.\n\nThis is a count, not a manifesto. Thirty two thousand papers is enough to say whether the gold rush is in the literature or only on timelines.\n\nWatch which models the study names, and whether the solved problems are new results or restatements.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 669,
+        "like_count": 7,
+        "reply_count": 2,
+        "retweet_count": 3
+      },
+      "why_it_matters": "Robert’s community lists carried @TracyKe7. One desk. A 32,944 paper count, not a title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "TracyKe7",
+      "media_url": "https://pbs.twimg.com/media/HQ2ajOxXAAAIB3g?format=jpg&name=large",
+      "list_count": 1,
+      "views": 669,
+      "desk_rank": 54
+    },
+    {
+      "id": "r3-robots-think-first",
+      "headline": "R3 paper trains robots to think before they move, using RL",
+      "summary": "Lehong Wu posted R3, a paper that has robots think before they act in free form, then move. The recipe is RL done carefully, not a new planner stack. Robert’s robotics list carried @LehongWu2004 with the video. Three hundred seventy views. A real robot paper still counts.",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T20:09:20.000Z",
+      "author_name": "LehongWu2004",
+      "source_list": "AI Robotics",
+      "list_names": [
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "AI Robotics"
+      ],
+      "source_url": "https://x.com/LehongWu2004/status/2093430755498004519",
+      "sources": [
+        {
+          "label": "@LehongWu2004",
+          "url": "https://x.com/LehongWu2004/status/2093430755498004519"
+        }
+      ],
+      "body": "Lehong Wu posted R3, a paper that has robots think before they act in free form, then move. The recipe is RL done carefully, not a new planner stack. Robert’s robotics list carried @LehongWu2004 with the video. Three hundred seventy views. A real robot paper still counts.\n\nThinking before the motor command is the claim. If the video is the method and the method is just careful RL, that is still a result people will try to copy.\n\nWatch the code, and whether the think step survives contact rich tasks.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 370,
+        "like_count": 4,
+        "reply_count": 1,
+        "retweet_count": 3
+      },
+      "why_it_matters": "Robert’s robotics list carried @LehongWu2004. One desk. A robot reasoning paper with a clip, not a workshop RSVP.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "LehongWu2004",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093423474735710208/img/jJMX791bha_ZcneK.jpg",
+      "list_count": 1,
+      "views": 370,
+      "desk_rank": 55
+    },
+    {
+      "id": "gatik-200m-series-d",
+      "headline": "Gatik raises $200 million to scale driverless grocery routes",
+      "summary": "Gatik posted a $200 million Series D led by Qatar Investment Authority and KDT, with the Nasdaq tower in Times Square in the photo. The capital is meant to scale driverless operations already running daily for Fortune 50 retailers and grocers. Robert’s vehicles list carried @Gati",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T19:51:22.000Z",
+      "author_name": "Gatik_AI",
+      "source_list": "AI Vehicles",
+      "list_names": [
+        "AI Vehicles"
+      ],
+      "chip_labels": [
+        "AI Vehicles"
+      ],
+      "source_url": "https://x.com/Gatik_AI/status/2093426230829691126",
+      "sources": [
+        {
+          "label": "@Gatik_AI",
+          "url": "https://x.com/Gatik_AI/status/2093426230829691126"
+        }
+      ],
+      "body": "Gatik posted a $200 million Series D led by Qatar Investment Authority and KDT, with the Nasdaq tower in Times Square in the photo. The capital is meant to scale driverless operations already running daily for Fortune 50 retailers and grocers. Robert’s vehicles list carried @Gatik_AI. Four hundred eight views.\n\nTwo hundred million on routes that already deliver is real money, not a robotaxi rumor. Low views on the company account do not make the round smaller.\n\nWatch which grocer names they put on the next mile, and whether the QIA check is in a filing.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 408,
+        "like_count": 11,
+        "reply_count": 2,
+        "retweet_count": 6
+      },
+      "why_it_matters": "Robert’s vehicles list carried @Gatik_AI. One desk. A $200 million Series D, not a Times Square stunt.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "Gatik_AI",
+      "media_url": "https://pbs.twimg.com/media/HQ1YA1mWMAAhAdz?format=jpg&name=large",
+      "list_count": 1,
+      "views": 408,
+      "desk_rank": 56
+    },
+    {
+      "id": "primero-12m-seed",
+      "headline": "Primero raises $12 million for enterprise AI in Latin America",
+      "summary": "Latam Republic posted that Mexican startup Primero raised $12 million in a seed round co led by Kaszek and General Catalyst, to speed enterprise AI deployments in Latin America. Founders named are Jose Murillo, Andres Rosales, and Santiago Buenahora. The product is Primia. Robert",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-27T16:52:23.000Z",
+      "author_name": "latamrepublic",
+      "source_list": "AI Voice/Hardware",
+      "list_names": [
+        "AI Voice/Hardware"
+      ],
+      "chip_labels": [
+        "AI Voice/Hardware"
+      ],
+      "source_url": "https://x.com/latamrepublic/status/2093018803714289888",
+      "sources": [
+        {
+          "label": "@latamrepublic",
+          "url": "https://x.com/latamrepublic/status/2093018803714289888"
+        }
+      ],
+      "body": "Latam Republic posted that Mexican startup Primero raised $12 million in a seed round co led by Kaszek and General Catalyst, to speed enterprise AI deployments in Latin America. Founders named are Jose Murillo, Andres Rosales, and Santiago Buenahora. The product is Primia. Robert’s voice and hardware list carried @latamrepublic with the photo. Fifty four views.\n\nTwelve million with Kaszek and General Catalyst is a real seed, even on a hardware list that is the wrong desk. Ahead of the timeline beats popular.\n\nWatch whether Primia is a model or a wrapper, and which country they staff first.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 54,
+        "like_count": 5,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s voice and hardware list carried @latamrepublic. One desk. A $12 million seed, not a conference badge.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "latamrepublic",
+      "media_url": "https://pbs.twimg.com/media/HQvj5dnXkAAlUij?format=jpg&name=large",
+      "list_count": 1,
+      "views": 54,
+      "desk_rank": 57
+    },
+    {
+      "id": "georgia-data-center-tax",
+      "headline": "Georgia gave data centers $474 million and took in $41 million",
+      "summary": "Ronan Farrow posted a Georgia audit: the state gave up $474 million in sales taxes on data centers in one year and got $41 million back from the industry. At least 38 states have deals like this. Robert’s investors lists and his journalists list carried the clip. Four hundred fif",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-27T20:15:52.000Z",
+      "author_name": "RonanFarrow",
+      "source_list": "Investors, Tech Journalists",
+      "list_names": [
+        "Investors #1 of 2",
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Investors",
+        "Tech Journalists"
+      ],
+      "source_url": "https://x.com/RonanFarrow/status/2093070009841189340",
+      "sources": [
+        {
+          "label": "@RonanFarrow",
+          "url": "https://x.com/RonanFarrow/status/2093070009841189340"
+        }
+      ],
+      "body": "Ronan Farrow posted a Georgia audit: the state gave up $474 million in sales taxes on data centers in one year and got $41 million back from the industry. At least 38 states have deals like this. Robert’s investors lists and his journalists list carried the clip. Four hundred fifty two thousand views.\n\nThat is policy with an audit number, not a vibe post about power. If the waived tax was not needed to land the load, states are paying for buildings that were coming anyway.\n\nWatch the next state audit, and whether Georgia changes the exemption.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 452000,
+        "like_count": 5854,
+        "reply_count": 111,
+        "retweet_count": 2890
+      },
+      "why_it_matters": "Robert’s investors lists and his journalists list carried @RonanFarrow. Two desks. A state audit, not a tax meme.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "RonanFarrow",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093069507837276160/img/s_sIUvo_pXUgVwmA.jpg",
+      "list_count": 2,
+      "views": 452000,
+      "desk_rank": 58
+    },
+    {
+      "id": "pentagon-anthropic-blacklist",
+      "headline": "A judge throws out the Pentagon blacklist of Anthropic",
+      "summary": "Quartz posted that a federal judge set aside the Pentagon’s blacklist of Anthropic, tossing the supply chain risk designation Defense Secretary Pete Hegseth had placed on the lab. Robert’s generalists lists and his developer lists carried @qz with the story photo. Sixteen hundred",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-28T03:38:46.000Z",
+      "author_name": "qz",
+      "source_list": "Generalists, Devs, Designers, DevRel 1",
+      "list_names": [
+        "Generalists #1 of 3",
+        "Devs, Designers, DevRel 1"
+      ],
+      "chip_labels": [
+        "Generalists",
+        "Devs, Designers, DevRel 1"
+      ],
+      "source_url": "https://x.com/qz/status/2093181468633870432",
+      "sources": [
+        {
+          "label": "@qz",
+          "url": "https://x.com/qz/status/2093181468633870432"
+        }
+      ],
+      "body": "Quartz posted that a federal judge set aside the Pentagon’s blacklist of Anthropic, tossing the supply chain risk designation Defense Secretary Pete Hegseth had placed on the lab. Robert’s generalists lists and his developer lists carried @qz with the story photo. Sixteen hundred views. Keep it. It is a court order, not a quote card.\n\nIf the designation is gone, Anthropic is back in the Defense stack unless the department appeals. That is policy with a ruling.\n\nWatch the docket for an appeal, and whether DoD writes a narrower finding.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1621,
+        "like_count": 2,
+        "reply_count": 1,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s generalists lists and his developer lists carried @qz. Two desks. A judge’s order, not a leak thread.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "qz",
+      "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=large",
+      "list_count": 2,
+      "views": 1621,
+      "desk_rank": 59
+    },
+    {
+      "id": "doge-nepal-flood-grants",
+      "headline": "DOGE keyword cuts hit a NASA USAID flood warning project in Nepal",
+      "summary": "Jeremy Konyndyk posted that DOGE used keyword searches such as climate to kill federal grants, including a USAID and NASA collaboration on flood prediction, early warning, disaster readiness, glacier inventories, and mapping dangerous glacial lakes in Nepal. Robert’s climate list",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-28T17:37:30.000Z",
+      "author_name": "JeremyKonyndyk",
+      "source_list": "Climate and Weather",
+      "list_names": [
+        "Climate and Weather"
+      ],
+      "chip_labels": [
+        "Climate and Weather"
+      ],
+      "source_url": "https://x.com/JeremyKonyndyk/status/2093392544885325879",
+      "sources": [
+        {
+          "label": "@JeremyKonyndyk",
+          "url": "https://x.com/JeremyKonyndyk/status/2093392544885325879"
+        }
+      ],
+      "body": "Jeremy Konyndyk posted that DOGE used keyword searches such as climate to kill federal grants, including a USAID and NASA collaboration on flood prediction, early warning, disaster readiness, glacier inventories, and mapping dangerous glacial lakes in Nepal. Robert’s climate list carried @JeremyKonyndyk with the document photo. Four hundred twenty three thousand views.\n\nNepal is in the water this week. A killed flood warning project is policy with a body count next door, not a culture war snippet.\n\nWatch whether NASA or USAID restores the map work, and whether the glacial lake list is public without it.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 423565,
+        "like_count": 18232,
+        "reply_count": 178,
+        "retweet_count": 3462
+      },
+      "why_it_matters": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "JeremyKonyndyk",
+      "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
+      "list_count": 1,
+      "views": 423565,
+      "desk_rank": 60
     }
   ],
   "signals": [
@@ -3165,6 +3658,262 @@
       "analysis": "Robert’s robotics lists, his community lists, and his computer vision list carried @AnthropicAI. Three desks. A hardware standard, not a model drop.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-nvidia-dynamo-inference",
+      "title": "NVIDIA shows where Dynamo sits around vLLM and TensorRT",
+      "text": "Robert’s company lists carried @NVIDIAAI. One desk. A Dynamo explainer from NVIDIA, not a podcast recap.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s company lists carried @NVIDIAAI. One desk. A Dynamo explainer from NVIDIA, not a podcast recap.",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "created_at": "2026-08-28T21:03:31.000Z",
+      "source_url": "https://x.com/NVIDIAAI/status/2093444391797158049",
+      "analysis": "Robert’s company lists carried @NVIDIAAI. One desk. A Dynamo explainer from NVIDIA, not a podcast recap.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
+      "id": "sig-qualcomm-npu-on-phone",
+      "title": "A Qualcomm NPU runs speech, a language model, and voice on a phone",
+      "text": "Robert’s voice and hardware list carried @RunAnywhereAI. One desk. An on device NPU demo, not a roadmap slide.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s voice and hardware list carried @RunAnywhereAI. One desk. An on device NPU demo, not a roadmap slide.",
+      "list_names": [
+        "AI Voice/Hardware"
+      ],
+      "chip_labels": [
+        "AI Voice/Hardware"
+      ],
+      "created_at": "2026-08-27T23:41:22.000Z",
+      "source_url": "https://x.com/RunAnywhereAI/status/2093121727618506810",
+      "analysis": "Robert’s voice and hardware list carried @RunAnywhereAI. One desk. An on device NPU demo, not a roadmap slide.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
+      "id": "sig-tamu-vision-superpod",
+      "title": "Texas A&M VISION SuperPOD tops the June academic supercomputer list",
+      "text": "Robert’s company lists carried @nvidia. One desk. A named SuperPOD on TOP500, not a giveaway tweet.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s company lists carried @nvidia. One desk. A named SuperPOD on TOP500, not a giveaway tweet.",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "created_at": "2026-08-28T23:42:28.000Z",
+      "source_url": "https://x.com/nvidia/status/2093484389682270429",
+      "analysis": "Robert’s company lists carried @nvidia. One desk. A named SuperPOD on TOP500, not a giveaway tweet.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
+      "id": "sig-accel-sim-2-hopper",
+      "title": "Accel Sim 2.0 adds full Hopper support for GPU simulation",
+      "text": "Robert’s quantum list carried @matt_dz. One desk. A Hopper simulator paper with a GitHub, not a title paste.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s quantum list carried @matt_dz. One desk. A Hopper simulator paper with a GitHub, not a title paste.",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "created_at": "2026-08-28T17:49:39.000Z",
+      "source_url": "https://x.com/matt_dz/status/2093395599986966854",
+      "analysis": "Robert’s quantum list carried @matt_dz. One desk. A Hopper simulator paper with a GitHub, not a title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-brain-alignment-early-training",
+      "title": "Brain matching in neural nets finishes in the first 3 percent of training",
+      "text": "Robert’s community lists carried @hsteven9. One desk. A preprint with a split finding, not a paper title dump.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists carried @hsteven9. One desk. A preprint with a split finding, not a paper title dump.",
+      "list_names": [
+        "AI Community #2 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-27T14:18:40.000Z",
+      "source_url": "https://x.com/hsteven9/status/2092980119061102954",
+      "analysis": "Robert’s community lists carried @hsteven9. One desk. A preprint with a split finding, not a paper title dump.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-ai4math-gold-rush-study",
+      "title": "A study of 32,944 math papers asks where AI actually showed up",
+      "text": "Robert’s community lists carried @TracyKe7. One desk. A 32,944 paper count, not a title paste.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists carried @TracyKe7. One desk. A 32,944 paper count, not a title paste.",
+      "list_names": [
+        "AI Community #3 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-29T00:48:09.000Z",
+      "source_url": "https://x.com/TracyKe7/status/2093500922353668530",
+      "analysis": "Robert’s community lists carried @TracyKe7. One desk. A 32,944 paper count, not a title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-r3-robots-think-first",
+      "title": "R3 paper trains robots to think before they move, using RL",
+      "text": "Robert’s robotics list carried @LehongWu2004. One desk. A robot reasoning paper with a clip, not a workshop RSVP.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s robotics list carried @LehongWu2004. One desk. A robot reasoning paper with a clip, not a workshop RSVP.",
+      "list_names": [
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "AI Robotics"
+      ],
+      "created_at": "2026-08-28T20:09:20.000Z",
+      "source_url": "https://x.com/LehongWu2004/status/2093430755498004519",
+      "analysis": "Robert’s robotics list carried @LehongWu2004. One desk. A robot reasoning paper with a clip, not a workshop RSVP.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-gatik-200m-series-d",
+      "title": "Gatik raises $200 million to scale driverless grocery routes",
+      "text": "Robert’s vehicles list carried @Gatik_AI. One desk. A $200 million Series D, not a Times Square stunt.",
+      "badge": "signal",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "Robert’s vehicles list carried @Gatik_AI. One desk. A $200 million Series D, not a Times Square stunt.",
+      "list_names": [
+        "AI Vehicles"
+      ],
+      "chip_labels": [
+        "AI Vehicles"
+      ],
+      "created_at": "2026-08-28T19:51:22.000Z",
+      "source_url": "https://x.com/Gatik_AI/status/2093426230829691126",
+      "analysis": "Robert’s vehicles list carried @Gatik_AI. One desk. A $200 million Series D, not a Times Square stunt.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
+    },
+    {
+      "id": "sig-primero-12m-seed",
+      "title": "Primero raises $12 million for enterprise AI in Latin America",
+      "text": "Robert’s voice and hardware list carried @latamrepublic. One desk. A $12 million seed, not a conference badge.",
+      "badge": "signal",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "Robert’s voice and hardware list carried @latamrepublic. One desk. A $12 million seed, not a conference badge.",
+      "list_names": [
+        "AI Voice/Hardware"
+      ],
+      "chip_labels": [
+        "AI Voice/Hardware"
+      ],
+      "created_at": "2026-08-27T16:52:23.000Z",
+      "source_url": "https://x.com/latamrepublic/status/2093018803714289888",
+      "analysis": "Robert’s voice and hardware list carried @latamrepublic. One desk. A $12 million seed, not a conference badge.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
+    },
+    {
+      "id": "sig-georgia-data-center-tax",
+      "title": "Georgia gave data centers $474 million and took in $41 million",
+      "text": "Robert’s investors lists and his journalists list carried @RonanFarrow. Two desks. A state audit, not a tax meme.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s investors lists and his journalists list carried @RonanFarrow. Two desks. A state audit, not a tax meme.",
+      "list_names": [
+        "Investors #1 of 2",
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Investors",
+        "Tech Journalists"
+      ],
+      "created_at": "2026-08-27T20:15:52.000Z",
+      "source_url": "https://x.com/RonanFarrow/status/2093070009841189340",
+      "analysis": "Robert’s investors lists and his journalists list carried @RonanFarrow. Two desks. A state audit, not a tax meme.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-pentagon-anthropic-blacklist",
+      "title": "A judge throws out the Pentagon blacklist of Anthropic",
+      "text": "Robert’s generalists lists and his developer lists carried @qz. Two desks. A judge’s order, not a leak thread.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s generalists lists and his developer lists carried @qz. Two desks. A judge’s order, not a leak thread.",
+      "list_names": [
+        "Generalists #1 of 3",
+        "Devs, Designers, DevRel 1"
+      ],
+      "chip_labels": [
+        "Generalists",
+        "Devs, Designers, DevRel 1"
+      ],
+      "created_at": "2026-08-28T03:38:46.000Z",
+      "source_url": "https://x.com/qz/status/2093181468633870432",
+      "analysis": "Robert’s generalists lists and his developer lists carried @qz. Two desks. A judge’s order, not a leak thread.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-doge-nepal-flood-grants",
+      "title": "DOGE keyword cuts hit a NASA USAID flood warning project in Nepal",
+      "text": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
+      "list_names": [
+        "Climate and Weather"
+      ],
+      "chip_labels": [
+        "Climate and Weather"
+      ],
+      "created_at": "2026-08-28T17:37:30.000Z",
+      "source_url": "https://x.com/JeremyKonyndyk/status/2093392544885325879",
+      "analysis": "Robert’s climate list carried @JeremyKonyndyk. One desk. A killed flood grant, not a slogan card.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
     }
   ],
   "reports": [
