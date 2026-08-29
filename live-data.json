@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T12:37:04.000Z",
-    "scrapedAt": "2026-08-29T12:37:04.000Z",
+    "generatedAt": "2026-08-29T12:43:37.000Z",
+    "scrapedAt": "2026-08-29T12:43:37.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 68 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 79 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 52,
-    "stories": 68,
-    "signals": 67,
+    "stories": 79,
+    "signals": 78,
     "reports": 4
   },
   "chips": [
@@ -1134,6 +1134,52 @@
       "desk_rank": 22
     },
     {
+      "id": "openai-astra-math",
+      "headline": "OpenAI says it will only post Astra math when it changes the pace story",
+      "summary": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progre",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T21:30:40.000Z",
+      "author_name": "polynoamial",
+      "source_list": "AI Community, Quantum",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #6 of 9",
+        "Quantum",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Quantum"
+      ],
+      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
+      "sources": [
+        {
+          "label": "@polynoamial",
+          "url": "https://x.com/polynoamial/status/2093451221273387477"
+        }
+      ],
+      "body": "Noam Brown, posting as polynoamial, was asked why OpenAI has not announced more math results from Astra after the earlier ten problem drop. He said the lab only spends time finding and announcing math from internal models when it would change how people read the pace of AI progress. That is an OpenAI researcher on the record about Astra, not a rumor account guessing a September ship date.\n\nAstra is still an internal model. The August 1 set covered sphere packing, codes, group theory, circuit lower bounds, lattices, and combinatorics, with Lean certificates. Tonight’s news is the bar, not a new theorem. If the bar is real, silence means the next results are not pace changing. If the bar is PR, it is a way to sit on a model people already named.\n\nRobert’s community lists carried Brown on two desks. Watch peer review on the first ten, and whether the next Astra math post actually moves a field or just restates the same ten.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 161970,
+        "like_count": 1418,
+        "reply_count": 62,
+        "retweet_count": 59
+      },
+      "why_it_matters": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "polynoamial",
+      "media_url": "https://pbs.twimg.com/media/HOn2XyYasAA_rAp?format=jpg&name=large",
+      "list_count": 5,
+      "views": 161970,
+      "desk_rank": 23
+    },
+    {
       "id": "oracle-mlperf-mi300x",
       "headline": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
       "summary": "Oracle Developers said its MLPerf Training v6.0 FLUX.1 submission is the first FLUX.1 result on AMD Instinct MI300X GPUs: 74.44 minutes to train on 512 GPUs across 64 OCI bare metal nodes. That is a cloud vendor putting AMD silicon on a video diffusion benchmark that used to be a",
@@ -1347,7 +1393,7 @@
     {
       "id": "niger-niamey-gunfire",
       "headline": "Gunfire and blasts reported across Niger’s capital Niamey",
-      "summary": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. That is live capital unrest, not a delayed wire rewrite.",
+      "summary": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. Al Arabiya later said television broadcasts were cut in Niger af",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
@@ -1368,7 +1414,7 @@
           "url": "https://x.com/AJENews/status/2093511562858283350"
         }
       ],
-      "body": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. That is live capital unrest, not a delayed wire rewrite.\n\nNiger already sat on a junta timeline. Shots in the capital are the kind of item cable will staff in an hour. The lists had it first. Treat it as unfolding. No confirmed coup language in either tweet.\n\nWatch whether the airport and presidential district stay quiet, and whether a faction claims the firing.",
+      "body": "Al Jazeera and Reuters both hit Robert’s World News list within a minute of each other: gunfire and blasts in several areas of Niamey, with Reuters citing a witness. Al Jazeera labeled it breaking and posted a clip. Al Arabiya later said television broadcasts were cut in Niger after the gunfire.\n\nNiger already sat on a junta timeline. Shots in the capital plus a TV blackout are the kind of item cable will staff in an hour. The lists had it first. Treat it as unfolding. No confirmed coup language in the first wires.\n\nWatch whether the airport and presidential district stay quiet, and whether a faction claims the firing.",
       "kind": "story",
       "engagement": {
         "impression_count": 5560,
@@ -1770,8 +1816,8 @@
     },
     {
       "id": "kyiv-bucha-blast",
-      "headline": "Russian strike on Kyiv Bucha district kills at least 27",
-      "summary": "Kyiv Post reported at least 27 people killed and 42 injured, including four children, after a Russian attack in the Bucha district of the Kyiv region, according to Tymur Tkachenko. Rescuers evacuated 381 people. About 50 homes were damaged. The New York Post hit five of Robert’s ",
+      "headline": "Kyiv depot strike kills at least 37, Zelenskyy says it held weapons",
+      "summary": "Al Arabiya posted Zelenskyy saying a depot that exploded in the Kyiv region after a Russian strike, killing at least 37, stored weapons for the Ukrainian military. Earlier, Kyiv Post had 27 dead and 42 injured, including four children, in Bucha, with 381 evacuated. The New York P",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
@@ -1799,7 +1845,7 @@
           "url": "https://x.com/nypost/status/2093646404958716217"
         }
       ],
-      "body": "Kyiv Post reported at least 27 people killed and 42 injured, including four children, after a Russian attack in the Bucha district of the Kyiv region, according to Tymur Tkachenko. Rescuers evacuated 381 people. About 50 homes were damaged. The New York Post hit five of Robert’s lists with the same death count. Piotr Kaszuwara said the capital was in a third day of strikes, past 60 hours, with UNICEF warehouses among the overnight targets.\n\nThis is no longer a warehouse blast with a thin first wire. It is a mass casualty strike on the capital region. The lists had the 27 before most English homepages moved the number.\n\nWatch the official Kyiv city tally, and whether UNICEF confirms the warehouse hit.",
+      "body": "Al Arabiya posted Zelenskyy saying a depot that exploded in the Kyiv region after a Russian strike, killing at least 37, stored weapons for the Ukrainian military. Earlier, Kyiv Post had 27 dead and 42 injured, including four children, in Bucha, with 381 evacuated. The New York Post ran the 27 on five of Robert’s lists.\n\nThe death count moved while the lists were still open. Treat 37 as the live number. Treat the weapons claim as Zelenskyy’s line until inspectors speak.\n\nWatch the next official tally, and whether UNICEF still lists a warehouse hit beside the depot.",
       "kind": "story",
       "engagement": {
         "impression_count": 61000,
@@ -1807,7 +1853,7 @@
         "reply_count": 13,
         "retweet_count": 128
       },
-      "why_it_matters": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
+      "why_it_matters": "Robert’s founders lists and his investors lists carried @nypost across five desks. World News later carried @AlArabiya_Eng with 37 dead and the weapons line.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "nypost",
@@ -2797,43 +2843,48 @@
     },
     {
       "id": "levjepa-lecun-video",
-      "headline": "LeCun and Balestriero extend LeJEPA to video as LeVJEPA",
-      "summary": "The Turing Post posted a new paper from Yann LeCun, Randall Balestriero, and colleagues extending LeJEPA to video. LeVJEPA aims to make video training cheaper and simpler with one encoder and a small projector that is thrown away after training. Robert’s community lists carried @",
+      "headline": "LeVJEPA matches VJEPA 2 at up to 20 times less video pretraining compute",
+      "summary": "Lukas Kuhn posted LeVJEPA as a stable end to end video pretraining method that matches VJEPA 2 at up to 20 times less compute, with no target encoder, no masked prediction, and no teacher student schedule. Randall Balestriero posted the SIGReg recipe as open source. Five of Rober",
       "section": "papers",
       "section_key": "papers",
       "section_label": "Papers",
       "tag": "papers",
-      "published_at": "2026-08-29T10:19:19.000Z",
-      "author_name": "TheTuringPost",
-      "source_list": "AI Community",
+      "published_at": "2026-08-28T12:42:31.000Z",
+      "author_name": "lukaskuhn77",
+      "source_list": "AI Founders, AI Community",
       "list_names": [
-        "AI Community #4 of 9"
+        "Tech VIPs",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
+        "AI Founders",
         "AI Community"
       ],
-      "source_url": "https://x.com/TheTuringPost/status/2093644660900327453",
+      "source_url": "https://x.com/lukaskuhn77/status/2093318310779613563",
       "sources": [
         {
-          "label": "@TheTuringPost",
-          "url": "https://x.com/TheTuringPost/status/2093644660900327453"
+          "label": "@lukaskuhn77",
+          "url": "https://x.com/lukaskuhn77/status/2093318310779613563"
         }
       ],
-      "body": "The Turing Post posted a new paper from Yann LeCun, Randall Balestriero, and colleagues extending LeJEPA to video. LeVJEPA aims to make video training cheaper and simpler with one encoder and a small projector that is thrown away after training. Robert’s community lists carried @TheTuringPost. Fourteen hundred views.\n\nA LeCun video JEPA that trains without a fat decoder is a real paper. Low views do not make it a title paste. The method is named and the goal is cost.\n\nWatch the arxiv, and whether the projector trick holds on a public video set.",
+      "body": "Lukas Kuhn posted LeVJEPA as a stable end to end video pretraining method that matches VJEPA 2 at up to 20 times less compute, with no target encoder, no masked prediction, and no teacher student schedule. Randall Balestriero posted the SIGReg recipe as open source. Five of Robert’s lists carried both. The Turing Post had the LeCun lab note later.\n\nA 20 times cheaper video JEPA is a paper with a number. Rank by the five desk author posts, not the recap.\n\nWatch the code, and whether the compute claim holds on a public video set.",
       "kind": "story",
       "engagement": {
-        "impression_count": 1400,
-        "like_count": 31,
-        "reply_count": 8,
-        "retweet_count": 7
+        "impression_count": 106693,
+        "like_count": 1095,
+        "reply_count": 17,
+        "retweet_count": 121
       },
-      "why_it_matters": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "why_it_matters": "Robert’s community lists and his tech VIPs list carried @lukaskuhn77 and @randall_balestr. Five desks. A 20 times compute claim, not a title paste.",
       "topic_key": "papers",
       "topic_label": "Papers",
-      "x_handle": "TheTuringPost",
-      "media_url": "https://pbs.twimg.com/media/HQ4euTeaUAAtxiX?format=jpg&name=large",
-      "list_count": 1,
-      "views": 1400,
+      "x_handle": "lukaskuhn77",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093294057317388288/img/7s5GlcU2WRd35uEW.jpg",
+      "list_count": 5,
+      "views": 106693,
       "desk_rank": 63
     },
     {
@@ -3038,6 +3089,483 @@
       "list_count": 1,
       "views": 2009,
       "desk_rank": 68
+    },
+    {
+      "id": "terminal-bench-4",
+      "headline": "Terminal Bench 4.0 recalibrates the agent terminal scoreboard",
+      "summary": "Ryan Marten posted Terminal Bench 4.0: a dataset and leaderboard update that calibrates time, CPU, and memory, fixes tasks, and removes saturated ones. Nine of Robert’s lists carried @ryan_marten, community through company desks. Himanshu said the set has 66 tasks across science,",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-29T02:17:13.000Z",
+      "author_name": "ryan_marten",
+      "source_list": "AI Community, AI Companies, @Scobleizer/AI Enterprise or Work, @Scobleizer/AI Developer Tools, AI Orgs, @Scobleizer/AI Companies",
+      "list_names": [
+        "AI Community #2 of 9",
+        "AI Community #3 of 9",
+        "AI Community #6 of 9",
+        "AI Companies #1 of 2",
+        "@Scobleizer/AI Enterprise or Work",
+        "@Scobleizer/AI Developer Tools",
+        "AI Orgs & Events",
+        "@Scobleizer/AI Companies #1 of 2",
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Companies",
+        "@Scobleizer/AI Enterprise or Work",
+        "@Scobleizer/AI Developer Tools",
+        "AI Orgs",
+        "@Scobleizer/AI Companies"
+      ],
+      "source_url": "https://x.com/ryan_marten/status/2093523335972036657",
+      "sources": [
+        {
+          "label": "@ryan_marten",
+          "url": "https://x.com/ryan_marten/status/2093523335972036657"
+        }
+      ],
+      "body": "Ryan Marten posted Terminal Bench 4.0: a dataset and leaderboard update that calibrates time, CPU, and memory, fixes tasks, and removes saturated ones. Nine of Robert’s lists carried @ryan_marten, community through company desks. Himanshu said the set has 66 tasks across science, software, ML, operations, security, hardware, and media.\n\nThis is the scoreboard Hy4 and GLM 5.3 will be read against, not a quote tweet. Nine desks is a weave.\n\nWatch which closed models land on 4.0 first, and whether GLM stays the open line.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 45683,
+        "like_count": 418,
+        "reply_count": 25,
+        "retweet_count": 51
+      },
+      "why_it_matters": "Robert’s community lists, his company lists, his enterprise lists, his developer tools lists, and his orgs list carried @ryan_marten. Nine desks. A benchmark ship, not a blog recap.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "ryan_marten",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093517148920688640/img/G8dZfbFuirKLSv-s.jpg",
+      "list_count": 9,
+      "views": 45683,
+      "desk_rank": 69
+    },
+    {
+      "id": "russia-icbm-test",
+      "headline": "Russia tests a nuclear capable ICBM that could reach the US",
+      "summary": "The Independent posted that Russia successfully tested a nuclear capable intercontinental ballistic missile that could reach the United States, and pointed to its Ukraine war live file. Robert’s World News list carried @Independent with the photo.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T06:55:43.000Z",
+      "author_name": "Independent",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/Independent/status/2093593422934523992",
+      "sources": [
+        {
+          "label": "@Independent",
+          "url": "https://x.com/Independent/status/2093593422934523992"
+        }
+      ],
+      "body": "The Independent posted that Russia successfully tested a nuclear capable intercontinental ballistic missile that could reach the United States, and pointed to its Ukraine war live file. Robert’s World News list carried @Independent with the photo.\n\nAn ICBM test with US range is a map item even at 8,000 views. Do not wait for a Sunday show. The lists had the wire.\n\nWatch whether the Pentagon confirms the flight, and which range the next Russian statement claims.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 8102,
+        "like_count": 41,
+        "reply_count": 9,
+        "retweet_count": 35
+      },
+      "why_it_matters": "Robert’s World News list carried @Independent. One desk. An ICBM test, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "Independent",
+      "media_url": "https://pbs.twimg.com/media/HQ3wCg4bEAE51pY?format=jpg&name=large",
+      "list_count": 1,
+      "views": 8102,
+      "desk_rank": 70
+    },
+    {
+      "id": "fluidstack-anthropic-50b",
+      "headline": "Fluidstack says it is leading a $50 billion Anthropic compute build in Los Angeles",
+      "summary": "Fluidstack posted Steel and Silicon Los Angeles: it is leading Anthropic’s $50 billion compute buildout, building modular datacenters the way LA built aircraft, on a line, at rate. Robert’s community lists carried @fluidstack. Ten thousand views.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-28T21:21:05.000Z",
+      "author_name": "fluidstack",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/fluidstack/status/2093448811028848914",
+      "sources": [
+        {
+          "label": "@fluidstack",
+          "url": "https://x.com/fluidstack/status/2093448811028848914"
+        }
+      ],
+      "body": "Fluidstack posted Steel and Silicon Los Angeles: it is leading Anthropic’s $50 billion compute buildout, building modular datacenters the way LA built aircraft, on a line, at rate. Robert’s community lists carried @fluidstack. Ten thousand views.\n\nFifty billion is a company claim until a filing or an Anthropic post matches it. If it is real, it is one of the largest US compute builds on these lists this week.\n\nWatch whether Anthropic repeats the number, and where the first hall actually pours.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 10086,
+        "like_count": 102,
+        "reply_count": 6,
+        "retweet_count": 15
+      },
+      "why_it_matters": "Robert’s community lists carried @fluidstack. One desk. A $50 billion compute claim, not a hiring meme.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "fluidstack",
+      "media_url": "https://pbs.twimg.com/media/HQ1smSzWYAIBbhj?format=jpg&name=large",
+      "list_count": 1,
+      "views": 10086,
+      "desk_rank": 71
+    },
+    {
+      "id": "xanadu-195m-cad",
+      "headline": "Canada puts $195 million CAD into Xanadu for a photonics plant",
+      "summary": "Russell posted Canada’s largest quantum check: $195 million CAD, repayable, to Xanadu Quantum Technologies to build a photonics plant called Inception in Etobicoke, in an old soup factory. Robert’s quantum list carried @RussellQuantum with the clip. Six hundred twenty six views.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-08-29T01:58:17.000Z",
+      "author_name": "RussellQuantum",
+      "source_list": "Quantum",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "source_url": "https://x.com/RussellQuantum/status/2093518569262735657",
+      "sources": [
+        {
+          "label": "@RussellQuantum",
+          "url": "https://x.com/RussellQuantum/status/2093518569262735657"
+        }
+      ],
+      "body": "Russell posted Canada’s largest quantum check: $195 million CAD, repayable, to Xanadu Quantum Technologies to build a photonics plant called Inception in Etobicoke, in an old soup factory. Robert’s quantum list carried @RussellQuantum with the clip. Six hundred twenty six views.\n\nA nine figure sovereign check for a quantum factory is real money even on a quiet list. Low views do not shrink the CAD.\n\nWatch the federal release, and whether Inception is a fab or an assembly hall.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 626,
+        "like_count": 10,
+        "reply_count": 2,
+        "retweet_count": 8
+      },
+      "why_it_matters": "Robert’s quantum list carried @RussellQuantum. One desk. A $195 million CAD plant check, not a conference badge.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "RussellQuantum",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093518172930392064/img/sdIAtkXHKdk125en.jpg",
+      "list_count": 1,
+      "views": 626,
+      "desk_rank": 72
+    },
+    {
+      "id": "claude-for-teachers",
+      "headline": "Anthropic opens Claude for Teachers to schools and districts for free",
+      "summary": "Drew Bent posted that Claude for Teachers is now a free enterprise offering for schools and districts, with one centrally managed org, SSO, role based access, and domain claiming. Individual educators got it last month. Robert’s community lists carried @drew_bent.",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T15:10:51.000Z",
+      "author_name": "drew_bent",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/drew_bent/status/2093355639045239148",
+      "sources": [
+        {
+          "label": "@drew_bent",
+          "url": "https://x.com/drew_bent/status/2093355639045239148"
+        }
+      ],
+      "body": "Drew Bent posted that Claude for Teachers is now a free enterprise offering for schools and districts, with one centrally managed org, SSO, role based access, and domain claiming. Individual educators got it last month. Robert’s community lists carried @drew_bent.\n\nFree district seats with SSO is a lab distribution move into K12, not a coupon code.\n\nWatch which districts actually claim the domain, and whether usage logs stay at the school.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 12966,
+        "like_count": 126,
+        "reply_count": 20,
+        "retweet_count": 12
+      },
+      "why_it_matters": "Robert’s community lists carried @drew_bent. One desk. A free district Claude plan, not a back to school ad.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "drew_bent",
+      "media_url": "https://pbs.twimg.com/media/HQ0Xl7Kb0AAfj2b?format=jpg&name=large",
+      "list_count": 1,
+      "views": 12966,
+      "desk_rank": 73
+    },
+    {
+      "id": "chatgpt-multi-gmail",
+      "headline": "ChatGPT plugins now connect more than one Gmail account",
+      "summary": "Jason Liu posted that ChatGPT plugins now take multiple Gmail accounts, plus calendar and contacts, on web, desktop, iOS, and Android, paid plans only. Four of Robert’s community lists carried @jxnlco.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T06:26:47.000Z",
+      "author_name": "jxnlco",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/jxnlco/status/2093223754054922685",
+      "sources": [
+        {
+          "label": "@jxnlco",
+          "url": "https://x.com/jxnlco/status/2093223754054922685"
+        }
+      ],
+      "body": "Jason Liu posted that ChatGPT plugins now take multiple Gmail accounts, plus calendar and contacts, on web, desktop, iOS, and Android, paid plans only. Four of Robert’s community lists carried @jxnlco.\n\nMulti account Gmail in the plugin is a product ship people will actually use on Monday. Four desks.\n\nWatch whether the second account is full send, or read only.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 348906,
+        "like_count": 1746,
+        "reply_count": 225,
+        "retweet_count": 254
+      },
+      "why_it_matters": "Robert’s community lists carried @jxnlco on four desks. A multi Gmail plugin ship, not a rumor card.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "jxnlco",
+      "media_url": "https://pbs.twimg.com/media/HQyc1tnaMAAxurk?format=jpg&name=large",
+      "list_count": 4,
+      "views": 348906,
+      "desk_rank": 74
+    },
+    {
+      "id": "wsj-data-center-land",
+      "headline": "A family turns down $26 million rather than sell to a data center",
+      "summary": "The Wall Street Journal posted that a $26 million offer for land was a no brainer, and that rejecting it made the owners the face of data center resistance. Robert’s World News list carried @WSJ.",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-29T07:49:04.000Z",
+      "author_name": "WSJ",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/WSJ/status/2093606846137295223",
+      "sources": [
+        {
+          "label": "@WSJ",
+          "url": "https://x.com/WSJ/status/2093606846137295223"
+        }
+      ],
+      "body": "The Wall Street Journal posted that a $26 million offer for land was a no brainer, and that rejecting it made the owners the face of data center resistance. Robert’s World News list carried @WSJ.\n\nA refused nine figure land check is policy on the ground, next to Georgia’s tax audit. Communities are now the bottleneck, not GPUs.\n\nWatch whether the next offer rises, and which county writes the first ban.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 20502,
+        "like_count": 12,
+        "reply_count": 4,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert’s World News list carried @WSJ. One desk. A refused data center check, not a lifestyle feature.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "WSJ",
+      "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=large",
+      "list_count": 1,
+      "views": 20502,
+      "desk_rank": 75
+    },
+    {
+      "id": "gaza-al-musaddar",
+      "headline": "Israeli gunfire kills at least one Palestinian in central Gaza",
+      "summary": "Al Jazeera labeled it breaking: at least one Palestinian killed by Israeli gunfire in Al Musaddar, east of Deir el Balah, in central Gaza, from a correspondent on the ground. Robert’s World News list carried @AJEnglish.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T08:01:57.000Z",
+      "author_name": "AJEnglish",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJEnglish/status/2093610090674933804",
+      "sources": [
+        {
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2093610090674933804"
+        }
+      ],
+      "body": "Al Jazeera labeled it breaking: at least one Palestinian killed by Israeli gunfire in Al Musaddar, east of Deir el Balah, in central Gaza, from a correspondent on the ground. Robert’s World News list carried @AJEnglish.\n\nA named neighborhood death is war, even at one. Write it.\n\nWatch the next casualty update on that live file, not quote tweets.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 27352,
+        "like_count": 45,
+        "reply_count": 6,
+        "retweet_count": 35
+      },
+      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. A named Gaza killing, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/media/HQ3--L8bsAEuLsc?format=jpg&name=large",
+      "list_count": 1,
+      "views": 27352,
+      "desk_rank": 76
+    },
+    {
+      "id": "qusra-arrest-raid",
+      "headline": "Israeli forces try to arrest besieged Palestinians in Qusra",
+      "summary": "Al Jazeera posted breaking: Israeli forces attempting to arrest besieged Palestinians in Qusra, the mayor told Al Jazeera. Robert’s World News list carried @AJENews with the clip.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-29T12:15:24.000Z",
+      "author_name": "AJENews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJENews/status/2093673872147054847",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2093673872147054847"
+        }
+      ],
+      "body": "Al Jazeera posted breaking: Israeli forces attempting to arrest besieged Palestinians in Qusra, the mayor told Al Jazeera. Robert’s World News list carried @AJENews with the clip.\n\nA live raid in the West Bank sits next to this morning’s camp shooting. Unfolding. Do not wait for a recap.\n\nWatch the mayor’s next count, and whether the siege holds through the hour.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 8800,
+        "like_count": 12,
+        "reply_count": 1,
+        "retweet_count": 5
+      },
+      "why_it_matters": "Robert’s World News list carried @AJENews. One desk. A live West Bank raid, not a sports brief.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ45SkgW8AARUke.jpg",
+      "list_count": 1,
+      "views": 8800,
+      "desk_rank": 77
+    },
+    {
+      "id": "robot-rehearsal-forgetting",
+      "headline": "New paper asks why robot rehearsal stops a model forgetting old skills",
+      "summary": "Maximilian Du posted a paper on what keeps a robot from forgetting old behaviors when it learns a new one. Prior VLA work showed rehearsing past experience helps. This work asks why rehearsal works and when it fails. Seven of Robert’s lists carried @du_maximilian, community throu",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T17:30:49.000Z",
+      "author_name": "du_maximilian",
+      "source_list": "AI Community, AI Robotics, Computer Vision, San Francisco Robotics",
+      "list_names": [
+        "AI Community #4 of 9",
+        "AI Robotics",
+        "Computer Vision",
+        "San Francisco Robotics",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Robotics",
+        "Computer Vision",
+        "San Francisco Robotics"
+      ],
+      "source_url": "https://x.com/du_maximilian/status/2093390863821131915",
+      "sources": [
+        {
+          "label": "@du_maximilian",
+          "url": "https://x.com/du_maximilian/status/2093390863821131915"
+        }
+      ],
+      "body": "Maximilian Du posted a paper on what keeps a robot from forgetting old behaviors when it learns a new one. Prior VLA work showed rehearsing past experience helps. This work asks why rehearsal works and when it fails. Seven of Robert’s lists carried @du_maximilian, community through robotics.\n\nForgetting on a generalist robot is the practical failure mode. A seven desk paper with a video is not a title paste.\n\nWatch the code, and whether rehearsal still fails on long horizon tasks.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 24220,
+        "like_count": 168,
+        "reply_count": 10,
+        "retweet_count": 43
+      },
+      "why_it_matters": "Robert’s community lists, his robotics lists, his computer vision list, and his San Francisco robotics list carried @du_maximilian. Seven desks. A continual learning paper, not a workshop RSVP.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "du_maximilian",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093390816773599232/img/5FlKUqzV2sXAD0ei.jpg",
+      "list_count": 7,
+      "views": 24220,
+      "desk_rank": 78
+    },
+    {
+      "id": "claude-code-resume",
+      "headline": "Claude Code desktop can resume a terminal session with slash resume",
+      "summary": "Claude Devs posted that the Claude Code desktop app can resume terminal sessions. Type slash resume to pick a session started from the CLI, with the full conversation intact. Two of Robert’s community lists carried @ClaudeDevs. Four hundred thirty seven thousand views.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T16:00:02.000Z",
+      "author_name": "ClaudeDevs",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/ClaudeDevs/status/2093368017304371503",
+      "sources": [
+        {
+          "label": "@ClaudeDevs",
+          "url": "https://x.com/ClaudeDevs/status/2093368017304371503"
+        }
+      ],
+      "body": "Claude Devs posted that the Claude Code desktop app can resume terminal sessions. Type slash resume to pick a session started from the CLI, with the full conversation intact. Two of Robert’s community lists carried @ClaudeDevs. Four hundred thirty seven thousand views.\n\nCLI to desktop without losing the thread is a product people will feel today.\n\nWatch whether resume also picks up local git state, or only the chat.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 437066,
+        "like_count": 6419,
+        "reply_count": 265,
+        "retweet_count": 450
+      },
+      "why_it_matters": "Robert’s community lists carried @ClaudeDevs on two desks. A desktop resume ship, not a changelog dump.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "ClaudeDevs",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093166423581523969/img/NEIewka38_3bDK3G.jpg",
+      "list_count": 2,
+      "views": 437066,
+      "desk_rank": 79
     }
   ],
   "signals": [
@@ -3582,6 +4110,32 @@
       "topic_label": "Robotics"
     },
     {
+      "id": "sig-openai-astra-math",
+      "title": "OpenAI says it will only post Astra math when it changes the pace story",
+      "text": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #6 of 9",
+        "Quantum",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Quantum"
+      ],
+      "created_at": "2026-08-28T21:30:40.000Z",
+      "source_url": "https://x.com/polynoamial/status/2093451221273387477",
+      "analysis": "Robert’s community lists carried @polynoamial on two desks. This is OpenAI explaining the Astra math bar, not a rumor about a ship date.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
       "id": "sig-oracle-mlperf-mi300x",
       "title": "Oracle posts the first MLPerf FLUX.1 run on AMD MI300X",
       "text": "Robert’s orgs list carried @OracleDevs. One desk. First MLPerf FLUX.1 number on AMD MI300X, not a giveaway thread.",
@@ -3924,13 +4478,13 @@
     },
     {
       "id": "sig-kyiv-bucha-blast",
-      "title": "Russian strike on Kyiv Bucha district kills at least 27",
-      "text": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
+      "title": "Kyiv depot strike kills at least 37, Zelenskyy says it held weapons",
+      "text": "Robert’s founders lists and his investors lists carried @nypost across five desks. World News later carried @AlArabiya_Eng with 37 dead and the weapons line.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
+      "source_list": "Robert’s founders lists and his investors lists carried @nypost across five desks. World News later carried @AlArabiya_Eng with 37 dead and the weapons line.",
       "list_names": [
         "AI Founders #2 of 3",
         "AI Founders #3 of 3",
@@ -3946,7 +4500,7 @@
       ],
       "created_at": "2026-08-29T10:26:15.000Z",
       "source_url": "https://x.com/nypost/status/2093646404958716217",
-      "analysis": "Robert’s founders lists and his investors lists carried @nypost across five desks, and @KyivPost with the casualty split. A mass casualty strike, not a sports brief.",
+      "analysis": "Robert’s founders lists and his investors lists carried @nypost across five desks. World News later carried @AlArabiya_Eng with 37 dead and the weapons line.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -4481,22 +5035,27 @@
     },
     {
       "id": "sig-levjepa-lecun-video",
-      "title": "LeCun and Balestriero extend LeJEPA to video as LeVJEPA",
-      "text": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "title": "LeVJEPA matches VJEPA 2 at up to 20 times less video pretraining compute",
+      "text": "Robert’s community lists and his tech VIPs list carried @lukaskuhn77 and @randall_balestr. Five desks. A 20 times compute claim, not a title paste.",
       "badge": "signal",
       "category": "papers",
       "section_key": "papers",
       "section_label": "Papers",
-      "source_list": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "source_list": "Robert’s community lists and his tech VIPs list carried @lukaskuhn77 and @randall_balestr. Five desks. A 20 times compute claim, not a title paste.",
       "list_names": [
-        "AI Community #4 of 9"
+        "Tech VIPs",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
+        "AI Founders",
         "AI Community"
       ],
-      "created_at": "2026-08-29T10:19:19.000Z",
-      "source_url": "https://x.com/TheTuringPost/status/2093644660900327453",
-      "analysis": "Robert’s community lists carried @TheTuringPost. One desk. A LeCun video paper, not a keynote still.",
+      "created_at": "2026-08-28T12:42:31.000Z",
+      "source_url": "https://x.com/lukaskuhn77/status/2093318310779613563",
+      "analysis": "Robert’s community lists and his tech VIPs list carried @lukaskuhn77 and @randall_balestr. Five desks. A 20 times compute claim, not a title paste.",
       "topic_key": "papers",
       "topic_label": "Papers"
     },
@@ -4604,6 +5163,263 @@
       "analysis": "Robert’s World News list carried @AlArabiya_Eng. One desk. A court order on visas, not a campus rally clip.",
       "topic_key": "policy",
       "topic_label": "Policy"
+    },
+    {
+      "id": "sig-terminal-bench-4",
+      "title": "Terminal Bench 4.0 recalibrates the agent terminal scoreboard",
+      "text": "Robert’s community lists, his company lists, his enterprise lists, his developer tools lists, and his orgs list carried @ryan_marten. Nine desks. A benchmark ship, not a blog recap.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s community lists, his company lists, his enterprise lists, his developer tools lists, and his orgs list carried @ryan_marten. Nine desks. A benchmark ship, not a blog recap.",
+      "list_names": [
+        "AI Community #2 of 9",
+        "AI Community #3 of 9",
+        "AI Community #6 of 9",
+        "AI Companies #1 of 2",
+        "@Scobleizer/AI Enterprise or Work",
+        "@Scobleizer/AI Developer Tools",
+        "AI Orgs & Events",
+        "@Scobleizer/AI Companies #1 of 2",
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Companies",
+        "@Scobleizer/AI Enterprise or Work",
+        "@Scobleizer/AI Developer Tools",
+        "AI Orgs",
+        "@Scobleizer/AI Companies"
+      ],
+      "created_at": "2026-08-29T02:17:13.000Z",
+      "source_url": "https://x.com/ryan_marten/status/2093523335972036657",
+      "analysis": "Robert’s community lists, his company lists, his enterprise lists, his developer tools lists, and his orgs list carried @ryan_marten. Nine desks. A benchmark ship, not a blog recap.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-russia-icbm-test",
+      "title": "Russia tests a nuclear capable ICBM that could reach the US",
+      "text": "Robert’s World News list carried @Independent. One desk. An ICBM test, not a calendar note.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @Independent. One desk. An ICBM test, not a calendar note.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T06:55:43.000Z",
+      "source_url": "https://x.com/Independent/status/2093593422934523992",
+      "analysis": "Robert’s World News list carried @Independent. One desk. An ICBM test, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-fluidstack-anthropic-50b",
+      "title": "Fluidstack says it is leading a $50 billion Anthropic compute build in Los Angeles",
+      "text": "Robert’s community lists carried @fluidstack. One desk. A $50 billion compute claim, not a hiring meme.",
+      "badge": "signal",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "Robert’s community lists carried @fluidstack. One desk. A $50 billion compute claim, not a hiring meme.",
+      "list_names": [
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T21:21:05.000Z",
+      "source_url": "https://x.com/fluidstack/status/2093448811028848914",
+      "analysis": "Robert’s community lists carried @fluidstack. One desk. A $50 billion compute claim, not a hiring meme.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
+    },
+    {
+      "id": "sig-xanadu-195m-cad",
+      "title": "Canada puts $195 million CAD into Xanadu for a photonics plant",
+      "text": "Robert’s quantum list carried @RussellQuantum. One desk. A $195 million CAD plant check, not a conference badge.",
+      "badge": "signal",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "Robert’s quantum list carried @RussellQuantum. One desk. A $195 million CAD plant check, not a conference badge.",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "created_at": "2026-08-29T01:58:17.000Z",
+      "source_url": "https://x.com/RussellQuantum/status/2093518569262735657",
+      "analysis": "Robert’s quantum list carried @RussellQuantum. One desk. A $195 million CAD plant check, not a conference badge.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
+    },
+    {
+      "id": "sig-claude-for-teachers",
+      "title": "Anthropic opens Claude for Teachers to schools and districts for free",
+      "text": "Robert’s community lists carried @drew_bent. One desk. A free district Claude plan, not a back to school ad.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert’s community lists carried @drew_bent. One desk. A free district Claude plan, not a back to school ad.",
+      "list_names": [
+        "AI Community #3 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T15:10:51.000Z",
+      "source_url": "https://x.com/drew_bent/status/2093355639045239148",
+      "analysis": "Robert’s community lists carried @drew_bent. One desk. A free district Claude plan, not a back to school ad.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
+      "id": "sig-chatgpt-multi-gmail",
+      "title": "ChatGPT plugins now connect more than one Gmail account",
+      "text": "Robert’s community lists carried @jxnlco on four desks. A multi Gmail plugin ship, not a rumor card.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s community lists carried @jxnlco on four desks. A multi Gmail plugin ship, not a rumor card.",
+      "list_names": [
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T06:26:47.000Z",
+      "source_url": "https://x.com/jxnlco/status/2093223754054922685",
+      "analysis": "Robert’s community lists carried @jxnlco on four desks. A multi Gmail plugin ship, not a rumor card.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-wsj-data-center-land",
+      "title": "A family turns down $26 million rather than sell to a data center",
+      "text": "Robert’s World News list carried @WSJ. One desk. A refused data center check, not a lifestyle feature.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s World News list carried @WSJ. One desk. A refused data center check, not a lifestyle feature.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T07:49:04.000Z",
+      "source_url": "https://x.com/WSJ/status/2093606846137295223",
+      "analysis": "Robert’s World News list carried @WSJ. One desk. A refused data center check, not a lifestyle feature.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
+    },
+    {
+      "id": "sig-gaza-al-musaddar",
+      "title": "Israeli gunfire kills at least one Palestinian in central Gaza",
+      "text": "Robert’s World News list carried @AJEnglish. One desk. A named Gaza killing, not a calendar note.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJEnglish. One desk. A named Gaza killing, not a calendar note.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T08:01:57.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2093610090674933804",
+      "analysis": "Robert’s World News list carried @AJEnglish. One desk. A named Gaza killing, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-qusra-arrest-raid",
+      "title": "Israeli forces try to arrest besieged Palestinians in Qusra",
+      "text": "Robert’s World News list carried @AJENews. One desk. A live West Bank raid, not a sports brief.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJENews. One desk. A live West Bank raid, not a sports brief.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-29T12:15:24.000Z",
+      "source_url": "https://x.com/AJENews/status/2093673872147054847",
+      "analysis": "Robert’s World News list carried @AJENews. One desk. A live West Bank raid, not a sports brief.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-robot-rehearsal-forgetting",
+      "title": "New paper asks why robot rehearsal stops a model forgetting old skills",
+      "text": "Robert’s community lists, his robotics lists, his computer vision list, and his San Francisco robotics list carried @du_maximilian. Seven desks. A continual learning paper, not a workshop RSVP.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists, his robotics lists, his computer vision list, and his San Francisco robotics list carried @du_maximilian. Seven desks. A continual learning paper, not a workshop RSVP.",
+      "list_names": [
+        "AI Community #4 of 9",
+        "AI Robotics",
+        "Computer Vision",
+        "San Francisco Robotics",
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Robotics",
+        "Computer Vision",
+        "San Francisco Robotics"
+      ],
+      "created_at": "2026-08-28T17:30:49.000Z",
+      "source_url": "https://x.com/du_maximilian/status/2093390863821131915",
+      "analysis": "Robert’s community lists, his robotics lists, his computer vision list, and his San Francisco robotics list carried @du_maximilian. Seven desks. A continual learning paper, not a workshop RSVP.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-claude-code-resume",
+      "title": "Claude Code desktop can resume a terminal session with slash resume",
+      "text": "Robert’s community lists carried @ClaudeDevs on two desks. A desktop resume ship, not a changelog dump.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s community lists carried @ClaudeDevs on two desks. A desktop resume ship, not a changelog dump.",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T16:00:02.000Z",
+      "source_url": "https://x.com/ClaudeDevs/status/2093368017304371503",
+      "analysis": "Robert’s community lists carried @ClaudeDevs on two desks. A desktop resume ship, not a changelog dump.",
+      "topic_key": "products",
+      "topic_label": "Products"
     }
   ],
   "reports": [
