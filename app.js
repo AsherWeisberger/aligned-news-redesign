@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an186";
+  var DATA_URL = "live-data.json?v=an187";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -116,45 +116,38 @@
     return /\b(hot take|i think|imo\b|seems like|hype cycle|vibes?|can't believe|wild that|this is fine)\b|\?{2,}|!{2,}/i.test(hay);
   }
 
-  function listNamesOn(item) {
-    var names = (item && item.list_names) || [];
-    if (names && names.length) return names;
-    var sl = String((item && item.source_list) || "");
-    if (!sl || /^from scoble lists/i.test(sl)) return [];
-    return sl.split(",").map(function (x) { return x.trim(); }).filter(Boolean);
+  function storySectionKey(story) {
+    var k = String((story && (story.section_key || story.section || story.topic_key)) || "").toLowerCase();
+    if (k === "research") k = "papers";
+    if (k === "creative") k = "creatives";
+    return k;
   }
 
   function storyMatchesChip(story, filter) {
     if (!filter || filter === "all") return true;
-    var names = listNamesOn(story);
-    for (var i = 0; i < names.length; i++) {
-      if (names[i] === filter) return true;
+    var labels = (story && story.chip_labels) || [];
+    for (var i = 0; i < labels.length; i++) {
+      if (labels[i] === filter) return true;
     }
     return false;
   }
 
-  function deskChipsFromStories(stories, signals) {
-    var counts = {};
-    function add(item) {
-      listNamesOn(item).forEach(function (n) {
-        if (!n || /^from scoble lists/i.test(n)) return;
-        counts[n] = (counts[n] || 0) + 1;
+  function deskChipsFromStories(stories) {
+    var seen = { all: true };
+    var chips = [{ id: "all", label: "All" }];
+    (stories || []).forEach(function (s) {
+      ((s && s.chip_labels) || []).forEach(function (n) {
+        if (!n || seen[n] || /#\d+\s+of\s+\d+/.test(n)) return;
+        seen[n] = true;
+        chips.push({ id: n, label: n });
       });
-    }
-    (stories || []).forEach(add);
-    (signals || []).forEach(add);
-    var names = Object.keys(counts).sort(function (a, b) {
-      if (counts[b] !== counts[a]) return counts[b] - counts[a];
-      return a.localeCompare(b);
     });
-    return [{ id: "all", label: "All" }].concat(names.map(function (n) {
-      return { id: n, label: n };
-    }));
+    return chips;
   }
 
   function deskTakeFor(item) {
     var title = displayText(item.title || item.text || item.headline || "").replace(/\s+/g, " ").trim();
-    var list = item.source_list || item.section_label || "Scoble lists";
+    var list = item.section_label || item.topic_label || "the desk";
     var badge = String(item.badge || item.signal_badge || "signal").toLowerCase();
     var eng = item.engagement_score != null ? (item.engagement_score + "% confidence") : null;
     var why = "Desk take: this crossed " + list;
@@ -423,7 +416,7 @@
           s._analysis_placeholder = false;
         }
       });
-      data.chips = deskChipsFromStories(data.stories, data.signals);
+      data.chips = (data.chips && data.chips.length > 1 && !/#\d+\s+of\s+\d+/.test(JSON.stringify(data.chips))) ? data.chips : deskChipsFromStories(data.stories);
       return data;
     }
 
@@ -557,7 +550,7 @@
         s._analysis_placeholder = false;
       }
     });
-    var chips = deskChipsFromStories(stories, signals);
+    var chips = deskChipsFromStories(stories);
     if (chips.length <= 1 && data.chips && data.chips.length) {
       chips = data.chips.map(function (c) {
         return { id: c.id, label: prettyChipLabel(c.id, c.label) };
