@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T02:39:47.000Z",
-    "scrapedAt": "2026-08-29T02:39:47.000Z",
+    "generatedAt": "2026-08-29T02:49:55.000Z",
+    "scrapedAt": "2026-08-29T02:49:55.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup plus tweet photos cache bust an192",
+    "note": "CONTEXT writeup, 21 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 20,
-    "stories": 13,
-    "signals": 12,
+    "lists": 24,
+    "stories": 21,
+    "signals": 20,
     "reports": 4
   },
   "chips": [
@@ -31,6 +31,10 @@
       "label": "Products"
     },
     {
+      "id": "papers",
+      "label": "Papers"
+    },
+    {
       "id": "robotics",
       "label": "Robotics"
     },
@@ -39,12 +43,20 @@
       "label": "Labs"
     },
     {
+      "id": "chips",
+      "label": "Chips"
+    },
+    {
       "id": "funding",
       "label": "Funding"
     },
     {
       "id": "policy",
       "label": "Policy"
+    },
+    {
+      "id": "creatives",
+      "label": "Creatives"
     }
   ],
   "forYou": [
@@ -667,6 +679,330 @@
       "list_count": 1,
       "views": 64860,
       "desk_rank": 13
+    },
+    {
+      "id": "google-wikiskill",
+      "headline": "Google keeps agent skills in a wiki instead of a log pile",
+      "summary": "A Google paper circulating on Robert’s lists splits how agents learn from work into three buckets that most skill systems smash together: raw execution traces that never get edited, a lasting wiki of what those traces taught, and the skills the agent actually runs. dair.ai posted",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-28T13:06:03.000Z",
+      "author_name": "dair_ai",
+      "source_list": "Quantum",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "source_url": "https://x.com/dair_ai/status/2093324233158045788",
+      "sources": [
+        {
+          "label": "@dair_ai",
+          "url": "https://x.com/dair_ai/status/2093324233158045788"
+        }
+      ],
+      "body": "A Google paper circulating on Robert’s lists splits how agents learn from work into three buckets that most skill systems smash together: raw execution traces that never get edited, a lasting wiki of what those traces taught, and the skills the agent actually runs. dair.ai posted it as a bookmark for anyone who keeps a skill library. Authors include Liyan Tang, Cyrus Rashtchian, Chun Sung Ferng, Andrew Tomkins, Da Cheng Juan, and Tu Vu. The loop is collect traces, write the wiki, propose a small skill edit, keep it only if a held out check improves.\n\nThat is the map change for agent memory. Skills stop being a side effect of the last training run. They become something you can transfer across models. The writeup says smaller models with evolved skills can beat larger models with none, and that skills grown by one model family can help another. Ablations say the wiki is the piece that matters. The dump post is not a title paste. It is the three layer claim.\n\nWatch whether labs actually keep a wiki in production agents, or whether this stays a paper that people bookmark and never wire up.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 196861,
+        "like_count": 2165,
+        "reply_count": 50,
+        "retweet_count": 196
+      },
+      "why_it_matters": "Robert’s quantum list carried @dair_ai. One desk. The list is named Quantum. The paper is about agent skills, not qubits.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "dair_ai",
+      "media_url": "https://pbs.twimg.com/media/HQz7S7XaMAEpfUG?format=jpg&name=large",
+      "list_count": 1,
+      "views": 196861,
+      "desk_rank": 14
+    },
+    {
+      "id": "nvidia-warp-10m",
+      "headline": "NVIDIA Warp hits 10 million downloads for Python on the GPU",
+      "summary": "NVIDIA’s AI account said Warp has crossed 10 million downloads. Warp is the Python layer for physics and simulation that compiles kernels instead of making you leave Python for CUDA. The company has been pushing it as the way robotics, geometry, and physical AI people write GPU c",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-28T15:31:57.000Z",
+      "author_name": "NVIDIAAI",
+      "source_list": "AI Developer Tools",
+      "list_names": [
+        "AI Developer Tools"
+      ],
+      "chip_labels": [
+        "AI Developer Tools"
+      ],
+      "source_url": "https://x.com/NVIDIAAI/status/2093360947608113363",
+      "sources": [
+        {
+          "label": "@NVIDIAAI",
+          "url": "https://x.com/NVIDIAAI/status/2093360947608113363"
+        }
+      ],
+      "body": "NVIDIA’s AI account said Warp has crossed 10 million downloads. Warp is the Python layer for physics and simulation that compiles kernels instead of making you leave Python for CUDA. The company has been pushing it as the way robotics, geometry, and physical AI people write GPU code without a second language.\n\nTen million is a install base, not a new chip. It still belongs on the chips desk because Warp is how a lot of sim to real work actually touches NVIDIA silicon. If the physics stack lives in Python, the next model that needs a world will find Warp already in the repo.\n\nRobert’s developer tools list carried the company post. Watch whether Warp stays a research library or becomes the default runtime next to CUDA in production robotics stacks.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 15182,
+        "like_count": 263,
+        "reply_count": 15,
+        "retweet_count": 46
+      },
+      "why_it_matters": "Robert’s developer tools list carried @NVIDIAAI. One desk. The news is the 10 million download mark on Warp, not a new GPU SKU.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "NVIDIAAI",
+      "media_url": "https://pbs.twimg.com/media/HQ0cfFAaQAAMPTw?format=jpg&name=large",
+      "list_count": 1,
+      "views": 15182,
+      "desk_rank": 15
+    },
+    {
+      "id": "baseten-kernels",
+      "headline": "Baseten says an agent cut Qwen Image latency 42.3 percent",
+      "summary": "Baseten posted that an agentic framework can find, build, validate, and ship optimized kernels, and that Qwen Image latency fell 42.3 percent. No image sat on the tweet in the dump, so this card has no still. The claim is that kernel work is now a loop an agent can run, not a wee",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-29T00:00:56.000Z",
+      "author_name": "baseten",
+      "source_list": "AI Companies",
+      "list_names": [
+        "AI Companies #1 of 2"
+      ],
+      "chip_labels": [
+        "AI Companies"
+      ],
+      "source_url": "https://x.com/baseten/status/2093489037608702118",
+      "sources": [
+        {
+          "label": "@baseten",
+          "url": "https://x.com/baseten/status/2093489037608702118"
+        }
+      ],
+      "body": "Baseten posted that an agentic framework can find, build, validate, and ship optimized kernels, and that Qwen Image latency fell 42.3 percent. No image sat on the tweet in the dump, so this card has no still. The claim is that kernel work is now a loop an agent can run, not a week of CUDA specialists.\n\nIf that number holds, image models get cheaper to serve without a new chip. It also fits the FastH3 thread, where people are already arguing that kernels have to be bit identical, not slop. Baseten did not publish the full method in the tweet.\n\nRobert’s company lists carried it. Watch a writeup with before and after traces. Until then treat 42.3 percent as Baseten’s number, not a third party bakeoff.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 571,
+        "like_count": 14,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s company lists carried @baseten. One desk. No dump image. This is kernel work on an image model, which is why it sits on chips rather than as another model card.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "baseten",
+      "media_url": "",
+      "list_count": 1,
+      "views": 571,
+      "desk_rank": 16
+    },
+    {
+      "id": "fish-audio-android",
+      "headline": "Fish Audio puts the full voice studio on Android",
+      "summary": "Fish Audio said the whole voice studio is on Android, with a Play Store link for ai.hanabi.fishaudio. That is the same studio people already had on other surfaces, now on phones. Two of Robert’s lists caught it, music and creatives.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T15:34:58.000Z",
+      "author_name": "FishAudio",
+      "source_list": "AI Music, Creatives",
+      "list_names": [
+        "AI Music/Audio",
+        "Creative with AI"
+      ],
+      "chip_labels": [
+        "AI Music",
+        "Creatives"
+      ],
+      "source_url": "https://x.com/FishAudio/status/2093361707498532880",
+      "sources": [
+        {
+          "label": "@FishAudio",
+          "url": "https://x.com/FishAudio/status/2093361707498532880"
+        }
+      ],
+      "body": "Fish Audio said the whole voice studio is on Android, with a Play Store link for ai.hanabi.fishaudio. That is the same studio people already had on other surfaces, now on phones. Two of Robert’s lists caught it, music and creatives.\n\nVoice cloning and studio work moving to a phone is a product change, not a research teaser. If the Android build is actually the full studio, creators stop needing a desktop for the last mile. If it is a thin player, the post oversold it.\n\nWatch whether the Play listing matches the desktop feature set, and whether Fish keeps the model weights on device or in the cloud.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1899,
+        "like_count": 18,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "FishAudio",
+      "media_url": "https://pbs.twimg.com/media/HQ0c_8WasAA9QZU?format=jpg&name=large",
+      "list_count": 2,
+      "views": 1899,
+      "desk_rank": 17
+    },
+    {
+      "id": "r3f-v10",
+      "headline": "React Three Fiber v10 preview adds WebGPU and a new scheduler",
+      "summary": "The Poimandres account said R3F v10 is in preview with first class WebGPU and TSL, a rebuilt useFrame scheduler, multi canvas out of the box, and three essentials moved from Drei into core. Install is the alpha tag of react three fiber. Two lists caught it, orgs and spatial compu",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-28T16:11:30.000Z",
+      "author_name": "pmndrs",
+      "source_list": "AI Orgs, Spatial Computing",
+      "list_names": [
+        "AI Orgs & Events",
+        "Spatial Computing"
+      ],
+      "chip_labels": [
+        "AI Orgs",
+        "Spatial Computing"
+      ],
+      "source_url": "https://x.com/pmndrs/status/2093370902461182190",
+      "sources": [
+        {
+          "label": "@pmndrs",
+          "url": "https://x.com/pmndrs/status/2093370902461182190"
+        }
+      ],
+      "body": "The Poimandres account said R3F v10 is in preview with first class WebGPU and TSL, a rebuilt useFrame scheduler, multi canvas out of the box, and three essentials moved from Drei into core. Install is the alpha tag of react three fiber. Two lists caught it, orgs and spatial computing.\n\nThis is how a lot of 3D and spatial demos actually render in the browser. WebGPU in core means those scenes can leave WebGL hacks. A new scheduler is the unsexy part that decides whether 3D UIs hitch when an agent is also drawing.\n\nWatch whether the alpha lands as a real v10, and whether Three.js scenes in AI tools pick it up this cycle.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 4236,
+        "like_count": 77,
+        "reply_count": 2,
+        "retweet_count": 16
+      },
+      "why_it_matters": "Robert’s orgs and spatial computing lists carried @pmndrs. Two desks. This is a WebGPU renderer preview, not a conference dinner.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "pmndrs",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093367434400915456/img/iGhButUQQ6pSuiRS.jpg",
+      "list_count": 2,
+      "views": 4236,
+      "desk_rank": 18
+    },
+    {
+      "id": "asimov-1",
+      "headline": "Asimov 1 claims sim trained policies run on the real robot with no tune",
+      "summary": "Asimov said you can train a policy in simulation and run it on Asimov 1 with no tuning in between, and pointed orders at menlo.ai. That is the sim to real promise a lot of labs still fail. The dump clip is the company showing the transfer, not a third party bakeoff.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-28T03:43:59.000Z",
+      "author_name": "asimovinc",
+      "source_list": "AI Robotics",
+      "list_names": [
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "AI Robotics"
+      ],
+      "source_url": "https://x.com/asimovinc/status/2093182782432522568",
+      "sources": [
+        {
+          "label": "@asimovinc",
+          "url": "https://x.com/asimovinc/status/2093182782432522568"
+        }
+      ],
+      "body": "Asimov said you can train a policy in simulation and run it on Asimov 1 with no tuning in between, and pointed orders at menlo.ai. That is the sim to real promise a lot of labs still fail. The dump clip is the company showing the transfer, not a third party bakeoff.\n\nIf the no tune claim holds on a robot you can actually order, garage and lab buyers stop spending a week on domain randomization for every new skill. If it only holds on the company’s own tasks, it is a demo. The post sits on Robert’s robotics list.\n\nWatch independent policies, not the launch clip, and whether Menlo ships units or waitlists them.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 4629,
+        "like_count": 118,
+        "reply_count": 3,
+        "retweet_count": 10
+      },
+      "why_it_matters": "Robert’s robotics list carried @asimovinc. One desk. The claim is sim to real with no extra tune on a robot you can order.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "asimovinc",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093182759040921600/img/k5UX1gRM6pjgifNn.jpg",
+      "list_count": 1,
+      "views": 4629,
+      "desk_rank": 19
+    },
+    {
+      "id": "muse-spark-daytona",
+      "headline": "Meta Superintelligence Labs ran Muse Spark 1.2 in Daytona sandboxes",
+      "summary": "Ivan Burazin said Meta Superintelligence Labs used Daytona sandboxes to run Muse Spark 1.2, a multimodal reasoning model the lab released earlier this month, and that someone there told him Muse Code would not be practical without that sandbox. This is a vendor post. Treat the qu",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-08-28T18:19:02.000Z",
+      "author_name": "ivanburazin",
+      "source_list": "Investors",
+      "list_names": [
+        "Investors #1 of 2"
+      ],
+      "chip_labels": [
+        "Investors"
+      ],
+      "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
+      "sources": [
+        {
+          "label": "@ivanburazin",
+          "url": "https://x.com/ivanburazin/status/2093402996293910938"
+        }
+      ],
+      "body": "Ivan Burazin said Meta Superintelligence Labs used Daytona sandboxes to run Muse Spark 1.2, a multimodal reasoning model the lab released earlier this month, and that someone there told him Muse Code would not be practical without that sandbox. This is a vendor post. Treat the quote as Daytona’s, not a Meta blog.\n\nIt still tells you how a frontier lab is wiring coding agents: a model plus a real sandbox, not a chat box. Muse Spark 1.2 itself is not a today drop. The news on the lists is that Meta’s superintelligence group is running it in Daytona.\n\nRobert’s investors list carried it. Watch whether Meta publishes Muse Code, and whether Daytona remains the box or gets replaced by an in house runtime.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5513,
+        "like_count": 64,
+        "reply_count": 2,
+        "retweet_count": 10
+      },
+      "why_it_matters": "Robert’s investors list carried @ivanburazin. One desk. Daytona is the poster. Meta is the lab named in the post.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "ivanburazin",
+      "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=large",
+      "list_count": 1,
+      "views": 5513,
+      "desk_rank": 20
+    },
+    {
+      "id": "papercut-zero-day",
+      "headline": "PaperCut ships a second emergency patch after a live print server break",
+      "summary": "Huntress said attackers were already using a PaperCut NG and MF hole that lets an unauthenticated person take over the trusted print config. PaperCut confirmed it. On August 28 at 2:45pm ET Huntress said PaperCut had shipped Release 2, a second emergency patch, and that shops whi",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-08-28T02:19:04.000Z",
+      "author_name": "HuntressLabs",
+      "source_list": "Cybersecurity",
+      "list_names": [
+        "Cybersecurity"
+      ],
+      "chip_labels": [
+        "Cybersecurity"
+      ],
+      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
+      "sources": [
+        {
+          "label": "@HuntressLabs",
+          "url": "https://x.com/HuntressLabs/status/2093161411400610118"
+        }
+      ],
+      "body": "Huntress said attackers were already using a PaperCut NG and MF hole that lets an unauthenticated person take over the trusted print config. PaperCut confirmed it. On August 28 at 2:45pm ET Huntress said PaperCut had shipped Release 2, a second emergency patch, and that shops which installed the first one still need this one. PaperCut’s own bulletin thanks Huntress and watchTowr. Fixes cover v24, v25, and v26. Older v23 boxes are told to upgrade. Huntress has seen exploitation in customer environments and reproduced a full pre authentication remote code chain.\n\nPrint servers sit on a lot of office networks with a browser UI hanging off them. That is why this is policy and ops news, not a lab curiosity. Isolate the application server from the public internet even if you patch tonight.\n\nRobert’s cybersecurity list carried Huntress. Watch v23 fleets that cannot patch, and whether a second bypass shows up over the weekend.",
+      "kind": "story",
+      "engagement": {},
+      "why_it_matters": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "HuntressLabs",
+      "media_url": "https://pbs.twimg.com/media/HQxnNf3X0AAtgQ7?format=jpg&name=large",
+      "list_count": 1,
+      "desk_rank": 21
     }
   ],
   "signals": [
@@ -691,8 +1027,7 @@
       "source_url": "https://x.com/databricks/status/2093491572083949972",
       "analysis": "Robert’s company and enterprise lists carried Databricks. His developer tools lists had operators telling people to run reasoning effort high, and his founders lists had Bindhu Reddy grouping GLM with DeepSeek, Qwen, and Kimi as public weights that now compound on each other.",
       "topic_key": "models",
-      "topic_label": "Models",
-      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F?format=jpg&name=large"
+      "topic_label": "Models"
     },
     {
       "id": "sig-fastvideo-fasth3",
@@ -713,8 +1048,7 @@
       "source_url": "https://x.com/aisearchio/status/2093408069728571540",
       "analysis": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "topic_key": "models",
-      "topic_label": "Models",
-      "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large"
+      "topic_label": "Models"
     },
     {
       "id": "sig-perplexity-search-api",
@@ -739,8 +1073,7 @@
       "source_url": "https://x.com/perplexity_ai/status/2093491900405956993",
       "analysis": "Robert’s company, education, and writing lists all carried @perplexity_ai. Three desks noticed the same chart. The five point gap is versus Parallel and Brave at 75, not versus a year ago.",
       "topic_key": "products",
-      "topic_label": "Products",
-      "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large"
+      "topic_label": "Products"
     },
     {
       "id": "sig-flow-music-lyria",
@@ -788,8 +1121,7 @@
       "source_url": "https://x.com/ericciarla/status/2093375835679977570",
       "analysis": "Robert’s company and developer tools lists carried @ericciarla, with @firecrawl repeating the same offer. Two desks. Do not read the June blog date as a today launch. The lists treated keyless access as the product news tonight.",
       "topic_key": "products",
-      "topic_label": "Products",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg"
+      "topic_label": "Products"
     },
     {
       "id": "sig-openreview-github",
@@ -810,8 +1142,7 @@
       "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
       "analysis": "Robert’s orgs lists carried @GithubProjects. One desk, no recorded counts. This is a self hosted GitHub reviewer, not conference peer review.",
       "topic_key": "products",
-      "topic_label": "Products",
-      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=large"
+      "topic_label": "Products"
     },
     {
       "id": "sig-a16z-machine-age-fund",
@@ -832,8 +1163,7 @@
       "source_url": "https://x.com/pirrer/status/2093421604315562432",
       "analysis": "Robert’s SpaceX AI list carried @pirrer. One desk. A separate Horowitz clip on his community and founders lists is about startup lead time, not this fund.",
       "topic_key": "funding",
-      "topic_label": "Funding",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg"
+      "topic_label": "Funding"
     },
     {
       "id": "sig-openai-sandbox-escape",
@@ -854,8 +1184,7 @@
       "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
       "analysis": "Robert’s community lists carried @_AIAcceleration. One desk, 8 views. The lists caught a recap of July disclosures, not a new escape today. The facts sit in OpenAI’s Hugging Face incident note and Anthropic’s July 30 eval review.",
       "topic_key": "policy",
-      "topic_label": "Policy",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg"
+      "topic_label": "Policy"
     },
     {
       "id": "sig-pollen-microducks",
@@ -880,8 +1209,7 @@
       "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
       "analysis": "Robert’s founders, robotics, and vehicles lists carried @RemiFabreRobot. Three desks. The 2.5 million figure is Fabre’s, posted about a day after Pollen’s $399 preorder page. His community lists also had him telling people to slow down because the robot was not even a day old.",
       "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large"
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-lerobot-teleoperator",
@@ -902,8 +1230,7 @@
       "source_url": "https://x.com/LeRobotHF/status/2093322414960546116",
       "analysis": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
       "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg"
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-gemini-co-scientist",
@@ -928,8 +1255,7 @@
       "source_url": "https://x.com/SRSchmidgall/status/2093380426924708082",
       "analysis": "Robert’s founders, policy, and computer vision lists carried @SRSchmidgall. Three desks. Omar Sarwar on his best of AI list is the same result from the research side. The headline is the lab move, not the paper title.",
       "topic_key": "labs",
-      "topic_label": "Labs",
-      "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large"
+      "topic_label": "Labs"
     },
     {
       "id": "sig-midjourney-v82",
@@ -950,8 +1276,179 @@
       "source_url": "https://x.com/midjourney/status/2093253371650031949",
       "analysis": "Robert’s creatives lists carried @midjourney. One desk on the test announcement. A later quality note landed on his community lists.",
       "topic_key": "creatives",
-      "topic_label": "Creatives",
-      "media_url": "https://pbs.twimg.com/media/HQ2XHJ0aoAAOHRQ?format=jpg&name=large"
+      "topic_label": "Creatives"
+    },
+    {
+      "id": "sig-google-wikiskill",
+      "title": "Google keeps agent skills in a wiki instead of a log pile",
+      "text": "Robert’s quantum list carried @dair_ai. One desk. The list is named Quantum. The paper is about agent skills, not qubits.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s quantum list carried @dair_ai. One desk. The list is named Quantum. The paper is about agent skills, not qubits.",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "created_at": "2026-08-28T13:06:03.000Z",
+      "source_url": "https://x.com/dair_ai/status/2093324233158045788",
+      "analysis": "Robert’s quantum list carried @dair_ai. One desk. The list is named Quantum. The paper is about agent skills, not qubits.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-nvidia-warp-10m",
+      "title": "NVIDIA Warp hits 10 million downloads for Python on the GPU",
+      "text": "Robert’s developer tools list carried @NVIDIAAI. One desk. The news is the 10 million download mark on Warp, not a new GPU SKU.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s developer tools list carried @NVIDIAAI. One desk. The news is the 10 million download mark on Warp, not a new GPU SKU.",
+      "list_names": [
+        "AI Developer Tools"
+      ],
+      "chip_labels": [
+        "AI Developer Tools"
+      ],
+      "created_at": "2026-08-28T15:31:57.000Z",
+      "source_url": "https://x.com/NVIDIAAI/status/2093360947608113363",
+      "analysis": "Robert’s developer tools list carried @NVIDIAAI. One desk. The news is the 10 million download mark on Warp, not a new GPU SKU.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
+      "id": "sig-baseten-kernels",
+      "title": "Baseten says an agent cut Qwen Image latency 42.3 percent",
+      "text": "Robert’s company lists carried @baseten. One desk. No dump image. This is kernel work on an image model, which is why it sits on chips rather than as another model card.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s company lists carried @baseten. One desk. No dump image. This is kernel work on an image model, which is why it sits on chips rather than as another model card.",
+      "list_names": [
+        "AI Companies #1 of 2"
+      ],
+      "chip_labels": [
+        "AI Companies"
+      ],
+      "created_at": "2026-08-29T00:00:56.000Z",
+      "source_url": "https://x.com/baseten/status/2093489037608702118",
+      "analysis": "Robert’s company lists carried @baseten. One desk. No dump image. This is kernel work on an image model, which is why it sits on chips rather than as another model card.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
+      "id": "sig-fish-audio-android",
+      "title": "Fish Audio puts the full voice studio on Android",
+      "text": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
+      "list_names": [
+        "AI Music/Audio",
+        "Creative with AI"
+      ],
+      "chip_labels": [
+        "AI Music",
+        "Creatives"
+      ],
+      "created_at": "2026-08-28T15:34:58.000Z",
+      "source_url": "https://x.com/FishAudio/status/2093361707498532880",
+      "analysis": "Robert’s music and creatives lists carried @FishAudio. Two desks. This is an Android ship of a studio they already ran elsewhere.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-r3f-v10",
+      "title": "React Three Fiber v10 preview adds WebGPU and a new scheduler",
+      "text": "Robert’s orgs and spatial computing lists carried @pmndrs. Two desks. This is a WebGPU renderer preview, not a conference dinner.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s orgs and spatial computing lists carried @pmndrs. Two desks. This is a WebGPU renderer preview, not a conference dinner.",
+      "list_names": [
+        "AI Orgs & Events",
+        "Spatial Computing"
+      ],
+      "chip_labels": [
+        "AI Orgs",
+        "Spatial Computing"
+      ],
+      "created_at": "2026-08-28T16:11:30.000Z",
+      "source_url": "https://x.com/pmndrs/status/2093370902461182190",
+      "analysis": "Robert’s orgs and spatial computing lists carried @pmndrs. Two desks. This is a WebGPU renderer preview, not a conference dinner.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-asimov-1",
+      "title": "Asimov 1 claims sim trained policies run on the real robot with no tune",
+      "text": "Robert’s robotics list carried @asimovinc. One desk. The claim is sim to real with no extra tune on a robot you can order.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s robotics list carried @asimovinc. One desk. The claim is sim to real with no extra tune on a robot you can order.",
+      "list_names": [
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "AI Robotics"
+      ],
+      "created_at": "2026-08-28T03:43:59.000Z",
+      "source_url": "https://x.com/asimovinc/status/2093182782432522568",
+      "analysis": "Robert’s robotics list carried @asimovinc. One desk. The claim is sim to real with no extra tune on a robot you can order.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-muse-spark-daytona",
+      "title": "Meta Superintelligence Labs ran Muse Spark 1.2 in Daytona sandboxes",
+      "text": "Robert’s investors list carried @ivanburazin. One desk. Daytona is the poster. Meta is the lab named in the post.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert’s investors list carried @ivanburazin. One desk. Daytona is the poster. Meta is the lab named in the post.",
+      "list_names": [
+        "Investors #1 of 2"
+      ],
+      "chip_labels": [
+        "Investors"
+      ],
+      "created_at": "2026-08-28T18:19:02.000Z",
+      "source_url": "https://x.com/ivanburazin/status/2093402996293910938",
+      "analysis": "Robert’s investors list carried @ivanburazin. One desk. Daytona is the poster. Meta is the lab named in the post.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
+      "id": "sig-papercut-zero-day",
+      "title": "PaperCut ships a second emergency patch after a live print server break",
+      "text": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "list_names": [
+        "Cybersecurity"
+      ],
+      "chip_labels": [
+        "Cybersecurity"
+      ],
+      "created_at": "2026-08-28T02:19:04.000Z",
+      "source_url": "https://x.com/HuntressLabs/status/2093161411400610118",
+      "analysis": "Robert’s cybersecurity list carried @HuntressLabs. One desk. The first post is the live break. The follow up is Release 2 the same day.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
     }
   ],
   "reports": [

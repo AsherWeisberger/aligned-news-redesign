@@ -27,7 +27,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an192";
+  var DATA_URL = "live-data.json?v=an193";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -123,7 +123,7 @@
     return k;
   }
 
-  var PILL_ORDER = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy"];
+  var PILL_ORDER = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy", "creatives"];
 
   function storyMatchesChip(story, filter) {
     if (!filter || filter === "all") return true;
@@ -138,7 +138,7 @@
     });
     var chips = [{ id: "all", label: "All" }];
     PILL_ORDER.forEach(function (k) {
-      if (have[k]) chips.push({ id: k, label: labelFor(k, k) });
+      chips.push({ id: k, label: labelFor(k, k) });
     });
     return chips;
   }
