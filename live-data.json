@@ -1,10 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T02:41:49.000Z",
-    "scrapedAt": "2026-08-29T02:41:49.000Z",
+    "generatedAt": "2026-08-29T02:39:47.000Z",
+    "scrapedAt": "2026-08-29T02:39:47.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 13 stories, source scobleizer-chrome-lists",
-    "lastUpdatedTs": 1787909816809
+    "note": "CONTEXT writeup plus tweet photos cache bust an192",
+    "lastUpdatedTs": 1787909816809,
+    "photos": 12
   },
   "user": {
     "name": "Asher",
@@ -690,7 +691,8 @@
       "source_url": "https://x.com/databricks/status/2093491572083949972",
       "analysis": "Robert’s company and enterprise lists carried Databricks. His developer tools lists had operators telling people to run reasoning effort high, and his founders lists had Bindhu Reddy grouping GLM with DeepSeek, Qwen, and Kimi as public weights that now compound on each other.",
       "topic_key": "models",
-      "topic_label": "Models"
+      "topic_label": "Models",
+      "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F?format=jpg&name=large"
     },
     {
       "id": "sig-fastvideo-fasth3",
@@ -711,7 +713,8 @@
       "source_url": "https://x.com/aisearchio/status/2093408069728571540",
       "analysis": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "topic_key": "models",
-      "topic_label": "Models"
+      "topic_label": "Models",
+      "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large"
     },
     {
       "id": "sig-perplexity-search-api",
@@ -736,7 +739,8 @@
       "source_url": "https://x.com/perplexity_ai/status/2093491900405956993",
       "analysis": "Robert’s company, education, and writing lists all carried @perplexity_ai. Three desks noticed the same chart. The five point gap is versus Parallel and Brave at 75, not versus a year ago.",
       "topic_key": "products",
-      "topic_label": "Products"
+      "topic_label": "Products",
+      "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large"
     },
     {
       "id": "sig-flow-music-lyria",
@@ -784,7 +788,8 @@
       "source_url": "https://x.com/ericciarla/status/2093375835679977570",
       "analysis": "Robert’s company and developer tools lists carried @ericciarla, with @firecrawl repeating the same offer. Two desks. Do not read the June blog date as a today launch. The lists treated keyless access as the product news tonight.",
       "topic_key": "products",
-      "topic_label": "Products"
+      "topic_label": "Products",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg"
     },
     {
       "id": "sig-openreview-github",
@@ -805,7 +810,8 @@
       "source_url": "https://x.com/GithubProjects/status/2093466163200307616",
       "analysis": "Robert’s orgs lists carried @GithubProjects. One desk, no recorded counts. This is a self hosted GitHub reviewer, not conference peer review.",
       "topic_key": "products",
-      "topic_label": "Products"
+      "topic_label": "Products",
+      "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=large"
     },
     {
       "id": "sig-a16z-machine-age-fund",
@@ -826,7 +832,8 @@
       "source_url": "https://x.com/pirrer/status/2093421604315562432",
       "analysis": "Robert’s SpaceX AI list carried @pirrer. One desk. A separate Horowitz clip on his community and founders lists is about startup lead time, not this fund.",
       "topic_key": "funding",
-      "topic_label": "Funding"
+      "topic_label": "Funding",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg"
     },
     {
       "id": "sig-openai-sandbox-escape",
@@ -847,7 +854,8 @@
       "source_url": "https://x.com/_AIAcceleration/status/2093501647804596569",
       "analysis": "Robert’s community lists carried @_AIAcceleration. One desk, 8 views. The lists caught a recap of July disclosures, not a new escape today. The facts sit in OpenAI’s Hugging Face incident note and Anthropic’s July 30 eval review.",
       "topic_key": "policy",
-      "topic_label": "Policy"
+      "topic_label": "Policy",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg"
     },
     {
       "id": "sig-pollen-microducks",
@@ -872,7 +880,8 @@
       "source_url": "https://x.com/RemiFabreRobot/status/2093465891191042057",
       "analysis": "Robert’s founders, robotics, and vehicles lists carried @RemiFabreRobot. Three desks. The 2.5 million figure is Fabre’s, posted about a day after Pollen’s $399 preorder page. His community lists also had him telling people to slow down because the robot was not even a day old.",
       "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "topic_label": "Robotics",
+      "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large"
     },
     {
       "id": "sig-lerobot-teleoperator",
@@ -893,7 +902,8 @@
       "source_url": "https://x.com/LeRobotHF/status/2093322414960546116",
       "analysis": "Robert’s San Francisco robotics list carried @LeRobotHF. One desk. This is a real product post from the dump, a $28 open teleop rig, not a paper title paste.",
       "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "topic_label": "Robotics",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg"
     },
     {
       "id": "sig-gemini-co-scientist",
@@ -918,7 +928,8 @@
       "source_url": "https://x.com/SRSchmidgall/status/2093380426924708082",
       "analysis": "Robert’s founders, policy, and computer vision lists carried @SRSchmidgall. Three desks. Omar Sarwar on his best of AI list is the same result from the research side. The headline is the lab move, not the paper title.",
       "topic_key": "labs",
-      "topic_label": "Labs"
+      "topic_label": "Labs",
+      "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large"
     },
     {
       "id": "sig-midjourney-v82",
@@ -939,7 +950,8 @@
       "source_url": "https://x.com/midjourney/status/2093253371650031949",
       "analysis": "Robert’s creatives lists carried @midjourney. One desk on the test announcement. A later quality note landed on his community lists.",
       "topic_key": "creatives",
-      "topic_label": "Creatives"
+      "topic_label": "Creatives",
+      "media_url": "https://pbs.twimg.com/media/HQ2XHJ0aoAAOHRQ?format=jpg&name=large"
     }
   ],
   "reports": [
