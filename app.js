@@ -3355,10 +3355,12 @@
         return (
           '<li class="lead-card lead-card-opener lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
             '<div class="rank">1</div>' +
-            hero +
             '<div class="lead-copy">' +
               '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || t("today")) + "</p>" +
               '<h2 class="lead-title"><a href="' + href + '"' + txSrc(leadHeadline) + '>' + escapeHtml(leadHeadline) + "</a></h2>" +
+            "</div>" +
+            hero +
+            '<div class="lead-after">' +
               (dek ? '<p class="lead-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
               '<div class="lead-meta">' +
                 avatarStackHtml(s) +
