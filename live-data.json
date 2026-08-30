@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T20:52:00.000Z",
-    "scrapedAt": "2026-08-29T20:52:00.000Z",
+    "generatedAt": "2026-08-30T01:01:38.000Z",
+    "scrapedAt": "2026-08-30T01:01:38.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 88 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 92 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 53,
-    "stories": 88,
-    "signals": 87,
+    "stories": 92,
+    "signals": 91,
     "reports": 4
   },
   "chips": [
@@ -141,6 +141,51 @@
   ],
   "stories": [
     {
+      "id": "h3-max-live",
+      "headline": "fal puts H3 Max Live on a video broadcast faster than real time",
+      "summary": "fal posted H3 Max Live: video generation faster than real time, an infinite broadcast where every frame is generated on the fly and every scene is directed by chat. Type a prompt and it is on screen in seconds. A follow up said an experimental long form H3 Max checkpoint holds th",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-29T23:31:49.000Z",
+      "author_name": "fal",
+      "source_list": "AI Community, AI Companies, AI Video Creators",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AI Companies #1 of 2",
+        "AI Video Creators"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Companies",
+        "AI Video Creators"
+      ],
+      "source_url": "https://x.com/fal/status/2093844097148559588",
+      "sources": [
+        {
+          "label": "@fal",
+          "url": "https://x.com/fal/status/2093844097148559588"
+        }
+      ],
+      "body": "fal posted H3 Max Live: video generation faster than real time, an infinite broadcast where every frame is generated on the fly and every scene is directed by chat. Type a prompt and it is on screen in seconds. A follow up said an experimental long form H3 Max checkpoint holds the thread across scenes and hits the API next week. Three of Robert’s lists carried @fal tonight, community, company, and video. FaztTech called it a threshold: you can generate video faster than you can watch it.\n\nFaster than playback is a product line, not a teaser. MiniMax H3 was already on these lists as FastH3. Live infinite broadcast is the new map.\n\nWatch the API date, and whether the thread actually holds past a few scenes.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 17000,
+        "like_count": 179,
+        "reply_count": 16,
+        "retweet_count": 29
+      },
+      "why_it_matters": "Robert’s community lists, his company lists, and his video lists carried @fal. Three desks tonight. Faster than real time video, not a clip dump.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "fal",
+      "media_url": "https://pbs.twimg.com/media/HQ7UHClW4AA2I6L?format=jpg&name=large",
+      "list_count": 3,
+      "views": 17000,
+      "desk_rank": 1
+    },
+    {
       "id": "tencent-hy4-preview",
       "headline": "Tencent open sources Hy4 preview at 770B with 49B active",
       "summary": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, Cod",
@@ -182,7 +227,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyfABta8AAq3x7?format=jpg&name=large",
       "list_count": 4,
       "views": 1545332,
-      "desk_rank": 1
+      "desk_rank": 2
     },
     {
       "id": "glm-5-3-day-0",
@@ -229,7 +274,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F.jpg",
       "list_count": 4,
       "views": 3302,
-      "desk_rank": 2
+      "desk_rank": 3
     },
     {
       "id": "fastvideo-fasth3",
@@ -273,7 +318,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large",
       "list_count": 3,
       "views": 88587,
-      "desk_rank": 3
+      "desk_rank": 4
     },
     {
       "id": "perplexity-search-api",
@@ -324,7 +369,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large",
       "list_count": 6,
       "views": 32486,
-      "desk_rank": 4
+      "desk_rank": 5
     },
     {
       "id": "firecrawl-keyless",
@@ -373,7 +418,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
       "list_count": 5,
       "views": 303017,
-      "desk_rank": 5
+      "desk_rank": 6
     },
     {
       "id": "openreview-github",
@@ -408,7 +453,7 @@
       "x_handle": "GithubProjects",
       "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=large",
       "list_count": 1,
-      "desk_rank": 6
+      "desk_rank": 7
     },
     {
       "id": "a16z-machine-age-fund",
@@ -448,7 +493,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg",
       "list_count": 1,
       "views": 760,
-      "desk_rank": 7
+      "desk_rank": 8
     },
     {
       "id": "openai-sandbox-escape",
@@ -488,7 +533,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
       "list_count": 1,
       "views": 8,
-      "desk_rank": 8
+      "desk_rank": 9
     },
     {
       "id": "pollen-microducks",
@@ -545,7 +590,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large",
       "list_count": 10,
       "views": 98000,
-      "desk_rank": 9
+      "desk_rank": 10
     },
     {
       "id": "lerobot-teleoperator",
@@ -594,7 +639,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg",
       "list_count": 6,
       "views": 17006,
-      "desk_rank": 10
+      "desk_rank": 11
     },
     {
       "id": "gemini-co-scientist",
@@ -647,7 +692,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large",
       "list_count": 9,
       "views": 123433,
-      "desk_rank": 11
+      "desk_rank": 12
     },
     {
       "id": "midjourney-v82",
@@ -693,7 +738,7 @@
       "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=240x240",
       "list_count": 4,
       "views": 92047,
-      "desk_rank": 12
+      "desk_rank": 13
     },
     {
       "id": "google-wikiskill",
@@ -740,7 +785,7 @@
       "media_url": "https://pbs.twimg.com/media/HQz7S7XaMAEpfUG?format=jpg&name=large",
       "list_count": 6,
       "views": 305498,
-      "desk_rank": 13
+      "desk_rank": 14
     },
     {
       "id": "nvidia-warp-10m",
@@ -787,7 +832,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0cfFAaQAAMPTw?format=jpg&name=large",
       "list_count": 4,
       "views": 20263,
-      "desk_rank": 14
+      "desk_rank": 15
     },
     {
       "id": "fish-audio-android",
@@ -831,7 +876,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0c_8WasAA9QZU?format=jpg&name=large",
       "list_count": 3,
       "views": 2300,
-      "desk_rank": 15
+      "desk_rank": 16
     },
     {
       "id": "r3f-v10",
@@ -874,7 +919,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093367434400915456/img/iGhButUQQ6pSuiRS.jpg",
       "list_count": 2,
       "views": 5100,
-      "desk_rank": 16
+      "desk_rank": 17
     },
     {
       "id": "asimov-1",
@@ -917,7 +962,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093182759040921600/img/k5UX1gRM6pjgifNn.jpg",
       "list_count": 2,
       "views": 5434,
-      "desk_rank": 17
+      "desk_rank": 18
     },
     {
       "id": "muse-spark-daytona",
@@ -961,7 +1006,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=large",
       "list_count": 3,
       "views": 7985,
-      "desk_rank": 18
+      "desk_rank": 19
     },
     {
       "id": "thomson-reuters-qwen",
@@ -1004,7 +1049,7 @@
       "media_url": "https://pbs.twimg.com/media/HQwTO6tWwAANpBk?format=jpg&name=large",
       "list_count": 2,
       "views": 176496,
-      "desk_rank": 19
+      "desk_rank": 20
     },
     {
       "id": "ijrr-world-models",
@@ -1044,7 +1089,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=large",
       "list_count": 1,
       "views": 11492,
-      "desk_rank": 20
+      "desk_rank": 21
     },
     {
       "id": "dyna-din-tai-fung",
@@ -1091,7 +1136,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg",
       "list_count": 5,
       "views": 283083,
-      "desk_rank": 21
+      "desk_rank": 22
     },
     {
       "id": "atom-toyosu-foundry",
@@ -1131,7 +1176,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0Hq3zaUAAB5zA?format=jpg&name=large",
       "list_count": 1,
       "views": 584,
-      "desk_rank": 22
+      "desk_rank": 23
     },
     {
       "id": "oracle-mlperf-mi300x",
@@ -3844,7 +3889,7 @@
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "DeryaTR_",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093625620957708288/img/3YMGXzMwH1skG3R.jpg",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093625620957708288/img/3YMGXzMwH1skgF3R.jpg",
       "list_count": 1,
       "views": 96364,
       "desk_rank": 87
@@ -3889,9 +3934,196 @@
       "list_count": 1,
       "views": 9503,
       "desk_rank": 88
+    },
+    {
+      "id": "zaporizhzhia-power-out",
+      "headline": "Zaporizhzhia nuclear plant runs on diesel after a week without grid power",
+      "summary": "Al Jazeera posted that Ukraine’s Russian occupied Zaporizhzhia nuclear plant has been without off site power for over a week, running on emergency diesel, the IAEA said. It is the 27th blackout since Russia’s invasion. Robert’s World News list carried @AJEnglish.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T00:15:00.000Z",
+      "author_name": "AJEnglish",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJEnglish/status/2093854964879942014",
+      "sources": [
+        {
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2093854964879942014"
+        }
+      ],
+      "body": "Al Jazeera posted that Ukraine’s Russian occupied Zaporizhzhia nuclear plant has been without off site power for over a week, running on emergency diesel, the IAEA said. It is the 27th blackout since Russia’s invasion. Robert’s World News list carried @AJEnglish.\n\nA week on diesel at a occupied nuclear plant is a map item. Do not wait for a Sunday show.\n\nWatch the next IAEA update, and whether a transmission line comes back.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 9112
+      },
+      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. A nuclear plant on diesel, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/media/HQ7bH7mbUAE6zE4?format=jpg&name=large",
+      "list_count": 1,
+      "views": 9112,
+      "desk_rank": 89
+    },
+    {
+      "id": "damascus-fair-post-assad",
+      "headline": "Damascus holds its first international fair since Assad fell",
+      "summary": "Al Jazeera posted fireworks over Damascus as the capital hosts its first Damascus International Fair since the fall of Bashar al Assad. The 63rd edition is themed Syria Shines Again. Robert’s World News list carried @AJEnglish with the clip.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T00:00:15.000Z",
+      "author_name": "AJEnglish",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJEnglish/status/2093851253646533053",
+      "sources": [
+        {
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2093851253646533053"
+        }
+      ],
+      "body": "Al Jazeera posted fireworks over Damascus as the capital hosts its first Damascus International Fair since the fall of Bashar al Assad. The 63rd edition is themed Syria Shines Again. Robert’s World News list carried @AJEnglish with the clip.\n\nA trade fair in the capital is a politics of normal, not a fireworks meme. The lists had the first one since the fall.\n\nWatch which countries sent pavilions, and whether the fair lasts the week.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 13576,
+        "like_count": 9,
+        "reply_count": 1,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. The first post Assad fair, not a travel brief.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093851194611683328/img/hCBigLr1qdgmM55d.jpg",
+      "list_count": 1,
+      "views": 13576,
+      "desk_rank": 90
+    },
+    {
+      "id": "astribot-t1-13000",
+      "headline": "Astribot prices the wheeled T1 at about $13,000",
+      "summary": "Technia posted Astribot’s new T1 starting at 89,900 yuan, about $13,000. The wheeled robot has 23 degrees of freedom, 5 kg per arm, and a cable driven transmission. Two of Robert’s lists carried @techniahqrobot, community and robot media. Two hundred two views.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-30T00:20:41.000Z",
+      "author_name": "techniahqrobot",
+      "source_list": "AI Community, Robot Influencers/Media",
+      "list_names": [
+        "AI Community #5 of 9",
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Robot Influencers/Media"
+      ],
+      "source_url": "https://x.com/techniahqrobot/status/2093856396089414138",
+      "sources": [
+        {
+          "label": "@techniahqrobot",
+          "url": "https://x.com/techniahqrobot/status/2093856396089414138"
+        }
+      ],
+      "body": "Technia posted Astribot’s new T1 starting at 89,900 yuan, about $13,000. The wheeled robot has 23 degrees of freedom, 5 kg per arm, and a cable driven transmission. Two of Robert’s lists carried @techniahqrobot, community and robot media. Two hundred two views.\n\nA five figure wheeled manipulator is a price, not a booth demo. Low views do not erase the yuan.\n\nWatch whether they sell units or only the clip, and what 5 kg actually lifts.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 202,
+        "like_count": 2
+      },
+      "why_it_matters": "Robert’s community lists and his robot media list carried @techniahqrobot. Two desks. A $13,000 robot price, not a fail compilation.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "techniahqrobot",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093856321854418944/img/6E8iIwngRJgIe7C2.jpg",
+      "list_count": 2,
+      "views": 202,
+      "desk_rank": 91
+    },
+    {
+      "id": "supabase-linux-one-command",
+      "headline": "Supabase says self hosting on Linux is now one command",
+      "summary": "Supabase posted that self hosting on Linux is a single command. Two of Robert’s developer lists carried @supabase with the card. Sixteen hundred views.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-30T00:15:05.000Z",
+      "author_name": "supabase",
+      "source_list": "Devs, Designers, DevRel 1, Devs, Designers, DevRel 2",
+      "list_names": [
+        "Devs, Designers, DevRel 1",
+        "Devs, Designers, DevRel 2"
+      ],
+      "chip_labels": [
+        "Devs, Designers, DevRel 1",
+        "Devs, Designers, DevRel 2"
+      ],
+      "source_url": "https://x.com/supabase/status/2093854985284895149",
+      "sources": [
+        {
+          "label": "@supabase",
+          "url": "https://x.com/supabase/status/2093854985284895149"
+        }
+      ],
+      "body": "Supabase posted that self hosting on Linux is a single command. Two of Robert’s developer lists carried @supabase with the card. Sixteen hundred views.\n\nOne command local Postgres plus auth is a product people will actually run tonight. Two desks.\n\nWatch whether the command stays one line on a clean Ubuntu box, and what it pulls in.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1600,
+        "like_count": 26,
+        "reply_count": 2,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert’s developer lists carried @supabase on two desks. A one command self host, not a changelog dump.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "supabase",
+      "media_url": "https://pbs.twimg.com/media/HQ7eAxGWkAAZOXt?format=jpg&name=large",
+      "list_count": 2,
+      "views": 1600,
+      "desk_rank": 92
     }
   ],
   "signals": [
+    {
+      "id": "sig-tencent-hy4-preview",
+      "title": "Tencent open sources Hy4 preview at 770B with 49B active",
+      "text": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
+      "list_names": [
+        "AI Community #1 of 9",
+        "AI Community #3 of 9",
+        "AI Community #4 of 9",
+        "AI Community #5 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-28T06:23:31.000Z",
+      "source_url": "https://x.com/TencentHunyuan/status/2093222928720761009",
+      "analysis": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
     {
       "id": "sig-glm-5-3-day-0",
       "title": "Z.ai puts GLM 5.3 weights on Hugging Face as clouds go day 0",
@@ -5908,6 +6140,94 @@
       "analysis": "Robert’s World News list carried @AJENews. One desk. A State Department line on Hezbollah, not a calendar note.",
       "topic_key": "world",
       "topic_label": "World"
+    },
+    {
+      "id": "sig-zaporizhzhia-power-out",
+      "title": "Zaporizhzhia nuclear plant runs on diesel after a week without grid power",
+      "text": "Robert’s World News list carried @AJEnglish. One desk. A nuclear plant on diesel, not a calendar note.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJEnglish. One desk. A nuclear plant on diesel, not a calendar note.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-30T00:15:00.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2093854964879942014",
+      "analysis": "Robert’s World News list carried @AJEnglish. One desk. A nuclear plant on diesel, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-damascus-fair-post-assad",
+      "title": "Damascus holds its first international fair since Assad fell",
+      "text": "Robert’s World News list carried @AJEnglish. One desk. The first post Assad fair, not a travel brief.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJEnglish. One desk. The first post Assad fair, not a travel brief.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-30T00:00:15.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2093851253646533053",
+      "analysis": "Robert’s World News list carried @AJEnglish. One desk. The first post Assad fair, not a travel brief.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-astribot-t1-13000",
+      "title": "Astribot prices the wheeled T1 at about $13,000",
+      "text": "Robert’s community lists and his robot media list carried @techniahqrobot. Two desks. A $13,000 robot price, not a fail compilation.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s community lists and his robot media list carried @techniahqrobot. Two desks. A $13,000 robot price, not a fail compilation.",
+      "list_names": [
+        "AI Community #5 of 9",
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Robot Influencers/Media"
+      ],
+      "created_at": "2026-08-30T00:20:41.000Z",
+      "source_url": "https://x.com/techniahqrobot/status/2093856396089414138",
+      "analysis": "Robert’s community lists and his robot media list carried @techniahqrobot. Two desks. A $13,000 robot price, not a fail compilation.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-supabase-linux-one-command",
+      "title": "Supabase says self hosting on Linux is now one command",
+      "text": "Robert’s developer lists carried @supabase on two desks. A one command self host, not a changelog dump.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s developer lists carried @supabase on two desks. A one command self host, not a changelog dump.",
+      "list_names": [
+        "Devs, Designers, DevRel 1",
+        "Devs, Designers, DevRel 2"
+      ],
+      "chip_labels": [
+        "Devs, Designers, DevRel 1",
+        "Devs, Designers, DevRel 2"
+      ],
+      "created_at": "2026-08-30T00:15:05.000Z",
+      "source_url": "https://x.com/supabase/status/2093854985284895149",
+      "analysis": "Robert’s developer lists carried @supabase on two desks. A one command self host, not a changelog dump.",
+      "topic_key": "products",
+      "topic_label": "Products"
     }
   ],
   "reports": [
@@ -5955,10 +6275,10 @@
   "bundles": [],
   "ai_sections": [],
   "top_pulls": [
+    "tencent-hy4-preview",
     "glm-5-3-day-0",
     "fastvideo-fasth3",
     "a16z-machine-age-fund",
-    "pollen-microducks",
-    "lerobot-teleoperator"
+    "pollen-microducks"
   ]
 }
