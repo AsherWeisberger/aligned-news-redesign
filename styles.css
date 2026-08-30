@@ -7495,3 +7495,141 @@ html[data-density="compact"] .feed-row {
     border-radius: 12px;
   }
 }
+
+
+/* an216: overnight — desktop is a newsletter again. Phone magazine cards stay. */
+@media (min-width: 900px) {
+  html:not([data-density="compact"]) .lead-card.lead-card-opener,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.12fr) minmax(240px, 0.88fr) !important;
+    grid-template-areas:
+      "copy hero"
+      "after hero" !important;
+    gap: 0.2rem 1.45rem !important;
+    align-items: start;
+    padding: 0.05rem 0 1.25rem;
+    flex-direction: unset;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-copy {
+    grid-area: copy;
+    order: unset !important;
+    padding: 0.1rem 0 0;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-after {
+    grid-area: after;
+    order: unset !important;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero {
+    display: block !important;
+    grid-area: hero;
+    order: unset !important;
+    width: 100%;
+    margin: 0 !important;
+    min-height: 220px;
+    max-height: none;
+    height: 100%;
+    aspect-ratio: auto !important;
+    align-self: stretch;
+    border-radius: 14px;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-title,
+  html:not([data-density="compact"]) .lead-card-opener.lead-card-photo .lead-title {
+    font-size: clamp(2.05rem, 3.3vw, 2.72rem);
+    max-width: 18ch;
+    line-height: 1.08;
+    letter-spacing: -0.042em;
+    margin-bottom: 0.15rem;
+  }
+
+  html:not([data-density="compact"]) .feed-row,
+  html:not([data-density="compact"]) .feed-row:has(.row-thumb),
+  html:not([data-density="compact"]) .feed-row:has(.row-thumb.has-media),
+  html:not([data-density="compact"]) .feed-row.has-photo {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 96px !important;
+    grid-template-areas: "body thumb";
+    flex-direction: unset;
+    gap: 0.5rem 0.9rem !important;
+    padding: 0.82rem 0 !important;
+    align-items: start;
+  }
+  html:not([data-density="compact"]) .feed-row:not(:has(.row-thumb)),
+  html:not([data-density="compact"]) .feed-row:not(.has-photo):not(:has(.row-thumb)) {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: "body";
+  }
+  html:not([data-density="compact"]) .feed-row .feed-body {
+    grid-area: body;
+    min-width: 0;
+  }
+  html:not([data-density="compact"]) .feed-row .row-thumb,
+  html:not([data-density="compact"]) .feed-row.has-photo .row-thumb {
+    grid-area: thumb;
+    order: 0 !important;
+    width: 96px !important;
+    height: 72px !important;
+    min-height: 0 !important;
+    max-width: 96px;
+    aspect-ratio: auto;
+    border-radius: 10px;
+    justify-self: end;
+  }
+  html:not([data-density="compact"]) .story-title {
+    font-size: 1.08rem;
+    font-weight: 650;
+    line-height: 1.28;
+    letter-spacing: -0.018em;
+    margin: 0 0 0.2rem;
+  }
+  html:not([data-density="compact"]) .feed-row .excerpt,
+  html:not([data-density="compact"]) .excerpt {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 0.88rem;
+    margin: 0 0 0.28rem;
+  }
+
+  html[data-density="compact"] .feed-row,
+  html[data-density="compact"] .feed-row:has(.row-thumb) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    flex-direction: unset;
+    padding: 0.48rem 0.05rem 0.48rem 0 !important;
+    gap: 0.15rem !important;
+  }
+  html[data-density="compact"] .feed-row .row-thumb {
+    display: none !important;
+  }
+}
+
+@media (max-width: 899px) {
+  .lead-card.lead-card-opener,
+  .lead-card-photo.lead-card-opener,
+  html[data-density="compact"] .lead-card.lead-card-opener,
+  html[data-density="compact"] .lead-card-photo.lead-card-opener {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .lead-card-opener .lead-copy {
+    order: 1 !important;
+    padding: 0;
+  }
+  .lead-card-opener .lead-hero {
+    order: 2 !important;
+    display: block !important;
+    width: 100%;
+    margin: 0.7rem 0 0.72rem !important;
+    min-height: 152px;
+    max-height: 188px;
+    aspect-ratio: 16 / 9 !important;
+  }
+  .lead-card-opener .lead-after { order: 3 !important; }
+  .lead-card-opener .lead-title,
+  .lead-card-opener.lead-card-photo .lead-title {
+    font-size: 1.78rem;
+    line-height: 1.1;
+    margin: 0;
+    max-width: none;
+  }
+}
