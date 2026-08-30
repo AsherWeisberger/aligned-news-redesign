@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-30T09:22:37.000Z",
-    "scrapedAt": "2026-08-30T09:22:37.000Z",
+    "generatedAt": "2026-08-30T13:06:13.000Z",
+    "scrapedAt": "2026-08-30T13:06:13.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 98 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 100 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 54,
-    "stories": 98,
-    "signals": 97,
+    "stories": 100,
+    "signals": 99,
     "reports": 4
   },
   "chips": [
@@ -212,7 +212,7 @@
           "url": "https://x.com/TencentHunyuan/status/2093222928720761009"
         }
       ],
-      "body": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. WorkBuddy posted this morning that Hy4 preview is live there, with a switch between Work and Coding tasks. Tencent is also putting it in CodeBuddy, Yuanbao, and ima, with API access on Tencent Cloud TokenHub and OpenRouter. WorkBuddy and CodeBuddy get two weeks free. TechNode listed OpenRouter pricing at $0.834 per million input tokens and $2.501 per million output.\n\nThis is a same day open weight flagship, not a teaser card. The GitHub model card describes 78 layers, 256 routed experts, top 8 plus a shared expert, gated sparse attention, and a native MTP layer for speculative decoding. Tencent says it is built for coding, office work, and research, and that the next Hy4 batch is close.\n\nHis community lists carried the Hunyuan lab post. Watch how it actually runs at 1 million context, whether WorkBuddy’s Work and Coding switch holds, and whether the preview’s extra checking on hard reasoning shows up as latency in the API.",
+      "body": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. WorkBuddy posted this morning that Hy4 preview is live there, with a switch between Work and Coding tasks. Tencent is also putting it in CodeBuddy, Yuanbao, and ima, with API access on Tencent Cloud TokenHub and OpenRouter. WorkBuddy and CodeBuddy get two weeks free. TechNode listed OpenRouter pricing at $0.834 per million input tokens and $2.501 per million output.\n\nThis is a same day open weight flagship, not a teaser card. The GitHub model card describes 78 layers, 256 routed experts, top 8 plus a shared expert, gated sparse attention, and a native MTP layer for speculative decoding. Tencent says it is built for coding, office work, and research, and that the next Hy4 batch is close.\n\nA community clip later put Hy4 at fifth on an Arena coding board. Treat that as a list note until Tencent or the board itself posts. Watch how it actually runs at 1 million context, whether WorkBuddy’s Work and Coding switch holds, and whether the preview’s extra checking on hard reasoning shows up as latency in the API.",
       "kind": "story",
       "engagement": {
         "impression_count": 1545332,
@@ -735,7 +735,7 @@
       "topic_key": "creatives",
       "topic_label": "Creatives",
       "x_handle": "midjourney",
-      "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=240x240",
       "list_count": 4,
       "views": 92047,
       "desk_rank": 13
@@ -1965,7 +1965,7 @@
           "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nChina Daily said a new landslide hit downstream of a barrier lake in Gyirong county Saturday evening, forming a new barrier dam and lake. ABC said Nepal warned of possible fresh flooding after the Bhotekoshi River rose. The Hindu said workers remain trapped in the Trishuli hydropower tunnel after the August 26 flood. A weather desk posted that flash flooding on the Trishuli again swept away a bridge at Silingtār in Nuwakot.\n\nThe death print has not moved past 734. The ground has. Families are still arriving at Kathmandu hospitals for names. Watch the next Nepal police bulletin, the Gyirong barrier lake, and whether the tunnel rescue gets people out.",
+      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nChina Daily said a new landslide hit downstream of a barrier lake in Gyirong county Saturday evening, forming a new barrier dam and lake. ABC said Nepal warned of possible fresh flooding after the Bhotekoshi River rose. The Hindu said workers remain trapped in the Trishuli hydropower tunnel after the August 26 flood. A weather desk posted that flash flooding on the Trishuli again swept away a bridge at Silingtār in Nuwakot.\n\nThe death print has not moved past 734. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. NDTV said India sent aid and forensic teams. Globe and Mail repeated the fresh flood warning. Watch the next Nepal police bulletin, whether the new Gyirong barrier lake holds, and whether the Trishuli tunnel rescue gets people out.",
       "kind": "story",
       "engagement": {
         "impression_count": 32858,
@@ -1973,7 +1973,7 @@
         "reply_count": 3,
         "retweet_count": 43
       },
-      "why_it_matters": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
+      "why_it_matters": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @CGTNOfficial on Gyirong signals back Sunday evening. The death number held. The ground and the phones did not.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJEnglish",
@@ -2951,7 +2951,7 @@
           "url": "https://x.com/cnnbrk/status/2093975319107498241"
         }
       ],
-      "body": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were too important to risk. Al Jazeera had 152,000 votes counted and 50.1 percent against, with a final expected around midday Sunday.\n\nA no vote keeps Reykjavik in NATO and the EEA, and keeps Brussels without a new Arctic member. The government had framed the ballot as a chance to reopen talks, not as a final accession.\n\nWatch the midday Sunday print, and whether Brussels treats the no as closed.",
+      "body": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were too important to risk. Al Jazeera had 152,000 votes counted and 50.1 percent against, with a final expected around midday Sunday.\n\nA no vote keeps Reykjavik in NATO and the EEA, and keeps Brussels without a new Arctic member. The government had framed the ballot as a chance to reopen talks, not as a final accession.\n\nCBS recapped the no at midday Sunday with no new margin in the dump. Watch whether Brussels treats the no as closed.",
       "kind": "story",
       "engagement": {
         "impression_count": 20000,
@@ -4266,6 +4266,47 @@
       "desk_rank": 96
     },
     {
+      "id": "gpt-5-6-prime-gaps",
+      "headline": "GPT 5.6 posts a stronger bound on large gaps between primes",
+      "summary": "Simo Ryu posted that GPT 5.6 now has a stronger result on large gaps between primes, improving on the Ford Green Konyagin Maynard Tao bound by a factor of log 3 X over (log 4 X) squared. He said Tao had argued a genuinely new idea would be needed to beat that record. Number theor",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-30T10:40:07.000Z",
+      "author_name": "cloneofsimo",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/cloneofsimo/status/2094012283408306243",
+      "sources": [
+        {
+          "label": "@cloneofsimo",
+          "url": "https://x.com/cloneofsimo/status/2094012283408306243"
+        }
+      ],
+      "body": "Simo Ryu posted that GPT 5.6 now has a stronger result on large gaps between primes, improving on the Ford Green Konyagin Maynard Tao bound by a factor of log 3 X over (log 4 X) squared. He said Tao had argued a genuinely new idea would be needed to beat that record. Number theorist Jared Lichtman followed that GPT 5.6 broke the record, saving about a log 3 n factor on the 2018 paper, and that Boris Alexeev has formalized the argument in Lean.\n\nA frontier model moving an analytic number theory bound is a lab result, not a screenshot of a chatbot. Lichtman posts on these lists as a mathematician. The Lean file is the artifact, not the clip.\n\nWatch whether the Lean compiles in public, and whether Ford or Tao posts a correction.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 959,
+        "like_count": 22,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s community lists carried @cloneofsimo on the bound. His community lists later carried @jdlichtman on the Lean formalization. A number theory record is not a vibe coding clip.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "cloneofsimo",
+      "media_url": "https://pbs.twimg.com/media/HQ9qLV0bcAA23h3?format=png&name=large",
+      "list_count": 2,
+      "views": 959,
+      "desk_rank": 97
+    },
+    {
       "id": "arizona-desert-migrant-deaths",
       "headline": "Arizona desert migrant deaths rise as border crossings fall",
       "summary": "The Independent posted that the number of dead migrants found in the Arizona desert spiked even as border crossings plunged under Trump. Robert's World News list carried the wire overnight.",
@@ -4301,7 +4342,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ8WPw7XwAAl136?format=jpg&name=large",
       "list_count": 1,
       "views": 985,
-      "desk_rank": 97
+      "desk_rank": 98
     },
     {
       "id": "switzerland-aarau-shooting",
@@ -4327,7 +4368,7 @@
           "url": "https://x.com/cnni/status/2093973761439510773"
         }
       ],
-      "body": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.\n\nA rave shooting in a Swiss canton is breaking World News. Motive is not in the dump. Do not wait for a name.\n\nWatch whether police name a suspect, and whether the count of wounded moves.",
+      "body": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.\n\nA rave shooting in a Swiss canton is breaking World News. Motive is not in the dump. The 8am lists still have no named suspect and no new wounded count.\n\nWatch whether police name a suspect, and whether the count of wounded moves.",
       "kind": "story",
       "engagement": {
         "impression_count": 9000,
@@ -4342,7 +4383,48 @@
       "media_url": "https://pbs.twimg.com/media/HQ9KBdYXYAAKdp_?format=jpg&name=large",
       "list_count": 1,
       "views": 9000,
-      "desk_rank": 98
+      "desk_rank": 99
+    },
+    {
+      "id": "cyprus-ferry-capsize",
+      "headline": "Passenger ferry with 270 people capsizes off northern Cyprus",
+      "summary": "Sky News posted breaking coverage of a passenger ferry carrying 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same 270 count from local media.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T11:53:55.000Z",
+      "author_name": "SkyNews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/SkyNews/status/2094030855840624926",
+      "sources": [
+        {
+          "label": "@SkyNews",
+          "url": "https://x.com/SkyNews/status/2094030855840624926"
+        }
+      ],
+      "body": "Sky News posted breaking coverage of a passenger ferry carrying 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same 270 count from local media.\n\nAP, citing Turkish media, said the catamaran belonged to Filo Denizcilik, took on water about 7.5 km off Diana beach, and that at least 6 people were dead. Northern Cyprus prime minister Unal Ustel told TRT more than 172 people had been rescued. The Turkish ambassador in Nicosia said there were casualties and that some of the 259 passengers and 8 crew went to hospital.\n\nThis is a live rescue on a World News desk, not a recap. Watch the next official death print, and whether the rest of the 270 are accounted for.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 11988,
+        "like_count": 11,
+        "reply_count": 11,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert’s World News list carried @SkyNews on the capsize, with @BBCWorld on the same 270 count. One desk. A live rescue, not a holiday wrap.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "SkyNews",
+      "media_url": "https://pbs.twimg.com/media/HQ999BXXwAEpGXh.jpg",
+      "list_count": 1,
+      "views": 11988,
+      "desk_rank": 100
     }
   ],
   "signals": [
@@ -5324,12 +5406,12 @@
     {
       "id": "sig-nepal-china-floods",
       "title": "Nepal Tibet floods hold at 734 dead as a new Gyirong lake forms",
-      "text": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
+      "text": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @CGTNOfficial on Gyirong signals back Sunday evening. The death number held. The ground and the phones did not.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
+      "source_list": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @CGTNOfficial on Gyirong signals back Sunday evening. The death number held. The ground and the phones did not.",
       "list_names": [
         "World News"
       ],
@@ -5338,7 +5420,7 @@
       ],
       "created_at": "2026-08-29T05:00:01.000Z",
       "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
-      "analysis": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
+      "analysis": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @CGTNOfficial on Gyirong signals back Sunday evening. The death number held. The ground and the phones did not.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -6565,6 +6647,28 @@
       "topic_label": "Papers"
     },
     {
+      "id": "sig-gpt-5-6-prime-gaps",
+      "title": "GPT 5.6 posts a stronger bound on large gaps between primes",
+      "text": "Robert’s community lists carried @cloneofsimo on the bound. His community lists later carried @jdlichtman on the Lean formalization. A number theory record is not a vibe coding clip.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists carried @cloneofsimo on the bound. His community lists later carried @jdlichtman on the Lean formalization. A number theory record is not a vibe coding clip.",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-30T10:40:07.000Z",
+      "source_url": "https://x.com/cloneofsimo/status/2094012283408306243",
+      "analysis": "Robert’s community lists carried @cloneofsimo on the bound. His community lists later carried @jdlichtman on the Lean formalization. A number theory record is not a vibe coding clip.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
       "id": "sig-arizona-desert-migrant-deaths",
       "title": "Arizona desert migrant deaths rise as border crossings fall",
       "text": "Robert's World News list carried @Independent on the desert count. A body count, not a campaign clip.",
@@ -6603,6 +6707,27 @@
       "created_at": "2026-08-30T08:07:03.000Z",
       "source_url": "https://x.com/cnni/status/2093973761439510773",
       "analysis": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-cyprus-ferry-capsize",
+      "title": "Passenger ferry with 270 people capsizes off northern Cyprus",
+      "text": "Robert’s World News list carried @SkyNews on the capsize, with @BBCWorld on the same 270 count. One desk. A live rescue, not a holiday wrap.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @SkyNews on the capsize, with @BBCWorld on the same 270 count. One desk. A live rescue, not a holiday wrap.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-30T11:53:55.000Z",
+      "source_url": "https://x.com/SkyNews/status/2094030855840624926",
+      "analysis": "Robert’s World News list carried @SkyNews on the capsize, with @BBCWorld on the same 270 count. One desk. A live rescue, not a holiday wrap.",
       "topic_key": "world",
       "topic_label": "World"
     }
