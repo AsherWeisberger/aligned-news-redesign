@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-30T20:24:49.000Z",
-    "scrapedAt": "2026-08-30T20:24:49.000Z",
+    "generatedAt": "2026-08-30T20:45:02.000Z",
+    "scrapedAt": "2026-08-30T20:45:02.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 106 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 108 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 54,
-    "stories": 106,
-    "signals": 105,
+    "stories": 108,
+    "signals": 107,
     "reports": 4
   },
   "chips": [
@@ -1539,7 +1539,7 @@
           "url": "https://x.com/AJENews/status/2093791969067905108"
         }
       ],
-      "body": "Al Jazeera posted breaking: Niger’s presidential guard has retaken a key military base in the capital Niamey from mutinous soldiers, according to diplomatic and security sources cited by AFP. That follows this morning’s gunfire and blasts across the city, and Al Arabiya’s report that television broadcasts were cut.\n\nA guard retaking a base is the first named faction move, not just noise in the capital. Treat it as unfolding. The first wires still did not call it a coup.\n\nWatch who holds the presidential district tonight, and whether the junta speaks.",
+      "body": "Al Jazeera posted breaking: Niger’s presidential guard has retaken a key military base in the capital Niamey from mutinous soldiers, according to diplomatic and security sources cited by AFP. That follows this morning’s gunfire and blasts across the city, and Al Arabiya’s report that television broadcasts were cut.\n\nA guard retaking a base is the first named faction move, not just noise in the capital. Treat it as unfolding. The first wires still did not call it a coup. Bloomberg later said Algeria deployed four fighter jets to support Niger’s military rulers after the failed mutiny. That post has no photo on the lists.\n\nWatch who holds the presidential district tonight, and whether the junta speaks.",
       "kind": "story",
       "engagement": {
         "impression_count": 5691,
@@ -1547,7 +1547,7 @@
         "reply_count": 3,
         "retweet_count": 3
       },
-      "why_it_matters": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
+      "why_it_matters": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire, and later @business on Algeria’s four jets. One desk, a moving capital.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJENews",
@@ -2091,7 +2091,7 @@
           "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nNoon lists did not move that death print. Al Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. BBC World said a head teacher got 900 children out minutes before the flood hit the school. PTI carried an MEA note timed 2130 hrs on Indian nationals, without a new death count in the dump.\n\nThe 734 figure still holds on these lists. Watch the next Nepal police bulletin, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
+      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\n4pm lists still hold that death print. Al Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. BBC World said a head teacher got 900 children out minutes before the flood hit the school. PTI carried an MEA note timed 2130 hrs on Indian nationals, without a new death count in the dump.\n\nThe 734 figure still holds on these lists. Watch the next Nepal police bulletin, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
       "kind": "story",
       "engagement": {
         "impression_count": 32858,
@@ -2099,7 +2099,7 @@
         "reply_count": 3,
         "retweet_count": 43
       },
-      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @BBCWorld on the 900 children. One desk. The death number held. The tunnels and the China side search did not.",
+      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJEnglish",
@@ -2835,7 +2835,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "qz",
-      "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=360x360",
+      "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=large",
       "list_count": 2,
       "views": 1621,
       "desk_rank": 62
@@ -2878,7 +2878,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "JeremyKonyndyk",
-      "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=900x900",
+      "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
       "list_count": 2,
       "views": 755894,
       "desk_rank": 63
@@ -2921,7 +2921,7 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TencentHunyuan",
-      "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=900x900",
+      "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=large",
       "list_count": 3,
       "views": 73582,
       "desk_rank": 64
@@ -3077,7 +3077,7 @@
           "url": "https://x.com/cnnbrk/status/2093975319107498241"
         }
       ],
-      "body": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were too important to risk. Al Jazeera had 152,000 votes counted and 50.1 percent against, with a final expected around midday Sunday.\n\nA no vote keeps Reykjavik in NATO and the EEA, and keeps Brussels without a new Arctic member. The government had framed the ballot as a chance to reopen talks, not as a final accession.\n\nCBS recapped the no at midday Sunday with no new margin in the dump. Watch whether Brussels treats the no as closed.",
+      "body": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were too important to risk. Al Jazeera had 152,000 votes counted and 50.1 percent against, with a final expected around midday Sunday.\n\nA no vote keeps Reykjavik in NATO and the EEA, and keeps Brussels without a new Arctic member. The government had framed the ballot as a chance to reopen talks, not as a final accession.\n\nAFP later said Brussels put a brave face on the no, calling it a bitter pill and a lost success story. The margin in the dump did not move. Watch whether Brussels treats the no as closed.",
       "kind": "story",
       "engagement": {
         "impression_count": 20000,
@@ -3085,7 +3085,7 @@
         "reply_count": 5,
         "retweet_count": 9
       },
-      "why_it_matters": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
+      "why_it_matters": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "cnnbrk",
@@ -3514,7 +3514,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "WSJ",
-      "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=360x360",
+      "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=large",
       "list_count": 1,
       "views": 20502,
       "desk_rank": 78
@@ -3731,7 +3731,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "pubity",
-      "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=360x360",
+      "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=large",
       "list_count": 2,
       "views": 416000,
       "desk_rank": 83
@@ -4227,7 +4227,7 @@
     {
       "id": "korea-dram-export-gold",
       "headline": "Korean DRAM exports hit $92,183 a kilogram, up 401 percent",
-      "summary": "South Korean trade data posted on Robert's tech news lists shows DRAM export prices at $92,183 per kilogram from August 1 to 20, up 401 percent year over year and about 12.5 times the January 2023 print. One kilogram of Korean DRAM was worth about as much as 620 grams of 24K gold",
+      "summary": "South Korean trade data posted on Robert’s tech news lists shows DRAM export prices at $92,183 per kilogram from August 1 to 20, up 401 percent year over year and about 12.5 times the January 2023 print. One kilogram of Korean DRAM was worth about as much as 620 grams of 24K gold",
       "section": "chips",
       "section_key": "chips",
       "section_label": "Chips",
@@ -4250,7 +4250,7 @@
           "url": "https://x.com/Pirat_Nation/status/2093926939388174745"
         }
       ],
-      "body": "South Korean trade data posted on Robert's tech news lists shows DRAM export prices at $92,183 per kilogram from August 1 to 20, up 401 percent year over year and about 12.5 times the January 2023 print. One kilogram of Korean DRAM was worth about as much as 620 grams of 24K gold at recent prices.\n\nThat is a memory squeeze, not a tweet about GPUs being expensive. HBM and server DRAM are the same supply the AI build is eating. If the Korea customs print holds, training clusters and phone OEMs are bidding against each other on the same wafers.\n\nWatch the next Korea customs window, and whether Samsung and SK Hynix guide HBM allocations tighter into the fall.",
+      "body": "South Korean trade data posted on Robert’s tech news lists shows DRAM export prices at $92,183 per kilogram from August 1 to 20, up 401 percent year over year and about 12.5 times the January 2023 print. One kilogram of Korean DRAM was worth about as much as 620 grams of 24K gold at recent prices.\n\nThat is a memory squeeze, not a tweet about GPUs being expensive. HBM and server DRAM are the same supply the AI build is eating. If the Korea customs print holds, training clusters and phone OEMs are bidding against each other on the same wafers. A later tech news post said SK Hynix told buyers the memory shortage continues through 2030. That is a guidance line on the same squeeze, not a new customs print.\n\nWatch the next Korea customs window, and whether Samsung and SK Hynix guide HBM allocations tighter into the fall.",
       "kind": "story",
       "engagement": {
         "impression_count": 2700,
@@ -4494,7 +4494,7 @@
           "url": "https://x.com/cnni/status/2093973761439510773"
         }
       ],
-      "body": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.\n\nA rave shooting in a Swiss canton is breaking World News. Motive is not in the dump. The 8am lists still have no named suspect and no new wounded count.\n\nWatch whether police name a suspect, and whether the count of wounded moves.",
+      "body": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.\n\nA rave shooting in a Swiss canton is breaking World News. Motive is not in the dump. The 4pm lists still have no named suspect and no new wounded count.\n\nWatch whether police name a suspect, and whether the count of wounded moves.",
       "kind": "story",
       "engagement": {
         "impression_count": 9000,
@@ -4502,7 +4502,7 @@
         "reply_count": 3,
         "retweet_count": 2
       },
-      "why_it_matters": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "why_it_matters": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "cnni",
@@ -4514,7 +4514,7 @@
     {
       "id": "cyprus-ferry-capsize",
       "headline": "Cyprus ferry death print moves to 7 dead and 23 missing",
-      "summary": "Sky News posted breaking coverage of a passenger ferry carrying 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same 270 count from local media.",
+      "summary": "Sky News posted breaking coverage of a passenger ferry carrying about 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same passenger count from local media.",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
@@ -4535,7 +4535,7 @@
           "url": "https://x.com/SkyNews/status/2094030855840624926"
         }
       ],
-      "body": "Sky News posted breaking coverage of a passenger ferry carrying 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same 270 count from local media.\n\nReuters later put the print at least 7 dead and 23 missing, with survivors clinging to the overturned hull. AP, citing Turkish media, had said the catamaran belonged to Filo Denizcilik, took on water about 7.5 km off Diana beach, and that at least 6 people were dead. Northern Cyprus prime minister Unal Ustel told TRT more than 172 people had been rescued.\n\nThis is a live rescue on a World News desk, not a recap. Watch the next official death print, and whether the rest of the 270 are accounted for.",
+      "body": "Sky News posted breaking coverage of a passenger ferry carrying about 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same passenger count from local media.\n\nReuters put the print at least 7 dead and 23 missing, with survivors clinging to the overturned hull. That is the number on these lists. Do not write a later wire that is not in the dump.\n\nThis is a live rescue on a World News desk, not a recap. Watch the next official death print, and whether the captain is named.",
       "kind": "story",
       "engagement": {
         "impression_count": 11988,
@@ -4543,7 +4543,7 @@
         "reply_count": 11,
         "retweet_count": 7
       },
-      "why_it_matters": "Robert’s World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "why_it_matters": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "SkyNews",
@@ -4576,12 +4576,12 @@
           "url": "https://x.com/AlArabiya_Eng/status/2094101570560360706"
         }
       ],
-      "body": "UK Maritime Trade Operations said a tanker was struck by an unknown projectile while inbound through the Strait of Hormuz on Saturday. The note puts the hit 12 nautical miles north of Oman’s Khasab. Arab News carried the same UKMTO line: no casualties, no environmental impact. Vessels were told to transit with caution.\n\nThis is the Hormuz war file, not a one off. UKMTO had a similar projectile warning near Khasab days earlier. The dump does not name the ship, the flag, or who fired.\n\nWatch whether a second advisory names the vessel, and whether traffic through the strait actually slows.",
+      "body": "UK Maritime Trade Operations said a tanker was struck by an unknown projectile while inbound through the Strait of Hormuz on Saturday. The note puts the hit 12 nautical miles north of Oman’s Khasab. Arab News carried the same UKMTO line: no casualties, no environmental impact. Vessels were told to transit with caution.\n\nThis is the Hormuz war file, not a one off. UKMTO had a similar projectile warning near Khasab days earlier. The dump does not name the ship, the flag, or who fired. Hours later the same desk carried a US strike on Larak Island.\n\nWatch whether a second advisory names the vessel, whether traffic through the strait actually slows, and the later Larak strike on this file.",
       "kind": "story",
       "engagement": {
         "impression_count": 887
       },
-      "why_it_matters": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap.",
+      "why_it_matters": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap. The later US strike is a separate card.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AlArabiya_Eng",
@@ -4614,14 +4614,14 @@
           "url": "https://x.com/AJENews/status/2094100449133556208"
         }
       ],
-      "body": "Al Jazeera posted breaking: a humanitarian agency said thousands of Iranians were rescued from rubble during the war. That is an official tally going public, not a new airstrike tonight.\n\nThe dump does not print a precise count. The line sits on the same World News desk as the Hormuz tanker hit. Treat the agency as unnamed until a later wire prints it.\n\nWatch whether a named agency and a number land, and whether this is a fresh search or a war totals briefing.",
+      "body": "Al Jazeera posted breaking: a humanitarian agency said thousands of Iranians were rescued from rubble during the war. That is an official tally going public, not a new airstrike tonight.\n\nThe 4pm dump still does not print a precise count or a named agency. The line sits on the same World News desk as the Hormuz tanker hit and the later Larak strike. Treat the agency as unnamed until a later wire prints it.\n\nWatch whether a named agency and a number land, and whether this is a fresh search or a war totals briefing.",
       "kind": "story",
       "engagement": {
         "impression_count": 5200,
         "like_count": 1,
         "retweet_count": 2
       },
-      "why_it_matters": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note.",
+      "why_it_matters": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note. The 4pm lists still have no number.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJENews",
@@ -4669,6 +4669,85 @@
       "list_count": 1,
       "views": 1600,
       "desk_rank": 106
+    },
+    {
+      "id": "us-larak-strike",
+      "headline": "US strikes two Iranian launchers on Larak Island as IRGC reports dead",
+      "summary": "A US official told wires that American forces struck two Iranian rocket launchers on Larak Island on Sunday after IRGC units were seen preparing to fire rockets carrying sea mines into the Strait of Hormuz. Sky News called it the first US military action in the strait in a month.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T20:12:00.000Z",
+      "author_name": "AJENews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJENews/status/2094156201517097351",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2094156201517097351"
+        }
+      ],
+      "body": "A US official told wires that American forces struck two Iranian rocket launchers on Larak Island on Sunday after IRGC units were seen preparing to fire rockets carrying sea mines into the Strait of Hormuz. Sky News called it the first US military action in the strait in a month. Al Jazeera said the IRGC reported soldiers and civilians killed and injured and promised a response and punishment. The lists do not print a precise IRGC count.\n\nThe strike landed hours after UKMTO said a tanker was hit by a projectile north of Khasab. Axios framed the US action as a mine threat strike. Fars reported an explosion near the island. This is the Hormuz war file moving, not a recap of the morning tanker note.\n\nWatch whether CENTCOM names the aircraft, whether the IRGC count firms up, and whether another tanker week follows the vow.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 13000,
+        "like_count": 40,
+        "reply_count": 6,
+        "retweet_count": 13
+      },
+      "why_it_matters": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/media/HQ_v97QbQAAyBf1?format=jpg&name=large",
+      "list_count": 1,
+      "views": 13000,
+      "desk_rank": 107
+    },
+    {
+      "id": "west-bank-mughayyir",
+      "headline": "Four Palestinians wounded by live fire in a settler attack on Al Mughayyir",
+      "summary": "Arab News posted video of a settler attack on the West Bank village of Al Mughayyir, northeast of Ramallah, with four Palestinians wounded by live fire. Local sources told WAFA that settlers hit residents’ vehicles and that Israeli forces fired live rounds and tear gas. Two of th",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T20:21:11.000Z",
+      "author_name": "arabnews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/arabnews/status/2094158511403876404",
+      "sources": [
+        {
+          "label": "@arabnews",
+          "url": "https://x.com/arabnews/status/2094158511403876404"
+        }
+      ],
+      "body": "Arab News posted video of a settler attack on the West Bank village of Al Mughayyir, northeast of Ramallah, with four Palestinians wounded by live fire. Local sources told WAFA that settlers hit residents’ vehicles and that Israeli forces fired live rounds and tear gas. Two of the wounded were hit in the thigh, one in the chest, and one in the abdomen. Dozens more were treated for rubber bullets or tear gas.\n\nThis is a new named village on a Sunday already carrying Qusra, Al Musaddar, and an NBC beating. A village council head told Al Jazeera the army had been restricting access to settlers. The Palestine Red Crescent said its teams treated the four live fire wounded.\n\nWatch whether the four stay in hospital, and whether the village entrance stays sealed.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1100
+      },
+      "why_it_matters": "Robert’s World News list carried @arabnews. One desk. A named village with four wounded, not a recap of Friday’s raid.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "arabnews",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094158353375141888/img/hWF4EKN4u7ZARmJt.jpg",
+      "list_count": 1,
+      "views": 1100,
+      "desk_rank": 108
     }
   ],
   "signals": [
@@ -5420,12 +5499,12 @@
     {
       "id": "sig-niger-niamey-gunfire",
       "title": "Niger presidential guard retakes a Niamey base from mutineers",
-      "text": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
+      "text": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire, and later @business on Algeria’s four jets. One desk, a moving capital.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
+      "source_list": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire, and later @business on Algeria’s four jets. One desk, a moving capital.",
       "list_names": [
         "World News"
       ],
@@ -5434,7 +5513,7 @@
       ],
       "created_at": "2026-08-29T20:04:40.000Z",
       "source_url": "https://x.com/AJENews/status/2093791969067905108",
-      "analysis": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire. One desk, a moving capital.",
+      "analysis": "Robert’s World News list carried @AJENews on the base, after @AJENews and @ReutersWorld on the morning gunfire, and later @business on Algeria’s four jets. One desk, a moving capital.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -5717,12 +5796,12 @@
     {
       "id": "sig-nepal-china-floods",
       "title": "Nepal Tibet floods hold at 734 dead as tunnel rescue continues",
-      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @BBCWorld on the 900 children. One desk. The death number held. The tunnels and the China side search did not.",
+      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @BBCWorld on the 900 children. One desk. The death number held. The tunnels and the China side search did not.",
+      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
       "list_names": [
         "World News"
       ],
@@ -5731,7 +5810,7 @@
       ],
       "created_at": "2026-08-29T05:00:01.000Z",
       "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
-      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @BBCWorld on the 900 children. One desk. The death number held. The tunnels and the China side search did not.",
+      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -6251,12 +6330,12 @@
     {
       "id": "sig-iceland-eu-vote",
       "title": "Iceland rejects reopening talks to join the EU",
-      "text": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
+      "text": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
+      "source_list": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
       "list_names": [
         "World News"
       ],
@@ -6265,7 +6344,7 @@
       ],
       "created_at": "2026-08-30T08:13:14.000Z",
       "source_url": "https://x.com/cnnbrk/status/2093975319107498241",
-      "analysis": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
+      "analysis": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -7003,12 +7082,12 @@
     {
       "id": "sig-switzerland-aarau-shooting",
       "title": "Manhunt after shots at an Aarau rave kill one and wound five",
-      "text": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "text": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "source_list": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
       "list_names": [
         "World News"
       ],
@@ -7017,19 +7096,19 @@
       ],
       "created_at": "2026-08-30T08:07:03.000Z",
       "source_url": "https://x.com/cnni/status/2093973761439510773",
-      "analysis": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "analysis": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
       "topic_key": "world",
       "topic_label": "World"
     },
     {
       "id": "sig-cyprus-ferry-capsize",
       "title": "Cyprus ferry death print moves to 7 dead and 23 missing",
-      "text": "Robert’s World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "text": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "source_list": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
       "list_names": [
         "World News"
       ],
@@ -7038,19 +7117,19 @@
       ],
       "created_at": "2026-08-30T11:53:55.000Z",
       "source_url": "https://x.com/SkyNews/status/2094030855840624926",
-      "analysis": "Robert’s World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "analysis": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
       "topic_key": "world",
       "topic_label": "World"
     },
     {
       "id": "sig-hormuz-tanker-strike",
       "title": "UKMTO says a tanker was hit by a projectile in the Strait of Hormuz",
-      "text": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap.",
+      "text": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap. The later US strike is a separate card.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap.",
+      "source_list": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap. The later US strike is a separate card.",
       "list_names": [
         "World News"
       ],
@@ -7059,19 +7138,19 @@
       ],
       "created_at": "2026-08-30T16:34:55.000Z",
       "source_url": "https://x.com/AlArabiya_Eng/status/2094101570560360706",
-      "analysis": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap.",
+      "analysis": "Robert’s World News list carried @AlArabiya_Eng on the UKMTO note, with @arabnews on no casualties. One desk. A live strait hit, not a recap. The later US strike is a separate card.",
       "topic_key": "world",
       "topic_label": "World"
     },
     {
       "id": "sig-iran-rubble-rescues",
       "title": "Iranian rescuers say thousands were pulled from rubble during the war",
-      "text": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note.",
+      "text": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note. The 4pm lists still have no number.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note.",
+      "source_list": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note. The 4pm lists still have no number.",
       "list_names": [
         "World News"
       ],
@@ -7080,7 +7159,7 @@
       ],
       "created_at": "2026-08-30T16:30:28.000Z",
       "source_url": "https://x.com/AJENews/status/2094100449133556208",
-      "analysis": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note.",
+      "analysis": "Robert’s World News list carried @AJENews. One desk. A humanitarian tally, not a calendar note. The 4pm lists still have no number.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -7102,6 +7181,48 @@
       "created_at": "2026-08-30T16:33:35.000Z",
       "source_url": "https://x.com/globaltimesnews/status/2094101232780710312",
       "analysis": "Robert’s World News list carried @globaltimesnews. One desk. A fighter export, not a parade recap.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-us-larak-strike",
+      "title": "US strikes two Iranian launchers on Larak Island as IRGC reports dead",
+      "text": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-30T20:12:00.000Z",
+      "source_url": "https://x.com/AJENews/status/2094156201517097351",
+      "analysis": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-west-bank-mughayyir",
+      "title": "Four Palestinians wounded by live fire in a settler attack on Al Mughayyir",
+      "text": "Robert’s World News list carried @arabnews. One desk. A named village with four wounded, not a recap of Friday’s raid.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @arabnews. One desk. A named village with four wounded, not a recap of Friday’s raid.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-30T20:21:11.000Z",
+      "source_url": "https://x.com/arabnews/status/2094158511403876404",
+      "analysis": "Robert’s World News list carried @arabnews. One desk. A named village with four wounded, not a recap of Friday’s raid.",
       "topic_key": "world",
       "topic_label": "World"
     }
