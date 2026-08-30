@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an219";
+  var DATA_URL = "live-data.json?v=an220";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -381,6 +381,7 @@
       if (!p) continue;
       if (p.toLowerCase() === h) continue;
       if (h && p.toLowerCase().indexOf(h.slice(0, Math.min(28, h.length))) === 0 && p.length < h.length + 12) continue;
+      if (parts.length > 1 && (/list carried\s+@/i.test(p) || /^Robert['’]s\s+.+/i.test(p))) continue;
       return firstSentence(p, maxLen);
     }
     return "";

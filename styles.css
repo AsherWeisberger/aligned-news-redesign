@@ -7810,3 +7810,32 @@ html.fonts-ready .brand-align-sub em {
     display: none !important;
   }
 }
+
+/* === an220: overnight — desktop 5th pull full measure, lead dek not mid-word === */
+@media (min-width: 900px) {
+  .top-pulls > .top-pull:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+  }
+  .top-pulls > .top-pull:last-child:nth-child(odd) .top-pull-title,
+  .top-pulls > .top-pull:last-child:nth-child(odd) .top-pull-dek {
+    max-width: none !important;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-dek,
+  html:not([data-density="compact"]) .lead-dek {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+    max-width: 62ch;
+  }
+  .top-pull-dek {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  body[data-page="today"] .feed-row .why-here,
+  body[data-page="today"] .lead-card .why-here {
+    display: none !important;
+  }
+}
