@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-30T01:01:38.000Z",
-    "scrapedAt": "2026-08-30T01:01:38.000Z",
+    "generatedAt": "2026-08-30T05:22:23.000Z",
+    "scrapedAt": "2026-08-30T05:22:23.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 92 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 97 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 53,
-    "stories": 92,
-    "signals": 91,
+    "lists": 54,
+    "stories": 97,
+    "signals": 96,
     "reports": 4
   },
   "chips": [
@@ -1943,8 +1943,8 @@
     },
     {
       "id": "nepal-china-floods",
-      "headline": "Nepal Tibet floods reach 629 dead and 1,924 missing",
-      "summary": "Al Jazeera posted Nepal police figures of at least 629 deaths and 1,924 missing on the Nepal Tibet border, with the toll still rising. China reported five deaths and 558 missing in Tibet, with rescue paused then resumed. Sky News was at a teaching college in Kathmandu where famil",
+      "headline": "Nepal Tibet floods reach 734 dead and about 2,500 missing",
+      "summary": "Al Jazeera posted a new Nepal disaster authority count overnight: at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side le",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
@@ -1965,7 +1965,7 @@
           "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Al Jazeera posted Nepal police figures of at least 629 deaths and 1,924 missing on the Nepal Tibet border, with the toll still rising. China reported five deaths and 558 missing in Tibet, with rescue paused then resumed. Sky News was at a teaching college in Kathmandu where families were still arriving for names. Robert’s World News list carried both wires.\n\nThe overnight number was 586 bodies and 2,400 missing. The morning number is a police death count plus a still open missing list. Write the new count.\n\nWatch the next Nepal police bulletin, and whether Beijing and Kathmandu keep separate tallies.",
+      "body": "Al Jazeera posted a new Nepal disaster authority count overnight: at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nThe morning desk had 629 dead and 1,924 missing on the Nepal side, with China then reporting five dead and 558 missing in Tibet. The overnight print is a higher Nepal death count and a China port tally that is finally split out. Families are still arriving at Kathmandu schools for names.\n\nWatch the next Nepal police bulletin, and whether Beijing and Kathmandu keep separate tallies.",
       "kind": "story",
       "engagement": {
         "impression_count": 32858,
@@ -1973,7 +1973,7 @@
         "reply_count": 3,
         "retweet_count": 43
       },
-      "why_it_matters": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
+      "why_it_matters": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJEnglish",
@@ -2709,7 +2709,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "qz",
-      "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=360x360",
       "list_count": 2,
       "views": 1621,
       "desk_rank": 59
@@ -2752,7 +2752,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "JeremyKonyndyk",
-      "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=900x900",
       "list_count": 2,
       "views": 755894,
       "desk_rank": 60
@@ -2795,7 +2795,7 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TencentHunyuan",
-      "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=900x900",
       "list_count": 3,
       "views": 73582,
       "desk_rank": 61
@@ -3388,7 +3388,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "WSJ",
-      "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=360x360",
       "list_count": 1,
       "views": 20502,
       "desk_rank": 75
@@ -3605,7 +3605,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "pubity",
-      "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=360x360",
       "list_count": 2,
       "views": 416000,
       "desk_rank": 80
@@ -4097,6 +4097,213 @@
       "list_count": 2,
       "views": 1600,
       "desk_rank": 92
+    },
+    {
+      "id": "korea-dram-export-gold",
+      "headline": "Korean DRAM exports hit $92,183 a kilogram, up 401 percent",
+      "summary": "South Korean trade data posted on Robert's tech news lists shows DRAM export prices at $92,183 per kilogram from August 1 to 20, up 401 percent year over year and about 12.5 times the January 2023 print. One kilogram of Korean DRAM was worth about as much as 620 grams of 24K gold",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-30T05:01:00.000Z",
+      "author_name": "Pirat_Nation",
+      "source_list": "Generalists, Tech News",
+      "list_names": [
+        "Generalists #3 of 3",
+        "Tech News"
+      ],
+      "chip_labels": [
+        "Generalists",
+        "Tech News"
+      ],
+      "source_url": "https://x.com/Pirat_Nation/status/2093926939388174745",
+      "sources": [
+        {
+          "label": "@Pirat_Nation",
+          "url": "https://x.com/Pirat_Nation/status/2093926939388174745"
+        }
+      ],
+      "body": "South Korean trade data posted on Robert's tech news lists shows DRAM export prices at $92,183 per kilogram from August 1 to 20, up 401 percent year over year and about 12.5 times the January 2023 print. One kilogram of Korean DRAM was worth about as much as 620 grams of 24K gold at recent prices.\n\nThat is a memory squeeze, not a tweet about GPUs being expensive. HBM and server DRAM are the same supply the AI build is eating. If the Korea customs print holds, training clusters and phone OEMs are bidding against each other on the same wafers.\n\nWatch the next Korea customs window, and whether Samsung and SK Hynix guide HBM allocations tighter into the fall.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2700,
+        "like_count": 27,
+        "reply_count": 5,
+        "retweet_count": 5
+      },
+      "why_it_matters": "Robert's generalists lists and tech news lists carried @Pirat_Nation on the Korea customs print. A real price, not a GPU meme.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "Pirat_Nation",
+      "media_url": "https://pbs.twimg.com/media/HQ7piWJXQAA8Z0u?format=jpg&name=large",
+      "list_count": 2,
+      "views": 2700,
+      "desk_rank": 93
+    },
+    {
+      "id": "xgboost-vector-leaf",
+      "headline": "XGBoost ships vector leaf trees as a multiclass default to try",
+      "summary": "Tianqi Chen posted the XGBoost vector leaf model from Jiamin Yuan and Rory Mitchell. In v3.4.1 the hist trainer can build one shared tree whose leaves hold a vector of scores instead of one scalar tree per class. Set multi_strategy to multi_output_tree. Vector leaves were prototy",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-30T01:25:41.000Z",
+      "author_name": "tqchenml",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/tqchenml/status/2093872754105663501",
+      "sources": [
+        {
+          "label": "@tqchenml",
+          "url": "https://x.com/tqchenml/status/2093872754105663501"
+        }
+      ],
+      "body": "Tianqi Chen posted the XGBoost vector leaf model from Jiamin Yuan and Rory Mitchell. In v3.4.1 the hist trainer can build one shared tree whose leaves hold a vector of scores instead of one scalar tree per class. Set multi_strategy to multi_output_tree. Vector leaves were prototyped on CPU hist in v2.0; this is the first feature complete hist path, CPU and CUDA.\n\nAcross ten real multiclass sets, vector leaves posted lower held out loss on nine and used fewer splits on all ten. When classes benefit from the same split questions, one shared tree is smaller, faster, and less likely to chase a spurious feature that only one class liked.\n\nWatch whether LightGBM and sklearn stacks copy the default, and whether the CUDA hist path stays bit exact with CPU.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1328,
+        "like_count": 27,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert's community lists carried @tqchenml on the vector leaf drop. A library change with numbers, not an Introducing dump.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "tqchenml",
+      "media_url": "https://pbs.twimg.com/media/HQ7uK0eWsAA40Vt?format=jpg&name=large",
+      "list_count": 2,
+      "views": 1328,
+      "desk_rank": 94
+    },
+    {
+      "id": "ubtech-cruzr-s2-wrc",
+      "headline": "UBTECH Cruzr S2 builds auto parts as humanoids hit 46 percent of sales",
+      "summary": "A Cruzr S2 wheeled humanoid was on the floor at the World Robot Conference assembling auto parts. The same desk posted UBTECH's 2026 interim: 921 full size humanoids sold, RMB 590.3 million in that line, about $87.8 million, 46.5 percent of total revenue.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-30T05:04:59.000Z",
+      "author_name": "CyberRobooo",
+      "source_list": "Robot Influencers/Media, AI Robotics",
+      "list_names": [
+        "Robot Influencers/Media",
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media",
+        "AI Robotics"
+      ],
+      "source_url": "https://x.com/CyberRobooo/status/2093927943504552288",
+      "sources": [
+        {
+          "label": "@CyberRobooo",
+          "url": "https://x.com/CyberRobooo/status/2093927943504552288"
+        }
+      ],
+      "body": "A Cruzr S2 wheeled humanoid was on the floor at the World Robot Conference assembling auto parts. The same desk posted UBTECH's 2026 interim: 921 full size humanoids sold, RMB 590.3 million in that line, about $87.8 million, 46.5 percent of total revenue.\n\nThat is a factory demo with a revenue split attached, not a dance clip. Wheeled Cruzr is the warehouse and line version. Walker and the full size bipeds are the other half of the print. If nearly half of UBTECH's take is already humanoid hardware, the China line is past prototype theater.\n\nWatch whether the 921 units are Walker, Cruzr, or mixed, and whether the next interim keeps the humanoid share above 40 percent.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 204,
+        "like_count": 8,
+        "retweet_count": 3
+      },
+      "why_it_matters": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "CyberRobooo",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093926605550993408/img/WhibTYIoy6DumuiY.jpg",
+      "list_count": 2,
+      "views": 204,
+      "desk_rank": 95
+    },
+    {
+      "id": "olmo3-capability-provenance",
+      "headline": "Georgia Tech traces OLMo3 social reasoning back to Dolma3 bins",
+      "summary": "Glenn Matlin and coauthors posted a COLM 2026 paper that maps which regions of Dolma3 support which skills in OLMo3 7B. They score documents with gradient based training data attribution (TrackStar via Bergson), then bin them on WebOrganizer's 24 topic by 24 format grid. Social r",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-08-30T00:47:28.000Z",
+      "author_name": "GlennMatlin",
+      "source_list": "AI Companies, AI Vehicles",
+      "list_names": [
+        "AI Companies #2 of 2",
+        "AI Vehicles"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Vehicles"
+      ],
+      "source_url": "https://x.com/GlennMatlin/status/2093863138533703759",
+      "sources": [
+        {
+          "label": "@GlennMatlin",
+          "url": "https://x.com/GlennMatlin/status/2093863138533703759"
+        }
+      ],
+      "body": "Glenn Matlin and coauthors posted a COLM 2026 paper that maps which regions of Dolma3 support which skills in OLMo3 7B. They score documents with gradient based training data attribution (TrackStar via Bergson), then bin them on WebOrganizer's 24 topic by 24 format grid. Social reasoning (SocialIQA) draws on customer support, literature, and social life text. STEM reasoning and MMLU knowledge concentrate in documentation.\n\nUnlearning the high influence bins hurts SocialIQA more than forgetting random documents from the same topic. Code, influence scores, and checkpoints are public. The claim is not that one Reddit thread taught theory of mind. It is that social skill and STEM skill do not live in the same slice of the pretraining mix.\n\nWatch whether other open data labs repeat the bin map on a bigger OLMo, and whether data mixes start reweighting literature and support text on purpose.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2900,
+        "like_count": 55,
+        "reply_count": 9,
+        "retweet_count": 11
+      },
+      "why_it_matters": "Robert's company lists and vehicle lists carried @GlennMatlin on the OLMo3 provenance paper. A method and a public dump, not a title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "GlennMatlin",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093861002571915264/img/UZxCnQ4kLDou1rNi.jpg",
+      "list_count": 2,
+      "views": 2900,
+      "desk_rank": 96
+    },
+    {
+      "id": "arizona-desert-migrant-deaths",
+      "headline": "Arizona desert migrant deaths rise as border crossings fall",
+      "summary": "The Independent posted that the number of dead migrants found in the Arizona desert spiked even as border crossings plunged under Trump. Robert's World News list carried the wire overnight.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T04:20:47.000Z",
+      "author_name": "Independent",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/Independent/status/2093916819392245868",
+      "sources": [
+        {
+          "label": "@Independent",
+          "url": "https://x.com/Independent/status/2093916819392245868"
+        }
+      ],
+      "body": "The Independent posted that the number of dead migrants found in the Arizona desert spiked even as border crossings plunged under Trump. Robert's World News list carried the wire overnight.\n\nA drop in official crossings is not the same as a drop in deaths. People still walk the same desert. The county examiners count bodies the Border Patrol does not see at the ports.\n\nWatch the next Arizona county medical examiner print, not the political frame on the headline.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 985
+      },
+      "why_it_matters": "Robert's World News list carried @Independent on the desert count. A body count, not a campaign clip.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "Independent",
+      "media_url": "https://pbs.twimg.com/media/HQ8WPw7XwAAl136?format=jpg&name=large",
+      "list_count": 1,
+      "views": 985,
+      "desk_rank": 97
     }
   ],
   "signals": [
@@ -5077,13 +5284,13 @@
     },
     {
       "id": "sig-nepal-china-floods",
-      "title": "Nepal Tibet floods reach 629 dead and 1,924 missing",
-      "text": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
+      "title": "Nepal Tibet floods reach 734 dead and about 2,500 missing",
+      "text": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
+      "source_list": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
       "list_names": [
         "World News"
       ],
@@ -5092,7 +5299,7 @@
       ],
       "created_at": "2026-08-29T05:00:01.000Z",
       "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
-      "analysis": "Robert’s World News list carried @AJEnglish on the police count, then @SkyNews from Kathmandu. One desk, two wires. A rising death count, not a weather meme.",
+      "analysis": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -6228,6 +6435,118 @@
       "analysis": "Robert’s developer lists carried @supabase on two desks. A one command self host, not a changelog dump.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-korea-dram-export-gold",
+      "title": "Korean DRAM exports hit $92,183 a kilogram, up 401 percent",
+      "text": "Robert's generalists lists and tech news lists carried @Pirat_Nation on the Korea customs print. A real price, not a GPU meme.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert's generalists lists and tech news lists carried @Pirat_Nation on the Korea customs print. A real price, not a GPU meme.",
+      "list_names": [
+        "Generalists #3 of 3",
+        "Tech News"
+      ],
+      "chip_labels": [
+        "Generalists",
+        "Tech News"
+      ],
+      "created_at": "2026-08-30T05:01:00.000Z",
+      "source_url": "https://x.com/Pirat_Nation/status/2093926939388174745",
+      "analysis": "Robert's generalists lists and tech news lists carried @Pirat_Nation on the Korea customs print. A real price, not a GPU meme.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
+      "id": "sig-xgboost-vector-leaf",
+      "title": "XGBoost ships vector leaf trees as a multiclass default to try",
+      "text": "Robert's community lists carried @tqchenml on the vector leaf drop. A library change with numbers, not an Introducing dump.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's community lists carried @tqchenml on the vector leaf drop. A library change with numbers, not an Introducing dump.",
+      "list_names": [
+        "AI Community #3 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-08-30T01:25:41.000Z",
+      "source_url": "https://x.com/tqchenml/status/2093872754105663501",
+      "analysis": "Robert's community lists carried @tqchenml on the vector leaf drop. A library change with numbers, not an Introducing dump.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-ubtech-cruzr-s2-wrc",
+      "title": "UBTECH Cruzr S2 builds auto parts as humanoids hit 46 percent of sales",
+      "text": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "list_names": [
+        "Robot Influencers/Media",
+        "AI Robotics"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media",
+        "AI Robotics"
+      ],
+      "created_at": "2026-08-30T05:04:59.000Z",
+      "source_url": "https://x.com/CyberRobooo/status/2093927943504552288",
+      "analysis": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-olmo3-capability-provenance",
+      "title": "Georgia Tech traces OLMo3 social reasoning back to Dolma3 bins",
+      "text": "Robert's company lists and vehicle lists carried @GlennMatlin on the OLMo3 provenance paper. A method and a public dump, not a title paste.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert's company lists and vehicle lists carried @GlennMatlin on the OLMo3 provenance paper. A method and a public dump, not a title paste.",
+      "list_names": [
+        "AI Companies #2 of 2",
+        "AI Vehicles"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Vehicles"
+      ],
+      "created_at": "2026-08-30T00:47:28.000Z",
+      "source_url": "https://x.com/GlennMatlin/status/2093863138533703759",
+      "analysis": "Robert's company lists and vehicle lists carried @GlennMatlin on the OLMo3 provenance paper. A method and a public dump, not a title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-arizona-desert-migrant-deaths",
+      "title": "Arizona desert migrant deaths rise as border crossings fall",
+      "text": "Robert's World News list carried @Independent on the desert count. A body count, not a campaign clip.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert's World News list carried @Independent on the desert count. A body count, not a campaign clip.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-30T04:20:47.000Z",
+      "source_url": "https://x.com/Independent/status/2093916819392245868",
+      "analysis": "Robert's World News list carried @Independent on the desert count. A body count, not a campaign clip.",
+      "topic_key": "world",
+      "topic_label": "World"
     }
   ],
   "reports": [
