@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an217";
+  var DATA_URL = "live-data.json?v=an218";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -2353,11 +2353,18 @@
     var compact = dock.classList.contains("is-compact");
     var h = compact ? "34px" : "44px";
     var slot = compact ? "32px" : "40px";
+    // Asher lock: ~214px icon pill when compact; grow with selected name when expanded
+    var innerMax = compact
+      ? "13.375rem"
+      : "min(18rem, calc(100vw - 4.5rem))";
+    var barMax = compact
+      ? "min(16.5rem, calc(100vw - 1.5rem))"
+      : "min(22rem, calc(100vw - 1.5rem))";
     pin(dock.querySelector(".mobile-dock-bar"), {
       display: "flex",
       width: "max-content",
       "min-width": "0",
-      "max-width": "min(22rem, calc(100vw - 1.5rem))",
+      "max-width": barMax,
       "align-items": "center",
       "justify-content": "center",
       gap: "6px",
@@ -2369,12 +2376,13 @@
       flex: "0 0 auto",
       width: "max-content",
       "min-width": "0",
-      "max-width": "min(18rem, calc(100vw - 4.5rem))",
+      "max-width": innerMax,
       height: h,
       "align-items": "center",
       "justify-content": "center",
       "box-sizing": "border-box",
-      "pointer-events": "auto"
+      "pointer-events": "auto",
+      overflow: "hidden"
     });
     pin(dock.querySelector(".mobile-dock-plus"), {
       display: "inline-flex",

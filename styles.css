@@ -7633,3 +7633,180 @@ html[data-density="compact"] .feed-row {
     max-width: none;
   }
 }
+
+/* === an218: phone chip fade wins, section heads, balanced titles, 214px dock, wordmark once === */
+
+/* E) Wordmark: hide until fonts-ready — never paint full then redraw split */
+html:not(.fonts-ready) .brand-align-top,
+html:not(.fonts-ready) .brand-align-bot,
+html:not(.fonts-ready) .brand-align-half,
+html:not(.fonts-ready) .brand-align-sub em {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+  filter: none !important;
+  /* keep split clip so first visible paint is already halved */
+  transform: none !important;
+}
+html:not(.fonts-ready) .brand-align-top {
+  clip-path: inset(0 0 42% 0) !important;
+}
+html:not(.fonts-ready) .brand-align-bot {
+  clip-path: inset(42% 0 0 0) !important;
+}
+html.fonts-ready .brand-align-half,
+html.fonts-ready .brand-align-sub em {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.28s ease;
+}
+
+/* A) Chip fade that actually wins over base mask:none + feed-chips-slot */
+@media (max-width: 720px) {
+  .chips-home,
+  .feed-chips-slot {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    overflow: visible !important;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .feed-chips-slot .chips,
+  .chips-home .chips,
+  .chips,
+  body[data-page="today"] .chips,
+  body[data-page="signals"] .chips,
+  body[data-page="reports"] .chips,
+  body[data-page="newsletter"] .chips {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    flex: 0 1 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-x: contain;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-right: 1.75rem !important;
+    box-sizing: border-box !important;
+    mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 42px), transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 42px), transparent 100%) !important;
+    mask-size: 100% 100% !important;
+    -webkit-mask-size: 100% 100% !important;
+    mask-repeat: no-repeat !important;
+    -webkit-mask-repeat: no-repeat !important;
+  }
+  .feed-chips-slot .chips::-webkit-scrollbar,
+  .chips-home .chips::-webkit-scrollbar,
+  .chips::-webkit-scrollbar { display: none !important; }
+  .feed-chips-slot .chips .chip,
+  .chips-home .chips .chip,
+  .chips .chip,
+  .chip {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .feed-chips-slot .chips,
+  .chips-home .chips,
+  .chips,
+  body[data-page="today"] .chips,
+  body[data-page="signals"] .chips {
+    overflow-x: auto !important;
+    mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 42px), transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 42px), transparent 100%) !important;
+  }
+}
+
+/* B) Stronger newsletter section heads on phone */
+@media (max-width: 720px) {
+  .feed-rest-head {
+    margin: 1.85rem 0 0.2rem !important;
+    padding: 1.35rem 0.05rem 0.55rem !important;
+    border-top: 1.5px solid color-mix(in srgb, var(--text) 72%, transparent) !important;
+  }
+  .feed-rest-label,
+  .nl-section-head.feed-module-head .nl-section-title,
+  .nl-section-head.feed-module-head .module-label,
+  h2.feed-rest-label {
+    font-family: var(--display) !important;
+    font-size: clamp(1.72rem, 6.2vw, 2.15rem) !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.045em !important;
+    line-height: 1.05 !important;
+    text-transform: none !important;
+    color: var(--text) !important;
+  }
+  .nl-section-head.feed-module-head {
+    margin: 1.6rem 0 0.75rem !important;
+    padding-top: 1.1rem;
+    border-top: 1.5px solid color-mix(in srgb, var(--text) 65%, transparent);
+  }
+}
+
+/* C) Balanced phone titles */
+@media (max-width: 720px) {
+  .story-title,
+  .lead-title,
+  .top-pull-title,
+  .story-title a,
+  .lead-title a,
+  .top-pull-title a {
+    text-wrap: balance;
+    text-wrap: pretty;
+  }
+}
+
+/* D) Dock ~214px centered pill; extra mid-scroll clearance */
+@media (max-width: 899px) {
+  .mobile-dock-bar {
+    width: max-content !important;
+    max-width: min(16.5rem, calc(100vw - 1.5rem)) !important;
+    margin: 0 auto !important;
+  }
+  .mobile-dock-inner {
+    width: max-content !important;
+    max-width: 13.375rem !important; /* ~214px icon pill */
+    flex: 0 0 auto !important;
+  }
+  /* when a tab label is open, allow growth without full-bleed outer */
+  .mobile-dock:not(.is-compact):has(.mobile-dock-item.is-active .mobile-dock-label) .mobile-dock-inner {
+    max-width: min(18rem, calc(100vw - 4.5rem)) !important;
+  }
+  .mobile-dock:not(.is-compact):has(.mobile-dock-item.is-active .mobile-dock-label) .mobile-dock-bar {
+    max-width: min(22rem, calc(100vw - 1.5rem)) !important;
+  }
+  html.has-mobile-dock .main {
+    padding-bottom: calc(8.2rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  html.has-mobile-dock {
+    scroll-padding-bottom: calc(8.2rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  html.has-mobile-dock .feed > li,
+  html.has-mobile-dock .feed-row,
+  html.has-mobile-dock .lead-card,
+  html.has-mobile-dock .top-pull {
+    scroll-margin-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  html.has-mobile-dock .feed::after {
+    content: "";
+    display: block;
+    height: calc(2.8rem + env(safe-area-inset-bottom, 0px));
+    pointer-events: none;
+  }
+}
+
+/* Desktop: still never show dock */
+@media (min-width: 900px) {
+  .mobile-dock,
+  .mobile-dock-sheet,
+  .mobile-dock-bar,
+  .header-lang {
+    display: none !important;
+  }
+}
