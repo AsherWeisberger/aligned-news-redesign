@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-30T05:22:23.000Z",
-    "scrapedAt": "2026-08-30T05:22:23.000Z",
+    "generatedAt": "2026-08-30T09:22:37.000Z",
+    "scrapedAt": "2026-08-30T09:22:37.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 97 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 98 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 54,
-    "stories": 97,
-    "signals": 96,
+    "stories": 98,
+    "signals": 97,
     "reports": 4
   },
   "chips": [
@@ -168,7 +168,7 @@
           "url": "https://x.com/fal/status/2093844097148559588"
         }
       ],
-      "body": "fal posted H3 Max Live: video generation faster than real time, an infinite broadcast where every frame is generated on the fly and every scene is directed by chat. Type a prompt and it is on screen in seconds. A follow up said an experimental long form H3 Max checkpoint holds the thread across scenes and hits the API next week. Three of Robert’s lists carried @fal tonight, community, company, and video. FaztTech called it a threshold: you can generate video faster than you can watch it.\n\nFaster than playback is a product line, not a teaser. MiniMax H3 was already on these lists as FastH3. Live infinite broadcast is the new map.\n\nWatch the API date, and whether the thread actually holds past a few scenes.",
+      "body": "fal posted H3 Max Live: video generation faster than real time, an infinite broadcast where every frame is generated on the fly and every scene is directed by chat. Type a prompt and it is on screen in seconds. A follow up said an experimental long form H3 Max checkpoint holds the thread across scenes and hits the API next week. Three of Robert’s lists carried @fal tonight, community, company, and video. FaztTech called it a threshold: you can generate video faster than you can watch it.\n\nFaster than playback is a product line, not a teaser. MiniMax H3 was already on these lists as FastH3. Live infinite broadcast is the new map. MiniMax’s Hailuo account said H3 Max is now on MiniMax Design, 480p from $0.02 per second, with three free generations through September 3. Aakash Gupta said a 5 second clip with sound generates in under 3 seconds, 35 times faster than MiniMax’s own endpoint, and that it ranks first for image to video on Artificial Analysis.\n\nWatch the API date, whether Design and Live share a checkpoint, and whether the thread actually holds past a few scenes.",
       "kind": "story",
       "engagement": {
         "impression_count": 17000,
@@ -176,7 +176,7 @@
         "reply_count": 16,
         "retweet_count": 29
       },
-      "why_it_matters": "Robert’s community lists, his company lists, and his video lists carried @fal. Three desks tonight. Faster than real time video, not a clip dump.",
+      "why_it_matters": "Robert’s community lists, his company lists, and his video lists carried @fal. Three desks. Faster than real time video, not a clip dump. MiniMax Design putting a price on H3 Max is distribution of the same cook.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "fal",
@@ -188,7 +188,7 @@
     {
       "id": "tencent-hy4-preview",
       "headline": "Tencent open sources Hy4 preview at 770B with 49B active",
-      "summary": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, Cod",
+      "summary": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. WorkBuddy posted this morning that Hy4 previ",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
@@ -212,7 +212,7 @@
           "url": "https://x.com/TencentHunyuan/status/2093222928720761009"
         }
       ],
-      "body": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. Tencent is also putting it in WorkBuddy, CodeBuddy, Yuanbao, and ima, with API access on Tencent Cloud TokenHub and OpenRouter. WorkBuddy and CodeBuddy get two weeks free. TechNode listed OpenRouter pricing at $0.834 per million input tokens and $2.501 per million output.\n\nThis is a same day open weight flagship, not a teaser card. The GitHub model card describes 78 layers, 256 routed experts, top 8 plus a shared expert, gated sparse attention, and a native MTP layer for speculative decoding. Tencent says it is built for coding, office work, and research, and that the next Hy4 batch is close.\n\nHis community lists carried the Hunyuan lab post. Watch how it actually runs at 1 million context, and whether the preview’s extra checking on hard reasoning shows up as latency in the API.",
+      "body": "Tencent Hunyuan released Hy4 preview today as an Apache 2.0 mixture of experts model: 770B total parameters, 49B active per token, 1 million token context. Weights are on Hugging Face, ModelScope, GitCode, and CNB, with an FP8 variant. WorkBuddy posted this morning that Hy4 preview is live there, with a switch between Work and Coding tasks. Tencent is also putting it in CodeBuddy, Yuanbao, and ima, with API access on Tencent Cloud TokenHub and OpenRouter. WorkBuddy and CodeBuddy get two weeks free. TechNode listed OpenRouter pricing at $0.834 per million input tokens and $2.501 per million output.\n\nThis is a same day open weight flagship, not a teaser card. The GitHub model card describes 78 layers, 256 routed experts, top 8 plus a shared expert, gated sparse attention, and a native MTP layer for speculative decoding. Tencent says it is built for coding, office work, and research, and that the next Hy4 batch is close.\n\nHis community lists carried the Hunyuan lab post. Watch how it actually runs at 1 million context, whether WorkBuddy’s Work and Coding switch holds, and whether the preview’s extra checking on hard reasoning shows up as latency in the API.",
       "kind": "story",
       "engagement": {
         "impression_count": 1545332,
@@ -220,7 +220,7 @@
         "reply_count": 312,
         "retweet_count": 917
       },
-      "why_it_matters": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
+      "why_it_matters": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. WorkBuddy posting the preview live this morning is distribution, not a new pretrain. The 770B Apache preview is still the map change.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TencentHunyuan",
@@ -735,7 +735,7 @@
       "topic_key": "creatives",
       "topic_label": "Creatives",
       "x_handle": "midjourney",
-      "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=240x240",
+      "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=large",
       "list_count": 4,
       "views": 92047,
       "desk_rank": 13
@@ -1943,8 +1943,8 @@
     },
     {
       "id": "nepal-china-floods",
-      "headline": "Nepal Tibet floods reach 734 dead and about 2,500 missing",
-      "summary": "Al Jazeera posted a new Nepal disaster authority count overnight: at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side le",
+      "headline": "Nepal Tibet floods hold at 734 dead as a new Gyirong lake forms",
+      "summary": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confir",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
@@ -1965,7 +1965,7 @@
           "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Al Jazeera posted a new Nepal disaster authority count overnight: at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nThe morning desk had 629 dead and 1,924 missing on the Nepal side, with China then reporting five dead and 558 missing in Tibet. The overnight print is a higher Nepal death count and a China port tally that is finally split out. Families are still arriving at Kathmandu schools for names.\n\nWatch the next Nepal police bulletin, and whether Beijing and Kathmandu keep separate tallies.",
+      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nChina Daily said a new landslide hit downstream of a barrier lake in Gyirong county Saturday evening, forming a new barrier dam and lake. ABC said Nepal warned of possible fresh flooding after the Bhotekoshi River rose. The Hindu said workers remain trapped in the Trishuli hydropower tunnel after the August 26 flood. A weather desk posted that flash flooding on the Trishuli again swept away a bridge at Silingtār in Nuwakot.\n\nThe death print has not moved past 734. The ground has. Families are still arriving at Kathmandu hospitals for names. Watch the next Nepal police bulletin, the Gyirong barrier lake, and whether the tunnel rescue gets people out.",
       "kind": "story",
       "engagement": {
         "impression_count": 32858,
@@ -1973,7 +1973,7 @@
         "reply_count": 3,
         "retweet_count": 43
       },
-      "why_it_matters": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
+      "why_it_matters": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJEnglish",
@@ -2929,14 +2929,14 @@
     },
     {
       "id": "iceland-eu-vote",
-      "headline": "Iceland votes on whether to reopen talks to join the EU",
-      "summary": "Al Jazeera posted that Icelanders head to the polls Saturday on whether to reopen negotiations to join the European Union, a vote with economic and security weight beyond a small Arctic state. Robert’s World News list carried @AJEnglish with the photo.",
+      "headline": "Iceland rejects reopening talks to join the EU",
+      "summary": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were ",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
-      "published_at": "2026-08-29T05:28:08.000Z",
-      "author_name": "AJEnglish",
+      "published_at": "2026-08-30T08:13:14.000Z",
+      "author_name": "cnnbrk",
       "source_list": "World News",
       "list_names": [
         "World News"
@@ -2944,28 +2944,28 @@
       "chip_labels": [
         "World News"
       ],
-      "source_url": "https://x.com/AJEnglish/status/2093571382693245417",
+      "source_url": "https://x.com/cnnbrk/status/2093975319107498241",
       "sources": [
         {
-          "label": "@AJEnglish",
-          "url": "https://x.com/AJEnglish/status/2093571382693245417"
+          "label": "@cnnbrk",
+          "url": "https://x.com/cnnbrk/status/2093975319107498241"
         }
       ],
-      "body": "Al Jazeera posted that Icelanders head to the polls Saturday on whether to reopen negotiations to join the European Union, a vote with economic and security weight beyond a small Arctic state. Robert’s World News list carried @AJEnglish with the photo.\n\nAn EU door vote in the North Atlantic is geopolitics, even at 30,000 views. NATO already has Reykjavik. Brussels is the open question.\n\nWatch the count, and whether a yes forces a real accession timetable.",
+      "body": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were too important to risk. Al Jazeera had 152,000 votes counted and 50.1 percent against, with a final expected around midday Sunday.\n\nA no vote keeps Reykjavik in NATO and the EEA, and keeps Brussels without a new Arctic member. The government had framed the ballot as a chance to reopen talks, not as a final accession.\n\nWatch the midday Sunday print, and whether Brussels treats the no as closed.",
       "kind": "story",
       "engagement": {
-        "impression_count": 30011,
-        "like_count": 16,
-        "reply_count": 7,
-        "retweet_count": 8
+        "impression_count": 20000,
+        "like_count": 15,
+        "reply_count": 5,
+        "retweet_count": 9
       },
-      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "why_it_matters": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
       "topic_key": "world",
       "topic_label": "World",
-      "x_handle": "AJEnglish",
-      "media_url": "https://pbs.twimg.com/media/HQ3bgilaMAAZ-IJ?format=jpg&name=large",
+      "x_handle": "cnnbrk",
+      "media_url": "https://pbs.twimg.com/media/HQ9LcJeWwAA3oNW?format=jpg&name=large",
       "list_count": 1,
-      "views": 30011,
+      "views": 20000,
       "desk_rank": 65
     },
     {
@@ -4192,14 +4192,12 @@
       "tag": "robotics",
       "published_at": "2026-08-30T05:04:59.000Z",
       "author_name": "CyberRobooo",
-      "source_list": "Robot Influencers/Media, AI Robotics",
+      "source_list": "Robot Influencers/Media",
       "list_names": [
-        "Robot Influencers/Media",
-        "AI Robotics"
+        "Robot Influencers/Media"
       ],
       "chip_labels": [
-        "Robot Influencers/Media",
-        "AI Robotics"
+        "Robot Influencers/Media"
       ],
       "source_url": "https://x.com/CyberRobooo/status/2093927943504552288",
       "sources": [
@@ -4215,12 +4213,12 @@
         "like_count": 8,
         "retweet_count": 3
       },
-      "why_it_matters": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "why_it_matters": "Robert’s robot influencer lists carried @CyberRobooo on the WRC floor. One desk on this url. A related robotics list post has the same demo. A unit count and a revenue split, not a dance.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "CyberRobooo",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093926605550993408/img/WhibTYIoy6DumuiY.jpg",
-      "list_count": 2,
+      "list_count": 1,
       "views": 204,
       "desk_rank": 95
     },
@@ -4304,18 +4302,59 @@
       "list_count": 1,
       "views": 985,
       "desk_rank": 97
+    },
+    {
+      "id": "switzerland-aarau-shooting",
+      "headline": "Manhunt after shots at an Aarau rave kill one and wound five",
+      "summary": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T08:07:03.000Z",
+      "author_name": "cnni",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/cnni/status/2093973761439510773",
+      "sources": [
+        {
+          "label": "@cnni",
+          "url": "https://x.com/cnni/status/2093973761439510773"
+        }
+      ],
+      "body": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.\n\nA rave shooting in a Swiss canton is breaking World News. Motive is not in the dump. Do not wait for a name.\n\nWatch whether police name a suspect, and whether the count of wounded moves.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 9000,
+        "like_count": 5,
+        "reply_count": 3,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "cnni",
+      "media_url": "https://pbs.twimg.com/media/HQ9KBdYXYAAKdp_?format=jpg&name=large",
+      "list_count": 1,
+      "views": 9000,
+      "desk_rank": 98
     }
   ],
   "signals": [
     {
       "id": "sig-tencent-hy4-preview",
       "title": "Tencent open sources Hy4 preview at 770B with 49B active",
-      "text": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
+      "text": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. WorkBuddy posting the preview live this morning is distribution, not a new pretrain. The 770B Apache preview is still the map change.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
+      "source_list": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. WorkBuddy posting the preview live this morning is distribution, not a new pretrain. The 770B Apache preview is still the map change.",
       "list_names": [
         "AI Community #1 of 9",
         "AI Community #3 of 9",
@@ -4327,7 +4366,7 @@
       ],
       "created_at": "2026-08-28T06:23:31.000Z",
       "source_url": "https://x.com/TencentHunyuan/status/2093222928720761009",
-      "analysis": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. The 770B Apache preview is still the map change.",
+      "analysis": "Robert’s community lists carried the Hunyuan lab post from @TencentHunyuan. Four desks. WorkBuddy posting the preview live this morning is distribution, not a new pretrain. The 770B Apache preview is still the map change.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -5284,13 +5323,13 @@
     },
     {
       "id": "sig-nepal-china-floods",
-      "title": "Nepal Tibet floods reach 734 dead and about 2,500 missing",
-      "text": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
+      "title": "Nepal Tibet floods hold at 734 dead as a new Gyirong lake forms",
+      "text": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
+      "source_list": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
       "list_names": [
         "World News"
       ],
@@ -5299,7 +5338,7 @@
       ],
       "created_at": "2026-08-29T05:00:01.000Z",
       "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
-      "analysis": "Robert's World News list carried @AJENews on the 734 count, @PTI_News on the same alert, and @XHNews on Gyirong. A rising death count, not a weather meme.",
+      "analysis": "Robert’s World News list carried @AJENews on the 734 count, @ChinaDaily on a new Gyirong barrier lake, and @the_hindu on the Trishuli tunnel. The death number held. The ground did not.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -5818,22 +5857,22 @@
     },
     {
       "id": "sig-iceland-eu-vote",
-      "title": "Iceland votes on whether to reopen talks to join the EU",
-      "text": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "title": "Iceland rejects reopening talks to join the EU",
+      "text": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "source_list": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
       "list_names": [
         "World News"
       ],
       "chip_labels": [
         "World News"
       ],
-      "created_at": "2026-08-29T05:28:08.000Z",
-      "source_url": "https://x.com/AJEnglish/status/2093571382693245417",
-      "analysis": "Robert’s World News list carried @AJEnglish. One desk. An EU accession vote, not a travel brief.",
+      "created_at": "2026-08-30T08:13:14.000Z",
+      "source_url": "https://x.com/cnnbrk/status/2093975319107498241",
+      "analysis": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AJEnglish still counting. One desk. The map changed from a ballot to a no.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -6484,23 +6523,21 @@
     {
       "id": "sig-ubtech-cruzr-s2-wrc",
       "title": "UBTECH Cruzr S2 builds auto parts as humanoids hit 46 percent of sales",
-      "text": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "text": "Robert’s robot influencer lists carried @CyberRobooo on the WRC floor. One desk on this url. A related robotics list post has the same demo. A unit count and a revenue split, not a dance.",
       "badge": "signal",
       "category": "robotics",
       "section_key": "robotics",
       "section_label": "Robotics",
-      "source_list": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "source_list": "Robert’s robot influencer lists carried @CyberRobooo on the WRC floor. One desk on this url. A related robotics list post has the same demo. A unit count and a revenue split, not a dance.",
       "list_names": [
-        "Robot Influencers/Media",
-        "AI Robotics"
+        "Robot Influencers/Media"
       ],
       "chip_labels": [
-        "Robot Influencers/Media",
-        "AI Robotics"
+        "Robot Influencers/Media"
       ],
       "created_at": "2026-08-30T05:04:59.000Z",
       "source_url": "https://x.com/CyberRobooo/status/2093927943504552288",
-      "analysis": "Robert's robot influencer lists carried @CyberRobooo on the WRC floor. His robotics lists had the same demo. A unit count and a revenue split, not a dance.",
+      "analysis": "Robert’s robot influencer lists carried @CyberRobooo on the WRC floor. One desk on this url. A related robotics list post has the same demo. A unit count and a revenue split, not a dance.",
       "topic_key": "robotics",
       "topic_label": "Robotics"
     },
@@ -6545,6 +6582,27 @@
       "created_at": "2026-08-30T04:20:47.000Z",
       "source_url": "https://x.com/Independent/status/2093916819392245868",
       "analysis": "Robert's World News list carried @Independent on the desert count. A body count, not a campaign clip.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-switzerland-aarau-shooting",
+      "title": "Manhunt after shots at an Aarau rave kill one and wound five",
+      "text": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-30T08:07:03.000Z",
+      "source_url": "https://x.com/cnni/status/2093973761439510773",
+      "analysis": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap.",
       "topic_key": "world",
       "topic_label": "World"
     }
