@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an229";
+  var DATA_URL = "live-data.json?v=an230";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -4582,9 +4582,8 @@
       status.hidden = false;
       status.className = "status loading";
       status.setAttribute("aria-busy", "true");
-      if (!status.querySelector(".feed-skeleton")) {
-        status.innerHTML = '<div class="feed-skeleton" aria-hidden="true"><span></span><span></span><span></span></div>';
-      }
+      // an230: no .feed-skeleton here — sole load UX is #feedSkeleton via showFeedSkeleton()
+      status.innerHTML = "";
     }
 
     showLoadBar();
