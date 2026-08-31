@@ -7897,3 +7897,33 @@ html.fonts-ready .brand-align-sub em {
     max-width: none !important;
   }
 }
+
+
+/* === an227: phone wordmark sits on the screen midline; EN stays top-right === */
+@media (max-width: 899px) {
+  html.has-mobile-dock .topbar {
+    display: grid !important;
+    grid-template-columns: minmax(2.75rem, 1fr) auto minmax(2.75rem, 1fr) !important;
+    grid-template-areas:
+      "menu brand actions"
+      "search search search" !important;
+    align-items: center;
+  }
+  html.has-mobile-dock .menu-btn { grid-area: menu; }
+  html.has-mobile-dock .brand {
+    grid-area: brand !important;
+    justify-self: center !important;
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+  }
+  html.has-mobile-dock .top-actions {
+    grid-area: actions !important;
+    justify-self: end !important;
+    z-index: 3;
+  }
+  html.has-mobile-dock .top-search {
+    grid-area: search !important;
+    width: 100%;
+  }
+}
