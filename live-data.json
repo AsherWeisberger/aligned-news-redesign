@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-30T20:45:02.000Z",
-    "scrapedAt": "2026-08-30T20:45:02.000Z",
+    "generatedAt": "2026-08-31T00:36:49.000Z",
+    "scrapedAt": "2026-08-31T00:36:49.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 108 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 110 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 54,
-    "stories": 108,
-    "signals": 107,
+    "stories": 110,
+    "signals": 109,
     "reports": 4
   },
   "chips": [
@@ -345,7 +345,7 @@
           "url": "https://x.com/aisearchio/status/2093408069728571540"
         }
       ],
-      "body": "Hao AI Lab’s FastVideo posted an open weight FastH3 preview distilled from MiniMax H3. The Hugging Face checkpoint FastVideo FastH3 4 step Preview v1 generates synced video and audio from text in four transformer forwards. The lab said a 15 second clip generates in 13 seconds, about 14 times faster than the base, and that 45 percent of raters preferred FastH3 or called it a draw versus MiniMax H3, in an eval run with help from fal and @isidentical. The card lists about 35B parameters in BF16 and says it inherits the MiniMax H3 Community License.\n\nThis is a speed recipe on a frontier video model, not a new base. FastVideo warns hard motion, fine detail, and some audio still trail H3, and that FL2VA and Ref2VA were not distilled. The tested path wants FastVideo’s VSA H3 attention backend. Defaults were four B200 GPUs. GPU count has to divide H3’s 56 attention heads.\n\nHis community lists carried the speed clip. His orgs list later carried the lab’s own note. Training code is promised. Watch whether this runs on anything smaller than a B200 box, and whether the next Omni Ref pass closes the quality gap.",
+      "body": "Hao AI Lab’s FastVideo posted an open weight FastH3 preview distilled from MiniMax H3. The Hugging Face checkpoint FastVideo FastH3 4 step Preview v1 generates synced video and audio from text in four transformer forwards. The lab said a 15 second clip generates in 13 seconds, about 14 times faster than the base, and that 45 percent of raters preferred FastH3 or called it a draw versus MiniMax H3, in an eval run with help from fal and @isidentical. The card lists about 35B parameters in BF16 and says it inherits the MiniMax H3 Community License.\n\nThis is a speed recipe on a frontier video model, not a new base. FastVideo warns hard motion, fine detail, and some audio still trail H3, and that FL2VA and Ref2VA were not distilled. The tested path wants FastVideo’s VSA H3 attention backend. Defaults were four B200 GPUs. GPU count has to divide H3’s 56 attention heads.\n\nHis community lists carried the speed clip. His orgs list later carried the lab’s own note. Training code is promised. Reactor later teamed with Hao AI Lab to put FastH3 on an infinite live stream at twitch.tv/dereactor and said it is open sourcing the stack. Watch whether this runs on anything smaller than a B200 box, and whether the next Omni Ref pass closes the quality gap.",
       "kind": "story",
       "engagement": {
         "impression_count": 88587,
@@ -353,7 +353,7 @@
         "reply_count": 29,
         "retweet_count": 111
       },
-      "why_it_matters": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
+      "why_it_matters": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. Reactor on his creatives lists and his computer vision list is the same distill on a live stream, not a new base. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "aisearchio",
@@ -861,7 +861,7 @@
       "topic_key": "creatives",
       "topic_label": "Creatives",
       "x_handle": "midjourney",
-      "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=240x240",
       "list_count": 4,
       "views": 92047,
       "desk_rank": 16
@@ -2091,7 +2091,7 @@
           "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\n4pm lists still hold that death print. Al Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. BBC World said a head teacher got 900 children out minutes before the flood hit the school. PTI carried an MEA note timed 2130 hrs on Indian nationals, without a new death count in the dump.\n\nThe 734 figure still holds on these lists. Watch the next Nepal police bulletin, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
+      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\n8pm lists still hold that death print. Al Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. ABC World News later said the death toll is over 700, with over 3,000 still missing, including 85 Americans, and posted new video of ice breaking off a landslide. Over 700 is the same band as 734, not a new death print. The 3,000 missing line and the 85 Americans are new on these lists. Arab News said rescuers used heavy machinery on Sunday after rain and rising waters slowed the tunnel work.\n\nThe 734 figure still holds on these lists. Watch the next Nepal police bulletin, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
       "kind": "story",
       "engagement": {
         "impression_count": 32858,
@@ -2099,7 +2099,7 @@
         "reply_count": 3,
         "retweet_count": 43
       },
-      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
+      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, and @arabnews on Sunday machinery. One desk. The death number held. The tunnels are still sealed.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJEnglish",
@@ -2835,7 +2835,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "qz",
-      "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=360x360",
       "list_count": 2,
       "views": 1621,
       "desk_rank": 62
@@ -2878,7 +2878,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "JeremyKonyndyk",
-      "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=900x900",
       "list_count": 2,
       "views": 755894,
       "desk_rank": 63
@@ -2921,7 +2921,7 @@
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "TencentHunyuan",
-      "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=900x900",
       "list_count": 3,
       "views": 73582,
       "desk_rank": 64
@@ -3077,7 +3077,7 @@
           "url": "https://x.com/cnnbrk/status/2093975319107498241"
         }
       ],
-      "body": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were too important to risk. Al Jazeera had 152,000 votes counted and 50.1 percent against, with a final expected around midday Sunday.\n\nA no vote keeps Reykjavik in NATO and the EEA, and keeps Brussels without a new Arctic member. The government had framed the ballot as a chance to reopen talks, not as a final accession.\n\nAFP later said Brussels put a brave face on the no, calling it a bitter pill and a lost success story. The margin in the dump did not move. Watch whether Brussels treats the no as closed.",
+      "body": "CNN posted that Iceland rejected an EU membership plan in a referendum, with local media calling the count under the shadow of Trump’s threats against Greenland. Al Arabiya said broadcaster RUV reported Icelanders voted to stay out, siding with those who said fishing waters were too important to risk. Al Jazeera had 152,000 votes counted and 50.1 percent against, with a final expected around midday Sunday.\n\nA no vote keeps Reykjavik in NATO and the EEA, and keeps Brussels without a new Arctic member. The government had framed the ballot as a chance to reopen talks, not as a final accession.\n\nAFP later said Brussels put a brave face on the no, calling it a bitter pill and a lost success story. Reuters recapped the no as a podcast on fishing rights. The margin in the dump did not move. Watch whether Brussels treats the no as closed.",
       "kind": "story",
       "engagement": {
         "impression_count": 20000,
@@ -3085,7 +3085,7 @@
         "reply_count": 5,
         "retweet_count": 9
       },
-      "why_it_matters": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
+      "why_it_matters": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 8pm.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "cnnbrk",
@@ -3514,7 +3514,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "WSJ",
-      "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=360x360",
       "list_count": 1,
       "views": 20502,
       "desk_rank": 78
@@ -3731,7 +3731,7 @@
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "pubity",
-      "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=large",
+      "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=360x360",
       "list_count": 2,
       "views": 416000,
       "desk_rank": 83
@@ -4494,7 +4494,7 @@
           "url": "https://x.com/cnni/status/2093973761439510773"
         }
       ],
-      "body": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.\n\nA rave shooting in a Swiss canton is breaking World News. Motive is not in the dump. The 4pm lists still have no named suspect and no new wounded count.\n\nWatch whether police name a suspect, and whether the count of wounded moves.",
+      "body": "CNN posted a manhunt in northern Switzerland after a deadly shooting that local media said was at a rave. RT said gunshots in Aarau left at least one dead and five wounded, with a major police operation to find the shooter.\n\nA rave shooting in a Swiss canton is breaking World News. Motive is not in the dump. The 8pm lists still have no named suspect and no new wounded count.\n\nWatch whether police name a suspect, and whether the count of wounded moves.",
       "kind": "story",
       "engagement": {
         "impression_count": 9000,
@@ -4502,7 +4502,7 @@
         "reply_count": 3,
         "retweet_count": 2
       },
-      "why_it_matters": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
+      "why_it_matters": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move at 8pm.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "cnni",
@@ -4513,7 +4513,7 @@
     },
     {
       "id": "cyprus-ferry-capsize",
-      "headline": "Cyprus ferry death print moves to 7 dead and 23 missing",
+      "headline": "Cyprus ferry death print moves to 8 dead as rescuers find over 200",
       "summary": "Sky News posted breaking coverage of a passenger ferry carrying about 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same passenger count from local media.",
       "section": "world",
       "section_key": "world",
@@ -4535,7 +4535,7 @@
           "url": "https://x.com/SkyNews/status/2094030855840624926"
         }
       ],
-      "body": "Sky News posted breaking coverage of a passenger ferry carrying about 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same passenger count from local media.\n\nReuters put the print at least 7 dead and 23 missing, with survivors clinging to the overturned hull. That is the number on these lists. Do not write a later wire that is not in the dump.\n\nThis is a live rescue on a World News desk, not a recap. Watch the next official death print, and whether the captain is named.",
+      "body": "Sky News posted breaking coverage of a passenger ferry carrying about 270 people that capsized off northern Cyprus. The boat had left Kyrenia, also called Girne, bound for the Turkish port of Tasucu. BBC World carried the same passenger count from local media.\n\nReuters earlier put the print at least 7 dead and 23 missing, with survivors clinging to the overturned hull. ABC World News later moved the death print to at least 8 killed, with a ferry carrying 267 people and over 200 already found. That 8 is the new number on these lists. The dump does not print a new missing count.\n\nThis is a live rescue on a World News desk, not a recap. Watch the next official death print, and whether a missing number lands.",
       "kind": "story",
       "engagement": {
         "impression_count": 11988,
@@ -4543,7 +4543,7 @@
         "reply_count": 11,
         "retweet_count": 7
       },
-      "why_it_matters": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "why_it_matters": "Robert’s World News list carried @SkyNews on the capsize, @Reuters on 7 dead and 23 missing, and later @ABCWorldNews on 8 killed. One desk. The death print moved again. The rescue is still live.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "SkyNews",
@@ -4694,7 +4694,7 @@
           "url": "https://x.com/AJENews/status/2094156201517097351"
         }
       ],
-      "body": "A US official told wires that American forces struck two Iranian rocket launchers on Larak Island on Sunday after IRGC units were seen preparing to fire rockets carrying sea mines into the Strait of Hormuz. Sky News called it the first US military action in the strait in a month. Al Jazeera said the IRGC reported soldiers and civilians killed and injured and promised a response and punishment. The lists do not print a precise IRGC count.\n\nThe strike landed hours after UKMTO said a tanker was hit by a projectile north of Khasab. Axios framed the US action as a mine threat strike. Fars reported an explosion near the island. This is the Hormuz war file moving, not a recap of the morning tanker note.\n\nWatch whether CENTCOM names the aircraft, whether the IRGC count firms up, and whether another tanker week follows the vow.",
+      "body": "A US official told wires that American forces struck two Iranian rocket launchers on Larak Island on Sunday after IRGC units were seen preparing to fire rockets carrying sea mines into the Strait of Hormuz. Sky News called it the first US military action in the strait in a month. Al Jazeera said the IRGC reported soldiers and civilians killed and injured and promised a response and punishment. The lists do not print a precise IRGC count.\n\nThe strike landed hours after UKMTO said a tanker was hit by a projectile north of Khasab. Axios framed the US action as a mine threat strike. Fars reported an explosion near the island. Hours later CNN said a US official confirmed Iran had retaliated against US forces, the first escalation between the sides in a month. That reply is a separate card. The Larak print is still two launchers and no precise IRGC count.\n\nWatch whether CENTCOM names the aircraft, whether the IRGC count firms up, and the later retaliation card on this file.",
       "kind": "story",
       "engagement": {
         "impression_count": 13000,
@@ -4702,7 +4702,7 @@
         "reply_count": 6,
         "retweet_count": 13
       },
-      "why_it_matters": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "why_it_matters": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit. The later reply is its own card.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJENews",
@@ -4710,6 +4710,86 @@
       "list_count": 1,
       "views": 13000,
       "desk_rank": 107
+    },
+    {
+      "id": "iran-jordan-retaliation",
+      "headline": "Iran retaliates after Larak as Jordan says it intercepted eight missiles",
+      "summary": "CNN posted that a US official said Iran has retaliated against US forces after the US strike on Iranian rocket launchers, the first escalation between the sides in a month. Xinhua said the IRGC claimed a combined missile and drone strike on US air bases in Jordan in reply to the ",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-30T23:15:07.000Z",
+      "author_name": "cnnbrk",
+      "source_list": "Tech Journalists",
+      "list_names": [
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Tech Journalists"
+      ],
+      "source_url": "https://x.com/cnnbrk/status/2094202284083212787",
+      "sources": [
+        {
+          "label": "@cnnbrk",
+          "url": "https://x.com/cnnbrk/status/2094202284083212787"
+        }
+      ],
+      "body": "CNN posted that a US official said Iran has retaliated against US forces after the US strike on Iranian rocket launchers, the first escalation between the sides in a month. Xinhua said the IRGC claimed a combined missile and drone strike on US air bases in Jordan in reply to the Larak Island attack Sunday night.\n\nThe Jerusalem Post said the Jordanian Army intercepted eight missiles that entered Jordanian airspace after that IRGC statement. Reuters said oil jumped more than 2 percent after the Larak strike. Iranian outlets naming Al Udeid are not confirmed in this dump. Do not write them as fact.\n\nWatch whether CENTCOM or Amman names a hit, whether a casualty print lands, and whether tanker traffic through Hormuz actually slows.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 114000,
+        "like_count": 215,
+        "reply_count": 58,
+        "retweet_count": 89
+      },
+      "why_it_matters": "Robert’s journalists list carried @cnnbrk on the US official line. One desk. His World News list later carried @XHNews on the Jordan claim and @Jerusalem_Post on the eight intercepts. A retaliation, not a recap of the Larak strike.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "cnnbrk",
+      "media_url": "https://pbs.twimg.com/media/HRAZ3N8W4AAWFTR?format=jpg&name=large",
+      "list_count": 1,
+      "views": 114000,
+      "desk_rank": 108
+    },
+    {
+      "id": "bessent-iran-weekly-sanctions",
+      "headline": "Bessent says the US expects weekly secondary sanctions on Iran",
+      "summary": "Al Jazeera posted breaking: US Treasury Secretary Scott Bessent said the US is likely to unveil new weekly secondary sanctions on Iran, with an initial focus on banks, to increase economic pressure. Reuters carried the same line: Bessent expects new US secondary sanctions weekly.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-31T00:02:44.000Z",
+      "author_name": "AJENews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJENews/status/2094214268061426107",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2094214268061426107"
+        }
+      ],
+      "body": "Al Jazeera posted breaking: US Treasury Secretary Scott Bessent said the US is likely to unveil new weekly secondary sanctions on Iran, with an initial focus on banks, to increase economic pressure. Reuters carried the same line: Bessent expects new US secondary sanctions weekly.\n\nThis sits on the same Iran file as the Larak strike and the later retaliation, not as a standalone Treasury brief. Weekly secondary sanctions aimed at banks is a pressure schedule, not a one day announcement.\n\nWatch whether the first weekly package actually posts, which banks it names, and whether oil moves on the print.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 4100,
+        "like_count": 1
+      },
+      "why_it_matters": "Robert’s World News list carried @AJENews on the breaking line, with @Reuters on the weekly schedule. One desk. A sanctions calendar, not a recap of Iran standing firm.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/media/HRAkwB1aQAASaU-?format=jpg&name=large",
+      "list_count": 1,
+      "views": 4100,
+      "desk_rank": 109
     },
     {
       "id": "west-bank-mughayyir",
@@ -4747,7 +4827,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094158353375141888/img/hWF4EKN4u7ZARmJt.jpg",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 108
+      "desk_rank": 110
     }
   ],
   "signals": [
@@ -4828,12 +4908,12 @@
     {
       "id": "sig-fastvideo-fasth3",
       "title": "FastVideo FastH3 turns MiniMax H3 into 15 second clips in 13 seconds",
-      "text": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
+      "text": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. Reactor on his creatives lists and his computer vision list is the same distill on a live stream, not a new base. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
+      "source_list": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. Reactor on his creatives lists and his computer vision list is the same distill on a live stream, not a new base. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "list_names": [
         "AI Community #3 of 9",
         "Decentralized AI",
@@ -4845,7 +4925,7 @@
       ],
       "created_at": "2026-08-28T18:39:12.000Z",
       "source_url": "https://x.com/aisearchio/status/2093408069728571540",
-      "analysis": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
+      "analysis": "Robert’s community lists carried @aisearchio, and his orgs list later carried the lab note from @haoailab. Reactor on his creatives lists and his computer vision list is the same distill on a live stream, not a new base. The 14 times speed claim is the lab’s, measured against MiniMax H3, not a third party bakeoff.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -5796,12 +5876,12 @@
     {
       "id": "sig-nepal-china-floods",
       "title": "Nepal Tibet floods hold at 734 dead as tunnel rescue continues",
-      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
+      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, and @arabnews on Sunday machinery. One desk. The death number held. The tunnels are still sealed.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
+      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, and @arabnews on Sunday machinery. One desk. The death number held. The tunnels are still sealed.",
       "list_names": [
         "World News"
       ],
@@ -5810,7 +5890,7 @@
       ],
       "created_at": "2026-08-29T05:00:01.000Z",
       "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
-      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, @globaltimesnews on 2,100 people still searching Gyirong, and @CGTNOfficial on Sunday night comms. One desk. The death number held. The tunnels are still sealed.",
+      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, and @arabnews on Sunday machinery. One desk. The death number held. The tunnels are still sealed.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -6330,12 +6410,12 @@
     {
       "id": "sig-iceland-eu-vote",
       "title": "Iceland rejects reopening talks to join the EU",
-      "text": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
+      "text": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 8pm.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
+      "source_list": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 8pm.",
       "list_names": [
         "World News"
       ],
@@ -6344,7 +6424,7 @@
       ],
       "created_at": "2026-08-30T08:13:14.000Z",
       "source_url": "https://x.com/cnnbrk/status/2093975319107498241",
-      "analysis": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 4pm.",
+      "analysis": "Robert’s World News list carried @cnnbrk on the reject call, with @AlArabiya_Eng citing RUV and @AFP on the Brussels reaction. One desk. The map changed from a ballot to a no. The margin did not move at 8pm.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -7082,12 +7162,12 @@
     {
       "id": "sig-switzerland-aarau-shooting",
       "title": "Manhunt after shots at an Aarau rave kill one and wound five",
-      "text": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
+      "text": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move at 8pm.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
+      "source_list": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move at 8pm.",
       "list_names": [
         "World News"
       ],
@@ -7096,19 +7176,19 @@
       ],
       "created_at": "2026-08-30T08:07:03.000Z",
       "source_url": "https://x.com/cnni/status/2093973761439510773",
-      "analysis": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move.",
+      "analysis": "Robert’s World News list carried @cnni, with @RT_Visual_on_X naming Aarau and the one dead and five wounded. One desk. This is a live manhunt, not a recap. The print did not move at 8pm.",
       "topic_key": "world",
       "topic_label": "World"
     },
     {
       "id": "sig-cyprus-ferry-capsize",
-      "title": "Cyprus ferry death print moves to 7 dead and 23 missing",
-      "text": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "title": "Cyprus ferry death print moves to 8 dead as rescuers find over 200",
+      "text": "Robert’s World News list carried @SkyNews on the capsize, @Reuters on 7 dead and 23 missing, and later @ABCWorldNews on 8 killed. One desk. The death print moved again. The rescue is still live.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "source_list": "Robert’s World News list carried @SkyNews on the capsize, @Reuters on 7 dead and 23 missing, and later @ABCWorldNews on 8 killed. One desk. The death print moved again. The rescue is still live.",
       "list_names": [
         "World News"
       ],
@@ -7117,7 +7197,7 @@
       ],
       "created_at": "2026-08-30T11:53:55.000Z",
       "source_url": "https://x.com/SkyNews/status/2094030855840624926",
-      "analysis": "Robert's World News list carried @SkyNews on the capsize and @Reuters on 7 dead and 23 missing. One desk. The death print moved. The rescue is still live.",
+      "analysis": "Robert’s World News list carried @SkyNews on the capsize, @Reuters on 7 dead and 23 missing, and later @ABCWorldNews on 8 killed. One desk. The death print moved again. The rescue is still live.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -7187,12 +7267,12 @@
     {
       "id": "sig-us-larak-strike",
       "title": "US strikes two Iranian launchers on Larak Island as IRGC reports dead",
-      "text": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "text": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit. The later reply is its own card.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "source_list": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit. The later reply is its own card.",
       "list_names": [
         "World News"
       ],
@@ -7201,7 +7281,49 @@
       ],
       "created_at": "2026-08-30T20:12:00.000Z",
       "source_url": "https://x.com/AJENews/status/2094156201517097351",
-      "analysis": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit.",
+      "analysis": "Robert’s World News list carried @AJENews on the IRGC casualty line and the vowed response, with @SkyNews on the Washington official and @AlArabiya_Eng on the Fars explosion. One desk. First US action in the strait in weeks, not a recap of the tanker hit. The later reply is its own card.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-iran-jordan-retaliation",
+      "title": "Iran retaliates after Larak as Jordan says it intercepted eight missiles",
+      "text": "Robert’s journalists list carried @cnnbrk on the US official line. One desk. His World News list later carried @XHNews on the Jordan claim and @Jerusalem_Post on the eight intercepts. A retaliation, not a recap of the Larak strike.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s journalists list carried @cnnbrk on the US official line. One desk. His World News list later carried @XHNews on the Jordan claim and @Jerusalem_Post on the eight intercepts. A retaliation, not a recap of the Larak strike.",
+      "list_names": [
+        "Tech Journalists"
+      ],
+      "chip_labels": [
+        "Tech Journalists"
+      ],
+      "created_at": "2026-08-30T23:15:07.000Z",
+      "source_url": "https://x.com/cnnbrk/status/2094202284083212787",
+      "analysis": "Robert’s journalists list carried @cnnbrk on the US official line. One desk. His World News list later carried @XHNews on the Jordan claim and @Jerusalem_Post on the eight intercepts. A retaliation, not a recap of the Larak strike.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-bessent-iran-weekly-sanctions",
+      "title": "Bessent says the US expects weekly secondary sanctions on Iran",
+      "text": "Robert’s World News list carried @AJENews on the breaking line, with @Reuters on the weekly schedule. One desk. A sanctions calendar, not a recap of Iran standing firm.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJENews on the breaking line, with @Reuters on the weekly schedule. One desk. A sanctions calendar, not a recap of Iran standing firm.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-31T00:02:44.000Z",
+      "source_url": "https://x.com/AJENews/status/2094214268061426107",
+      "analysis": "Robert’s World News list carried @AJENews on the breaking line, with @Reuters on the weekly schedule. One desk. A sanctions calendar, not a recap of Iran standing firm.",
       "topic_key": "world",
       "topic_label": "World"
     },
