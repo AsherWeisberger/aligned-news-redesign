@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an227";
+  var DATA_URL = "live-data.json?v=an228";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3346,15 +3346,20 @@
       }
     }
 
-    function takeBanner() {
-      storyCount += 1;
+    function bannerHtml() {
       if (bannerDone || isSaved) return "";
-      if (storyCount !== 5) return "";
       bannerDone = true;
       var html = "";
       if (!isCompactDensity()) html += newsletterBannerHtml();
       html += sponsorsFeedHtml();
       return html;
+    }
+
+    function takeBanner() {
+      storyCount += 1;
+      if (bannerDone || isSaved) return "";
+      if (storyCount !== 5) return "";
+      return bannerHtml();
     }
 
     function pickLeadInGroup(items) {
@@ -3432,7 +3437,6 @@
       items = pickLeadInGroup(items);
       if (items.length) {
         html += renderStoryItem(items[0], 0, true, false);
-        html += takeBanner();
       }
       var pullIds = ((state.data && state.data.top_pulls) || []).slice();
       var used = {};
@@ -3461,6 +3465,7 @@
           pulls.map(renderPullCard).join("") + "</ul></li>";
       }
       html += '<li class="feed-chips-slot" id="feedChipsSlot" role="presentation"></li>';
+      html += bannerHtml();
       var rest = items.filter(function (s) { return !used[s.id]; });
       var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "world"];
       sectionOrder.forEach(function (key) {
@@ -3477,7 +3482,6 @@
         html += '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + escapeHtml(prettyChipLabel(key, key)) + "</h2></li>";
         bucket.forEach(function (s) {
           html += renderStoryItem(s, 1, false, false);
-          html += takeBanner();
         });
       });
       if (boxedEvents.length) html += eventsBoxHtml(boxedEvents);
