@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-31T04:51:15.000Z",
-    "scrapedAt": "2026-08-31T04:51:15.000Z",
+    "generatedAt": "2026-08-31T08:44:05.000Z",
+    "scrapedAt": "2026-08-31T08:44:05.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 116 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 120 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 55,
-    "stories": 116,
-    "signals": 115,
+    "stories": 120,
+    "signals": 119,
     "reports": 4
   },
   "chips": [
@@ -168,7 +168,7 @@
           "url": "https://x.com/fal/status/2093844097148559588"
         }
       ],
-      "body": "fal posted H3 Max Live: video generation faster than real time, an infinite broadcast where every frame is generated on the fly and every scene is directed by chat. Type a prompt and it is on screen in seconds. A follow up said an experimental long form H3 Max checkpoint holds the thread across scenes and hits the API next week. Three of Robert’s lists carried @fal tonight, community, company, and video. FaztTech called it a threshold: you can generate video faster than you can watch it.\n\nFaster than playback is a product line, not a teaser. MiniMax H3 was already on these lists as FastH3. Live infinite broadcast is the new map. MiniMax’s Hailuo account said H3 Max is now on MiniMax Design, 480p from $0.02 per second, with three free generations through September 3. Aakash Gupta said a 5 second clip with sound generates in under 3 seconds, 35 times faster than MiniMax’s own endpoint, and that it ranks first for image to video on Artificial Analysis.\n\nA founders list post from @sundeep later put a 15 second H3 Max clip at about 9 seconds, and repeated the 5 second clip in under 3 seconds.\n\nWatch the API date, whether Design and Live share a checkpoint, and whether the thread actually holds past a few scenes.",
+      "body": "fal posted H3 Max Live: video generation faster than real time, an infinite broadcast where every frame is generated on the fly and every scene is directed by chat. Type a prompt and it is on screen in seconds. A follow up said an experimental long form H3 Max checkpoint holds the thread across scenes and hits the API next week. Three of Robert’s lists carried @fal tonight, community, company, and video. FaztTech called it a threshold: you can generate video faster than you can watch it.\n\nFaster than playback is a product line, not a teaser. MiniMax H3 was already on these lists as FastH3. Live infinite broadcast is the new map. MiniMax’s Hailuo account said H3 Max is now on MiniMax Design, 480p from $0.02 per second, with three free generations through September 3. Aakash Gupta said a 5 second clip with sound generates in under 3 seconds, 35 times faster than MiniMax’s own endpoint, and that it ranks first for image to video on Artificial Analysis.\n\nA founders list post from @sundeep later put a 15 second H3 Max clip at about 9 seconds, and repeated the 5 second clip in under 3 seconds.\n\nfal later launched fal.live as an experiment: video generating continuously, in near real time, with the audience in control. It said the stream was powered by H3 Max Director, an autoregressive and natively continuous version of H3 Max. A community clip said viewers could change the live stream by sending comments, including a Twitch chat that switched the scene to street view.\n\nWatch the API date, whether fal.live actually holds a thread, whether Design and Live share a checkpoint, and whether Director is the same cook as the Live broadcast.",
       "kind": "story",
       "engagement": {
         "impression_count": 17000,
@@ -2255,7 +2255,7 @@
           "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nMidnight lists still hold that death print. Al Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. ABC World News later said the death toll is over 700, with over 3,000 still missing, including 85 Americans, and posted new video of ice breaking off a landslide. Over 700 is the same band as 734, not a new death print. The 3,000 missing line and the 85 Americans are new on these lists. Arab News said rescuers used heavy machinery on Sunday after rain and rising waters slowed the tunnel work.\n\nCGTN later said rescue operations have entered their sixth day near Gyirong Port. The dump does not print a new official death count.\n\nThe 734 figure still holds on these lists. Watch the next Nepal police bulletin, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
+      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nMonday morning lists still hold that death print. Al Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. ABC World News later said the death toll is over 700, with over 3,000 still missing, including 85 Americans, and posted new video of ice breaking off a landslide. Over 700 is the same band as 734, not a new death print. The 3,000 missing line and the 85 Americans are new on these lists. Arab News said rescuers used heavy machinery on Sunday after rain and rising waters slowed the tunnel work.\n\nCGTN later said rescue operations have entered their sixth day near Gyirong Port. The dump does not print a new official death count.\n\nFrance24 later said officials in Nepal and neighboring China are still searching for more than 4,000 missing people, including hundreds of hydropower plant workers. That missing print is higher than the 3,000 line from ABC. The dump still does not print a new official death count on a wire with media.\n\nThe 734 figure still holds on these lists. Watch the next Nepal police bulletin, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
       "kind": "story",
       "engagement": {
         "impression_count": 32858,
@@ -2263,7 +2263,7 @@
         "reply_count": 3,
         "retweet_count": 43
       },
-      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, and @CGTNOfficial on a sixth day at Gyirong. One desk. The death number held. The tunnels are still sealed.",
+      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, and @France24_en on more than 4,000 missing. One desk. The death number held. The tunnels are still sealed.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJEnglish",
@@ -5058,7 +5058,7 @@
           "url": "https://x.com/AJENews/status/2094274061991842244"
         }
       ],
-      "body": "Al Jazeera posted breaking: China’s biggest airlines posted heavy losses as a fuel shock from the US Iran war bites.\n\nThe dump does not name the carriers or print a loss figure. This is the war’s airline bill going public, not a new strike.\n\nWatch a named carrier and a number, and whether flights over the Gulf actually get cut.",
+      "body": "Al Jazeera posted breaking: China’s biggest airlines posted heavy losses as a fuel shock from the US Iran war bites.\n\nReuters later said China’s three biggest airlines posted heavy first half losses as the fuel shock bites. The dump still does not name the carriers or print a loss figure. This is the war’s airline bill going public, not a new strike.\n\nWatch a named carrier and a number, and whether flights over the Gulf actually get cut.",
       "kind": "story",
       "engagement": {
         "impression_count": 7900,
@@ -5074,6 +5074,164 @@
       "list_count": 1,
       "views": 7900,
       "desk_rank": 116
+    },
+    {
+      "id": "uae-iran-drone",
+      "headline": "UAE says it stopped a drone from Iran over its waters",
+      "summary": "Al Arabiya posted that the UAE Ministry of Defense says it dealt with a drone coming from Iran over the country’s territorial waters. The ministry said the armed forces remain on full alert and that air defense systems continue around the clock.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-31T06:29:24.000Z",
+      "author_name": "AlArabiya_Eng",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AlArabiya_Eng/status/2094311576182391085",
+      "sources": [
+        {
+          "label": "@AlArabiya_Eng",
+          "url": "https://x.com/AlArabiya_Eng/status/2094311576182391085"
+        }
+      ],
+      "body": "Al Arabiya posted that the UAE Ministry of Defense says it dealt with a drone coming from Iran over the country’s territorial waters. The ministry said the armed forces remain on full alert and that air defense systems continue around the clock.\n\nThe same ministry later said reports that Al Minhad Air Base was targeted with missiles were false. This is a UAE intercept claim on the Iran file, not a CENTCOM confirmation, and not a hit on the base.\n\nWatch whether the UAE names a wreck or a shooter, and whether tanker traffic through Hormuz actually moves.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3500,
+        "like_count": 14,
+        "reply_count": 4,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert’s World News list carried @AlArabiya_Eng. One desk. A UAE ministry intercept, not a recap of the Larak strike or the MQ 9 claim.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AlArabiya_Eng",
+      "media_url": "https://pbs.twimg.com/media/HRB9R3lW0AASdSb?format=jpg&name=large",
+      "list_count": 1,
+      "views": 3500,
+      "desk_rank": 117
+    },
+    {
+      "id": "houla-lebanon",
+      "headline": "Israeli attacks hit Houla in southern Lebanon",
+      "summary": "Al Jazeera labeled it breaking: Israeli attacks target Houla in southern Lebanon. The dump gif is the live update clip. The dump does not print a casualty count.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-31T08:30:24.000Z",
+      "author_name": "AJENews",
+      "source_list": "Generalists",
+      "list_names": [
+        "Generalists #3 of 3"
+      ],
+      "chip_labels": [
+        "Generalists"
+      ],
+      "source_url": "https://x.com/AJENews/status/2094342023784300666",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2094342023784300666"
+        }
+      ],
+      "body": "Al Jazeera labeled it breaking: Israeli attacks target Houla in southern Lebanon. The dump gif is the live update clip. The dump does not print a casualty count.\n\nThis is live fire on a named southern Lebanon town, not a disarmament quote. It sits on the same Lebanon file as the State Department line on Hezbollah.\n\nWatch the next Al Jazeera count, and whether Houla is a one off strike or a new pattern.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 4400
+      },
+      "why_it_matters": "Robert’s generalists lists carried @AJENews. One desk. A live Lebanon strike, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCY-H2XQAATqP-.jpg",
+      "list_count": 1,
+      "views": 4400,
+      "desk_rank": 118
+    },
+    {
+      "id": "nablus-demolition",
+      "headline": "Israeli army demolishes a two story house in Nablus",
+      "summary": "Al Jazeera posted an update: the Israeli army demolished a two story house in Nablus. The dump gif is the live clip. The dump does not print a casualty count or a family name.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-31T08:15:22.000Z",
+      "author_name": "AJENews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJENews/status/2094338241922998730",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2094338241922998730"
+        }
+      ],
+      "body": "Al Jazeera posted an update: the Israeli army demolished a two story house in Nablus. The dump gif is the live clip. The dump does not print a casualty count or a family name.\n\nA named demolition in Nablus sits next to Al Mughayyir, Qusra, and this morning’s camp raid. Unfolding. Do not wait for a recap.\n\nWatch whether the next update names the neighborhood, and whether anyone was inside.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 6500,
+        "like_count": 2
+      },
+      "why_it_matters": "Robert’s World News list carried @AJENews. One desk. A live Nablus demolition, not a sports brief.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCVh-7XkAAE5Iv.jpg",
+      "list_count": 1,
+      "views": 6500,
+      "desk_rank": 119
+    },
+    {
+      "id": "japan-sdf-embassy",
+      "headline": "China says a Japanese officer with a knife broke into its embassy",
+      "summary": "Global Times posted a Chinese foreign ministry line: a serving Japanese SDF officer forcibly breaking into the Chinese embassy armed with a knife and making violent threats was an unprecedented and egregious incident that seriously violated the Vienna Convention on Diplomatic Rel",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-08-31T08:10:04.000Z",
+      "author_name": "globaltimesnews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/globaltimesnews/status/2094336908868681904",
+      "sources": [
+        {
+          "label": "@globaltimesnews",
+          "url": "https://x.com/globaltimesnews/status/2094336908868681904"
+        }
+      ],
+      "body": "Global Times posted a Chinese foreign ministry line: a serving Japanese SDF officer forcibly breaking into the Chinese embassy armed with a knife and making violent threats was an unprecedented and egregious incident that seriously violated the Vienna Convention on Diplomatic Relations.\n\nThis is a China state paper carrying a foreign ministry accusation, not a Tokyo confirmation. The dump does not name the city, the officer, or a Japanese reply.\n\nWatch whether Japan confirms an arrest, and whether the ministry names a post.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1700,
+        "reply_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s World News list carried @globaltimesnews. One desk. A Chinese foreign ministry accusation on a state paper, not a Japanese government post.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "globaltimesnews",
+      "media_url": "https://pbs.twimg.com/media/HRCUTKiawAAr_Tl?format=jpg&name=large",
+      "list_count": 1,
+      "views": 1700,
+      "desk_rank": 120
     }
   ],
   "signals": [
@@ -6212,12 +6370,12 @@
     {
       "id": "sig-nepal-china-floods",
       "title": "Nepal Tibet floods hold at 734 dead as tunnel rescue continues",
-      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, and @CGTNOfficial on a sixth day at Gyirong. One desk. The death number held. The tunnels are still sealed.",
+      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, and @France24_en on more than 4,000 missing. One desk. The death number held. The tunnels are still sealed.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, and @CGTNOfficial on a sixth day at Gyirong. One desk. The death number held. The tunnels are still sealed.",
+      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, and @France24_en on more than 4,000 missing. One desk. The death number held. The tunnels are still sealed.",
       "list_names": [
         "World News"
       ],
@@ -6226,7 +6384,7 @@
       ],
       "created_at": "2026-08-29T05:00:01.000Z",
       "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
-      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, and @CGTNOfficial on a sixth day at Gyirong. One desk. The death number held. The tunnels are still sealed.",
+      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, and @France24_en on more than 4,000 missing. One desk. The death number held. The tunnels are still sealed.",
       "topic_key": "world",
       "topic_label": "World"
     },
@@ -7723,6 +7881,90 @@
       "created_at": "2026-08-31T04:00:20.000Z",
       "source_url": "https://x.com/AJENews/status/2094274061991842244",
       "analysis": "Robert’s World News list carried @AJENews. One desk. Fuel shock is the war’s airline print, not a new strike tonight.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-uae-iran-drone",
+      "title": "UAE says it stopped a drone from Iran over its waters",
+      "text": "Robert’s World News list carried @AlArabiya_Eng. One desk. A UAE ministry intercept, not a recap of the Larak strike or the MQ 9 claim.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AlArabiya_Eng. One desk. A UAE ministry intercept, not a recap of the Larak strike or the MQ 9 claim.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-31T06:29:24.000Z",
+      "source_url": "https://x.com/AlArabiya_Eng/status/2094311576182391085",
+      "analysis": "Robert’s World News list carried @AlArabiya_Eng. One desk. A UAE ministry intercept, not a recap of the Larak strike or the MQ 9 claim.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-houla-lebanon",
+      "title": "Israeli attacks hit Houla in southern Lebanon",
+      "text": "Robert’s generalists lists carried @AJENews. One desk. A live Lebanon strike, not a calendar note.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s generalists lists carried @AJENews. One desk. A live Lebanon strike, not a calendar note.",
+      "list_names": [
+        "Generalists #3 of 3"
+      ],
+      "chip_labels": [
+        "Generalists"
+      ],
+      "created_at": "2026-08-31T08:30:24.000Z",
+      "source_url": "https://x.com/AJENews/status/2094342023784300666",
+      "analysis": "Robert’s generalists lists carried @AJENews. One desk. A live Lebanon strike, not a calendar note.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-nablus-demolition",
+      "title": "Israeli army demolishes a two story house in Nablus",
+      "text": "Robert’s World News list carried @AJENews. One desk. A live Nablus demolition, not a sports brief.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJENews. One desk. A live Nablus demolition, not a sports brief.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-31T08:15:22.000Z",
+      "source_url": "https://x.com/AJENews/status/2094338241922998730",
+      "analysis": "Robert’s World News list carried @AJENews. One desk. A live Nablus demolition, not a sports brief.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-japan-sdf-embassy",
+      "title": "China says a Japanese officer with a knife broke into its embassy",
+      "text": "Robert’s World News list carried @globaltimesnews. One desk. A Chinese foreign ministry accusation on a state paper, not a Japanese government post.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @globaltimesnews. One desk. A Chinese foreign ministry accusation on a state paper, not a Japanese government post.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-08-31T08:10:04.000Z",
+      "source_url": "https://x.com/globaltimesnews/status/2094336908868681904",
+      "analysis": "Robert’s World News list carried @globaltimesnews. One desk. A Chinese foreign ministry accusation on a state paper, not a Japanese government post.",
       "topic_key": "world",
       "topic_label": "World"
     }
