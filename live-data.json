@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-08-31T21:45:01.000Z",
-    "scrapedAt": "2026-08-31T21:45:01.000Z",
+    "generatedAt": "2026-08-31T22:28:05.000Z",
+    "scrapedAt": "2026-08-31T22:28:05.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 131 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 135 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 56,
-    "stories": 131,
-    "signals": 130,
+    "stories": 135,
+    "signals": 134,
     "reports": 4
   },
   "chips": [
@@ -327,14 +327,16 @@
       "tag": "papers",
       "published_at": "2026-08-31T20:00:01.000Z",
       "author_name": "NVIDIARobotics",
-      "source_list": "San Francisco Robotics, Tech Companies",
+      "source_list": "San Francisco Robotics, Tech Companies, Computer Vision",
       "list_names": [
         "San Francisco Robotics",
-        "Tech Companies"
+        "Tech Companies",
+        "Computer Vision"
       ],
       "chip_labels": [
         "San Francisco Robotics",
-        "Tech Companies"
+        "Tech Companies",
+        "Computer Vision"
       ],
       "source_url": "https://x.com/NVIDIARobotics/status/2094515571501015339",
       "sources": [
@@ -346,18 +348,18 @@
       "body": "NVIDIA Research introduced Hydra 0 as a generalist world model conditioned on action flow. The lab says robot actions can be represented as motion in pixel space, with image plane trajectories that let one model learn across human hands, handheld grippers, single arm robots, and bimanual setups.\n\nThis is a research world model, not a robot you can buy. Pixel motion as the action interface is the map change: one cook for hands and arms instead of a policy per body.\n\nWatch whether the paper actually ships weights, and whether those image plane trajectories hold on a real bimanual stack.",
       "kind": "story",
       "engagement": {
-        "impression_count": 2700,
-        "like_count": 54,
-        "reply_count": 6,
-        "retweet_count": 13
+        "impression_count": 7900,
+        "like_count": 132,
+        "reply_count": 8,
+        "retweet_count": 20
       },
-      "why_it_matters": "Robert’s San Francisco robotics lists and his tech companies lists carried @NVIDIARobotics. Two desks. This is a lab world model, not a factory demo.",
+      "why_it_matters": "Robert’s San Francisco robotics lists, his tech companies lists, and his computer vision lists carried @NVIDIARobotics. Three desks. This is a lab world model, not a factory demo.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "NVIDIARobotics",
       "media_url": "https://pbs.twimg.com/media/HREwOedWUAEjf8E.jpg",
-      "list_count": 2,
-      "views": 2700,
+      "list_count": 3,
+      "views": 7900,
       "desk_rank": 5
     },
     {
@@ -444,6 +446,182 @@
       "desk_rank": 7
     },
     {
+      "id": "applied-intuition-humain-ksa",
+      "headline": "Applied Intuition and HUMAIN will put thousands of autonomous trucks in Saudi Arabia",
+      "summary": "Applied Intuition posted a strategic collaboration with HUMAIN to deploy physical AI across Saudi Arabia, starting with autonomous trucking. Qasar later said the work with HUMAIN and Tareq Amin will bring thousands of trucks to the kingdom, then robotaxis, ports, mining, and cons",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-08-31T21:41:14.000Z",
+      "author_name": "qasar",
+      "source_list": "AI Companies, AI Enterprise, AI Vehicles, Investors",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Enterprise or Work",
+        "AI Vehicles",
+        "Investors #1 of 2"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Enterprise",
+        "AI Vehicles",
+        "Investors"
+      ],
+      "source_url": "https://x.com/qasar/status/2094541047024017728",
+      "sources": [
+        {
+          "label": "@qasar",
+          "url": "https://x.com/qasar/status/2094541047024017728"
+        }
+      ],
+      "body": "Applied Intuition posted a strategic collaboration with HUMAIN to deploy physical AI across Saudi Arabia, starting with autonomous trucking. Qasar later said the work with HUMAIN and Tareq Amin will bring thousands of trucks to the kingdom, then robotaxis, ports, mining, and construction.\n\nThis is a country scale trucking plan, not a demo clip. HUMAIN is the Saudi AI stack. Applied Intuition is the autonomy software. The dump does not print a dollar figure or a start date.\n\nWatch whether those trucks actually run, and whether robotaxis follow.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 13000,
+        "like_count": 73,
+        "reply_count": 10,
+        "retweet_count": 20
+      },
+      "why_it_matters": "Robert’s company lists, his enterprise lists, his vehicles lists, and his investors lists carried @qasar. Four desks. The Applied Intuition lab post is the same collaboration, with far fewer views.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "qasar",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094532265892052992/img/p1crZW1nINygDutp.jpg",
+      "list_count": 4,
+      "views": 13000,
+      "desk_rank": 8
+    },
+    {
+      "id": "grok-bot-microsoft",
+      "headline": "Grok Bot plugins now read and write Outlook, Calendar, and OneDrive",
+      "summary": "Grok Bot posted that it can now read, write, and act across Microsoft accounts. New plugins give bots direct access to Outlook, Calendar, and OneDrive.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-31T21:50:01.000Z",
+      "author_name": "bot",
+      "source_list": "AI Developer Tools, AI Enterprise, SpaceX AI",
+      "list_names": [
+        "AI Developer Tools",
+        "AI Enterprise or Work",
+        "SpaceX_AI"
+      ],
+      "chip_labels": [
+        "AI Developer Tools",
+        "AI Enterprise",
+        "SpaceX AI"
+      ],
+      "source_url": "https://x.com/bot/status/2094543253811183943",
+      "sources": [
+        {
+          "label": "@bot",
+          "url": "https://x.com/bot/status/2094543253811183943"
+        }
+      ],
+      "body": "Grok Bot posted that it can now read, write, and act across Microsoft accounts. New plugins give bots direct access to Outlook, Calendar, and OneDrive.\n\nThis is mail, calendar, and files inside the bot, not a new Grok model. ChatGPT already had a multi Gmail plugin on these lists. Microsoft’s own apps are the new surface.\n\nWatch whether the plugins actually send mail without a human click, and whether OneDrive writes stay inside a tenant.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 22000,
+        "like_count": 588,
+        "reply_count": 53,
+        "retweet_count": 71
+      },
+      "why_it_matters": "Robert’s developer tools lists, his enterprise lists, and his SpaceX AI lists carried @bot. Three desks. Microsoft mail and files inside the bot, not a new Grok checkpoint.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "bot",
+      "media_url": "https://pbs.twimg.com/media/HRFKMMdagAA6EYM?format=jpg&name=large",
+      "list_count": 3,
+      "views": 22000,
+      "desk_rank": 9
+    },
+    {
+      "id": "lmstudio-bionic-linux",
+      "headline": "LM Studio puts Bionic on Linux for local open model agents",
+      "summary": "LM Studio posted that Bionic is now available for Linux, so agents can run local open models on a Linux machine. NVIDIA’s RTX Spark account later said the same Linux drop makes local agents easier on NVIDIA hardware.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-08-31T18:55:41.000Z",
+      "author_name": "lmstudio",
+      "source_list": "AI Companies, AI Developer Tools",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Developer Tools"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Developer Tools"
+      ],
+      "source_url": "https://x.com/lmstudio/status/2094499384960467188",
+      "sources": [
+        {
+          "label": "@lmstudio",
+          "url": "https://x.com/lmstudio/status/2094499384960467188"
+        }
+      ],
+      "body": "LM Studio posted that Bionic is now available for Linux, so agents can run local open models on a Linux machine. NVIDIA’s RTX Spark account later said the same Linux drop makes local agents easier on NVIDIA hardware.\n\nThis is a Linux port of an existing local agent stack, not a new base model. Open weights on a desktop without a cloud bill is the product move.\n\nWatch whether Bionic on Linux actually holds a long agent thread, and whether Spark boxes are the intended machine.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 21000,
+        "like_count": 465,
+        "reply_count": 15,
+        "retweet_count": 54
+      },
+      "why_it_matters": "Robert’s company lists and his developer tools lists carried @lmstudio. Two desks. NVIDIA’s Spark account is distribution of the same Linux port.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "lmstudio",
+      "media_url": "https://pbs.twimg.com/media/HREoF1MWAAEFaNb?format=jpg&name=large",
+      "list_count": 2,
+      "views": 21000,
+      "desk_rank": 10
+    },
+    {
+      "id": "aws-graviton5-r9g",
+      "headline": "AWS puts Graviton5 R9g and R9gd instances on EC2",
+      "summary": "Amazon posted that EC2 R9g and R9gd instances are now available, with up to 25 percent better performance for memory intensive workloads. The instances run on the AWS Graviton5 processor.",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-08-31T21:05:45.000Z",
+      "author_name": "awscloud",
+      "source_list": "Tech Companies",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "source_url": "https://x.com/awscloud/status/2094532114330820943",
+      "sources": [
+        {
+          "label": "@awscloud",
+          "url": "https://x.com/awscloud/status/2094532114330820943"
+        }
+      ],
+      "body": "Amazon posted that EC2 R9g and R9gd instances are now available, with up to 25 percent better performance for memory intensive workloads. The instances run on the AWS Graviton5 processor.\n\nThis is a new Arm server generation on EC2, not a GPU SKU. Twenty five percent is Amazon’s own figure on the post. The dump does not print a price.\n\nWatch whether Graviton5 shows up in AI inference fleets, or stays a memory database chip.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 4500,
+        "like_count": 11,
+        "reply_count": 2,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert’s tech companies lists carried @awscloud. One desk. Graviton5 on EC2 is a server chip drop, not a training cluster post.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "awscloud",
+      "media_url": "https://pbs.twimg.com/media/HRFF239W4AAuLzC?format=jpg&name=large",
+      "list_count": 1,
+      "views": 4500,
+      "desk_rank": 11
+    },
+    {
       "id": "puro-2b",
       "headline": "Tsinghua posts Puro 2B, a 2B pretrain on RTX 5090s under 5090 dollars",
       "summary": "Tsinghua PACMAN posted Puro 2B, a 2 billion parameter model trained from scratch on consumer RTX 5090 GPUs. Weights, data manifests, and training code are Apache 2.0 on Hugging Face and GitHub. The paper, arxiv 2608.27370, says the best run used about 1.4 trillion tokens, 22,514 ",
@@ -483,7 +661,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093993758836862976/img/rbqyPgtGMKWQxkTM.jpg",
       "list_count": 2,
       "views": 957,
-      "desk_rank": 8
+      "desk_rank": 12
     },
     {
       "id": "apodex-1-1",
@@ -524,7 +702,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBGVSubEAAH_47?format=jpg&name=large",
       "list_count": 1,
       "views": 8800,
-      "desk_rank": 9
+      "desk_rank": 13
     },
     {
       "id": "fastvideo-fasth3",
@@ -568,7 +746,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large",
       "list_count": 3,
       "views": 88587,
-      "desk_rank": 10
+      "desk_rank": 14
     },
     {
       "id": "perplexity-search-api",
@@ -619,7 +797,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large",
       "list_count": 6,
       "views": 32486,
-      "desk_rank": 11
+      "desk_rank": 15
     },
     {
       "id": "firecrawl-keyless",
@@ -668,7 +846,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg",
       "list_count": 5,
       "views": 303017,
-      "desk_rank": 12
+      "desk_rank": 16
     },
     {
       "id": "qwencloud",
@@ -706,7 +884,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBjmU0XsAAHHh_?format=jpg&name=large",
       "list_count": 1,
       "views": 486,
-      "desk_rank": 13
+      "desk_rank": 17
     },
     {
       "id": "openreview-github",
@@ -741,7 +919,7 @@
       "x_handle": "GithubProjects",
       "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=large",
       "list_count": 1,
-      "desk_rank": 14
+      "desk_rank": 18
     },
     {
       "id": "a16z-machine-age-fund",
@@ -781,7 +959,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg",
       "list_count": 1,
       "views": 760,
-      "desk_rank": 15
+      "desk_rank": 19
     },
     {
       "id": "sb-energy-ipo",
@@ -821,7 +999,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBjDQ2agAAgzvx?format=jpg&name=large",
       "list_count": 2,
       "views": 41,
-      "desk_rank": 16
+      "desk_rank": 20
     },
     {
       "id": "openai-sandbox-escape",
@@ -861,7 +1039,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg",
       "list_count": 1,
       "views": 8,
-      "desk_rank": 17
+      "desk_rank": 21
     },
     {
       "id": "berlin-ai-cameras",
@@ -904,7 +1082,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094119069427683328/img/1_uLK2gDkI4Aq9uF.jpg",
       "list_count": 2,
       "views": 12000,
-      "desk_rank": 18
+      "desk_rank": 22
     },
     {
       "id": "pollen-microducks",
@@ -961,7 +1139,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large",
       "list_count": 10,
       "views": 98000,
-      "desk_rank": 19
+      "desk_rank": 23
     },
     {
       "id": "serbia-humanoid-plant",
@@ -1002,7 +1180,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093751710816829440/img/LAnIqs1ngchE6KQ8.jpg",
       "list_count": 1,
       "views": 1200,
-      "desk_rank": 20
+      "desk_rank": 24
     },
     {
       "id": "lerobot-teleoperator",
@@ -1051,7 +1229,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg",
       "list_count": 6,
       "views": 17006,
-      "desk_rank": 21
+      "desk_rank": 25
     },
     {
       "id": "gemini-co-scientist",
@@ -1104,7 +1282,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large",
       "list_count": 9,
       "views": 123433,
-      "desk_rank": 22
+      "desk_rank": 26
     },
     {
       "id": "openai-mac-buy",
@@ -1149,7 +1327,7 @@
       "media_url": "https://pbs.twimg.com/media/HRA-SQqb0AA_DAH?format=jpg&name=large",
       "list_count": 3,
       "views": 72000,
-      "desk_rank": 23
+      "desk_rank": 27
     },
     {
       "id": "midjourney-v82",
@@ -1195,7 +1373,7 @@
       "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=240x240",
       "list_count": 4,
       "views": 92047,
-      "desk_rank": 24
+      "desk_rank": 28
     },
     {
       "id": "google-wikiskill",
@@ -1242,7 +1420,7 @@
       "media_url": "https://pbs.twimg.com/media/HQz7S7XaMAEpfUG?format=jpg&name=large",
       "list_count": 6,
       "views": 305498,
-      "desk_rank": 25
+      "desk_rank": 29
     },
     {
       "id": "nvidia-warp-10m",
@@ -1289,7 +1467,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0cfFAaQAAMPTw?format=jpg&name=large",
       "list_count": 4,
       "views": 20263,
-      "desk_rank": 26
+      "desk_rank": 30
     },
     {
       "id": "fish-audio-android",
@@ -1333,7 +1511,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0c_8WasAA9QZU?format=jpg&name=large",
       "list_count": 3,
       "views": 2300,
-      "desk_rank": 27
+      "desk_rank": 31
     },
     {
       "id": "r3f-v10",
@@ -1376,7 +1554,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093367434400915456/img/iGhButUQQ6pSuiRS.jpg",
       "list_count": 2,
       "views": 5100,
-      "desk_rank": 28
+      "desk_rank": 32
     },
     {
       "id": "asimov-1",
@@ -1419,7 +1597,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093182759040921600/img/k5UX1gRM6pjgifNn.jpg",
       "list_count": 2,
       "views": 5434,
-      "desk_rank": 29
+      "desk_rank": 33
     },
     {
       "id": "muse-spark-daytona",
@@ -1463,7 +1641,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=large",
       "list_count": 3,
       "views": 7985,
-      "desk_rank": 30
+      "desk_rank": 34
     },
     {
       "id": "thomson-reuters-qwen",
@@ -1506,7 +1684,7 @@
       "media_url": "https://pbs.twimg.com/media/HQwTO6tWwAANpBk?format=jpg&name=large",
       "list_count": 2,
       "views": 176496,
-      "desk_rank": 31
+      "desk_rank": 35
     },
     {
       "id": "ijrr-world-models",
@@ -1546,7 +1724,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=large",
       "list_count": 1,
       "views": 11492,
-      "desk_rank": 32
+      "desk_rank": 36
     },
     {
       "id": "dyna-din-tai-fung",
@@ -1593,7 +1771,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg",
       "list_count": 5,
       "views": 283083,
-      "desk_rank": 33
+      "desk_rank": 37
     },
     {
       "id": "atom-toyosu-foundry",
@@ -1633,7 +1811,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0Hq3zaUAAB5zA?format=jpg&name=large",
       "list_count": 1,
       "views": 584,
-      "desk_rank": 34
+      "desk_rank": 38
     },
     {
       "id": "oracle-mlperf-mi300x",
@@ -1674,7 +1852,7 @@
       "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=large",
       "list_count": 2,
       "views": 847,
-      "desk_rank": 35
+      "desk_rank": 39
     },
     {
       "id": "pika-gemini-omni-flash",
@@ -1715,7 +1893,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093350576499122176/img/Z5FDkNbcku2S6SeZ.jpg",
       "list_count": 1,
       "views": 573,
-      "desk_rank": 36
+      "desk_rank": 40
     },
     {
       "id": "elevenlabs-cli",
@@ -1755,7 +1933,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093352324404019201/img/1kYLK_9roK4sVHOn.jpg",
       "list_count": 1,
       "views": 2508,
-      "desk_rank": 37
+      "desk_rank": 41
     },
     {
       "id": "sesame-turnbench",
@@ -1800,7 +1978,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093376735161339904/img/FN8GNNltmQR8uWry.jpg",
       "list_count": 4,
       "views": 53838,
-      "desk_rank": 38
+      "desk_rank": 42
     },
     {
       "id": "company-brains-roundup",
@@ -1844,7 +2022,7 @@
       "media_url": "https://pbs.twimg.com/media/HQuKMrOWwAA_Fvs?format=jpg&name=large",
       "list_count": 3,
       "views": 138405,
-      "desk_rank": 39
+      "desk_rank": 43
     },
     {
       "id": "niger-niamey-gunfire",
@@ -1885,7 +2063,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ6knjxbgAAn2OH?format=jpg&name=large",
       "list_count": 1,
       "views": 5691,
-      "desk_rank": 40
+      "desk_rank": 44
     },
     {
       "id": "venezuela-oil-deal",
@@ -1928,7 +2106,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2BynpXEAEsK4x?format=jpg&name=large",
       "list_count": 2,
       "views": 798591,
-      "desk_rank": 41
+      "desk_rank": 45
     },
     {
       "id": "owner-240m",
@@ -1969,7 +2147,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093372696302153728/img/bRYhKYLw2AVDfjh_.jpg",
       "list_count": 1,
       "views": 545000,
-      "desk_rank": 42
+      "desk_rank": 46
     },
     {
       "id": "hfun-transformer-humanoid",
@@ -2016,7 +2194,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2093232320706670592/pu/img/I71XGuUJmhIcyzot.jpg",
       "list_count": 4,
       "views": 26000,
-      "desk_rank": 43
+      "desk_rank": 47
     },
     {
       "id": "chatgpt-death-lawsuits",
@@ -2059,7 +2237,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2QL27X0AAt4-_?format=jpg&name=large",
       "list_count": 2,
       "views": 8274,
-      "desk_rank": 44
+      "desk_rank": 48
     },
     {
       "id": "openai-rosalind-workbench",
@@ -2103,7 +2281,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0wsMSaAAAFLeF?format=jpg&name=large",
       "list_count": 3,
       "views": 5789,
-      "desk_rank": 45
+      "desk_rank": 49
     },
     {
       "id": "openai-ends-cursor",
@@ -2144,7 +2322,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2157NWUAA7GKu?format=jpg&name=large",
       "list_count": 1,
       "views": 27883,
-      "desk_rank": 46
+      "desk_rank": 50
     },
     {
       "id": "glass-surface-detection",
@@ -2186,7 +2364,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2RCd5XgAAK1Ug?format=jpg&name=large",
       "list_count": 2,
       "views": 171,
-      "desk_rank": 47
+      "desk_rank": 51
     },
     {
       "id": "vercel-vgpu-sh",
@@ -2227,7 +2405,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092999146655645696/img/FgRJeSsf_c3kJSlF.jpg",
       "list_count": 1,
       "views": 850341,
-      "desk_rank": 48
+      "desk_rank": 52
     },
     {
       "id": "west-bank-raid",
@@ -2269,7 +2447,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ3Db4DW8AAGa7O.jpg",
       "list_count": 2,
       "views": 9000,
-      "desk_rank": 49
+      "desk_rank": 53
     },
     {
       "id": "kyiv-bucha-blast",
@@ -2317,7 +2495,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ4gTg_WEAAifog?format=jpg&name=large",
       "list_count": 5,
       "views": 61000,
-      "desk_rank": 50
+      "desk_rank": 54
     },
     {
       "id": "fujian-ccg-kinmen",
@@ -2355,7 +2533,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3I8UbbcAAx5zf.jpg",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 51
+      "desk_rank": 55
     },
     {
       "id": "guinea-bissau-constitution",
@@ -2396,7 +2574,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ240ynbIAARp5K?format=jpg&name=large",
       "list_count": 1,
       "views": 15000,
-      "desk_rank": 52
+      "desk_rank": 56
     },
     {
       "id": "nepal-china-floods",
@@ -2437,7 +2615,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3LBwhaoAA2P45?format=jpg&name=large",
       "list_count": 1,
       "views": 32858,
-      "desk_rank": 53
+      "desk_rank": 57
     },
     {
       "id": "ecuador-moreno-sentence",
@@ -2475,7 +2653,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3IPcIXkAEAlgJ?format=jpg&name=large",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 54
+      "desk_rank": 58
     },
     {
       "id": "us-space-academy-eo",
@@ -2526,7 +2704,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=large",
       "list_count": 7,
       "views": 5246893,
-      "desk_rank": 55
+      "desk_rank": 59
     },
     {
       "id": "radiant-army-750m",
@@ -2566,7 +2744,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0jWaGbQAAR_4k?format=jpg&name=large",
       "list_count": 1,
       "views": 28000,
-      "desk_rank": 56
+      "desk_rank": 60
     },
     {
       "id": "sony-warner-anthropic-suit",
@@ -2611,7 +2789,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ298vabEAAEdQD?format=jpg&name=large",
       "list_count": 3,
       "views": 10355,
-      "desk_rank": 57
+      "desk_rank": 61
     },
     {
       "id": "claude-scientists-plan",
@@ -2661,7 +2839,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093049007329116160/img/5X2ymmLb8kxUv3r9.jpg",
       "list_count": 7,
       "views": 3419949,
-      "desk_rank": 58
+      "desk_rank": 62
     },
     {
       "id": "anthropic-mhs-preview",
@@ -2708,7 +2886,7 @@
       "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg",
       "list_count": 5,
       "views": 2793870,
-      "desk_rank": 59
+      "desk_rank": 63
     },
     {
       "id": "nvidia-dynamo-inference",
@@ -2751,7 +2929,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093442877464735744/img/9flouWJYMrEF2i2l.jpg",
       "list_count": 2,
       "views": 17323,
-      "desk_rank": 60
+      "desk_rank": 64
     },
     {
       "id": "qualcomm-npu-on-phone",
@@ -2791,7 +2969,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093120275714027520/img/douV7w3Vc6IQvbP1.jpg",
       "list_count": 1,
       "views": 1471,
-      "desk_rank": 61
+      "desk_rank": 65
     },
     {
       "id": "tamu-vision-superpod",
@@ -2832,7 +3010,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2M9QSXoAAJL_G?format=jpg&name=large",
       "list_count": 1,
       "views": 30000,
-      "desk_rank": 62
+      "desk_rank": 66
     },
     {
       "id": "accel-sim-2-hopper",
@@ -2875,7 +3053,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ070mkXkAAGGIb?format=jpg&name=large",
       "list_count": 3,
       "views": 6283,
-      "desk_rank": 63
+      "desk_rank": 67
     },
     {
       "id": "brain-alignment-early-training",
@@ -2918,7 +3096,7 @@
       "media_url": "https://pbs.twimg.com/media/HQvBb9bWIAAvxvy?format=jpg&name=large",
       "list_count": 3,
       "views": 3283,
-      "desk_rank": 64
+      "desk_rank": 68
     },
     {
       "id": "ai4math-gold-rush-study",
@@ -2961,7 +3139,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2ajOxXAAAIB3g?format=jpg&name=large",
       "list_count": 3,
       "views": 6597,
-      "desk_rank": 65
+      "desk_rank": 69
     },
     {
       "id": "r3-robots-think-first",
@@ -3002,7 +3180,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093423474735710208/img/jJMX791bha_ZcneK.jpg",
       "list_count": 1,
       "views": 370,
-      "desk_rank": 66
+      "desk_rank": 70
     },
     {
       "id": "gatik-200m-series-d",
@@ -3043,7 +3221,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1YA1mWMAAhAdz?format=jpg&name=large",
       "list_count": 1,
       "views": 408,
-      "desk_rank": 67
+      "desk_rank": 71
     },
     {
       "id": "primero-12m-seed",
@@ -3083,7 +3261,7 @@
       "media_url": "https://pbs.twimg.com/media/HQvj5dnXkAAlUij?format=jpg&name=large",
       "list_count": 1,
       "views": 54,
-      "desk_rank": 68
+      "desk_rank": 72
     },
     {
       "id": "georgia-data-center-tax",
@@ -3126,7 +3304,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093069507837276160/img/s_sIUvo_pXUgVwmA.jpg",
       "list_count": 2,
       "views": 452000,
-      "desk_rank": 69
+      "desk_rank": 73
     },
     {
       "id": "pentagon-anthropic-blacklist",
@@ -3169,7 +3347,7 @@
       "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=large",
       "list_count": 2,
       "views": 1621,
-      "desk_rank": 70
+      "desk_rank": 74
     },
     {
       "id": "doge-nepal-flood-grants",
@@ -3212,7 +3390,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=900x900",
       "list_count": 2,
       "views": 755894,
-      "desk_rank": 71
+      "desk_rank": 75
     },
     {
       "id": "hy4-gguf-200gib",
@@ -3255,7 +3433,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=900x900",
       "list_count": 3,
       "views": 73582,
-      "desk_rank": 72
+      "desk_rank": 76
     },
     {
       "id": "orca-glm-flash-uncensored",
@@ -3296,7 +3474,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ4Bd3iaoAE0-uy?format=jpg&name=large",
       "list_count": 1,
       "views": 181000,
-      "desk_rank": 73
+      "desk_rank": 77
     },
     {
       "id": "levjepa-lecun-video",
@@ -3342,7 +3520,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093294057317388288/img/7s5GlcU2WRd35uEW.jpg",
       "list_count": 5,
       "views": 129397,
-      "desk_rank": 74
+      "desk_rank": 78
     },
     {
       "id": "changxin-sues-pentagon",
@@ -3382,7 +3560,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3z71OXwAAXSIU?format=jpg&name=large",
       "list_count": 1,
       "views": 2124,
-      "desk_rank": 75
+      "desk_rank": 79
     },
     {
       "id": "iceland-eu-vote",
@@ -3423,7 +3601,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9LcJeWwAA3oNW?format=jpg&name=large",
       "list_count": 1,
       "views": 20000,
-      "desk_rank": 76
+      "desk_rank": 80
     },
     {
       "id": "gaza-balloons-kites",
@@ -3464,7 +3642,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ34HnaaMAAkkfD?format=jpg&name=large",
       "list_count": 1,
       "views": 29154,
-      "desk_rank": 77
+      "desk_rank": 81
     },
     {
       "id": "iran-sanctions-stand",
@@ -3505,7 +3683,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3f_eYbEAAUd2u?format=jpg&name=large",
       "list_count": 1,
       "views": 35759,
-      "desk_rank": 78
+      "desk_rank": 82
     },
     {
       "id": "judge-student-visa-rule",
@@ -3545,7 +3723,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ38IK-XEAAfZHv?format=jpg&name=large",
       "list_count": 1,
       "views": 2009,
-      "desk_rank": 79
+      "desk_rank": 83
     },
     {
       "id": "terminal-bench-4",
@@ -3599,7 +3777,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093517148920688640/img/G8dZfbFuirKLSv-s.jpg",
       "list_count": 9,
       "views": 45683,
-      "desk_rank": 80
+      "desk_rank": 84
     },
     {
       "id": "russia-icbm-test",
@@ -3640,7 +3818,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3wCg4bEAE51pY?format=jpg&name=large",
       "list_count": 1,
       "views": 8102,
-      "desk_rank": 81
+      "desk_rank": 85
     },
     {
       "id": "fluidstack-anthropic-50b",
@@ -3681,7 +3859,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1smSzWYAIBbhj?format=jpg&name=large",
       "list_count": 1,
       "views": 10086,
-      "desk_rank": 82
+      "desk_rank": 86
     },
     {
       "id": "xanadu-195m-cad",
@@ -3722,7 +3900,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093518172930392064/img/sdIAtkXHKdk125en.jpg",
       "list_count": 1,
       "views": 626,
-      "desk_rank": 83
+      "desk_rank": 87
     },
     {
       "id": "claude-for-teachers",
@@ -3763,7 +3941,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0Xl7Kb0AAfj2b?format=jpg&name=large",
       "list_count": 1,
       "views": 12966,
-      "desk_rank": 84
+      "desk_rank": 88
     },
     {
       "id": "chatgpt-multi-gmail",
@@ -3807,7 +3985,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyc1tnaMAAxurk?format=jpg&name=large",
       "list_count": 4,
       "views": 348906,
-      "desk_rank": 85
+      "desk_rank": 89
     },
     {
       "id": "wsj-data-center-land",
@@ -3848,7 +4026,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=large",
       "list_count": 1,
       "views": 20502,
-      "desk_rank": 86
+      "desk_rank": 90
     },
     {
       "id": "gaza-al-musaddar",
@@ -3889,7 +4067,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3--L8bsAEuLsc?format=jpg&name=large",
       "list_count": 1,
       "views": 27352,
-      "desk_rank": 87
+      "desk_rank": 91
     },
     {
       "id": "qusra-arrest-raid",
@@ -3930,7 +4108,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ45SkgW8AARUke.jpg",
       "list_count": 1,
       "views": 8800,
-      "desk_rank": 88
+      "desk_rank": 92
     },
     {
       "id": "robot-rehearsal-forgetting",
@@ -3980,7 +4158,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093390816773599232/img/5FlKUqzV2sXAD0ei.jpg",
       "list_count": 7,
       "views": 24220,
-      "desk_rank": 89
+      "desk_rank": 93
     },
     {
       "id": "claude-code-resume",
@@ -4022,7 +4200,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093166423581523969/img/NEIewka38_3bDK3G.jpg",
       "list_count": 2,
       "views": 437066,
-      "desk_rank": 90
+      "desk_rank": 94
     },
     {
       "id": "sanders-flock-ban",
@@ -4065,7 +4243,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=large",
       "list_count": 2,
       "views": 416000,
-      "desk_rank": 91
+      "desk_rank": 95
     },
     {
       "id": "nbc-west-bank-beating",
@@ -4106,7 +4284,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093763775404879872/img/XGiCeflgtTFkTmEx.jpg",
       "list_count": 1,
       "views": 346000,
-      "desk_rank": 92
+      "desk_rank": 96
     },
     {
       "id": "china-censors-nepal-flood",
@@ -4147,7 +4325,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5s5xDW0AA0aNi?format=jpg&name=large",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 93
+      "desk_rank": 97
     },
     {
       "id": "wemm-embedding-apache",
@@ -4188,7 +4366,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5-jyyWwAAbg0c?format=jpg&name=large",
       "list_count": 1,
       "views": 1248,
-      "desk_rank": 94
+      "desk_rank": 98
     },
     {
       "id": "sparklab-dgx-spark",
@@ -4228,7 +4406,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5nbuIXMAADBjN?format=jpg&name=large",
       "list_count": 1,
       "views": 45,
-      "desk_rank": 95
+      "desk_rank": 99
     },
     {
       "id": "instinct-2-5b-valuation",
@@ -4268,7 +4446,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ6jpNibUAAiSPw?format=jpg&name=large",
       "list_count": 1,
       "views": 5712,
-      "desk_rank": 96
+      "desk_rank": 100
     },
     {
       "id": "ice-robot-dogs",
@@ -4309,7 +4487,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093699820221517824/img/PKO4eSlRByCiSeLT.jpg",
       "list_count": 1,
       "views": 23000,
-      "desk_rank": 97
+      "desk_rank": 101
     },
     {
       "id": "mit-agent-swarm",
@@ -4349,7 +4527,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093625620957708288/img/3YMGXzMwH1skgF3R.jpg",
       "list_count": 1,
       "views": 96364,
-      "desk_rank": 98
+      "desk_rank": 102
     },
     {
       "id": "hezbollah-iran-orders",
@@ -4390,7 +4568,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ6geUAXIAAvZMn.jpg",
       "list_count": 1,
       "views": 9503,
-      "desk_rank": 99
+      "desk_rank": 103
     },
     {
       "id": "zaporizhzhia-power-out",
@@ -4428,7 +4606,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7bH7mbUAE6zE4?format=jpg&name=large",
       "list_count": 1,
       "views": 9112,
-      "desk_rank": 100
+      "desk_rank": 104
     },
     {
       "id": "damascus-fair-post-assad",
@@ -4469,7 +4647,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093851194611683328/img/hCBigLr1qdgmM55d.jpg",
       "list_count": 1,
       "views": 13576,
-      "desk_rank": 101
+      "desk_rank": 105
     },
     {
       "id": "astribot-t1-13000",
@@ -4510,7 +4688,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093856321854418944/img/6E8iIwngRJgIe7C2.jpg",
       "list_count": 2,
       "views": 202,
-      "desk_rank": 102
+      "desk_rank": 106
     },
     {
       "id": "supabase-linux-one-command",
@@ -4553,7 +4731,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7eAxGWkAAZOXt?format=jpg&name=large",
       "list_count": 2,
       "views": 1600,
-      "desk_rank": 103
+      "desk_rank": 107
     },
     {
       "id": "korea-dram-export-gold",
@@ -4596,7 +4774,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7piWJXQAA8Z0u?format=jpg&name=large",
       "list_count": 2,
       "views": 2700,
-      "desk_rank": 104
+      "desk_rank": 108
     },
     {
       "id": "xgboost-vector-leaf",
@@ -4637,7 +4815,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7uK0eWsAA40Vt?format=jpg&name=large",
       "list_count": 2,
       "views": 1328,
-      "desk_rank": 105
+      "desk_rank": 109
     },
     {
       "id": "ubtech-cruzr-s2-wrc",
@@ -4677,7 +4855,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093926605550993408/img/WhibTYIoy6DumuiY.jpg",
       "list_count": 1,
       "views": 204,
-      "desk_rank": 106
+      "desk_rank": 110
     },
     {
       "id": "olmo3-capability-provenance",
@@ -4720,7 +4898,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093861002571915264/img/UZxCnQ4kLDou1rNi.jpg",
       "list_count": 2,
       "views": 2900,
-      "desk_rank": 107
+      "desk_rank": 111
     },
     {
       "id": "gpt-5-6-prime-gaps",
@@ -4761,7 +4939,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9qLV0bcAA23h3?format=png&name=large",
       "list_count": 2,
       "views": 959,
-      "desk_rank": 108
+      "desk_rank": 112
     },
     {
       "id": "arizona-desert-migrant-deaths",
@@ -4799,7 +4977,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ8WPw7XwAAl136?format=jpg&name=large",
       "list_count": 1,
       "views": 985,
-      "desk_rank": 109
+      "desk_rank": 113
     },
     {
       "id": "switzerland-aarau-shooting",
@@ -4840,7 +5018,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9KBdYXYAAKdp_?format=jpg&name=large",
       "list_count": 1,
       "views": 9000,
-      "desk_rank": 110
+      "desk_rank": 114
     },
     {
       "id": "cyprus-ferry-capsize",
@@ -4881,7 +5059,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ999BXXwAEpGXh.jpg",
       "list_count": 1,
       "views": 11988,
-      "desk_rank": 111
+      "desk_rank": 115
     },
     {
       "id": "hormuz-tanker-strike",
@@ -4919,7 +5097,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ--R5KX0AApYks?format=jpg&name=large",
       "list_count": 1,
       "views": 887,
-      "desk_rank": 112
+      "desk_rank": 116
     },
     {
       "id": "iran-rubble-rescues",
@@ -4959,7 +5137,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ-9QoTXYAASq6K.jpg",
       "list_count": 1,
       "views": 5200,
-      "desk_rank": 113
+      "desk_rank": 117
     },
     {
       "id": "uzbekistan-j10ce",
@@ -4999,7 +5177,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ-9MWgbcAEAHMa?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 114
+      "desk_rank": 118
     },
     {
       "id": "us-larak-strike",
@@ -5040,7 +5218,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ_v97QbQAAyBf1?format=jpg&name=large",
       "list_count": 1,
       "views": 13000,
-      "desk_rank": 115
+      "desk_rank": 119
     },
     {
       "id": "iran-jordan-retaliation",
@@ -5081,7 +5259,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAZ3N8W4AAWFTR?format=jpg&name=large",
       "list_count": 1,
       "views": 114000,
-      "desk_rank": 116
+      "desk_rank": 120
     },
     {
       "id": "bessent-iran-weekly-sanctions",
@@ -5120,7 +5298,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAkwB1aQAASaU-?format=jpg&name=large",
       "list_count": 1,
       "views": 4100,
-      "desk_rank": 117
+      "desk_rank": 121
     },
     {
       "id": "west-bank-mughayyir",
@@ -5158,7 +5336,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094158353375141888/img/hWF4EKN4u7ZARmJt.jpg",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 118
+      "desk_rank": 122
     },
     {
       "id": "irgc-mq9-hormuz",
@@ -5199,7 +5377,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094270679302524928/img/w_X49EkG1hD753Sm.jpg",
       "list_count": 1,
       "views": 3100,
-      "desk_rank": 119
+      "desk_rank": 123
     },
     {
       "id": "china-airlines-fuel",
@@ -5240,7 +5418,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRBbKOXWUAAzwXm.jpg",
       "list_count": 1,
       "views": 7900,
-      "desk_rank": 120
+      "desk_rank": 124
     },
     {
       "id": "uae-iran-drone",
@@ -5281,7 +5459,7 @@
       "media_url": "https://pbs.twimg.com/media/HRB9R3lW0AASdSb?format=jpg&name=large",
       "list_count": 1,
       "views": 3500,
-      "desk_rank": 121
+      "desk_rank": 125
     },
     {
       "id": "houla-lebanon",
@@ -5319,7 +5497,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCY-H2XQAATqP-.jpg",
       "list_count": 1,
       "views": 4400,
-      "desk_rank": 122
+      "desk_rank": 126
     },
     {
       "id": "nablus-demolition",
@@ -5358,7 +5536,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCVh-7XkAAE5Iv.jpg",
       "list_count": 1,
       "views": 6500,
-      "desk_rank": 123
+      "desk_rank": 127
     },
     {
       "id": "japan-sdf-embassy",
@@ -5398,7 +5576,7 @@
       "media_url": "https://pbs.twimg.com/media/HRCUTKiawAAr_Tl?format=jpg&name=large",
       "list_count": 1,
       "views": 1700,
-      "desk_rank": 124
+      "desk_rank": 128
     },
     {
       "id": "uk-sovereign-ai-procurement",
@@ -5441,7 +5619,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094376956313620480/img/14adU1llfbvcHtdj.jpg",
       "list_count": 2,
       "views": 6700,
-      "desk_rank": 125
+      "desk_rank": 129
     },
     {
       "id": "openclaw-2",
@@ -5469,7 +5647,7 @@
           "url": "https://x.com/AionForge/status/2094279232088092899"
         }
       ],
-      "body": "OpenClaw posted that OpenClaw 2.0 has arrived. AionForge on the company and robotics lists put numbers on the same drop: about 16,000 pull requests, about 1,000 contributors, and 250 days of refining. Cua later said it worked with the OpenClaw team to put first class computer use into 2.0, including an OpenClaw desktop fleet on Cua Cloud Fleets.\n\nThis is a harness bump, not a new lab model. Sixteen thousand pull requests is the community’s own count on the card. Computer use inside the same harness is the product move.\n\nWatch whether 2.0 actually runs a desktop fleet without a human in the loop, and whether those contributor stats hold on the repo.",
+      "body": "OpenClaw posted that OpenClaw 2.0 has arrived. AionForge on the company and robotics lists put numbers on the same drop: about 16,000 pull requests, about 1,000 contributors, and 250 days of refining. Cua later said it worked with the OpenClaw team to put first class computer use into 2.0, including an OpenClaw desktop fleet on Cua Cloud Fleets. GitHub later called it the fastest growing open source project in GitHub history.\n\nThis is a harness bump, not a new lab model. Sixteen thousand pull requests is the community’s own count on the card. Computer use inside the same harness is the product move.\n\nWatch whether 2.0 actually runs a desktop fleet without a human in the loop, and whether those contributor stats hold on the repo.",
       "kind": "story",
       "engagement": {
         "impression_count": 8,
@@ -5482,7 +5660,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBf3OVXYAETn0F?format=jpg&name=large",
       "list_count": 2,
       "views": 8,
-      "desk_rank": 126
+      "desk_rank": 130
     },
     {
       "id": "monid-preseed",
@@ -5521,7 +5699,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094502152966455296/img/oDjL511-E1ygpG0y.jpg",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 127
+      "desk_rank": 131
     },
     {
       "id": "apple-openai-trade-secrets",
@@ -5547,7 +5725,7 @@
           "url": "https://x.com/MacRumors/status/2094521275016474907"
         }
       ],
-      "body": "MacRumors posted that Apple says a former engineer used stolen trade secrets at OpenAI and taught an AI agent to run them.\n\nThat is a live lawsuit claim on the lab file, not a product launch. The dump is the MacRumors headline. It does not print the engineer’s name or a docket number.\n\nWatch the filing, and whether OpenAI answers on the agent piece.",
+      "body": "MacRumors posted that Apple says a former engineer used stolen trade secrets at OpenAI and taught an AI agent to run them.\n\nThat is a live lawsuit claim on the lab file, not a product launch. The dump is the MacRumors headline. It does not print the engineer’s name or a docket number. A later tech news post said Apple touts shocking evidence from the former engineer’s MacBook. Engadget quoted the filing as saying the company’s deception continues to this day.\n\nWatch the filing, and whether OpenAI answers on the agent piece.",
       "kind": "story",
       "engagement": {
         "impression_count": 5600,
@@ -5561,7 +5739,7 @@
       "media_url": "https://pbs.twimg.com/media/HRE8ACZaUAA8Ept?format=jpg&name=large",
       "list_count": 1,
       "views": 5600,
-      "desk_rank": 128
+      "desk_rank": 132
     },
     {
       "id": "slb-kelvion",
@@ -5599,7 +5777,7 @@
       "media_url": "https://pbs.twimg.com/media/HREewnGXMAA0DMK?format=jpg&name=large",
       "list_count": 1,
       "views": 94,
-      "desk_rank": 129
+      "desk_rank": 133
     },
     {
       "id": "israel-greece-arms",
@@ -5639,7 +5817,7 @@
       "media_url": "https://pbs.twimg.com/media/HREJj1CWYAA1S1n?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 130
+      "desk_rank": 134
     },
     {
       "id": "india-indus-treaty",
@@ -5678,7 +5856,7 @@
       "media_url": "https://pbs.twimg.com/media/HRDTdEGaIAAix8t?format=jpg&name=large",
       "list_count": 1,
       "views": 80,
-      "desk_rank": 131
+      "desk_rank": 135
     }
   ],
   "signals": [
@@ -5761,23 +5939,25 @@
     {
       "id": "sig-nvidia-hydra-0",
       "title": "NVIDIA Research posts Hydra 0, a world model that treats robot action as pixel motion",
-      "text": "Robert’s San Francisco robotics lists and his tech companies lists carried @NVIDIARobotics. Two desks. This is a lab world model, not a factory demo.",
+      "text": "Robert’s San Francisco robotics lists, his tech companies lists, and his computer vision lists carried @NVIDIARobotics. Three desks. This is a lab world model, not a factory demo.",
       "badge": "signal",
       "category": "papers",
       "section_key": "papers",
       "section_label": "Papers",
-      "source_list": "Robert’s San Francisco robotics lists and his tech companies lists carried @NVIDIARobotics. Two desks. This is a lab world model, not a factory demo.",
+      "source_list": "Robert’s San Francisco robotics lists, his tech companies lists, and his computer vision lists carried @NVIDIARobotics. Three desks. This is a lab world model, not a factory demo.",
       "list_names": [
         "San Francisco Robotics",
-        "Tech Companies"
+        "Tech Companies",
+        "Computer Vision"
       ],
       "chip_labels": [
         "San Francisco Robotics",
-        "Tech Companies"
+        "Tech Companies",
+        "Computer Vision"
       ],
       "created_at": "2026-08-31T20:00:01.000Z",
       "source_url": "https://x.com/NVIDIARobotics/status/2094515571501015339",
-      "analysis": "Robert’s San Francisco robotics lists and his tech companies lists carried @NVIDIARobotics. Two desks. This is a lab world model, not a factory demo.",
+      "analysis": "Robert’s San Francisco robotics lists, his tech companies lists, and his computer vision lists carried @NVIDIARobotics. Three desks. This is a lab world model, not a factory demo.",
       "topic_key": "papers",
       "topic_label": "Papers"
     },
@@ -5824,6 +6004,102 @@
       "analysis": "Robert’s music lists and his voice hardware lists carried @LuelCompany. Two desks. A studio plus API launch, not a sample reel.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-applied-intuition-humain-ksa",
+      "title": "Applied Intuition and HUMAIN will put thousands of autonomous trucks in Saudi Arabia",
+      "text": "Robert’s company lists, his enterprise lists, his vehicles lists, and his investors lists carried @qasar. Four desks. The Applied Intuition lab post is the same collaboration, with far fewer views.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s company lists, his enterprise lists, his vehicles lists, and his investors lists carried @qasar. Four desks. The Applied Intuition lab post is the same collaboration, with far fewer views.",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Enterprise or Work",
+        "AI Vehicles",
+        "Investors #1 of 2"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Enterprise",
+        "AI Vehicles",
+        "Investors"
+      ],
+      "created_at": "2026-08-31T21:41:14.000Z",
+      "source_url": "https://x.com/qasar/status/2094541047024017728",
+      "analysis": "Robert’s company lists, his enterprise lists, his vehicles lists, and his investors lists carried @qasar. Four desks. The Applied Intuition lab post is the same collaboration, with far fewer views.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-grok-bot-microsoft",
+      "title": "Grok Bot plugins now read and write Outlook, Calendar, and OneDrive",
+      "text": "Robert’s developer tools lists, his enterprise lists, and his SpaceX AI lists carried @bot. Three desks. Microsoft mail and files inside the bot, not a new Grok checkpoint.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s developer tools lists, his enterprise lists, and his SpaceX AI lists carried @bot. Three desks. Microsoft mail and files inside the bot, not a new Grok checkpoint.",
+      "list_names": [
+        "AI Developer Tools",
+        "AI Enterprise or Work",
+        "SpaceX_AI"
+      ],
+      "chip_labels": [
+        "AI Developer Tools",
+        "AI Enterprise",
+        "SpaceX AI"
+      ],
+      "created_at": "2026-08-31T21:50:01.000Z",
+      "source_url": "https://x.com/bot/status/2094543253811183943",
+      "analysis": "Robert’s developer tools lists, his enterprise lists, and his SpaceX AI lists carried @bot. Three desks. Microsoft mail and files inside the bot, not a new Grok checkpoint.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-lmstudio-bionic-linux",
+      "title": "LM Studio puts Bionic on Linux for local open model agents",
+      "text": "Robert’s company lists and his developer tools lists carried @lmstudio. Two desks. NVIDIA’s Spark account is distribution of the same Linux port.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s company lists and his developer tools lists carried @lmstudio. Two desks. NVIDIA’s Spark account is distribution of the same Linux port.",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Developer Tools"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Developer Tools"
+      ],
+      "created_at": "2026-08-31T18:55:41.000Z",
+      "source_url": "https://x.com/lmstudio/status/2094499384960467188",
+      "analysis": "Robert’s company lists and his developer tools lists carried @lmstudio. Two desks. NVIDIA’s Spark account is distribution of the same Linux port.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-aws-graviton5-r9g",
+      "title": "AWS puts Graviton5 R9g and R9gd instances on EC2",
+      "text": "Robert’s tech companies lists carried @awscloud. One desk. Graviton5 on EC2 is a server chip drop, not a training cluster post.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s tech companies lists carried @awscloud. One desk. Graviton5 on EC2 is a server chip drop, not a training cluster post.",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "created_at": "2026-08-31T21:05:45.000Z",
+      "source_url": "https://x.com/awscloud/status/2094532114330820943",
+      "analysis": "Robert’s tech companies lists carried @awscloud. One desk. Graviton5 on EC2 is a server chip drop, not a training cluster post.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
     },
     {
       "id": "sig-puro-2b",
