@@ -7839,3 +7839,61 @@ html.fonts-ready .brand-align-sub em {
     display: none !important;
   }
 }
+
+/* === an225: overnight — phone story title breathes, wordmark paints once, 5th pull full width === */
+
+/* A) Uncramp phone story reader H1 (beats 1.62rem / 22ch lock) */
+@media (max-width: 720px), (pointer: coarse) {
+  .article-page .story-header h1,
+  .article-page .article h1 {
+    font-size: clamp(1.85rem, 7vw, 2.35rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.035em !important;
+    max-width: none !important;
+    text-wrap: balance;
+  }
+}
+
+/* B) Wordmark: after fonts load, keep the settled split — do not replay the offset/blur dock */
+html:not(.fonts-ready) .brand-align::after {
+  animation: none !important;
+  opacity: 0 !important;
+}
+html.fonts-ready .brand-align-top,
+html.fonts-ready .brand-align-bot,
+html.fonts-ready .brand-align-half,
+html.fonts-ready .brand-align-sub em {
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+html.fonts-ready .brand-align-top {
+  clip-path: inset(0 0 42% 0) !important;
+}
+html.fonts-ready .brand-align-bot {
+  clip-path: inset(42% 0 0 0) !important;
+}
+html.fonts-ready .brand-align-sub em {
+  clip-path: none !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* C) Desktop 5th pull always full measure (2-col, last odd or 5th) */
+@media (min-width: 900px) {
+  .top-pulls {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .top-pulls > .top-pull:nth-child(5),
+  .top-pulls > .top-pull:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+  }
+  .top-pulls > .top-pull:nth-child(5) .top-pull-title,
+  .top-pulls > .top-pull:nth-child(5) .top-pull-dek,
+  .top-pulls > .top-pull:last-child:nth-child(odd) .top-pull-title,
+  .top-pulls > .top-pull:last-child:nth-child(odd) .top-pull-dek {
+    max-width: none !important;
+  }
+}
