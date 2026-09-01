@@ -8040,3 +8040,24 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
     object-position: center center !important;
   }
 }
+
+/* === an237: overnight — phone lead photo keeps the graphic’s own text === */
+@media (max-width: 899px) {
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero {
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    max-height: 252px !important;
+    min-height: 200px !important;
+    width: 100% !important;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero img,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero img {
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero::after,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero::after {
+    background: none !important;
+  }
+}
