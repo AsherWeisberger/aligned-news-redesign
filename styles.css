@@ -8066,7 +8066,7 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
 }
 
 
-/* === an240 thicker drops bar (not the 1px fetch .load-bar) === */
+/* === an241 lime-sand drops bar (WebGL grain, soft front) === */
 .an-drops-bar {
   position: fixed;
   top: env(safe-area-inset-top, 0px);

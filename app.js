@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an240";
+  var DATA_URL = "live-data.json?v=an241";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -4242,18 +4242,26 @@
     wrap.style.background = DROPS_BG;
     var canvas = wrap.querySelector("canvas");
     if (!canvas) return;
-    var ctx = canvas.getContext("2d", { alpha: false });
-    if (!ctx) return;
     var reduce = false;
     try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
-    var t0 = 0;
-    var running = true;
     var lastLabel = "";
-    var img = null;
-    var imgW = 0;
-    var imgH = 0;
+    var running = true;
+    var raf = 0;
+    var tick = 0;
 
-    function resize() {
+    function syncAria() {
+      var st = deskDumpState();
+      if (st.label !== lastLabel) {
+        lastLabel = st.label;
+        wrap.setAttribute("aria-valuenow", String(st.value));
+        wrap.setAttribute("aria-valuetext", st.label);
+        wrap.setAttribute("aria-label", st.label);
+        wrap.title = st.label;
+      }
+      return st;
+    }
+
+    function sizeCanvas() {
       var dpr = Math.min(2, window.devicePixelRatio || 1);
       var cssW = Math.max(1, wrap.clientWidth || window.innerWidth || 1);
       var cssH = Math.max(1, wrap.clientHeight || 18);
@@ -4262,148 +4270,299 @@
       if (canvas.width !== bw || canvas.height !== bh) {
         canvas.width = bw;
         canvas.height = bh;
-        img = null;
       }
       return dpr;
     }
 
-    function draw(ts) {
-      if (!running) return;
-      if (document.hidden) return;
-      if (!t0) t0 = ts || 0;
-      var time = reduce ? 1.15 : ((ts || 0) / 1000);
-      var dpr = resize();
-      var w = canvas.width;
-      var h = canvas.height;
-      if (!img || imgW !== w || imgH !== h) {
-        img = ctx.createImageData(w, h);
-        imgW = w;
-        imgH = h;
-      }
-      var data = img.data;
-      var st = deskDumpState();
-      var prog = st.progress;
-      if (st.label !== lastLabel) {
-        lastLabel = st.label;
-        wrap.setAttribute("aria-valuenow", String(st.value));
-        wrap.setAttribute("aria-valuetext", st.label);
-        wrap.setAttribute("aria-label", st.label);
-        wrap.title = st.label;
-      }
-      var pulse = reduce ? 0.14 : 0.28 * (0.5 + 0.5 * Math.sin(time * 3 * Math.PI * 2));
-      var front = prog + pulse * 0.01;
-      var fall = reduce ? 0 : time * 20;
-      var scale = 110, jitter = 0.3, amount = 0.105, lag = 0.42, echo = 0.055, stagger = 0.18, trails = 3;
-      var cs = Math.max(5, (h / dpr) / 2.6);
-      var x, y, nx, ny, cssx, cssy, fy, cx, cy, h0, h1, lx, ly, dist2, rad, drop, tr, ty, td, trail;
-      var fill, fd, frontBand, cover, pk, r, g, b, br, bgc, bb, hi, i, echoA;
-      rad = 0.22 + amount * 2.15;
-      var rad2 = rad * rad;
-      for (y = 0; y < h; y++) {
-        ny = y / h;
-        cssy = y / dpr;
-        for (x = 0; x < w; x++) {
-          nx = x / w;
-          cssx = x / dpr;
-          fy = cssy + fall;
-          cx = Math.floor(cssx / cs);
-          cy = Math.floor(fy / cs);
-          h0 = hash21(cx, cy);
-          h1 = hash21(cx * 13 + 7, cy * 9 + 3);
-          lx = (cssx / cs) - cx - 0.5 + (h0 - 0.5) * jitter;
-          ly = (fy / cs) - cy - 0.5;
-          dist2 = lx * lx + ly * ly;
-          drop = dist2 < rad2 ? (1 - Math.sqrt(dist2) / rad) : 0;
-          drop = drop * drop;
-          trail = 0;
-          for (tr = 1; tr <= trails; tr++) {
-            ty = ly + tr * 0.3;
-            td = lx * lx + ty * ty;
-            if (td < rad2) {
-              echoA = (1 - Math.sqrt(td) / (rad * 0.78)) * (1 - tr / 4) * 0.55;
-              if (echoA > trail) trail = echoA;
-            }
-          }
-          if (trail > drop) drop = trail;
-          if (ny > 0.42) drop = Math.max(drop, (ny - 0.42) / 0.58 * (0.3 + 0.7 * drop));
-          fill = front - nx - (h0 - 0.5) * lag * 0.03 - h1 * stagger * 0.008;
-          if (fill <= 0) fill = 0;
-          else if (fill >= 0.02) fill = 1;
-          else {
-            fill = fill / 0.02;
-            fill = fill * fill * (3 - 2 * fill);
-          }
-          cover = (0.22 + drop * 0.78) * fill;
-          if (fill < 0.05) cover = Math.max(cover, drop * 0.16);
-          if (cover > 1) cover = 1;
-          r = 0x12; g = 0x16; b = 0x0F;
-          br = 0x0E + (0x2E - 0x0E) * h1;
-          bgc = 0x24 + (0x85 - 0x24) * h1;
-          bb = 0x05 + (0x0F - 0x05) * h1;
-          hi = drop * drop;
-          br = br + (0xB2 - br) * hi;
-          bgc = bgc + (0xFF - bgc) * hi;
-          bb = bb + (0x59 - bb) * hi;
-          r = r + (br - r) * cover;
-          g = g + (bgc - g) * cover;
-          b = b + (bb - b) * cover;
-          fd = nx - front;
-          frontBand = 0;
-          if (fd > -(echo + 0.02) && fd < 0.02 && fill > 0) {
-            pk = (fd + echo + 0.02) / (echo + 0.04);
-            frontBand = 1 - Math.abs(pk - 0.62) * 2.1;
-            if (frontBand < 0) frontBand = 0;
-            frontBand *= 0.55 + pulse;
-          }
-          if (frontBand > 0) {
-            pk = 0.5 + 0.5 * Math.sin(time * 3 * 6.28318 + h0 * 6.2);
-            br = 0xFF;
-            bgc = 0x7A + (0xD6 - 0x7A) * pk;
-            bb = 0x24 + (0x9E - 0x24) * pk * 0.7;
-            br = br * 0.72 + 0xAD * 0.28 * (1 - pk);
-            r = r + (br - r) * frontBand;
-            g = g + (bgc - g) * frontBand;
-            b = b + (bb - b) * frontBand;
-          }
-          var grain = (h0 - 0.5) * 2.55;
-          r += grain; g += grain; b += grain;
-          i = (y * w + x) * 4;
-          data[i] = r < 0 ? 0 : r > 255 ? 255 : r;
-          data[i + 1] = g < 0 ? 0 : g > 255 ? 255 : g;
-          data[i + 2] = b < 0 ? 0 : b > 255 ? 255 : b;
-          data[i + 3] = 255;
-        }
-      }
-      ctx.putImageData(img, 0, 0);
-      var glowX = front * w;
-      var gw = Math.max(18, w * 0.045);
-      var grd = ctx.createLinearGradient(glowX - gw, 0, glowX + gw * 0.55, 0);
-      grd.addColorStop(0, "rgba(255,122,36,0)");
-      grd.addColorStop(0.42, "rgba(173,51,8," + (0.12 + pulse * 0.12) + ")");
-      grd.addColorStop(0.7, "rgba(255,214,158," + (0.22 + pulse * 0.18) + ")");
-      grd.addColorStop(0.88, "rgba(255,122,36," + (0.28 + pulse * 0.16) + ")");
-      grd.addColorStop(1, "rgba(255,122,36,0)");
-      ctx.globalCompositeOperation = "lighter";
-      ctx.fillStyle = grd;
-      ctx.fillRect(glowX - gw, 0, gw * 1.55, h);
-      ctx.globalCompositeOperation = "source-over";
+    function schedule(fn) {
       if (reduce) {
-        if (!wrap._dropsTick) wrap._dropsTick = setInterval(function () { draw(0); }, 1000);
+        if (!tick) tick = setInterval(function () { fn(0); }, 1000);
+        fn(0);
       } else {
-        requestAnimationFrame(draw);
+        raf = requestAnimationFrame(fn);
       }
     }
 
-    requestAnimationFrame(draw);
-    window.addEventListener("resize", function () { img = null; });
-    document.addEventListener("visibilitychange", function () {
-      if (!document.hidden && !reduce) {
-        t0 = 0;
-        requestAnimationFrame(draw);
-      }
-    });
-  }
+    function onVis(fn) {
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden && running && !reduce) {
+          raf = requestAnimationFrame(fn);
+        }
+      });
+    }
 
+    function startGL() {
+      var opts = {
+        alpha: false,
+        antialias: false,
+        depth: false,
+        stencil: false,
+        premultipliedAlpha: false,
+        preserveDrawingBuffer: false
+      };
+      var gl = canvas.getContext("webgl", opts) || canvas.getContext("experimental-webgl", opts);
+      if (!gl) return false;
+      var vsSrc = [
+        "attribute vec2 aPos;",
+        "void main(){",
+        "  gl_Position=vec4(aPos,0.0,1.0);",
+        "}"
+      ].join("\n");
+      var fsSrc = [
+        "precision mediump float;",
+        "uniform vec2 uRes;",
+        "uniform float uTime;",
+        "uniform float uProg;",
+        "uniform float uDpr;",
+        "uniform float uReduce;",
+        "float hash21(vec2 p){",
+        "  p=fract(p*vec2(0.1031,0.1030));",
+        "  p+=dot(p,p.yx+33.33);",
+        "  return fract((p.x+p.y)*p.y);",
+        "}",
+        "vec2 hash22(vec2 p){",
+        "  return vec2(hash21(p),hash21(p+vec2(19.17,7.41)));",
+        "}",
+        "float vnoise(vec2 p){",
+        "  vec2 i=floor(p);",
+        "  vec2 f=fract(p);",
+        "  f=f*f*(3.0-2.0*f);",
+        "  float a=hash21(i);",
+        "  float b=hash21(i+vec2(1.0,0.0));",
+        "  float c=hash21(i+vec2(0.0,1.0));",
+        "  float d=hash21(i+vec2(1.0,1.0));",
+        "  return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);",
+        "}",
+        "float worley(vec2 p){",
+        "  vec2 n=floor(p);",
+        "  vec2 f=fract(p);",
+        "  float md=8.0;",
+        "  for(int j=-1;j<=1;j++){",
+        "    for(int i=-1;i<=1;i++){",
+        "      vec2 g=vec2(float(i),float(j));",
+        "      vec2 o=hash22(n+g);",
+        "      o=0.5+(o-0.5)*0.30;",
+        "      vec2 r=g+o-f;",
+        "      md=min(md,dot(r,r));",
+        "    }",
+        "  }",
+        "  return sqrt(md);",
+        "}",
+        "void main(){",
+        "  vec2 frag=gl_FragCoord.xy;",
+        "  float dpr=max(uDpr,1.0);",
+        "  vec2 css=frag/dpr;",
+        "  float cssH=max(uRes.y/dpr,1.0);",
+        "  float nx=frag.x/max(uRes.x,1.0);",
+        "  float t=uReduce>0.5?1.15:uTime;",
+        "  vec2 p=css*(110.0/140.0);",
+        "  p.y+=t*1.0;",
+        "  vec2 ch=vec2(",
+        "    vnoise(p*0.41+vec2(t*0.19,4.1)),",
+        "    vnoise(p*0.41+vec2(9.7,t*0.16))",
+        "  );",
+        "  p+=(ch-0.5)*0.62;",
+        "  float amount=0.105;",
+        "  float w=worley(p);",
+        "  float core=exp(-(w*w)/(amount*amount*2.6));",
+        "  float halo=exp(-(w*w)/(amount*amount*16.0))*0.38;",
+        "  float drop=core*core+halo;",
+        "  vec2 pn=vec2(css.x/cssH,css.y/cssH)*110.0;",
+        "  pn.y+=t*0.65;",
+        "  float grit=vnoise(pn);",
+        "  drop=max(drop,smoothstep(0.80,0.96,grit)*0.50);",
+        "  drop*=0.82+0.18*grit;",
+        "  float w2=worley(p+vec2(0.0,0.40));",
+        "  drop=max(drop,exp(-(w2*w2)/(amount*amount*6.0))*0.20);",
+        "  vec2 cell=floor(p);",
+        "  float h0=hash21(cell);",
+        "  float h1=hash21(cell+vec2(9.7,3.1));",
+        "  float front=uProg;",
+        "  front-=(h0-0.5)*0.42*0.055;",
+        "  front-=h1*0.18*0.028;",
+        "  front+=(vnoise(vec2(nx*24.0,t*0.33))-0.5)*0.05;",
+        "  float cover=smoothstep(-0.30,0.30,front-nx);",
+        "  float mist=vnoise(vec2(nx*30.0+t*0.11,p.y*0.07));",
+        "  cover*=mix(0.84,1.0,mist);",
+        "  cover=clamp(cover,0.0,1.0);",
+        "  float pulse=uReduce>0.5?0.14:0.28*(0.5+0.5*sin(t*3.0*6.2831853));",
+        "  float nearF=1.0-smoothstep(0.0,0.34,abs(nx-uProg));",
+        "  float pulseAmt=pulse*nearF;",
+        "  vec3 bg=vec3(0.07059,0.08627,0.05882);",
+        "  vec3 c1=vec3(0.05490,0.14118,0.01961);",
+        "  vec3 c2=vec3(0.18039,0.52157,0.05882);",
+        "  vec3 c3=vec3(0.69804,1.00000,0.34902);",
+        "  vec3 w1=vec3(1.00000,0.47843,0.14118);",
+        "  vec3 w2=vec3(1.00000,0.83922,0.61961);",
+        "  vec3 w3=vec3(0.67843,0.20000,0.03137);",
+        "  vec3 base=mix(c1,c2,h1);",
+        "  vec3 filled=mix(base,c3,clamp(drop,0.0,1.0));",
+        "  filled+=c3*drop*drop*0.90;",
+        "  filled*=1.0+pulseAmt*(0.22+drop*0.75);",
+        "  vec3 idle=bg+(c2*0.18+c3*0.22)*drop*0.08;",
+        "  vec3 col=mix(idle,filled,cover);",
+        "  float thin=exp(-((nx-uProg)*(nx-uProg))*240.0);",
+        "  float band=cover*(1.0-cover)*4.0;",
+        "  band=pow(clamp(band,0.0,1.0),1.45);",
+        "  float warmAmt=thin*band*(0.11+pulse*0.08)*(0.28+drop*0.72);",
+        "  vec3 warm=mix(w3,mix(w1,w2,0.42+0.58*sin(t*18.85+h0*6.2)),0.78);",
+        "  col+=warm*warmAmt;",
+        "  col+=(hash21(frag+vec2(t*0.03,1.7))-0.5)*0.02;",
+        "  gl_FragColor=vec4(clamp(col,0.0,1.0),1.0);",
+        "}"
+      ].join("\n");
+      function compile(type, src) {
+        var sh = gl.createShader(type);
+        gl.shaderSource(sh, src);
+        gl.compileShader(sh);
+        if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+          gl.deleteShader(sh);
+          return null;
+        }
+        return sh;
+      }
+      var vs = compile(gl.VERTEX_SHADER, vsSrc);
+      var fs = compile(gl.FRAGMENT_SHADER, fsSrc);
+      if (!vs || !fs) return false;
+      var prog = gl.createProgram();
+      gl.attachShader(prog, vs);
+      gl.attachShader(prog, fs);
+      gl.bindAttribLocation(prog, 0, "aPos");
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return false;
+      var buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+      var uRes = gl.getUniformLocation(prog, "uRes");
+      var uTime = gl.getUniformLocation(prog, "uTime");
+      var uProg = gl.getUniformLocation(prog, "uProg");
+      var uDpr = gl.getUniformLocation(prog, "uDpr");
+      var uReduce = gl.getUniformLocation(prog, "uReduce");
+      function draw(ts) {
+        if (!running) return;
+        if (document.hidden && !reduce) return;
+        var dpr = sizeCanvas();
+        var st = syncAria();
+        var time = reduce ? 1.15 : ((ts || 0) / 1000);
+        var w = canvas.width;
+        var h = canvas.height;
+        gl.viewport(0, 0, w, h);
+        gl.disable(gl.DEPTH_TEST);
+        gl.disable(gl.BLEND);
+        gl.useProgram(prog);
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.enableVertexAttribArray(0);
+        gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+        gl.uniform2f(uRes, w, h);
+        gl.uniform1f(uTime, time);
+        gl.uniform1f(uProg, st.progress);
+        gl.uniform1f(uDpr, dpr);
+        gl.uniform1f(uReduce, reduce ? 1 : 0);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        if (!reduce) raf = requestAnimationFrame(draw);
+      }
+      window.addEventListener("resize", function () { if (reduce) draw(0); });
+      onVis(draw);
+      schedule(draw);
+      return true;
+    }
+
+    function start2D() {
+      var ctx = canvas.getContext("2d", { alpha: false });
+      if (!ctx) return;
+      var img = null;
+      var imgW = 0;
+      var imgH = 0;
+      function draw(ts) {
+        if (!running) return;
+        if (document.hidden && !reduce) return;
+        var dpr = sizeCanvas();
+        var w = canvas.width;
+        var h = canvas.height;
+        if (!img || imgW !== w || imgH !== h) {
+          img = ctx.createImageData(w, h);
+          imgW = w;
+          imgH = h;
+        }
+        var data = img.data;
+        var st = syncAria();
+        var time = reduce ? 1.15 : ((ts || 0) / 1000);
+        var prog = st.progress;
+        var pulse = reduce ? 0.14 : 0.28 * (0.5 + 0.5 * Math.sin(time * 3 * Math.PI * 2));
+        var fall = reduce ? 0 : time;
+        var cs = 1.15;
+        var x, y, nx, cssx, cssy, fy, cx, cy, h0, h1, drop, cover, fd, r, g, b, br, bgc, bb, hi, i, grain, band, thin, pk;
+        for (y = 0; y < h; y++) {
+          cssy = y / dpr;
+          for (x = 0; x < w; x++) {
+            nx = x / w;
+            cssx = x / dpr;
+            fy = cssy + fall;
+            cx = Math.floor(cssx / cs);
+            cy = Math.floor(fy / cs);
+            h0 = hash21(cx, cy);
+            h1 = hash21(cx * 13 + 7, cy * 9 + 3);
+            drop = 0;
+            if (h0 < 0.105) drop = 0.62 + 0.38 * h1;
+            else if (h1 > 0.91) drop = 0.28;
+            fd = prog - nx - (h0 - 0.5) * 0.025 - h1 * 0.008;
+            cover = (fd + 0.3) / 0.6;
+            if (cover < 0) cover = 0;
+            else if (cover > 1) cover = 1;
+            else cover = cover * cover * (3 - 2 * cover);
+            r = 0x12; g = 0x16; b = 0x0F;
+            br = 0x0E + (0x2E - 0x0E) * h1;
+            bgc = 0x24 + (0x85 - 0x24) * h1;
+            bb = 0x05 + (0x0F - 0x05) * h1;
+            hi = drop * drop;
+            br = br + (0xB2 - br) * hi;
+            bgc = bgc + (0xFF - bgc) * hi;
+            bb = bb + (0x59 - bb) * hi;
+            var idleR = r + (br - r) * drop * 0.08;
+            var idleG = g + (bgc - g) * drop * 0.08;
+            var idleB = b + (bb - b) * drop * 0.08;
+            var pulseMul = 1 + pulse * (1 - Math.min(1, Math.abs(nx - prog) / 0.34)) * (0.22 + drop * 0.75);
+            br *= pulseMul; bgc *= pulseMul; bb *= pulseMul;
+            r = idleR + (br - idleR) * cover;
+            g = idleG + (bgc - idleG) * cover;
+            b = idleB + (bb - idleB) * cover;
+            thin = Math.exp(-((nx - prog) * (nx - prog)) * 240);
+            band = cover * (1 - cover) * 4;
+            if (band > 0) {
+              pk = 0.5 + 0.5 * Math.sin(time * 18.85 + h0 * 6.2);
+              var wa = thin * band * (0.11 + pulse * 0.08) * (0.28 + drop * 0.72);
+              r = r + (0xFF - r) * wa * (0.72 + 0.28 * pk);
+              g = g + ((0x7A + (0xD6 - 0x7A) * pk) - g) * wa;
+              b = b + ((0x24 + (0x9E - 0x24) * pk * 0.55) - b) * wa;
+            }
+            grain = (h0 - 0.5) * 5.1;
+            r += grain; g += grain; b += grain;
+            i = (y * w + x) * 4;
+            data[i] = r < 0 ? 0 : r > 255 ? 255 : r;
+            data[i + 1] = g < 0 ? 0 : g > 255 ? 255 : g;
+            data[i + 2] = b < 0 ? 0 : b > 255 ? 255 : b;
+            data[i + 3] = 255;
+          }
+        }
+        ctx.putImageData(img, 0, 0);
+        if (!reduce) raf = requestAnimationFrame(draw);
+      }
+      window.addEventListener("resize", function () { img = null; if (reduce) draw(0); });
+      onVis(draw);
+      schedule(draw);
+    }
+
+    var glOk = false;
+    try { glOk = startGL(); } catch (e) { glOk = false; }
+    if (!glOk) {
+      var fresh = document.createElement("canvas");
+      fresh.className = "an-drops-bar-canvas";
+      fresh.setAttribute("aria-hidden", "true");
+      if (canvas.parentNode) canvas.parentNode.replaceChild(fresh, canvas);
+      canvas = fresh;
+      start2D();
+    }
+  }
 
   var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an169";
   var godModeBootPromise = null;
