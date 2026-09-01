@@ -8023,3 +8023,20 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
     -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 42px), transparent 100%) !important;
   }
 }
+
+/* === an234: overnight — desktop lead photo keeps 4/3, no portrait slice === */
+@media (min-width: 900px) {
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    max-height: 280px !important;
+    min-height: 200px !important;
+    align-self: start !important;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero img,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero img {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
