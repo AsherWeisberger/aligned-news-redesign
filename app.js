@@ -4293,10 +4293,11 @@
       var pulse = reduce ? 0.14 : 0.28 * (0.5 + 0.5 * Math.sin(time * 3 * Math.PI * 2));
       var front = prog + pulse * 0.01;
       var fall = reduce ? 0 : time * 20;
-      var cs = 1.22;
+      var scale = 110, jitter = 0.3, amount = 0.105, lag = 0.42, echo = 0.055, stagger = 0.18, trails = 3;
+      var cs = Math.max(1.18, (w / dpr) / (scale * 9));
       var x, y, nx, ny, cssx, cssy, fy, cx, cy, h0, h1, lx, ly, dist2, rad, drop, tr, ty, td, trail;
       var fill, fd, frontBand, cover, pk, r, g, b, br, bgc, bb, hi, i, echoA;
-      rad = 0.22 + 0.105 * 2.15;
+      rad = 0.22 + amount * 2.15;
       var rad2 = rad * rad;
       for (y = 0; y < h; y++) {
         ny = y / h;
@@ -4309,13 +4310,13 @@
           cy = Math.floor(fy / cs);
           h0 = hash21(cx, cy);
           h1 = hash21(cx * 13 + 7, cy * 9 + 3);
-          lx = (cssx / cs) - cx - 0.5 + (h0 - 0.5) * 0.3;
+          lx = (cssx / cs) - cx - 0.5 + (h0 - 0.5) * jitter;
           ly = (fy / cs) - cy - 0.5;
           dist2 = lx * lx + ly * ly;
           drop = dist2 < rad2 ? (1 - Math.sqrt(dist2) / rad) : 0;
           drop = drop * drop;
           trail = 0;
-          for (tr = 1; tr <= 3; tr++) {
+          for (tr = 1; tr <= trails; tr++) {
             ty = ly + tr * 0.3;
             td = lx * lx + ty * ty;
             if (td < rad2) {
@@ -4325,7 +4326,7 @@
           }
           if (trail > drop) drop = trail;
           if (ny > 0.42) drop = Math.max(drop, (ny - 0.42) / 0.58 * (0.3 + 0.7 * drop));
-          fill = front - nx - (h0 - 0.5) * 0.42 * 0.03 - h1 * 0.18 * 0.008;
+          fill = front - nx - (h0 - 0.5) * lag * 0.03 - h1 * stagger * 0.008;
           if (fill <= 0) fill = 0;
           else if (fill >= 0.02) fill = 1;
           else {
@@ -4333,6 +4334,7 @@
             fill = fill * fill * (3 - 2 * fill);
           }
           cover = (0.22 + drop * 0.78) * fill;
+          if (fill < 0.05) cover = Math.max(cover, drop * 0.16);
           if (cover > 1) cover = 1;
           r = 0x12; g = 0x16; b = 0x0F;
           br = 0x0E + (0x2E - 0x0E) * h1;
@@ -4347,8 +4349,8 @@
           b = b + (bb - b) * cover;
           fd = nx - front;
           frontBand = 0;
-          if (fd > -0.038 && fd < 0.02 && fill > 0) {
-            pk = (fd + 0.038) / 0.058;
+          if (fd > -(echo + 0.02) && fd < 0.02 && fill > 0) {
+            pk = (fd + echo + 0.02) / (echo + 0.04);
             frontBand = 1 - Math.abs(pk - 0.62) * 2.1;
             if (frontBand < 0) frontBand = 0;
             frontBand *= 0.55 + pulse;
@@ -4363,6 +4365,8 @@
             g = g + (bgc - g) * frontBand;
             b = b + (bb - b) * frontBand;
           }
+          var grain = (h0 - 0.5) * 2.55;
+          r += grain; g += grain; b += grain;
           i = (y * w + x) * 4;
           data[i] = r < 0 ? 0 : r > 255 ? 255 : r;
           data[i + 1] = g < 0 ? 0 : g > 255 ? 255 : g;
@@ -4452,280 +4456,6 @@
       '<div class="gm-overlay-error" id="godModeError" hidden></div>';
     document.body.appendChild(overlay);
     return overlay;
-  }
-
-  var DESK_DUMP_HOURS = [0, 4, 8, 12, 16, 20];
-  var DESK_DUMP_WINDOW = 4 * 3600;
-  var DROP_BG = "#12160F";
-  var DROP_FIELD_A = "#0E2405";
-  var DROP_FIELD_B = "#2E850F";
-  var DROP_LIME = "#B2FF59";
-  var DROP_FRONT = "#FF7A24";
-  var DROP_CREAM = "#FFD69E";
-  var DROP_EMBER = "#AD3308";
-
-  function hexRgb(h) {
-    return [
-      parseInt(h.slice(1, 3), 16),
-      parseInt(h.slice(3, 5), 16),
-      parseInt(h.slice(5, 7), 16)
-    ];
-  }
-
-  function deskEtParts(d) {
-    var hour = 0, minute = 0, second = 0;
-    try {
-      var fmt = new Intl.DateTimeFormat("en-US", {
-        timeZone: "America/Indiana/Indianapolis",
-        hour: "numeric",
-        minute: "numeric",
-        second: "numeric",
-        hour12: false
-      });
-      var arr = fmt.formatToParts(d);
-      var i, p;
-      for (i = 0; i < arr.length; i++) {
-        p = arr[i];
-        if (p.type === "hour") hour = parseInt(p.value, 10) || 0;
-        else if (p.type === "minute") minute = parseInt(p.value, 10) || 0;
-        else if (p.type === "second") second = parseInt(p.value, 10) || 0;
-      }
-    } catch (e) {
-      hour = d.getHours();
-      minute = d.getMinutes();
-      second = d.getSeconds();
-    }
-    if (hour === 24) hour = 0;
-    return { hour: hour, minute: minute, second: second };
-  }
-
-  function nextDeskProgress() {
-    var parts = deskEtParts(new Date());
-    var dumps = DESK_DUMP_HOURS;
-    var last = dumps[0];
-    var i;
-    for (i = 0; i < dumps.length; i++) {
-      if (parts.hour >= dumps[i]) last = dumps[i];
-    }
-    var elapsed = (parts.hour - last) * 3600 + parts.minute * 60 + parts.second;
-    if (elapsed < 0) elapsed = 0;
-    if (elapsed > DESK_DUMP_WINDOW) elapsed = DESK_DUMP_WINDOW;
-    var remain = DESK_DUMP_WINDOW - elapsed;
-    var rh = Math.floor(remain / 3600);
-    var rm = Math.floor((remain % 3600) / 60);
-    var label = rh > 0
-      ? ("Next stories in " + rh + "h " + rm + "m")
-      : ("Next stories in " + rm + "m");
-    return {
-      progress: elapsed / DESK_DUMP_WINDOW,
-      pct: Math.round((elapsed / DESK_DUMP_WINDOW) * 100),
-      label: label
-    };
-  }
-
-  function dropHash(x, y) {
-    var n = (Math.imul(x | 0, 374761393) + Math.imul(y | 0, 668265263)) | 0;
-    n = Math.imul(n ^ (n >>> 13), 1274126177);
-    return ((n ^ (n >>> 16)) >>> 0) / 4294967296;
-  }
-
-  function drawDeskDrops(ctx, w, h, progress, time, reduce) {
-    var img = ctx._dropImg;
-    if (!img || img.width !== w || img.height !== h) {
-      img = ctx.createImageData(w, h);
-      ctx._dropImg = img;
-    }
-    var data = img.data;
-    var bg = hexRgb(DROP_BG);
-    var fa = hexRgb(DROP_FIELD_A);
-    var fb = hexRgb(DROP_FIELD_B);
-    var lime = hexRgb(DROP_LIME);
-    var frontC = hexRgb(DROP_FRONT);
-    var cream = hexRgb(DROP_CREAM);
-    var ember = hexRgb(DROP_EMBER);
-    var scale = 110;
-    var jitter = 0.3;
-    var amount = 0.105;
-    var lag = 0.42;
-    var echo = 0.055;
-    var stagger = 0.18;
-    var trails = 3;
-    var cell = Math.max(2.6, w / scale);
-    var rowH = Math.max(2.2, h / 2.05);
-    var front = progress * w;
-    var pulse = reduce ? 0 : 0.28 * Math.sin(time * 3 * Math.PI * 2);
-    var fall = reduce ? 0 : time * 1.28;
-    var sigma = Math.max(0.55, amount * cell * 2.15);
-    var twoSig = 2 * sigma * sigma;
-    var frontSig = Math.max(2.2, 5.5 * (w / 1100));
-    var x, y, i, cx, cy, h1, h2, px, py, dx, dy, d2, drop, tr, pyT, idle;
-    var filled, pool, spec, near, echoN, lagFront, nx, grain;
-    var r, g, b, k, wash, tFall;
-    for (y = 0; y < h; y++) {
-      for (x = 0; x < w; x++) {
-        cx = Math.floor(x / cell);
-        tFall = fall + stagger * cx;
-        cy = Math.floor((y / rowH) + tFall);
-        h1 = dropHash(cx, cy);
-        h2 = dropHash(cx + 19, cy + 7);
-        px = (cx + 0.5 + (h1 - 0.5) * jitter) * cell;
-        py = ((cy + 0.5 + (h2 - 0.5) * jitter) - tFall) * rowH;
-        drop = 0;
-        for (tr = 0; tr < trails; tr++) {
-          pyT = py - tr * rowH * 0.34;
-          dx = x - px;
-          dy = y - pyT;
-          d2 = dx * dx + dy * dy;
-          drop = Math.max(drop, Math.exp(-d2 / twoSig) * (1 - tr * 0.28));
-        }
-        lagFront = front - lag * cell * (0.35 + h1 * 0.9);
-        filled = x <= lagFront;
-        wash = x <= front ? 1 : Math.max(0, 1 - (x - front) / Math.max(1.2, cell * 0.25));
-        idle = drop * 0.18 * (0.4 + 0.6 * h2);
-        pool = 0.42 + 0.58 * dropHash(cx, 91);
-        r = bg[0]; g = bg[1]; b = bg[2];
-        if (wash > 0.01) {
-          k = wash * (0.55 + 0.45 * pool);
-          r = r + (fa[0] - r) * k;
-          g = g + (fa[1] - g) * k;
-          b = b + (fa[2] - b) * k;
-          spec = drop * drop;
-          r = r + (fb[0] - r) * spec * 0.82;
-          g = g + (fb[1] - g) * spec * 0.82;
-          b = b + (fb[2] - b) * spec * 0.82;
-          k = Math.pow(drop, 1.6);
-          r = r + (lime[0] - r) * k * 0.72;
-          g = g + (lime[1] - g) * k * 0.72;
-          b = b + (lime[2] - b) * k * 0.72;
-        } else {
-          r = r + (fa[0] - r) * idle;
-          g = g + (fa[1] - g) * idle;
-          b = b + (fa[2] - b) * idle;
-        }
-        dx = x - front;
-        near = Math.exp(-(dx * dx) / (2 * frontSig * frontSig));
-        echoN = Math.exp(-((x - (front - echo * w)) * (x - (front - echo * w))) / (2 * frontSig * frontSig * 1.6));
-        if (near > 0.02) {
-          k = near * (1 + pulse);
-          r = r + (ember[0] - r) * Math.min(1, k * 0.85);
-          g = g + (ember[1] - g) * Math.min(1, k * 0.85);
-          b = b + (ember[2] - b) * Math.min(1, k * 0.85);
-          r = r + (frontC[0] - r) * Math.min(1, k);
-          g = g + (frontC[1] - g) * Math.min(1, k);
-          b = b + (frontC[2] - b) * Math.min(1, k);
-          nx = Math.max(0, 1 - Math.abs(dx) / Math.max(1.4, frontSig * 0.45));
-          r = r + (cream[0] - r) * nx * (0.55 + pulse * 0.5);
-          g = g + (cream[1] - g) * nx * (0.55 + pulse * 0.5);
-          b = b + (cream[2] - b) * nx * (0.55 + pulse * 0.5);
-        } else if (echoN > 0.04 && x < front) {
-          k = echoN * 0.35;
-          r = r + (frontC[0] - r) * k;
-          g = g + (frontC[1] - g) * k;
-          b = b + (frontC[2] - b) * k;
-        }
-        grain = (dropHash(x * 13 + 3, y * 7 + (reduce ? 0 : (time * 8) | 0)) - 0.5) * 2.55;
-        r += grain;
-        g += grain;
-        b += grain;
-        i = (y * w + x) * 4;
-        data[i] = r < 0 ? 0 : r > 255 ? 255 : r;
-        data[i + 1] = g < 0 ? 0 : g > 255 ? 255 : g;
-        data[i + 2] = b < 0 ? 0 : b > 255 ? 255 : b;
-        data[i + 3] = 255;
-      }
-    }
-    ctx.putImageData(img, 0, 0);
-  }
-
-  function initDeskDrops() {
-    if (document.getElementById("deskDrops")) return;
-    var wrap = document.createElement("div");
-    wrap.id = "deskDrops";
-    wrap.className = "desk-drops";
-    wrap.setAttribute("role", "progressbar");
-    wrap.setAttribute("aria-valuemin", "0");
-    wrap.setAttribute("aria-valuemax", "100");
-    var canvas = document.createElement("canvas");
-    canvas.setAttribute("aria-hidden", "true");
-    wrap.appendChild(canvas);
-    document.body.insertBefore(wrap, document.body.firstChild);
-    document.documentElement.classList.add("has-desk-drops");
-    var ctx = canvas.getContext("2d", { alpha: false });
-    if (!ctx) return;
-    var reduce = prefersReducedMotion();
-    try {
-      var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-      if (mq && mq.addEventListener) mq.addEventListener("change", function (ev) { reduce = ev.matches; });
-      else if (mq && mq.addListener) mq.addListener(function (ev) { reduce = ev.matches; });
-    } catch (e) {}
-    var running = true;
-    var visible = true;
-    var lastLabel = "";
-    var lastPct = -1;
-    var raf = 0;
-    var t0 = 0;
-
-    function syncAria(info) {
-      if (info.label !== lastLabel) {
-        lastLabel = info.label;
-        wrap.setAttribute("aria-label", info.label);
-        wrap.title = info.label;
-      }
-      if (info.pct !== lastPct) {
-        lastPct = info.pct;
-        wrap.setAttribute("aria-valuenow", String(info.pct));
-      }
-    }
-
-    function sizeCanvas() {
-      var dpr = Math.min(2, window.devicePixelRatio || 1);
-      var cssW = Math.max(1, wrap.clientWidth || window.innerWidth || 1);
-      var cssH = Math.max(1, canvas.clientHeight || wrap.clientHeight || 5);
-      var bw = Math.round(cssW * dpr);
-      var bh = Math.round(cssH * dpr);
-      if (canvas.width !== bw || canvas.height !== bh) {
-        canvas.width = bw;
-        canvas.height = bh;
-        ctx._dropImg = null;
-      }
-    }
-
-    function frame(ts) {
-      if (!running) return;
-      if (!t0) t0 = ts || 0;
-      var time = ((ts || 0) - t0) / 1000;
-      if (reduce) time = 0;
-      sizeCanvas();
-      var info = nextDeskProgress();
-      syncAria(info);
-      if (visible || lastPct < 0) {
-        drawDeskDrops(ctx, canvas.width, canvas.height, info.progress, time, reduce);
-      }
-      if (reduce) return;
-      raf = requestAnimationFrame(frame);
-    }
-
-    raf = requestAnimationFrame(frame);
-    if (reduce) {
-      setInterval(function () {
-        t0 = 0;
-        requestAnimationFrame(frame);
-      }, 1000);
-    }
-    window.addEventListener("resize", function () {
-      ctx._dropImg = null;
-      if (reduce) requestAnimationFrame(frame);
-    });
-    document.addEventListener("visibilitychange", function () {
-      visible = !document.hidden;
-      if (visible) {
-        t0 = 0;
-        if (!reduce) {
-          cancelAnimationFrame(raf);
-          raf = requestAnimationFrame(frame);
-        } else requestAnimationFrame(frame);
-      }
-    });
   }
 
   function startMiniGlobe(canvas) {
@@ -5079,7 +4809,6 @@
 
   function bindShell() {
     bindLeadScatterMedia();
-    initDeskDrops();
 
     // an57: floating capsule stays visible — no hide-on-scroll
 

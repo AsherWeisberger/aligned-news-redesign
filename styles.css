@@ -8084,49 +8084,13 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
   height: 100%;
 }
 
-
-/* === an239: next-desk drops bar + prism globe widget === */
-:root {
-  --desk-drops-h: 5px;
-  --topbar-h: calc(56px + env(safe-area-inset-top, 0px) + var(--desk-drops-h));
-}
+/* Phone: fill notch with olive, drops sit just under; wordmark padded via --drops-bar-h */
 @media (max-width: 899px) {
-  :root { --desk-drops-h: 4px; }
-}
-html.has-desk-drops .app {
-  /* grid first row uses --topbar-h which includes the bar */
-}
-.desk-drops {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 80;
-  height: var(--desk-drops-h);
-  pointer-events: none;
-  overflow: hidden;
-  background: #12160F;
-}
-.desk-drops canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #12160F;
-}
-@media (max-width: 899px) {
-  .desk-drops {
-    top: 0;
-    padding-top: env(safe-area-inset-top, 0px);
-    height: calc(var(--desk-drops-h) + env(safe-area-inset-top, 0px));
-    box-sizing: border-box;
-  }
-}
-.topbar {
-  padding-top: calc(env(safe-area-inset-top, 0px) + var(--desk-drops-h));
-}
-@media (max-width: 860px) {
-  .topbar {
-    min-height: calc(52px + env(safe-area-inset-top, 0px) + var(--desk-drops-h));
+  :root { --drops-bar-h: 4px; }
+  .an-drops-bar {
+    top: env(safe-area-inset-top, 0px);
+    height: var(--drops-bar-h);
+    box-shadow: 0 calc(-1 * env(safe-area-inset-top, 0px)) 0 0 #12160F;
   }
 }
 
