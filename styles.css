@@ -8086,7 +8086,6 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
 
 /* Phone: fill notch with olive, drops sit just under; wordmark padded via --drops-bar-h */
 @media (max-width: 899px) {
-  :root { --drops-bar-h: 4px; }
   .an-drops-bar {
     top: env(safe-area-inset-top, 0px);
     height: var(--drops-bar-h);
@@ -8098,8 +8097,7 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
 .gm-widget {
   overflow: visible;
 }
-.gm-widget-atm,
-.gm-widget-pulse {
+.gm-widget-atm {
   display: none !important;
 }
 .gm-widget-globe {
