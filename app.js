@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an238";
+  var DATA_URL = "live-data.json?v=an239";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -4162,6 +4162,245 @@
   }
 
 
+  var DESK_TZ = "America/Indiana/Indianapolis";
+  var DESK_DUMP_HOURS = [0, 4, 8, 12, 16, 20];
+  var DROPS_BG = "#12160F";
+  var DROPS_C1 = "#0E2405";
+  var DROPS_C2 = "#2E850F";
+  var DROPS_C3 = "#B2FF59";
+  var DROPS_C4 = "#FF7A24";
+  var DROPS_C5 = "#FFD69E";
+  var DROPS_C6 = "#AD3308";
+  var DROPS_C7 = "#FF7A24";
+  var DESK_WINDOW_SEC = 4 * 3600;
+
+  function deskDumpState() {
+    var h = 0, m = 0, sec = 0;
+    try {
+      var parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: DESK_TZ,
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: false,
+        hourCycle: "h23"
+      }).formatToParts(new Date());
+      var i, p;
+      for (i = 0; i < parts.length; i++) {
+        p = parts[i];
+        if (p.type === "hour") h = parseInt(p.value, 10) || 0;
+        else if (p.type === "minute") m = parseInt(p.value, 10) || 0;
+        else if (p.type === "second") sec = parseInt(p.value, 10) || 0;
+      }
+    } catch (e) {
+      var d = new Date();
+      h = d.getHours(); m = d.getMinutes(); sec = d.getSeconds();
+    }
+    h = ((h % 24) + 24) % 24;
+    var slot = 0, i;
+    for (i = DESK_DUMP_HOURS.length - 1; i >= 0; i--) {
+      if (h >= DESK_DUMP_HOURS[i]) { slot = i; break; }
+    }
+    var startH = DESK_DUMP_HOURS[slot];
+    var elapsed = (h - startH) * 3600 + m * 60 + sec;
+    if (elapsed < 0) elapsed = 0;
+    if (elapsed > DESK_WINDOW_SEC) elapsed = DESK_WINDOW_SEC;
+    var remain = DESK_WINDOW_SEC - elapsed;
+    var progress = elapsed / DESK_WINDOW_SEC;
+    var rh = Math.floor(remain / 3600);
+    var rm = Math.floor((remain % 3600) / 60);
+    var rs = remain % 60;
+    var label = rh > 0
+      ? ("Next stories in " + rh + "h " + rm + "m")
+      : (rm > 0 ? ("Next stories in " + rm + "m") : ("Next stories in " + rs + "s"));
+    return { progress: progress, label: label, value: Math.round(progress * 100) };
+  }
+
+  function hash21(x, y) {
+    var n = (Math.imul(x | 0, 374761393) + Math.imul(y | 0, 668265263)) | 0;
+    n = Math.imul(n ^ (n >>> 13), 1274126177);
+    return ((n ^ (n >>> 16)) >>> 0) / 4294967296;
+  }
+
+  function startDropsBar() {
+    if (document.documentElement.getAttribute("data-drops") === "1") return;
+    document.documentElement.setAttribute("data-drops", "1");
+    var wrap = document.getElementById("anDropsBar");
+    if (!wrap) {
+      wrap = document.createElement("div");
+      wrap.id = "anDropsBar";
+      wrap.className = "an-drops-bar";
+      wrap.setAttribute("role", "progressbar");
+      wrap.setAttribute("aria-valuemin", "0");
+      wrap.setAttribute("aria-valuemax", "100");
+      var cv = document.createElement("canvas");
+      cv.className = "an-drops-bar-canvas";
+      cv.setAttribute("aria-hidden", "true");
+      wrap.appendChild(cv);
+      document.body.insertBefore(wrap, document.body.firstChild);
+    }
+    wrap.style.background = DROPS_BG;
+    var canvas = wrap.querySelector("canvas");
+    if (!canvas) return;
+    var ctx = canvas.getContext("2d", { alpha: false });
+    if (!ctx) return;
+    var reduce = false;
+    try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+    var t0 = 0;
+    var running = true;
+    var lastLabel = "";
+    var img = null;
+    var imgW = 0;
+    var imgH = 0;
+
+    function resize() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      var cssW = Math.max(1, wrap.clientWidth || window.innerWidth || 1);
+      var cssH = Math.max(1, wrap.clientHeight || 5);
+      var bw = Math.max(1, Math.round(cssW * dpr));
+      var bh = Math.max(1, Math.round(cssH * dpr));
+      if (canvas.width !== bw || canvas.height !== bh) {
+        canvas.width = bw;
+        canvas.height = bh;
+        img = null;
+      }
+      return dpr;
+    }
+
+    function draw(ts) {
+      if (!running) return;
+      if (document.hidden) return;
+      if (!t0) t0 = ts || 0;
+      var time = reduce ? 1.15 : ((ts || 0) / 1000);
+      var dpr = resize();
+      var w = canvas.width;
+      var h = canvas.height;
+      if (!img || imgW !== w || imgH !== h) {
+        img = ctx.createImageData(w, h);
+        imgW = w;
+        imgH = h;
+      }
+      var data = img.data;
+      var st = deskDumpState();
+      var prog = st.progress;
+      if (st.label !== lastLabel) {
+        lastLabel = st.label;
+        wrap.setAttribute("aria-valuenow", String(st.value));
+        wrap.setAttribute("aria-valuetext", st.label);
+        wrap.setAttribute("aria-label", st.label);
+        wrap.title = st.label;
+      }
+      var pulse = reduce ? 0.14 : 0.28 * (0.5 + 0.5 * Math.sin(time * 3 * Math.PI * 2));
+      var front = prog + pulse * 0.01;
+      var fall = reduce ? 0 : time * 20;
+      var cs = 1.22;
+      var x, y, nx, ny, cssx, cssy, fy, cx, cy, h0, h1, lx, ly, dist2, rad, drop, tr, ty, td, trail;
+      var fill, fd, frontBand, cover, pk, r, g, b, br, bgc, bb, hi, i, echoA;
+      rad = 0.22 + 0.105 * 2.15;
+      var rad2 = rad * rad;
+      for (y = 0; y < h; y++) {
+        ny = y / h;
+        cssy = y / dpr;
+        for (x = 0; x < w; x++) {
+          nx = x / w;
+          cssx = x / dpr;
+          fy = cssy + fall;
+          cx = Math.floor(cssx / cs);
+          cy = Math.floor(fy / cs);
+          h0 = hash21(cx, cy);
+          h1 = hash21(cx * 13 + 7, cy * 9 + 3);
+          lx = (cssx / cs) - cx - 0.5 + (h0 - 0.5) * 0.3;
+          ly = (fy / cs) - cy - 0.5;
+          dist2 = lx * lx + ly * ly;
+          drop = dist2 < rad2 ? (1 - Math.sqrt(dist2) / rad) : 0;
+          drop = drop * drop;
+          trail = 0;
+          for (tr = 1; tr <= 3; tr++) {
+            ty = ly + tr * 0.3;
+            td = lx * lx + ty * ty;
+            if (td < rad2) {
+              echoA = (1 - Math.sqrt(td) / (rad * 0.78)) * (1 - tr / 4) * 0.55;
+              if (echoA > trail) trail = echoA;
+            }
+          }
+          if (trail > drop) drop = trail;
+          if (ny > 0.42) drop = Math.max(drop, (ny - 0.42) / 0.58 * (0.3 + 0.7 * drop));
+          fill = front - nx - (h0 - 0.5) * 0.42 * 0.03 - h1 * 0.18 * 0.008;
+          if (fill <= 0) fill = 0;
+          else if (fill >= 0.02) fill = 1;
+          else {
+            fill = fill / 0.02;
+            fill = fill * fill * (3 - 2 * fill);
+          }
+          cover = (0.22 + drop * 0.78) * fill;
+          if (cover > 1) cover = 1;
+          r = 0x12; g = 0x16; b = 0x0F;
+          br = 0x0E + (0x2E - 0x0E) * h1;
+          bgc = 0x24 + (0x85 - 0x24) * h1;
+          bb = 0x05 + (0x0F - 0x05) * h1;
+          hi = drop * drop;
+          br = br + (0xB2 - br) * hi;
+          bgc = bgc + (0xFF - bgc) * hi;
+          bb = bb + (0x59 - bb) * hi;
+          r = r + (br - r) * cover;
+          g = g + (bgc - g) * cover;
+          b = b + (bb - b) * cover;
+          fd = nx - front;
+          frontBand = 0;
+          if (fd > -0.038 && fd < 0.02 && fill > 0) {
+            pk = (fd + 0.038) / 0.058;
+            frontBand = 1 - Math.abs(pk - 0.62) * 2.1;
+            if (frontBand < 0) frontBand = 0;
+            frontBand *= 0.55 + pulse;
+          }
+          if (frontBand > 0) {
+            pk = 0.5 + 0.5 * Math.sin(time * 3 * 6.28318 + h0 * 6.2);
+            br = 0xFF;
+            bgc = 0x7A + (0xD6 - 0x7A) * pk;
+            bb = 0x24 + (0x9E - 0x24) * pk * 0.7;
+            br = br * 0.72 + 0xAD * 0.28 * (1 - pk);
+            r = r + (br - r) * frontBand;
+            g = g + (bgc - g) * frontBand;
+            b = b + (bb - b) * frontBand;
+          }
+          i = (y * w + x) * 4;
+          data[i] = r < 0 ? 0 : r > 255 ? 255 : r;
+          data[i + 1] = g < 0 ? 0 : g > 255 ? 255 : g;
+          data[i + 2] = b < 0 ? 0 : b > 255 ? 255 : b;
+          data[i + 3] = 255;
+        }
+      }
+      ctx.putImageData(img, 0, 0);
+      var glowX = front * w;
+      var gw = Math.max(18, w * 0.045);
+      var grd = ctx.createLinearGradient(glowX - gw, 0, glowX + gw * 0.55, 0);
+      grd.addColorStop(0, "rgba(255,122,36,0)");
+      grd.addColorStop(0.42, "rgba(173,51,8," + (0.12 + pulse * 0.12) + ")");
+      grd.addColorStop(0.7, "rgba(255,214,158," + (0.22 + pulse * 0.18) + ")");
+      grd.addColorStop(0.88, "rgba(255,122,36," + (0.28 + pulse * 0.16) + ")");
+      grd.addColorStop(1, "rgba(255,122,36,0)");
+      ctx.globalCompositeOperation = "lighter";
+      ctx.fillStyle = grd;
+      ctx.fillRect(glowX - gw, 0, gw * 1.55, h);
+      ctx.globalCompositeOperation = "source-over";
+      if (reduce) {
+        if (!wrap._dropsTick) wrap._dropsTick = setInterval(function () { draw(0); }, 1000);
+      } else {
+        requestAnimationFrame(draw);
+      }
+    }
+
+    requestAnimationFrame(draw);
+    window.addEventListener("resize", function () { img = null; });
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden && !reduce) {
+        t0 = 0;
+        requestAnimationFrame(draw);
+      }
+    });
+  }
+
+
   var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an169";
   var godModeBootPromise = null;
 
@@ -4215,156 +4454,523 @@
     return overlay;
   }
 
+  var DESK_DUMP_HOURS = [0, 4, 8, 12, 16, 20];
+  var DESK_DUMP_WINDOW = 4 * 3600;
+  var DROP_BG = "#12160F";
+  var DROP_FIELD_A = "#0E2405";
+  var DROP_FIELD_B = "#2E850F";
+  var DROP_LIME = "#B2FF59";
+  var DROP_FRONT = "#FF7A24";
+  var DROP_CREAM = "#FFD69E";
+  var DROP_EMBER = "#AD3308";
+
+  function hexRgb(h) {
+    return [
+      parseInt(h.slice(1, 3), 16),
+      parseInt(h.slice(3, 5), 16),
+      parseInt(h.slice(5, 7), 16)
+    ];
+  }
+
+  function deskEtParts(d) {
+    var hour = 0, minute = 0, second = 0;
+    try {
+      var fmt = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Indiana/Indianapolis",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: false
+      });
+      var arr = fmt.formatToParts(d);
+      var i, p;
+      for (i = 0; i < arr.length; i++) {
+        p = arr[i];
+        if (p.type === "hour") hour = parseInt(p.value, 10) || 0;
+        else if (p.type === "minute") minute = parseInt(p.value, 10) || 0;
+        else if (p.type === "second") second = parseInt(p.value, 10) || 0;
+      }
+    } catch (e) {
+      hour = d.getHours();
+      minute = d.getMinutes();
+      second = d.getSeconds();
+    }
+    if (hour === 24) hour = 0;
+    return { hour: hour, minute: minute, second: second };
+  }
+
+  function nextDeskProgress() {
+    var parts = deskEtParts(new Date());
+    var dumps = DESK_DUMP_HOURS;
+    var last = dumps[0];
+    var i;
+    for (i = 0; i < dumps.length; i++) {
+      if (parts.hour >= dumps[i]) last = dumps[i];
+    }
+    var elapsed = (parts.hour - last) * 3600 + parts.minute * 60 + parts.second;
+    if (elapsed < 0) elapsed = 0;
+    if (elapsed > DESK_DUMP_WINDOW) elapsed = DESK_DUMP_WINDOW;
+    var remain = DESK_DUMP_WINDOW - elapsed;
+    var rh = Math.floor(remain / 3600);
+    var rm = Math.floor((remain % 3600) / 60);
+    var label = rh > 0
+      ? ("Next stories in " + rh + "h " + rm + "m")
+      : ("Next stories in " + rm + "m");
+    return {
+      progress: elapsed / DESK_DUMP_WINDOW,
+      pct: Math.round((elapsed / DESK_DUMP_WINDOW) * 100),
+      label: label
+    };
+  }
+
+  function dropHash(x, y) {
+    var n = (Math.imul(x | 0, 374761393) + Math.imul(y | 0, 668265263)) | 0;
+    n = Math.imul(n ^ (n >>> 13), 1274126177);
+    return ((n ^ (n >>> 16)) >>> 0) / 4294967296;
+  }
+
+  function drawDeskDrops(ctx, w, h, progress, time, reduce) {
+    var img = ctx._dropImg;
+    if (!img || img.width !== w || img.height !== h) {
+      img = ctx.createImageData(w, h);
+      ctx._dropImg = img;
+    }
+    var data = img.data;
+    var bg = hexRgb(DROP_BG);
+    var fa = hexRgb(DROP_FIELD_A);
+    var fb = hexRgb(DROP_FIELD_B);
+    var lime = hexRgb(DROP_LIME);
+    var frontC = hexRgb(DROP_FRONT);
+    var cream = hexRgb(DROP_CREAM);
+    var ember = hexRgb(DROP_EMBER);
+    var scale = 110;
+    var jitter = 0.3;
+    var amount = 0.105;
+    var lag = 0.42;
+    var echo = 0.055;
+    var stagger = 0.18;
+    var trails = 3;
+    var cell = Math.max(2.6, w / scale);
+    var rowH = Math.max(2.2, h / 2.05);
+    var front = progress * w;
+    var pulse = reduce ? 0 : 0.28 * Math.sin(time * 3 * Math.PI * 2);
+    var fall = reduce ? 0 : time * 1.28;
+    var sigma = Math.max(0.55, amount * cell * 2.15);
+    var twoSig = 2 * sigma * sigma;
+    var frontSig = Math.max(2.2, 5.5 * (w / 1100));
+    var x, y, i, cx, cy, h1, h2, px, py, dx, dy, d2, drop, tr, pyT, idle;
+    var filled, pool, spec, near, echoN, lagFront, nx, grain;
+    var r, g, b, k, wash, tFall;
+    for (y = 0; y < h; y++) {
+      for (x = 0; x < w; x++) {
+        cx = Math.floor(x / cell);
+        tFall = fall + stagger * cx;
+        cy = Math.floor((y / rowH) + tFall);
+        h1 = dropHash(cx, cy);
+        h2 = dropHash(cx + 19, cy + 7);
+        px = (cx + 0.5 + (h1 - 0.5) * jitter) * cell;
+        py = ((cy + 0.5 + (h2 - 0.5) * jitter) - tFall) * rowH;
+        drop = 0;
+        for (tr = 0; tr < trails; tr++) {
+          pyT = py - tr * rowH * 0.34;
+          dx = x - px;
+          dy = y - pyT;
+          d2 = dx * dx + dy * dy;
+          drop = Math.max(drop, Math.exp(-d2 / twoSig) * (1 - tr * 0.28));
+        }
+        lagFront = front - lag * cell * (0.35 + h1 * 0.9);
+        filled = x <= lagFront;
+        wash = x <= front ? 1 : Math.max(0, 1 - (x - front) / Math.max(1.2, cell * 0.25));
+        idle = drop * 0.18 * (0.4 + 0.6 * h2);
+        pool = 0.42 + 0.58 * dropHash(cx, 91);
+        r = bg[0]; g = bg[1]; b = bg[2];
+        if (wash > 0.01) {
+          k = wash * (0.55 + 0.45 * pool);
+          r = r + (fa[0] - r) * k;
+          g = g + (fa[1] - g) * k;
+          b = b + (fa[2] - b) * k;
+          spec = drop * drop;
+          r = r + (fb[0] - r) * spec * 0.82;
+          g = g + (fb[1] - g) * spec * 0.82;
+          b = b + (fb[2] - b) * spec * 0.82;
+          k = Math.pow(drop, 1.6);
+          r = r + (lime[0] - r) * k * 0.72;
+          g = g + (lime[1] - g) * k * 0.72;
+          b = b + (lime[2] - b) * k * 0.72;
+        } else {
+          r = r + (fa[0] - r) * idle;
+          g = g + (fa[1] - g) * idle;
+          b = b + (fa[2] - b) * idle;
+        }
+        dx = x - front;
+        near = Math.exp(-(dx * dx) / (2 * frontSig * frontSig));
+        echoN = Math.exp(-((x - (front - echo * w)) * (x - (front - echo * w))) / (2 * frontSig * frontSig * 1.6));
+        if (near > 0.02) {
+          k = near * (1 + pulse);
+          r = r + (ember[0] - r) * Math.min(1, k * 0.85);
+          g = g + (ember[1] - g) * Math.min(1, k * 0.85);
+          b = b + (ember[2] - b) * Math.min(1, k * 0.85);
+          r = r + (frontC[0] - r) * Math.min(1, k);
+          g = g + (frontC[1] - g) * Math.min(1, k);
+          b = b + (frontC[2] - b) * Math.min(1, k);
+          nx = Math.max(0, 1 - Math.abs(dx) / Math.max(1.4, frontSig * 0.45));
+          r = r + (cream[0] - r) * nx * (0.55 + pulse * 0.5);
+          g = g + (cream[1] - g) * nx * (0.55 + pulse * 0.5);
+          b = b + (cream[2] - b) * nx * (0.55 + pulse * 0.5);
+        } else if (echoN > 0.04 && x < front) {
+          k = echoN * 0.35;
+          r = r + (frontC[0] - r) * k;
+          g = g + (frontC[1] - g) * k;
+          b = b + (frontC[2] - b) * k;
+        }
+        grain = (dropHash(x * 13 + 3, y * 7 + (reduce ? 0 : (time * 8) | 0)) - 0.5) * 2.55;
+        r += grain;
+        g += grain;
+        b += grain;
+        i = (y * w + x) * 4;
+        data[i] = r < 0 ? 0 : r > 255 ? 255 : r;
+        data[i + 1] = g < 0 ? 0 : g > 255 ? 255 : g;
+        data[i + 2] = b < 0 ? 0 : b > 255 ? 255 : b;
+        data[i + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+
+  function initDeskDrops() {
+    if (document.getElementById("deskDrops")) return;
+    var wrap = document.createElement("div");
+    wrap.id = "deskDrops";
+    wrap.className = "desk-drops";
+    wrap.setAttribute("role", "progressbar");
+    wrap.setAttribute("aria-valuemin", "0");
+    wrap.setAttribute("aria-valuemax", "100");
+    var canvas = document.createElement("canvas");
+    canvas.setAttribute("aria-hidden", "true");
+    wrap.appendChild(canvas);
+    document.body.insertBefore(wrap, document.body.firstChild);
+    document.documentElement.classList.add("has-desk-drops");
+    var ctx = canvas.getContext("2d", { alpha: false });
+    if (!ctx) return;
+    var reduce = prefersReducedMotion();
+    try {
+      var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (mq && mq.addEventListener) mq.addEventListener("change", function (ev) { reduce = ev.matches; });
+      else if (mq && mq.addListener) mq.addListener(function (ev) { reduce = ev.matches; });
+    } catch (e) {}
+    var running = true;
+    var visible = true;
+    var lastLabel = "";
+    var lastPct = -1;
+    var raf = 0;
+    var t0 = 0;
+
+    function syncAria(info) {
+      if (info.label !== lastLabel) {
+        lastLabel = info.label;
+        wrap.setAttribute("aria-label", info.label);
+        wrap.title = info.label;
+      }
+      if (info.pct !== lastPct) {
+        lastPct = info.pct;
+        wrap.setAttribute("aria-valuenow", String(info.pct));
+      }
+    }
+
+    function sizeCanvas() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      var cssW = Math.max(1, wrap.clientWidth || window.innerWidth || 1);
+      var cssH = Math.max(1, canvas.clientHeight || wrap.clientHeight || 5);
+      var bw = Math.round(cssW * dpr);
+      var bh = Math.round(cssH * dpr);
+      if (canvas.width !== bw || canvas.height !== bh) {
+        canvas.width = bw;
+        canvas.height = bh;
+        ctx._dropImg = null;
+      }
+    }
+
+    function frame(ts) {
+      if (!running) return;
+      if (!t0) t0 = ts || 0;
+      var time = ((ts || 0) - t0) / 1000;
+      if (reduce) time = 0;
+      sizeCanvas();
+      var info = nextDeskProgress();
+      syncAria(info);
+      if (visible || lastPct < 0) {
+        drawDeskDrops(ctx, canvas.width, canvas.height, info.progress, time, reduce);
+      }
+      if (reduce) return;
+      raf = requestAnimationFrame(frame);
+    }
+
+    raf = requestAnimationFrame(frame);
+    if (reduce) {
+      setInterval(function () {
+        t0 = 0;
+        requestAnimationFrame(frame);
+      }, 1000);
+    }
+    window.addEventListener("resize", function () {
+      ctx._dropImg = null;
+      if (reduce) requestAnimationFrame(frame);
+    });
+    document.addEventListener("visibilitychange", function () {
+      visible = !document.hidden;
+      if (visible) {
+        t0 = 0;
+        if (!reduce) {
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(frame);
+        } else requestAnimationFrame(frame);
+      }
+    });
+  }
+
   function startMiniGlobe(canvas) {
     if (!canvas || canvas.dataset.gmBound === "1") return;
     canvas.dataset.gmBound = "1";
-    var ctx = canvas.getContext("2d");
-    if (!ctx) return;
     var reduce = false;
     try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
-    var rot = 1.15;
     var t0 = 0;
     var running = true;
     var visible = true;
-    var lands = [
-      [42, -98, 0.42, 0.24],
-      [58, -110, 0.28, 0.14],
-      [15, -88, 0.12, 0.16],
-      [-8, -58, 0.22, 0.38],
-      [8, 18, 0.28, 0.38],
-      [48, 10, 0.18, 0.14],
-      [58, 40, 0.28, 0.14],
-      [32, 88, 0.42, 0.22],
-      [62, 100, 0.36, 0.16],
-      [0, 114, 0.18, 0.12],
-      [-22, 134, 0.18, 0.14],
-      [-42, 172, 0.1, 0.12]
-    ];
-    var sats = [
-      { inc: 0.55, speed: 0.62, phase: 0.2, r: 1.18 },
-      { inc: -0.35, speed: -0.48, phase: 1.4, r: 1.26 },
-      { inc: 0.18, speed: 0.9, phase: 2.1, r: 1.12 }
-    ];
+    var glMode = false;
+    var gl = null;
+    var prog = null;
+    var uTime = null;
+    var uRes = null;
+    var freezeT = 1.15;
 
-    function project(lat, lon, radius) {
-      var la = lat * Math.PI / 180;
-      var lo = lon * Math.PI / 180 + rot;
-      var x = Math.cos(la) * Math.sin(lo);
-      var y = Math.sin(la);
-      var z = Math.cos(la) * Math.cos(lo);
-      return { x: x * radius, y: -y * radius, z: z };
+    var VERT = "attribute vec2 a_pos;void main(){gl_Position=vec4(a_pos,0.0,1.0);}";
+    var FRAG = [
+      "precision mediump float;",
+      "uniform float u_time;",
+      "uniform vec2 u_res;",
+      "float hash(vec2 p){",
+      "  vec3 p3=fract(vec3(p.xyx)*0.1031);",
+      "  p3+=dot(p3,p3.yzx+33.33);",
+      "  return fract((p3.x+p3.y)*p3.z);",
+      "}",
+      "float vnoise(vec2 p){",
+      "  vec2 i=floor(p);",
+      "  vec2 f=fract(p);",
+      "  f=f*f*(3.0-2.0*f);",
+      "  float a=hash(i);",
+      "  float b=hash(i+vec2(1.0,0.0));",
+      "  float c=hash(i+vec2(0.0,1.0));",
+      "  float d=hash(i+vec2(1.0,1.0));",
+      "  return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);",
+      "}",
+      "float fbm(vec2 p){",
+      "  float v=0.0;",
+      "  float a=0.5;",
+      "  for(int i=0;i<4;i++){",
+      "    v+=a*vnoise(p);",
+      "    p*=2.03;",
+      "    a*=0.5;",
+      "  }",
+      "  return v;",
+      "}",
+      "void main(){",
+      "  vec2 uv=(gl_FragCoord.xy/u_res)*2.0-1.0;",
+      "  uv.x*=u_res.x/max(u_res.y,1.0);",
+      "  float t=u_time;",
+      "  float radius=0.72;",
+      "  float d=length(uv);",
+      "  float edgeSoft=0.005;",
+      "  float sphere=1.0-smoothstep(radius-edgeSoft,radius+edgeSoft,d);",
+      "  vec2 p=uv*1.35;",
+      "  vec2 q=p*3.1;",
+      "  vec2 w1=vec2(fbm(q+vec2(t*0.21,-t*0.17)),fbm(q+vec2(3.1,8.4)-t*0.19));",
+      "  vec2 w2=vec2(fbm(q*1.27-vec2(t*0.13,4.2)),fbm(q*0.83+vec2(9.2,-t*0.11)));",
+      "  vec2 warped=p+(w1*0.42+w2*0.28);",
+      "  float s1=fbm(warped*2.15+t*0.18);",
+      "  float s2=fbm(warped*3.05-t*0.14+12.0);",
+      "  float n=s1*0.58+s2*0.42;",
+      "  vec3 phase=vec3(0.0,0.33,0.67);",
+      "  vec3 pal=0.5+0.5*cos(6.2831853*(n*3.0+phase));",
+      "  pal=mix(pal, pal*pal*(3.0-2.0*pal), 0.12);",
+      "  vec3 nor=vec3(uv/max(radius,0.0001),0.0);",
+      "  nor.z=sqrt(max(0.0,1.0-dot(nor.xy,nor.xy)));",
+      "  nor=normalize(nor);",
+      "  vec3 light=normalize(vec3(-0.62,0.58,0.52));",
+      "  float diff=max(0.0,dot(nor,light));",
+      "  float spec=pow(max(0.0,dot(nor,light)),32.0);",
+      "  pal*=0.52+0.58*diff;",
+      "  pal+=vec3(1.0)*spec*0.9;",
+      "  pal=clamp(pal,0.0,1.0);",
+      "  float limb=d-radius;",
+      "  float pink=exp(-pow(max(limb,0.0)/0.085,2.0))*(1.0-sphere);",
+      "  float blue=exp(-pow(max(limb,0.0)/0.175,2.0))*(1.0-sphere);",
+      "  pink+=exp(-pow(min(limb,0.0)/0.04,2.0))*0.10*sphere;",
+      "  vec3 glowPink=vec3(1.0,0.471,0.706);",
+      "  vec3 glowBlue=vec3(0.353,0.627,1.0);",
+      "  vec3 halo=glowBlue*blue*0.9+glowPink*pink;",
+      "  vec3 col=pal*sphere+halo;",
+      "  float alpha=min(1.0,max(sphere,max(pink,blue*0.92)));",
+      "  gl_FragColor=vec4(col,alpha);",
+      "}"
+    ].join("\n");
+
+    function compile(glctx, type, src) {
+      var sh = glctx.createShader(type);
+      glctx.shaderSource(sh, src);
+      glctx.compileShader(sh);
+      if (!glctx.getShaderParameter(sh, glctx.COMPILE_STATUS)) {
+        glctx.deleteShader(sh);
+        return null;
+      }
+      return sh;
+    }
+
+    function initWebgl() {
+      try {
+        gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: false, antialias: true, depth: false, stencil: false }) ||
+          canvas.getContext("experimental-webgl", { alpha: true, premultipliedAlpha: false, antialias: true });
+      } catch (e) { gl = null; }
+      if (!gl) return false;
+      var vs = compile(gl, gl.VERTEX_SHADER, VERT);
+      var fs = compile(gl, gl.FRAGMENT_SHADER, FRAG);
+      if (!vs || !fs) return false;
+      prog = gl.createProgram();
+      gl.attachShader(prog, vs);
+      gl.attachShader(prog, fs);
+      gl.bindAttribLocation(prog, 0, "a_pos");
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return false;
+      gl.useProgram(prog);
+      var buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(0);
+      gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+      uTime = gl.getUniformLocation(prog, "u_time");
+      uRes = gl.getUniformLocation(prog, "u_res");
+      gl.disable(gl.DEPTH_TEST);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.clearColor(0, 0, 0, 0);
+      return true;
+    }
+
+    function hash2(p, q) {
+      var n = Math.sin(p * 127.1 + q * 311.7) * 43758.5453;
+      return n - Math.floor(n);
+    }
+    function vnoise(x, y) {
+      var ix = Math.floor(x), iy = Math.floor(y);
+      var fx = x - ix, fy = y - iy;
+      fx = fx * fx * (3 - 2 * fx);
+      fy = fy * fy * (3 - 2 * fy);
+      var a = hash2(ix, iy), b = hash2(ix + 1, iy);
+      var c = hash2(ix, iy + 1), d = hash2(ix + 1, iy + 1);
+      return a + (b - a) * fx + (c - a) * fy + (a - b - c + d) * fx * fy;
+    }
+    function fbm2(x, y) {
+      var v = 0, a = 0.5, i;
+      for (i = 0; i < 4; i++) {
+        v += a * vnoise(x, y);
+        x *= 2.03; y *= 2.03; a *= 0.5;
+      }
+      return v;
+    }
+
+    var ctx2 = null;
+    var img2 = null;
+
+    function draw2d(w, time) {
+      if (!ctx2) ctx2 = canvas.getContext("2d");
+      if (!ctx2) return;
+      if (!img2 || img2.width !== w) img2 = ctx2.createImageData(w, w);
+      var data = img2.data;
+      var x, y, i, uvx, uvy, d, sphere, pX, pY, qX, qY, w1x, w1y, w2x, w2y;
+      var wx, wy, s1, s2, n, pr, pg, pb, nx, ny, nz, nl, lx, ly, lz, diff, spec;
+      var limb, pink, blue, alpha, inv;
+      var radius = 0.72;
+      var invW = 2 / w;
+      lx = -0.62; ly = 0.58; lz = 0.52;
+      nl = Math.sqrt(lx * lx + ly * ly + lz * lz);
+      lx /= nl; ly /= nl; lz /= nl;
+      for (y = 0; y < w; y++) {
+        for (x = 0; x < w; x++) {
+          uvx = x * invW - 1;
+          uvy = 1 - y * invW;
+          d = Math.sqrt(uvx * uvx + uvy * uvy);
+          sphere = 1 - Math.max(0, Math.min(1, (d - (radius - 0.005)) / 0.01));
+          pX = uvx * 1.35; pY = uvy * 1.35;
+          qX = pX * 3.1; qY = pY * 3.1;
+          w1x = fbm2(qX + time * 0.21, qY - time * 0.17);
+          w1y = fbm2(qX + 3.1 - time * 0.19, qY + 8.4);
+          w2x = fbm2(qX * 1.27 - time * 0.13, qY * 1.27 - 4.2);
+          w2y = fbm2(qX * 0.83 + 9.2, qY * 0.83 - time * 0.11);
+          wx = pX + w1x * 0.42 + w2x * 0.28;
+          wy = pY + w1y * 0.42 + w2y * 0.28;
+          s1 = fbm2(wx * 2.15 + time * 0.18, wy * 2.15);
+          s2 = fbm2(wx * 3.05 - time * 0.14 + 12, wy * 3.05);
+          n = s1 * 0.58 + s2 * 0.42;
+          pr = 0.5 + 0.5 * Math.cos(6.2831853 * (n * 3 + 0.00));
+          pg = 0.5 + 0.5 * Math.cos(6.2831853 * (n * 3 + 0.33));
+          pb = 0.5 + 0.5 * Math.cos(6.2831853 * (n * 3 + 0.67));
+          nx = uvx / radius; ny = uvy / radius;
+          nz = Math.sqrt(Math.max(0, 1 - nx * nx - ny * ny));
+          inv = 1 / Math.sqrt(nx * nx + ny * ny + nz * nz + 1e-6);
+          nx *= inv; ny *= inv; nz *= inv;
+          diff = Math.max(0, nx * lx + ny * ly + nz * lz);
+          spec = Math.pow(diff, 32);
+          pr = Math.min(1, Math.max(0, pr * (0.52 + 0.58 * diff) + spec * 0.9));
+          pg = Math.min(1, Math.max(0, pg * (0.52 + 0.58 * diff) + spec * 0.9));
+          pb = Math.min(1, Math.max(0, pb * (0.52 + 0.58 * diff) + spec * 0.9));
+          limb = d - radius;
+          pink = Math.exp(-Math.pow(Math.max(limb, 0) / 0.085, 2)) * (1 - sphere);
+          blue = Math.exp(-Math.pow(Math.max(limb, 0) / 0.175, 2)) * (1 - sphere);
+          pink += Math.exp(-Math.pow(Math.min(limb, 0) / 0.04, 2)) * 0.10 * sphere;
+          pr = pr * sphere + 0.353 * blue * 0.9 + 1.0 * pink;
+          pg = pg * sphere + 0.627 * blue * 0.9 + 0.471 * pink;
+          pb = pb * sphere + 1.0 * blue * 0.9 + 0.706 * pink;
+          alpha = Math.min(1, Math.max(sphere, Math.max(pink, blue * 0.92)));
+          i = (y * w + x) * 4;
+          data[i] = pr * 255;
+          data[i + 1] = pg * 255;
+          data[i + 2] = pb * 255;
+          data[i + 3] = alpha * 255;
+        }
+      }
+      ctx2.putImageData(img2, 0, 0);
+    }
+
+    glMode = initWebgl();
+    canvas.dataset.gmGl = glMode ? "1" : "0";
+
+    function sizeToCss() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      var css = canvas.clientWidth || 32;
+      var size = Math.max(32, Math.round(css * dpr));
+      if (canvas.width !== size || canvas.height !== size) {
+        canvas.width = size;
+        canvas.height = size;
+        img2 = null;
+        if (glMode && gl) gl.viewport(0, 0, size, size);
+      }
+      return size;
     }
 
     function draw(ts) {
       if (!running) return;
-      if (!t0) t0 = ts;
-      var dt = Math.min(48, (ts - t0) || 16);
-      t0 = ts;
-      if (!reduce && visible) rot += dt * 0.00022;
-      var dpr = Math.min(2, window.devicePixelRatio || 1);
-      var css = canvas.clientWidth || 32;
-      var size = Math.round(css * dpr);
-      if (canvas.width !== size || canvas.height !== size) {
-        canvas.width = size;
-        canvas.height = size;
+      if (!t0) t0 = ts || 0;
+      var time = reduce ? freezeT : (((ts || 0) - t0) / 1000) * 1.5;
+      var size = sizeToCss();
+      if (glMode && gl && prog) {
+        gl.viewport(0, 0, size, size);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.useProgram(prog);
+        gl.uniform1f(uTime, time);
+        gl.uniform2f(uRes, size, size);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      } else {
+        draw2d(size, time);
       }
-      var w = canvas.width;
-      var cx = w / 2;
-      var r = w * 0.46;
-      ctx.clearRect(0, 0, w, w);
-
-      ctx.beginPath();
-      ctx.arc(cx, cx, r, 0, Math.PI * 2);
-      var ocean = ctx.createRadialGradient(cx - r * 0.35, cx - r * 0.4, r * 0.1, cx, cx, r);
-      ocean.addColorStop(0, "#4aa3e8");
-      ocean.addColorStop(0.45, "#1b6cb3");
-      ocean.addColorStop(1, "#082445");
-      ctx.fillStyle = ocean;
-      ctx.fill();
-
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(cx, cx, r, 0, Math.PI * 2);
-      ctx.clip();
-
-      var i, land, p, prx, pry;
-      ctx.fillStyle = "rgba(164, 214, 122, 0.92)";
-      for (i = 0; i < lands.length; i++) {
-        land = lands[i];
-        p = project(land[0], land[1], r);
-        if (p.z <= 0.08) continue;
-        prx = r * land[2] * (0.45 + p.z * 0.55);
-        pry = r * land[3];
-        ctx.beginPath();
-        ctx.ellipse(cx + p.x, cx + p.y, prx, pry, 0, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.strokeStyle = "rgba(226, 246, 255, 0.16)";
-      ctx.lineWidth = Math.max(0.6, w / 90);
-      var mer, par, a, prev, pt;
-      for (mer = -180; mer < 180; mer += 30) {
-        prev = null;
-        ctx.beginPath();
-        for (a = -88; a <= 88; a += 6) {
-          pt = project(a, mer, r);
-          if (pt.z <= 0) { prev = null; continue; }
-          if (!prev) ctx.moveTo(cx + pt.x, cx + pt.y);
-          else ctx.lineTo(cx + pt.x, cx + pt.y);
-          prev = pt;
-        }
-        ctx.stroke();
-      }
-      for (par = -60; par <= 60; par += 30) {
-        prev = null;
-        ctx.beginPath();
-        for (a = -180; a <= 180; a += 8) {
-          pt = project(par, a, r);
-          if (pt.z <= 0) { prev = null; continue; }
-          if (!prev) ctx.moveTo(cx + pt.x, cx + pt.y);
-          else ctx.lineTo(cx + pt.x, cx + pt.y);
-          prev = pt;
-        }
-        ctx.stroke();
-      }
-
-      var night = ctx.createLinearGradient(cx - r, cx, cx + r, cx);
-      night.addColorStop(0, "rgba(2, 6, 18, 0.55)");
-      night.addColorStop(0.42, "rgba(2, 6, 18, 0.08)");
-      night.addColorStop(1, "rgba(2, 6, 18, 0)");
-      ctx.fillStyle = night;
-      ctx.fillRect(0, 0, w, w);
-
-      var spec = ctx.createRadialGradient(cx - r * 0.32, cx - r * 0.38, 0, cx - r * 0.32, cx - r * 0.38, r * 0.7);
-      spec.addColorStop(0, "rgba(255, 255, 255, 0.28)");
-      spec.addColorStop(0.35, "rgba(186, 230, 253, 0.08)");
-      spec.addColorStop(1, "rgba(255, 255, 255, 0)");
-      ctx.fillStyle = spec;
-      ctx.beginPath();
-      ctx.arc(cx, cx, r, 0, Math.PI * 2);
-      ctx.fill();
-
-      var s, ang, sx, sy, sz;
-      for (i = 0; i < sats.length; i++) {
-        s = sats[i];
-        ang = rot * s.speed * 6 + s.phase;
-        sx = Math.cos(ang) * s.r * r;
-        sy = Math.sin(ang) * s.inc * r;
-        sz = Math.sin(ang + 0.4);
-        if (sz < -0.15) continue;
-        ctx.beginPath();
-        ctx.arc(cx + sx * 0.72, cx + sy, Math.max(1.1, w * 0.018), 0, Math.PI * 2);
-        ctx.fillStyle = sz > 0.2 ? "#fde68a" : "rgba(253, 230, 138, 0.55)";
-        ctx.fill();
-      }
-      ctx.restore();
-
-      ctx.beginPath();
-      ctx.arc(cx, cx, r, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgba(186, 230, 253, 0.35)";
-      ctx.lineWidth = Math.max(1, w / 70);
-      ctx.stroke();
-
       if (!reduce && visible) requestAnimationFrame(draw);
     }
 
@@ -4387,6 +4993,8 @@
       requestAnimationFrame(draw);
     };
   }
+
+
 
   function loadGodModeBoot() {
     if (window.AlignedNewsGodMode) return Promise.resolve(window.AlignedNewsGodMode);
@@ -4471,6 +5079,7 @@
 
   function bindShell() {
     bindLeadScatterMedia();
+    initDeskDrops();
 
     // an57: floating capsule stays visible — no hide-on-scroll
 
@@ -4555,6 +5164,7 @@
       });
     }
 
+    startDropsBar();
     initGodModeChrome();
     bindNewsletterSubscribe();
     bindNewsletterNav();

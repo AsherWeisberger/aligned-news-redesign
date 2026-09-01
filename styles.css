@@ -29,7 +29,8 @@
   --danger: #b45309;
   --live: #3f7d57;
   --sidebar-w: 196px;
-  --topbar-h: calc(56px + env(safe-area-inset-top, 0px));
+  --drops-bar-h: 5px;
+  --topbar-h: calc(56px + env(safe-area-inset-top, 0px) + var(--drops-bar-h));
   --radius: 16px;
   --radius-sm: 11px;
   --shadow: 0 1px 2px rgba(13, 15, 20, 0.04), 0 8px 24px rgba(13, 15, 20, 0.04);
@@ -47,6 +48,9 @@
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-story: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-line: cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (max-width: 860px) {
+  :root { --drops-bar-h: 4px; }
 }
 
 html[data-theme="dark"] {
@@ -4027,9 +4031,9 @@ html[data-density="compact"] .meta {
 .gm-widget:focus-visible .gm-widget-globe {
   transform: scale(1.06);
   box-shadow:
-    0 0 0 1px color-mix(in srgb, #60a5fa 55%, transparent),
-    0 0 16px rgba(56, 189, 248, 0.35),
-    inset -6px -4px 10px rgba(0, 0, 0, 0.45);
+    0 0 0 1px color-mix(in srgb, #FF78B4 60%, transparent),
+    0 0 16px rgba(255, 120, 180, 0.42),
+    0 0 22px rgba(90, 160, 255, 0.28);
 }
 .gm-widget:focus-visible {
   outline: 2px solid var(--accent);
@@ -4041,7 +4045,7 @@ html[data-density="compact"] .meta {
   border-radius: 50%;
   pointer-events: none;
   background:
-    radial-gradient(circle, transparent 54%, rgba(96, 165, 250, 0.38) 66%, transparent 76%);
+    radial-gradient(circle, transparent 52%, rgba(255, 120, 180, 0.42) 64%, rgba(90, 160, 255, 0.28) 74%, transparent 82%);
   animation: gm-atm-pulse 3.4s ease-in-out infinite;
 }
 .gm-widget-globe {
@@ -4051,12 +4055,11 @@ html[data-density="compact"] .meta {
   height: 32px;
   border-radius: 50%;
   display: block;
-  background: #04101f;
+  background: #07080c;
   box-shadow:
-    0 0 0 1px rgba(125, 211, 252, 0.28),
-    0 4px 10px rgba(8, 47, 73, 0.28),
-    inset -7px -5px 12px rgba(0, 0, 0, 0.5),
-    inset 3px 2px 6px rgba(186, 230, 253, 0.18);
+    0 0 0 1px color-mix(in srgb, #FF78B4 42%, transparent),
+    0 0 12px rgba(255, 120, 180, 0.32),
+    0 0 18px rgba(90, 160, 255, 0.2);
   transition: transform 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
 }
 .gm-widget-pulse {
@@ -5450,7 +5453,7 @@ html[data-density="compact"] .lead-card-opener .lead-dek {
 
 /* an97: Home Screen standalone — notch + home indicator */
 .topbar {
-  padding-top: env(safe-area-inset-top, 0px);
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--drops-bar-h));
   padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
   padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
   height: var(--topbar-h);
@@ -5481,7 +5484,7 @@ html[data-density="compact"] .lead-card-opener .lead-dek {
   }
   .topbar {
     height: auto !important;
-    min-height: calc(52px + env(safe-area-inset-top, 0px));
+    min-height: calc(52px + env(safe-area-inset-top, 0px) + var(--drops-bar-h));
     flex-wrap: wrap;
     row-gap: 0.35rem;
     overflow: visible;
@@ -8060,4 +8063,89 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
   html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero::after {
     background: none !important;
   }
+}
+
+
+/* === an239: thin desk-dump drops progress bar (not the 1px fetch .load-bar) === */
+.an-drops-bar {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  right: 0;
+  height: var(--drops-bar-h, 5px);
+  z-index: 80;
+  pointer-events: none;
+  overflow: hidden;
+  background: #12160F;
+}
+.an-drops-bar-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* === an239: next-desk drops bar + prism globe widget === */
+:root {
+  --desk-drops-h: 5px;
+  --topbar-h: calc(56px + env(safe-area-inset-top, 0px) + var(--desk-drops-h));
+}
+@media (max-width: 899px) {
+  :root { --desk-drops-h: 4px; }
+}
+html.has-desk-drops .app {
+  /* grid first row uses --topbar-h which includes the bar */
+}
+.desk-drops {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  height: var(--desk-drops-h);
+  pointer-events: none;
+  overflow: hidden;
+  background: #12160F;
+}
+.desk-drops canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #12160F;
+}
+@media (max-width: 899px) {
+  .desk-drops {
+    top: 0;
+    padding-top: env(safe-area-inset-top, 0px);
+    height: calc(var(--desk-drops-h) + env(safe-area-inset-top, 0px));
+    box-sizing: border-box;
+  }
+}
+.topbar {
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--desk-drops-h));
+}
+@media (max-width: 860px) {
+  .topbar {
+    min-height: calc(52px + env(safe-area-inset-top, 0px) + var(--desk-drops-h));
+  }
+}
+
+/* Prism orb: shader draws pink/blue halo past the limb; hide CSS atm/pulse */
+.gm-widget {
+  overflow: visible;
+}
+.gm-widget-atm,
+.gm-widget-pulse {
+  display: none !important;
+}
+.gm-widget-globe {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 50%;
+}
+.gm-widget:hover .gm-widget-globe,
+.gm-widget:focus-visible .gm-widget-globe {
+  box-shadow: none;
 }
