@@ -29,7 +29,7 @@
   --danger: #b45309;
   --live: #3f7d57;
   --sidebar-w: 196px;
-  --drops-bar-h: 5px;
+  --drops-bar-h: 18px;
   --topbar-h: calc(56px + env(safe-area-inset-top, 0px) + var(--drops-bar-h));
   --radius: 16px;
   --radius-sm: 11px;
@@ -50,7 +50,7 @@
   --ease-line: cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media (max-width: 860px) {
-  :root { --drops-bar-h: 4px; }
+  :root { --drops-bar-h: 16px; }
 }
 
 html[data-theme="dark"] {
@@ -8066,13 +8066,13 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
 }
 
 
-/* === an239: thin desk-dump drops progress bar (not the 1px fetch .load-bar) === */
+/* === an240 thicker drops bar (not the 1px fetch .load-bar) === */
 .an-drops-bar {
   position: fixed;
   top: env(safe-area-inset-top, 0px);
   left: 0;
   right: 0;
-  height: var(--drops-bar-h, 5px);
+  height: var(--drops-bar-h, 18px);
   z-index: 80;
   pointer-events: none;
   overflow: hidden;

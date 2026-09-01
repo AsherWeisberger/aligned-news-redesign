@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an239";
+  var DATA_URL = "live-data.json?v=an240";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -4256,7 +4256,7 @@
     function resize() {
       var dpr = Math.min(2, window.devicePixelRatio || 1);
       var cssW = Math.max(1, wrap.clientWidth || window.innerWidth || 1);
-      var cssH = Math.max(1, wrap.clientHeight || 5);
+      var cssH = Math.max(1, wrap.clientHeight || 18);
       var bw = Math.max(1, Math.round(cssW * dpr));
       var bh = Math.max(1, Math.round(cssH * dpr));
       if (canvas.width !== bw || canvas.height !== bh) {
@@ -4294,7 +4294,7 @@
       var front = prog + pulse * 0.01;
       var fall = reduce ? 0 : time * 20;
       var scale = 110, jitter = 0.3, amount = 0.105, lag = 0.42, echo = 0.055, stagger = 0.18, trails = 3;
-      var cs = Math.max(1.18, (w / dpr) / (scale * 9));
+      var cs = Math.max(5, (h / dpr) / 2.6);
       var x, y, nx, ny, cssx, cssy, fy, cx, cy, h0, h1, lx, ly, dist2, rad, drop, tr, ty, td, trail;
       var fill, fd, frontBand, cover, pk, r, g, b, br, bgc, bb, hi, i, echoA;
       rad = 0.22 + amount * 2.15;
