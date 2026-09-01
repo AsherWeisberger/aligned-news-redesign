@@ -4564,7 +4564,7 @@
     }
   }
 
-  var GOD_MODE_BOOT_SRC = "god-mode/boot.js?v=an169";
+  var GODS_EYE_SRC = "gods-eye/index.html?v=an242";
   var godModeBootPromise = null;
 
   function ensureGodModeWidget() {
@@ -4576,7 +4576,7 @@
       el.type = "button";
       el.className = "gm-widget";
       el.id = "godModeWidget";
-      el.setAttribute("aria-label", "Open God Mode");
+      el.setAttribute("aria-label", "Open God Eye View");
       el.title = "God Mode";
       el.innerHTML =
         '<span class="gm-widget-atm" aria-hidden="true"></span>' +
@@ -4599,19 +4599,19 @@
     overlay.className = "gm-overlay";
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", "Aligned News God Mode");
+    overlay.setAttribute("aria-label", "God Eye View");
     overlay.hidden = true;
     overlay.innerHTML =
       '<div class="gm-overlay-boot" id="godModeBoot">' +
         '<div class="gm-overlay-boot-copy">' +
-          '<span class="gm-overlay-title">Aligned News / God Mode</span>' +
+          '<span class="gm-overlay-title">God Eye View</span>' +
           '<span class="gm-overlay-sub" id="godModeBootSub">Starting live globe…</span>' +
         "</div>" +
-        '<button type="button" class="gm-overlay-close" id="godModeClose" aria-label="Close God Mode">' +
+        '<button type="button" class="gm-overlay-close" id="godModeClose" aria-label="Close God Eye View">' +
           '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
         "</button>" +
       "</div>" +
-      '<div class="gm-overlay-mount" id="godModeMount"></div>' +
+      '<iframe class="gm-overlay-frame" id="godModeFrame" title="God Eye View" allow="fullscreen"></iframe>' +
       '<div class="gm-overlay-error" id="godModeError" hidden></div>';
     document.body.appendChild(overlay);
     return overlay;
@@ -4886,32 +4886,26 @@
 
 
   function loadGodModeBoot() {
-    if (window.AlignedNewsGodMode) return Promise.resolve(window.AlignedNewsGodMode);
-    if (godModeBootPromise) return godModeBootPromise;
-    godModeBootPromise = new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = GOD_MODE_BOOT_SRC;
-      s.async = true;
-      s.onload = function () {
-        if (window.AlignedNewsGodMode) resolve(window.AlignedNewsGodMode);
-        else reject(new Error("God Mode boot missing"));
-      };
-      s.onerror = function () { reject(new Error("God Mode boot failed to load")); };
-      document.head.appendChild(s);
+    var frame = document.getElementById("godModeFrame");
+    if (!frame) return Promise.reject(new Error("God Eye View frame missing"));
+    return new Promise(function (resolve, reject) {
+      var settled = false;
+      function ok() { if (settled) return; settled = true; resolve(); }
+      function fail() { if (settled) return; settled = true; reject(new Error("God Eye View failed to load")); }
+      frame.onload = ok;
+      frame.onerror = fail;
+      frame.src = GODS_EYE_SRC;
     });
-    return godModeBootPromise;
   }
 
   function closeGodModeOverlay() {
     var overlay = document.getElementById("godModeOverlay");
     var widget = document.getElementById("godModeWidget");
-    if (overlay) {
-      overlay.classList.remove("is-open", "is-blocked", "is-ready");
-      overlay.hidden = true;
-    }
+    var frame = document.getElementById("godModeFrame");
+    if (overlay) { overlay.classList.remove("is-open", "is-blocked", "is-ready"); overlay.hidden = true; }
     document.documentElement.classList.remove("gm-overlay-open");
     if (widget) widget.setAttribute("aria-expanded", "false");
-    try { if (window.AlignedNewsGodMode) window.AlignedNewsGodMode.close(); } catch (e) {}
+    if (frame) { try { frame.onload = null; frame.onerror = null; frame.src = "about:blank"; } catch (e) {} }
     var canvas = widget && widget.querySelector("canvas");
     if (canvas && canvas._gmResume) canvas._gmResume();
   }
@@ -4927,17 +4921,13 @@
     document.documentElement.classList.add("gm-overlay-open");
     if (widget) widget.setAttribute("aria-expanded", "true");
     if (errEl) { errEl.hidden = true; errEl.textContent = ""; }
-    if (bootSub) bootSub.textContent = "Starting live globe…";
+    if (bootSub) bootSub.textContent = "Starting globe…";
     loadGodModeBoot()
-      .then(function (api) { return api.open({ onClose: closeGodModeOverlay }); })
       .then(function () { overlay.classList.add("is-ready"); })
       .catch(function (err) {
         overlay.classList.add("is-blocked");
-        if (bootSub) bootSub.textContent = "God Mode failed to start";
-        if (errEl) {
-          errEl.hidden = false;
-          errEl.textContent = String((err && err.message) || err || "God Mode failed");
-        }
+        if (bootSub) bootSub.textContent = "God Eye View failed to start";
+        if (errEl) { errEl.hidden = false; errEl.textContent = String((err && err.message) || err || "God Eye View failed"); }
       });
   }
 
