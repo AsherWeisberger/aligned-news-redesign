@@ -8047,24 +8047,41 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
   }
 }
 
-/* === an237: overnight — phone lead photo keeps the graphic’s own text === */
+/* === an251: overnight — phone lead fills frame (no pillarbox) === */
 @media (max-width: 899px) {
   html:not([data-density="compact"]) .lead-card-opener .lead-hero,
   html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero {
-    aspect-ratio: 1 / 1 !important;
+    aspect-ratio: 16 / 9 !important;
     height: auto !important;
-    max-height: 252px !important;
-    min-height: 200px !important;
+    max-height: 220px !important;
+    min-height: 168px !important;
     width: 100% !important;
+    overflow: hidden !important;
+    background: #0b0d0a !important;
   }
   html:not([data-density="compact"]) .lead-card-opener .lead-hero img,
   html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero img {
-    object-fit: contain !important;
+    object-fit: cover !important;
     object-position: center center !important;
+    width: 100% !important;
+    height: 100% !important;
   }
   html:not([data-density="compact"]) .lead-card-opener .lead-hero::after,
   html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero::after {
     background: none !important;
+  }
+  /* Keep last feed rows clear of the floating dock pill */
+  html.has-mobile-dock .main {
+    padding-bottom: calc(10rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  html.has-mobile-dock {
+    scroll-padding-bottom: calc(10rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  html.has-mobile-dock .feed::after {
+    content: "";
+    display: block;
+    height: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    pointer-events: none;
   }
 }
 
@@ -8100,7 +8117,7 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
   pointer-events: none;
   color: #fff;
   font-family: var(--font);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.62), 0 0 8px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.78), 0 0 10px rgba(0, 0, 0, 0.45), 0 0 1px rgba(0, 0, 0, 0.9);
   user-select: none;
   -webkit-user-select: none;
   white-space: nowrap;
