@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an248";
+  var DATA_URL = "live-data.json?v=an249";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -4249,7 +4249,7 @@
       hudLeft = document.createElement("span");
       hudLeft.className = "an-drops-hud-left";
       hudLeft.setAttribute("aria-hidden", "true");
-      hudLeft.innerHTML = '<span class="an-drops-hud-kicker">NEXT STORIES</span><span class="an-drops-hud-sub"></span>';
+      hudLeft.innerHTML = '<span class="an-drops-hud-kicker">NEXT STORIES</span>';
       wrap.appendChild(hudLeft);
     }
     if (!hudRight) {
@@ -4258,7 +4258,6 @@
       hudRight.setAttribute("aria-hidden", "true");
       wrap.appendChild(hudRight);
     }
-    var hudSub = hudLeft.querySelector(".an-drops-hud-sub");
     var reduce = false;
     try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
     var lastLabel = "";
@@ -4279,7 +4278,6 @@
       var hudKey = String(st.value) + "|" + st.remain;
       if (hudKey !== lastHud) {
         lastHud = hudKey;
-        if (hudSub) hudSub.textContent = st.remain;
         hudRight.innerHTML = "<b>" + st.value + "%</b><span class=\"an-drops-hud-sep\"> · </span><span class=\"an-drops-hud-time\">" + st.remain + "</span>";
       }
       return st;
@@ -4425,12 +4423,14 @@
         "  filled*=1.0+pulseAmt*(0.22+drop*0.75);",
         "  vec3 idle=bg+(c2*0.18+c3*0.22)*drop*0.08;",
         "  vec3 col=mix(idle,filled,cover);",
-        "  float thin=exp(-((nx-uProg)*(nx-uProg))*240.0);",
+        "  float thin=exp(-((nx-uProg)*(nx-uProg))*140.0);",
         "  float band=cover*(1.0-cover)*4.0;",
         "  band=pow(clamp(band,0.0,1.0),1.45);",
-        "  float warmAmt=thin*band*(0.11+pulse*0.08)*(0.28+drop*0.72);",
+        "  float warmAmt=thin*band*(0.28+pulse*0.14)*(0.38+drop*0.62);",
         "  vec3 warm=mix(w3,mix(w1,w2,0.42+0.58*sin(t*18.85+h0*6.2)),0.78);",
         "  col+=warm*warmAmt;",
+        "  float crest=thin*band*(0.22+pulse*0.10);",
+        "  col=mix(col,mix(c3,warm,0.35),crest*(0.45+drop*0.35));",
         "  col+=(hash21(frag+vec2(t*0.03,1.7))-0.5)*0.02;",
         "  gl_FragColor=vec4(clamp(col,0.0,1.0),1.0);",
         "}"
@@ -4550,14 +4550,26 @@
             r = idleR + (br - idleR) * cover;
             g = idleG + (bgc - idleG) * cover;
             b = idleB + (bb - idleB) * cover;
-            thin = Math.exp(-((nx - prog) * (nx - prog)) * 240);
+            thin = Math.exp(-((nx - prog) * (nx - prog)) * 140);
             band = cover * (1 - cover) * 4;
             if (band > 0) {
+              band = Math.pow(Math.min(1, Math.max(0, band)), 1.45);
               pk = 0.5 + 0.5 * Math.sin(time * 18.85 + h0 * 6.2);
-              var wa = thin * band * (0.11 + pulse * 0.08) * (0.28 + drop * 0.72);
+              var wa = thin * band * (0.28 + pulse * 0.14) * (0.38 + drop * 0.62);
               r = r + (0xFF - r) * wa * (0.72 + 0.28 * pk);
               g = g + ((0x7A + (0xD6 - 0x7A) * pk) - g) * wa;
               b = b + ((0x24 + (0x9E - 0x24) * pk * 0.55) - b) * wa;
+              var crest = thin * band * (0.22 + pulse * 0.10) * (0.45 + drop * 0.35);
+              var limeR = 0xB2, limeG = 0xFF, limeB = 0x59;
+              var warmR = 0xFF * (0.72 + 0.28 * pk);
+              var warmG = 0x7A + (0xD6 - 0x7A) * pk;
+              var warmB = 0x24 + (0x9E - 0x24) * pk * 0.55;
+              var crestR = limeR + (warmR - limeR) * 0.35;
+              var crestG = limeG + (warmG - limeG) * 0.35;
+              var crestB = limeB + (warmB - limeB) * 0.35;
+              r = r + (crestR - r) * crest;
+              g = g + (crestG - g) * crest;
+              b = b + (crestB - b) * crest;
             }
             grain = (h0 - 0.5) * 5.1;
             r += grain; g += grain; b += grain;

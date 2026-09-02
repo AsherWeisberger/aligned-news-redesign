@@ -8107,10 +8107,8 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
 }
 .an-drops-hud-left {
   left: 12px;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 2px;
 }
 .an-drops-hud-kicker {
   font-size: 10.5px;
@@ -8118,13 +8116,6 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   line-height: 1;
-}
-.an-drops-hud-sub {
-  font-size: 8.5px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  opacity: 0.88;
 }
 .an-drops-hud-right {
   right: 12px;
@@ -8148,7 +8139,6 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
   letter-spacing: 0.04em;
 }
 @media (max-width: 860px) {
-  .an-drops-hud-sub { display: none; }
   .an-drops-hud-left { left: 10px; }
   .an-drops-hud-right { right: 10px; }
   .an-drops-hud-kicker { font-size: 10px; letter-spacing: 0.12em; }
