@@ -4588,7 +4588,7 @@
     }
   }
 
-  var GODS_EYE_SRC = "gods-eye/index.html?v=an242";
+  var GODS_EYE_SRC = "gods-eye/index.html?v=an246";
   var godModeBootPromise = null;
 
   function ensureGodModeWidget() {
