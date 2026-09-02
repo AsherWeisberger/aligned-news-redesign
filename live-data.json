@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-09-02T09:04:07.000Z",
-    "scrapedAt": "2026-09-02T09:04:07.000Z",
+    "generatedAt": "2026-09-02T13:00:49.000Z",
+    "scrapedAt": "2026-09-02T13:00:49.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 167 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 173 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 61,
-    "stories": 167,
-    "signals": 166,
+    "stories": 173,
+    "signals": 172,
     "reports": 4
   },
   "chips": [
@@ -5906,6 +5906,87 @@
       "desk_rank": 135
     },
     {
+      "id": "xsquare-twindex",
+      "headline": "X Square unveils TwinDEX for dexterous manipulation without on robot training",
+      "summary": "X Square unveiled TwinDEX as a matched pair of 3 finger, 9 DoF manipulation interfaces. One is wearable, used by humans to collect demonstrations. The other is deployed directly. The dump says there is no on robot training data, yet the robot autonomously completed a 24 step chem",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-09-02T10:30:10.000Z",
+      "author_name": "XRoboHub",
+      "source_list": "Robot Influencers/Media",
+      "list_names": [
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media"
+      ],
+      "source_url": "https://x.com/XRoboHub/status/2095096942900773017",
+      "sources": [
+        {
+          "label": "@XRoboHub",
+          "url": "https://x.com/XRoboHub/status/2095096942900773017"
+        }
+      ],
+      "body": "X Square unveiled TwinDEX as a matched pair of 3 finger, 9 DoF manipulation interfaces. One is wearable, used by humans to collect demonstrations. The other is deployed directly. The dump says there is no on robot training data, yet the robot autonomously completed a 24 step chemistry experiment.\n\n@AGkorthos called it a robot free dexterous manipulation system pairing a wearable 3 finger, 9 DoF collector with a closely matched deployment hand, aligning kinematics, contact geometry, sensing and timing.\n\nWatch whether the chemistry demo is one scripted bench or a transferable policy, and whether the wearable collector is something labs can buy.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1200,
+        "like_count": 21,
+        "reply_count": 2,
+        "retweet_count": 9
+      },
+      "why_it_matters": "Robert’s robot influencers lists carried @XRoboHub. One desk. A matched wearable collector and deployment hand with no on robot training is a robotics map change, not a demo dump.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "XRoboHub",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095069791187025920/img/nFhphZeOx3yqn412?format=jpg&name=large",
+      "list_count": 1,
+      "views": 1200,
+      "desk_rank": 136
+    },
+    {
+      "id": "ebert-dlr-tum",
+      "headline": "DLR and TUM post eBert, a 5.2 kg 12 DOF quadruped with six motion modes",
+      "summary": "DLR and TUM developed eBert, a 5.2 kg, 12 DOF quadruped that uses the physics of its own body to generate locomotion. Researchers identified six nonlinear motion modes in the robot’s spring loaded mechanics, then excited those modes with a relatively simple controller.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-09-02T09:49:32.000Z",
+      "author_name": "techniahqrobot",
+      "source_list": "Robot Influencers/Media",
+      "list_names": [
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media"
+      ],
+      "source_url": "https://x.com/techniahqrobot/status/2095086715828392309",
+      "sources": [
+        {
+          "label": "@techniahqrobot",
+          "url": "https://x.com/techniahqrobot/status/2095086715828392309"
+        }
+      ],
+      "body": "DLR and TUM developed eBert, a 5.2 kg, 12 DOF quadruped that uses the physics of its own body to generate locomotion. Researchers identified six nonlinear motion modes in the robot’s spring loaded mechanics, then excited those modes with a relatively simple controller.\n\nThat is a named lab quadruped with a number, not a clip dump. Robert’s robot influencers lists carried the note.\n\nWatch whether those six modes are a paper with code, and whether 5.2 kg actually holds on outdoor ground.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1900,
+        "like_count": 10,
+        "retweet_count": 3
+      },
+      "why_it_matters": "Robert’s robot influencers lists carried @techniahqrobot. One desk. A named 5.2 kg quadruped with six body modes is a robotics print, not a clip dump.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "techniahqrobot",
+      "media_url": "https://pbs.twimg.com/media/HRM-QnAWsAIRZsS?format=jpg&name=large",
+      "list_count": 1,
+      "views": 1900,
+      "desk_rank": 137
+    },
+    {
       "id": "olmo3-capability-provenance",
       "headline": "Georgia Tech traces OLMo3 social reasoning back to Dolma3 bins",
       "summary": "Glenn Matlin and coauthors posted a COLM 2026 paper that maps which regions of Dolma3 support which skills in OLMo3 7B. They score documents with gradient based training data attribution (TrackStar via Bergson), then bin them on WebOrganizer's 24 topic by 24 format grid. Social r",
@@ -5946,7 +6027,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093861002571915264/img/UZxCnQ4kLDou1rNi.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 2900,
-      "desk_rank": 136
+      "desk_rank": 138
     },
     {
       "id": "gpt-5-6-prime-gaps",
@@ -5987,7 +6068,50 @@
       "media_url": "https://pbs.twimg.com/media/HQ9qLV0bcAA23h3?format=png&name=large",
       "list_count": 2,
       "views": 959,
-      "desk_rank": 137
+      "desk_rank": 139
+    },
+    {
+      "id": "smelt-looped-moe",
+      "headline": "Researchers post SMELT scaling laws for compute matched MoE looped transformers",
+      "summary": "@wangsw5653 asked whether looped transformers still help when FLOPs, parameters, and KV cache are all matched, then introduced SMELT: scaling laws for compute matched MoE looped transformers. The answer in the thread is yes, and the advantage grows with scale. The paper is arxiv ",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-09-02T08:53:53.000Z",
+      "author_name": "wangsw5653",
+      "source_list": "AI Community, Quantum",
+      "list_names": [
+        "AI Community #4 of 9",
+        "Quantum"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Quantum"
+      ],
+      "source_url": "https://x.com/wangsw5653/status/2095072709181083853",
+      "sources": [
+        {
+          "label": "@wangsw5653",
+          "url": "https://x.com/wangsw5653/status/2095072709181083853"
+        }
+      ],
+      "body": "@wangsw5653 asked whether looped transformers still help when FLOPs, parameters, and KV cache are all matched, then introduced SMELT: scaling laws for compute matched MoE looped transformers. The answer in the thread is yes, and the advantage grows with scale. The paper is arxiv 2609.01343.\n\nHuggingPapers said SMELT loops the middle half of layers twice while matching FLOPs, params, and KV cache, scales to 54B parameters, and saves up to 18 percent training FLOPs at the compute optimal frontier. A related education list note said SMELT beat the baseline across 96 compute matched checkpoints up to 54B.\n\nThis is a result, not a title paste. Watch whether the 18 percent saving holds outside the authors’ checkpoints.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 11000,
+        "like_count": 101,
+        "reply_count": 2,
+        "retweet_count": 21
+      },
+      "why_it_matters": "Robert’s community lists and his quantum lists carried @wangsw5653. Two desks. A scaling law with a compute matched number is a paper, not a title paste.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "wangsw5653",
+      "media_url": "https://pbs.twimg.com/media/HRMupraaoAAez_2?format=jpg&name=large",
+      "list_count": 2,
+      "views": 11000,
+      "desk_rank": 140
     },
     {
       "id": "arizona-desert-migrant-deaths",
@@ -6025,7 +6149,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ8WPw7XwAAl136?format=jpg&name=large",
       "list_count": 1,
       "views": 985,
-      "desk_rank": 138
+      "desk_rank": 141
     },
     {
       "id": "switzerland-aarau-shooting",
@@ -6066,7 +6190,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9KBdYXYAAKdp_?format=jpg&name=large",
       "list_count": 1,
       "views": 9000,
-      "desk_rank": 139
+      "desk_rank": 142
     },
     {
       "id": "cyprus-ferry-capsize",
@@ -6107,7 +6231,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ999BXXwAEpGXh.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 11988,
-      "desk_rank": 140
+      "desk_rank": 143
     },
     {
       "id": "hormuz-tanker-strike",
@@ -6145,7 +6269,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ--R5KX0AApYks?format=jpg&name=large",
       "list_count": 1,
       "views": 887,
-      "desk_rank": 141
+      "desk_rank": 144
     },
     {
       "id": "saudi-bahri-sidr",
@@ -6183,7 +6307,7 @@
       "media_url": "https://pbs.twimg.com/media/HRMpQcDWgAE1hVg?format=jpg&name=large",
       "list_count": 1,
       "views": 873,
-      "desk_rank": 142
+      "desk_rank": 145
     },
     {
       "id": "iran-rubble-rescues",
@@ -6223,7 +6347,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ-9QoTXYAASq6K.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 5200,
-      "desk_rank": 143
+      "desk_rank": 146
     },
     {
       "id": "uzbekistan-j10ce",
@@ -6263,7 +6387,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ-9MWgbcAEAHMa?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 144
+      "desk_rank": 147
     },
     {
       "id": "us-larak-strike",
@@ -6304,7 +6428,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ_v97QbQAAyBf1?format=jpg&name=large",
       "list_count": 1,
       "views": 13000,
-      "desk_rank": 145
+      "desk_rank": 148
     },
     {
       "id": "iran-jordan-retaliation",
@@ -6345,7 +6469,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAZ3N8W4AAWFTR?format=jpg&name=large",
       "list_count": 1,
       "views": 114000,
-      "desk_rank": 146
+      "desk_rank": 149
     },
     {
       "id": "us-iran-fresh-strikes",
@@ -6383,7 +6507,7 @@
       "media_url": "https://pbs.twimg.com/media/HRJTwPbXcAArS1I?format=jpg&name=large",
       "list_count": 1,
       "views": 581,
-      "desk_rank": 147
+      "desk_rank": 150
     },
     {
       "id": "bessent-iran-weekly-sanctions",
@@ -6422,7 +6546,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAkwB1aQAASaU-?format=jpg&name=large",
       "list_count": 1,
       "views": 4100,
-      "desk_rank": 148
+      "desk_rank": 151
     },
     {
       "id": "west-bank-mughayyir",
@@ -6460,7 +6584,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094158353375141888/img/hWF4EKN4u7ZARmJt.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 149
+      "desk_rank": 152
     },
     {
       "id": "irgc-mq9-hormuz",
@@ -6501,7 +6625,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094270679302524928/img/w_X49EkG1hD753Sm.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 3100,
-      "desk_rank": 150
+      "desk_rank": 153
     },
     {
       "id": "china-airlines-fuel",
@@ -6542,7 +6666,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRBbKOXWUAAzwXm.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 7900,
-      "desk_rank": 151
+      "desk_rank": 154
     },
     {
       "id": "uae-iran-drone",
@@ -6583,7 +6707,7 @@
       "media_url": "https://pbs.twimg.com/media/HRB9R3lW0AASdSb?format=jpg&name=large",
       "list_count": 1,
       "views": 3500,
-      "desk_rank": 152
+      "desk_rank": 155
     },
     {
       "id": "houla-lebanon",
@@ -6621,7 +6745,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCY-H2XQAATqP-.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 4400,
-      "desk_rank": 153
+      "desk_rank": 156
     },
     {
       "id": "nablus-demolition",
@@ -6660,7 +6784,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCVh-7XkAAE5Iv.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 6500,
-      "desk_rank": 154
+      "desk_rank": 157
     },
     {
       "id": "japan-sdf-embassy",
@@ -6700,7 +6824,7 @@
       "media_url": "https://pbs.twimg.com/media/HRCUTKiawAAr_Tl?format=jpg&name=large",
       "list_count": 1,
       "views": 1700,
-      "desk_rank": 155
+      "desk_rank": 158
     },
     {
       "id": "uk-sovereign-ai-procurement",
@@ -6743,7 +6867,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094376956313620480/img/14adU1llfbvcHtdj.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 6700,
-      "desk_rank": 156
+      "desk_rank": 159
     },
     {
       "id": "bland-fedramp",
@@ -6786,7 +6910,7 @@
       "media_url": "https://pbs.twimg.com/media/HRJYEe8aQAAr9g0?format=jpg&name=large",
       "list_count": 2,
       "views": 46000,
-      "desk_rank": 157
+      "desk_rank": 160
     },
     {
       "id": "openclaw-2",
@@ -6827,7 +6951,49 @@
       "media_url": "https://pbs.twimg.com/media/HRBf3OVXYAETn0F?format=jpg&name=large",
       "list_count": 2,
       "views": 8,
-      "desk_rank": 158
+      "desk_rank": 161
+    },
+    {
+      "id": "owkin-boehringer-kpro",
+      "headline": "Owkin licenses K Pro AI Scientist and patient data to Boehringer",
+      "summary": "Owkin posted a new agreement with Boehringer to license K Pro, its AI Scientist, together with multimodal data from Owkin’s patient data network.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-09-02T12:00:02.000Z",
+      "author_name": "OwkinScience",
+      "source_list": "AI Companies, AI Medical/Health/Science, Computer Vision",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "source_url": "https://x.com/OwkinScience/status/2095119555144396941",
+      "sources": [
+        {
+          "label": "@OwkinScience",
+          "url": "https://x.com/OwkinScience/status/2095119555144396941"
+        }
+      ],
+      "body": "Owkin posted a new agreement with Boehringer to license K Pro, its AI Scientist, together with multimodal data from Owkin’s patient data network.\n\nThis is a named license of a working AI Scientist plus patient data, not a new model generation. Three of Robert’s lists carried the company note: company, medical, and computer vision.\n\nWatch whether K Pro actually runs inside Boehringer, and what the patient network actually sends.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 30
+      },
+      "why_it_matters": "Robert’s company lists, his medical lists, and his computer vision lists carried @OwkinScience. Three desks. A named license of an AI Scientist plus patient data is a product map change, not a paper.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "OwkinScience",
+      "media_url": "https://pbs.twimg.com/media/HRM_G77WgAE5tFg?format=jpg&name=large",
+      "list_count": 3,
+      "views": 30,
+      "desk_rank": 162
     },
     {
       "id": "monid-preseed",
@@ -6866,7 +7032,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094502152966455296/img/oDjL511-E1ygpG0y.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 159
+      "desk_rank": 163
     },
     {
       "id": "apple-openai-trade-secrets",
@@ -6906,7 +7072,7 @@
       "media_url": "https://pbs.twimg.com/media/HRE8ACZaUAA8Ept?format=jpg&name=large",
       "list_count": 1,
       "views": 5600,
-      "desk_rank": 160
+      "desk_rank": 164
     },
     {
       "id": "slb-kelvion",
@@ -6944,7 +7110,48 @@
       "media_url": "https://pbs.twimg.com/media/HREewnGXMAA0DMK?format=jpg&name=large",
       "list_count": 1,
       "views": 94,
-      "desk_rank": 161
+      "desk_rank": 165
+    },
+    {
+      "id": "wonderful-550m-series-c",
+      "headline": "Wonderful raises a $550M Series C at a $5 billion valuation",
+      "summary": "Wonderful posted that it has raised a $550M Series C at a $5 billion valuation. Insight Partners led, Salesforce joined as a new investor, and Index, Bessemer, IVP, Vine, and 9yards returned.",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-09-02T12:22:54.000Z",
+      "author_name": "wonderful_ai",
+      "source_list": "Investors",
+      "list_names": [
+        "Investors #2 of 2"
+      ],
+      "chip_labels": [
+        "Investors"
+      ],
+      "source_url": "https://x.com/wonderful_ai/status/2095125312929464388",
+      "sources": [
+        {
+          "label": "@wonderful_ai",
+          "url": "https://x.com/wonderful_ai/status/2095125312929464388"
+        }
+      ],
+      "body": "Wonderful posted that it has raised a $550M Series C at a $5 billion valuation. Insight Partners led, Salesforce joined as a new investor, and Index, Bessemer, IVP, Vine, and 9yards returned.\n\n@damianplayer said the company came out of stealth in July 2025, and that this is 4 rounds in 14 months.\n\nThis is closed money, not a new frontier model. Watch whether the $5 billion valuation holds in a later filing, and whether Salesforce is a product partner or just a check.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 11000,
+        "like_count": 49,
+        "reply_count": 19,
+        "retweet_count": 27
+      },
+      "why_it_matters": "Robert’s investors lists carried @wonderful_ai. One desk. A closed $550M Series C at $5 billion is money, not a model drop.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "wonderful_ai",
+      "media_url": "https://pbs.twimg.com/media/HRNdeN3WcAQR7Yg?format=jpg&name=large",
+      "list_count": 1,
+      "views": 11000,
+      "desk_rank": 166
     },
     {
       "id": "israel-greece-arms",
@@ -6984,7 +7191,7 @@
       "media_url": "https://pbs.twimg.com/media/HREJj1CWYAA1S1n?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 162
+      "desk_rank": 167
     },
     {
       "id": "india-indus-treaty",
@@ -7023,7 +7230,7 @@
       "media_url": "https://pbs.twimg.com/media/HRDTdEGaIAAix8t?format=jpg&name=large",
       "list_count": 1,
       "views": 80,
-      "desk_rank": 163
+      "desk_rank": 168
     },
     {
       "id": "china-taiwan-pif",
@@ -7061,7 +7268,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHGn7mWIAAgnUO?format=jpg&name=large",
       "list_count": 1,
       "views": 552,
-      "desk_rank": 164
+      "desk_rank": 169
     },
     {
       "id": "russian-omskiy-107",
@@ -7099,7 +7306,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094332278583300096/img/_2HRICr5iryWFueR.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 474,
-      "desk_rank": 165
+      "desk_rank": 170
     },
     {
       "id": "china-solar-overtakes-coal",
@@ -7138,7 +7345,7 @@
       "media_url": "https://pbs.twimg.com/media/HRG_P_KbwAE5moi?format=jpg&name=large",
       "list_count": 1,
       "views": 856,
-      "desk_rank": 166
+      "desk_rank": 171
     },
     {
       "id": "india-russia-51-dead",
@@ -7177,7 +7384,46 @@
       "media_url": "https://pbs.twimg.com/media/HRHR4TFacAARHPL?format=jpg&name=large",
       "list_count": 1,
       "views": 207,
-      "desk_rank": 167
+      "desk_rank": 172
+    },
+    {
+      "id": "islamabad-torrential-floods",
+      "headline": "Torrential rain floods Islamabad and strands vehicles in the capital",
+      "summary": "Torrential rains caused severe flooding in Pakistan’s capital Islamabad on Tuesday, September 1, leaving vehicles stranded in high floodwaters, eyewitness footage showed. The Pakistan Meteorological Department issued an urgent weather advisory, warning of flood risks.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-09-02T12:15:00.000Z",
+      "author_name": "ITGGlobal",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/ITGGlobal/status/2095123322623451402",
+      "sources": [
+        {
+          "label": "@ITGGlobal",
+          "url": "https://x.com/ITGGlobal/status/2095123322623451402"
+        }
+      ],
+      "body": "Torrential rains caused severe flooding in Pakistan’s capital Islamabad on Tuesday, September 1, leaving vehicles stranded in high floodwaters, eyewitness footage showed. The Pakistan Meteorological Department issued an urgent weather advisory, warning of flood risks.\n\nThis is a distinct capital city flood print, not a recap of the Nepal Tibet disaster. Watch the next PMD bulletin, and whether a death or missing number lands on these lists.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 75,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s World News list carried @ITGGlobal. One desk. A capital city flood with a meteorological advisory is a world print, not a recap gif.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "ITGGlobal",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095117751136444416/img/34-KGxcbS1_4ET-4.jpg",
+      "list_count": 1,
+      "views": 75,
+      "desk_rank": 173
     }
   ],
   "signals": [
@@ -10282,6 +10528,48 @@
       "topic_label": "Robotics"
     },
     {
+      "id": "sig-xsquare-twindex",
+      "title": "X Square unveils TwinDEX for dexterous manipulation without on robot training",
+      "text": "Robert’s robot influencers lists carried @XRoboHub. One desk. A matched wearable collector and deployment hand with no on robot training is a robotics map change, not a demo dump.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s robot influencers lists carried @XRoboHub. One desk. A matched wearable collector and deployment hand with no on robot training is a robotics map change, not a demo dump.",
+      "list_names": [
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media"
+      ],
+      "created_at": "2026-09-02T10:30:10.000Z",
+      "source_url": "https://x.com/XRoboHub/status/2095096942900773017",
+      "analysis": "Robert’s robot influencers lists carried @XRoboHub. One desk. A matched wearable collector and deployment hand with no on robot training is a robotics map change, not a demo dump.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-ebert-dlr-tum",
+      "title": "DLR and TUM post eBert, a 5.2 kg 12 DOF quadruped with six motion modes",
+      "text": "Robert’s robot influencers lists carried @techniahqrobot. One desk. A named 5.2 kg quadruped with six body modes is a robotics print, not a clip dump.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s robot influencers lists carried @techniahqrobot. One desk. A named 5.2 kg quadruped with six body modes is a robotics print, not a clip dump.",
+      "list_names": [
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media"
+      ],
+      "created_at": "2026-09-02T09:49:32.000Z",
+      "source_url": "https://x.com/techniahqrobot/status/2095086715828392309",
+      "analysis": "Robert’s robot influencers lists carried @techniahqrobot. One desk. A named 5.2 kg quadruped with six body modes is a robotics print, not a clip dump.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
       "id": "sig-olmo3-capability-provenance",
       "title": "Georgia Tech traces OLMo3 social reasoning back to Dolma3 bins",
       "text": "Robert's company lists and vehicle lists carried @GlennMatlin on the OLMo3 provenance paper. A method and a public dump, not a title paste.",
@@ -10323,6 +10611,29 @@
       "created_at": "2026-08-30T10:40:07.000Z",
       "source_url": "https://x.com/cloneofsimo/status/2094012283408306243",
       "analysis": "Robert’s community lists carried @cloneofsimo on the bound. His community lists later carried @jdlichtman on the Lean formalization. A number theory record is not a vibe coding clip.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-smelt-looped-moe",
+      "title": "Researchers post SMELT scaling laws for compute matched MoE looped transformers",
+      "text": "Robert’s community lists and his quantum lists carried @wangsw5653. Two desks. A scaling law with a compute matched number is a paper, not a title paste.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists and his quantum lists carried @wangsw5653. Two desks. A scaling law with a compute matched number is a paper, not a title paste.",
+      "list_names": [
+        "AI Community #4 of 9",
+        "Quantum"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Quantum"
+      ],
+      "created_at": "2026-09-02T08:53:53.000Z",
+      "source_url": "https://x.com/wangsw5653/status/2095072709181083853",
+      "analysis": "Robert’s community lists and his quantum lists carried @wangsw5653. Two desks. A scaling law with a compute matched number is a paper, not a title paste.",
       "topic_key": "papers",
       "topic_label": "Papers"
     },
@@ -10774,6 +11085,31 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-owkin-boehringer-kpro",
+      "title": "Owkin licenses K Pro AI Scientist and patient data to Boehringer",
+      "text": "Robert’s company lists, his medical lists, and his computer vision lists carried @OwkinScience. Three desks. A named license of an AI Scientist plus patient data is a product map change, not a paper.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s company lists, his medical lists, and his computer vision lists carried @OwkinScience. Three desks. A named license of an AI Scientist plus patient data is a product map change, not a paper.",
+      "list_names": [
+        "AI Companies #1 of 2",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "chip_labels": [
+        "AI Companies",
+        "AI Medical/Health/Science",
+        "Computer Vision"
+      ],
+      "created_at": "2026-09-02T12:00:02.000Z",
+      "source_url": "https://x.com/OwkinScience/status/2095119555144396941",
+      "analysis": "Robert’s company lists, his medical lists, and his computer vision lists carried @OwkinScience. Three desks. A named license of an AI Scientist plus patient data is a product map change, not a paper.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
       "id": "sig-monid-preseed",
       "title": "Monid raises 2.1 million pre seed as an OpenRouter for agent tools",
       "text": "Robert’s San Francisco robotics lists carried @shengkunye. One desk. A $2.1 million pre seed, not a robotics arm.",
@@ -10833,6 +11169,27 @@
       "created_at": "2026-08-31T18:14:58.000Z",
       "source_url": "https://x.com/apolloglobal/status/2094489137705267248",
       "analysis": "Robert’s AI investors lists carried @apolloglobal. One desk. A $4.1 billion sale, not a plant tour.",
+      "topic_key": "funding",
+      "topic_label": "Funding"
+    },
+    {
+      "id": "sig-wonderful-550m-series-c",
+      "title": "Wonderful raises a $550M Series C at a $5 billion valuation",
+      "text": "Robert’s investors lists carried @wonderful_ai. One desk. A closed $550M Series C at $5 billion is money, not a model drop.",
+      "badge": "signal",
+      "category": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "source_list": "Robert’s investors lists carried @wonderful_ai. One desk. A closed $550M Series C at $5 billion is money, not a model drop.",
+      "list_names": [
+        "Investors #2 of 2"
+      ],
+      "chip_labels": [
+        "Investors"
+      ],
+      "created_at": "2026-09-02T12:22:54.000Z",
+      "source_url": "https://x.com/wonderful_ai/status/2095125312929464388",
+      "analysis": "Robert’s investors lists carried @wonderful_ai. One desk. A closed $550M Series C at $5 billion is money, not a model drop.",
       "topic_key": "funding",
       "topic_label": "Funding"
     },
@@ -10959,6 +11316,27 @@
       "created_at": "2026-09-01T07:17:45.000Z",
       "source_url": "https://x.com/ITGGlobal/status/2094686130025451994",
       "analysis": "Robert’s World News list carried @ITGGlobal. One desk. A death print on Indians sent to Russia’s war, not a battlefield recap.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-islamabad-torrential-floods",
+      "title": "Torrential rain floods Islamabad and strands vehicles in the capital",
+      "text": "Robert’s World News list carried @ITGGlobal. One desk. A capital city flood with a meteorological advisory is a world print, not a recap gif.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @ITGGlobal. One desk. A capital city flood with a meteorological advisory is a world print, not a recap gif.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-09-02T12:15:00.000Z",
+      "source_url": "https://x.com/ITGGlobal/status/2095123322623451402",
+      "analysis": "Robert’s World News list carried @ITGGlobal. One desk. A capital city flood with a meteorological advisory is a world print, not a recap gif.",
       "topic_key": "world",
       "topic_label": "World"
     }
