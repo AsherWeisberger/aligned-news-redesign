@@ -29,7 +29,7 @@
   --danger: #b45309;
   --live: #3f7d57;
   --sidebar-w: 196px;
-  --drops-bar-h: 18px;
+  --drops-bar-h: 28px;
   --topbar-h: calc(56px + env(safe-area-inset-top, 0px) + var(--drops-bar-h));
   --radius: 16px;
   --radius-sm: 11px;
@@ -50,7 +50,7 @@
   --ease-line: cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media (max-width: 860px) {
-  :root { --drops-bar-h: 16px; }
+  :root { --drops-bar-h: 26px; }
 }
 
 html[data-theme="dark"] {
@@ -8075,17 +8075,87 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
   top: env(safe-area-inset-top, 0px);
   left: 0;
   right: 0;
-  height: var(--drops-bar-h, 18px);
+  height: var(--drops-bar-h, 28px);
   z-index: 80;
   pointer-events: none;
   overflow: hidden;
   background: #12160F;
 }
+
 .an-drops-bar-canvas {
   display: block;
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 0;
 }
+.an-drops-hud-left,
+.an-drops-hud-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  color: #fff;
+  font-family: var(--font);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.62), 0 0 8px rgba(0, 0, 0, 0.35);
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
+}
+.an-drops-hud-left {
+  left: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+}
+.an-drops-hud-kicker {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.an-drops-hud-sub {
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  opacity: 0.88;
+}
+.an-drops-hud-right {
+  right: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.an-drops-hud-right b {
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+.an-drops-hud-sep {
+  font-weight: 600;
+  opacity: 0.72;
+  padding: 0 0.35em;
+}
+.an-drops-hud-time {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 860px) {
+  .an-drops-hud-sub { display: none; }
+  .an-drops-hud-left { left: 10px; }
+  .an-drops-hud-right { right: 10px; }
+  .an-drops-hud-kicker { font-size: 10px; letter-spacing: 0.12em; }
+  .an-drops-hud-right { font-size: 10.5px; }
+  .an-drops-hud-right b { font-size: 11px; }
+}
+
 
 /* Phone: fill notch with olive, drops sit just under; wordmark padded via --drops-bar-h */
 @media (max-width: 899px) {

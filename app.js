@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an244";
+  var DATA_URL = "live-data.json?v=an245";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -4210,10 +4210,11 @@
     var rh = Math.floor(remain / 3600);
     var rm = Math.floor((remain % 3600) / 60);
     var rs = remain % 60;
-    var label = rh > 0
-      ? ("Next stories in " + rh + "h " + rm + "m")
-      : (rm > 0 ? ("Next stories in " + rm + "m") : ("Next stories in " + rs + "s"));
-    return { progress: progress, label: label, value: Math.round(progress * 100) };
+    var remainStr = rh > 0
+      ? (rh + "h " + rm + "m")
+      : (rm > 0 ? (rm + "m") : (rs + "s"));
+    var label = "Next stories in " + remainStr;
+    return { progress: progress, label: label, value: Math.round(progress * 100), remain: remainStr };
   }
 
   function hash21(x, y) {
@@ -4242,9 +4243,26 @@
     wrap.style.background = DROPS_BG;
     var canvas = wrap.querySelector("canvas");
     if (!canvas) return;
+    var hudLeft = wrap.querySelector(".an-drops-hud-left");
+    var hudRight = wrap.querySelector(".an-drops-hud-right");
+    if (!hudLeft) {
+      hudLeft = document.createElement("span");
+      hudLeft.className = "an-drops-hud-left";
+      hudLeft.setAttribute("aria-hidden", "true");
+      hudLeft.innerHTML = '<span class="an-drops-hud-kicker">NEXT STORIES</span><span class="an-drops-hud-sub"></span>';
+      wrap.appendChild(hudLeft);
+    }
+    if (!hudRight) {
+      hudRight = document.createElement("span");
+      hudRight.className = "an-drops-hud-right";
+      hudRight.setAttribute("aria-hidden", "true");
+      wrap.appendChild(hudRight);
+    }
+    var hudSub = hudLeft.querySelector(".an-drops-hud-sub");
     var reduce = false;
     try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
     var lastLabel = "";
+    var lastHud = "";
     var running = true;
     var raf = 0;
     var tick = 0;
@@ -4258,13 +4276,19 @@
         wrap.setAttribute("aria-label", st.label);
         wrap.title = st.label;
       }
+      var hudKey = String(st.value) + "|" + st.remain;
+      if (hudKey !== lastHud) {
+        lastHud = hudKey;
+        if (hudSub) hudSub.textContent = st.remain;
+        hudRight.innerHTML = "<b>" + st.value + "%</b><span class=\"an-drops-hud-sep\"> · </span><span class=\"an-drops-hud-time\">" + st.remain + "</span>";
+      }
       return st;
     }
 
     function sizeCanvas() {
       var dpr = Math.min(2, window.devicePixelRatio || 1);
       var cssW = Math.max(1, wrap.clientWidth || window.innerWidth || 1);
-      var cssH = Math.max(1, wrap.clientHeight || 18);
+      var cssH = Math.max(1, wrap.clientHeight || 28);
       var bw = Math.max(1, Math.round(cssW * dpr));
       var bh = Math.max(1, Math.round(cssH * dpr));
       if (canvas.width !== bw || canvas.height !== bh) {
