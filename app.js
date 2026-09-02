@@ -36,7 +36,7 @@
   }
 
   var DATA_URL = "live-data.json?v=an250";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an251";
   var state = {
     data: null,
     newsletter: [],
