@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-09-03T05:17:26.000Z",
-    "scrapedAt": "2026-09-03T05:17:26.000Z",
+    "generatedAt": "2026-09-03T08:46:03.000Z",
+    "scrapedAt": "2026-09-03T08:46:03.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 187 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 190 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 62,
-    "stories": 187,
-    "signals": 186,
+    "stories": 190,
+    "signals": 189,
     "reports": 4
   },
   "chips": [
@@ -1359,7 +1359,7 @@
           "url": "https://x.com/StockMKTNewz/status/2095310852081566126"
         }
       ],
-      "body": "StockMKTNewz posted that Uber and Wayve launched robotaxis in London, the first broad AV availability in the city. Starting Thursday, riders using Uber’s app in London could be matched with a vehicle running Wayve’s autonomous driving technology. A human driver still sits behind the wheel.\n\nThis is a product launch on Uber in London, not a driverless city. The safety driver is the map fact.\n\nWatch whether London riders actually get a Wayve match on Thursday, and whether the human stays behind the wheel.",
+      "body": "StockMKTNewz posted that Uber and Wayve launched robotaxis in London, the first broad AV availability in the city. Starting Thursday, riders using Uber’s app in London could be matched with a vehicle running Wayve’s autonomous driving technology. A human driver still sits behind the wheel.\n\nOfficial Uber later posted that autonomous rides powered by Wayve are now on Uber. British built AI. London roads. Same Uber app. Uber’s dump text does not take the safety driver out of the seat.\n\nThis is a product launch on Uber in London, not a driverless city. The safety driver is the map fact. Watch whether London riders actually get a Wayve match, and whether the human stays behind the wheel.",
       "kind": "story",
       "engagement": {
         "impression_count": 5000,
@@ -1367,7 +1367,7 @@
         "reply_count": 1,
         "retweet_count": 1
       },
-      "why_it_matters": "Robert’s generalists lists carried @StockMKTNewz. One desk. A London Uber match with a human still in the seat is a product, not a new model.",
+      "why_it_matters": "Robert’s generalists lists carried @StockMKTNewz, and his tech companies lists later carried official @Uber. One desk each. A London Uber match with a human still in the seat is a product, not a new model.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "StockMKTNewz",
@@ -1375,6 +1375,47 @@
       "list_count": 1,
       "views": 5000,
       "desk_rank": 29
+    },
+    {
+      "id": "tesla-cybercab-tos",
+      "headline": "Tesla adds Cybercab to Robotaxi app terms and sets a higher age floor",
+      "summary": "Sawyer Merritt posted that Tesla has officially added the Cybercab to its terms of service in the Robotaxi app. The terms say minors under the age of 13 are not permitted in a Cybercab robotaxi vehicle, versus 8 for Model Y robotaxi.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-09-03T05:57:02.000Z",
+      "author_name": "SawyerMerritt",
+      "source_list": "Robot Influencers/Media",
+      "list_names": [
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media"
+      ],
+      "source_url": "https://x.com/SawyerMerritt/status/2095390591743918518",
+      "sources": [
+        {
+          "label": "@SawyerMerritt",
+          "url": "https://x.com/SawyerMerritt/status/2095390591743918518"
+        }
+      ],
+      "body": "Sawyer Merritt posted that Tesla has officially added the Cybercab to its terms of service in the Robotaxi app. The terms say minors under the age of 13 are not permitted in a Cybercab robotaxi vehicle, versus 8 for Model Y robotaxi.\n\n@christesla later posted that Tesla released a new iOS app for Robotaxi with CyberCab support. Robert Scoble said Tesla is announcing Cybercab later today in a small event in Austin. That Austin note is an upcoming event, not a ship.\n\nThis is a product print on the Robotaxi app, not a new named model. Watch whether the age floor holds in the live app, whether the iOS build actually lists Cybercab, and whether the Austin event adds a vehicle you can ride.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 44000,
+        "like_count": 665,
+        "reply_count": 22,
+        "retweet_count": 66
+      },
+      "why_it_matters": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "SawyerMerritt",
+      "media_url": "https://pbs.twimg.com/media/HRRSoibWYAMKtSB?format=jpg&name=large",
+      "list_count": 1,
+      "views": 44000,
+      "desk_rank": 30
     },
     {
       "id": "grok-bot-microsoft",
@@ -1419,7 +1460,7 @@
       "media_url": "https://pbs.twimg.com/media/HRFKMMdagAA6EYM?format=jpg&name=large",
       "list_count": 3,
       "views": 22000,
-      "desk_rank": 30
+      "desk_rank": 31
     },
     {
       "id": "perplexity-hybrid-compute",
@@ -1462,7 +1503,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094801024280399872/img/V8ehrJzGMU7G1hD_.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 208000,
-      "desk_rank": 31
+      "desk_rank": 32
     },
     {
       "id": "perplexity-lily",
@@ -1505,7 +1546,7 @@
       "media_url": "https://pbs.twimg.com/media/HRPLICgbcAAtV7-?format=jpg&name=large",
       "list_count": 2,
       "views": 4600,
-      "desk_rank": 32
+      "desk_rank": 33
     },
     {
       "id": "chatgpt-epic-ehr",
@@ -1545,7 +1586,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094845665721688064/img/0kiV-3u3O-0nTaE2.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 98000,
-      "desk_rank": 33
+      "desk_rank": 34
     },
     {
       "id": "gemini-agentic-video",
@@ -1586,7 +1627,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094814439945981952/img/jUvDGGXklWiTysrs.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1200,
-      "desk_rank": 34
+      "desk_rank": 35
     },
     {
       "id": "tesla-fsd-europe",
@@ -1627,7 +1668,7 @@
       "media_url": "https://pbs.twimg.com/media/HRG6QVgbEAAUUU9?format=jpg&name=large",
       "list_count": 1,
       "views": 4200,
-      "desk_rank": 35
+      "desk_rank": 36
     },
     {
       "id": "psi-58m-seed",
@@ -1674,7 +1715,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094770018311364609/img/b92vFIES_AfxqVKh.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 23000,
-      "desk_rank": 36
+      "desk_rank": 37
     },
     {
       "id": "deepseek-v4-flash-vision",
@@ -1715,7 +1756,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHnBf2b0AAIVFR?format=jpg&name=large",
       "list_count": 1,
       "views": 6500,
-      "desk_rank": 37
+      "desk_rank": 38
     },
     {
       "id": "arena-heaviside-1",
@@ -1759,7 +1800,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094832808845873152/img/CYhgFwfDuFnyQL_o.jpg?format=jpg&name=large",
       "list_count": 3,
       "views": 464,
-      "desk_rank": 38
+      "desk_rank": 39
     },
     {
       "id": "indic-speak-4b",
@@ -1800,7 +1841,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094739781444132864/img/D1nb6MyZgnUZvW6Y.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 10000,
-      "desk_rank": 39
+      "desk_rank": 40
     },
     {
       "id": "v0-claude-design",
@@ -1841,7 +1882,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094565360687267840/img/hcDlSdmtk4eG_kPo.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 5600,
-      "desk_rank": 40
+      "desk_rank": 41
     },
     {
       "id": "lmstudio-bionic-linux",
@@ -1884,7 +1925,7 @@
       "media_url": "https://pbs.twimg.com/media/HREoF1MWAAEFaNb?format=jpg&name=large",
       "list_count": 2,
       "views": 21000,
-      "desk_rank": 41
+      "desk_rank": 42
     },
     {
       "id": "aws-graviton5-r9g",
@@ -1925,7 +1966,7 @@
       "media_url": "https://pbs.twimg.com/media/HRFF239W4AAuLzC?format=jpg&name=large",
       "list_count": 1,
       "views": 4500,
-      "desk_rank": 42
+      "desk_rank": 43
     },
     {
       "id": "puro-2b",
@@ -1967,7 +2008,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093993758836862976/img/rbqyPgtGMKWQxkTM.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 957,
-      "desk_rank": 43
+      "desk_rank": 44
     },
     {
       "id": "apodex-1-1",
@@ -2008,7 +2049,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBGVSubEAAH_47?format=jpg&name=large",
       "list_count": 1,
       "views": 8800,
-      "desk_rank": 44
+      "desk_rank": 45
     },
     {
       "id": "qwen-commerce-agent-bench",
@@ -2051,7 +2092,7 @@
       "media_url": "https://pbs.twimg.com/media/HRDlf4OaMAAr-Lx?format=jpg&name=large",
       "list_count": 2,
       "views": 19000,
-      "desk_rank": 45
+      "desk_rank": 46
     },
     {
       "id": "qwen-38-max-0902",
@@ -2092,7 +2133,7 @@
       "media_url": "https://pbs.twimg.com/media/HRLPk0VaIAI_ii7?format=jpg&name=large",
       "list_count": 1,
       "views": 180000,
-      "desk_rank": 46
+      "desk_rank": 47
     },
     {
       "id": "fastvideo-fasth3",
@@ -2136,7 +2177,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large",
       "list_count": 3,
       "views": 88587,
-      "desk_rank": 47
+      "desk_rank": 48
     },
     {
       "id": "perplexity-search-api",
@@ -2187,7 +2228,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large",
       "list_count": 6,
       "views": 32486,
-      "desk_rank": 48
+      "desk_rank": 49
     },
     {
       "id": "firecrawl-keyless",
@@ -2236,7 +2277,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 303017,
-      "desk_rank": 49
+      "desk_rank": 50
     },
     {
       "id": "qwencloud",
@@ -2274,7 +2315,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBjmU0XsAAHHh_?format=jpg&name=large",
       "list_count": 1,
       "views": 486,
-      "desk_rank": 50
+      "desk_rank": 51
     },
     {
       "id": "openreview-github",
@@ -2309,7 +2350,7 @@
       "x_handle": "GithubProjects",
       "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=large",
       "list_count": 1,
-      "desk_rank": 51
+      "desk_rank": 52
     },
     {
       "id": "a16z-machine-age-fund",
@@ -2349,7 +2390,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 760,
-      "desk_rank": 52
+      "desk_rank": 53
     },
     {
       "id": "sb-energy-ipo",
@@ -2389,7 +2430,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBjDQ2agAAgzvx?format=jpg&name=large",
       "list_count": 2,
       "views": 41,
-      "desk_rank": 53
+      "desk_rank": 54
     },
     {
       "id": "openai-sandbox-escape",
@@ -2429,7 +2470,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 8,
-      "desk_rank": 54
+      "desk_rank": 55
     },
     {
       "id": "berlin-ai-cameras",
@@ -2472,7 +2513,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094119069427683328/img/1_uLK2gDkI4Aq9uF.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 12000,
-      "desk_rank": 55
+      "desk_rank": 56
     },
     {
       "id": "pollen-microducks",
@@ -2529,7 +2570,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large",
       "list_count": 10,
       "views": 98000,
-      "desk_rank": 56
+      "desk_rank": 57
     },
     {
       "id": "serbia-humanoid-plant",
@@ -2570,7 +2611,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093751710816829440/img/LAnIqs1ngchE6KQ8.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1200,
-      "desk_rank": 57
+      "desk_rank": 58
     },
     {
       "id": "lerobot-teleoperator",
@@ -2619,7 +2660,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg?format=jpg&name=large",
       "list_count": 6,
       "views": 17006,
-      "desk_rank": 58
+      "desk_rank": 59
     },
     {
       "id": "gemini-co-scientist",
@@ -2672,7 +2713,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large",
       "list_count": 9,
       "views": 123433,
-      "desk_rank": 59
+      "desk_rank": 60
     },
     {
       "id": "openai-mac-buy",
@@ -2717,7 +2758,7 @@
       "media_url": "https://pbs.twimg.com/media/HRA-SQqb0AA_DAH?format=jpg&name=large",
       "list_count": 3,
       "views": 72000,
-      "desk_rank": 60
+      "desk_rank": 61
     },
     {
       "id": "midjourney-v82",
@@ -2763,7 +2804,7 @@
       "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=large",
       "list_count": 4,
       "views": 92047,
-      "desk_rank": 61
+      "desk_rank": 62
     },
     {
       "id": "comfyui-trellis-pixal3d",
@@ -2804,7 +2845,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094561814172631040/img/fA3mt_EBTsd8vV3R.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 2800,
-      "desk_rank": 62
+      "desk_rank": 63
     },
     {
       "id": "trellis-browser-local",
@@ -2845,7 +2886,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095253794795700233/img/89tHTx7tzUBitW_t.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 9000,
-      "desk_rank": 63
+      "desk_rank": 64
     },
     {
       "id": "hyper3d-worldgen",
@@ -2884,7 +2925,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094432437258571776/img/idJmfMcXYYoKYrfi.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 255000,
-      "desk_rank": 64
+      "desk_rank": 65
     },
     {
       "id": "google-wikiskill",
@@ -2931,7 +2972,7 @@
       "media_url": "https://pbs.twimg.com/media/HQz7S7XaMAEpfUG?format=jpg&name=large",
       "list_count": 6,
       "views": 305498,
-      "desk_rank": 65
+      "desk_rank": 66
     },
     {
       "id": "nvidia-warp-10m",
@@ -2978,7 +3019,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0cfFAaQAAMPTw?format=jpg&name=large",
       "list_count": 4,
       "views": 20263,
-      "desk_rank": 66
+      "desk_rank": 67
     },
     {
       "id": "fish-audio-android",
@@ -3022,7 +3063,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0c_8WasAA9QZU?format=jpg&name=large",
       "list_count": 3,
       "views": 2300,
-      "desk_rank": 67
+      "desk_rank": 68
     },
     {
       "id": "r3f-v10",
@@ -3065,7 +3106,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093367434400915456/img/iGhButUQQ6pSuiRS.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 5100,
-      "desk_rank": 68
+      "desk_rank": 69
     },
     {
       "id": "asimov-1",
@@ -3108,7 +3149,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093182759040921600/img/k5UX1gRM6pjgifNn.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 5434,
-      "desk_rank": 69
+      "desk_rank": 70
     },
     {
       "id": "muse-spark-daytona",
@@ -3152,7 +3193,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=large",
       "list_count": 3,
       "views": 7985,
-      "desk_rank": 70
+      "desk_rank": 71
     },
     {
       "id": "mostik-ai",
@@ -3192,7 +3233,7 @@
       "media_url": "https://pbs.twimg.com/media/HRPBt_QW4AE93R1?format=jpg&name=large",
       "list_count": 1,
       "views": 73000,
-      "desk_rank": 71
+      "desk_rank": 72
     },
     {
       "id": "thomson-reuters-qwen",
@@ -3235,7 +3276,7 @@
       "media_url": "https://pbs.twimg.com/media/HQwTO6tWwAANpBk?format=jpg&name=large",
       "list_count": 2,
       "views": 176496,
-      "desk_rank": 72
+      "desk_rank": 73
     },
     {
       "id": "ijrr-world-models",
@@ -3275,7 +3316,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=large",
       "list_count": 1,
       "views": 11492,
-      "desk_rank": 73
+      "desk_rank": 74
     },
     {
       "id": "dyna-din-tai-fung",
@@ -3322,7 +3363,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 283083,
-      "desk_rank": 74
+      "desk_rank": 75
     },
     {
       "id": "atom-toyosu-foundry",
@@ -3362,7 +3403,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0Hq3zaUAAB5zA?format=jpg&name=large",
       "list_count": 1,
       "views": 584,
-      "desk_rank": 75
+      "desk_rank": 76
     },
     {
       "id": "oracle-mlperf-mi300x",
@@ -3403,7 +3444,7 @@
       "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=large",
       "list_count": 2,
       "views": 847,
-      "desk_rank": 76
+      "desk_rank": 77
     },
     {
       "id": "pika-gemini-omni-flash",
@@ -3444,7 +3485,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093350576499122176/img/Z5FDkNbcku2S6SeZ.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 573,
-      "desk_rank": 77
+      "desk_rank": 78
     },
     {
       "id": "elevenlabs-cli",
@@ -3484,7 +3525,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093352324404019201/img/1kYLK_9roK4sVHOn.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 2508,
-      "desk_rank": 78
+      "desk_rank": 79
     },
     {
       "id": "sesame-turnbench",
@@ -3529,7 +3570,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093376735161339904/img/FN8GNNltmQR8uWry.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 53838,
-      "desk_rank": 79
+      "desk_rank": 80
     },
     {
       "id": "company-brains-roundup",
@@ -3573,7 +3614,7 @@
       "media_url": "https://pbs.twimg.com/media/HQuKMrOWwAA_Fvs?format=jpg&name=large",
       "list_count": 3,
       "views": 138405,
-      "desk_rank": 80
+      "desk_rank": 81
     },
     {
       "id": "niger-niamey-gunfire",
@@ -3614,7 +3655,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ6knjxbgAAn2OH?format=jpg&name=large",
       "list_count": 1,
       "views": 5691,
-      "desk_rank": 81
+      "desk_rank": 82
     },
     {
       "id": "venezuela-oil-deal",
@@ -3657,7 +3698,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2BynpXEAEsK4x?format=jpg&name=large",
       "list_count": 2,
       "views": 798591,
-      "desk_rank": 82
+      "desk_rank": 83
     },
     {
       "id": "owner-240m",
@@ -3698,7 +3739,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093372696302153728/img/bRYhKYLw2AVDfjh_.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 545000,
-      "desk_rank": 83
+      "desk_rank": 84
     },
     {
       "id": "hfun-transformer-humanoid",
@@ -3745,7 +3786,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2093232320706670592/pu/img/I71XGuUJmhIcyzot.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 26000,
-      "desk_rank": 84
+      "desk_rank": 85
     },
     {
       "id": "chatgpt-death-lawsuits",
@@ -3788,7 +3829,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2QL27X0AAt4-_?format=jpg&name=large",
       "list_count": 2,
       "views": 8274,
-      "desk_rank": 85
+      "desk_rank": 86
     },
     {
       "id": "openai-rosalind-workbench",
@@ -3832,7 +3873,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0wsMSaAAAFLeF?format=jpg&name=large",
       "list_count": 3,
       "views": 5789,
-      "desk_rank": 86
+      "desk_rank": 87
     },
     {
       "id": "openai-ends-cursor",
@@ -3873,7 +3914,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2157NWUAA7GKu?format=jpg&name=large",
       "list_count": 1,
       "views": 27883,
-      "desk_rank": 87
+      "desk_rank": 88
     },
     {
       "id": "glass-surface-detection",
@@ -3915,7 +3956,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2RCd5XgAAK1Ug?format=jpg&name=large",
       "list_count": 2,
       "views": 171,
-      "desk_rank": 88
+      "desk_rank": 89
     },
     {
       "id": "vercel-vgpu-sh",
@@ -3956,7 +3997,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092999146655645696/img/FgRJeSsf_c3kJSlF.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 850341,
-      "desk_rank": 89
+      "desk_rank": 90
     },
     {
       "id": "west-bank-raid",
@@ -3998,7 +4039,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ3Db4DW8AAGa7O.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 9000,
-      "desk_rank": 90
+      "desk_rank": 91
     },
     {
       "id": "kyiv-bucha-blast",
@@ -4046,7 +4087,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ4gTg_WEAAifog?format=jpg&name=large",
       "list_count": 5,
       "views": 61000,
-      "desk_rank": 91
+      "desk_rank": 92
     },
     {
       "id": "fujian-ccg-kinmen",
@@ -4084,7 +4125,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3I8UbbcAAx5zf.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 92
+      "desk_rank": 93
     },
     {
       "id": "guinea-bissau-constitution",
@@ -4125,7 +4166,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ240ynbIAARp5K?format=jpg&name=large",
       "list_count": 1,
       "views": 15000,
-      "desk_rank": 93
+      "desk_rank": 94
     },
     {
       "id": "nepal-china-floods",
@@ -4151,7 +4192,7 @@
           "url": "https://x.com/AJEnglish/status/2093564305102807341"
         }
       ],
-      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nAl Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. ABC World News later said the death toll is over 700, with over 3,000 still missing, including 85 Americans, and posted new video of ice breaking off a landslide. Over 700 is the same band as 734, not a new death print. The 3,000 missing line and the 85 Americans are new on these lists. Arab News said rescuers used heavy machinery on Sunday after rain and rising waters slowed the tunnel work.\n\nCGTN later said rescue operations have entered their sixth day near Gyirong Port. France24 later said officials in Nepal and neighboring China are still searching for more than 4,000 missing people, including hundreds of hydropower plant workers. That missing print is higher than the 3,000 line from ABC.\n\nAl Arabiya English later said the death toll reaches 939 as crews race to rescue nearly 4,000 people still missing. That is a new death print on a wire with media. The missing line sits in the France24 band.\n\nAl Jazeera later labeled it breaking: the floods death toll goes past 1,000 in Nepal and China. France24 said rescuers battled mud and debris Monday as the death toll from glacial floods along the China Nepal border topped 1,000, with nearly 4,500 people still missing. That is a new death print on a wire with media. The 939 figure no longer holds.\n\nXinhua later said restoring road access to Gyirong Port remains the top priority, with nearly 700 personnel working to repair the G216 national highway. India Today said the death print still sits past 1,000, with nearly 4,000 people still missing. That missing line is inside the earlier France24 band, not a new high. PTI said army airlifts of survivors and supplies continue in Rasuwa.\n\nAl Jazeera later said a week on from devastating flash floods in the Himalayas that killed more than 1,100 people and left nearly 4,000 missing, search and rescue operations continue. That 1,100 print is more specific than the earlier past 1,000 death line. The missing line sits in the earlier France24 band.\n\nXinhua later said 21 people have been confirmed dead and 541 others remain missing as of Wednesday noon after a mudslide struck Gyirong Port on the China Nepal border in southwest China’s Xizang Autonomous Region. A second Xinhua note said road access to Gyirong Port was basically restored on Wednesday morning, so more rescuers and machinery could enter the search. That 21 dead and 541 missing print is the Gyirong Port count. It does not replace the wider Himalaya print of more than 1,100 dead and nearly 4,000 missing.\n\nWatch the next Nepal police bulletin, whether a named Nepal authority prints the 1,000, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
+      "body": "Al Jazeera posted a Nepal disaster authority count of at least 734 dead and 2,498 still missing after the flash flood on the Nepal China border. PTI put the same death number at 734 with nearly 2,500 missing. Xinhua said a mudslide at Gyirong Port on the China side left 16 confirmed dead and 546 missing as of 6 p.m. Saturday.\n\nAl Jazeera said rescuers in Rasuwa are still racing toward workers believed trapped in hydropower tunnels sealed by mud. Global Times said more than 2,100 personnel are pressing toward Gyirong by land, water, and air, still searching for those 546 missing after 16 confirmed dead. CGTN said communication signals at Gyirong Port were restored as of 6 p.m. Sunday. ABC World News later said the death toll is over 700, with over 3,000 still missing, including 85 Americans, and posted new video of ice breaking off a landslide. Over 700 is the same band as 734, not a new death print. The 3,000 missing line and the 85 Americans are new on these lists. Arab News said rescuers used heavy machinery on Sunday after rain and rising waters slowed the tunnel work.\n\nCGTN later said rescue operations have entered their sixth day near Gyirong Port. France24 later said officials in Nepal and neighboring China are still searching for more than 4,000 missing people, including hundreds of hydropower plant workers. That missing print is higher than the 3,000 line from ABC.\n\nAl Arabiya English later said the death toll reaches 939 as crews race to rescue nearly 4,000 people still missing. That is a new death print on a wire with media. The missing line sits in the France24 band.\n\nAl Jazeera later labeled it breaking: the floods death toll goes past 1,000 in Nepal and China. France24 said rescuers battled mud and debris Monday as the death toll from glacial floods along the China Nepal border topped 1,000, with nearly 4,500 people still missing. That is a new death print on a wire with media. The 939 figure no longer holds.\n\nXinhua later said restoring road access to Gyirong Port remains the top priority, with nearly 700 personnel working to repair the G216 national highway. India Today said the death print still sits past 1,000, with nearly 4,000 people still missing. That missing line is inside the earlier France24 band, not a new high. PTI said army airlifts of survivors and supplies continue in Rasuwa.\n\nAl Jazeera later said a week on from devastating flash floods in the Himalayas that killed more than 1,100 people and left nearly 4,000 missing, search and rescue operations continue. That 1,100 print is more specific than the earlier past 1,000 death line. The missing line sits in the earlier France24 band.\n\nXinhua later said 21 people have been confirmed dead and 541 others remain missing as of Wednesday noon after a mudslide struck Gyirong Port on the China Nepal border in southwest China’s Xizang Autonomous Region. A second Xinhua note said road access to Gyirong Port was basically restored on Wednesday morning, so more rescuers and machinery could enter the search. That 21 dead and 541 missing print is the Gyirong Port count. It does not replace the wider Himalaya print of more than 1,100 dead and nearly 4,000 missing.\n\nPeople’s Daily later said international experts called traditional warning insufficient and said remote sensing of slopes is needed as ice rock avalanche risks rise. It said the mudslide swept from Nepal’s Mount Langtang Lirung to China’s Xizang Autonomous Region in minutes. That is a path print from Langtang Lirung toward the China side, not a new death number.\n\nWatch the next Nepal police bulletin, whether a named Nepal authority prints the 1,000, whether the Gyirong search finds the missing, and whether the Trishuli tunnel rescue gets people out.",
       "kind": "story",
       "engagement": {
         "impression_count": 32858,
@@ -4159,14 +4200,95 @@
         "reply_count": 3,
         "retweet_count": 43
       },
-      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it.",
+      "why_it_matters": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it. Later @PDChina posted with media on Langtang Lirung to Xizang, a path print with no new death number.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "AJEnglish",
       "media_url": "https://pbs.twimg.com/media/HQ3LBwhaoAA2P45?format=jpg&name=large",
       "list_count": 1,
       "views": 32858,
-      "desk_rank": 94
+      "desk_rank": 95
+    },
+    {
+      "id": "egypt-china-palestine",
+      "headline": "Egypt and China back a Palestinian state and reject forced displacement",
+      "summary": "Al Jazeera posted that Egypt and China say having an independent Palestinian state remains the central issue in the Middle East. In a joint statement in Cairo, they reiterate their categorical rejection of any plans to forcibly displace Palestinians.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-09-03T08:05:44.000Z",
+      "author_name": "AJEnglish",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJEnglish/status/2095422980977221740",
+      "sources": [
+        {
+          "label": "@AJEnglish",
+          "url": "https://x.com/AJEnglish/status/2095422980977221740"
+        }
+      ],
+      "body": "Al Jazeera posted that Egypt and China say having an independent Palestinian state remains the central issue in the Middle East. In a joint statement in Cairo, they reiterate their categorical rejection of any plans to forcibly displace Palestinians.\n\n@AJENews later posted breaking that Egypt and China back Palestinian statehood and raise alarm over Israeli settler attacks.\n\nThis is a joint statement in Cairo, not a UN vote. Watch whether the Cairo text names a map, and whether either government follows with a Security Council move.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 14000,
+        "like_count": 6,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s World News list carried @AJEnglish. One desk. A Cairo joint statement on a Palestinian state is geopolitics, not an AI card.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJEnglish",
+      "media_url": "https://pbs.twimg.com/media/HRRv_XKXcAApIm5?format=jpg&name=large",
+      "list_count": 1,
+      "views": 14000,
+      "desk_rank": 96
+    },
+    {
+      "id": "un-climate-overshoot",
+      "headline": "UN report says the world will zoom well past its temperature rise target",
+      "summary": "The Washington Post posted that a first of its kind UN report warned the world will zoom well past its target for global temperature rise in the next few years. It said that would expose people and ecosystems to profound climate impacts that nations had pledged to avoid.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-09-03T08:00:15.000Z",
+      "author_name": "washingtonpost",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/washingtonpost/status/2095421603303584033",
+      "sources": [
+        {
+          "label": "@washingtonpost",
+          "url": "https://x.com/washingtonpost/status/2095421603303584033"
+        }
+      ],
+      "body": "The Washington Post posted that a first of its kind UN report warned the world will zoom well past its target for global temperature rise in the next few years. It said that would expose people and ecosystems to profound climate impacts that nations had pledged to avoid.\n\nThis is a UN warning, not a new treaty. The dump does not name the degree target or a numeric overshoot.\n\nWatch whether a named UN agency reprints the degree number, and whether governments answer with a new pledge.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5300,
+        "like_count": 1,
+        "reply_count": 1,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert’s World News list carried @washingtonpost. One desk. A UN temperature overshoot warning is a policy print, not a weather recap.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "washingtonpost",
+      "media_url": "https://pbs.twimg.com/media/HRRu089XEAIvshg?format=jpg&name=large",
+      "list_count": 1,
+      "views": 5300,
+      "desk_rank": 97
     },
     {
       "id": "ecuador-moreno-sentence",
@@ -4204,7 +4326,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3IPcIXkAEAlgJ?format=jpg&name=large",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 95
+      "desk_rank": 98
     },
     {
       "id": "us-space-academy-eo",
@@ -4255,7 +4377,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=large",
       "list_count": 7,
       "views": 5246893,
-      "desk_rank": 96
+      "desk_rank": 99
     },
     {
       "id": "radiant-army-750m",
@@ -4295,7 +4417,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0jWaGbQAAR_4k?format=jpg&name=large",
       "list_count": 1,
       "views": 28000,
-      "desk_rank": 97
+      "desk_rank": 100
     },
     {
       "id": "sony-warner-anthropic-suit",
@@ -4340,7 +4462,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ298vabEAAEdQD?format=jpg&name=large",
       "list_count": 3,
       "views": 10355,
-      "desk_rank": 98
+      "desk_rank": 101
     },
     {
       "id": "claude-scientists-plan",
@@ -4390,7 +4512,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093049007329116160/img/5X2ymmLb8kxUv3r9.jpg?format=jpg&name=large",
       "list_count": 7,
       "views": 3419949,
-      "desk_rank": 99
+      "desk_rank": 102
     },
     {
       "id": "anthropic-mhs-preview",
@@ -4437,7 +4559,7 @@
       "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 2793870,
-      "desk_rank": 100
+      "desk_rank": 103
     },
     {
       "id": "nvidia-dynamo-inference",
@@ -4480,7 +4602,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093442877464735744/img/9flouWJYMrEF2i2l.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 17323,
-      "desk_rank": 101
+      "desk_rank": 104
     },
     {
       "id": "qualcomm-npu-on-phone",
@@ -4520,7 +4642,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093120275714027520/img/douV7w3Vc6IQvbP1.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1471,
-      "desk_rank": 102
+      "desk_rank": 105
     },
     {
       "id": "tamu-vision-superpod",
@@ -4561,7 +4683,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2M9QSXoAAJL_G?format=jpg&name=large",
       "list_count": 1,
       "views": 30000,
-      "desk_rank": 103
+      "desk_rank": 106
     },
     {
       "id": "accel-sim-2-hopper",
@@ -4604,7 +4726,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ070mkXkAAGGIb?format=jpg&name=large",
       "list_count": 3,
       "views": 6283,
-      "desk_rank": 104
+      "desk_rank": 107
     },
     {
       "id": "brain-alignment-early-training",
@@ -4647,7 +4769,7 @@
       "media_url": "https://pbs.twimg.com/media/HQvBb9bWIAAvxvy?format=jpg&name=large",
       "list_count": 3,
       "views": 3283,
-      "desk_rank": 105
+      "desk_rank": 108
     },
     {
       "id": "ai4math-gold-rush-study",
@@ -4690,7 +4812,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2ajOxXAAAIB3g?format=jpg&name=large",
       "list_count": 3,
       "views": 6597,
-      "desk_rank": 106
+      "desk_rank": 109
     },
     {
       "id": "r3-robots-think-first",
@@ -4731,7 +4853,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093423474735710208/img/jJMX791bha_ZcneK.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 370,
-      "desk_rank": 107
+      "desk_rank": 110
     },
     {
       "id": "gatik-200m-series-d",
@@ -4772,7 +4894,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1YA1mWMAAhAdz?format=jpg&name=large",
       "list_count": 1,
       "views": 408,
-      "desk_rank": 108
+      "desk_rank": 111
     },
     {
       "id": "gravis-200m-series-a",
@@ -4810,7 +4932,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095062911727136769/img/OXTkCMlf03Pp86I4.jpg",
       "list_count": 1,
       "views": 11,
-      "desk_rank": 109
+      "desk_rank": 112
     },
     {
       "id": "primero-12m-seed",
@@ -4850,7 +4972,7 @@
       "media_url": "https://pbs.twimg.com/media/HQvj5dnXkAAlUij?format=jpg&name=large",
       "list_count": 1,
       "views": 54,
-      "desk_rank": 110
+      "desk_rank": 113
     },
     {
       "id": "georgia-data-center-tax",
@@ -4893,7 +5015,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093069507837276160/img/s_sIUvo_pXUgVwmA.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 452000,
-      "desk_rank": 111
+      "desk_rank": 114
     },
     {
       "id": "pentagon-anthropic-blacklist",
@@ -4936,7 +5058,7 @@
       "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=large",
       "list_count": 2,
       "views": 1621,
-      "desk_rank": 112
+      "desk_rank": 115
     },
     {
       "id": "doge-nepal-flood-grants",
@@ -4979,7 +5101,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
       "list_count": 2,
       "views": 755894,
-      "desk_rank": 113
+      "desk_rank": 116
     },
     {
       "id": "hy4-gguf-200gib",
@@ -5022,7 +5144,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=large",
       "list_count": 3,
       "views": 73582,
-      "desk_rank": 114
+      "desk_rank": 117
     },
     {
       "id": "orca-glm-flash-uncensored",
@@ -5063,7 +5185,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ4Bd3iaoAE0-uy?format=jpg&name=large",
       "list_count": 1,
       "views": 181000,
-      "desk_rank": 115
+      "desk_rank": 118
     },
     {
       "id": "levjepa-lecun-video",
@@ -5109,7 +5231,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093294057317388288/img/7s5GlcU2WRd35uEW.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 129397,
-      "desk_rank": 116
+      "desk_rank": 119
     },
     {
       "id": "changxin-sues-pentagon",
@@ -5149,7 +5271,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3z71OXwAAXSIU?format=jpg&name=large",
       "list_count": 1,
       "views": 2124,
-      "desk_rank": 117
+      "desk_rank": 120
     },
     {
       "id": "iceland-eu-vote",
@@ -5190,7 +5312,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9LcJeWwAA3oNW?format=jpg&name=large",
       "list_count": 1,
       "views": 20000,
-      "desk_rank": 118
+      "desk_rank": 121
     },
     {
       "id": "gaza-balloons-kites",
@@ -5231,7 +5353,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ34HnaaMAAkkfD?format=jpg&name=large",
       "list_count": 1,
       "views": 29154,
-      "desk_rank": 119
+      "desk_rank": 122
     },
     {
       "id": "iran-sanctions-stand",
@@ -5272,7 +5394,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3f_eYbEAAUd2u?format=jpg&name=large",
       "list_count": 1,
       "views": 35759,
-      "desk_rank": 120
+      "desk_rank": 123
     },
     {
       "id": "judge-student-visa-rule",
@@ -5312,7 +5434,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ38IK-XEAAfZHv?format=jpg&name=large",
       "list_count": 1,
       "views": 2009,
-      "desk_rank": 121
+      "desk_rank": 124
     },
     {
       "id": "terminal-bench-4",
@@ -5366,7 +5488,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093517148920688640/img/G8dZfbFuirKLSv-s.jpg?format=jpg&name=large",
       "list_count": 9,
       "views": 45683,
-      "desk_rank": 122
+      "desk_rank": 125
     },
     {
       "id": "russia-icbm-test",
@@ -5407,7 +5529,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3wCg4bEAE51pY?format=jpg&name=large",
       "list_count": 1,
       "views": 8102,
-      "desk_rank": 123
+      "desk_rank": 126
     },
     {
       "id": "fluidstack-anthropic-50b",
@@ -5448,7 +5570,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1smSzWYAIBbhj?format=jpg&name=large",
       "list_count": 1,
       "views": 10086,
-      "desk_rank": 124
+      "desk_rank": 127
     },
     {
       "id": "xanadu-195m-cad",
@@ -5489,7 +5611,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093518172930392064/img/sdIAtkXHKdk125en.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 626,
-      "desk_rank": 125
+      "desk_rank": 128
     },
     {
       "id": "claude-for-teachers",
@@ -5530,7 +5652,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0Xl7Kb0AAfj2b?format=jpg&name=large",
       "list_count": 1,
       "views": 12966,
-      "desk_rank": 126
+      "desk_rank": 129
     },
     {
       "id": "chatgpt-multi-gmail",
@@ -5574,7 +5696,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyc1tnaMAAxurk?format=jpg&name=large",
       "list_count": 4,
       "views": 348906,
-      "desk_rank": 127
+      "desk_rank": 130
     },
     {
       "id": "wsj-data-center-land",
@@ -5615,7 +5737,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=large",
       "list_count": 1,
       "views": 20502,
-      "desk_rank": 128
+      "desk_rank": 131
     },
     {
       "id": "gaza-al-musaddar",
@@ -5656,7 +5778,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3--L8bsAEuLsc?format=jpg&name=large",
       "list_count": 1,
       "views": 27352,
-      "desk_rank": 129
+      "desk_rank": 132
     },
     {
       "id": "qusra-arrest-raid",
@@ -5697,7 +5819,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ45SkgW8AARUke.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 8800,
-      "desk_rank": 130
+      "desk_rank": 133
     },
     {
       "id": "robot-rehearsal-forgetting",
@@ -5747,7 +5869,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093390816773599232/img/5FlKUqzV2sXAD0ei.jpg?format=jpg&name=large",
       "list_count": 7,
       "views": 24220,
-      "desk_rank": 131
+      "desk_rank": 134
     },
     {
       "id": "claude-code-resume",
@@ -5789,7 +5911,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093166423581523969/img/NEIewka38_3bDK3G.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 437066,
-      "desk_rank": 132
+      "desk_rank": 135
     },
     {
       "id": "sanders-flock-ban",
@@ -5832,7 +5954,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=large",
       "list_count": 2,
       "views": 416000,
-      "desk_rank": 133
+      "desk_rank": 136
     },
     {
       "id": "nbc-west-bank-beating",
@@ -5873,7 +5995,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093763775404879872/img/XGiCeflgtTFkTmEx.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 346000,
-      "desk_rank": 134
+      "desk_rank": 137
     },
     {
       "id": "china-censors-nepal-flood",
@@ -5914,7 +6036,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5s5xDW0AA0aNi?format=jpg&name=large",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 135
+      "desk_rank": 138
     },
     {
       "id": "wemm-embedding-apache",
@@ -5955,7 +6077,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5-jyyWwAAbg0c?format=jpg&name=large",
       "list_count": 1,
       "views": 1248,
-      "desk_rank": 136
+      "desk_rank": 139
     },
     {
       "id": "sparklab-dgx-spark",
@@ -5995,7 +6117,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5nbuIXMAADBjN?format=jpg&name=large",
       "list_count": 1,
       "views": 45,
-      "desk_rank": 137
+      "desk_rank": 140
     },
     {
       "id": "instinct-2-5b-valuation",
@@ -6035,7 +6157,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ6jpNibUAAiSPw?format=jpg&name=large",
       "list_count": 1,
       "views": 5712,
-      "desk_rank": 138
+      "desk_rank": 141
     },
     {
       "id": "ice-robot-dogs",
@@ -6076,7 +6198,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093699820221517824/img/PKO4eSlRByCiSeLT.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 23000,
-      "desk_rank": 139
+      "desk_rank": 142
     },
     {
       "id": "mit-agent-swarm",
@@ -6116,7 +6238,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093625620957708288/img/3YMGXzMwH1skgF3R.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 96364,
-      "desk_rank": 140
+      "desk_rank": 143
     },
     {
       "id": "hezbollah-iran-orders",
@@ -6157,7 +6279,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ6geUAXIAAvZMn.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 9503,
-      "desk_rank": 141
+      "desk_rank": 144
     },
     {
       "id": "zaporizhzhia-power-out",
@@ -6195,7 +6317,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7bH7mbUAE6zE4?format=jpg&name=large",
       "list_count": 1,
       "views": 9112,
-      "desk_rank": 142
+      "desk_rank": 145
     },
     {
       "id": "damascus-fair-post-assad",
@@ -6236,7 +6358,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093851194611683328/img/hCBigLr1qdgmM55d.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 13576,
-      "desk_rank": 143
+      "desk_rank": 146
     },
     {
       "id": "euphrates-floating-bridge",
@@ -6274,7 +6396,7 @@
       "media_url": "https://pbs.twimg.com/media/HRFYDzPW4AAy-R-?format=jpg&name=large",
       "list_count": 1,
       "views": 694,
-      "desk_rank": 144
+      "desk_rank": 147
     },
     {
       "id": "astribot-t1-13000",
@@ -6315,7 +6437,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093856321854418944/img/6E8iIwngRJgIe7C2.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 202,
-      "desk_rank": 145
+      "desk_rank": 148
     },
     {
       "id": "supabase-linux-one-command",
@@ -6358,7 +6480,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7eAxGWkAAZOXt?format=jpg&name=large",
       "list_count": 2,
       "views": 1600,
-      "desk_rank": 146
+      "desk_rank": 149
     },
     {
       "id": "korea-dram-export-gold",
@@ -6401,7 +6523,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7piWJXQAA8Z0u?format=jpg&name=large",
       "list_count": 2,
       "views": 2700,
-      "desk_rank": 147
+      "desk_rank": 150
     },
     {
       "id": "xgboost-vector-leaf",
@@ -6442,7 +6564,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7uK0eWsAA40Vt?format=jpg&name=large",
       "list_count": 2,
       "views": 1328,
-      "desk_rank": 148
+      "desk_rank": 151
     },
     {
       "id": "ubtech-cruzr-s2-wrc",
@@ -6482,7 +6604,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093926605550993408/img/WhibTYIoy6DumuiY.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 204,
-      "desk_rank": 149
+      "desk_rank": 152
     },
     {
       "id": "xsquare-twindex",
@@ -6523,7 +6645,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095069791187025920/img/nFhphZeOx3yqn412?format=jpg&name=large",
       "list_count": 1,
       "views": 1200,
-      "desk_rank": 150
+      "desk_rank": 153
     },
     {
       "id": "ebert-dlr-tum",
@@ -6563,7 +6685,7 @@
       "media_url": "https://pbs.twimg.com/media/HRM-QnAWsAIRZsS?format=jpg&name=large",
       "list_count": 1,
       "views": 1900,
-      "desk_rank": 151
+      "desk_rank": 154
     },
     {
       "id": "olmo3-capability-provenance",
@@ -6606,7 +6728,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093861002571915264/img/UZxCnQ4kLDou1rNi.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 2900,
-      "desk_rank": 152
+      "desk_rank": 155
     },
     {
       "id": "gpt-5-6-prime-gaps",
@@ -6647,7 +6769,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9qLV0bcAA23h3?format=png&name=large",
       "list_count": 2,
       "views": 959,
-      "desk_rank": 153
+      "desk_rank": 156
     },
     {
       "id": "smelt-looped-moe",
@@ -6690,7 +6812,7 @@
       "media_url": "https://pbs.twimg.com/media/HRMupraaoAAez_2?format=jpg&name=large",
       "list_count": 2,
       "views": 11000,
-      "desk_rank": 154
+      "desk_rank": 157
     },
     {
       "id": "arizona-desert-migrant-deaths",
@@ -6728,7 +6850,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ8WPw7XwAAl136?format=jpg&name=large",
       "list_count": 1,
       "views": 985,
-      "desk_rank": 155
+      "desk_rank": 158
     },
     {
       "id": "switzerland-aarau-shooting",
@@ -6769,7 +6891,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9KBdYXYAAKdp_?format=jpg&name=large",
       "list_count": 1,
       "views": 9000,
-      "desk_rank": 156
+      "desk_rank": 159
     },
     {
       "id": "cyprus-ferry-capsize",
@@ -6810,7 +6932,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ999BXXwAEpGXh.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 11988,
-      "desk_rank": 157
+      "desk_rank": 160
     },
     {
       "id": "hormuz-tanker-strike",
@@ -6848,7 +6970,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ--R5KX0AApYks?format=jpg&name=large",
       "list_count": 1,
       "views": 887,
-      "desk_rank": 158
+      "desk_rank": 161
     },
     {
       "id": "saudi-bahri-sidr",
@@ -6886,7 +7008,7 @@
       "media_url": "https://pbs.twimg.com/media/HRMpQcDWgAE1hVg?format=jpg&name=large",
       "list_count": 1,
       "views": 873,
-      "desk_rank": 159
+      "desk_rank": 162
     },
     {
       "id": "iran-rubble-rescues",
@@ -6926,7 +7048,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ-9QoTXYAASq6K.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 5200,
-      "desk_rank": 160
+      "desk_rank": 163
     },
     {
       "id": "uzbekistan-j10ce",
@@ -6966,7 +7088,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ-9MWgbcAEAHMa?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 161
+      "desk_rank": 164
     },
     {
       "id": "us-larak-strike",
@@ -7007,7 +7129,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ_v97QbQAAyBf1?format=jpg&name=large",
       "list_count": 1,
       "views": 13000,
-      "desk_rank": 162
+      "desk_rank": 165
     },
     {
       "id": "iran-jordan-retaliation",
@@ -7048,7 +7170,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAZ3N8W4AAWFTR?format=jpg&name=large",
       "list_count": 1,
       "views": 114000,
-      "desk_rank": 163
+      "desk_rank": 166
     },
     {
       "id": "us-iran-fresh-strikes",
@@ -7086,7 +7208,7 @@
       "media_url": "https://pbs.twimg.com/media/HRJTwPbXcAArS1I?format=jpg&name=large",
       "list_count": 1,
       "views": 581,
-      "desk_rank": 164
+      "desk_rank": 167
     },
     {
       "id": "bessent-iran-weekly-sanctions",
@@ -7125,7 +7247,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAkwB1aQAASaU-?format=jpg&name=large",
       "list_count": 1,
       "views": 4100,
-      "desk_rank": 165
+      "desk_rank": 168
     },
     {
       "id": "west-bank-mughayyir",
@@ -7163,7 +7285,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094158353375141888/img/hWF4EKN4u7ZARmJt.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 166
+      "desk_rank": 169
     },
     {
       "id": "irgc-mq9-hormuz",
@@ -7204,7 +7326,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094270679302524928/img/w_X49EkG1hD753Sm.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 3100,
-      "desk_rank": 167
+      "desk_rank": 170
     },
     {
       "id": "china-airlines-fuel",
@@ -7245,7 +7367,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRBbKOXWUAAzwXm.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 7900,
-      "desk_rank": 168
+      "desk_rank": 171
     },
     {
       "id": "uae-iran-drone",
@@ -7286,7 +7408,7 @@
       "media_url": "https://pbs.twimg.com/media/HRB9R3lW0AASdSb?format=jpg&name=large",
       "list_count": 1,
       "views": 3500,
-      "desk_rank": 169
+      "desk_rank": 172
     },
     {
       "id": "houla-lebanon",
@@ -7324,7 +7446,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCY-H2XQAATqP-.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 4400,
-      "desk_rank": 170
+      "desk_rank": 173
     },
     {
       "id": "nablus-demolition",
@@ -7363,7 +7485,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCVh-7XkAAE5Iv.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 6500,
-      "desk_rank": 171
+      "desk_rank": 174
     },
     {
       "id": "japan-sdf-embassy",
@@ -7403,7 +7525,7 @@
       "media_url": "https://pbs.twimg.com/media/HRCUTKiawAAr_Tl?format=jpg&name=large",
       "list_count": 1,
       "views": 1700,
-      "desk_rank": 172
+      "desk_rank": 175
     },
     {
       "id": "uk-sovereign-ai-procurement",
@@ -7446,7 +7568,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094376956313620480/img/14adU1llfbvcHtdj.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 6700,
-      "desk_rank": 173
+      "desk_rank": 176
     },
     {
       "id": "bland-fedramp",
@@ -7489,7 +7611,7 @@
       "media_url": "https://pbs.twimg.com/media/HRJYEe8aQAAr9g0?format=jpg&name=large",
       "list_count": 2,
       "views": 46000,
-      "desk_rank": 174
+      "desk_rank": 177
     },
     {
       "id": "openclaw-2",
@@ -7530,7 +7652,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBf3OVXYAETn0F?format=jpg&name=large",
       "list_count": 2,
       "views": 8,
-      "desk_rank": 175
+      "desk_rank": 178
     },
     {
       "id": "owkin-boehringer-kpro",
@@ -7572,7 +7694,7 @@
       "media_url": "https://pbs.twimg.com/media/HRM_G77WgAE5tFg?format=jpg&name=large",
       "list_count": 3,
       "views": 30,
-      "desk_rank": 176
+      "desk_rank": 179
     },
     {
       "id": "monid-preseed",
@@ -7611,7 +7733,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094502152966455296/img/oDjL511-E1ygpG0y.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 177
+      "desk_rank": 180
     },
     {
       "id": "apple-openai-trade-secrets",
@@ -7651,7 +7773,7 @@
       "media_url": "https://pbs.twimg.com/media/HRE8ACZaUAA8Ept?format=jpg&name=large",
       "list_count": 1,
       "views": 5600,
-      "desk_rank": 178
+      "desk_rank": 181
     },
     {
       "id": "slb-kelvion",
@@ -7689,7 +7811,7 @@
       "media_url": "https://pbs.twimg.com/media/HREewnGXMAA0DMK?format=jpg&name=large",
       "list_count": 1,
       "views": 94,
-      "desk_rank": 179
+      "desk_rank": 182
     },
     {
       "id": "wonderful-550m-series-c",
@@ -7730,7 +7852,7 @@
       "media_url": "https://pbs.twimg.com/media/HRNdeN3WcAQR7Yg?format=jpg&name=large",
       "list_count": 1,
       "views": 11000,
-      "desk_rank": 180
+      "desk_rank": 183
     },
     {
       "id": "israel-greece-arms",
@@ -7770,7 +7892,7 @@
       "media_url": "https://pbs.twimg.com/media/HREJj1CWYAA1S1n?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 181
+      "desk_rank": 184
     },
     {
       "id": "india-indus-treaty",
@@ -7809,7 +7931,7 @@
       "media_url": "https://pbs.twimg.com/media/HRDTdEGaIAAix8t?format=jpg&name=large",
       "list_count": 1,
       "views": 80,
-      "desk_rank": 182
+      "desk_rank": 185
     },
     {
       "id": "china-taiwan-pif",
@@ -7847,7 +7969,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHGn7mWIAAgnUO?format=jpg&name=large",
       "list_count": 1,
       "views": 552,
-      "desk_rank": 183
+      "desk_rank": 186
     },
     {
       "id": "russian-omskiy-107",
@@ -7885,7 +8007,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094332278583300096/img/_2HRICr5iryWFueR.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 474,
-      "desk_rank": 184
+      "desk_rank": 187
     },
     {
       "id": "china-solar-overtakes-coal",
@@ -7924,7 +8046,7 @@
       "media_url": "https://pbs.twimg.com/media/HRG_P_KbwAE5moi?format=jpg&name=large",
       "list_count": 1,
       "views": 856,
-      "desk_rank": 185
+      "desk_rank": 188
     },
     {
       "id": "india-russia-51-dead",
@@ -7963,7 +8085,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHR4TFacAARHPL?format=jpg&name=large",
       "list_count": 1,
       "views": 207,
-      "desk_rank": 186
+      "desk_rank": 189
     },
     {
       "id": "islamabad-torrential-floods",
@@ -8002,7 +8124,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095117751136444416/img/34-KGxcbS1_4ET-4.jpg",
       "list_count": 1,
       "views": 75,
-      "desk_rank": 187
+      "desk_rank": 190
     }
   ],
   "signals": [
@@ -8633,12 +8755,12 @@
     {
       "id": "sig-uber-wayve-london",
       "title": "Uber and Wayve put robotaxis on Uber in London with a safety driver",
-      "text": "Robert’s generalists lists carried @StockMKTNewz. One desk. A London Uber match with a human still in the seat is a product, not a new model.",
+      "text": "Robert’s generalists lists carried @StockMKTNewz, and his tech companies lists later carried official @Uber. One desk each. A London Uber match with a human still in the seat is a product, not a new model.",
       "badge": "signal",
       "category": "robotics",
       "section_key": "robotics",
       "section_label": "Robotics",
-      "source_list": "Robert’s generalists lists carried @StockMKTNewz. One desk. A London Uber match with a human still in the seat is a product, not a new model.",
+      "source_list": "Robert’s generalists lists carried @StockMKTNewz, and his tech companies lists later carried official @Uber. One desk each. A London Uber match with a human still in the seat is a product, not a new model.",
       "list_names": [
         "Generalists #2 of 3"
       ],
@@ -8647,7 +8769,28 @@
       ],
       "created_at": "2026-09-03T00:40:10.000Z",
       "source_url": "https://x.com/StockMKTNewz/status/2095310852081566126",
-      "analysis": "Robert’s generalists lists carried @StockMKTNewz. One desk. A London Uber match with a human still in the seat is a product, not a new model.",
+      "analysis": "Robert’s generalists lists carried @StockMKTNewz, and his tech companies lists later carried official @Uber. One desk each. A London Uber match with a human still in the seat is a product, not a new model.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
+      "id": "sig-tesla-cybercab-tos",
+      "title": "Tesla adds Cybercab to Robotaxi app terms and sets a higher age floor",
+      "text": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
+      "list_names": [
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media"
+      ],
+      "created_at": "2026-09-03T05:57:02.000Z",
+      "source_url": "https://x.com/SawyerMerritt/status/2095390591743918518",
+      "analysis": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
       "topic_key": "robotics",
       "topic_label": "Robotics"
     },
@@ -10155,12 +10298,12 @@
     {
       "id": "sig-nepal-china-floods",
       "title": "Nepal Tibet floods kill more than 1,100 as nearly 4,000 stay missing",
-      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it.",
+      "text": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it. Later @PDChina posted with media on Langtang Lirung to Xizang, a path print with no new death number.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it.",
+      "source_list": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it. Later @PDChina posted with media on Langtang Lirung to Xizang, a path print with no new death number.",
       "list_names": [
         "World News"
       ],
@@ -10169,7 +10312,49 @@
       ],
       "created_at": "2026-08-29T05:00:01.000Z",
       "source_url": "https://x.com/AJEnglish/status/2093564305102807341",
-      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it.",
+      "analysis": "Robert’s World News list carried @AJEnglish on the Rasuwa tunnels, later @ABCWorldNews on over 3,000 missing including 85 Americans, @arabnews on Sunday machinery, @CGTNOfficial on a sixth day at Gyirong, @France24_en on more than 4,000 missing, @AlArabiya_Eng on a 939 death print, @AJENews on a death print past 1,000, and @France24_en later on nearly 4,500 still missing. One desk. The death number moved again. The tunnels are still sealed. Al Jazeera later printed more than 1,100 dead and nearly 4,000 missing, with media. Later @XHNews printed 21 confirmed dead and 541 missing at Gyirong Port as of Wednesday noon, with road access basically restored Wednesday morning. That Gyirong Port count sits beside the Himalaya print, not over it. Later @PDChina posted with media on Langtang Lirung to Xizang, a path print with no new death number.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-egypt-china-palestine",
+      "title": "Egypt and China back a Palestinian state and reject forced displacement",
+      "text": "Robert’s World News list carried @AJEnglish. One desk. A Cairo joint statement on a Palestinian state is geopolitics, not an AI card.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJEnglish. One desk. A Cairo joint statement on a Palestinian state is geopolitics, not an AI card.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-09-03T08:05:44.000Z",
+      "source_url": "https://x.com/AJEnglish/status/2095422980977221740",
+      "analysis": "Robert’s World News list carried @AJEnglish. One desk. A Cairo joint statement on a Palestinian state is geopolitics, not an AI card.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-un-climate-overshoot",
+      "title": "UN report says the world will zoom well past its temperature rise target",
+      "text": "Robert’s World News list carried @washingtonpost. One desk. A UN temperature overshoot warning is a policy print, not a weather recap.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @washingtonpost. One desk. A UN temperature overshoot warning is a policy print, not a weather recap.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-09-03T08:00:15.000Z",
+      "source_url": "https://x.com/washingtonpost/status/2095421603303584033",
+      "analysis": "Robert’s World News list carried @washingtonpost. One desk. A UN temperature overshoot warning is a policy print, not a weather recap.",
       "topic_key": "world",
       "topic_label": "World"
     },
