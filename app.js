@@ -35,7 +35,7 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an255";
+  var DATA_URL = "live-data.json?v=an256";
   var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an130";
   var state = {
     data: null,
@@ -3464,7 +3464,6 @@
         html += '<li class="top-pulls-wrap" role="presentation"><ul class="top-pulls">' +
           pulls.map(renderPullCard).join("") + "</ul></li>";
       }
-      html += '<li class="feed-chips-slot" id="feedChipsSlot" role="presentation"></li>';
       html += bannerHtml();
       var rest = items.filter(function (s) { return !used[s.id]; });
       var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "world"];
@@ -3502,7 +3501,6 @@
     }
 
     list.innerHTML = html;
-    if (showLead) placeChipsInFeed();
     enableCardNavigation(list);
     renderTodayDeskModules();
     mountLeadScatter();

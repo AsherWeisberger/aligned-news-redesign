@@ -8191,3 +8191,41 @@ html:has(.feed-skel.is-on) #loadStatus.loading {
 .gm-widget:focus-visible .gm-widget-globe {
   box-shadow: none;
 }
+
+/* === an256: restore topic pills on top of Today (chipsHome), keep pulls === */
+body[data-page="today"] .chips-home {
+  display: block !important;
+  visibility: visible !important;
+  max-width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+body[data-page="today"] .chips-home:not(:empty) {
+  display: block !important;
+}
+body[data-page="today"] .chips-home .chips,
+body[data-page="today"] #chipsHome .chips {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: nowrap !important;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  scrollbar-width: none;
+}
+body[data-page="today"] .chips-home .chips::-webkit-scrollbar {
+  display: none !important;
+}
+body[data-page="today"] .chips-home .chip {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+}
+body[data-page="today"] .top-pulls-wrap {
+  visibility: visible;
+}
+body[data-page="today"] .top-pulls {
+  visibility: visible;
+}
