@@ -8229,3 +8229,75 @@ body[data-page="today"] .top-pulls-wrap {
 body[data-page="today"] .top-pulls {
   visibility: visible;
 }
+
+/* === an258: overnight — lead dek under both cols (kill dead hero gap), HUD contrast, phone chip fade === */
+@media (min-width: 900px) {
+  html:not([data-density="compact"]) .lead-card.lead-card-opener,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener {
+    grid-template-areas:
+      "copy hero"
+      "after after" !important;
+    align-items: start !important;
+  }
+  html:not([data-density="compact"]) .lead-card-opener .lead-after {
+    grid-area: after !important;
+    padding-top: 0.55rem;
+    max-width: 52ch;
+  }
+  /* Keep an234 4/3 (no portrait slice) but sit flush with the title column — no tall empty rail under the photo */
+  html:not([data-density="compact"]) .lead-card-opener .lead-hero,
+  html:not([data-density="compact"]) .lead-card-photo.lead-card-opener .lead-hero {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    max-height: 280px !important;
+    min-height: 200px !important;
+    align-self: start !important;
+  }
+}
+
+/* Drops HUD: readable on lime sand — ink fill + hard edge, "in Xm" pairs with NEXT STORIES */
+.an-drops-hud-left,
+.an-drops-hud-right {
+  color: #F4FFE8 !important;
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.95),
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 12px rgba(0, 0, 0, 0.55),
+    0 2px 0 rgba(0, 0, 0, 0.35) !important;
+}
+.an-drops-hud-left::before,
+.an-drops-hud-right::before {
+  content: "";
+  position: absolute;
+  inset: 4px -8px;
+  border-radius: 999px;
+  background: rgba(8, 12, 6, 0.42);
+  z-index: -1;
+  pointer-events: none;
+}
+.an-drops-hud-left,
+.an-drops-hud-right {
+  position: absolute;
+  isolation: isolate;
+}
+.an-drops-hud-right b {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+}
+.an-drops-hud-time {
+  color: #E8FFD0 !important;
+  font-weight: 700 !important;
+}
+
+/* Phone: chips-home must fade at the right edge (an256 overflow:visible undid the mask) */
+@media (max-width: 899px) {
+  body[data-page="today"] .chips-home {
+    overflow: hidden !important;
+    max-width: 100%;
+  }
+  body[data-page="today"] .chips-home .chips,
+  body[data-page="today"] #chipsHome .chips {
+    mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 42px), transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 42px), transparent 100%) !important;
+  }
+}

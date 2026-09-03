@@ -4276,7 +4276,7 @@
       var hudKey = String(st.value) + "|" + st.remain;
       if (hudKey !== lastHud) {
         lastHud = hudKey;
-        hudRight.innerHTML = "<b>" + st.value + "%</b><span class=\"an-drops-hud-sep\"> · </span><span class=\"an-drops-hud-time\">" + st.remain + "</span>";
+        hudRight.innerHTML = "<b>" + st.value + "%</b><span class=\"an-drops-hud-sep\"> · </span><span class=\"an-drops-hud-time\">in " + st.remain + "</span>";
       }
       return st;
     }
