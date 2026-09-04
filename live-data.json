@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-09-03T21:24:06.000Z",
-    "scrapedAt": "2026-09-03T21:24:06.000Z",
+    "generatedAt": "2026-09-04T01:23:39.000Z",
+    "scrapedAt": "2026-09-04T01:23:39.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 201 stories, source scobleizer-chrome-lists",
+    "note": "CONTEXT writeup, 206 stories, source scobleizer-chrome-lists",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 64,
-    "stories": 201,
-    "signals": 200,
+    "stories": 206,
+    "signals": 205,
     "reports": 4
   },
   "chips": [
@@ -190,7 +190,7 @@
           "url": "https://x.com/OpenAI/status/2095595741528125780"
         }
       ],
-      "body": "@OpenAI posted This is GPT 6 Astra. Anything you can do on a computer, Astra can do for you. Fast. It said GPT 6 Astra is state of the art on FrontierMath Tier 4, ARC AGI 3, and TerminalBench 4.0, and a major advance for scientific discovery with state of the art on Terminal Bench Science 0.1 and HealthBench Pro. OpenAI also said it is the most intelligent and aligned model in the world, and sets a new state of the art for computer use, browsing, software engineering, cybersecurity, science, and professional work. Astra is its most aligned model, with substantial improvements in understanding user intent.\n\nIt is rolling out today to a limited set of organizations and over the coming days to all ChatGPT Plus, Pro, Business, and Enterprise users, plus the OpenAI API and AWS. @sama said GPT 6 Astra is here, best in the world for computer use, professional work, science, coding, and cybersecurity, that it took extra time, and that OpenAI is working to get Astra in everyone’s hands quickly. @thsottiaux said the team is releasing as carefully and quickly as possible, that bringing it to all Plus users not only Pro, Business, and Enterprise mattered, and that rollout takes a few days. @ChatGPT said Meet GPT 6 Astra, rolling out on the same channels, and pointed people to the desktop app for the best experience. @markchen90 said years of pretraining, reinforcement learning, and post training came together, and that Astra can build and test software and work across apps on your computer.\n\n@fchollet said 66% on ARC AGI 3 with the standard harness, nearly 100% with a continuous conversation harness and custom compaction, about $360 per game, and that progress landed about 2x faster than his year estimate. @EpochAIResearch put ECI at a record 169, prior best 163, with new records on math, continual learning, and game puzzles. On FrontierMath Open Problems, Astra solved one new Moderately Interesting problem; 98% on FrontierMath Tier 4, the only remaining unsolved problem, now fully saturated. FrontierMath Erdős has 68 unsolved problems. MirrorCode landed at 46.7%, between Opus 4.7 and Fable 5. @wadefoster put AutomationBench at 41.4% Max effort, prior best GPT 5.6 Sol at 28.8%, first over 40%. @tomekkorbak said Astra is more aligned but less monitorable, a trend from the intelligence jump not CoT optimization.\n\nWatch: Plus rollout completing in a few days, API and AWS availability, whether ARC AGI saturation holds outside OpenAI’s harness, and the monitorability drop.",
+      "body": "@OpenAI posted This is GPT 6 Astra. Anything you can do on a computer, Astra can do for you. Fast. It said GPT 6 Astra is state of the art on FrontierMath Tier 4, ARC AGI 3, and TerminalBench 4.0, and a major advance for scientific discovery with state of the art on Terminal Bench Science 0.1 and HealthBench Pro. OpenAI also said it is the most intelligent and aligned model in the world, and sets a new state of the art for computer use, browsing, software engineering, cybersecurity, science, and professional work. Astra is its most aligned model, with substantial improvements in understanding user intent.\n\nIt is rolling out today to a limited set of organizations and over the coming days to all ChatGPT Plus, Pro, Business, and Enterprise users, plus the OpenAI API and AWS. @sama said GPT 6 Astra is here, best in the world for computer use, professional work, science, coding, and cybersecurity, that it took extra time, and that OpenAI is working to get Astra in everyone’s hands quickly. @thsottiaux said the team is releasing as carefully and quickly as possible, that bringing it to all Plus users not only Pro, Business, and Enterprise mattered, and that rollout takes a few days. @ChatGPT said Meet GPT 6 Astra, rolling out on the same channels, and pointed people to the desktop app for the best experience. @markchen90 said years of pretraining, reinforcement learning, and post training came together, and that Astra can build and test software and work across apps on your computer.\n\n@fchollet said 66% on ARC AGI 3 with the standard harness, nearly 100% with a continuous conversation harness and custom compaction, about $360 per game, and that progress landed about 2x faster than his year estimate. @EpochAIResearch put ECI at a record 169, prior best 163, with new records on math, continual learning, and game puzzles. On FrontierMath Open Problems, Astra solved one new Moderately Interesting problem; 98% on FrontierMath Tier 4, the only remaining unsolved problem, now fully saturated. FrontierMath Erdős has 68 unsolved problems. MirrorCode landed at 46.7%, between Opus 4.7 and Fable 5. @wadefoster put AutomationBench at 41.4% Max effort, prior best GPT 5.6 Sol at 28.8%, first over 40%. @tomekkorbak said Astra is more aligned but less monitorable, a trend from the intelligence jump not CoT optimization.\n\nAlongside the launch, OpenAI is committing $1 billion to subsidize Daybreak access and frontier capabilities for frontline defenders. @thsottiaux said paid ChatGPT users get one banked reset for every day without Astra access, starting today.\n\nWatch: Plus rollout completing in a few days, API and AWS availability, whether ARC AGI saturation holds outside OpenAI’s harness, and the monitorability drop.",
       "kind": "story",
       "engagement": {
         "impression_count": 2800000,
@@ -287,12 +287,12 @@
           "url": "https://x.com/FortuneMagazine/status/2095620191841309076"
         }
       ],
-      "body": "@FortuneMagazine posted that Oura filed for a US IPO on Thursday, revealing that it sold more than 3.6 million smart rings over the past year. CEO Tom Hale previously told @agarfinks that the Oura Ring is like having a doctor in your pocket.\n\nWatch whether the IPO prices and whether the 3.6 million rings figure holds in the filing.",
+      "body": "@FortuneMagazine posted that Oura filed for a US IPO on Thursday, revealing that it sold more than 3.6 million smart rings over the past year. CEO Tom Hale previously told @agarfinks that the Oura Ring is like having a doctor in your pocket.\n\n@techsnif later said Oura’s filing reports a $924.3M net loss on $1.21B in revenue for the nine months ended June 30, versus a $182.8M net loss on $697.6M a year earlier. That note has no media, so the revenue print sits in the body and as related. Reuters later framed a revenue surge in the US IPO filing; that wire also has no media, so it stays related only.\n\nWatch whether the IPO prices and whether the rings sold and revenue figures hold in the final prospectus.",
       "kind": "story",
       "engagement": {
         "impression_count": 527
       },
-      "why_it_matters": "Robert’s World News list carried @FortuneMagazine. One desk. A US IPO filing with a hard rings sold print is money, not a wellness meme.",
+      "why_it_matters": "Robert’s World News list carried @FortuneMagazine; later his tech news lists carried @techsnif on the $1.21B revenue and $924.3M loss print. One desk on the picture card. A US IPO filing with hard rings sold and revenue figures is money, not a wellness meme.",
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "FortuneMagazine",
@@ -347,6 +347,46 @@
       "desk_rank": 4
     },
     {
+      "id": "openevidence-darwin",
+      "headline": "OpenEvidence ships Darwin as a medical model at 100 percent on MedQA",
+      "summary": "@OpenEvidence posted that the best medical AI model in the world is now called Darwin. It is the first AI to score a perfect 100 percent on MedQA and it leads every mainstream benchmark in the field. STAT covers the launch.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-09-03T22:36:30.000Z",
+      "author_name": "OpenEvidence",
+      "source_list": "AI Medical/Health/Science",
+      "list_names": [
+        "AI Medical/Health/Science"
+      ],
+      "chip_labels": [
+        "AI Medical/Health/Science"
+      ],
+      "source_url": "https://x.com/OpenEvidence/status/2095642117511282805",
+      "sources": [
+        {
+          "label": "@OpenEvidence",
+          "url": "https://x.com/OpenEvidence/status/2095642117511282805"
+        }
+      ],
+      "body": "@OpenEvidence posted that the best medical AI model in the world is now called Darwin. It is the first AI to score a perfect 100 percent on MedQA and it leads every mainstream benchmark in the field. STAT covers the launch.\n\nWatch whether the 100 percent MedQA score holds under independent audit, and whether Darwin ships beyond the launch note.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3200,
+        "like_count": 30,
+        "retweet_count": 5
+      },
+      "why_it_matters": "Robert’s AI medical, health, and science lists carried @OpenEvidence. One desk. A named medical model at a perfect MedQA score is a models map change, not a host card.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "OpenEvidence",
+      "media_url": "https://pbs.twimg.com/media/HRU2uqTaMAAxSdf?format=jpg&name=large",
+      "list_count": 1,
+      "views": 3200,
+      "desk_rank": 5
+    },
+    {
       "id": "gemini-38-flash",
       "headline": "Google ships Gemini 3.8 Flash and Gemini 3.8 Flash Cyber",
       "summary": "Logan posted Gemini 3.8 Flash as another jump in Gemini’s agentic and coding capabilities, and the third updated Flash model in only six weeks. Sundar said it is the third Flash release in six weeks, with significant leaps from 3.7 Flash across software engineering, agentic tasks",
@@ -387,7 +427,7 @@
       "media_url": "https://pbs.twimg.com/media/HROMzF5boAAlg1Y?format=png&name=large",
       "list_count": 2,
       "views": 163000,
-      "desk_rank": 5
+      "desk_rank": 6
     },
     {
       "id": "claude-fable-mythos-5-1",
@@ -432,7 +472,7 @@
       "media_url": "https://pbs.twimg.com/media/HRJlwmVWcAEyYzf.jpg?format=jpg&name=large",
       "list_count": 3,
       "views": 4300000,
-      "desk_rank": 6
+      "desk_rank": 7
     },
     {
       "id": "tencent-hy4-preview",
@@ -476,7 +516,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyfABta8AAq3x7?format=jpg&name=large",
       "list_count": 4,
       "views": 1545332,
-      "desk_rank": 7
+      "desk_rank": 8
     },
     {
       "id": "h3-max-live",
@@ -521,7 +561,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7UHClW4AA2I6L?format=jpg&name=large",
       "list_count": 3,
       "views": 17000,
-      "desk_rank": 8
+      "desk_rank": 9
     },
     {
       "id": "h3-max-director",
@@ -565,7 +605,50 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2095599818139680771/pu/img/9xUav40yp8WPx5Q1.jpg",
       "list_count": 3,
       "views": 5300,
-      "desk_rank": 9
+      "desk_rank": 10
+    },
+    {
+      "id": "nunchux-ai",
+      "headline": "Nunchux AI comes out of stealth from the CycleGAN lab",
+      "summary": "@junyanz89 posted that Nunchux AI (nunchux.ai) comes out of stealth today. Ten years ago at Berkeley, the team spent whole nights on a Titan X in Theano, trying to make iGAN, pix2pix, and CycleGAN real time so creators could see the results the moment they asked for them. The pos",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-09-03T23:29:11.000Z",
+      "author_name": "junyanz89",
+      "source_list": "Computer Vision, VC Firms",
+      "list_names": [
+        "Computer Vision",
+        "VC Firms"
+      ],
+      "chip_labels": [
+        "Computer Vision",
+        "VC Firms"
+      ],
+      "source_url": "https://x.com/junyanz89/status/2095655377274613846",
+      "sources": [
+        {
+          "label": "@junyanz89",
+          "url": "https://x.com/junyanz89/status/2095655377274613846"
+        }
+      ],
+      "body": "@junyanz89 posted that Nunchux AI (nunchux.ai) comes out of stealth today. Ten years ago at Berkeley, the team spent whole nights on a Titan X in Theano, trying to make iGAN, pix2pix, and CycleGAN real time so creators could see the results the moment they asked for them. The post cuts off at image models now.\n\nWatch whether Nunchux ships a public product page beyond the stealth note, and whether the CycleGAN lab names hold on the site.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5900,
+        "like_count": 71,
+        "reply_count": 7,
+        "retweet_count": 13
+      },
+      "why_it_matters": "Robert’s computer vision lists and his VC firms lists carried @junyanz89. Two desks. A stealth exit from the CycleGAN lab is a product map change, not a host card.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "junyanz89",
+      "media_url": "https://pbs.twimg.com/media/HRU3p9sbcAAhDCc?format=jpg&name=large",
+      "list_count": 2,
+      "views": 5900,
+      "desk_rank": 11
     },
     {
       "id": "claude-background-computer",
@@ -608,7 +691,7 @@
       "media_url": "https://pbs.twimg.com/media/HRO9mchaQAANgRA?format=jpg&name=large",
       "list_count": 2,
       "views": 183000,
-      "desk_rank": 10
+      "desk_rank": 12
     },
     {
       "id": "glm-5-3-day-0",
@@ -655,7 +738,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 3302,
-      "desk_rank": 11
+      "desk_rank": 13
     },
     {
       "id": "anthropic-hacker-opus",
@@ -703,7 +786,7 @@
       "media_url": "https://pbs.twimg.com/media/HRFr2lobkAAAroQ?format=jpg&name=large",
       "list_count": 5,
       "views": 12000,
-      "desk_rank": 12
+      "desk_rank": 14
     },
     {
       "id": "nvidia-hydra-0",
@@ -748,7 +831,45 @@
       "media_url": "https://pbs.twimg.com/media/HREwOedWUAEjf8E.jpg?format=jpg&name=large",
       "list_count": 3,
       "views": 7900,
-      "desk_rank": 13
+      "desk_rank": 15
+    },
+    {
+      "id": "harnessdev",
+      "headline": "ByteDance Seed posts HarnessDev to score agent execution infrastructure",
+      "summary": "@shao__meng posted that researchers from ByteDance Seed and other teams released HarnessDev, a benchmark that shifts evaluation from task answers to agent execution infrastructure. The paper is on Hugging Face at papers/2609.01437.",
+      "section": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "tag": "papers",
+      "published_at": "2026-09-04T00:41:43.000Z",
+      "author_name": "shao__meng",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/shao__meng/status/2095673629816303691",
+      "sources": [
+        {
+          "label": "@shao__meng",
+          "url": "https://x.com/shao__meng/status/2095673629816303691"
+        }
+      ],
+      "body": "@shao__meng posted that researchers from ByteDance Seed and other teams released HarnessDev, a benchmark that shifts evaluation from task answers to agent execution infrastructure. The paper is on Hugging Face at papers/2609.01437.\n\nWatch whether English lab copy lands and whether other labs adopt the harness score.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 31
+      },
+      "why_it_matters": "Robert’s community lists carried @shao__meng. One desk. A ByteDance Seed benchmark that scores agent harnesses is a papers map change, even at low views.",
+      "topic_key": "papers",
+      "topic_label": "Papers",
+      "x_handle": "shao__meng",
+      "media_url": "https://pbs.twimg.com/media/HRVUC2aaQAAOAmH?format=jpg&name=large",
+      "list_count": 1,
+      "views": 31,
+      "desk_rank": 16
     },
     {
       "id": "berkeley-daydreaming",
@@ -789,7 +910,7 @@
       "media_url": "https://pbs.twimg.com/media/HRQi4LubUAAmYUF?format=png&name=large",
       "list_count": 1,
       "views": 2200,
-      "desk_rank": 14
+      "desk_rank": 17
     },
     {
       "id": "video-delta-net",
@@ -829,7 +950,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095274503714861056/img/KoLWw6nj7-TraIdy.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 35000,
-      "desk_rank": 15
+      "desk_rank": 18
     },
     {
       "id": "frontierswe-v2",
@@ -872,7 +993,7 @@
       "media_url": "https://pbs.twimg.com/media/HRPDzpMbIAAM93m?format=jpg&name=large",
       "list_count": 2,
       "views": 12000,
-      "desk_rank": 16
+      "desk_rank": 19
     },
     {
       "id": "wafer-40m-series-a",
@@ -913,7 +1034,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHLL_naYAAvXrY?format=jpg&name=large",
       "list_count": 1,
       "views": 7479,
-      "desk_rank": 17
+      "desk_rank": 20
     },
     {
       "id": "qwen-397b-dppo-weights",
@@ -954,7 +1075,7 @@
       "media_url": "https://pbs.twimg.com/media/HRKSio8akAA1Q9G?format=jpg&name=large",
       "list_count": 1,
       "views": 19000,
-      "desk_rank": 18
+      "desk_rank": 21
     },
     {
       "id": "higgsfield-genjutsu",
@@ -995,7 +1116,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094850792952102912/img/tI8OHk0dg73GBK53?format=jpg&name=large",
       "list_count": 1,
       "views": 4300,
-      "desk_rank": 19
+      "desk_rank": 22
     },
     {
       "id": "higgsfield-blender-camera",
@@ -1036,7 +1157,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095294912124366848/img/KSDlqxDEp0z-2fGh.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 3800,
-      "desk_rank": 20
+      "desk_rank": 23
     },
     {
       "id": "kaiser-nurses-ai-pickets",
@@ -1074,7 +1195,7 @@
       "media_url": "https://pbs.twimg.com/media/HRKOfB6a4AARsSL?format=jpg&name=large",
       "list_count": 1,
       "views": 198,
-      "desk_rank": 21
+      "desk_rank": 24
     },
     {
       "id": "mamdani-nyc-ai-ban",
@@ -1112,7 +1233,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095357292543877120/img/RxJpR_1GPsrLy6BG.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 5300,
-      "desk_rank": 22
+      "desk_rank": 25
     },
     {
       "id": "world-labs-atlas",
@@ -1159,7 +1280,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094829307273396230/img/6R12oZNwKyLuREue.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 732000,
-      "desk_rank": 23
+      "desk_rank": 26
     },
     {
       "id": "muse-voice-transcribe",
@@ -1205,7 +1326,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094836345256448000/img/HsJs1IpcZcoPfZWU.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 280000,
-      "desk_rank": 24
+      "desk_rank": 27
     },
     {
       "id": "eu-dsa-chatgpt-vlose",
@@ -1246,7 +1367,7 @@
       "media_url": "https://pbs.twimg.com/media/HRC4DpEWoAEU4PL?format=jpg&name=large",
       "list_count": 1,
       "views": 99000,
-      "desk_rank": 25
+      "desk_rank": 28
     },
     {
       "id": "nvidia-mediatek-nvlink",
@@ -1286,7 +1407,49 @@
       "media_url": "https://pbs.twimg.com/media/HRDiV27XcAAcUkd.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 65000,
-      "desk_rank": 26
+      "desk_rank": 29
+    },
+    {
+      "id": "nvidia-vera-cpu",
+      "headline": "NVIDIA shows early Vera CPU results with ClickHouse",
+      "summary": "@NVIDIAAIInfra posted that it is excited by the performance results NVIDIA Vera CPU is delivering in early testing with partners like @ClickHouseDB, known for setting the standard for speed and efficiency in modern data systems. The post said the results are a strong signal of wh",
+      "section": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "tag": "chips",
+      "published_at": "2026-09-04T01:00:02.000Z",
+      "author_name": "NVIDIAAIInfra",
+      "source_list": "Infrastructure, Tech Companies",
+      "list_names": [
+        "Infrastructure",
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Infrastructure",
+        "Tech Companies"
+      ],
+      "source_url": "https://x.com/NVIDIAAIInfra/status/2095678236747280422",
+      "sources": [
+        {
+          "label": "@NVIDIAAIInfra",
+          "url": "https://x.com/NVIDIAAIInfra/status/2095678236747280422"
+        }
+      ],
+      "body": "@NVIDIAAIInfra posted that it is excited by the performance results NVIDIA Vera CPU is delivering in early testing with partners like @ClickHouseDB, known for setting the standard for speed and efficiency in modern data systems. The post said the results are a strong signal of what’s ahead for CPU performance, then cuts off without named scores.\n\nThis is early testing, not a full ship.\n\nWatch whether NVIDIA posts named Vera CPU numbers beyond the early testing note.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 289,
+        "like_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert’s infrastructure lists and his tech companies lists carried @NVIDIAAIInfra. Two desks. An early Vera CPU testing note with ClickHouse is a chips signal, not a finished product card.",
+      "topic_key": "chips",
+      "topic_label": "Chips",
+      "x_handle": "NVIDIAAIInfra",
+      "media_url": "https://pbs.twimg.com/media/HRU19oWaIAA_-gl?format=jpg&name=large",
+      "list_count": 2,
+      "views": 289,
+      "desk_rank": 30
     },
     {
       "id": "korea-semi-exports-august",
@@ -1325,7 +1488,7 @@
       "media_url": "https://pbs.twimg.com/media/HRQ35vqWgAIXi5o?format=jpg&name=large",
       "list_count": 1,
       "views": 5300,
-      "desk_rank": 27
+      "desk_rank": 31
     },
     {
       "id": "luel-speech-platform",
@@ -1368,7 +1531,7 @@
       "media_url": "https://pbs.twimg.com/media/HRENfu-XoAAOj-1?format=jpg&name=large",
       "list_count": 2,
       "views": 31000,
-      "desk_rank": 28
+      "desk_rank": 32
     },
     {
       "id": "speechmatics-melia-1",
@@ -1409,7 +1572,7 @@
       "media_url": "https://pbs.twimg.com/media/HRMoLLmWgAMNGL9?format=jpg&name=large",
       "list_count": 2,
       "views": 39,
-      "desk_rank": 29
+      "desk_rank": 33
     },
     {
       "id": "inworld-tts-2",
@@ -1450,7 +1613,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2095185885687930881/pu/img/V44GOWXUq9B5V0I4.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 1400,
-      "desk_rank": 30
+      "desk_rank": 34
     },
     {
       "id": "applied-intuition-humain-ksa",
@@ -1497,7 +1660,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094532265892052992/img/p1crZW1nINygDutp.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 13000,
-      "desk_rank": 31
+      "desk_rank": 35
     },
     {
       "id": "waymo-4000-robotaxis",
@@ -1538,7 +1701,7 @@
       "media_url": "https://pbs.twimg.com/media/HRK8riCWAAUjxwD?format=jpg&name=large",
       "list_count": 1,
       "views": 6000,
-      "desk_rank": 32
+      "desk_rank": 36
     },
     {
       "id": "uber-wayve-london",
@@ -1579,7 +1742,7 @@
       "media_url": "https://pbs.twimg.com/media/HRQKEDebIAAE8BG?format=jpg&name=large",
       "list_count": 1,
       "views": 5000,
-      "desk_rank": 33
+      "desk_rank": 37
     },
     {
       "id": "tesla-cybercab-tos",
@@ -1605,7 +1768,7 @@
           "url": "https://x.com/SawyerMerritt/status/2095390591743918518"
         }
       ],
-      "body": "Sawyer Merritt posted that Tesla has officially added the Cybercab to its terms of service in the Robotaxi app. The terms say minors under the age of 13 are not permitted in a Cybercab robotaxi vehicle, versus 8 for Model Y robotaxi.\n\n@christesla later posted that Tesla released a new iOS app for Robotaxi with CyberCab support. This is a product print on the Robotaxi app, not a new named model.\n\n@Tesla later posted The future has arrived in Austin, with media, about 516000 views. That Austin note is the Cybercab event happening, boxed as an event, not a ship and never the lead.\n\nWatch whether the age floor holds in the live app, whether the iOS build actually lists Cybercab, and whether the Austin event adds a vehicle you can ride. The Austin event posted; it is still not the lead.",
+      "body": "Sawyer Merritt posted that Tesla has officially added the Cybercab to its terms of service in the Robotaxi app. The terms say minors under the age of 13 are not permitted in a Cybercab robotaxi vehicle, versus 8 for Model Y robotaxi.\n\n@christesla later posted that Tesla released a new iOS app for Robotaxi with CyberCab support. This is a product print on the Robotaxi app, not a new named model.\n\n@Tesla later posted The future has arrived in Austin, with media, about 516000 views. That Austin note is the Cybercab event happening, boxed as an event, not a ship and never the lead.\n\n@Starlink later posted that Starlink V5 will soon be integrated directly into Cybercab, delivering seamless connectivity for vehicle operations and passenger entertainment even in locations with poor or high traffic cellular service. That post carried amplify video and about 361000 views across Robert’s developer and SpaceX AI lists.\n\n@gbrulte later posted, with media, that Tesla said Cybercab rides now are available only in a limited area in Austin, citing the Austin Statesman. Polymarket later claimed Starlink V5 would let passengers stream 4K live video while riding; that note has no media, so it stays related only.\n\nKeep the product and terms as the core of this card. The Austin rides note stays boxed as an event, never the lead.\n\nWatch whether the age floor holds in the live app, whether Starlink V5 actually ships in cabin hardware, and whether the limited Austin zone expands. The Austin event stays boxed; it is still not the lead.",
       "kind": "story",
       "engagement": {
         "impression_count": 44000,
@@ -1613,14 +1776,14 @@
         "reply_count": 22,
         "retweet_count": 66
       },
-      "why_it_matters": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
+      "why_it_matters": "Robert’s robot influencers lists carried @SawyerMerritt on the terms print; later his developer lists and SpaceX AI lists carried @Starlink on Starlink V5 into Cybercab, and his vehicles lists carried @gbrulte on limited Austin rides. A Robotaxi terms print with a connectivity fold is a product change, not an Austin keynote recap.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "SawyerMerritt",
       "media_url": "https://pbs.twimg.com/media/HRRSoibWYAMKtSB?format=jpg&name=large",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 34
+      "desk_rank": 38
     },
     {
       "id": "tiangong-3",
@@ -1660,7 +1823,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095601154465890306/img/H0YqCTqD7wIIn3EQ.jpg",
       "list_count": 1,
       "views": 394,
-      "desk_rank": 35
+      "desk_rank": 39
     },
     {
       "id": "grok-bot-microsoft",
@@ -1705,7 +1868,7 @@
       "media_url": "https://pbs.twimg.com/media/HRFKMMdagAA6EYM?format=jpg&name=large",
       "list_count": 3,
       "views": 22000,
-      "desk_rank": 36
+      "desk_rank": 40
     },
     {
       "id": "perplexity-hybrid-compute",
@@ -1748,7 +1911,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094801024280399872/img/V8ehrJzGMU7G1hD_.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 208000,
-      "desk_rank": 37
+      "desk_rank": 41
     },
     {
       "id": "perplexity-lily",
@@ -1791,7 +1954,7 @@
       "media_url": "https://pbs.twimg.com/media/HRPLICgbcAAtV7-?format=jpg&name=large",
       "list_count": 2,
       "views": 4600,
-      "desk_rank": 38
+      "desk_rank": 42
     },
     {
       "id": "chatgpt-epic-ehr",
@@ -1831,7 +1994,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094845665721688064/img/0kiV-3u3O-0nTaE2.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 98000,
-      "desk_rank": 39
+      "desk_rank": 43
     },
     {
       "id": "gemini-agentic-video",
@@ -1872,7 +2035,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094814439945981952/img/jUvDGGXklWiTysrs.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1200,
-      "desk_rank": 40
+      "desk_rank": 44
     },
     {
       "id": "tesla-fsd-europe",
@@ -1913,7 +2076,7 @@
       "media_url": "https://pbs.twimg.com/media/HRG6QVgbEAAUUU9?format=jpg&name=large",
       "list_count": 1,
       "views": 4200,
-      "desk_rank": 41
+      "desk_rank": 45
     },
     {
       "id": "psi-58m-seed",
@@ -1960,7 +2123,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094770018311364609/img/b92vFIES_AfxqVKh.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 23000,
-      "desk_rank": 42
+      "desk_rank": 46
     },
     {
       "id": "deepseek-v4-flash-vision",
@@ -2001,7 +2164,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHnBf2b0AAIVFR?format=jpg&name=large",
       "list_count": 1,
       "views": 6500,
-      "desk_rank": 43
+      "desk_rank": 47
     },
     {
       "id": "arena-heaviside-1",
@@ -2045,7 +2208,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094832808845873152/img/CYhgFwfDuFnyQL_o.jpg?format=jpg&name=large",
       "list_count": 3,
       "views": 464,
-      "desk_rank": 44
+      "desk_rank": 48
     },
     {
       "id": "indic-speak-4b",
@@ -2086,7 +2249,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094739781444132864/img/D1nb6MyZgnUZvW6Y.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 10000,
-      "desk_rank": 45
+      "desk_rank": 49
     },
     {
       "id": "v0-claude-design",
@@ -2127,7 +2290,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094565360687267840/img/hcDlSdmtk4eG_kPo.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 5600,
-      "desk_rank": 46
+      "desk_rank": 50
     },
     {
       "id": "lmstudio-bionic-linux",
@@ -2170,7 +2333,7 @@
       "media_url": "https://pbs.twimg.com/media/HREoF1MWAAEFaNb?format=jpg&name=large",
       "list_count": 2,
       "views": 21000,
-      "desk_rank": 47
+      "desk_rank": 51
     },
     {
       "id": "aws-graviton5-r9g",
@@ -2211,7 +2374,7 @@
       "media_url": "https://pbs.twimg.com/media/HRFF239W4AAuLzC?format=jpg&name=large",
       "list_count": 1,
       "views": 4500,
-      "desk_rank": 48
+      "desk_rank": 52
     },
     {
       "id": "puro-2b",
@@ -2253,7 +2416,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093993758836862976/img/rbqyPgtGMKWQxkTM.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 957,
-      "desk_rank": 49
+      "desk_rank": 53
     },
     {
       "id": "apodex-1-1",
@@ -2294,7 +2457,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBGVSubEAAH_47?format=jpg&name=large",
       "list_count": 1,
       "views": 8800,
-      "desk_rank": 50
+      "desk_rank": 54
     },
     {
       "id": "qwen-commerce-agent-bench",
@@ -2337,7 +2500,7 @@
       "media_url": "https://pbs.twimg.com/media/HRDlf4OaMAAr-Lx?format=jpg&name=large",
       "list_count": 2,
       "views": 19000,
-      "desk_rank": 51
+      "desk_rank": 55
     },
     {
       "id": "qwen-38-max-0902",
@@ -2378,7 +2541,7 @@
       "media_url": "https://pbs.twimg.com/media/HRLPk0VaIAI_ii7?format=jpg&name=large",
       "list_count": 1,
       "views": 180000,
-      "desk_rank": 52
+      "desk_rank": 56
     },
     {
       "id": "fastvideo-fasth3",
@@ -2422,7 +2585,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1HYttaMAAvrm1?format=jpg&name=large",
       "list_count": 3,
       "views": 88587,
-      "desk_rank": 53
+      "desk_rank": 57
     },
     {
       "id": "perplexity-search-api",
@@ -2473,7 +2636,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1ZnNMWwAA0omb?format=jpg&name=large",
       "list_count": 6,
       "views": 32486,
-      "desk_rank": 54
+      "desk_rank": 58
     },
     {
       "id": "firecrawl-keyless",
@@ -2522,7 +2685,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093349148623777792/img/tLW4S5u75xIPeo-h.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 303017,
-      "desk_rank": 55
+      "desk_rank": 59
     },
     {
       "id": "qwencloud",
@@ -2560,7 +2723,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBjmU0XsAAHHh_?format=jpg&name=large",
       "list_count": 1,
       "views": 486,
-      "desk_rank": 56
+      "desk_rank": 60
     },
     {
       "id": "openreview-github",
@@ -2595,7 +2758,7 @@
       "x_handle": "GithubProjects",
       "media_url": "https://pbs.twimg.com/media/HQ18YXaaEAATFpB?format=jpg&name=large",
       "list_count": 1,
-      "desk_rank": 57
+      "desk_rank": 61
     },
     {
       "id": "a16z-machine-age-fund",
@@ -2635,7 +2798,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093421436014870528/img/SwI3NR_bbhcIcLJ4.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 760,
-      "desk_rank": 58
+      "desk_rank": 62
     },
     {
       "id": "sb-energy-ipo",
@@ -2675,7 +2838,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBjDQ2agAAgzvx?format=jpg&name=large",
       "list_count": 2,
       "views": 41,
-      "desk_rank": 59
+      "desk_rank": 63
     },
     {
       "id": "openai-sandbox-escape",
@@ -2715,7 +2878,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093501631513948160/img/lWfakHrkzeagZYTt.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 8,
-      "desk_rank": 60
+      "desk_rank": 64
     },
     {
       "id": "berlin-ai-cameras",
@@ -2758,7 +2921,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094119069427683328/img/1_uLK2gDkI4Aq9uF.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 12000,
-      "desk_rank": 61
+      "desk_rank": 65
     },
     {
       "id": "pollen-microducks",
@@ -2815,7 +2978,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ14fPPWQAEqx80?format=jpg&name=large",
       "list_count": 10,
       "views": 98000,
-      "desk_rank": 62
+      "desk_rank": 66
     },
     {
       "id": "serbia-humanoid-plant",
@@ -2856,7 +3019,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093751710816829440/img/LAnIqs1ngchE6KQ8.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1200,
-      "desk_rank": 63
+      "desk_rank": 67
     },
     {
       "id": "lerobot-teleoperator",
@@ -2905,7 +3068,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093321094144966656/img/zmuWpezR_Tjsz2S0.jpg?format=jpg&name=large",
       "list_count": 6,
       "views": 17006,
-      "desk_rank": 64
+      "desk_rank": 68
     },
     {
       "id": "gemini-co-scientist",
@@ -2958,7 +3121,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0ng_UaQAA0seG?format=jpg&name=large",
       "list_count": 9,
       "views": 123433,
-      "desk_rank": 65
+      "desk_rank": 69
     },
     {
       "id": "openai-mac-buy",
@@ -3003,7 +3166,7 @@
       "media_url": "https://pbs.twimg.com/media/HRA-SQqb0AA_DAH?format=jpg&name=large",
       "list_count": 3,
       "views": 72000,
-      "desk_rank": 66
+      "desk_rank": 70
     },
     {
       "id": "midjourney-v82",
@@ -3049,7 +3212,7 @@
       "media_url": "https://pbs.twimg.com/media/HQy61k4bAAAy2Db?format=jpg&name=large",
       "list_count": 4,
       "views": 92047,
-      "desk_rank": 67
+      "desk_rank": 71
     },
     {
       "id": "comfyui-trellis-pixal3d",
@@ -3090,7 +3253,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094561814172631040/img/fA3mt_EBTsd8vV3R.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 2800,
-      "desk_rank": 68
+      "desk_rank": 72
     },
     {
       "id": "trellis-browser-local",
@@ -3131,7 +3294,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095253794795700233/img/89tHTx7tzUBitW_t.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 9000,
-      "desk_rank": 69
+      "desk_rank": 73
     },
     {
       "id": "hyper3d-worldgen",
@@ -3170,7 +3333,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094432437258571776/img/idJmfMcXYYoKYrfi.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 255000,
-      "desk_rank": 70
+      "desk_rank": 74
     },
     {
       "id": "google-wikiskill",
@@ -3217,7 +3380,7 @@
       "media_url": "https://pbs.twimg.com/media/HQz7S7XaMAEpfUG?format=jpg&name=large",
       "list_count": 6,
       "views": 305498,
-      "desk_rank": 71
+      "desk_rank": 75
     },
     {
       "id": "nvidia-warp-10m",
@@ -3264,7 +3427,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0cfFAaQAAMPTw?format=jpg&name=large",
       "list_count": 4,
       "views": 20263,
-      "desk_rank": 72
+      "desk_rank": 76
     },
     {
       "id": "fish-audio-android",
@@ -3308,7 +3471,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0c_8WasAA9QZU?format=jpg&name=large",
       "list_count": 3,
       "views": 2300,
-      "desk_rank": 73
+      "desk_rank": 77
     },
     {
       "id": "r3f-v10",
@@ -3351,7 +3514,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093367434400915456/img/iGhButUQQ6pSuiRS.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 5100,
-      "desk_rank": 74
+      "desk_rank": 78
     },
     {
       "id": "asimov-1",
@@ -3394,7 +3557,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093182759040921600/img/k5UX1gRM6pjgifNn.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 5434,
-      "desk_rank": 75
+      "desk_rank": 79
     },
     {
       "id": "muse-spark-daytona",
@@ -3438,7 +3601,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1C7kHWkAAYL6J?format=jpg&name=large",
       "list_count": 3,
       "views": 7985,
-      "desk_rank": 76
+      "desk_rank": 80
     },
     {
       "id": "mostik-ai",
@@ -3478,7 +3641,7 @@
       "media_url": "https://pbs.twimg.com/media/HRPBt_QW4AE93R1?format=jpg&name=large",
       "list_count": 1,
       "views": 73000,
-      "desk_rank": 77
+      "desk_rank": 81
     },
     {
       "id": "thomson-reuters-qwen",
@@ -3521,7 +3684,7 @@
       "media_url": "https://pbs.twimg.com/media/HQwTO6tWwAANpBk?format=jpg&name=large",
       "list_count": 2,
       "views": 176496,
-      "desk_rank": 78
+      "desk_rank": 82
     },
     {
       "id": "ijrr-world-models",
@@ -3561,7 +3724,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyelB5bsAAdyLB?format=jpg&name=large",
       "list_count": 1,
       "views": 11492,
-      "desk_rank": 79
+      "desk_rank": 83
     },
     {
       "id": "dyna-din-tai-fung",
@@ -3608,7 +3771,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093030495160606720/img/dLgALxZ4Ib8ouj9F.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 283083,
-      "desk_rank": 80
+      "desk_rank": 84
     },
     {
       "id": "atom-toyosu-foundry",
@@ -3648,7 +3811,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0Hq3zaUAAB5zA?format=jpg&name=large",
       "list_count": 1,
       "views": 584,
-      "desk_rank": 81
+      "desk_rank": 85
     },
     {
       "id": "oracle-mlperf-mi300x",
@@ -3689,7 +3852,7 @@
       "media_url": "https://pbs.twimg.com/media/HQxMpxcWgAAVbsJ?format=jpg&name=large",
       "list_count": 2,
       "views": 847,
-      "desk_rank": 82
+      "desk_rank": 86
     },
     {
       "id": "pika-gemini-omni-flash",
@@ -3730,7 +3893,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093350576499122176/img/Z5FDkNbcku2S6SeZ.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 573,
-      "desk_rank": 83
+      "desk_rank": 87
     },
     {
       "id": "elevenlabs-cli",
@@ -3770,7 +3933,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093352324404019201/img/1kYLK_9roK4sVHOn.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 2508,
-      "desk_rank": 84
+      "desk_rank": 88
     },
     {
       "id": "sesame-turnbench",
@@ -3815,7 +3978,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093376735161339904/img/FN8GNNltmQR8uWry.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 53838,
-      "desk_rank": 85
+      "desk_rank": 89
     },
     {
       "id": "company-brains-roundup",
@@ -3859,7 +4022,7 @@
       "media_url": "https://pbs.twimg.com/media/HQuKMrOWwAA_Fvs?format=jpg&name=large",
       "list_count": 3,
       "views": 138405,
-      "desk_rank": 86
+      "desk_rank": 90
     },
     {
       "id": "niger-niamey-gunfire",
@@ -3900,7 +4063,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ6knjxbgAAn2OH?format=jpg&name=large",
       "list_count": 1,
       "views": 5691,
-      "desk_rank": 87
+      "desk_rank": 91
     },
     {
       "id": "venezuela-oil-deal",
@@ -3943,7 +4106,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2BynpXEAEsK4x?format=jpg&name=large",
       "list_count": 2,
       "views": 798591,
-      "desk_rank": 88
+      "desk_rank": 92
     },
     {
       "id": "owner-240m",
@@ -3984,7 +4147,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093372696302153728/img/bRYhKYLw2AVDfjh_.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 545000,
-      "desk_rank": 89
+      "desk_rank": 93
     },
     {
       "id": "hfun-transformer-humanoid",
@@ -4031,7 +4194,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2093232320706670592/pu/img/I71XGuUJmhIcyzot.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 26000,
-      "desk_rank": 90
+      "desk_rank": 94
     },
     {
       "id": "chatgpt-death-lawsuits",
@@ -4074,7 +4237,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2QL27X0AAt4-_?format=jpg&name=large",
       "list_count": 2,
       "views": 8274,
-      "desk_rank": 91
+      "desk_rank": 95
     },
     {
       "id": "openai-rosalind-workbench",
@@ -4118,7 +4281,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0wsMSaAAAFLeF?format=jpg&name=large",
       "list_count": 3,
       "views": 5789,
-      "desk_rank": 92
+      "desk_rank": 96
     },
     {
       "id": "openai-ends-cursor",
@@ -4159,7 +4322,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2157NWUAA7GKu?format=jpg&name=large",
       "list_count": 1,
       "views": 27883,
-      "desk_rank": 93
+      "desk_rank": 97
     },
     {
       "id": "glass-surface-detection",
@@ -4201,7 +4364,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2RCd5XgAAK1Ug?format=jpg&name=large",
       "list_count": 2,
       "views": 171,
-      "desk_rank": 94
+      "desk_rank": 98
     },
     {
       "id": "vercel-vgpu-sh",
@@ -4242,7 +4405,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2092999146655645696/img/FgRJeSsf_c3kJSlF.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 850341,
-      "desk_rank": 95
+      "desk_rank": 99
     },
     {
       "id": "west-bank-raid",
@@ -4284,7 +4447,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ3Db4DW8AAGa7O.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 9000,
-      "desk_rank": 96
+      "desk_rank": 100
     },
     {
       "id": "kyiv-bucha-blast",
@@ -4332,7 +4495,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ4gTg_WEAAifog?format=jpg&name=large",
       "list_count": 5,
       "views": 61000,
-      "desk_rank": 97
+      "desk_rank": 101
     },
     {
       "id": "fujian-ccg-kinmen",
@@ -4370,7 +4533,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3I8UbbcAAx5zf.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 98
+      "desk_rank": 102
     },
     {
       "id": "guinea-bissau-constitution",
@@ -4411,7 +4574,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ240ynbIAARp5K?format=jpg&name=large",
       "list_count": 1,
       "views": 15000,
-      "desk_rank": 99
+      "desk_rank": 103
     },
     {
       "id": "nepal-china-floods",
@@ -4452,7 +4615,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3LBwhaoAA2P45?format=jpg&name=large",
       "list_count": 1,
       "views": 32858,
-      "desk_rank": 100
+      "desk_rank": 104
     },
     {
       "id": "egypt-china-palestine",
@@ -4492,7 +4655,7 @@
       "media_url": "https://pbs.twimg.com/media/HRRv_XKXcAApIm5?format=jpg&name=large",
       "list_count": 1,
       "views": 14000,
-      "desk_rank": 101
+      "desk_rank": 105
     },
     {
       "id": "un-climate-overshoot",
@@ -4533,7 +4696,7 @@
       "media_url": "https://pbs.twimg.com/media/HRRu089XEAIvshg?format=jpg&name=large",
       "list_count": 1,
       "views": 5300,
-      "desk_rank": 102
+      "desk_rank": 106
     },
     {
       "id": "ecuador-moreno-sentence",
@@ -4571,7 +4734,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3IPcIXkAEAlgJ?format=jpg&name=large",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 103
+      "desk_rank": 107
     },
     {
       "id": "us-space-academy-eo",
@@ -4622,7 +4785,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0wOKiWUAAOLRP?format=jpg&name=large",
       "list_count": 7,
       "views": 5246893,
-      "desk_rank": 104
+      "desk_rank": 108
     },
     {
       "id": "radiant-army-750m",
@@ -4662,7 +4825,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0jWaGbQAAR_4k?format=jpg&name=large",
       "list_count": 1,
       "views": 28000,
-      "desk_rank": 105
+      "desk_rank": 109
     },
     {
       "id": "sony-warner-anthropic-suit",
@@ -4707,7 +4870,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ298vabEAAEdQD?format=jpg&name=large",
       "list_count": 3,
       "views": 10355,
-      "desk_rank": 106
+      "desk_rank": 110
     },
     {
       "id": "claude-scientists-plan",
@@ -4757,7 +4920,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093049007329116160/img/5X2ymmLb8kxUv3r9.jpg?format=jpg&name=large",
       "list_count": 7,
       "views": 3419949,
-      "desk_rank": 107
+      "desk_rank": 111
     },
     {
       "id": "anthropic-mhs-preview",
@@ -4804,7 +4967,7 @@
       "media_url": "https://pbs.twimg.com/media/HQwLzwAbkAEQf1S.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 2793870,
-      "desk_rank": 108
+      "desk_rank": 112
     },
     {
       "id": "nvidia-dynamo-inference",
@@ -4847,7 +5010,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093442877464735744/img/9flouWJYMrEF2i2l.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 17323,
-      "desk_rank": 109
+      "desk_rank": 113
     },
     {
       "id": "qualcomm-npu-on-phone",
@@ -4887,7 +5050,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093120275714027520/img/douV7w3Vc6IQvbP1.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1471,
-      "desk_rank": 110
+      "desk_rank": 114
     },
     {
       "id": "tamu-vision-superpod",
@@ -4928,7 +5091,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2M9QSXoAAJL_G?format=jpg&name=large",
       "list_count": 1,
       "views": 30000,
-      "desk_rank": 111
+      "desk_rank": 115
     },
     {
       "id": "accel-sim-2-hopper",
@@ -4971,7 +5134,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ070mkXkAAGGIb?format=jpg&name=large",
       "list_count": 3,
       "views": 6283,
-      "desk_rank": 112
+      "desk_rank": 116
     },
     {
       "id": "brain-alignment-early-training",
@@ -5014,7 +5177,7 @@
       "media_url": "https://pbs.twimg.com/media/HQvBb9bWIAAvxvy?format=jpg&name=large",
       "list_count": 3,
       "views": 3283,
-      "desk_rank": 113
+      "desk_rank": 117
     },
     {
       "id": "ai4math-gold-rush-study",
@@ -5057,7 +5220,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ2ajOxXAAAIB3g?format=jpg&name=large",
       "list_count": 3,
       "views": 6597,
-      "desk_rank": 114
+      "desk_rank": 118
     },
     {
       "id": "r3-robots-think-first",
@@ -5098,7 +5261,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093423474735710208/img/jJMX791bha_ZcneK.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 370,
-      "desk_rank": 115
+      "desk_rank": 119
     },
     {
       "id": "gatik-200m-series-d",
@@ -5139,7 +5302,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1YA1mWMAAhAdz?format=jpg&name=large",
       "list_count": 1,
       "views": 408,
-      "desk_rank": 116
+      "desk_rank": 120
     },
     {
       "id": "gravis-200m-series-a",
@@ -5177,7 +5340,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095062911727136769/img/OXTkCMlf03Pp86I4.jpg",
       "list_count": 1,
       "views": 11,
-      "desk_rank": 117
+      "desk_rank": 121
     },
     {
       "id": "primero-12m-seed",
@@ -5217,7 +5380,7 @@
       "media_url": "https://pbs.twimg.com/media/HQvj5dnXkAAlUij?format=jpg&name=large",
       "list_count": 1,
       "views": 54,
-      "desk_rank": 118
+      "desk_rank": 122
     },
     {
       "id": "georgia-data-center-tax",
@@ -5260,7 +5423,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093069507837276160/img/s_sIUvo_pXUgVwmA.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 452000,
-      "desk_rank": 119
+      "desk_rank": 123
     },
     {
       "id": "pentagon-anthropic-blacklist",
@@ -5303,7 +5466,7 @@
       "media_url": "https://pbs.twimg.com/media/HQx5dEBboAADhIh?format=jpg&name=large",
       "list_count": 2,
       "views": 1621,
-      "desk_rank": 120
+      "desk_rank": 124
     },
     {
       "id": "doge-nepal-flood-grants",
@@ -5346,7 +5509,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ03zHqWwAAFsUc?format=png&name=large",
       "list_count": 2,
       "views": 755894,
-      "desk_rank": 121
+      "desk_rank": 125
     },
     {
       "id": "hy4-gguf-200gib",
@@ -5389,7 +5552,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3cZjubEAAYzkS?format=jpg&name=large",
       "list_count": 3,
       "views": 73582,
-      "desk_rank": 122
+      "desk_rank": 126
     },
     {
       "id": "orca-glm-flash-uncensored",
@@ -5430,7 +5593,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ4Bd3iaoAE0-uy?format=jpg&name=large",
       "list_count": 1,
       "views": 181000,
-      "desk_rank": 123
+      "desk_rank": 127
     },
     {
       "id": "levjepa-lecun-video",
@@ -5476,7 +5639,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093294057317388288/img/7s5GlcU2WRd35uEW.jpg?format=jpg&name=large",
       "list_count": 5,
       "views": 129397,
-      "desk_rank": 124
+      "desk_rank": 128
     },
     {
       "id": "changxin-sues-pentagon",
@@ -5516,7 +5679,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3z71OXwAAXSIU?format=jpg&name=large",
       "list_count": 1,
       "views": 2124,
-      "desk_rank": 125
+      "desk_rank": 129
     },
     {
       "id": "iceland-eu-vote",
@@ -5557,7 +5720,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9LcJeWwAA3oNW?format=jpg&name=large",
       "list_count": 1,
       "views": 20000,
-      "desk_rank": 126
+      "desk_rank": 130
     },
     {
       "id": "gaza-balloons-kites",
@@ -5598,7 +5761,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ34HnaaMAAkkfD?format=jpg&name=large",
       "list_count": 1,
       "views": 29154,
-      "desk_rank": 127
+      "desk_rank": 131
     },
     {
       "id": "iran-sanctions-stand",
@@ -5639,7 +5802,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3f_eYbEAAUd2u?format=jpg&name=large",
       "list_count": 1,
       "views": 35759,
-      "desk_rank": 128
+      "desk_rank": 132
     },
     {
       "id": "judge-student-visa-rule",
@@ -5679,7 +5842,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ38IK-XEAAfZHv?format=jpg&name=large",
       "list_count": 1,
       "views": 2009,
-      "desk_rank": 129
+      "desk_rank": 133
     },
     {
       "id": "terminal-bench-4",
@@ -5733,7 +5896,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093517148920688640/img/G8dZfbFuirKLSv-s.jpg?format=jpg&name=large",
       "list_count": 9,
       "views": 45683,
-      "desk_rank": 130
+      "desk_rank": 134
     },
     {
       "id": "russia-icbm-test",
@@ -5774,7 +5937,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3wCg4bEAE51pY?format=jpg&name=large",
       "list_count": 1,
       "views": 8102,
-      "desk_rank": 131
+      "desk_rank": 135
     },
     {
       "id": "fluidstack-anthropic-50b",
@@ -5815,7 +5978,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ1smSzWYAIBbhj?format=jpg&name=large",
       "list_count": 1,
       "views": 10086,
-      "desk_rank": 132
+      "desk_rank": 136
     },
     {
       "id": "xanadu-195m-cad",
@@ -5856,7 +6019,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093518172930392064/img/sdIAtkXHKdk125en.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 626,
-      "desk_rank": 133
+      "desk_rank": 137
     },
     {
       "id": "claude-for-teachers",
@@ -5897,7 +6060,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ0Xl7Kb0AAfj2b?format=jpg&name=large",
       "list_count": 1,
       "views": 12966,
-      "desk_rank": 134
+      "desk_rank": 138
     },
     {
       "id": "chatgpt-multi-gmail",
@@ -5941,7 +6104,7 @@
       "media_url": "https://pbs.twimg.com/media/HQyc1tnaMAAxurk?format=jpg&name=large",
       "list_count": 4,
       "views": 348906,
-      "desk_rank": 135
+      "desk_rank": 139
     },
     {
       "id": "wsj-data-center-land",
@@ -5982,7 +6145,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ38UeJW0AAZ_FG?format=jpg&name=large",
       "list_count": 1,
       "views": 20502,
-      "desk_rank": 136
+      "desk_rank": 140
     },
     {
       "id": "gaza-al-musaddar",
@@ -6023,7 +6186,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3--L8bsAEuLsc?format=jpg&name=large",
       "list_count": 1,
       "views": 27352,
-      "desk_rank": 137
+      "desk_rank": 141
     },
     {
       "id": "qusra-arrest-raid",
@@ -6064,7 +6227,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ45SkgW8AARUke.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 8800,
-      "desk_rank": 138
+      "desk_rank": 142
     },
     {
       "id": "robot-rehearsal-forgetting",
@@ -6114,7 +6277,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093390816773599232/img/5FlKUqzV2sXAD0ei.jpg?format=jpg&name=large",
       "list_count": 7,
       "views": 24220,
-      "desk_rank": 139
+      "desk_rank": 143
     },
     {
       "id": "claude-code-resume",
@@ -6156,7 +6319,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093166423581523969/img/NEIewka38_3bDK3G.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 437066,
-      "desk_rank": 140
+      "desk_rank": 144
     },
     {
       "id": "sanders-flock-ban",
@@ -6199,7 +6362,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ3f_ErXcAAMvg7?format=jpg&name=large",
       "list_count": 2,
       "views": 416000,
-      "desk_rank": 141
+      "desk_rank": 145
     },
     {
       "id": "nbc-west-bank-beating",
@@ -6240,7 +6403,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093763775404879872/img/XGiCeflgtTFkTmEx.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 346000,
-      "desk_rank": 142
+      "desk_rank": 146
     },
     {
       "id": "china-censors-nepal-flood",
@@ -6281,7 +6444,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5s5xDW0AA0aNi?format=jpg&name=large",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 143
+      "desk_rank": 147
     },
     {
       "id": "wemm-embedding-apache",
@@ -6322,7 +6485,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5-jyyWwAAbg0c?format=jpg&name=large",
       "list_count": 1,
       "views": 1248,
-      "desk_rank": 144
+      "desk_rank": 148
     },
     {
       "id": "weathernext-3",
@@ -6363,7 +6526,7 @@
       "media_url": "https://pbs.twimg.com/media/HRTbwzka8AAixxw?format=jpg&name=large",
       "list_count": 1,
       "views": 155000,
-      "desk_rank": 145
+      "desk_rank": 149
     },
     {
       "id": "k2-horizon",
@@ -6403,7 +6566,7 @@
       "media_url": "https://pbs.twimg.com/media/HRS5_vhaUAAbXBG?format=jpg&name=large",
       "list_count": 1,
       "views": 33000,
-      "desk_rank": 146
+      "desk_rank": 150
     },
     {
       "id": "sparklab-dgx-spark",
@@ -6443,7 +6606,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ5nbuIXMAADBjN?format=jpg&name=large",
       "list_count": 1,
       "views": 45,
-      "desk_rank": 147
+      "desk_rank": 151
     },
     {
       "id": "instinct-2-5b-valuation",
@@ -6483,7 +6646,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ6jpNibUAAiSPw?format=jpg&name=large",
       "list_count": 1,
       "views": 5712,
-      "desk_rank": 148
+      "desk_rank": 152
     },
     {
       "id": "ice-robot-dogs",
@@ -6524,7 +6687,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093699820221517824/img/PKO4eSlRByCiSeLT.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 23000,
-      "desk_rank": 149
+      "desk_rank": 153
     },
     {
       "id": "mit-agent-swarm",
@@ -6564,7 +6727,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093625620957708288/img/3YMGXzMwH1skgF3R.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 96364,
-      "desk_rank": 150
+      "desk_rank": 154
     },
     {
       "id": "hezbollah-iran-orders",
@@ -6605,7 +6768,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ6geUAXIAAvZMn.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 9503,
-      "desk_rank": 151
+      "desk_rank": 155
     },
     {
       "id": "zaporizhzhia-power-out",
@@ -6643,7 +6806,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7bH7mbUAE6zE4?format=jpg&name=large",
       "list_count": 1,
       "views": 9112,
-      "desk_rank": 152
+      "desk_rank": 156
     },
     {
       "id": "damascus-fair-post-assad",
@@ -6684,7 +6847,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093851194611683328/img/hCBigLr1qdgmM55d.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 13576,
-      "desk_rank": 153
+      "desk_rank": 157
     },
     {
       "id": "euphrates-floating-bridge",
@@ -6722,7 +6885,7 @@
       "media_url": "https://pbs.twimg.com/media/HRFYDzPW4AAy-R-?format=jpg&name=large",
       "list_count": 1,
       "views": 694,
-      "desk_rank": 154
+      "desk_rank": 158
     },
     {
       "id": "astribot-t1-13000",
@@ -6763,7 +6926,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093856321854418944/img/6E8iIwngRJgIe7C2.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 202,
-      "desk_rank": 155
+      "desk_rank": 159
     },
     {
       "id": "supabase-linux-one-command",
@@ -6806,7 +6969,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7eAxGWkAAZOXt?format=jpg&name=large",
       "list_count": 2,
       "views": 1600,
-      "desk_rank": 156
+      "desk_rank": 160
     },
     {
       "id": "korea-dram-export-gold",
@@ -6849,7 +7012,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7piWJXQAA8Z0u?format=jpg&name=large",
       "list_count": 2,
       "views": 2700,
-      "desk_rank": 157
+      "desk_rank": 161
     },
     {
       "id": "xgboost-vector-leaf",
@@ -6890,7 +7053,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ7uK0eWsAA40Vt?format=jpg&name=large",
       "list_count": 2,
       "views": 1328,
-      "desk_rank": 158
+      "desk_rank": 162
     },
     {
       "id": "ubtech-cruzr-s2-wrc",
@@ -6930,7 +7093,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093926605550993408/img/WhibTYIoy6DumuiY.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 204,
-      "desk_rank": 159
+      "desk_rank": 163
     },
     {
       "id": "xsquare-twindex",
@@ -6971,7 +7134,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095069791187025920/img/nFhphZeOx3yqn412?format=jpg&name=large",
       "list_count": 1,
       "views": 1200,
-      "desk_rank": 160
+      "desk_rank": 164
     },
     {
       "id": "ebert-dlr-tum",
@@ -7011,7 +7174,7 @@
       "media_url": "https://pbs.twimg.com/media/HRM-QnAWsAIRZsS?format=jpg&name=large",
       "list_count": 1,
       "views": 1900,
-      "desk_rank": 161
+      "desk_rank": 165
     },
     {
       "id": "olmo3-capability-provenance",
@@ -7054,7 +7217,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2093861002571915264/img/UZxCnQ4kLDou1rNi.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 2900,
-      "desk_rank": 162
+      "desk_rank": 166
     },
     {
       "id": "gpt-5-6-prime-gaps",
@@ -7095,7 +7258,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9qLV0bcAA23h3?format=png&name=large",
       "list_count": 2,
       "views": 959,
-      "desk_rank": 163
+      "desk_rank": 167
     },
     {
       "id": "smelt-looped-moe",
@@ -7138,7 +7301,7 @@
       "media_url": "https://pbs.twimg.com/media/HRMupraaoAAez_2?format=jpg&name=large",
       "list_count": 2,
       "views": 11000,
-      "desk_rank": 164
+      "desk_rank": 168
     },
     {
       "id": "fruit-fly-brain-map",
@@ -7181,7 +7344,7 @@
       "media_url": "https://pbs.twimg.com/media/HRTuF1oaoAAQPqz?format=jpg&name=large",
       "list_count": 2,
       "views": 116000,
-      "desk_rank": 165
+      "desk_rank": 169
     },
     {
       "id": "arizona-desert-migrant-deaths",
@@ -7219,7 +7382,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ8WPw7XwAAl136?format=jpg&name=large",
       "list_count": 1,
       "views": 985,
-      "desk_rank": 166
+      "desk_rank": 170
     },
     {
       "id": "switzerland-aarau-shooting",
@@ -7260,7 +7423,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ9KBdYXYAAKdp_?format=jpg&name=large",
       "list_count": 1,
       "views": 9000,
-      "desk_rank": 167
+      "desk_rank": 171
     },
     {
       "id": "cyprus-ferry-capsize",
@@ -7301,7 +7464,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ999BXXwAEpGXh.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 11988,
-      "desk_rank": 168
+      "desk_rank": 172
     },
     {
       "id": "hormuz-tanker-strike",
@@ -7339,7 +7502,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ--R5KX0AApYks?format=jpg&name=large",
       "list_count": 1,
       "views": 887,
-      "desk_rank": 169
+      "desk_rank": 173
     },
     {
       "id": "saudi-bahri-sidr",
@@ -7377,7 +7540,7 @@
       "media_url": "https://pbs.twimg.com/media/HRMpQcDWgAE1hVg?format=jpg&name=large",
       "list_count": 1,
       "views": 873,
-      "desk_rank": 170
+      "desk_rank": 174
     },
     {
       "id": "iran-rubble-rescues",
@@ -7417,7 +7580,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HQ-9QoTXYAASq6K.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 5200,
-      "desk_rank": 171
+      "desk_rank": 175
     },
     {
       "id": "uzbekistan-j10ce",
@@ -7457,7 +7620,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ-9MWgbcAEAHMa?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 172
+      "desk_rank": 176
     },
     {
       "id": "us-larak-strike",
@@ -7498,7 +7661,7 @@
       "media_url": "https://pbs.twimg.com/media/HQ_v97QbQAAyBf1?format=jpg&name=large",
       "list_count": 1,
       "views": 13000,
-      "desk_rank": 173
+      "desk_rank": 177
     },
     {
       "id": "iran-jordan-retaliation",
@@ -7539,7 +7702,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAZ3N8W4AAWFTR?format=jpg&name=large",
       "list_count": 1,
       "views": 114000,
-      "desk_rank": 174
+      "desk_rank": 178
     },
     {
       "id": "us-iran-fresh-strikes",
@@ -7565,19 +7728,58 @@
           "url": "https://x.com/arabnews/status/2094828867143803151"
         }
       ],
-      "body": "Arab News labeled it breaking: the US military says it has launched strikes on Iran targets after attacks on shipping. Al Jazeera’s live file said US Central Command launched fresh strikes on Iranian targets, and that Iran’s state media reported explosions heard in multiple cities across the country.\n\nThis is a new wave on the Hormuz file, not a recap of the Larak Island strike. Al Jazeera later said three Basij paramilitary fighters were killed in US strikes on Iran’s Lavan Island, according to Iranian state media. A second Al Jazeera desk said at least three Basij fighters were killed. Bloomberg said fighting between the US and Iran over control of the Strait of Hormuz escalated, with Tehran accusing American forces of bombing a residential area in a wave of overnight strikes. That Bloomberg note has no photo, so it sits as a related wire, not the picture on this card.\n\nA generalists list note from @Osint613 said US officials told Axios the US military attacked two Iranian government tankers as part of the Tuesday strikes. Reuters later said Asian markets tumble as US Iran fighting lifts oil and bond yields. Robert’s World News list also carried a BRICS Info note that Russian President Putin pledges support for Iran.\n\nAl Jazeera later said Iran’s First VP Mohammad Reza Aref warns the US has altered Tehran’s security and defence posture, vowing an asymmetrical and multi layered response.\n\n@AJENews later said US military says 87 vessels diverted so far in renewed blockade on Iran, with media, about 6700 views. @arabnews later said JD Vance says Hormuz oil flow is nearly back to prewar levels, and that Tehran’s control of the waterway is effectively gone, with video media, about 893 views.\n\nWatch whether CENTCOM names Lavan as a site, whether the Basij count holds, whether tanker traffic through Hormuz actually slows, and whether the diversion count and Vance Hormuz read hold.",
+      "body": "Arab News labeled it breaking: the US military says it has launched strikes on Iran targets after attacks on shipping. Al Jazeera’s live file said US Central Command launched fresh strikes on Iranian targets, and that Iran’s state media reported explosions heard in multiple cities across the country.\n\nThis is a new wave on the Hormuz file, not a recap of the Larak Island strike. Al Jazeera later said three Basij paramilitary fighters were killed in US strikes on Iran’s Lavan Island, according to Iranian state media. A second Al Jazeera desk said at least three Basij fighters were killed. Bloomberg said fighting between the US and Iran over control of the Strait of Hormuz escalated, with Tehran accusing American forces of bombing a residential area in a wave of overnight strikes. That Bloomberg note has no photo, so it sits as a related wire, not the picture on this card.\n\nA generalists list note from @Osint613 said US officials told Axios the US military attacked two Iranian government tankers as part of the Tuesday strikes. Reuters later said Asian markets tumble as US Iran fighting lifts oil and bond yields. Robert’s World News list also carried a BRICS Info note that Russian President Putin pledges support for Iran.\n\nAl Jazeera later said Iran’s First VP Mohammad Reza Aref warns the US has altered Tehran’s security and defence posture, vowing an asymmetrical and multi layered response.\n\n@AJENews later said US military says 87 vessels diverted so far in renewed blockade on Iran, with media, about 6700 views. @arabnews later said JD Vance says Hormuz oil flow is nearly back to prewar levels, and that Tehran’s control of the waterway is effectively gone, with video media, about 893 views.\n\n@CGTNOfficial later posted, with media, that Vance says the US is investigating a strike Iran says hit a wedding party in southern Iran, and that Iran’s Health ministry says at least 18 were killed and 142 wounded in recent US air strikes.\n\n@FoxNews later posted, with media and about 22000 views, that Trump is rejecting reports the US is running low on ammunition after months of fighting with Iran, calling the claims treasonous and insisting America has virtually unlimited munitions.\n\n@AJEnglish later posted, with media and about 13000 views, that Bessent says the EU joined Washington’s economic pressure campaign against Iran, Operation Economic Outcast. The EU said it would work with the US and G7 to maintain pressure on Iran.\n\nWar stays boxed on this desk. This card is never the lead.\n\nWatch whether the wedding party investigation names a site, whether the 18 killed and 142 wounded counts hold, whether the munitions claim sticks, and whether Operation Economic Outcast adds named EU measures.",
       "kind": "story",
       "engagement": {
         "impression_count": 581
       },
-      "why_it_matters": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, and @business on Hormuz fighting and a residential overnight strike claim. One desk. The casualty print is new. Bloomberg stays related because it has no photo.",
+      "why_it_matters": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, @business on Hormuz fighting, then @CGTNOfficial on a wedding party investigation and Iran Health casualty counts, @FoxNews on Trump munitions claims, and @AJEnglish on Operation Economic Outcast. One desk. The casualty and pressure prints are new. War stays boxed, never the lead.",
       "topic_key": "world",
       "topic_label": "World",
       "x_handle": "arabnews",
       "media_url": "https://pbs.twimg.com/media/HRJTwPbXcAArS1I?format=jpg&name=large",
       "list_count": 1,
       "views": 581,
-      "desk_rank": 175
+      "desk_rank": 179
+    },
+    {
+      "id": "yemen-taiz-clash",
+      "headline": "Yemen forces clash with Houthi fighters in Taiz",
+      "summary": "@AJENews labeled it breaking: Yemen’s armed forces clash with Houthi fighters in Yemen’s Taiz. The post carried a short video thumb and about 4200 views.",
+      "section": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "tag": "world",
+      "published_at": "2026-09-04T00:40:23.000Z",
+      "author_name": "AJENews",
+      "source_list": "World News",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "source_url": "https://x.com/AJENews/status/2095673291650326663",
+      "sources": [
+        {
+          "label": "@AJENews",
+          "url": "https://x.com/AJENews/status/2095673291650326663"
+        }
+      ],
+      "body": "@AJENews labeled it breaking: Yemen’s armed forces clash with Houthi fighters in Yemen’s Taiz. The post carried a short video thumb and about 4200 views.\n\nWorld and war stay boxed on this desk. This card is never the lead.\n\nWatch whether either side names units or casualty counts beyond the clash note.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 4200,
+        "like_count": 2
+      },
+      "why_it_matters": "Robert’s World News list carried @AJENews. One desk. A fresh Taiz clash print is world news on the board, boxed, never the lead.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "AJENews",
+      "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRVTwHmaQAAszvD.jpg",
+      "list_count": 1,
+      "views": 4200,
+      "desk_rank": 180
     },
     {
       "id": "bessent-iran-weekly-sanctions",
@@ -7616,7 +7818,7 @@
       "media_url": "https://pbs.twimg.com/media/HRAkwB1aQAASaU-?format=jpg&name=large",
       "list_count": 1,
       "views": 4100,
-      "desk_rank": 176
+      "desk_rank": 181
     },
     {
       "id": "west-bank-mughayyir",
@@ -7654,7 +7856,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094158353375141888/img/hWF4EKN4u7ZARmJt.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 1100,
-      "desk_rank": 177
+      "desk_rank": 182
     },
     {
       "id": "irgc-mq9-hormuz",
@@ -7695,7 +7897,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094270679302524928/img/w_X49EkG1hD753Sm.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 3100,
-      "desk_rank": 178
+      "desk_rank": 183
     },
     {
       "id": "china-airlines-fuel",
@@ -7736,7 +7938,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRBbKOXWUAAzwXm.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 7900,
-      "desk_rank": 179
+      "desk_rank": 184
     },
     {
       "id": "uae-iran-drone",
@@ -7777,7 +7979,7 @@
       "media_url": "https://pbs.twimg.com/media/HRB9R3lW0AASdSb?format=jpg&name=large",
       "list_count": 1,
       "views": 3500,
-      "desk_rank": 180
+      "desk_rank": 185
     },
     {
       "id": "houla-lebanon",
@@ -7815,7 +8017,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCY-H2XQAATqP-.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 4400,
-      "desk_rank": 181
+      "desk_rank": 186
     },
     {
       "id": "nablus-demolition",
@@ -7854,7 +8056,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HRCVh-7XkAAE5Iv.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 6500,
-      "desk_rank": 182
+      "desk_rank": 187
     },
     {
       "id": "japan-sdf-embassy",
@@ -7894,7 +8096,7 @@
       "media_url": "https://pbs.twimg.com/media/HRCUTKiawAAr_Tl?format=jpg&name=large",
       "list_count": 1,
       "views": 1700,
-      "desk_rank": 183
+      "desk_rank": 188
     },
     {
       "id": "uk-sovereign-ai-procurement",
@@ -7937,7 +8139,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094376956313620480/img/14adU1llfbvcHtdj.jpg?format=jpg&name=large",
       "list_count": 2,
       "views": 6700,
-      "desk_rank": 184
+      "desk_rank": 189
     },
     {
       "id": "bland-fedramp",
@@ -7980,7 +8182,7 @@
       "media_url": "https://pbs.twimg.com/media/HRJYEe8aQAAr9g0?format=jpg&name=large",
       "list_count": 2,
       "views": 46000,
-      "desk_rank": 185
+      "desk_rank": 190
     },
     {
       "id": "openclaw-2",
@@ -8021,7 +8223,7 @@
       "media_url": "https://pbs.twimg.com/media/HRBf3OVXYAETn0F?format=jpg&name=large",
       "list_count": 2,
       "views": 8,
-      "desk_rank": 186
+      "desk_rank": 191
     },
     {
       "id": "owkin-boehringer-kpro",
@@ -8063,7 +8265,7 @@
       "media_url": "https://pbs.twimg.com/media/HRM_G77WgAE5tFg?format=jpg&name=large",
       "list_count": 3,
       "views": 30,
-      "desk_rank": 187
+      "desk_rank": 192
     },
     {
       "id": "gwm-worlds-2",
@@ -8103,7 +8305,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095547675772895235/img/fWdZaVxnZE-XYpRK.jpg",
       "list_count": 1,
       "views": 70000,
-      "desk_rank": 188
+      "desk_rank": 193
     },
     {
       "id": "hermes-desktop",
@@ -8146,7 +8348,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095601752061997057/img/NKIGNK6OWdg-szw-.jpg",
       "list_count": 2,
       "views": 8500,
-      "desk_rank": 189
+      "desk_rank": 194
     },
     {
       "id": "lumafield-ct-foundation",
@@ -8189,7 +8391,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095591852342910976/img/eljTk6bKKWAG0ar-.jpg",
       "list_count": 2,
       "views": 63000,
-      "desk_rank": 190
+      "desk_rank": 195
     },
     {
       "id": "monid-preseed",
@@ -8228,7 +8430,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094502152966455296/img/oDjL511-E1ygpG0y.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 44000,
-      "desk_rank": 191
+      "desk_rank": 196
     },
     {
       "id": "apple-openai-trade-secrets",
@@ -8268,7 +8470,7 @@
       "media_url": "https://pbs.twimg.com/media/HRE8ACZaUAA8Ept?format=jpg&name=large",
       "list_count": 1,
       "views": 5600,
-      "desk_rank": 192
+      "desk_rank": 197
     },
     {
       "id": "slb-kelvion",
@@ -8306,7 +8508,7 @@
       "media_url": "https://pbs.twimg.com/media/HREewnGXMAA0DMK?format=jpg&name=large",
       "list_count": 1,
       "views": 94,
-      "desk_rank": 193
+      "desk_rank": 198
     },
     {
       "id": "wonderful-550m-series-c",
@@ -8347,7 +8549,7 @@
       "media_url": "https://pbs.twimg.com/media/HRNdeN3WcAQR7Yg?format=jpg&name=large",
       "list_count": 1,
       "views": 11000,
-      "desk_rank": 194
+      "desk_rank": 199
     },
     {
       "id": "israel-greece-arms",
@@ -8387,7 +8589,7 @@
       "media_url": "https://pbs.twimg.com/media/HREJj1CWYAA1S1n?format=jpg&name=large",
       "list_count": 1,
       "views": 1600,
-      "desk_rank": 195
+      "desk_rank": 200
     },
     {
       "id": "india-indus-treaty",
@@ -8426,7 +8628,7 @@
       "media_url": "https://pbs.twimg.com/media/HRDTdEGaIAAix8t?format=jpg&name=large",
       "list_count": 1,
       "views": 80,
-      "desk_rank": 196
+      "desk_rank": 201
     },
     {
       "id": "china-taiwan-pif",
@@ -8464,7 +8666,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHGn7mWIAAgnUO?format=jpg&name=large",
       "list_count": 1,
       "views": 552,
-      "desk_rank": 197
+      "desk_rank": 202
     },
     {
       "id": "russian-omskiy-107",
@@ -8502,7 +8704,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2094332278583300096/img/_2HRICr5iryWFueR.jpg?format=jpg&name=large",
       "list_count": 1,
       "views": 474,
-      "desk_rank": 198
+      "desk_rank": 203
     },
     {
       "id": "china-solar-overtakes-coal",
@@ -8541,7 +8743,7 @@
       "media_url": "https://pbs.twimg.com/media/HRG_P_KbwAE5moi?format=jpg&name=large",
       "list_count": 1,
       "views": 856,
-      "desk_rank": 199
+      "desk_rank": 204
     },
     {
       "id": "india-russia-51-dead",
@@ -8580,7 +8782,7 @@
       "media_url": "https://pbs.twimg.com/media/HRHR4TFacAARHPL?format=jpg&name=large",
       "list_count": 1,
       "views": 207,
-      "desk_rank": 200
+      "desk_rank": 205
     },
     {
       "id": "islamabad-torrential-floods",
@@ -8619,7 +8821,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2095117751136444416/img/34-KGxcbS1_4ET-4.jpg",
       "list_count": 1,
       "views": 75,
-      "desk_rank": 201
+      "desk_rank": 206
     }
   ],
   "signals": [
@@ -8662,12 +8864,12 @@
     {
       "id": "sig-oura-ipo",
       "title": "Oura files a US IPO after selling 3.6 million rings in a year",
-      "text": "Robert’s World News list carried @FortuneMagazine. One desk. A US IPO filing with a hard rings sold print is money, not a wellness meme.",
+      "text": "Robert’s World News list carried @FortuneMagazine; later his tech news lists carried @techsnif on the $1.21B revenue and $924.3M loss print. One desk on the picture card. A US IPO filing with hard rings sold and revenue figures is money, not a wellness meme.",
       "badge": "signal",
       "category": "funding",
       "section_key": "funding",
       "section_label": "Funding",
-      "source_list": "Robert’s World News list carried @FortuneMagazine. One desk. A US IPO filing with a hard rings sold print is money, not a wellness meme.",
+      "source_list": "Robert’s World News list carried @FortuneMagazine; later his tech news lists carried @techsnif on the $1.21B revenue and $924.3M loss print. One desk on the picture card. A US IPO filing with hard rings sold and revenue figures is money, not a wellness meme.",
       "list_names": [
         "World News"
       ],
@@ -8676,7 +8878,7 @@
       ],
       "created_at": "2026-09-03T21:09:23.000Z",
       "source_url": "https://x.com/FortuneMagazine/status/2095620191841309076",
-      "analysis": "Robert’s World News list carried @FortuneMagazine. One desk. A US IPO filing with a hard rings sold print is money, not a wellness meme.",
+      "analysis": "Robert’s World News list carried @FortuneMagazine; later his tech news lists carried @techsnif on the $1.21B revenue and $924.3M loss print. One desk on the picture card. A US IPO filing with hard rings sold and revenue figures is money, not a wellness meme.",
       "topic_key": "funding",
       "topic_label": "Funding"
     },
@@ -8702,6 +8904,27 @@
       "created_at": "2026-09-02T19:26:58.000Z",
       "source_url": "https://x.com/finkd/status/2095232032896946311",
       "analysis": "Robert’s community lists, his journalists lists, and his VIP lists carried @finkd. Three desks. A Meta named Spark ship is a map change, not a host card.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-openevidence-darwin",
+      "title": "OpenEvidence ships Darwin as a medical model at 100 percent on MedQA",
+      "text": "Robert’s AI medical, health, and science lists carried @OpenEvidence. One desk. A named medical model at a perfect MedQA score is a models map change, not a host card.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert’s AI medical, health, and science lists carried @OpenEvidence. One desk. A named medical model at a perfect MedQA score is a models map change, not a host card.",
+      "list_names": [
+        "AI Medical/Health/Science"
+      ],
+      "chip_labels": [
+        "AI Medical/Health/Science"
+      ],
+      "created_at": "2026-09-03T22:36:30.000Z",
+      "source_url": "https://x.com/OpenEvidence/status/2095642117511282805",
+      "analysis": "Robert’s AI medical, health, and science lists carried @OpenEvidence. One desk. A named medical model at a perfect MedQA score is a models map change, not a host card.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -8827,6 +9050,29 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-nunchux-ai",
+      "title": "Nunchux AI comes out of stealth from the CycleGAN lab",
+      "text": "Robert’s computer vision lists and his VC firms lists carried @junyanz89. Two desks. A stealth exit from the CycleGAN lab is a product map change, not a host card.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert’s computer vision lists and his VC firms lists carried @junyanz89. Two desks. A stealth exit from the CycleGAN lab is a product map change, not a host card.",
+      "list_names": [
+        "Computer Vision",
+        "VC Firms"
+      ],
+      "chip_labels": [
+        "Computer Vision",
+        "VC Firms"
+      ],
+      "created_at": "2026-09-03T23:29:11.000Z",
+      "source_url": "https://x.com/junyanz89/status/2095655377274613846",
+      "analysis": "Robert’s computer vision lists and his VC firms lists carried @junyanz89. Two desks. A stealth exit from the CycleGAN lab is a product map change, not a host card.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
       "id": "sig-claude-background-computer",
       "title": "Claude runs computer use in the background on Cowork and Claude Code",
       "text": "Robert’s education lists and his medical lists carried @claudeai. Two desks. Background computer use on Cowork and Claude Code is a product line, not a teaser.",
@@ -8926,6 +9172,27 @@
       "created_at": "2026-08-31T20:00:01.000Z",
       "source_url": "https://x.com/NVIDIARobotics/status/2094515571501015339",
       "analysis": "Robert’s San Francisco robotics lists, his tech companies lists, and his computer vision lists carried @NVIDIARobotics. Three desks. This is a lab world model, not a factory demo.",
+      "topic_key": "papers",
+      "topic_label": "Papers"
+    },
+    {
+      "id": "sig-harnessdev",
+      "title": "ByteDance Seed posts HarnessDev to score agent execution infrastructure",
+      "text": "Robert’s community lists carried @shao__meng. One desk. A ByteDance Seed benchmark that scores agent harnesses is a papers map change, even at low views.",
+      "badge": "signal",
+      "category": "papers",
+      "section_key": "papers",
+      "section_label": "Papers",
+      "source_list": "Robert’s community lists carried @shao__meng. One desk. A ByteDance Seed benchmark that scores agent harnesses is a papers map change, even at low views.",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-09-04T00:41:43.000Z",
+      "source_url": "https://x.com/shao__meng/status/2095673629816303691",
+      "analysis": "Robert’s community lists carried @shao__meng. One desk. A ByteDance Seed benchmark that scores agent harnesses is a papers map change, even at low views.",
       "topic_key": "papers",
       "topic_label": "Papers"
     },
@@ -9216,6 +9483,29 @@
       "topic_label": "Chips"
     },
     {
+      "id": "sig-nvidia-vera-cpu",
+      "title": "NVIDIA shows early Vera CPU results with ClickHouse",
+      "text": "Robert’s infrastructure lists and his tech companies lists carried @NVIDIAAIInfra. Two desks. An early Vera CPU testing note with ClickHouse is a chips signal, not a finished product card.",
+      "badge": "signal",
+      "category": "chips",
+      "section_key": "chips",
+      "section_label": "Chips",
+      "source_list": "Robert’s infrastructure lists and his tech companies lists carried @NVIDIAAIInfra. Two desks. An early Vera CPU testing note with ClickHouse is a chips signal, not a finished product card.",
+      "list_names": [
+        "Infrastructure",
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Infrastructure",
+        "Tech Companies"
+      ],
+      "created_at": "2026-09-04T01:00:02.000Z",
+      "source_url": "https://x.com/NVIDIAAIInfra/status/2095678236747280422",
+      "analysis": "Robert’s infrastructure lists and his tech companies lists carried @NVIDIAAIInfra. Two desks. An early Vera CPU testing note with ClickHouse is a chips signal, not a finished product card.",
+      "topic_key": "chips",
+      "topic_label": "Chips"
+    },
+    {
       "id": "sig-korea-semi-exports-august",
       "title": "South Korea semiconductor exports hit a record $46.55 billion in August",
       "text": "Robert’s World News list carried @CNBC. One desk. A Ministry of Trade August print is a chips fact, not a recap of the DRAM kilogram price.",
@@ -9377,12 +9667,12 @@
     {
       "id": "sig-tesla-cybercab-tos",
       "title": "Tesla adds Cybercab to Robotaxi app terms and sets a higher age floor",
-      "text": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
+      "text": "Robert’s robot influencers lists carried @SawyerMerritt on the terms print; later his developer lists and SpaceX AI lists carried @Starlink on Starlink V5 into Cybercab, and his vehicles lists carried @gbrulte on limited Austin rides. A Robotaxi terms print with a connectivity fold is a product change, not an Austin keynote recap.",
       "badge": "signal",
       "category": "robotics",
       "section_key": "robotics",
       "section_label": "Robotics",
-      "source_list": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
+      "source_list": "Robert’s robot influencers lists carried @SawyerMerritt on the terms print; later his developer lists and SpaceX AI lists carried @Starlink on Starlink V5 into Cybercab, and his vehicles lists carried @gbrulte on limited Austin rides. A Robotaxi terms print with a connectivity fold is a product change, not an Austin keynote recap.",
       "list_names": [
         "Robot Influencers/Media"
       ],
@@ -9391,7 +9681,7 @@
       ],
       "created_at": "2026-09-03T05:57:02.000Z",
       "source_url": "https://x.com/SawyerMerritt/status/2095390591743918518",
-      "analysis": "Robert’s robot influencers lists carried @SawyerMerritt. One desk. A Robotaxi terms of service print with a higher age floor is a product change, not an Austin keynote recap.",
+      "analysis": "Robert’s robot influencers lists carried @SawyerMerritt on the terms print; later his developer lists and SpaceX AI lists carried @Starlink on Starlink V5 into Cybercab, and his vehicles lists carried @gbrulte on limited Austin rides. A Robotaxi terms print with a connectivity fold is a product change, not an Austin keynote recap.",
       "topic_key": "robotics",
       "topic_label": "Robotics"
     },
@@ -12588,12 +12878,12 @@
     {
       "id": "sig-us-iran-fresh-strikes",
       "title": "US military launches fresh strikes on Iran after attacks on shipping",
-      "text": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, and @business on Hormuz fighting and a residential overnight strike claim. One desk. The casualty print is new. Bloomberg stays related because it has no photo.",
+      "text": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, @business on Hormuz fighting, then @CGTNOfficial on a wedding party investigation and Iran Health casualty counts, @FoxNews on Trump munitions claims, and @AJEnglish on Operation Economic Outcast. One desk. The casualty and pressure prints are new. War stays boxed, never the lead.",
       "badge": "signal",
       "category": "world",
       "section_key": "world",
       "section_label": "World",
-      "source_list": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, and @business on Hormuz fighting and a residential overnight strike claim. One desk. The casualty print is new. Bloomberg stays related because it has no photo.",
+      "source_list": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, @business on Hormuz fighting, then @CGTNOfficial on a wedding party investigation and Iran Health casualty counts, @FoxNews on Trump munitions claims, and @AJEnglish on Operation Economic Outcast. One desk. The casualty and pressure prints are new. War stays boxed, never the lead.",
       "list_names": [
         "World News"
       ],
@@ -12602,7 +12892,28 @@
       ],
       "created_at": "2026-09-01T16:44:56.000Z",
       "source_url": "https://x.com/arabnews/status/2094828867143803151",
-      "analysis": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, and @business on Hormuz fighting and a residential overnight strike claim. One desk. The casualty print is new. Bloomberg stays related because it has no photo.",
+      "analysis": "Robert’s World News list carried @arabnews on the CENTCOM wave, later @AJEnglish on three Basij killed at Lavan Island, @AJENews on at least three, @business on Hormuz fighting, then @CGTNOfficial on a wedding party investigation and Iran Health casualty counts, @FoxNews on Trump munitions claims, and @AJEnglish on Operation Economic Outcast. One desk. The casualty and pressure prints are new. War stays boxed, never the lead.",
+      "topic_key": "world",
+      "topic_label": "World"
+    },
+    {
+      "id": "sig-yemen-taiz-clash",
+      "title": "Yemen forces clash with Houthi fighters in Taiz",
+      "text": "Robert’s World News list carried @AJENews. One desk. A fresh Taiz clash print is world news on the board, boxed, never the lead.",
+      "badge": "signal",
+      "category": "world",
+      "section_key": "world",
+      "section_label": "World",
+      "source_list": "Robert’s World News list carried @AJENews. One desk. A fresh Taiz clash print is world news on the board, boxed, never the lead.",
+      "list_names": [
+        "World News"
+      ],
+      "chip_labels": [
+        "World News"
+      ],
+      "created_at": "2026-09-04T00:40:23.000Z",
+      "source_url": "https://x.com/AJENews/status/2095673291650326663",
+      "analysis": "Robert’s World News list carried @AJENews. One desk. A fresh Taiz clash print is world news on the board, boxed, never the lead.",
       "topic_key": "world",
       "topic_label": "World"
     },
