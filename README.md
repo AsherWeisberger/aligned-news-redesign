@@ -2,7 +2,7 @@
 
 Ranked AI signal from Scoble’s X lists.
 
-**Live:** https://asherweisberger.github.io/aligned-news-redesign/?bust=an272
+**Live:** https://asherweisberger.github.io/aligned-news-redesign/?bust=an273
 
 God Mode (top-right globe) runs in-page — not UNIFY/ops.
 

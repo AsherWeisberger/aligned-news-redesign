@@ -43,6 +43,7 @@
   --title-size: 1.2rem;
   --row-gap: 0;
   --measure: 68ch;
+  --desk-max: min(1180px, 100%);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
@@ -751,7 +752,7 @@ html[data-theme="dark"] .density-seg-btn[aria-pressed="true"] {
   padding: 1.25rem 1.4rem 3rem;
 }
 .page {
-  max-width: min(1220px, 100%);
+  max-width: var(--desk-max);
   margin: 0 auto;
   min-width: 0;
   width: 100%;
@@ -5772,7 +5773,7 @@ html.is-standalone .lead-card-opener .lead-hero.lead-hero-reveal img {
 
 
 /* an110: original post metrics on intelligence story pages */
-.article-page { max-width: 1180px; }
+.article-page { max-width: var(--desk-max); }
 .article-shell { background: var(--bg-elev); border-color: color-mix(in srgb, var(--text) 18%, var(--border)); border-radius: 2px; box-shadow: 0 18px 50px rgba(20, 18, 14, 0.08); padding: clamp(1.2rem, 3vw, 3rem); }
 .story-header { max-width: 900px; }
 .story-header h1 { font-size: clamp(2.25rem, 5.4vw, 4.75rem); line-height: 0.98; letter-spacing: -0.055em; padding-bottom: 1.25rem; }
@@ -8564,3 +8565,30 @@ html[data-theme="dark"] .dock-tile[data-act="bug"] .dock-tile-ico {
   text-decoration: none;
 }
 .site-footer .footer-links a:hover { color: var(--text); text-decoration: underline; }
+
+/* Slim desk shell — match live alignednews.com 1100px cap */
+html[data-desk-shell="1"] {
+  --desk-max: 1100px;
+}
+@media (min-width: 900px) {
+  html[data-desk-shell="1"] body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  html[data-desk-shell="1"] .app {
+    flex: 1 0 auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--desk-max) !important;
+  }
+  html[data-desk-shell="1"] .main .page,
+  html[data-desk-shell="1"] .page {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100% !important;
+  }
+}
