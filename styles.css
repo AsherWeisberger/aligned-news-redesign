@@ -8566,9 +8566,10 @@ html[data-theme="dark"] .dock-tile[data-act="bug"] .dock-tile-ico {
 }
 .site-footer .footer-links a:hover { color: var(--text); text-decoration: underline; }
 
-/* Slim desk shell — match live alignednews.com 1100px cap */
+/* Slim desk shell + brand over lists — pixel lock vs live alignednews.com */
 html[data-desk-shell="1"] {
   --desk-max: 1100px;
+  --sidebar-w: 208px;
 }
 @media (min-width: 900px) {
   html[data-desk-shell="1"] body {
@@ -8576,6 +8577,7 @@ html[data-desk-shell="1"] {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    background: var(--bg);
   }
   html[data-desk-shell="1"] .app {
     flex: 1 0 auto;
@@ -8583,6 +8585,17 @@ html[data-desk-shell="1"] {
     margin-left: auto;
     margin-right: auto;
     max-width: var(--desk-max) !important;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr) !important;
+    grid-template-areas:
+      "topbar topbar"
+      "sidebar main" !important;
+  }
+  html[data-desk-shell="1"] .sidebar {
+    display: block !important;
+    grid-area: sidebar;
+  }
+  html[data-desk-shell="1"] .main {
+    grid-area: main;
   }
   html[data-desk-shell="1"] .main .page,
   html[data-desk-shell="1"] .page {
@@ -8590,5 +8603,38 @@ html[data-desk-shell="1"] {
     margin-left: 0;
     margin-right: 0;
     max-width: 100% !important;
+  }
+
+  /* Brand sits in the sidebar column width, centered above the lists */
+  html[data-desk-shell="1"] .topbar {
+    padding-left: 0 !important;
+    padding-right: 1.25rem;
+  }
+  html[data-desk-shell="1"] .topbar .menu-btn {
+    display: none !important;
+  }
+  html[data-desk-shell="1"] .topbar .brand.brand-align {
+    width: var(--sidebar-w) !important;
+    max-width: var(--sidebar-w) !important;
+    min-width: var(--sidebar-w) !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: baseline !important;
+    padding: 0 0.65rem !important;
+    margin-right: 0 !important;
+    font-size: 1.42rem !important;
+  }
+  html[data-desk-shell="1"] .topbar .brand-align-mark {
+    font-size: 1.42rem !important;
+  }
+  html[data-desk-shell="1"] .topbar .brand-align-sub.full {
+    display: inline-flex !important;
+  }
+  html[data-desk-shell="1"] .topbar .brand-align-sub em {
+    font-size: 1.2rem !important;
+  }
+  html[data-desk-shell="1"] .topbar .brand-tagline {
+    margin-left: 0.15rem;
   }
 }

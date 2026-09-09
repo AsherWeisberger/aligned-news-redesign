@@ -7,7 +7,7 @@ This GitHub Pages build mirrors **live alignednews.com chrome** as of Fly **v129
 ## Point ChatGPT here
 
 - `index.html` — home shell
-- `styles.css` — desk + chrome styles (incl. an273 live deltas)
+- `styles.css` — desk + chrome styles (incl. an274 live deltas)
 - `app.js` — feed + chrome behavior
 
 ## Synced chrome (2026-09-09)
@@ -25,4 +25,4 @@ Live product remains the React app at **https://alignednews.com/** (blevlabs/ali
 
 Unaligned newsletter issue bodies / collab copy may be edited separately — prefer not to rewrite `newsletter-data.json` issue content from this chrome sync.
 
-Hard-refresh with bust: https://asherweisberger.github.io/aligned-news-redesign/?bust=an273
+Hard-refresh with bust: https://asherweisberger.github.io/aligned-news-redesign/?bust=an274
