@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="Aligned News" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=an249" />
-<link rel="manifest" href="manifest.json?v=an249" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=an275" />
+<link rel="manifest" href="manifest.json?v=an275" />
 <title>Today · Aligned News</title>
 <meta name="description" content="Aligned News — AI signal from 63 curated X lists. Ranked from Scoble’s lists, not ads." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D0F14'/%3E%3Cpath d='M18 42 L32 14 L46 42 Z' fill='none' stroke='%23fff' stroke-width='4.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='3.2' fill='%23fff'/%3E%3C/svg%3E" />
@@ -18,9 +18,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
 <style id="an218-fonts">html:not(.fonts-ready) .brand-align-half,html:not(.fonts-ready) .brand-align-sub em{opacity:0!important;animation:none!important;visibility:hidden!important}</style>
 <script>(function(){function r(){document.documentElement.classList.add("fonts-ready")}try{if(document.fonts&&document.fonts.ready)document.fonts.ready.then(r);else r()}catch(e){r()}setTimeout(r,1600)})();</script>
-<link rel="stylesheet" href="styles.css?v=an274" />
+<link rel="stylesheet" href="styles.css?v=an275" />
 </head>
 <body data-page="today">
+<a class="reader-skip" href="#main-content">Skip to stories</a>
   <div class="load-bar" id="loadBar" hidden aria-hidden="true"><div class="load-bar-inner"></div></div>
 
 <div class="app">
@@ -65,16 +66,11 @@
     <div class="backdrop" id="backdrop"></div>
     <aside class="sidebar" id="sidebar" aria-label="Primary" data-i18n-aria="primary"></aside>
 
-    <main class="main">
+    <main class="main" id="main-content" tabindex="-1">
       <div class="page page-enter">
-        <section class="desk-hero desk-hero-slim" aria-label="Desk overview" data-i18n-aria="desk_overview">
-          <div class="desk-copy">
-            <p class="desk-kicker">Scoble’s lists · Pro desk</p>
-            <h1 id="pageTitle">Today</h1>
-            <p class="desk-value" data-i18n="ranked_from">Ranked from Scoble’s curated X lists — not from ads.</p>
-            <p class="page-meta" id="pageMeta"></p>
-          </div>
-          <div class="desk-stats" id="deskStats" aria-label="Desk stats" data-i18n-aria="desk_stats"></div>
+        <section class="reader-overview reader-overview-quiet" aria-label="Edition">
+          <p class="reader-edition" id="editionMeta"></p>
+          <h1 id="pageTitle" class="sr-only">Today</h1>
         </section>
 
 
@@ -87,7 +83,7 @@
           <div class="page-primary">
             <div class="feed-module">
               <div class="feed-module-head">
-                <h2 class="module-label" data-i18n="stories">Stories</h2>
+                <h2 class="module-label" id="feedHeading">Ranked stories</h2>
                 <div class="feed-module-tools">
                 <a class="feed-collabs" href="https://agentdashboard.cloud/connect" target="_blank" rel="noopener noreferrer" data-i18n="collabs">Collabs</a>
                 <div class="density-seg" id="densityToggle" role="group" aria-label="Feed density" data-i18n-aria="feed_density">
@@ -102,6 +98,7 @@
                 </div>
               </div>
               </div>
+              <div class="reader-results"><p id="resultCount" role="status" aria-live="polite"></p><p class="reader-data-key">List counts show coverage across Scoble’s curated lists.</p><button id="clearFilters" type="button" hidden>Clear filters</button></div>
               <ol class="feed" id="feed"></ol>
             </div>
             <section class="desk-mod" id="todaySignalsMod" aria-label="Signals" data-i18n-aria="signals">
@@ -114,15 +111,17 @@
             </section>
           </div>
           <aside class="page-rail" id="pageRail" aria-label="Sidebar modules" data-i18n-aria="sidebar_modules">
-            <section class="rail-card rail-card-why" id="whyMatters">
-              <h2 class="rail-title" data-i18n="why_matters">Why this matters</h2>
-              <p class="vibe-body" id="whyCopy" data-i18n="why_copy">Aligned News watches Scoble’s 63 hand-curated X lists, ranks what crosses lists and keywords, and surfaces the signal before the timeline does.</p>
+            <section class="rail-card reader-background" aria-labelledby="coverageHeading">
+              <h2 class="rail-title" id="coverageHeading">Behind the coverage</h2>
+              <p>Aligned News follows Robert Scoble’s hand-curated X lists across AI companies, researchers, builders, investors, and robotics.</p>
+              <p>Each story brings together the development, the desk’s context, and links to the original sources.</p>
+              <details class="reader-method"><summary>How stories are selected</summary><p>The lead follows the desk’s story order. Topic sections surface stories carried across multiple lists, then recent posts.</p><p>A list count measures where a post appeared. It does not mean independent sources confirmed it. X views measure attention.</p></details>
             </section>
-            <section class="rail-card rail-card-lists" id="sixtyThreeLists">
-              <h2 class="lists-title" data-i18n="lists_title">63 lists</h2>
-              <p class="lists-kicker" data-i18n="lists_kicker">Scoble’s curated X lists.</p>
-              <p class="lists-copy" data-i18n="lists_copy">AI Community, AI Leaders, AI Newsmakers, Investors, Companies, Robot AI, AR/VR, Spatial, Crypto, News, Neuroscience, Quantum, Security, and more.</p>
-              <p class="lists-together" data-i18n="lists_together">Together: the most comprehensive real-time view of the AI ecosystem.</p>
+            <section class="rail-card reader-rail">
+              <h2 class="rail-title">Go deeper</h2>
+              <a class="reader-route" href="signals.html"><strong>Signals <span aria-hidden="true">↗</span></strong><span>See the posts and list activity behind the coverage.</span></a>
+              <a class="reader-route" href="https://alignednews.com/ai"><strong>Industry brief <span aria-hidden="true">↗</span></strong><span>Read the deeper AI briefing on Aligned News.</span></a>
+              <a class="reader-route" href="reports.html"><strong>Reports <span aria-hidden="true">↗</span></strong><span>Return to previous desk reports.</span></a>
             </section>
             <section class="rail-card rail-card-partners" id="partnersRail">
               <h2 class="rail-title" data-i18n="sponsors">Sponsors</h2>
@@ -157,8 +156,8 @@
       </div>
     </main>
   </div>
-  <script src="i18n.js?v=an274"></script>
-  <script src="an-saved.js?v=an274"></script>
-  <script src="app.js?v=an274"></script>
+  <script src="i18n.js?v=an275"></script>
+  <script src="an-saved.js?v=an275"></script>
+  <script src="app.js?v=an275"></script>
 </body>
 </html>

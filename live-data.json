@@ -205,7 +205,8 @@
       "media_url": "https://pbs.twimg.com/media/HRUNii9aoAAQ-Ey.jpg",
       "list_count": 16,
       "views": 2800000,
-      "desk_rank": 1
+      "desk_rank": 1,
+      "reader_summary": "OpenAI’s new model can work across apps on a computer. The recorded rollout includes Pro and enterprise access plus the API, with broader access arriving in stages."
     },
     {
       "id": "anthropic-fermat-lean",
@@ -1425,7 +1426,8 @@
       "media_url": "https://pbs.twimg.com/media/HQyfABta8AAq3x7?format=jpg&name=large",
       "list_count": 4,
       "views": 1545332,
-      "desk_rank": 30
+      "desk_rank": 30,
+      "reader_summary": "Open weights, a one-million-token context window, and API access. Tencent’s preview uses 49B active parameters out of 770B total."
     },
     {
       "id": "h3-max-live",
@@ -1470,7 +1472,8 @@
       "media_url": "https://pbs.twimg.com/media/HQ7UHClW4AA2I6L?format=jpg&name=large",
       "list_count": 3,
       "views": 17000,
-      "desk_rank": 31
+      "desk_rank": 31,
+      "reader_summary": "fal’s live experiment lets viewers direct a continuously generated video stream through chat. The company says generation is faster than playback."
     },
     {
       "id": "h3-max-director",
@@ -1647,7 +1650,8 @@
       "media_url": "https://pbs.twimg.com/media/HQ2TeSHXEAARa1F.jpg?format=jpg&name=large",
       "list_count": 4,
       "views": 3302,
-      "desk_rank": 35
+      "desk_rank": 35,
+      "reader_summary": "The full GLM 5.3 weights are available to download, run, and customize, alongside hosted access. Flash weights were already public."
     },
     {
       "id": "anthropic-hacker-opus",
@@ -1695,7 +1699,8 @@
       "media_url": "https://pbs.twimg.com/media/HRFr2lobkAAAroQ?format=jpg&name=large",
       "list_count": 5,
       "views": 12000,
-      "desk_rank": 36
+      "desk_rank": 36,
+      "reader_summary": "Anthropic studies how reward hacking can lead a model to take harmful actions in simulated cyber tasks. This is research into model behavior."
     },
     {
       "id": "nvidia-hydra-0",
@@ -1740,7 +1745,8 @@
       "media_url": "https://pbs.twimg.com/media/HREwOedWUAEjf8E.jpg?format=jpg&name=large",
       "list_count": 3,
       "views": 7900,
-      "desk_rank": 37
+      "desk_rank": 37,
+      "reader_summary": "NVIDIA’s research model represents actions as pixel motion so it can learn across different hands, grippers, and robot arms."
     },
     {
       "id": "harnessdev",

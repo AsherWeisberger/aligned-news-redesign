@@ -233,13 +233,7 @@
   }
 
   function sourceCount(item) {
-    var n = 0;
-    if (item.sources && item.sources.length) n = item.sources.length;
-    else if (item.source_url) n = 1;
-    var eng = item.engagement || {};
-    var social = (eng.retweet_count || 0) + (eng.reply_count || 0) + (eng.quote_count || 0) + (eng.like_count || 0);
-    if (social > n) n = Math.max(n, Math.min(social, 64));
-    return n || 1;
+    return uniqueStorySources(item).length;
   }
 
   function xHandleFrom(item) {
@@ -265,7 +259,39 @@
   }
 
   function storyFeedMeta(item) {
-    return storyCardViews(item);
+    var bits = [];
+    var account = item.x_handle || item.author_name || xHandleFrom(item);
+    if (account) bits.push(String(account).replace(/^@/, ""));
+    if (item.published_at) bits.push(editionDate(item.published_at));
+    var lists = Number(item.list_count) || (item.list_names || []).length;
+    if (lists) bits.push(lists + (lists === 1 ? " list" : " lists"));
+    return bits.join(" · ");
+  }
+
+  function editionDate(value) {
+    var d = new Date(value);
+    if (!Number.isFinite(d.getTime())) return "Date unavailable";
+    return d.toLocaleDateString(window.anLoc ? window.anLoc() : undefined, {month: "short", day: "numeric", year: "numeric"});
+  }
+
+  function renderEdition(stories) {
+    var meta = document.getElementById("editionMeta");
+    if (!meta) return;
+    var saved = getParam("view") === "saved";
+    var stamp = state.data && state.data.meta && state.data.meta.generatedAt;
+    if (saved) {
+      meta.textContent = "Saved in this browser";
+      return;
+    }
+    // Quiet edition line: date only (no Edition ·, no story counts)
+    meta.textContent = stamp ? editionDate(stamp) : "";
+  }
+
+  function syncReaderUrl() {
+    var url = new URL(location.href);
+    if (state.filter !== "all") url.searchParams.set("section", state.filter); else url.searchParams.delete("section");
+    if (state.query) url.searchParams.set("q", state.query); else url.searchParams.delete("q");
+    history.replaceState(null, "", url);
   }
 
   function storyCardViews(item) {
@@ -362,12 +388,14 @@
 
   function renderPullCard(s, i) {
     var href = "story.html?id=" + encodeURIComponent(s.id);
-    var headline = editorialTitle(s, 72);
-    var dek = uniqueDek(s, headline, 92);
+    var headline = displayText(s.headline || s.title);
+    var dek = uniqueDek(s, headline, 155);
     return (
       '<li class="story-card-shell top-pull" data-href="' + href + '" role="link" tabindex="0">' +
+        '<p class="reader-story-label">' + escapeHtml(s.topic_label || s.section_label || s.section || "") + '</p>' +
         '<h3 class="top-pull-title"><a href="' + href + '"' + txSrc(headline) + '>' + escapeHtml(headline) + "</a></h3>" +
         (dek ? '<p class="top-pull-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
+        '<p class="reader-story-meta">' + escapeHtml(storyFeedMeta(s)) + '</p>' +
         storySaveBtnHtml(s) +
       "</li>"
     );
@@ -375,6 +403,7 @@
 
   function uniqueDek(item, headline, maxLen) {
     maxLen = maxLen || 160;
+    if (item.reader_summary) return displayText(item.reader_summary);
     var body = stripPostedThat(displayText(item.summary || item.body || "").replace(/\s+/g, " ").trim());
     var parts = body.split(/(?<=[.!?])\s+/).filter(Boolean);
     var h = String(headline || "").toLowerCase();
@@ -2325,7 +2354,7 @@
       '<a href="https://x.com/Scobleizer" target="_blank" rel="noopener">Robert Scoble</a>, ' +
       '<a href="https://x.com/AsherWeisberger" target="_blank" rel="noopener">Asher Weisberger</a>' +
       ' &amp; <a href="https://levangielabs.com" target="_blank" rel="noopener">Levangie Labs</a>. ' +
-      "63 curated X lists · 100,000+ accounts · Updated live.</p>" +
+      "Coverage from Robert Scoble’s curated X lists · Static edition preview.</p>" +
       '<div class="footer-links">' +
       '<a href="https://x.com/Scobleizer" target="_blank" rel="noopener noreferrer">@Scobleizer</a>' +
       '<a href="https://x.com/AsherWeisberger" target="_blank" rel="noopener noreferrer">@AsherWeisberger</a>' +
@@ -2764,10 +2793,10 @@
     ];
 
     var lastUpdated = "";
-    if (data.meta && data.meta.lastUpdatedTs) {
-      lastUpdated = fmtRelative(new Date(Number(data.meta.lastUpdatedTs)).toISOString());
-    } else if (data.meta && data.meta.generatedAt) {
+    if (data.meta && data.meta.generatedAt) {
       lastUpdated = fmtRelative(data.meta.generatedAt);
+    } else if (data.meta && data.meta.lastUpdatedTs) {
+      lastUpdated = fmtRelative(new Date(Number(data.meta.lastUpdatedTs)).toISOString());
     }
 
     var sidebar = $("#sidebar");
@@ -2950,7 +2979,7 @@
     }
     if (state.query) {
       var q = state.query.toLowerCase();
-      var hay = [story.headline, story.summary, story.section_label, story.section, story.signal_badge]
+      var hay = [story.headline, story.summary, story.body, story.section_label, story.section, story.signal_badge, story.author_name, story.x_handle]
         .join(" ").toLowerCase();
       if (hay.indexOf(q) === -1) return false;
     }
@@ -2984,15 +3013,19 @@
     var el = $(containerId);
     if (!el || !state.data) return;
     var chips = state.data.chips || [];
+    var allStories = (state.data.stories || []).filter(isTodayFeedKind);
     el.innerHTML = chips.map(function (c) {
+      var count = c.id === "all" ? allStories.length : allStories.filter(function (story) { return storySectionKey(story) === c.id; }).length;
+      var label = prettyChipLabel(c.id, c.label);
       return (
         '<button type="button" class="chip" data-filter="' + escapeHtml(c.id) + '" aria-pressed="' +
-        (state.filter === c.id ? "true" : "false") + '">' + escapeHtml(prettyChipLabel(c.id, c.label)) + "</button>"
+        (state.filter === c.id ? "true" : "false") + '" aria-label="' + escapeHtml(label + ", " + count + " stories") + '">' + escapeHtml(label) + "</button>"
       );
     }).join("");
     $all(".chip", el).forEach(function (btn) {
       btn.addEventListener("click", function () {
         state.filter = btn.getAttribute("data-filter") || "all";
+        syncReaderUrl();
         renderChips(containerId);
         showFeedSkeleton();
         hideFeedSkeletonThen(function () {
@@ -3400,6 +3433,7 @@
       if (isRetweetNoise(s)) return false;
       return storyMatches(s);
     });
+    renderEdition(stories);
     if (!stories.length) {
       if (getParam("view") === "saved") {
         list.innerHTML =
@@ -3508,26 +3542,27 @@
       var metaLine = storyFeedMeta(s);
       var href = "story.html?id=" + encodeURIComponent(s.id);
       var key = s.topic_key || s.section_key || mapSectionKey(s.section || s.tag || "");
-      var headline = editorialTitle(s, 92);
+      var headline = displayText(s.headline || s.title);
       var media = storyMediaUrl(s);
       var photoThumb = media ? rowThumbHtml(s, key, sectionPretty) : "";
 
       // Compact / rest-of-desk = dense headline+meta — no lead hero / why.
       if (!quiet && allowLead && showLead && i === 0) {
-        var leadHeadline = editorialTitle(s, 88);
-        var dek = leadBrief(s, leadHeadline);
+        var leadHeadline = displayText(s.headline || s.title);
+        var dek = uniqueDek(s, leadHeadline, 240);
         var hero = leadHeroHtml(s, key, sectionPretty);
         rankCounter = 1;
         return (
           '<li class="story-card-shell lead-card lead-card-opener lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
-            hero +
             '<div class="lead-copy">' +
               '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || t("today")) + "</p>" +
               '<h2 class="lead-title"><a href="' + href + '"' + txSrc(leadHeadline) + '>' + escapeHtml(leadHeadline) + "</a></h2>" +
             "</div>" +
+            hero +
             '<div class="lead-after">' +
               (dek ? '<p class="lead-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
               (metaLine ? '<div class="lead-meta"><span class="meta-line card-views">' + escapeHtml(metaLine) + "</span></div>" : "") +
+              '<a class="reader-open-story" href="' + href + '">Read the full story <span aria-hidden="true">→</span></a>' +
             "</div>" +
             storySaveBtnHtml(s) +
           "</li>"
@@ -3599,7 +3634,7 @@
       }
       html += bannerHtml();
       var rest = items.filter(function (s) { return !used[s.id]; });
-      var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "world"];
+      var sectionOrder = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy", "creatives", "world"];
       sectionOrder.forEach(function (key) {
         var bucket = rest.filter(function (s) {
           return storySectionKey(s) === key;
@@ -3611,8 +3646,8 @@
           if (mb !== ma) return mb - ma;
           return Date.parse(storyTimeIso(b) || 0) - Date.parse(storyTimeIso(a) || 0);
         });
-        html += '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + escapeHtml(prettyChipLabel(key, key)) + "</h2></li>";
-        bucket.forEach(function (s) {
+        html += '<li class="feed-rest-head" role="presentation"><h2 class="feed-rest-label">' + escapeHtml(prettyChipLabel(key, key)) + '</h2><a class="reader-see-all" href="index.html?section=' + encodeURIComponent(key) + '">View all ' + (bucket.length + items.filter(function(s) { return used[s.id] && storySectionKey(s) === key; }).length) + ' →</a></li>';
+        bucket.slice(0, 3).forEach(function (s) {
           html += renderStoryItem(s, 1, false, false);
         });
       });
@@ -3656,7 +3691,7 @@
     if (repMod) repMod.hidden = false;
 
     if (sigHost) {
-      var signals = ((state.data && state.data.signals) || []).slice();
+      var signals = ((state.data && state.data.signals) || []).slice(0, 3);
       if (!signals.length) {
         sigHost.innerHTML = '<li class="desk-mod-empty">' + t("no_signals") + '</li>';
       } else {
@@ -3665,7 +3700,7 @@
           var body = displayText(s.text || s.analysis || "").trim();
           if (body && body.toLowerCase() === title.toLowerCase()) body = "";
           if (body) body = firstSentence(body, 140);
-          var provenance = displayText(s.source_list || "").trim();
+          var provenance = (s.list_names || []).length ? s.list_names.length + " curated lists" : "";
           var href = "story.html?id=" + encodeURIComponent("sigstory-" + s.id);
           return (
             '<li class="desk-mod-item">' +
@@ -4087,6 +4122,7 @@
   }
 
   function storyDeskRank(story) {
+    if (Number(story.desk_rank) > 0) return Number(story.desk_rank);
     var stories = (state.data && state.data.stories ? state.data.stories.slice() : []);
     if (!stories.some(function (item) { return item.id === story.id; })) stories.push(story);
     stories = stories.filter(function (item) { return !isEventItem(item); });
@@ -4181,7 +4217,7 @@
     }
 
     var saved = isSavedId(story.id);
-    var title = editorialTitle(story, 110);
+    var title = displayText(story.headline || story.title);
     var summary = displayText(story.summary || "").trim();
     var body = displayText(story.body || "").trim();
     var whatHappened = summary || body;
@@ -4242,7 +4278,7 @@
       }).join("") + "</div></section>"
     ) : "";
 
-    var paras = storyBodyParagraphs(story).slice(0, 3);
+    var paras = storyBodyParagraphs(story);
     if (!paras.length && whatHappened) paras = [whatHappened];
     var articleHtml = paras.map(function (p) {
       return "<p" + txSrc(p) + ">" + escapeHtml(p) + "</p>";
@@ -4269,13 +4305,13 @@
       "<header class=\"story-header\"><div class=\"article-kicker\"><span class=\"badge badge-signal\">" + escapeHtml(story.topic_label || labelFor(topic)) + "</span><span class=\"meta-line\">" + escapeHtml(storyMetaLine(story)) + "</span></div><h1" + txSrc(title) + ">" + escapeHtml(title) + "</h1></header>" +
       intelHtml +
       heroHtml +
-      originalHtml +
+      (sourceUrl ? '<a class="reader-source-action" href="' + escapeHtml(sourceUrl) + '" target="_blank" rel="noopener noreferrer">Open original source ↗</a>' : "") +
       "<div class=\"article-actions article-actions-quiet\"><button type=\"button\" class=\"text-action\" id=\"saveBtn\">" + (saved ? t("saved") : t("save_later")) + "</button><button type=\"button\" class=\"text-action\" id=\"readBtn\">" + t("mark_unread") + "</button></div>" +
       "<div class=\"story-layout\"><div class=\"story-main\">" +
-        "<section class=\"story-block story-explainer\"><div class=\"story-prose\">" + articleHtml + "</div></section>" +
-        (whyIsDifferent ? "<section class=\"story-block story-explainer\"><h2>" + t("why_it_matters") + "</h2><div class=\"story-prose\"><p" + txSrc(why) + ">" + escapeHtml(why) + "</p></div></section>" : "") +
+        "<section class=\"story-block story-explainer\"><h2>What happened</h2><div class=\"story-prose\">" + articleHtml + "</div></section>" +
+        (whyIsDifferent ? "<section class=\"story-block story-explainer\"><h2>" + "Why it surfaced" + "</h2><div class=\"story-prose\"><p" + txSrc(why) + ">" + escapeHtml(why) + "</p></div></section>" : "") +
         (watch ? "<section class=\"story-block story-explainer\"><h2>" + t("what_to_watch") + "</h2><div class=\"story-prose\"><p" + txSrc(watch) + ">" + escapeHtml(watch) + "</p></div></section>" : "") +
-        usefulLinksHtml + relatedHtml +
+        originalHtml + usefulLinksHtml + relatedHtml +
       "</div><aside class=\"story-aside\">" + sentimentHtml(story) + "</aside></div>";
 
     var saveBtn = $("#saveBtn");
@@ -5201,6 +5237,7 @@
         clearTimeout(timer);
         timer = setTimeout(function () {
           state.query = search.value.trim();
+          syncReaderUrl();
           if (pageName() === "today") renderTodayFeed();
           if (pageName() === "signals") renderSignals();
           if (pageName() === "reports") renderReports();
@@ -5209,6 +5246,8 @@
       });
     }
 
+    // Keep the next-stories progress bar as the desk's familiar cadence cue.
+    // It shows the editorial sweep window; story data remains the loaded edition snapshot.
     startDropsBar();
     initGodModeChrome();
     bindNewsletterSubscribe();
@@ -5268,6 +5307,9 @@
         state.data = normalizeData(data);
         var section = getParam("section");
         if (section) state.filter = section;
+        state.query = getParam("q") || "";
+        var search = document.getElementById("searchInput");
+        if (search) search.value = state.query;
         renderChrome();
         renderChips("#chips");
         var page = pageName();
