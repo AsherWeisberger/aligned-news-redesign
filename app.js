@@ -1,5 +1,6 @@
 (function () {
   "use strict";
+  try { document.documentElement.setAttribute("data-desk-shell", "1"); } catch (e) {}
 
   try {
     var standalone = (window.navigator && window.navigator.standalone === true) ||
@@ -364,9 +365,10 @@
     var headline = editorialTitle(s, 72);
     var dek = uniqueDek(s, headline, 92);
     return (
-      '<li class="top-pull" data-href="' + href + '" role="link" tabindex="0">' +
+      '<li class="story-card-shell top-pull" data-href="' + href + '" role="link" tabindex="0">' +
         '<h3 class="top-pull-title"><a href="' + href + '"' + txSrc(headline) + '>' + escapeHtml(headline) + "</a></h3>" +
         (dek ? '<p class="top-pull-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
+        storySaveBtnHtml(s) +
       "</li>"
     );
   }
@@ -1260,7 +1262,7 @@
 
     if (!list) return;
     list.classList.add("is-ready");
-    var cards = list.querySelectorAll(".lead-card, .feed-row, .report-item");
+    var cards = list.querySelectorAll(".lead-card, .feed-row, .top-pull, .report-item");
     var i;
     for (i = 0; i < cards.length; i++) {
       (function (card) {
@@ -1805,23 +1807,15 @@
   }
 
   function newsletterBannerHtml() {
-    var saved = nlEmailStored();
-    var inBar = isValidEmail(saved);
+    var cta = t("nl_cta");
+    if (cta === "nl_cta") cta = "Open";
     return (
-      '<li class="nl-subscribe' + (inBar ? " is-in" : "") + '">' +
-        '<div class="nl-subscribe-inner">' +
-          '<div class="nl-subscribe-copy">' +
-            '<p class="nl-subscribe-kicker">' + t("nl_kicker") + '</p>' +
-            '<p class="nl-subscribe-headline">' + t("nl_headline") + '</p>' +
-            '<p class="nl-subscribe-sub">' + t("nl_sub") + '</p>' +
-          "</div>" +
-          (inBar
-            ? '<p class="nl-subscribe-done">' + t("youre_in") + '</p>'
-            : '<form class="nl-subscribe-form" action="#" method="post" novalidate>' +
-                '<input type="email" name="email" placeholder="' + t("email_ph") + '" autocomplete="email" aria-label="' + t("email") + '" />' +
-                '<button type="submit">' + t("subscribe") + '</button>' +
-              "</form>") +
-        "</div>" +
+      '<li class="nl-subscribe">' +
+        '<a class="nl-subscribe-inner" href="newsletter.html">' +
+          '<span class="nl-subscribe-kicker">' + t("nl_kicker") + '</span>' +
+          '<span class="nl-subscribe-headline">' + t("nl_headline") + '</span>' +
+          '<span class="nl-subscribe-cta">' + escapeHtml(cta) + '</span>' +
+        "</a>" +
       "</li>"
     );
   }
@@ -2257,8 +2251,121 @@
     return icons[id] || icons.today;
   }
 
+
+  function labelOr(key, fallback) {
+    var v = t(key);
+    return v === key ? fallback : v;
+  }
+
+  function storySaveBtnHtml(story) {
+    if (!story || !story.id) return "";
+    var saved = isSavedId(story.id);
+    var label = saved ? labelOr("saved", "Saved") : labelOr("save_later", "Save for later");
+    return (
+      '<button type="button" class="story-save-btn' + (saved ? " is-saved" : "") + '"' +
+      ' data-save-id="' + escapeHtml(String(story.id)) + '"' +
+      ' aria-label="' + escapeHtml(label) + '" aria-pressed="' + (saved ? "true" : "false") + '"' +
+      ' title="' + escapeHtml(label) + '">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">' +
+      '<path d="M7 4h10a1 1 0 0 1 1 1v15l-6-3.5L6 20V5a1 1 0 0 1 1-1z"' +
+      ' fill="' + (saved ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>' +
+      "</svg></button>"
+    );
+  }
+
+  function closeSidebarIfOpen() {
+    var sb = document.getElementById("sidebar");
+    var bd = document.getElementById("backdrop");
+    var btn = document.getElementById("menuToggle");
+    if (sb) sb.classList.remove("open");
+    if (bd) bd.classList.remove("open");
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  }
+
+  function openBugReport() {
+    window.dispatchEvent(new Event("aligned:open-bug-report"));
+    var existing = document.querySelector(".bug-report-launcher");
+    if (existing) {
+      existing.click();
+      return;
+    }
+    var subject = encodeURIComponent("Aligned News bug report");
+    var body = encodeURIComponent(
+      "Page: " + location.href + "\n\nWhat happened:\n\nExpected:\n\n"
+    );
+    window.location.href = "mailto:scobleizer@gmail.com?subject=" + subject + "&body=" + body;
+  }
+
+  function ensureCollaborations() {
+    var actions = document.querySelector(".top-actions");
+    if (!actions) return;
+    var el = actions.querySelector(".topbar-collaborations");
+    if (!el) {
+      el = document.createElement("a");
+      el.className = "topbar-collaborations";
+      el.href = "https://agentdashboard.cloud/connect";
+      el.target = "_blank";
+      el.rel = "noopener noreferrer";
+      el.textContent = "Collaborations";
+      var auth = document.getElementById("authCta");
+      if (auth && auth.parentNode === actions) actions.insertBefore(el, auth);
+      else actions.appendChild(el);
+    } else {
+      el.textContent = "Collaborations";
+    }
+  }
+
+  function ensureLiveFooter() {
+    var siteFoot = document.querySelector(".site-footer");
+    if (!siteFoot) return;
+    if (siteFoot.dataset.liveFooter === "an272") return;
+    siteFoot.dataset.liveFooter = "an272";
+    siteFoot.innerHTML =
+      '<p class="footer-about">Aligned News · Pro desk · Built by ' +
+      '<a href="https://x.com/Scobleizer" target="_blank" rel="noopener">Robert Scoble</a>, ' +
+      '<a href="https://x.com/AsherWeisberger" target="_blank" rel="noopener">Asher Weisberger</a>' +
+      ' &amp; <a href="https://levangielabs.com" target="_blank" rel="noopener">Levangie Labs</a>. ' +
+      "63 curated X lists · 100,000+ accounts · Updated live.</p>" +
+      '<div class="footer-links">' +
+      '<a href="https://x.com/Scobleizer" target="_blank" rel="noopener noreferrer">@Scobleizer</a>' +
+      '<a href="https://x.com/AsherWeisberger" target="_blank" rel="noopener noreferrer">@AsherWeisberger</a>' +
+      '<a href="https://levangielabs.com" target="_blank" rel="noopener noreferrer">Levangie Labs</a>' +
+      '<a href="mailto:scobleizer@gmail.com">Contact</a>' +
+      "</div>";
+  }
+
+  function wireStorySaveClicks() {
+    if (document.documentElement.dataset.saveWired === "1") return;
+    document.documentElement.dataset.saveWired = "1";
+    document.addEventListener("click", function (e) {
+      var btn = e.target && e.target.closest && e.target.closest(".story-save-btn");
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var id = btn.getAttribute("data-save-id");
+      if (!id) return;
+      var story = findStory(id);
+      if (!story) {
+        var snap = window.AlignedSaved && window.AlignedSaved.find(id);
+        story = snap || { id: id };
+      }
+      var now = toggleSavedStory(story);
+      var label = now ? labelOr("saved", "Saved") : labelOr("save_later", "Save for later");
+      btn.classList.toggle("is-saved", now);
+      btn.setAttribute("aria-pressed", now ? "true" : "false");
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("title", label);
+      var path = btn.querySelector("path");
+      if (path) path.setAttribute("fill", now ? "currentColor" : "none");
+      // refresh chrome counts
+      try { renderChrome(); } catch (err) {}
+    }, true);
+  }
+
+
   function dockTileIcon(id) {
     var icons = {
+      bug: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="5.5"/><path d="M12 7.5V5M9.5 8.2 7.5 6.2M14.5 8.2l2-2M6.5 13H4M20 13h-2.5M8.2 16.8 6.5 18.5M15.8 16.8 17.5 18.5"/></svg>',
       god: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
       signin: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 19.2c1.2-3 3.6-4.5 6.5-4.5s5.3 1.5 6.5 4.5"/></svg>',
       saved: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-3.5L6 20V5a1 1 0 0 1 1-1z"/></svg>',
@@ -2267,7 +2374,7 @@
       expanded: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="5" width="16" height="5" rx="1.6" fill="currentColor"/><rect x="4" y="14" width="16" height="5" rx="1.6" fill="currentColor"/></svg>',
       theme: themeOrbHtml()
     };
-    return icons[id] || icons.god;
+    return icons[id] || icons.bug;
   }
 
 
@@ -2416,9 +2523,15 @@
       { id: "reports", href: "reports.html", label: t("reports") },
       { id: "newsletter", href: "newsletter.html", label: t("news") }
     ];
+    var signedIn = document.documentElement.getAttribute("data-signed-in") === "1";
+    try {
+      if (!signedIn && state.data && state.data.user) signedIn = isProPlan(resolvePlan(state.data.user));
+    } catch (e) {}
     var tiles = [
-      { act: "god", label: t("god_mode"), icon: "god" },
-      { href: "auth.html", label: t("sign_up_login"), icon: "signin" },
+      { act: "bug", label: labelOr("report_bug", "Report a bug"), icon: "bug" },
+      signedIn
+        ? { href: "auth.html", label: labelOr("account", "Account"), icon: "signin" }
+        : { href: "auth.html", label: t("sign_up_login"), icon: "signin" },
       { href: "index.html?view=saved", label: t("saved"), icon: "saved" },
       { href: "https://agentdashboard.cloud/connect", label: t("collabs"), icon: "collabs", ext: true },
       { act: "expanded", label: t("expanded"), icon: "expanded" },
@@ -2435,7 +2548,7 @@
     if (dock.parentNode !== document.body) document.body.appendChild(dock);
     document.documentElement.classList.add("has-mobile-dock");
     var wasOpen = dock.classList.contains("is-open");
-    if (dock.dataset.built === "an206" && dock.querySelector(".mobile-dock-inner") && dock.querySelector(".mobile-dock-label")) {
+    if (dock.dataset.built === "an272" && dock.querySelector(".mobile-dock-inner") && dock.querySelector(".mobile-dock-label")) {
       if (dock.dataset.morphing !== "1") {
         var nodes = dock.querySelectorAll(".mobile-dock-item");
         for (var si = 0; si < items.length && si < nodes.length; si++) {
@@ -2494,7 +2607,7 @@
         "</div>" +
       "</div>";
     if (wasOpen) dock.classList.add("is-open");
-    dock.dataset.built = "an206";
+    dock.dataset.built = "an272";
     pinMobileDockLayout(dock);
     wireDockScroll(dock);
     if (!dock.dataset.wired) {
@@ -2527,11 +2640,14 @@
         var tile = e.target.closest(".dock-tile");
         if (!tile) return;
         var act = tile.getAttribute("data-act");
-        if (act === "god") {
+        if (act === "bug" || act === "god") {
           e.preventDefault();
           dock.classList.remove("is-open");
-          var gm = document.getElementById("godModeWidget");
-          if (gm) gm.click();
+          if (act === "bug") openBugReport();
+          else {
+            var gm = document.getElementById("godModeWidget");
+            if (gm) gm.click();
+          }
         } else if (act === "compact" || act === "expanded") {
           e.preventDefault();
           var btn = document.querySelector('[data-density-mode="' + (act === "compact" ? "compact" : "comfortable") + '"]');
@@ -2677,11 +2793,30 @@
         }).join("") +
         "</ul>" +
         "</div>" +
+        '<div class="side-box">' +
+        '<div class="nav-label">' + labelOr("more", "More") + '</div>' +
+        '<ul class="side-nav">' +
+        '<li><button type="button" class="nav-link report-bug" id="sidebarReportBug">' +
+        escapeHtml(labelOr("report_bug", "Report a bug")) +
+        "</button></li>" +
+        "</ul>" +
+        "</div>" +
         '<div class="side-box side-box-quiet sidebar-foot" id="sidebarFoot"></div>';
+      var bugBtn = sidebar.querySelector("#sidebarReportBug");
+      if (bugBtn && !bugBtn.dataset.wired) {
+        bugBtn.dataset.wired = "1";
+        bugBtn.addEventListener("click", function () {
+          closeSidebarIfOpen();
+          openBugReport();
+        });
+      }
     }
 
     renderMobileDock(page);
     ensureHeaderLang();
+    ensureCollaborations();
+    ensureLiveFooter();
+    wireStorySaveClicks();
 
     var user = resolvePlan(data.user || { name: "Asher", plan: "Pro" });
     data.user = user;
@@ -2744,11 +2879,7 @@
       else kicker.textContent = pro ? t("scoble_pro") : t("scoble_free");
     }
 
-    var siteFoot = $(".site-footer");
-    if (siteFoot) {
-      var spans = siteFoot.querySelectorAll("span");
-      if (spans[0]) spans[0].textContent = "Aligned News · " + (pro ? t("pro_desk") : t("free_desk"));
-    }
+    ensureLiveFooter();
 
     // Compact Pro rail / desk note — interests first, then the rest of the desk.
     var rail = $("#pageRail");
@@ -3388,7 +3519,7 @@
         var hero = leadHeroHtml(s, key, sectionPretty);
         rankCounter = 1;
         return (
-          '<li class="lead-card lead-card-opener lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
+          '<li class="story-card-shell lead-card lead-card-opener lead-card-photo' + (isRead ? " is-read" : "") + '" style="--i:0" data-href="' + href + '" role="link" tabindex="0">' +
             hero +
             '<div class="lead-copy">' +
               '<p class="lead-eyebrow">' + escapeHtml(sectionPretty || t("today")) + "</p>" +
@@ -3398,6 +3529,7 @@
               (dek ? '<p class="lead-dek"' + txSrc(dek) + '>' + escapeHtml(dek) + "</p>" : "") +
               (metaLine ? '<div class="lead-meta"><span class="meta-line card-views">' + escapeHtml(metaLine) + "</span></div>" : "") +
             "</div>" +
+            storySaveBtnHtml(s) +
           "</li>"
         );
       }
@@ -3407,13 +3539,14 @@
       var excerpt = uniqueDek(s, headline, 110);
       var thumb = photoThumb || (quiet ? "" : rowThumbHtml(s, key, sectionPretty));
       return (
-        '<li class="feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + (media ? " has-photo" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
+        '<li class="story-card-shell feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + (media ? " has-photo" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
           thumb +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="' + href + '"' + txSrc(headline) + '>' + escapeHtml(headline) + "</a></h2>" +
             (excerpt ? '<p class="excerpt"' + txSrc(excerpt) + '>' + escapeHtml(excerpt) + "</p>" : "") +
             (metaLine ? '<div class="meta"><span class="meta-line card-views">' + escapeHtml(metaLine) + "</span></div>" : "") +
           "</div>" +
+          storySaveBtnHtml(s) +
         "</li>"
       );
     }

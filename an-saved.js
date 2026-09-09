@@ -1,11 +1,18 @@
-/* Aligned News saved desk — local snapshots, separate from UNIFY.
-   Storage key: alignednews-saved-v1 (never UNIFY / ops.html keys). */
+/* Aligned News saved desk — per-user local snapshots (Clerk-keyed when known).
+   Storage key: alignednews-saved-v1 or alignednews-saved-v1:userId (never UNIFY / ops.html keys). */
 (function (global) {
   "use strict";
 
-  var KEY = "alignednews-saved-v1";
+  var BASE_KEY = "alignednews-saved-v1";
   var LEGACY_KEY = "an-saved";
+  var CHANGE_EVENT = "an-saved-change";
+  var userId = null;
   var items = [];
+  var loaded = false;
+
+  function storageKey() {
+    return userId ? BASE_KEY + ":" + userId : BASE_KEY;
+  }
 
   function clone(value) {
     try { return JSON.parse(JSON.stringify(value)); } catch (e) { return value; }
@@ -34,6 +41,7 @@
       topic_label: story.topic_label,
       x_handle: story.x_handle,
       media_url: story.media_url,
+      url: story.url || story.source_url || null,
       saved_at: new Date().toISOString()
     };
   }
@@ -42,7 +50,7 @@
     if (!Array.isArray(raw)) return [];
     return raw.map(function (item) {
       if (item && typeof item === "object" && item.id) return item;
-      if (typeof item === "string" && item) return { id: item };
+      if (typeof item === "string" && item) return { id: item, headline: "" };
       return null;
     }).filter(Boolean);
   }
@@ -52,25 +60,42 @@
     catch (e) { return []; }
   }
 
-  function load() {
-    var fresh = normalize(readKey(KEY));
-    if (fresh.length) {
-      items = fresh;
-      return items;
-    }
-    var legacy = normalize(readKey(LEGACY_KEY));
-    if (legacy.length) {
-      items = legacy;
-      persist();
-      try { global.localStorage.removeItem(LEGACY_KEY); } catch (e) {}
-    } else {
-      items = [];
-    }
-    return items;
+  function emitChange() {
+    try {
+      global.dispatchEvent(new CustomEvent(CHANGE_EVENT, { detail: { count: items.length } }));
+    } catch (e) {}
   }
 
   function persist() {
-    try { global.localStorage.setItem(KEY, JSON.stringify(items)); } catch (e) {}
+    try { global.localStorage.setItem(storageKey(), JSON.stringify(items)); } catch (e) {}
+    emitChange();
+  }
+
+  function load() {
+    var key = storageKey();
+    var fresh = normalize(readKey(key));
+    if (fresh.length) {
+      items = fresh;
+      loaded = true;
+      return items;
+    }
+    if (!userId) {
+      var legacy = normalize(readKey(LEGACY_KEY));
+      if (legacy.length) {
+        items = legacy;
+        persist();
+        try { global.localStorage.removeItem(LEGACY_KEY); } catch (e) {}
+        loaded = true;
+        return items;
+      }
+    }
+    items = [];
+    loaded = true;
+    return items;
+  }
+
+  function ensureLoaded() {
+    if (!loaded) load();
   }
 
   function entryId(entry) {
@@ -78,6 +103,7 @@
   }
 
   function isSaved(id) {
+    ensureLoaded();
     id = String(id || "");
     for (var i = 0; i < items.length; i++) {
       if (String(entryId(items[i])) === id) return true;
@@ -86,6 +112,7 @@
   }
 
   function find(id) {
+    ensureLoaded();
     id = String(id || "");
     for (var i = 0; i < items.length; i++) {
       var entry = items[i];
@@ -95,6 +122,7 @@
   }
 
   function toggle(story) {
+    ensureLoaded();
     if (!story || !story.id) return false;
     var id = String(story.id);
     for (var i = 0; i < items.length; i++) {
@@ -111,6 +139,7 @@
   }
 
   function storiesForFeed(live) {
+    ensureLoaded();
     var liveById = {};
     (live || []).forEach(function (s) { if (s && s.id) liveById[s.id] = s; });
     var out = [];
@@ -122,8 +151,19 @@
     return out;
   }
 
+  /** Call when Clerk user id is known (or null for guest). Reloads that user's list. */
+  function setUserId(id) {
+    var next = id ? String(id) : null;
+    if (next === userId && loaded) return;
+    userId = next;
+    loaded = false;
+    load();
+    emitChange();
+  }
+
   global.AlignedSaved = {
-    KEY: KEY,
+    KEY: BASE_KEY,
+    SAVED_CHANGE_EVENT: CHANGE_EVENT,
     load: load,
     persist: persist,
     snapshot: snapshot,
@@ -131,7 +171,8 @@
     find: find,
     toggle: toggle,
     storiesForFeed: storiesForFeed,
-    all: function () { return items; },
-    count: function () { return items.length; }
+    setUserId: setUserId,
+    all: function () { ensureLoaded(); return items; },
+    count: function () { ensureLoaded(); return items.length; }
   };
 })(window);
