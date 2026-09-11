@@ -36,8 +36,8 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an277";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an277";
+  var DATA_URL = "live-data.json?v=an278";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an278";
   var state = {
     data: null,
     newsletter: [],
@@ -3009,6 +3009,50 @@
     });
   }
 
+
+  function syncReaderResults(count) {
+    var wrap = document.querySelector(".reader-results");
+    var countEl = document.getElementById("resultCount");
+    var clearBtn = document.getElementById("clearFilters");
+    if (!wrap) return;
+    var saved = getParam("view") === "saved";
+    var filtered = !saved && ((state.filter && state.filter !== "all") || !!state.query);
+    wrap.classList.toggle("is-filtered", !!filtered);
+    if (countEl) {
+      if (filtered) {
+        var n = typeof count === "number" ? count : 0;
+        var bits = [];
+        if (state.filter && state.filter !== "all") {
+          bits.push(prettyChipLabel(state.filter, state.filter));
+        }
+        if (state.query) bits.push("\u201c" + state.query + "\u201d");
+        countEl.textContent = n + (n === 1 ? " story" : " stories") + (bits.length ? " · " + bits.join(" · ") : "");
+      } else {
+        countEl.textContent = "";
+      }
+    }
+    if (clearBtn) clearBtn.hidden = !filtered;
+  }
+
+  function bindClearFilters() {
+    var clearBtn = document.getElementById("clearFilters");
+    if (!clearBtn || clearBtn.dataset.bound === "1") return;
+    clearBtn.dataset.bound = "1";
+    clearBtn.addEventListener("click", function () {
+      state.filter = "all";
+      state.query = "";
+      var search = document.getElementById("searchInput");
+      if (search) search.value = "";
+      syncReaderUrl();
+      renderChips("#chips");
+      showFeedSkeleton();
+      hideFeedSkeletonThen(function () {
+        if (pageName() === "today") renderTodayFeed();
+        if (pageName() === "signals") renderSignals();
+      });
+    });
+  }
+
   function renderChips(containerId) {
     var el = $(containerId);
     if (!el || !state.data) return;
@@ -3434,6 +3478,7 @@
       return storyMatches(s);
     });
     renderEdition(stories);
+    syncReaderResults(stories.length);
     if (!stories.length) {
       if (getParam("view") === "saved") {
         list.innerHTML =
@@ -3489,6 +3534,7 @@
 
     if (!getParam("view") && state.filter === "events") {
       var onlyEvents = stories.filter(isEventItem);
+      syncReaderResults(onlyEvents.length);
       list.innerHTML = onlyEvents.length ? eventsBoxHtml(onlyEvents) : '<li class="empty">' + t("no_events") + '</li>';
       enableCardNavigation(list);
       renderTodayDeskModules();
@@ -5245,6 +5291,8 @@
         }, 120);
       });
     }
+
+    bindClearFilters();
 
     // Keep the next-stories progress bar as the desk's familiar cadence cue.
     // It shows the editorial sweep window; story data remains the loaded edition snapshot.
