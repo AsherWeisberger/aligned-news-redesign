@@ -8837,3 +8837,27 @@ body[data-page="today"] .page-layout {
     margin-top: 0 !important;
   }
 }
+
+
+/* === Asher Today lock 2026-09-11: Contact + right thumbs + Codex section order === */
+body[data-page="today"] .feed-row:has(.row-thumb) {
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  column-gap: 0.85rem;
+}
+body[data-page="today"] .feed-row .feed-body { min-width: 0; }
+body[data-page="today"] .feed-row .row-thumb {
+  width: 88px;
+  height: 66px;
+  border-radius: 10px;
+  justify-self: end;
+  align-self: start;
+  margin-top: 0.15rem;
+}
+@media (max-width: 720px) {
+  body[data-page="today"] .feed-row:has(.row-thumb) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  body[data-page="today"] .feed-row .row-thumb {
+    display: none;
+  }
+}

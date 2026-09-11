@@ -36,8 +36,8 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an276";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an276";
+  var DATA_URL = "live-data.json?v=an277";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an277";
   var state = {
     data: null,
     newsletter: [],
@@ -2335,12 +2335,12 @@
       el.href = "https://agentdashboard.cloud/connect";
       el.target = "_blank";
       el.rel = "noopener noreferrer";
-      el.textContent = "Collaborations";
+      el.textContent = "Contact";
       var auth = document.getElementById("authCta");
       if (auth && auth.parentNode === actions) actions.insertBefore(el, auth);
       else actions.appendChild(el);
     } else {
-      el.textContent = "Collaborations";
+      el.textContent = "Contact";
     }
   }
 
@@ -3575,12 +3575,12 @@
       var thumb = photoThumb || (quiet ? "" : rowThumbHtml(s, key, sectionPretty));
       return (
         '<li class="story-card-shell feed-row' + (rest && !compact ? " feed-row-rest" : "") + (isRead ? " is-read" : "") + (media ? " has-photo" : "") + '" style="--i:' + Math.min(rank, 12) + '" data-href="' + href + '" role="link" tabindex="0">' +
-          thumb +
           '<div class="feed-body">' +
             '<h2 class="story-title"><a href="' + href + '"' + txSrc(headline) + '>' + escapeHtml(headline) + "</a></h2>" +
             (excerpt ? '<p class="excerpt"' + txSrc(excerpt) + '>' + escapeHtml(excerpt) + "</p>" : "") +
             (metaLine ? '<div class="meta"><span class="meta-line card-views">' + escapeHtml(metaLine) + "</span></div>" : "") +
           "</div>" +
+          thumb +
           storySaveBtnHtml(s) +
         "</li>"
       );
@@ -3634,7 +3634,7 @@
       }
       html += bannerHtml();
       var rest = items.filter(function (s) { return !used[s.id]; });
-      var sectionOrder = ["models", "products", "papers", "robotics", "labs", "chips", "funding", "policy", "creatives", "world"];
+      var sectionOrder = ["models", "products", "papers", "funding", "policy", "robotics", "labs", "chips", "creatives", "world"];
       sectionOrder.forEach(function (key) {
         var bucket = rest.filter(function (s) {
           return storySectionKey(s) === key;
