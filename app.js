@@ -36,8 +36,8 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an279";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an279";
+  var DATA_URL = "live-data.json?v=an280";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an280";
   var state = {
     data: null,
     newsletter: [],
@@ -263,6 +263,8 @@
     var account = item.x_handle || item.author_name || xHandleFrom(item);
     if (account) bits.push(String(account).replace(/^@/, ""));
     if (item.published_at) bits.push(editionDate(item.published_at));
+    var viewsBit = storyCardViews(item);
+    if (viewsBit) bits.push(viewsBit);
     var lists = Number(item.list_count) || (item.list_names || []).length;
     if (lists) bits.push(lists + (lists === 1 ? " list" : " lists"));
     return bits.join(" · ");

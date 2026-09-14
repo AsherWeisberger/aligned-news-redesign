@@ -8861,3 +8861,10 @@ body[data-page="today"] .feed-row .row-thumb {
     display: none;
   }
 }
+
+
+/* an280: views back on Today cards */
+body[data-page="today"] .card-views,
+body[data-page="today"] .lead-meta .meta-line {
+  font-variant-numeric: tabular-nums;
+}
