@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-11-05T13:49:55.000Z",
-    "scrapedAt": "2026-11-05T13:49:55.000Z",
+    "generatedAt": "2026-11-05T14:48:08.000Z",
+    "scrapedAt": "2026-11-05T14:48:08.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 67 stories, source /workspace/pulse/dumps/LATEST_PACK.json",
+    "note": "CONTEXT writeup, 71 stories, source /workspace/pulse/dumps/LATEST_PACK.json",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 53,
-    "stories": 67,
-    "signals": 66,
+    "lists": 52,
+    "stories": 71,
+    "signals": 70,
     "reports": 4
   },
   "chips": [
@@ -141,13 +141,56 @@
   ],
   "stories": [
     {
-      "id": "x-2118337682090721365",
-      "headline": "Moonshot sought Nvidia Blackwell capacity from European data centers amid U.S. curbs on China, CNBC reports",
-      "summary": "Chinese AI lab Moonshot, the maker of the Kimi models, has sought access to Nvidia Blackwell chips through data centers in Europe, sources told CNBC. Per the report, Moonshot held talks this year to rent clusters of more than 8,000 Blackwell GPUs from European neoclouds, primaril",
+      "id": "x-2118337164702318837",
+      "headline": "Baidu open sources ERNIE 5.5 Flash Base, a 280B MoE that activates 14B parameters per token",
+      "summary": "Baidu open sourced ERNIE 5.5 Flash Base on Thursday, a 280B sparse mixture of experts model that activates only 14B parameters per token. It was pretrained from scratch on 33.5T tokens with up to 128K training context, and fine tuning and inference support 1M tokens. FP8 and BF16",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
+      "published_at": "2026-11-05T13:38:31.000Z",
+      "author_name": "thePandaily",
+      "source_list": "AI's Best, Tech News, AI Companies: Developers",
+      "list_names": [
+        "AI's Best",
+        "Tech News",
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "AI's Best",
+        "Tech News",
+        "AI Companies: Developers"
+      ],
+      "source_url": "https://x.com/thePandaily/status/2118337164702318837",
+      "sources": [
+        {
+          "label": "@thePandaily",
+          "url": "https://x.com/thePandaily/status/2118337164702318837"
+        }
+      ],
+      "body": "Baidu open sourced ERNIE 5.5 Flash Base on Thursday, a 280B sparse mixture of experts model that activates only 14B parameters per token. It was pretrained from scratch on 33.5T tokens with up to 128K training context, and fine tuning and inference support 1M tokens. FP8 and BF16 weights are on Hugging Face and ModelScope under a new ERNIE 5.5 Flash Base license, tighter than the Apache 2.0 terms on ERNIE 4.5.\n\n@thePandaily reported that on Baidu's own same harness chart the model beats DeepSeek V4 Flash Base among similar size open base models: 93.3 vs 89.4 on MMLU, 82.3 vs 69.5 on HumanEval+, 60.2 vs 55.9 on GPQA and 48.7 vs 44.5 on LongBench v2. These are raw pretrain weights with no post training yet, and a post trained ERNIE 5.5 Flash is still to come. @sgl_project said SGLang serves it from day zero with ECHO speculative decoding, 1M token context, and FP8 on two B300s or eight H100s.\n\nWhy it matters: another major Chinese lab just dropped a large, efficient open base model with serving support on launch day, which keeps pressure on DeepSeek, Qwen and Western open weights efforts. Watch independent evals beyond Baidu's own table, the post trained release, and whether the tighter license slows adoption.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 53,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert's AI's Best, Tech News, AI Companies: Developers lists carried @thePandaily, @sgl_project.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "thePandaily",
+      "media_url": "https://pbs.twimg.com/media/HWXX-rnWQAE1YHu.png",
+      "list_count": 3,
+      "views": 53,
+      "desk_rank": 1
+    },
+    {
+      "id": "x-2118337682090721365",
+      "headline": "Moonshot sought Nvidia Blackwell capacity from European data centers amid U.S. curbs on China, CNBC reports",
+      "summary": "Kimi maker Moonshot AI held talks to rent Nvidia Blackwell GPU clusters from European cloud providers, according to sources cited by CNBC. It shows how frontier Chinese labs are trying to reach top tier Nvidia compute through offshore clouds, a gap export control policy has not f",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
       "published_at": "2026-11-05T13:40:34.000Z",
       "author_name": "CNBC",
       "source_list": "News, World News, Tech News",
@@ -169,20 +212,20 @@
           "url": "https://x.com/CNBC/status/2118337682090721365"
         }
       ],
-      "body": "Chinese AI lab Moonshot, the maker of the Kimi models, has sought access to Nvidia Blackwell chips through data centers in Europe, sources told CNBC. Per the report, Moonshot held talks this year to rent clusters of more than 8,000 Blackwell GPUs from European neoclouds, primarily for inference and potentially for training. @CNBC and @CNBCtech broke it, and @DeItaone, @StockMKTNewz and @wallstengine carried it within minutes.\n\nThe China angle is export controls. U.S. rules bar Blackwell chips from being sold into China, but renting capacity in overseas clouds is a route the curbs have not fully closed. Chinese labs that cannot buy the hardware can still try to reach it as a service abroad.\n\nWhy it matters: Moonshot ships some of the strongest open weight models from China, and the report lands as it rolls out Kimi K3.1 Pro. Compute decides how fast those models train and how cheaply they serve. Watch whether Washington moves to cover offshore rentals, how European cloud providers respond, and whether Nvidia comments on who rents its chips.",
+      "body": "Kimi maker Moonshot AI held talks to rent Nvidia Blackwell GPU clusters from European cloud providers, according to sources cited by CNBC. It shows how frontier Chinese labs are trying to reach top tier Nvidia compute through offshore clouds, a gap export control policy has not fully closed.\n\n@CNBC posted: \"Chinese AI lab Moonshot turned to Europe for Nvidia Blackwell access amid U.S. China curbs, sources tell CNBC\"\n\n@DeItaone added: \"CHINESE AI LAB MOONSHOT TURNED TO EUROPE FOR NVIDIA BLACKWELL ACCESS AMID U.S. CHINA CURBS, CNBC\" @DeItaone added: \"CHINESE AI LAB SEEKS NVIDIA BLACKWELL CHIPS THROUGH EUROPEAN DATA CENTERS China's Moonshot AI has reportedly explored renting Nvidia's advanced Blackwell computing capacity in Europe, potentially circumventing US restrictions on chip exports to China. According to CNBC\"",
       "kind": "story",
       "engagement": {
         "impression_count": 4680,
         "reply_count": 1
       },
       "why_it_matters": "Robert's News, World News, Tech News lists carried @CNBC, @DeItaone, @StockMKTNewz.",
-      "topic_key": "world",
-      "topic_label": "World",
+      "topic_key": "products",
+      "topic_label": "Products",
       "x_handle": "CNBC",
       "media_url": "https://pbs.twimg.com/news_img/2118337688025640960/1gfxjkWH?format=jpg&name=orig",
       "list_count": 4,
       "views": 4680,
-      "desk_rank": 1
+      "desk_rank": 2
     },
     {
       "id": "x-2118311860218835282",
@@ -231,7 +274,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXBQkYXYAAE8VO.png",
       "list_count": 6,
       "views": 4472,
-      "desk_rank": 2
+      "desk_rank": 3
     },
     {
       "id": "x-2118313713396793615",
@@ -268,10 +311,10 @@
       "body": "Agility Robotics closed its SPAC merger with Churchill Capital Corp XI and began trading on Nasdaq on Thursday under the ticker AGLT, with warrants under AGLTW. @TechCrunch called it the first publicly traded pure play humanoid robotics company.\n\nAgility makes Digit, a humanoid built for warehouse and logistics work. @roboticomarket said the company reports more than 65,000 hours of real world robot operation and over $300M in committed multiyear Digit orders. CEO Peggy Johnson told @ryajetha that being first lets Agility set many of the metrics the market will use.\n\nWhy it matters: humanoids have only been priced in private rounds until now. Public trading gives the whole sector a live benchmark. Watch the first days of AGLT trading, how Digit orders convert to revenue, and whether Figure, Apptronik and others follow onto public markets.",
       "kind": "story",
       "engagement": {
-        "impression_count": 681,
-        "like_count": 29,
-        "reply_count": 2,
-        "retweet_count": 2
+        "impression_count": 4862,
+        "like_count": 129,
+        "reply_count": 11,
+        "retweet_count": 11
       },
       "why_it_matters": "Robert's AI: Computer Vision, Robotics (AI/SI), Spatial Computing and 2 more lists carried @agilityrobotics, @roboticomarket, @TechCrunch.",
       "topic_key": "robotics",
@@ -279,8 +322,8 @@
       "x_handle": "agilityrobotics",
       "media_url": "https://pbs.twimg.com/media/HWXDCMLbkAAggJK.jpg",
       "list_count": 5,
-      "views": 681,
-      "desk_rank": 3
+      "views": 4862,
+      "desk_rank": 4
     },
     {
       "id": "x-2118336305520164998",
@@ -292,18 +335,20 @@
       "tag": "products",
       "published_at": "2026-11-05T13:35:06.000Z",
       "author_name": "InfoWorld",
-      "source_list": "Tech News, AI Community, AI Founders, Founders",
+      "source_list": "Tech News, AI Community, AI Founders, AI Orgs, Founders",
       "list_names": [
         "Tech News",
         "AI Community #9 of 9",
         "AI Founders #1 of 3",
         "AI Community #1 of 9",
+        "AI Orgs & Events",
         "Founders #2 of 3"
       ],
       "chip_labels": [
         "Tech News",
         "AI Community",
         "AI Founders",
+        "AI Orgs",
         "Founders"
       ],
       "source_url": "https://x.com/InfoWorld/status/2118336305520164998",
@@ -318,14 +363,14 @@
       "engagement": {
         "impression_count": 44
       },
-      "why_it_matters": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "why_it_matters": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "InfoWorld",
       "media_url": "https://pbs.twimg.com/news_img/2118306324610195456/RIR3ExhD?format=jpg&name=orig",
-      "list_count": 5,
+      "list_count": 6,
       "views": 44,
-      "desk_rank": 4
+      "desk_rank": 5
     },
     {
       "id": "x-2118124944928432327",
@@ -372,7 +417,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118124891572748288/img/ZSIlzNmSPQEK0Sfd.jpg",
       "list_count": 4,
       "views": 294064,
-      "desk_rank": 5
+      "desk_rank": 6
     },
     {
       "id": "x-2118314604581495114",
@@ -413,7 +458,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116316246979604480/NTTeohhY?format=png&name=orig",
       "list_count": 3,
       "views": 303,
-      "desk_rank": 6
+      "desk_rank": 7
     },
     {
       "id": "x-2118321182327926885",
@@ -453,7 +498,87 @@
       "media_url": "https://pbs.twimg.com/news_img/2118321193174368256/Fe8ZJeDN?format=jpg&name=orig",
       "list_count": 1,
       "views": 375,
-      "desk_rank": 7
+      "desk_rank": 8
+    },
+    {
+      "id": "x-2118312415276204328",
+      "headline": "Grafana says Assistant error rate fell to 0.65% after six months of agent-tooling work",
+      "summary": "Grafana Labs reported Grafana Assistant dashboarding error rate dropping from 2.47% to 0.65% over ~10 weeks, with P95 latency down from 63s to 28.8s and cost per request down 18%. Concrete reliability and latency gains on a widely used observability AI assistant show how evaluati",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-05T12:00:10.000Z",
+      "author_name": "grafana",
+      "source_list": "AI Companies: Developers",
+      "list_names": [
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "AI Companies: Developers"
+      ],
+      "source_url": "https://x.com/grafana/status/2118312415276204328",
+      "sources": [
+        {
+          "label": "@grafana",
+          "url": "https://x.com/grafana/status/2118312415276204328"
+        }
+      ],
+      "body": "Grafana Labs reported Grafana Assistant dashboarding error rate dropping from 2.47% to 0.65% over ~10 weeks, with P95 latency down from 63s to 28.8s and cost per request down 18%. Concrete reliability and latency gains on a widely used observability AI assistant show how evaluation loops are becoming table stakes for shipping agent UX.\n\n@grafana posted: \"Grafana Assistant dashboarding error rate dropped from 2.47% to 0.65% over ~10 weeks. P95 latency fell from 63s to 28.8s. And cost per request went down by 18%. This was a result of six months of evaluation loops, CLI redesign, and agent tooling work.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 202,
+        "like_count": 2
+      },
+      "why_it_matters": "Robert's AI Companies: Developers lists carried @grafana.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "grafana",
+      "media_url": "https://pbs.twimg.com/news_img/2118312417738317825/fzWBA5Lz?format=jpg&name=orig",
+      "list_count": 1,
+      "views": 202,
+      "desk_rank": 9
+    },
+    {
+      "id": "x-2118339046967808023",
+      "headline": "BAAI and Chinese lab partners introduce CausGround, a plug and play causal grounding layer for embodied planners",
+      "summary": "The Beijing Academy of Artificial Intelligence, with ECNU, NPU, UCAS and CASIA, introduced CausGround, a plug and play causal interaction grounding framework for embodied planners. @BAAIBeijing said it doubles embodied planning performance with zero parameter updates, targeting t",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-11-05T13:46:00.000Z",
+      "author_name": "BAAIBeijing",
+      "source_list": "AI Orgs",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/BAAIBeijing/status/2118339046967808023",
+      "sources": [
+        {
+          "label": "@BAAIBeijing",
+          "url": "https://x.com/BAAIBeijing/status/2118339046967808023"
+        }
+      ],
+      "body": "The Beijing Academy of Artificial Intelligence, with ECNU, NPU, UCAS and CASIA, introduced CausGround, a plug and play causal interaction grounding framework for embodied planners. @BAAIBeijing said it doubles embodied planning performance with zero parameter updates, targeting the latency and black box limits of end to end models like Astra.\n\nThe idea: planners that store experience as loose text or raw trajectories cannot separate true causal dependencies from scene clutter. CausGround reasons over causal structure while a frozen multimodal model only turns language into a goal state. BAAI reported gains over vanilla planners, SelfReVision and LookPlanGraph in simulated households and real dual arm manipulation, across six open weight backbones including Qwen3.5 and InternVL3.5.\n\nWhy it matters: if causal knowledge distilled in simulation can guide real robots without retraining, planners get better without new training runs. Watch for code release and independent replication.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 115,
+        "like_count": 5,
+        "reply_count": 2,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert's AI Orgs & Events lists carried @BAAIBeijing.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "BAAIBeijing",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118276810450587648/img/8-8VTY9fP3-EW9Li.jpg",
+      "list_count": 1,
+      "views": 115,
+      "desk_rank": 10
     },
     {
       "id": "x-2117642701890105725",
@@ -499,47 +624,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNgGBea4AAB3_r.jpg",
       "list_count": 4,
       "views": 1042,
-      "desk_rank": 8
-    },
-    {
-      "id": "x-2118162131103478221",
-      "headline": "webAI open-sources TwIL-8B, a small reasoning model that runs on a Mac mini",
-      "summary": "webAI released TwIL 8B, an 8.8B parameter open weight reasoning model pitched as near frontier on coding, instruction following and math. Capable reasoning models that run on a single desktop machine make local, private AI practical for more teams.",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-11-05T02:03:00.000Z",
-      "author_name": "cgtwts",
-      "source_list": "AI Community",
-      "list_names": [
-        "AI Community #7 of 9",
-        "AI Community #2 of 9"
-      ],
-      "chip_labels": [
-        "AI Community"
-      ],
-      "source_url": "https://x.com/cgtwts/status/2118162131103478221",
-      "sources": [
-        {
-          "label": "@cgtwts",
-          "url": "https://x.com/cgtwts/status/2118162131103478221"
-        }
-      ],
-      "body": "webAI released TwIL 8B, an 8.8B parameter open weight reasoning model pitched as near frontier on coding, instruction following and math. Capable reasoning models that run on a single desktop machine make local, private AI practical for more teams.\n\n@cgtwts posted: \"webAI just open sourced TwIL 8B. An 8.8B parameter model reaching 93% of frontier performance on coding, 92% on instruction following, and 90% on contest math. Frontier level capabilities are becoming possible with smaller models that run on your own hardware.\"\n\n@pratikg added: \"BENCHMARKED: @thewebAI's TwIL 8B, an 8.8B open weight reasoning model, just went 69/69 on my tests running on my 64GB M5 Pro Mac mini. The 4 bit MLX build runs at 53.8 tok/s from a 4.9 GB file. Full bf16 with the whole 128K context fits too, peaking at 40.5 GB on a 64GB\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 85,
-        "like_count": 1
-      },
-      "why_it_matters": "Robert's AI Community lists carried @cgtwts, @pratikg.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "cgtwts",
-      "media_url": "https://pbs.twimg.com/media/HWUQJrCbwAEcG1p.jpg",
-      "list_count": 2,
-      "views": 85,
-      "desk_rank": 9
+      "desk_rank": 11
     },
     {
       "id": "x-2117621415520448838",
@@ -551,17 +636,19 @@
       "tag": "models",
       "published_at": "2026-11-03T14:14:23.000Z",
       "author_name": "SarvamAI",
-      "source_list": "AI Companies: Voice, AI Companies: Developers, AI Community",
+      "source_list": "AI Companies: Voice, AI Companies: Developers, AI Community, AI's Best",
       "list_names": [
         "AI Companies: Voice",
         "AI Companies: Developers",
         "AI Community #2 of 9",
-        "AI Community #3 of 9"
+        "AI Community #1 of 9",
+        "AI's Best"
       ],
       "chip_labels": [
         "AI Companies: Voice",
         "AI Companies: Developers",
-        "AI Community"
+        "AI Community",
+        "AI's Best"
       ],
       "source_url": "https://x.com/SarvamAI/status/2117621415520448838",
       "sources": [
@@ -570,21 +657,21 @@
           "url": "https://x.com/SarvamAI/status/2117621415520448838"
         }
       ],
-      "body": "Sarvam says Prism is a System One model for fast, accurate decisions across enterprise workflows. It scores 71.8 with a median response time of 44 milliseconds, which Sarvam calls the highest average among decision models answering in under 100 ms, and it advances the accuracy speed frontier across three decision indices among 25 models tested. Sarvam says Prism gave the same answer every time answer options were shuffled across 2,000 questions, made fewer errors than its confidence predicted in English and Indian languages, and ships with open weights so enterprises can fine tune and self host it. A sub 100ms open weights decision model aimed at guardrails, routing and trace evaluation gives enterprises a cheap, self hostable judge layer, and it is another sign of India's Sarvam competing on frontier adjacent models.\n\n@SarvamAI posted: \"Today we’re releasing Sarvam Prism, a System One model built on Sarvam 105B for fast, accurate decisions across enterprise workflows. It scores 71.8 with a median response time of 44 milliseconds, the highest average score among decision models that respond in under 100\"\n\n@SarvamAI added: \"Every enterprise decides differently. We’re releasing Prism with open weights so enterprises can fine tune it on their own outcomes using simple training recipes and host it efficiently within their own infrastructure. We also support training and deployment on Sarvam’s\" @VinayakGavariya added: \"We just launched Sarvam Prism, and I built a Snake game to show why decision models matter. Two snakes. Same words. One eats poison. The other knows when to ask for help. Here's Decision Model vs an LLM\"",
+      "body": "Sarvam says Prism is a System One model for fast, accurate decisions across enterprise workflows. It scores 71.8 with a median response time of 44 milliseconds, which Sarvam calls the highest average among decision models answering in under 100 ms, and it advances the accuracy speed frontier across three decision indices among 25 models tested. Sarvam says Prism gave the same answer every time answer options were shuffled across 2,000 questions, made fewer errors than its confidence predicted in English and Indian languages, and ships with open weights so enterprises can fine tune and self host it. A sub 100ms open weights decision model aimed at guardrails, routing and trace evaluation gives enterprises a cheap, self hostable judge layer, and it is another sign of India's Sarvam competing on frontier adjacent models.\n\n@SarvamAI posted: \"Today we’re releasing Sarvam Prism, a System One model built on Sarvam 105B for fast, accurate decisions across enterprise workflows. It scores 71.8 with a median response time of 44 milliseconds, the highest average score among decision models that respond in under 100\"\n\n@VinayakGavariya added: \"We just launched Sarvam Prism, and I built a Snake game to show why decision models matter. Two snakes. Same words. One eats poison. The other knows when to ask for help. Here's Decision Model vs an LLM\" @prajdabre added: \"RT @SarvamAI: Today we’re releasing Sarvam Prism, a System One model built on Sarvam 105B for fast, accurate decisions across enterprise wo…\"",
       "kind": "story",
       "engagement": {
         "impression_count": 419,
         "like_count": 3,
         "reply_count": 1
       },
-      "why_it_matters": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community lists carried @SarvamAI, @VinayakGavariya, @cheatyyyy.",
+      "why_it_matters": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community and 1 more lists carried @SarvamAI, @VinayakGavariya, @prajdabre.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "SarvamAI",
       "media_url": "https://pbs.twimg.com/media/HWNMZMHacAAl0lx.jpg",
-      "list_count": 4,
+      "list_count": 5,
       "views": 419,
-      "desk_rank": 10
+      "desk_rank": 12
     },
     {
       "id": "x-2118119451401048497",
@@ -627,7 +714,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUQl7QbwAAkznq.png",
       "list_count": 2,
       "views": 208846,
-      "desk_rank": 11
+      "desk_rank": 13
     },
     {
       "id": "x-2118148396733050987",
@@ -639,11 +726,12 @@
       "tag": "models",
       "published_at": "2026-11-05T01:08:25.000Z",
       "author_name": "thePandaily",
-      "source_list": "AI's Best, Tech News, AI: Decentralized, AI Community",
+      "source_list": "AI's Best, Tech News, AI: Decentralized, AI Influencers, AI Community",
       "list_names": [
         "AI's Best",
         "Tech News",
         "AI: Decentralized",
+        "AI Influencers",
         "AI Community #9 of 9",
         "AI Community #6 of 9",
         "AI Community #3 of 9"
@@ -652,6 +740,7 @@
         "AI's Best",
         "Tech News",
         "AI: Decentralized",
+        "AI Influencers",
         "AI Community"
       ],
       "source_url": "https://x.com/thePandaily/status/2118148396733050987",
@@ -666,14 +755,14 @@
       "engagement": {
         "impression_count": 34
       },
-      "why_it_matters": "Robert's AI's Best, Tech News, AI: Decentralized and 1 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
+      "why_it_matters": "Robert's AI's Best, Tech News, AI: Decentralized and 2 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "thePandaily",
       "media_url": "https://pbs.twimg.com/media/HWVNt0yaoAAM33x.png",
-      "list_count": 6,
+      "list_count": 7,
       "views": 34,
-      "desk_rank": 12
+      "desk_rank": 14
     },
     {
       "id": "x-2118035494898704781",
@@ -716,114 +805,50 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118035306914217984/img/sGJjd92ARR2-UPS3.jpg",
       "list_count": 2,
       "views": 85245,
-      "desk_rank": 13
-    },
-    {
-      "id": "x-2116220869479428500",
-      "headline": "Anthropic renames Claude Max 20x to Ultra and drops the 5-hour limit for verified Ultra accounts",
-      "summary": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; remov",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-10-30T17:29:07.000Z",
-      "author_name": "claudeai",
-      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI Companies: Creative, AI Companies: Work, AI Community, AI Orgs, AI Companies:-All, AI Founders",
-      "list_names": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
-        "AI Community #1 of 9",
-        "AI Orgs & Events",
-        "AI Companies: #1 of 2-All",
-        "AI Founders #2 of 3"
-      ],
-      "chip_labels": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
-        "AI Community",
-        "AI Orgs",
-        "AI Companies:-All",
-        "AI Founders"
-      ],
-      "source_url": "https://x.com/claudeai/status/2116220869479428500",
-      "sources": [
-        {
-          "label": "@claudeai",
-          "url": "https://x.com/claudeai/status/2116220869479428500"
-        }
-      ],
-      "body": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; removing the window on the top tier is a direct move in the coding agent pricing war with OpenAI.\n\n@claudeai posted: \"We’re renaming our Max plans: Max 5x → Max Max 20x → Ultra Max is still $100/month, and Ultra is still $200. If you’re a subscriber, there’s nothing you need to do. We’re also removing the 5 hour limit for verified Ultra accounts, starting today with most existing\"\n\n@StatsWire added: \"Claude Opus 4.6 just DESTROYED my Antigravity usage limits!!! A few hours ago, I still had 81% of my weekly Claude/GPT quota left. Now??? • Weekly limit: 45% left • 5 hour limit: 0% left • Reset in 1 hour 11 minutes Anyone else burning through Claude usage like this on\" @PreslavMihaylov added: \"@AniC_dev @nickeevans21 insane how ur able to easily vacay and sleep at night with that growth tbh, id personally be ultra antsy to spin up a claude on my laptop\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 4269250,
-        "like_count": 26742,
-        "reply_count": 2158,
-        "retweet_count": 1585
-      },
-      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "claudeai",
-      "media_url": "https://pbs.twimg.com/media/HV5MwwNWAAA5hUI.jpg",
-      "list_count": 9,
-      "views": 4269250,
-      "desk_rank": 14
-    },
-    {
-      "id": "x-2115985388649242699",
-      "headline": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
-      "summary": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 che",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-10-30T01:53:24.000Z",
-      "author_name": "vllm_project",
-      "source_list": "AI Companies:-All, AI Companies: Developers, AI Companies: Real Estate, AI Community, Quantum",
-      "list_names": [
-        "AI Companies: #2 of 2-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community #1 of 9",
-        "AI Community #4 of 9",
-        "Quantum"
-      ],
-      "chip_labels": [
-        "AI Companies:-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community",
-        "Quantum"
-      ],
-      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
-      "sources": [
-        {
-          "label": "@vllm_project",
-          "url": "https://x.com/vllm_project/status/2115985388649242699"
-        }
-      ],
-      "body": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 checkpoint. A frontier scale open model from Europe resets the open weights field outside China and gives builders a new base to fine tune.\n\n@vllm_project posted: \"Day 0 RL for @MistralAI’s Mistral Large 4 with @NovaSkyAI’s SkyRL and @vllm_project! On 8 @nvidia GB200 nodes, LoRA RL on the NVFP4 checkpoint brings AIME 2024 avg@8 from ~64% to ~75% in 75 training steps. vLLM generates rollouts, while FSDP2 or Megatron handles training.\"\n\n@dextune added: \"Axolotl Fine tune large MoE models with YAML configs, then export straight to GGUF Axolotl is a free, open source fine tuning framework. October added Mistral Large 4 with merge aware NVFP4 LoRA and expert parallel training, and Reflection's Beam with QLoRA configs. CPU staged\" @RobertTLange added: \"Mistral's Large 4 at a glance 1T param MoE (52B active), multimodal, 1M context:, 72 layers MLA + DeepSeek style sparse attention: indexer picks 2,048 keys/query, Surgery mid pretraining: SWA+CLA hybrid hurt SWE bench at equal perplexity → back to full attn, YOCO kept\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 1738,
-        "like_count": 18,
-        "reply_count": 7,
-        "retweet_count": 9
-      },
-      "why_it_matters": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 2 more lists carried @vllm_project, @dextune, @RobertTLange.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "vllm_project",
-      "media_url": "https://pbs.twimg.com/media/HWNhxQDaMAALb8s.jpg",
-      "list_count": 6,
-      "views": 1738,
       "desk_rank": 15
+    },
+    {
+      "id": "x-2118313092279067026",
+      "headline": "KAIST team releases DreamFree, a 14B imagination free World Action Model running at 11 Hz",
+      "summary": "A KAIST team released DreamFree, an imagination free World Action Model that controls robots without generating future video, while still getting better with stronger video models and more video data. It runs at 11 Hz on a single H200 with a 14B video diffusion backbone, which @J",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-11-05T12:02:52.000Z",
+      "author_name": "Jaehyeong_Jo",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AI Community #1 of 9",
+        "AI Community #8 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/Jaehyeong_Jo/status/2118313092279067026",
+      "sources": [
+        {
+          "label": "@Jaehyeong_Jo",
+          "url": "https://x.com/Jaehyeong_Jo/status/2118313092279067026"
+        }
+      ],
+      "body": "A KAIST team released DreamFree, an imagination free World Action Model that controls robots without generating future video, while still getting better with stronger video models and more video data. It runs at 11 Hz on a single H200 with a 14B video diffusion backbone, which @Jaehyeong_Jo said is 17.8x faster than DreamZero.\n\nThe thread reports 64% average success on 10 real world DROID tasks versus 56% for DreamZero and 16% for pi0.5, and RoboCasa Kitchen success rising from 58.5% at 5B to 71.7% at 14B. Earlier imagination free models like Fast WAM did not improve when scaled from 5B to 14B, which is the gap DreamFree targets. A project page, code and arXiv paper are out, and co author @SeonghyeonYe amplified the release.\n\nWhy it matters: world models promise robots that learn from video, but generating futures is slow. DreamFree keeps the video prior and drops the latency. Watch for replication on other robot platforms.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 46,
+        "like_count": 5,
+        "reply_count": 1,
+        "retweet_count": 3
+      },
+      "why_it_matters": "Robert's AI Community lists carried @Jaehyeong_Jo, @SeonghyeonYe.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "Jaehyeong_Jo",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118312690062143488/img/7TuJlZdFiaVOxyym.jpg",
+      "list_count": 3,
+      "views": 46,
+      "desk_rank": 16
     },
     {
       "id": "x-2117680635561312732",
@@ -868,7 +893,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117680108706140161/img/W7IjAqq94Q6lFVOo.jpg",
       "list_count": 3,
       "views": 5659,
-      "desk_rank": 16
+      "desk_rank": 17
     },
     {
       "id": "x-2117630688904012268",
@@ -915,7 +940,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117630353565175808/img/5FU9I1EVucBqoywR.jpg",
       "list_count": 4,
       "views": 16031,
-      "desk_rank": 17
+      "desk_rank": 18
     },
     {
       "id": "x-2118078402544734421",
@@ -956,7 +981,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118078407317786625/2wEhj8dX?format=jpg&name=orig",
       "list_count": 1,
       "views": 22118,
-      "desk_rank": 18
+      "desk_rank": 19
     },
     {
       "id": "x-2115859377488072879",
@@ -1001,7 +1026,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV0G0uhbwAAclVn.jpg",
       "list_count": 3,
       "views": 784130,
-      "desk_rank": 19
+      "desk_rank": 20
     },
     {
       "id": "x-2118129756889604452",
@@ -1045,7 +1070,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2118129671996858368/pu/img/RH8HHYSnneChecLe.jpg",
       "list_count": 3,
       "views": 663,
-      "desk_rank": 20
+      "desk_rank": 21
     },
     {
       "id": "x-2118062782562312416",
@@ -1086,7 +1111,55 @@
       "media_url": "https://pbs.twimg.com/media/HWTe2ZkaIAAQONR.png",
       "list_count": 1,
       "views": 4244,
-      "desk_rank": 21
+      "desk_rank": 22
+    },
+    {
+      "id": "x-2115985388649242699",
+      "headline": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
+      "summary": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 che",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-10-30T01:53:24.000Z",
+      "author_name": "vllm_project",
+      "source_list": "AI Companies:-All, AI Companies: Developers, AI Companies: Real Estate, AI Community",
+      "list_names": [
+        "AI Companies: #2 of 2-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
+      "sources": [
+        {
+          "label": "@vllm_project",
+          "url": "https://x.com/vllm_project/status/2115985388649242699"
+        }
+      ],
+      "body": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 checkpoint. A frontier scale open model from Europe resets the open weights field outside China and gives builders a new base to fine tune.\n\n@vllm_project posted: \"Day 0 RL for @MistralAI’s Mistral Large 4 with @NovaSkyAI’s SkyRL and @vllm_project! On 8 @nvidia GB200 nodes, LoRA RL on the NVFP4 checkpoint brings AIME 2024 avg@8 from ~64% to ~75% in 75 training steps. vLLM generates rollouts, while FSDP2 or Megatron handles training.\"\n\n@dextune added: \"Axolotl Fine tune large MoE models with YAML configs, then export straight to GGUF Axolotl is a free, open source fine tuning framework. October added Mistral Large 4 with merge aware NVFP4 LoRA and expert parallel training, and Reflection's Beam with QLoRA configs. CPU staged\" @RobertTLange added: \"Mistral's Large 4 at a glance 1T param MoE (52B active), multimodal, 1M context:, 72 layers MLA + DeepSeek style sparse attention: indexer picks 2,048 keys/query, Surgery mid pretraining: SWA+CLA hybrid hurt SWE bench at equal perplexity → back to full attn, YOCO kept\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1738,
+        "like_count": 18,
+        "reply_count": 7,
+        "retweet_count": 9
+      },
+      "why_it_matters": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @RobertTLange.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "vllm_project",
+      "media_url": "https://pbs.twimg.com/media/HWNhxQDaMAALb8s.jpg",
+      "list_count": 5,
+      "views": 1738,
+      "desk_rank": 23
     },
     {
       "id": "x-2118156252165358037",
@@ -1130,52 +1203,60 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118153298435825665/img/sPPDAfS2xbpI4Yec.jpg",
       "list_count": 4,
       "views": 525,
-      "desk_rank": 22
+      "desk_rank": 24
     },
     {
-      "id": "x-2117249008972550447",
-      "headline": "Deep Principle launches Hydrogen-1.0, a general-purpose AI model for scientific discovery",
-      "summary": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching ",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-11-02T13:34:34.000Z",
-      "author_name": "DeepPrinciple",
-      "source_list": "AI Companies: Science/Med, AI Community, AI Influencers",
+      "id": "x-2116220869479428500",
+      "headline": "Anthropic renames Claude Max 20x to Ultra and drops the 5-hour limit for verified Ultra accounts",
+      "summary": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; remov",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-10-30T17:29:07.000Z",
+      "author_name": "claudeai",
+      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI Companies: Creative, AI Companies: Work, AI Orgs, AI Companies:-All",
       "list_names": [
+        "AI Companies: Marketing",
+        "AI Companies: Education",
         "AI Companies: Science/Med",
-        "AI Community #9 of 9",
-        "AI Community #1 of 9",
-        "AI Influencers"
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs & Events",
+        "AI Companies: #1 of 2-All"
       ],
       "chip_labels": [
+        "AI Companies: Marketing",
+        "AI Companies: Education",
         "AI Companies: Science/Med",
-        "AI Community",
-        "AI Influencers"
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs",
+        "AI Companies:-All"
       ],
-      "source_url": "https://x.com/DeepPrinciple/status/2117249008972550447",
+      "source_url": "https://x.com/claudeai/status/2116220869479428500",
       "sources": [
         {
-          "label": "@DeepPrinciple",
-          "url": "https://x.com/DeepPrinciple/status/2117249008972550447"
+          "label": "@claudeai",
+          "url": "https://x.com/claudeai/status/2116220869479428500"
         }
       ],
-      "body": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching models as research partners rather than chatbots.\n\n@DeepPrinciple posted: \"Introducing Hydrogen 1.0, Deep Principle’s first general purpose large AI model, built to support scientific discovery. Hydrogen 1.0 helps researchers reason through complex scientific questions, carry out calculations and simulations, turn research ideas into experimental\"\n\n@RussellQuantum added: \"Deep Principle released Hydrogen 1.0 yesterday, an open weight model for scientific research, post trained from GLM 5.3 at 753 billion parameters, weights on Hugging Face. The headline claim is that it beats GPT 6 Astra on FrontierScience Research\" @ChengleiSi added: \"RT @chenru_duan: We’re introducing Hydrogen 1.0, our first open weight model for scientific research. We post trained GLM 5.3 (@Zai_org) on…\"",
+      "body": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; removing the window on the top tier is a direct move in the coding agent pricing war with OpenAI.\n\n@claudeai posted: \"We’re renaming our Max plans: Max 5x → Max Max 20x → Ultra Max is still $100/month, and Ultra is still $200. If you’re a subscriber, there’s nothing you need to do. We’re also removing the 5 hour limit for verified Ultra accounts, starting today with most existing\"\n\n@StatsWire added: \"Claude Opus 4.6 just DESTROYED my Antigravity usage limits!!! A few hours ago, I still had 81% of my weekly Claude/GPT quota left. Now??? • Weekly limit: 45% left • 5 hour limit: 0% left • Reset in 1 hour 11 minutes Anyone else burning through Claude usage like this on\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 106,
-        "like_count": 3,
-        "reply_count": 6
+        "impression_count": 4269250,
+        "like_count": 26742,
+        "reply_count": 2158,
+        "retweet_count": 1585
       },
-      "why_it_matters": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @RussellQuantum, @ChengleiSi.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "DeepPrinciple",
-      "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
-      "list_count": 4,
-      "views": 106,
-      "desk_rank": 23
+      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 4 more lists carried @claudeai, @StatsWire, @grok.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "claudeai",
+      "media_url": "https://pbs.twimg.com/media/HV5MwwNWAAA5hUI.jpg",
+      "list_count": 7,
+      "views": 4269250,
+      "desk_rank": 25
     },
     {
       "id": "x-2117670295339171994",
@@ -1218,55 +1299,47 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117670256801873920/pu/img/ngWTR58nsSm8VVSD.jpg",
       "list_count": 2,
       "views": 383,
-      "desk_rank": 24
+      "desk_rank": 26
     },
     {
-      "id": "x-2117408792346509663",
-      "headline": "OpenAI built Pando, a new Git backend for its monorepo that cut push latency about 80%",
-      "summary": "OpenAI's developer team says Pando handles more pushes and fetches without changing how its engineers and agents use Git. It cut median push latency by nearly 80%, now serves nearly a petabyte of Git data a day, updates different branches in parallel, and serves fetches from reus",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-03T00:09:30.000Z",
-      "author_name": "OpenAIDevs",
-      "source_list": "AI's Best, AI Companies: Developers, AI Community, AI Founders",
+      "id": "x-2118162131103478221",
+      "headline": "webAI open-sources TwIL-8B, a small reasoning model that runs on a Mac mini",
+      "summary": "webAI released TwIL 8B, an 8.8B parameter open weight reasoning model pitched as near frontier on coding, instruction following and math. Capable reasoning models that run on a single desktop machine make local, private AI practical for more teams.",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-05T02:03:00.000Z",
+      "author_name": "cgtwts",
+      "source_list": "AI Community",
       "list_names": [
-        "AI's Best",
-        "AI Companies: Developers",
-        "AI Community #5 of 9",
-        "AI Founders #3 of 3",
-        "AI Community #4 of 9"
+        "AI Community #7 of 9",
+        "AI Community #2 of 9"
       ],
       "chip_labels": [
-        "AI's Best",
-        "AI Companies: Developers",
-        "AI Community",
-        "AI Founders"
+        "AI Community"
       ],
-      "source_url": "https://x.com/OpenAIDevs/status/2117408792346509663",
+      "source_url": "https://x.com/cgtwts/status/2118162131103478221",
       "sources": [
         {
-          "label": "@OpenAIDevs",
-          "url": "https://x.com/OpenAIDevs/status/2117408792346509663"
+          "label": "@cgtwts",
+          "url": "https://x.com/cgtwts/status/2118162131103478221"
         }
       ],
-      "body": "OpenAI's developer team says Pando handles more pushes and fetches without changing how its engineers and agents use Git. It cut median push latency by nearly 80%, now serves nearly a petabyte of Git data a day, updates different branches in parallel, and serves fetches from reusable stored packfiles. OpenAI also contributed fixes back to Git, including cleanup after interrupted packfile downloads. Agent driven coding is multiplying Git traffic inside big labs; OpenAI rebuilding its Git backend shows source control is becoming an infrastructure bottleneck for agent heavy engineering.\n\n@OpenAIDevs posted: \"We built Pando, a new Git backend for our monorepo, to handle more pushes and fetches without changing how our engineers and agents use Git. Pando cut push latency by ~80% and now serves nearly a petabyte of Git data a day. We can grow Git capacity alongside agent usage.\"\n\n@udayruddarraju added: \"One of the best things we've done here at OpenAI this year. The growth of our monorepo was unprecedented and so was our approach to scaling it, while keeping compatibility with git. Huge kudos to @tnm and team!\" @stretchcloud added: \"The thing that almost broke OpenAI this year wasn't a model, it was git. Commit volume from Codex agents grew more than 2,400% a quarter since early 2024, and git backend reliability fell under 90%, slow fetches, failed merges, the works. They published the fix this week: Pando\"",
+      "body": "webAI released TwIL 8B, an 8.8B parameter open weight reasoning model pitched as near frontier on coding, instruction following and math. Capable reasoning models that run on a single desktop machine make local, private AI practical for more teams.\n\n@cgtwts posted: \"webAI just open sourced TwIL 8B. An 8.8B parameter model reaching 93% of frontier performance on coding, 92% on instruction following, and 90% on contest math. Frontier level capabilities are becoming possible with smaller models that run on your own hardware.\"\n\n@pratikg added: \"BENCHMARKED: @thewebAI's TwIL 8B, an 8.8B open weight reasoning model, just went 69/69 on my tests running on my 64GB M5 Pro Mac mini. The 4 bit MLX build runs at 53.8 tok/s from a 4.9 GB file. Full bf16 with the whole 128K context fits too, peaking at 40.5 GB on a 64GB\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 2568,
-        "like_count": 23,
-        "reply_count": 4,
-        "retweet_count": 4
+        "impression_count": 85,
+        "like_count": 1
       },
-      "why_it_matters": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @stretchcloud.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "OpenAIDevs",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117408779730108416/img/M_YLvydUvu_YZd9I.jpg",
-      "list_count": 5,
-      "views": 2568,
-      "desk_rank": 25
+      "why_it_matters": "Robert's AI Community lists carried @cgtwts, @pratikg.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "cgtwts",
+      "media_url": "https://pbs.twimg.com/media/HWUQJrCbwAEcG1p.jpg",
+      "list_count": 2,
+      "views": 85,
+      "desk_rank": 27
     },
     {
       "id": "x-2117663862564573240",
@@ -1311,7 +1384,7 @@
       "media_url": "https://pbs.twimg.com/media/HWN0D2IWcAASzvX.jpg",
       "list_count": 3,
       "views": 3921,
-      "desk_rank": 26
+      "desk_rank": 28
     },
     {
       "id": "x-2116186245802127411",
@@ -1362,7 +1435,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV4qiMYbsAAz27z.jpg",
       "list_count": 6,
       "views": 2972,
-      "desk_rank": 27
+      "desk_rank": 29
     },
     {
       "id": "x-2115848186950791665",
@@ -1405,7 +1478,51 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115846043845971969/img/h-R_tvcTJBJZzjDI.jpg",
       "list_count": 2,
       "views": 817505,
-      "desk_rank": 28
+      "desk_rank": 30
+    },
+    {
+      "id": "x-2117249008972550447",
+      "headline": "Deep Principle launches Hydrogen-1.0, a general-purpose AI model for scientific discovery",
+      "summary": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching ",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-02T13:34:34.000Z",
+      "author_name": "DeepPrinciple",
+      "source_list": "AI Companies: Science/Med, AI Community, AI Influencers",
+      "list_names": [
+        "AI Companies: Science/Med",
+        "AI Community #1 of 9",
+        "AI Influencers"
+      ],
+      "chip_labels": [
+        "AI Companies: Science/Med",
+        "AI Community",
+        "AI Influencers"
+      ],
+      "source_url": "https://x.com/DeepPrinciple/status/2117249008972550447",
+      "sources": [
+        {
+          "label": "@DeepPrinciple",
+          "url": "https://x.com/DeepPrinciple/status/2117249008972550447"
+        }
+      ],
+      "body": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching models as research partners rather than chatbots.\n\n@DeepPrinciple posted: \"Introducing Hydrogen 1.0, Deep Principle’s first general purpose large AI model, built to support scientific discovery. Hydrogen 1.0 helps researchers reason through complex scientific questions, carry out calculations and simulations, turn research ideas into experimental\"\n\n@ChengleiSi added: \"RT @chenru_duan: We’re introducing Hydrogen 1.0, our first open weight model for scientific research. We post trained GLM 5.3 (@Zai_org) on…\" @andresvilarino added: \"Deep Principle Releases Hydrogen 1.0: A 753B Open Weight Model for Scientific Discovery\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 106,
+        "like_count": 3,
+        "reply_count": 6
+      },
+      "why_it_matters": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @ChengleiSi, @andresvilarino.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "DeepPrinciple",
+      "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
+      "list_count": 3,
+      "views": 106,
+      "desk_rank": 31
     },
     {
       "id": "x-2116573344283681010",
@@ -1447,7 +1564,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUsyluaAAA8lcm.jpg",
       "list_count": 3,
       "views": 34,
-      "desk_rank": 29
+      "desk_rank": 32
     },
     {
       "id": "x-2116598588172374141",
@@ -1459,7 +1576,7 @@
       "tag": "funding",
       "published_at": "2026-10-31T18:30:02.000Z",
       "author_name": "a16z",
-      "source_list": "VC Firms, AI's Best, AI Orgs, AI Community, Devs, Designers, DevRel 1",
+      "source_list": "VC Firms, AI's Best, AI Orgs, AI Community, Devs, Designers, DevRel 1, AI Companies: Marketing, AI Companies: Developers",
       "list_names": [
         "VC Firms",
         "AI's Best",
@@ -1467,14 +1584,17 @@
         "AI Community #2 of 9",
         "Devs, Designers, DevRel 1",
         "AI Community #8 of 9",
-        "AI Community #6 of 9"
+        "AI Companies: Marketing",
+        "AI Companies: Developers"
       ],
       "chip_labels": [
         "VC Firms",
         "AI's Best",
         "AI Orgs",
         "AI Community",
-        "Devs, Designers, DevRel 1"
+        "Devs, Designers, DevRel 1",
+        "AI Companies: Marketing",
+        "AI Companies: Developers"
       ],
       "source_url": "https://x.com/a16z/status/2116598588172374141",
       "sources": [
@@ -1491,14 +1611,14 @@
         "reply_count": 22,
         "retweet_count": 14
       },
-      "why_it_matters": "Robert's VC Firms, AI's Best, AI Orgs & Events and 2 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
+      "why_it_matters": "Robert's VC Firms, AI's Best, AI Orgs & Events and 4 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "a16z",
       "media_url": "https://pbs.twimg.com/media/HV-rMr7awAEkYvc.jpg",
-      "list_count": 7,
+      "list_count": 8,
       "views": 11095,
-      "desk_rank": 30
+      "desk_rank": 33
     },
     {
       "id": "x-2115887660489462091",
@@ -1539,7 +1659,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115887560660766720/img/WyTAk03vOI_RJJVo.jpg",
       "list_count": 1,
       "views": 634809,
-      "desk_rank": 31
+      "desk_rank": 34
     },
     {
       "id": "x-2116005725814280570",
@@ -1580,7 +1700,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116003610509377536/img/tTDEreSob9R_UftI.jpg",
       "list_count": 1,
       "views": 160324,
-      "desk_rank": 32
+      "desk_rank": 35
     },
     {
       "id": "x-2116349211549843666",
@@ -1625,7 +1745,7 @@
       "media_url": "https://pbs.twimg.com/media/HV7E-P7bwAA7OxM.jpg",
       "list_count": 3,
       "views": 164409,
-      "desk_rank": 33
+      "desk_rank": 36
     },
     {
       "id": "x-2116186509384815084",
@@ -1672,7 +1792,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116186389536788480/img/hbO4g10coOsa0Gy3.jpg",
       "list_count": 4,
       "views": 201542,
-      "desk_rank": 34
+      "desk_rank": 37
     },
     {
       "id": "x-2116564505719185593",
@@ -1723,7 +1843,7 @@
       "media_url": "https://pbs.twimg.com/media/HV9_1tmW4AAmHhN.jpg",
       "list_count": 7,
       "views": 412,
-      "desk_rank": 35
+      "desk_rank": 38
     },
     {
       "id": "x-2116188727579918358",
@@ -1774,7 +1894,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116188665508397058/img/e7TjmUY-YuCA7Wfl.jpg",
       "list_count": 6,
       "views": 339,
-      "desk_rank": 36
+      "desk_rank": 39
     },
     {
       "id": "x-2115777746639196376",
@@ -1815,7 +1935,7 @@
       "media_url": "https://pbs.twimg.com/media/HVzAlG4aYAEdykK.jpg",
       "list_count": 1,
       "views": 49674,
-      "desk_rank": 37
+      "desk_rank": 40
     },
     {
       "id": "x-2117285608745820372",
@@ -1856,7 +1976,52 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117276914591399937/img/UT3OrHoJmR0zyCbG.jpg",
       "list_count": 1,
       "views": 15572,
-      "desk_rank": 38
+      "desk_rank": 41
+    },
+    {
+      "id": "x-2117408792346509663",
+      "headline": "OpenAI built Pando, a new Git backend for its monorepo that cut push latency about 80%",
+      "summary": "OpenAI's developer team says Pando handles more pushes and fetches without changing how its engineers and agents use Git. It cut median push latency by nearly 80%, now serves nearly a petabyte of Git data a day, updates different branches in parallel, and serves fetches from reus",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-03T00:09:30.000Z",
+      "author_name": "OpenAIDevs",
+      "source_list": "AI's Best, AI Companies: Developers, AI Founders",
+      "list_names": [
+        "AI's Best",
+        "AI Companies: Developers",
+        "AI Founders #3 of 3"
+      ],
+      "chip_labels": [
+        "AI's Best",
+        "AI Companies: Developers",
+        "AI Founders"
+      ],
+      "source_url": "https://x.com/OpenAIDevs/status/2117408792346509663",
+      "sources": [
+        {
+          "label": "@OpenAIDevs",
+          "url": "https://x.com/OpenAIDevs/status/2117408792346509663"
+        }
+      ],
+      "body": "OpenAI's developer team says Pando handles more pushes and fetches without changing how its engineers and agents use Git. It cut median push latency by nearly 80%, now serves nearly a petabyte of Git data a day, updates different branches in parallel, and serves fetches from reusable stored packfiles. OpenAI also contributed fixes back to Git, including cleanup after interrupted packfile downloads. Agent driven coding is multiplying Git traffic inside big labs; OpenAI rebuilding its Git backend shows source control is becoming an infrastructure bottleneck for agent heavy engineering.\n\n@OpenAIDevs posted: \"We built Pando, a new Git backend for our monorepo, to handle more pushes and fetches without changing how our engineers and agents use Git. Pando cut push latency by ~80% and now serves nearly a petabyte of Git data a day. We can grow Git capacity alongside agent usage.\"\n\n@stretchcloud added: \"The thing that almost broke OpenAI this year wasn't a model, it was git. Commit volume from Codex agents grew more than 2,400% a quarter since early 2024, and git backend reliability fell under 90%, slow fetches, failed merges, the works. They published the fix this week: Pando\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2568,
+        "like_count": 23,
+        "reply_count": 4,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert's AI's Best, AI Companies: Developers, AI Founders lists carried @OpenAIDevs, @stretchcloud.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "OpenAIDevs",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117408779730108416/img/M_YLvydUvu_YZd9I.jpg",
+      "list_count": 3,
+      "views": 2568,
+      "desk_rank": 42
     },
     {
       "id": "x-2115962853463396395",
@@ -1903,7 +2068,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115962720092921857/img/plyOVUvSUBS7c3NA.jpg",
       "list_count": 4,
       "views": 13818,
-      "desk_rank": 39
+      "desk_rank": 43
     },
     {
       "id": "x-2116254202301493459",
@@ -1946,7 +2111,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5x0vvbMAAVG9F.jpg",
       "list_count": 2,
       "views": 4261,
-      "desk_rank": 40
+      "desk_rank": 44
     },
     {
       "id": "x-2116236342653026706",
@@ -1993,7 +2158,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hjyXbUAEH7dA.jpg",
       "list_count": 4,
       "views": 2442,
-      "desk_rank": 41
+      "desk_rank": 45
     },
     {
       "id": "x-2116233418702733514",
@@ -2036,48 +2201,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5fFFEXoAA9thh.jpg",
       "list_count": 2,
       "views": 496,
-      "desk_rank": 42
-    },
-    {
-      "id": "x-2117691389265784919",
-      "headline": "Unity ships an official Codex plugin so OpenAI's coding agent can drive Unity skills",
-      "summary": "Unity Games released an official plugin for OpenAI's Codex in the universal plugin directory, letting the agent pick Unity skills mid task. Putting Codex inside Unity turns a general coding agent into a first party game engine coworker, which matters for any studio already living",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-03T18:52:26.000Z",
-      "author_name": "unitygames",
-      "source_list": "Spatial Computing",
-      "list_names": [
-        "Spatial Computing"
-      ],
-      "chip_labels": [
-        "Spatial Computing"
-      ],
-      "source_url": "https://x.com/unitygames/status/2117691389265784919",
-      "sources": [
-        {
-          "label": "@unitygames",
-          "url": "https://x.com/unitygames/status/2117691389265784919"
-        }
-      ],
-      "body": "Unity Games released an official plugin for OpenAI's Codex in the universal plugin directory, letting the agent pick Unity skills mid task. Putting Codex inside Unity turns a general coding agent into a first party game engine coworker, which matters for any studio already living in that editor.\n\n@unitygames posted: \"ICYMI: We launched the official Unity plugin for @OpenAI’s Codex, available directly in OpenAI’s universal plugin directory. Once installed, Codex can choose any skill in the plugin to help ensure the task is completed correctly. Check out our walkthrough of four different\"\n\n@tom_krikorian added: \"3 days not using Claude or Codex. I’m sobering up in some way?! I still dream about my agents doing work for me though Maybe recovering from surgery is the perfect opportunity to reset the brain a bit.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 21676,
-        "like_count": 232,
-        "reply_count": 12,
-        "retweet_count": 25
-      },
-      "why_it_matters": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "unitygames",
-      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117691327240388608/pu/img/Rklk0_3GWNQqca_u.jpg",
-      "list_count": 1,
-      "views": 21676,
-      "desk_rank": 43
+      "desk_rank": 46
     },
     {
       "id": "x-2115480443307041130",
@@ -2118,7 +2242,48 @@
       "media_url": "https://pbs.twimg.com/media/HVuyJKuaIAAXXUQ.jpg",
       "list_count": 1,
       "views": 11929,
-      "desk_rank": 44
+      "desk_rank": 47
+    },
+    {
+      "id": "x-2117691389265784919",
+      "headline": "Unity ships an official Codex plugin so OpenAI's coding agent can drive Unity skills",
+      "summary": "Unity Games released an official plugin for OpenAI's Codex in the universal plugin directory, letting the agent pick Unity skills mid task. Putting Codex inside Unity turns a general coding agent into a first party game engine coworker, which matters for any studio already living",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-03T18:52:26.000Z",
+      "author_name": "unitygames",
+      "source_list": "Spatial Computing",
+      "list_names": [
+        "Spatial Computing"
+      ],
+      "chip_labels": [
+        "Spatial Computing"
+      ],
+      "source_url": "https://x.com/unitygames/status/2117691389265784919",
+      "sources": [
+        {
+          "label": "@unitygames",
+          "url": "https://x.com/unitygames/status/2117691389265784919"
+        }
+      ],
+      "body": "Unity Games released an official plugin for OpenAI's Codex in the universal plugin directory, letting the agent pick Unity skills mid task. Putting Codex inside Unity turns a general coding agent into a first party game engine coworker, which matters for any studio already living in that editor.\n\n@unitygames posted: \"ICYMI: We launched the official Unity plugin for @OpenAI’s Codex, available directly in OpenAI’s universal plugin directory. Once installed, Codex can choose any skill in the plugin to help ensure the task is completed correctly. Check out our walkthrough of four different\"\n\n@tom_krikorian added: \"3 days not using Claude or Codex. I’m sobering up in some way?! I still dream about my agents doing work for me though Maybe recovering from surgery is the perfect opportunity to reset the brain a bit.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 21676,
+        "like_count": 232,
+        "reply_count": 12,
+        "retweet_count": 25
+      },
+      "why_it_matters": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "unitygames",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117691327240388608/pu/img/Rklk0_3GWNQqca_u.jpg",
+      "list_count": 1,
+      "views": 21676,
+      "desk_rank": 48
     },
     {
       "id": "x-2116560120457142451",
@@ -2159,7 +2324,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116559500933251072/img/GSMKoAbET-1y1M8Q.jpg",
       "list_count": 1,
       "views": 6933,
-      "desk_rank": 45
+      "desk_rank": 49
     },
     {
       "id": "x-2115890658636656826",
@@ -2204,7 +2369,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115888862664994816/img/lblQAbfEGXEDNyRh.jpg",
       "list_count": 3,
       "views": 120290,
-      "desk_rank": 46
+      "desk_rank": 50
     },
     {
       "id": "x-2116587096651505814",
@@ -2252,51 +2417,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg",
       "list_count": 5,
       "views": 275,
-      "desk_rank": 47
-    },
-    {
-      "id": "x-2116593734502797644",
-      "headline": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
-      "summary": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, wh",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-10-31T18:10:45.000Z",
-      "author_name": "dedene",
-      "source_list": "AI Community, AI Orgs, AR/VR Community, Blockchain/Web 3",
-      "list_names": [
-        "AI Community #5 of 9",
-        "AI Orgs & Events",
-        "AR/VR Community #2 of 2",
-        "Blockchain/Web 3 #1 of 2"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "AI Orgs",
-        "AR/VR Community",
-        "Blockchain/Web 3"
-      ],
-      "source_url": "https://x.com/dedene/status/2116593734502797644",
-      "sources": [
-        {
-          "label": "@dedene",
-          "url": "https://x.com/dedene/status/2116593734502797644"
-        }
-      ],
-      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents.\n\n@dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"\n\n@HermesWatcher added: \"@Teknium @ToniRMCardoso For the record, the \"LEAK\" was @NousResearch own website. The page literally says \"You are invited to the Hermes Mobile Beta.\"\" @TechMDAI added: \"RT @NeoAIForecast: First update dropped for the Offical Hermes Agent mobile app\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 10
-      },
-      "why_it_matters": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "dedene",
-      "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
-      "list_count": 4,
-      "views": 10,
-      "desk_rank": 48
+      "desk_rank": 51
     },
     {
       "id": "x-2116184730668298654",
@@ -2347,7 +2468,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116184615131979776/img/p0nSgnwEzMLoi7Lb.jpg",
       "list_count": 6,
       "views": 2732,
-      "desk_rank": 49
+      "desk_rank": 52
     },
     {
       "id": "x-2116236188319453386",
@@ -2392,7 +2513,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hqrJWYAA1M_E.jpg",
       "list_count": 3,
       "views": 11266,
-      "desk_rank": 50
+      "desk_rank": 53
     },
     {
       "id": "x-2116131501519868036",
@@ -2439,7 +2560,49 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 6,
       "views": 7,
-      "desk_rank": 51
+      "desk_rank": 54
+    },
+    {
+      "id": "x-2116593734502797644",
+      "headline": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
+      "summary": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, wh",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-10-31T18:10:45.000Z",
+      "author_name": "dedene",
+      "source_list": "AI Community, AI Orgs, Blockchain/Web 3",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AI Orgs & Events",
+        "Blockchain/Web 3 #1 of 2"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Orgs",
+        "Blockchain/Web 3"
+      ],
+      "source_url": "https://x.com/dedene/status/2116593734502797644",
+      "sources": [
+        {
+          "label": "@dedene",
+          "url": "https://x.com/dedene/status/2116593734502797644"
+        }
+      ],
+      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents.\n\n@dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"\n\n@HermesWatcher added: \"@Teknium @ToniRMCardoso For the record, the \"LEAK\" was @NousResearch own website. The page literally says \"You are invited to the Hermes Mobile Beta.\"\" @TRue_JDHarmony added: \"RT @afmedia_: Went to a @NousResearch party friday, saw dope art, and found an unmarked envelope with an invite to the Hermes mobile beta i…\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 10
+      },
+      "why_it_matters": "Robert's AI Community, AI Orgs & Events, Blockchain/Web 3 lists carried @dedene, @HermesWatcher, @TRue_JDHarmony.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "dedene",
+      "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
+      "list_count": 3,
+      "views": 10,
+      "desk_rank": 55
     },
     {
       "id": "x-2115867078964187368",
@@ -2482,7 +2645,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115849542835032070/img/DLvqI6GHXxdGBOR3.jpg",
       "list_count": 2,
       "views": 1007517,
-      "desk_rank": 52
+      "desk_rank": 56
     },
     {
       "id": "x-2116530643228295205",
@@ -2523,7 +2686,7 @@
       "media_url": "https://pbs.twimg.com/media/HV8QGvGWcAAmnqa.jpg",
       "list_count": 1,
       "views": 1408,
-      "desk_rank": 53
+      "desk_rank": 57
     },
     {
       "id": "x-2115866740705935621",
@@ -2564,7 +2727,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2115866633164017664/pu/img/j2KBZ5b15R_GbRnQ.jpg",
       "list_count": 1,
       "views": 9081,
-      "desk_rank": 54
+      "desk_rank": 58
     },
     {
       "id": "x-2116227954518978729",
@@ -2605,7 +2768,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116227869236215808/img/-xiBqjXdevC1DRL2.jpg",
       "list_count": 1,
       "views": 3688,
-      "desk_rank": 55
+      "desk_rank": 59
     },
     {
       "id": "x-2116551784235782494",
@@ -2648,7 +2811,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2116551633106522112/pu/img/0SXU3jLR4Q_cn8ES.jpg",
       "list_count": 2,
       "views": 329,
-      "desk_rank": 56
+      "desk_rank": 60
     },
     {
       "id": "x-2116222007658586306",
@@ -2689,7 +2852,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 1,
       "views": 2491,
-      "desk_rank": 57
+      "desk_rank": 61
     },
     {
       "id": "x-2116572625195470890",
@@ -2730,7 +2893,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-TaMxXUAEReuQ.png",
       "list_count": 2,
       "views": 34,
-      "desk_rank": 58
+      "desk_rank": 62
     },
     {
       "id": "x-2116181430359511443",
@@ -2771,7 +2934,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116177737778167809/img/3TkBGjOnva5_-o4-.jpg",
       "list_count": 1,
       "views": 9844,
-      "desk_rank": 59
+      "desk_rank": 63
     },
     {
       "id": "x-2116576079632912834",
@@ -2812,7 +2975,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116575995683913728/img/HerUHqv3Y7i_BXkc.jpg",
       "list_count": 1,
       "views": 7381,
-      "desk_rank": 60
+      "desk_rank": 64
     },
     {
       "id": "x-2116621333992005911",
@@ -2852,7 +3015,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116621244636504064/img/oYscG-9y5Zmzvwen.jpg",
       "list_count": 1,
       "views": 3627,
-      "desk_rank": 61
+      "desk_rank": 65
     },
     {
       "id": "x-2115936769229176975",
@@ -2893,7 +3056,7 @@
       "media_url": "https://pbs.twimg.com/media/HV1RRIJWoAA3Dud.jpg",
       "list_count": 1,
       "views": 3018,
-      "desk_rank": 62
+      "desk_rank": 66
     },
     {
       "id": "x-2116144490993832250",
@@ -2936,7 +3099,7 @@
       "media_url": "https://pbs.twimg.com/media/HV4OEyrXoAAaqBg.jpg",
       "list_count": 2,
       "views": 1363,
-      "desk_rank": 63
+      "desk_rank": 67
     },
     {
       "id": "x-2117255449657725295",
@@ -2976,7 +3139,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH9-TrWsAAMTkn.jpg",
       "list_count": 1,
       "views": 414,
-      "desk_rank": 64
+      "desk_rank": 68
     },
     {
       "id": "x-2115970151933935668",
@@ -3025,7 +3188,7 @@
       "media_url": "https://pbs.twimg.com/media/HWPjGPVa0AAgLPB.png",
       "list_count": 6,
       "views": 9984,
-      "desk_rank": 65
+      "desk_rank": 69
     },
     {
       "id": "x-2116621403327762856",
@@ -3068,7 +3231,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116621406511239168/RaJ-A8va?format=jpg&name=orig",
       "list_count": 2,
       "views": 17296,
-      "desk_rank": 66
+      "desk_rank": 70
     },
     {
       "id": "x-2116586054857719916",
@@ -3109,10 +3272,36 @@
       "media_url": "https://pbs.twimg.com/news_img/2116586056208269312/umgR00XK?format=jpg&name=orig",
       "list_count": 1,
       "views": 18549,
-      "desk_rank": 67
+      "desk_rank": 71
     }
   ],
   "signals": [
+    {
+      "id": "sig-x-2118337682090721365",
+      "title": "Moonshot sought Nvidia Blackwell capacity from European data centers amid U.S. curbs on China, CNBC reports",
+      "text": "Robert's News, World News, Tech News lists carried @CNBC, @DeItaone, @StockMKTNewz.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's News, World News, Tech News lists carried @CNBC, @DeItaone, @StockMKTNewz.",
+      "list_names": [
+        "News #1 of 3",
+        "World News",
+        "News #2 of 3",
+        "Tech News"
+      ],
+      "chip_labels": [
+        "News",
+        "World News",
+        "Tech News"
+      ],
+      "created_at": "2026-11-05T13:40:34.000Z",
+      "source_url": "https://x.com/CNBC/status/2118337682090721365",
+      "analysis": "Robert's News, World News, Tech News lists carried @CNBC, @DeItaone, @StockMKTNewz.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
     {
       "id": "sig-x-2118311860218835282",
       "title": "OpenAI hires Cat Wu, Anthropic's Claude Code product lead, to run product for its core products",
@@ -3174,28 +3363,30 @@
     {
       "id": "sig-x-2118336305520164998",
       "title": "Meta acquires Conductor, the parallel coding agent app, as AI coding moves to multi agent workflows",
-      "text": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "text": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "source_list": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "list_names": [
         "Tech News",
         "AI Community #9 of 9",
         "AI Founders #1 of 3",
         "AI Community #1 of 9",
+        "AI Orgs & Events",
         "Founders #2 of 3"
       ],
       "chip_labels": [
         "Tech News",
         "AI Community",
         "AI Founders",
+        "AI Orgs",
         "Founders"
       ],
       "created_at": "2026-11-05T13:35:06.000Z",
       "source_url": "https://x.com/InfoWorld/status/2118336305520164998",
-      "analysis": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "analysis": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -3272,6 +3463,48 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-x-2118312415276204328",
+      "title": "Grafana says Assistant error rate fell to 0.65% after six months of agent-tooling work",
+      "text": "Robert's AI Companies: Developers lists carried @grafana.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Developers lists carried @grafana.",
+      "list_names": [
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "AI Companies: Developers"
+      ],
+      "created_at": "2026-11-05T12:00:10.000Z",
+      "source_url": "https://x.com/grafana/status/2118312415276204328",
+      "analysis": "Robert's AI Companies: Developers lists carried @grafana.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118339046967808023",
+      "title": "BAAI and Chinese lab partners introduce CausGround, a plug and play causal grounding layer for embodied planners",
+      "text": "Robert's AI Orgs & Events lists carried @BAAIBeijing.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's AI Orgs & Events lists carried @BAAIBeijing.",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "created_at": "2026-11-05T13:46:00.000Z",
+      "source_url": "https://x.com/BAAIBeijing/status/2118339046967808023",
+      "analysis": "Robert's AI Orgs & Events lists carried @BAAIBeijing.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
       "id": "sig-x-2117642701890105725",
       "title": "Intology says its automated research system Locus sets the frontier for automating molecular design",
       "text": "Robert's AI Companies: Science/Med, AI's Best, AI Community lists carried @intology, @omarsar0, @yusufroohani.",
@@ -3298,50 +3531,30 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2118162131103478221",
-      "title": "webAI open-sources TwIL-8B, a small reasoning model that runs on a Mac mini",
-      "text": "Robert's AI Community lists carried @cgtwts, @pratikg.",
-      "badge": "signal",
-      "category": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "source_list": "Robert's AI Community lists carried @cgtwts, @pratikg.",
-      "list_names": [
-        "AI Community #7 of 9",
-        "AI Community #2 of 9"
-      ],
-      "chip_labels": [
-        "AI Community"
-      ],
-      "created_at": "2026-11-05T02:03:00.000Z",
-      "source_url": "https://x.com/cgtwts/status/2118162131103478221",
-      "analysis": "Robert's AI Community lists carried @cgtwts, @pratikg.",
-      "topic_key": "models",
-      "topic_label": "Models"
-    },
-    {
       "id": "sig-x-2117621415520448838",
       "title": "Sarvam releases Prism, an open-weights fast decision model built on Sarvam 105B",
-      "text": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community lists carried @SarvamAI, @VinayakGavariya, @cheatyyyy.",
+      "text": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community and 1 more lists carried @SarvamAI, @VinayakGavariya, @prajdabre.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community lists carried @SarvamAI, @VinayakGavariya, @cheatyyyy.",
+      "source_list": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community and 1 more lists carried @SarvamAI, @VinayakGavariya, @prajdabre.",
       "list_names": [
         "AI Companies: Voice",
         "AI Companies: Developers",
         "AI Community #2 of 9",
-        "AI Community #3 of 9"
+        "AI Community #1 of 9",
+        "AI's Best"
       ],
       "chip_labels": [
         "AI Companies: Voice",
         "AI Companies: Developers",
-        "AI Community"
+        "AI Community",
+        "AI's Best"
       ],
       "created_at": "2026-11-03T14:14:23.000Z",
       "source_url": "https://x.com/SarvamAI/status/2117621415520448838",
-      "analysis": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community lists carried @SarvamAI, @VinayakGavariya, @cheatyyyy.",
+      "analysis": "Robert's AI Companies: Voice, AI Companies: Developers, AI Community and 1 more lists carried @SarvamAI, @VinayakGavariya, @prajdabre.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -3371,16 +3584,17 @@
     {
       "id": "sig-x-2118148396733050987",
       "title": "Kimi K3.1 Pro's open-weight license carves out Moonshot's biggest commercial users",
-      "text": "Robert's AI's Best, Tech News, AI: Decentralized and 1 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
+      "text": "Robert's AI's Best, Tech News, AI: Decentralized and 2 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert's AI's Best, Tech News, AI: Decentralized and 1 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
+      "source_list": "Robert's AI's Best, Tech News, AI: Decentralized and 2 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
       "list_names": [
         "AI's Best",
         "Tech News",
         "AI: Decentralized",
+        "AI Influencers",
         "AI Community #9 of 9",
         "AI Community #6 of 9",
         "AI Community #3 of 9"
@@ -3389,11 +3603,12 @@
         "AI's Best",
         "Tech News",
         "AI: Decentralized",
+        "AI Influencers",
         "AI Community"
       ],
       "created_at": "2026-11-05T01:08:25.000Z",
       "source_url": "https://x.com/thePandaily/status/2118148396733050987",
-      "analysis": "Robert's AI's Best, Tech News, AI: Decentralized and 1 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
+      "analysis": "Robert's AI's Best, Tech News, AI: Decentralized and 2 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -3421,71 +3636,27 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2116220869479428500",
-      "title": "Anthropic renames Claude Max 20x to Ultra and drops the 5-hour limit for verified Ultra accounts",
-      "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
+      "id": "sig-x-2118313092279067026",
+      "title": "KAIST team releases DreamFree, a 14B imagination free World Action Model running at 11 Hz",
+      "text": "Robert's AI Community lists carried @Jaehyeong_Jo, @SeonghyeonYe.",
       "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's AI Community lists carried @Jaehyeong_Jo, @SeonghyeonYe.",
       "list_names": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
+        "AI Community #5 of 9",
         "AI Community #1 of 9",
-        "AI Orgs & Events",
-        "AI Companies: #1 of 2-All",
-        "AI Founders #2 of 3"
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
-        "AI Community",
-        "AI Orgs",
-        "AI Companies:-All",
-        "AI Founders"
+        "AI Community"
       ],
-      "created_at": "2026-10-30T17:29:07.000Z",
-      "source_url": "https://x.com/claudeai/status/2116220869479428500",
-      "analysis": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2115985388649242699",
-      "title": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
-      "text": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 2 more lists carried @vllm_project, @dextune, @RobertTLange.",
-      "badge": "signal",
-      "category": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "source_list": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 2 more lists carried @vllm_project, @dextune, @RobertTLange.",
-      "list_names": [
-        "AI Companies: #2 of 2-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community #1 of 9",
-        "AI Community #4 of 9",
-        "Quantum"
-      ],
-      "chip_labels": [
-        "AI Companies:-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community",
-        "Quantum"
-      ],
-      "created_at": "2026-10-30T01:53:24.000Z",
-      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
-      "analysis": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 2 more lists carried @vllm_project, @dextune, @RobertTLange.",
-      "topic_key": "models",
-      "topic_label": "Models"
+      "created_at": "2026-11-05T12:02:52.000Z",
+      "source_url": "https://x.com/Jaehyeong_Jo/status/2118313092279067026",
+      "analysis": "Robert's AI Community lists carried @Jaehyeong_Jo, @SeonghyeonYe.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2117680635561312732",
@@ -3632,6 +3803,34 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-x-2115985388649242699",
+      "title": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
+      "text": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @RobertTLange.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @RobertTLange.",
+      "list_names": [
+        "AI Companies: #2 of 2-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community"
+      ],
+      "created_at": "2026-10-30T01:53:24.000Z",
+      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
+      "analysis": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @RobertTLange.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
       "id": "sig-x-2118156252165358037",
       "title": "FrontierCS 1.1 updates its open-ended algorithm benchmark to test modern AI agents",
       "text": "Robert's AI Community, AI: Computer Vision lists carried @wenhaocha1, @lihanc02, @rqiang_rushi.",
@@ -3657,30 +3856,37 @@
       "topic_label": "Models"
     },
     {
-      "id": "sig-x-2117249008972550447",
-      "title": "Deep Principle launches Hydrogen-1.0, a general-purpose AI model for scientific discovery",
-      "text": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @RussellQuantum, @ChengleiSi.",
+      "id": "sig-x-2116220869479428500",
+      "title": "Anthropic renames Claude Max 20x to Ultra and drops the 5-hour limit for verified Ultra accounts",
+      "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 4 more lists carried @claudeai, @StatsWire, @grok.",
       "badge": "signal",
-      "category": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "source_list": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @RussellQuantum, @ChengleiSi.",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 4 more lists carried @claudeai, @StatsWire, @grok.",
       "list_names": [
+        "AI Companies: Marketing",
+        "AI Companies: Education",
         "AI Companies: Science/Med",
-        "AI Community #9 of 9",
-        "AI Community #1 of 9",
-        "AI Influencers"
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs & Events",
+        "AI Companies: #1 of 2-All"
       ],
       "chip_labels": [
+        "AI Companies: Marketing",
+        "AI Companies: Education",
         "AI Companies: Science/Med",
-        "AI Community",
-        "AI Influencers"
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs",
+        "AI Companies:-All"
       ],
-      "created_at": "2026-11-02T13:34:34.000Z",
-      "source_url": "https://x.com/DeepPrinciple/status/2117249008972550447",
-      "analysis": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @RussellQuantum, @ChengleiSi.",
-      "topic_key": "models",
-      "topic_label": "Models"
+      "created_at": "2026-10-30T17:29:07.000Z",
+      "source_url": "https://x.com/claudeai/status/2116220869479428500",
+      "analysis": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 4 more lists carried @claudeai, @StatsWire, @grok.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2117670295339171994",
@@ -3706,32 +3912,26 @@
       "topic_label": "Models"
     },
     {
-      "id": "sig-x-2117408792346509663",
-      "title": "OpenAI built Pando, a new Git backend for its monorepo that cut push latency about 80%",
-      "text": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @stretchcloud.",
+      "id": "sig-x-2118162131103478221",
+      "title": "webAI open-sources TwIL-8B, a small reasoning model that runs on a Mac mini",
+      "text": "Robert's AI Community lists carried @cgtwts, @pratikg.",
       "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @stretchcloud.",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Community lists carried @cgtwts, @pratikg.",
       "list_names": [
-        "AI's Best",
-        "AI Companies: Developers",
-        "AI Community #5 of 9",
-        "AI Founders #3 of 3",
-        "AI Community #4 of 9"
+        "AI Community #7 of 9",
+        "AI Community #2 of 9"
       ],
       "chip_labels": [
-        "AI's Best",
-        "AI Companies: Developers",
-        "AI Community",
-        "AI Founders"
+        "AI Community"
       ],
-      "created_at": "2026-11-03T00:09:30.000Z",
-      "source_url": "https://x.com/OpenAIDevs/status/2117408792346509663",
-      "analysis": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @stretchcloud.",
-      "topic_key": "products",
-      "topic_label": "Products"
+      "created_at": "2026-11-05T02:03:00.000Z",
+      "source_url": "https://x.com/cgtwts/status/2118162131103478221",
+      "analysis": "Robert's AI Community lists carried @cgtwts, @pratikg.",
+      "topic_key": "models",
+      "topic_label": "Models"
     },
     {
       "id": "sig-x-2117663862564573240",
@@ -3813,6 +4013,31 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-x-2117249008972550447",
+      "title": "Deep Principle launches Hydrogen-1.0, a general-purpose AI model for scientific discovery",
+      "text": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @ChengleiSi, @andresvilarino.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @ChengleiSi, @andresvilarino.",
+      "list_names": [
+        "AI Companies: Science/Med",
+        "AI Community #1 of 9",
+        "AI Influencers"
+      ],
+      "chip_labels": [
+        "AI Companies: Science/Med",
+        "AI Community",
+        "AI Influencers"
+      ],
+      "created_at": "2026-11-02T13:34:34.000Z",
+      "source_url": "https://x.com/DeepPrinciple/status/2117249008972550447",
+      "analysis": "Robert's AI Companies: Science/Med, AI Community, AI Influencers lists carried @DeepPrinciple, @ChengleiSi, @andresvilarino.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
       "id": "sig-x-2116573344283681010",
       "title": "Anthropic's IPO filing reports an $80B loss as leveraged ANT ETFs wait on approval",
       "text": "Robert's AI Orgs & Events, AI's Best, AI Community lists carried @LifeboatHQ, @apples_jimmy, @rohanpaul_ai.",
@@ -3840,12 +4065,12 @@
     {
       "id": "sig-x-2116598588172374141",
       "title": "a16z: token prices are down 67% since May, but token spend is up more than 120%",
-      "text": "Robert's VC Firms, AI's Best, AI Orgs & Events and 2 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
+      "text": "Robert's VC Firms, AI's Best, AI Orgs & Events and 4 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
       "badge": "signal",
       "category": "funding",
       "section_key": "funding",
       "section_label": "Funding",
-      "source_list": "Robert's VC Firms, AI's Best, AI Orgs & Events and 2 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
+      "source_list": "Robert's VC Firms, AI's Best, AI Orgs & Events and 4 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
       "list_names": [
         "VC Firms",
         "AI's Best",
@@ -3853,18 +4078,21 @@
         "AI Community #2 of 9",
         "Devs, Designers, DevRel 1",
         "AI Community #8 of 9",
-        "AI Community #6 of 9"
+        "AI Companies: Marketing",
+        "AI Companies: Developers"
       ],
       "chip_labels": [
         "VC Firms",
         "AI's Best",
         "AI Orgs",
         "AI Community",
-        "Devs, Designers, DevRel 1"
+        "Devs, Designers, DevRel 1",
+        "AI Companies: Marketing",
+        "AI Companies: Developers"
       ],
       "created_at": "2026-10-31T18:30:02.000Z",
       "source_url": "https://x.com/a16z/status/2116598588172374141",
-      "analysis": "Robert's VC Firms, AI's Best, AI Orgs & Events and 2 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
+      "analysis": "Robert's VC Firms, AI's Best, AI Orgs & Events and 4 more lists carried @a16z, @scaling01, @AgenticAIFdn.",
       "topic_key": "funding",
       "topic_label": "Funding"
     },
@@ -4069,6 +4297,31 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-x-2117408792346509663",
+      "title": "OpenAI built Pando, a new Git backend for its monorepo that cut push latency about 80%",
+      "text": "Robert's AI's Best, AI Companies: Developers, AI Founders lists carried @OpenAIDevs, @stretchcloud.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI's Best, AI Companies: Developers, AI Founders lists carried @OpenAIDevs, @stretchcloud.",
+      "list_names": [
+        "AI's Best",
+        "AI Companies: Developers",
+        "AI Founders #3 of 3"
+      ],
+      "chip_labels": [
+        "AI's Best",
+        "AI Companies: Developers",
+        "AI Founders"
+      ],
+      "created_at": "2026-11-03T00:09:30.000Z",
+      "source_url": "https://x.com/OpenAIDevs/status/2117408792346509663",
+      "analysis": "Robert's AI's Best, AI Companies: Developers, AI Founders lists carried @OpenAIDevs, @stretchcloud.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
       "id": "sig-x-2115962853463396395",
       "title": "NVIDIA pits open Nemotron Retriever against another open-source retrieval stack on accuracy and token use",
       "text": "Robert's AI Companies, AI Companies: Developers, AI Companies: Work and 1 more lists carried @NVIDIAAI.",
@@ -4169,27 +4422,6 @@
       "topic_label": "Papers"
     },
     {
-      "id": "sig-x-2117691389265784919",
-      "title": "Unity ships an official Codex plugin so OpenAI's coding agent can drive Unity skills",
-      "text": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
-      "list_names": [
-        "Spatial Computing"
-      ],
-      "chip_labels": [
-        "Spatial Computing"
-      ],
-      "created_at": "2026-11-03T18:52:26.000Z",
-      "source_url": "https://x.com/unitygames/status/2117691389265784919",
-      "analysis": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2115480443307041130",
       "title": "Samaya AI's Sterling model beats Claude on FrontierFinance at 11x lower cost",
       "text": "Robert's AI Companies: Education lists carried @samaya_AI.",
@@ -4209,6 +4441,27 @@
       "analysis": "Robert's AI Companies: Education lists carried @samaya_AI.",
       "topic_key": "models",
       "topic_label": "Models"
+    },
+    {
+      "id": "sig-x-2117691389265784919",
+      "title": "Unity ships an official Codex plugin so OpenAI's coding agent can drive Unity skills",
+      "text": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
+      "list_names": [
+        "Spatial Computing"
+      ],
+      "chip_labels": [
+        "Spatial Computing"
+      ],
+      "created_at": "2026-11-03T18:52:26.000Z",
+      "source_url": "https://x.com/unitygames/status/2117691389265784919",
+      "analysis": "Robert's Spatial Computing lists carried @unitygames, @tom_krikorian.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2116560120457142451",
@@ -4283,33 +4536,6 @@
       "analysis": "Robert's Tech Journalists/Analysts, Neuroscience, AI Community and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
       "topic_key": "labs",
       "topic_label": "Labs"
-    },
-    {
-      "id": "sig-x-2116593734502797644",
-      "title": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
-      "text": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
-      "list_names": [
-        "AI Community #5 of 9",
-        "AI Orgs & Events",
-        "AR/VR Community #2 of 2",
-        "Blockchain/Web 3 #1 of 2"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "AI Orgs",
-        "AR/VR Community",
-        "Blockchain/Web 3"
-      ],
-      "created_at": "2026-10-31T18:10:45.000Z",
-      "source_url": "https://x.com/dedene/status/2116593734502797644",
-      "analysis": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
-      "topic_key": "products",
-      "topic_label": "Products"
     },
     {
       "id": "sig-x-2116184730668298654",
@@ -4396,6 +4622,31 @@
       "analysis": "Robert's AI Creative People, AI Companies: Creative, AI Companies: Music/Audio and 2 more lists carried @Axylusion, @ComfyUI, @MireloAI.",
       "topic_key": "creatives",
       "topic_label": "Creatives"
+    },
+    {
+      "id": "sig-x-2116593734502797644",
+      "title": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
+      "text": "Robert's AI Community, AI Orgs & Events, Blockchain/Web 3 lists carried @dedene, @HermesWatcher, @TRue_JDHarmony.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Community, AI Orgs & Events, Blockchain/Web 3 lists carried @dedene, @HermesWatcher, @TRue_JDHarmony.",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AI Orgs & Events",
+        "Blockchain/Web 3 #1 of 2"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Orgs",
+        "Blockchain/Web 3"
+      ],
+      "created_at": "2026-10-31T18:10:45.000Z",
+      "source_url": "https://x.com/dedene/status/2116593734502797644",
+      "analysis": "Robert's AI Community, AI Orgs & Events, Blockchain/Web 3 lists carried @dedene, @HermesWatcher, @TRue_JDHarmony.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2115867078964187368",
@@ -4798,9 +5049,9 @@
   "bundles": [],
   "ai_sections": [],
   "top_pulls": [
+    "x-2118339046967808023",
+    "x-2118313092279067026",
     "x-2118336305520164998",
-    "x-2118311860218835282",
-    "x-2118313713396793615",
-    "x-2118124944928432327"
+    "x-2118313713396793615"
   ]
 }
