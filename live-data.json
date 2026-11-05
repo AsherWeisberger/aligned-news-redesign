@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-11-05T18:33:06.000Z",
-    "scrapedAt": "2026-11-05T18:33:06.000Z",
+    "generatedAt": "2026-11-05T19:15:02.000Z",
+    "scrapedAt": "2026-11-05T19:15:02.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 89 stories, source /workspace/pulse/dumps/LATEST_PACK.json",
+    "note": "CONTEXT writeup, 91 stories, source /workspace/pulse/dumps/live-pack-20261105-141207-et.json",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 54,
-    "stories": 89,
-    "signals": 88,
+    "stories": 91,
+    "signals": 90,
     "reports": 4
   },
   "chips": [
@@ -141,34 +141,83 @@
   ],
   "stories": [
     {
-      "id": "x-2118403114890137895",
-      "headline": "Anthropic puts Personal Finance in Claude, a read only US beta that answers money questions from your own accounts",
-      "summary": "Anthropic is rolling out Personal Finance in Claude as a US beta on the Pro, Max and Ultra plans. You connect the accounts you choose and Claude answers money questions in everyday language from your own balances and transactions, with up to two years of history linked through Pl",
+      "id": "x-2118389326459670825",
+      "headline": "Perplexity launches Teammates, proactive agents that take on jobs inside Computer for Max subscribers",
+      "summary": "Perplexity introduced Teammates, agents that work for you inside its Computer product. According to Perplexity, each teammate starts from your existing Projects, skills and memory, takes on ongoing jobs, monitors work and acts when something changes without being prompted, collab",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
+      "published_at": "2026-11-05T17:05:47.000Z",
+      "author_name": "perplexity_ai",
+      "source_list": "AI Companies: Education, AI's Best, News, AI Community, AI Orgs",
+      "list_names": [
+        "AI Companies: Education",
+        "AI's Best",
+        "News #2 of 3",
+        "AI Community #1 of 9",
+        "AI Community #5 of 9",
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Companies: Education",
+        "AI's Best",
+        "News",
+        "AI Community",
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/perplexity_ai/status/2118389326459670825",
+      "sources": [
+        {
+          "label": "@perplexity_ai",
+          "url": "https://x.com/perplexity_ai/status/2118389326459670825"
+        }
+      ],
+      "body": "Perplexity introduced Teammates, agents that work for you inside its Computer product. According to Perplexity, each teammate starts from your existing Projects, skills and memory, takes on ongoing jobs, monitors work and acts when something changes without being prompted, collaborates with other teammates and can message coworkers in Slack. Each runs in its own isolated environment under Computer's existing tool and Project permissions, and you can review its work, take over the desktop or redirect it. Teammates are available now for Max subscribers on the web.\n\nThe shift is from prompting an assistant in a session to handing standing jobs to agents. Aravind Srinivas posted on AI's Best that Perplexity's internal workspace already has about 10,000 teammates from the last 30 days, which he says is 20 times its headcount, with about 1,000 active yesterday; that is the company's own figure. The launch post drew about 37K views on the AI Companies: Education list and the follow ups ran on AI's Best, with replies across the AI Community lists.\n\nWatch next: whether Teammates leave the Max tier, how permissions hold up when agents act unprompted, and how rival agent products answer.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 37000,
+        "like_count": 388,
+        "reply_count": 46,
+        "retweet_count": 35
+      },
+      "why_it_matters": "Robert's AI Companies: Education, AI's Best, News and 2 more lists carried @perplexity_ai, @wallstengine, @ashishjayamohan.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "perplexity_ai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118389256930660352/img/GPUe0mXgz4f2dJ6O.jpg",
+      "list_count": 6,
+      "views": 37000,
+      "desk_rank": 1
+    },
+    {
+      "id": "x-2118403114890137895",
+      "headline": "Anthropic puts Personal Finance in Claude, a read only US beta that answers money questions from your own accounts",
+      "summary": "Anthropic is rolling out Personal Finance in Claude as a US beta on the Pro, Max and Ultra plans. You connect the accounts you choose and Claude answers money questions in everyday language from your own balances and transactions, with up to two years of history linked through Pl",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
       "published_at": "2026-11-05T18:00:35.000Z",
       "author_name": "claudeai",
-      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI Community, Infrastructure, Devs, Designers, DevRel 1, Devs, Designers, DevRel 2",
+      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI's Best, AI Community, Infrastructure",
       "list_names": [
         "AI Companies: Marketing",
         "AI Companies: Education",
         "AI Companies: Science/Med",
+        "AI's Best",
         "AI Community #7 of 9",
         "AI Community #4 of 9",
-        "Infrastructure",
-        "Devs, Designers, DevRel 1",
-        "Devs, Designers, DevRel 2"
+        "AI Community #2 of 9",
+        "Infrastructure"
       ],
       "chip_labels": [
         "AI Companies: Marketing",
         "AI Companies: Education",
         "AI Companies: Science/Med",
+        "AI's Best",
         "AI Community",
-        "Infrastructure",
-        "Devs, Designers, DevRel 1",
-        "Devs, Designers, DevRel 2"
+        "Infrastructure"
       ],
       "source_url": "https://x.com/claudeai/status/2118403114890137895",
       "sources": [
@@ -185,14 +234,14 @@
         "reply_count": 201,
         "retweet_count": 123
       },
-      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 4 more lists carried @claudeai, @TokenGremlin, @kr0der.",
-      "topic_key": "world",
-      "topic_label": "World",
+      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 3 more lists carried @claudeai, @kimmonismus, @TokenGremlin.",
+      "topic_key": "products",
+      "topic_label": "Products",
       "x_handle": "claudeai",
       "media_url": "https://pbs.twimg.com/media/HWYUk7ZWwAAcrVe.jpg",
       "list_count": 8,
       "views": 106642,
-      "desk_rank": 1
+      "desk_rank": 2
     },
     {
       "id": "x-2118390190246879554",
@@ -238,7 +287,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118387217588465664/img/N2grMUmP0O_EMvS2.jpg",
       "list_count": 4,
       "views": 21789,
-      "desk_rank": 2
+      "desk_rank": 3
     },
     {
       "id": "x-2118337682090721365",
@@ -284,7 +333,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118337688025640960/1gfxjkWH?format=jpg&name=orig",
       "list_count": 5,
       "views": 4680,
-      "desk_rank": 3
+      "desk_rank": 4
     },
     {
       "id": "x-2118311860218835282",
@@ -333,7 +382,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXBQkYXYAAE8VO.png",
       "list_count": 6,
       "views": 4472,
-      "desk_rank": 4
+      "desk_rank": 5
     },
     {
       "id": "x-2118387953005179312",
@@ -345,13 +394,15 @@
       "tag": "robotics",
       "published_at": "2026-11-05T17:00:20.000Z",
       "author_name": "NVIDIAAI",
-      "source_list": "Tech Companies, AI Vehicles",
+      "source_list": "Tech Companies, AI's Best, AI Vehicles",
       "list_names": [
         "Tech Companies",
+        "AI's Best",
         "AI Vehicles"
       ],
       "chip_labels": [
         "Tech Companies",
+        "AI's Best",
         "AI Vehicles"
       ],
       "source_url": "https://x.com/NVIDIAAI/status/2118387953005179312",
@@ -369,14 +420,14 @@
         "reply_count": 2,
         "retweet_count": 1
       },
-      "why_it_matters": "Robert's Tech Companies, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
+      "why_it_matters": "Robert's Tech Companies, AI's Best, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "NVIDIAAI",
       "media_url": "https://pbs.twimg.com/news_img/2118388062375776257/Zm41lLuF?format=jpg&name=orig",
-      "list_count": 2,
+      "list_count": 3,
       "views": 2057,
-      "desk_rank": 5
+      "desk_rank": 6
     },
     {
       "id": "x-2118389961426874879",
@@ -421,7 +472,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118387774378192896/img/dPbZ-qxFOtFSBnvZ.jpg",
       "list_count": 3,
       "views": 4079,
-      "desk_rank": 6
+      "desk_rank": 7
     },
     {
       "id": "x-2118382075564929178",
@@ -464,7 +515,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYBPdya0AEp6uj.png",
       "list_count": 3,
       "views": 278,
-      "desk_rank": 7
+      "desk_rank": 8
     },
     {
       "id": "x-2118373611408945493",
@@ -508,7 +559,7 @@
       "media_url": "https://pbs.twimg.com/media/HWVOvVBaMAAYT0_.jpg",
       "list_count": 3,
       "views": 2001,
-      "desk_rank": 8
+      "desk_rank": 9
     },
     {
       "id": "x-2118348902210449896",
@@ -551,7 +602,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118348838247223296/img/6KKHNO6nbSUmRAVk.jpg",
       "list_count": 2,
       "views": 1560,
-      "desk_rank": 9
+      "desk_rank": 10
     },
     {
       "id": "x-2118313713396793615",
@@ -600,7 +651,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXDCMLbkAAggJK.jpg",
       "list_count": 5,
       "views": 4862,
-      "desk_rank": 10
+      "desk_rank": 11
     },
     {
       "id": "x-2118336305520164998",
@@ -646,7 +697,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118306324610195456/RIR3ExhD?format=jpg&name=orig",
       "list_count": 6,
       "views": 44,
-      "desk_rank": 11
+      "desk_rank": 12
     },
     {
       "id": "x-2118288470275674172",
@@ -687,7 +738,7 @@
       "media_url": "https://pbs.twimg.com/media/HWWsI2JWUAAK1Fm.jpg",
       "list_count": 1,
       "views": 5122,
-      "desk_rank": 12
+      "desk_rank": 13
     },
     {
       "id": "x-2118380813498892301",
@@ -730,7 +781,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118374869645864960/img/X0zFDyMQe_jbJcnE.jpg",
       "list_count": 2,
       "views": 7479,
-      "desk_rank": 13
+      "desk_rank": 14
     },
     {
       "id": "x-2118388149449871712",
@@ -771,7 +822,48 @@
       "media_url": "https://pbs.twimg.com/media/HWYGy3FaoAA_fix.jpg",
       "list_count": 1,
       "views": 3773,
-      "desk_rank": 14
+      "desk_rank": 15
+    },
+    {
+      "id": "x-2118417772774580623",
+      "headline": "METR reviews Anthropic's automated R&D risk report and says the public version understated the risk",
+      "summary": "METR published a review of the Risks from automated R&D section of Anthropic's August 2026 Risk Report, done with access to the nonpublic version. The key question was whether Anthropic had crossed its AI R&D acceleration threshold. Anthropic's report said no, and METR's best gue",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-11-05T18:58:49.000Z",
+      "author_name": "METR_Evals",
+      "source_list": "AI Orgs",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/METR_Evals/status/2118417772774580623",
+      "sources": [
+        {
+          "label": "@METR_Evals",
+          "url": "https://x.com/METR_Evals/status/2118417772774580623"
+        }
+      ],
+      "body": "METR published a review of the Risks from automated R&D section of Anthropic's August 2026 Risk Report, done with access to the nonpublic version. The key question was whether Anthropic had crossed its AI R&D acceleration threshold. Anthropic's report said no, and METR's best guess was also no, but METR says the public report understated how plausible it was that acceleration was above the threshold. METR says even a roughly 2x acceleration would likely fall short of what Anthropic's catastrophic scenarios require, so it agrees the risk of directly automating R&D was low for models as of mid July.\n\nMETR notes Anthropic made marked redactions and canceled a planned compute allocation assessment before METR reached substantial conclusions, and that its own estimate could overstate acceleration. This is METR's review and conclusions, posted by METR_Evals on the AI Orgs and Events list, not an independent replication.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 831,
+        "like_count": 22,
+        "reply_count": 2,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert's AI Orgs & Events lists carried @METR_Evals.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "METR_Evals",
+      "media_url": "https://pbs.twimg.com/news_img/2118413806892359680/vpgRYSE_?format=png&name=orig",
+      "list_count": 1,
+      "views": 831,
+      "desk_rank": 16
     },
     {
       "id": "x-2118337164702318837",
@@ -816,7 +908,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXX-rnWQAE1YHu.png",
       "list_count": 4,
       "views": 53,
-      "desk_rank": 15
+      "desk_rank": 17
     },
     {
       "id": "x-2118368740819800135",
@@ -859,7 +951,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXylo3bIAAvLXF.png",
       "list_count": 2,
       "views": 449,
-      "desk_rank": 16
+      "desk_rank": 18
     },
     {
       "id": "x-2118388127337517276",
@@ -900,48 +992,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYGxntaYAEkf3o.jpg",
       "list_count": 1,
       "views": 1120,
-      "desk_rank": 17
-    },
-    {
-      "id": "x-2118390043249434915",
-      "headline": "Epoch AI poll finds 26% of US workers used a paid AI service for their job last week",
-      "summary": "Epoch AI's first monthly poll with Ipsos, covering 2,015 US adults in October 2026, finds about 1 in 4 US workers (26%) used a paid AI service for their job in the past week, whether paid by employer, themselves or both. Another 15% used only free tools and 55% did not use AI for",
-      "section": "policy",
-      "section_key": "policy",
-      "section_label": "Policy",
-      "tag": "policy",
-      "published_at": "2026-11-05T17:08:38.000Z",
-      "author_name": "EpochAIResearch",
-      "source_list": "AI Orgs",
-      "list_names": [
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI Orgs"
-      ],
-      "source_url": "https://x.com/EpochAIResearch/status/2118390043249434915",
-      "sources": [
-        {
-          "label": "@EpochAIResearch",
-          "url": "https://x.com/EpochAIResearch/status/2118390043249434915"
-        }
-      ],
-      "body": "Epoch AI's first monthly poll with Ipsos, covering 2,015 US adults in October 2026, finds about 1 in 4 US workers (26%) used a paid AI service for their job in the past week, whether paid by employer, themselves or both. Another 15% used only free tools and 55% did not use AI for work at all.\n\nIt is a hard baseline for how much AI work is actually paid for, and it will now update every month. EpochAIResearch posted it on the AI Orgs and Events list.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 446,
-        "like_count": 5,
-        "reply_count": 1,
-        "retweet_count": 2
-      },
-      "why_it_matters": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
-      "topic_key": "policy",
-      "topic_label": "Policy",
-      "x_handle": "EpochAIResearch",
-      "media_url": "https://pbs.twimg.com/media/HWYIhJ3aUAAcoM8.png",
-      "list_count": 1,
-      "views": 446,
-      "desk_rank": 18
+      "desk_rank": 19
     },
     {
       "id": "x-2118360866517127217",
@@ -982,7 +1033,48 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118360607564959746/img/liQc2dydENJnI189.jpg",
       "list_count": 2,
       "views": 89,
-      "desk_rank": 19
+      "desk_rank": 20
+    },
+    {
+      "id": "x-2118390043249434915",
+      "headline": "Epoch AI poll finds 26% of US workers used a paid AI service for their job last week",
+      "summary": "Epoch AI's first monthly poll with Ipsos, covering 2,015 US adults in October 2026, finds about 1 in 4 US workers (26%) used a paid AI service for their job in the past week, whether paid by employer, themselves or both. Another 15% used only free tools and 55% did not use AI for",
+      "section": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "tag": "policy",
+      "published_at": "2026-11-05T17:08:38.000Z",
+      "author_name": "EpochAIResearch",
+      "source_list": "AI Orgs",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/EpochAIResearch/status/2118390043249434915",
+      "sources": [
+        {
+          "label": "@EpochAIResearch",
+          "url": "https://x.com/EpochAIResearch/status/2118390043249434915"
+        }
+      ],
+      "body": "Epoch AI's first monthly poll with Ipsos, covering 2,015 US adults in October 2026, finds about 1 in 4 US workers (26%) used a paid AI service for their job in the past week, whether paid by employer, themselves or both. Another 15% used only free tools and 55% did not use AI for work at all.\n\nIt is a hard baseline for how much AI work is actually paid for, and it will now update every month. EpochAIResearch posted it on the AI Orgs and Events list.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 446,
+        "like_count": 5,
+        "reply_count": 1,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
+      "topic_key": "policy",
+      "topic_label": "Policy",
+      "x_handle": "EpochAIResearch",
+      "media_url": "https://pbs.twimg.com/media/HWYIhJ3aUAAcoM8.png",
+      "list_count": 1,
+      "views": 446,
+      "desk_rank": 21
     },
     {
       "id": "x-2118343990059872466",
@@ -1025,7 +1117,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118343914235269121/img/Chb7E4XuD4-VBUlV.jpg",
       "list_count": 2,
       "views": 190,
-      "desk_rank": 20
+      "desk_rank": 22
     },
     {
       "id": "x-2118124944928432327",
@@ -1072,7 +1164,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118124891572748288/img/ZSIlzNmSPQEK0Sfd.jpg",
       "list_count": 4,
       "views": 294064,
-      "desk_rank": 21
+      "desk_rank": 23
     },
     {
       "id": "x-2118337806120718495",
@@ -1117,7 +1209,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXY_67bUAA2CuZ.jpg",
       "list_count": 3,
       "views": 2045,
-      "desk_rank": 22
+      "desk_rank": 24
     },
     {
       "id": "x-2118321182327926885",
@@ -1157,7 +1249,54 @@
       "media_url": "https://pbs.twimg.com/news_img/2118321193174368256/Fe8ZJeDN?format=jpg&name=orig",
       "list_count": 1,
       "views": 375,
-      "desk_rank": 23
+      "desk_rank": 25
+    },
+    {
+      "id": "x-2118372770547487117",
+      "headline": "Luma ships Luma MCP so Claude and ChatGPT can run Luma's creative workflows end to end",
+      "summary": "Luma's company account says Luma MCP plugs its pre set creative workflows into Claude and ChatGPT, letting users reframe product photos, change scenes, and finish ads from the chat surface. Official same day MCP bridge from a major generative video studio into Claude/ChatGPT is a",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-11-05T16:00:00.000Z",
+      "author_name": "LumaLabsAI",
+      "source_list": "Spatial Computing, AR/VR Companies, AI Film Makers, AI Creative People",
+      "list_names": [
+        "Spatial Computing",
+        "AR/VR Companies",
+        "AI Film Makers",
+        "AI Creative People"
+      ],
+      "chip_labels": [
+        "Spatial Computing",
+        "AR/VR Companies",
+        "AI Film Makers",
+        "AI Creative People"
+      ],
+      "source_url": "https://x.com/LumaLabsAI/status/2118372770547487117",
+      "sources": [
+        {
+          "label": "@LumaLabsAI",
+          "url": "https://x.com/LumaLabsAI/status/2118372770547487117"
+        }
+      ],
+      "body": "Luma's company account says Luma MCP plugs its pre set creative workflows into Claude and ChatGPT, letting users reframe product photos, change scenes, and finish ads from the chat surface. Official same day MCP bridge from a major generative video studio into Claude/ChatGPT is a creative desk workflow shift, not another model card.\n\n@LumaLabsAI posted: \"The brief changed again. Luma MCP brings Luma’s pre set workflows into Claude and ChatGPT. Start with the product photo. Make the angles. Change the scene. Add the offer. Get to the finished creative. Q4 moves weekly. So should your creative.\"\n\n@stonekaiju added: \"@LumaLabsAI is now integrated with Claude and ChatGPT with an MCP connector. I got a chance to explore and test. This is my first Claude and Luma collaborative test. Still testing and will share more but really love how this turned out. This was all done through Claude’s chat\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1147,
+        "like_count": 3,
+        "reply_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert's Spatial Computing, AR/VR Companies, AI Film Makers and 1 more lists carried @LumaLabsAI, @stonekaiju.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "LumaLabsAI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118336075286355968/img/a4aXTR-CQzVfNQzH.jpg",
+      "list_count": 4,
+      "views": 1147,
+      "desk_rank": 26
     },
     {
       "id": "x-2118312415276204328",
@@ -1196,7 +1335,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118312417738317825/fzWBA5Lz?format=jpg&name=orig",
       "list_count": 1,
       "views": 202,
-      "desk_rank": 24
+      "desk_rank": 27
     },
     {
       "id": "x-2118035494898704781",
@@ -1241,7 +1380,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118035306914217984/img/sGJjd92ARR2-UPS3.jpg",
       "list_count": 3,
       "views": 85245,
-      "desk_rank": 25
+      "desk_rank": 28
     },
     {
       "id": "x-2118339046967808023",
@@ -1282,7 +1421,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118276810450587648/img/8-8VTY9fP3-EW9Li.jpg",
       "list_count": 1,
       "views": 115,
-      "desk_rank": 26
+      "desk_rank": 29
     },
     {
       "id": "x-2118313092279067026",
@@ -1329,7 +1468,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118312690062143488/img/7TuJlZdFiaVOxyym.jpg",
       "list_count": 5,
       "views": 46,
-      "desk_rank": 27
+      "desk_rank": 30
     },
     {
       "id": "x-2118408305857228876",
@@ -1370,7 +1509,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118405561645727744/img/Lx5FFI1zu_kODU-s.jpg",
       "list_count": 2,
       "views": 5,
-      "desk_rank": 28
+      "desk_rank": 31
     },
     {
       "id": "x-2118119451401048497",
@@ -1413,7 +1552,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUQl7QbwAAkznq.png",
       "list_count": 2,
       "views": 208846,
-      "desk_rank": 29
+      "desk_rank": 32
     },
     {
       "id": "x-2118148396733050987",
@@ -1460,96 +1599,64 @@
       "media_url": "https://pbs.twimg.com/media/HWVNt0yaoAAM33x.png",
       "list_count": 6,
       "views": 34,
-      "desk_rank": 30
+      "desk_rank": 33
     },
     {
-      "id": "x-2117680635561312732",
-      "headline": "Anthropic lets Claude users auto connect plugins at login, with Claude acting as a trusted issuer for MCP servers",
-      "summary": "Claude users can now auto connect plugins when they sign in, as long as the plugin's MCP server accepts Claude as a trusted issuer. Admins can also use enterprise managed auth, built on an open MCP extension, to connect plugins for a whole organization through their identity prov",
+      "id": "x-2116220869479428500",
+      "headline": "Anthropic renames Claude Max 20x to Ultra and drops the 5 hour limit for verified Ultra accounts",
+      "summary": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; remov",
       "section": "products",
       "section_key": "products",
       "section_label": "Products",
       "tag": "products",
-      "published_at": "2026-11-03T18:09:42.000Z",
-      "author_name": "ClaudeDevs",
-      "source_list": "AI Companies: Developers, AI Influencers, AI Community",
+      "published_at": "2026-10-30T17:29:07.000Z",
+      "author_name": "claudeai",
+      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI Companies: Creative, AI Companies: Work, AI Orgs, AI Consultants, AI Community, AI Companies:-All",
       "list_names": [
-        "AI Companies: Developers",
-        "AI Influencers",
-        "AI Community #5 of 9",
-        "AI Community #3 of 9"
+        "AI Companies: Marketing",
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs & Events",
+        "AI Consultants",
+        "AI Community #2 of 9",
+        "AI Companies: #1 of 2-All"
       ],
       "chip_labels": [
-        "AI Companies: Developers",
-        "AI Influencers",
-        "AI Community"
+        "AI Companies: Marketing",
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs",
+        "AI Consultants",
+        "AI Community",
+        "AI Companies:-All"
       ],
-      "source_url": "https://x.com/ClaudeDevs/status/2117680635561312732",
+      "source_url": "https://x.com/claudeai/status/2116220869479428500",
       "sources": [
         {
-          "label": "@ClaudeDevs",
-          "url": "https://x.com/ClaudeDevs/status/2117680635561312732"
+          "label": "@claudeai",
+          "url": "https://x.com/claudeai/status/2116220869479428500"
         }
       ],
-      "body": "Claude users can now auto connect plugins when they sign in, as long as the plugin's MCP server accepts Claude as a trusted issuer. Admins can also use enterprise managed auth, built on an open MCP extension, to connect plugins for a whole organization through their identity provider. Anthropic says the trusted issuer option is in beta on Team and Enterprise plans with partners including Atlassian, Datadog, Figma, HubSpot, Linear, Notion and Supabase. Re authorizing every tool is one of the biggest friction points for agent workflows; login time auth for MCP plugins makes company wide Claude rollouts much easier and pressures other assistants to match it.\n\n@ClaudeDevs posted: \"Users can now auto connect plugins when they log in to Claude, with MCP servers that accept Claude as a trusted issuer. If you’re building plugins for Claude, add support so users get started faster and stay connected without re authorizing.\"\n\n@AunySillyMe added: \"@ClaudeDevs How does this affect context window? Lot of connectors and plugins eat up context window to when they always stay connected.\" @OmkarRay9 added: \"re authorizing every plugin was the quiet reason half of them never got used. connect once at login and the whole org has its tools on day one. boring infra like this is what actually moves adoption\"",
+      "body": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; removing the window on the top tier is a direct move in the coding agent pricing war with OpenAI.\n\n@claudeai posted: \"We’re renaming our Max plans: Max 5x → Max Max 20x → Ultra Max is still $100/month, and Ultra is still $200. If you’re a subscriber, there’s nothing you need to do. We’re also removing the 5 hour limit for verified Ultra accounts, starting today with most existing\"\n\n@claudeai added: \"Like the rest of Claude, Personal Finance has no ads or sponsored recommendations. It helps you understand your money, and it isn’t designed to give investment advice. Rolling out gradually in the US on the Pro, Max, and Ultra plans:\" @StatsWire added: \"Claude Opus 4.6 just DESTROYED my Antigravity usage limits!!! A few hours ago, I still had 81% of my weekly Claude/GPT quota left. Now??? • Weekly limit: 45% left • 5 hour limit: 0% left • Reset in 1 hour 11 minutes Anyone else burning through Claude usage like this on\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 5659,
-        "like_count": 42,
-        "reply_count": 7,
-        "retweet_count": 4
+        "impression_count": 4269250,
+        "like_count": 26742,
+        "reply_count": 2158,
+        "retweet_count": 1585
       },
-      "why_it_matters": "Robert's AI Companies: Developers, AI Influencers, AI Community lists carried @ClaudeDevs, @AunySillyMe, @OmkarRay9.",
+      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
       "topic_key": "products",
       "topic_label": "Products",
-      "x_handle": "ClaudeDevs",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117680108706140161/img/W7IjAqq94Q6lFVOo.jpg",
-      "list_count": 4,
-      "views": 5659,
-      "desk_rank": 31
-    },
-    {
-      "id": "x-2118372770547487117",
-      "headline": "Luma ships Luma MCP so Claude and ChatGPT can run Luma's creative workflows end to end",
-      "summary": "Luma's company account says Luma MCP plugs its pre set creative workflows into Claude and ChatGPT, letting users reframe product photos, change scenes, and finish ads from the chat surface. Official same day MCP bridge from a major generative video studio into Claude/ChatGPT is a",
-      "section": "creatives",
-      "section_key": "creatives",
-      "section_label": "Creatives",
-      "tag": "creatives",
-      "published_at": "2026-11-05T16:00:00.000Z",
-      "author_name": "LumaLabsAI",
-      "source_list": "Spatial Computing, AR/VR Companies",
-      "list_names": [
-        "Spatial Computing",
-        "AR/VR Companies"
-      ],
-      "chip_labels": [
-        "Spatial Computing",
-        "AR/VR Companies"
-      ],
-      "source_url": "https://x.com/LumaLabsAI/status/2118372770547487117",
-      "sources": [
-        {
-          "label": "@LumaLabsAI",
-          "url": "https://x.com/LumaLabsAI/status/2118372770547487117"
-        }
-      ],
-      "body": "Luma's company account says Luma MCP plugs its pre set creative workflows into Claude and ChatGPT, letting users reframe product photos, change scenes, and finish ads from the chat surface. Official same day MCP bridge from a major generative video studio into Claude/ChatGPT is a creative desk workflow shift, not another model card.\n\n@LumaLabsAI posted: \"The brief changed again. Luma MCP brings Luma’s pre set workflows into Claude and ChatGPT. Start with the product photo. Make the angles. Change the scene. Add the offer. Get to the finished creative. Q4 moves weekly. So should your creative.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 1147,
-        "like_count": 3,
-        "reply_count": 1,
-        "retweet_count": 1
-      },
-      "why_it_matters": "Robert's Spatial Computing, AR/VR Companies lists carried @LumaLabsAI.",
-      "topic_key": "creatives",
-      "topic_label": "Creatives",
-      "x_handle": "LumaLabsAI",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118336075286355968/img/a4aXTR-CQzVfNQzH.jpg",
-      "list_count": 2,
-      "views": 1147,
-      "desk_rank": 32
+      "x_handle": "claudeai",
+      "media_url": "https://pbs.twimg.com/media/HV5MwwNWAAA5hUI.jpg",
+      "list_count": 9,
+      "views": 4269250,
+      "desk_rank": 34
     },
     {
       "id": "x-2118162131103478221",
@@ -1592,7 +1699,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUQJrCbwAEcG1p.jpg",
       "list_count": 4,
       "views": 85,
-      "desk_rank": 33
+      "desk_rank": 35
     },
     {
       "id": "x-2118151126445129928",
@@ -1637,7 +1744,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118151083084443648/img/khTlEZxI0I9CVLU1.jpg",
       "list_count": 3,
       "views": 1514,
-      "desk_rank": 34
+      "desk_rank": 36
     },
     {
       "id": "x-2115859377488072879",
@@ -1682,62 +1789,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV0G0uhbwAAclVn.jpg",
       "list_count": 3,
       "views": 784130,
-      "desk_rank": 35
-    },
-    {
-      "id": "x-2116220869479428500",
-      "headline": "Anthropic renames Claude Max 20x to Ultra and drops the 5 hour limit for verified Ultra accounts",
-      "summary": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; remov",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-10-30T17:29:07.000Z",
-      "author_name": "claudeai",
-      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI Companies: Creative, AI Companies: Work, AI Orgs, AI Consultants, AI Companies:-All",
-      "list_names": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
-        "AI Orgs & Events",
-        "AI Consultants",
-        "AI Companies: #1 of 2-All"
-      ],
-      "chip_labels": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
-        "AI Orgs",
-        "AI Consultants",
-        "AI Companies:-All"
-      ],
-      "source_url": "https://x.com/claudeai/status/2116220869479428500",
-      "sources": [
-        {
-          "label": "@claudeai",
-          "url": "https://x.com/claudeai/status/2116220869479428500"
-        }
-      ],
-      "body": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; removing the window on the top tier is a direct move in the coding agent pricing war with OpenAI.\n\n@claudeai posted: \"We’re renaming our Max plans: Max 5x → Max Max 20x → Ultra Max is still $100/month, and Ultra is still $200. If you’re a subscriber, there’s nothing you need to do. We’re also removing the 5 hour limit for verified Ultra accounts, starting today with most existing\"\n\n@claudeai added: \"Like the rest of Claude, Personal Finance has no ads or sponsored recommendations. It helps you understand your money, and it isn’t designed to give investment advice. Rolling out gradually in the US on the Pro, Max, and Ultra plans:\" @StatsWire added: \"Claude Opus 4.6 just DESTROYED my Antigravity usage limits!!! A few hours ago, I still had 81% of my weekly Claude/GPT quota left. Now??? • Weekly limit: 45% left • 5 hour limit: 0% left • Reset in 1 hour 11 minutes Anyone else burning through Claude usage like this on\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 4269250,
-        "like_count": 26742,
-        "reply_count": 2158,
-        "retweet_count": 1585
-      },
-      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 5 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "claudeai",
-      "media_url": "https://pbs.twimg.com/media/HV5MwwNWAAA5hUI.jpg",
-      "list_count": 8,
-      "views": 4269250,
-      "desk_rank": 36
+      "desk_rank": 37
     },
     {
       "id": "x-2118078402544734421",
@@ -1778,7 +1830,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118078407317786625/2wEhj8dX?format=jpg&name=orig",
       "list_count": 1,
       "views": 22118,
-      "desk_rank": 37
+      "desk_rank": 38
     },
     {
       "id": "x-2118129756889604452",
@@ -1822,7 +1874,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2118129671996858368/pu/img/RH8HHYSnneChecLe.jpg",
       "list_count": 3,
       "views": 663,
-      "desk_rank": 38
+      "desk_rank": 39
     },
     {
       "id": "x-2118062782562312416",
@@ -1863,50 +1915,6 @@
       "media_url": "https://pbs.twimg.com/media/HWTe2ZkaIAAQONR.png",
       "list_count": 1,
       "views": 4244,
-      "desk_rank": 39
-    },
-    {
-      "id": "x-2117670295339171994",
-      "headline": "Ai2 releases StateBench, an eval where frontier models drop to 13% or lower on long state tracking problems",
-      "summary": "The Allen Institute for AI (Ai2) introduced StateBench, a new evaluation of whether LLMs can track state changes over long texts, such as an object changing hands or a variable being reassigned. Ai2 says frontier models including GPT 6 Sol and Claude Opus 5.5 fell to 13% accuracy",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-11-03T17:28:37.000Z",
-      "author_name": "allen_ai",
-      "source_list": "AI Orgs, AI Community",
-      "list_names": [
-        "AI Orgs & Events",
-        "AI Community #3 of 9",
-        "AI Community #1 of 9"
-      ],
-      "chip_labels": [
-        "AI Orgs",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/allen_ai/status/2117670295339171994",
-      "sources": [
-        {
-          "label": "@allen_ai",
-          "url": "https://x.com/allen_ai/status/2117670295339171994"
-        }
-      ],
-      "body": "The Allen Institute for AI (Ai2) introduced StateBench, a new evaluation of whether LLMs can track state changes over long texts, such as an object changing hands or a variable being reassigned. Ai2 says frontier models including GPT 6 Sol and Claude Opus 5.5 fell to 13% accuracy or lower on the hardest, longest problems. Long context agents and coding tools depend on keeping track of what changed and when; a public benchmark showing top models collapsing on that task gives builders a concrete weakness to test against.\n\n@allen_ai posted: \"Can LLMs track state changes over long texts like an object changing hands or a variable reassignment? On our new StateBench eval, frontier models including GPT 6 Sol & Claude Opus 5.5 fell to 13% accuracy or lower on the hardest, longest problems.\"\n\n@ahatamiz1 added: \"@jowenpetty @allen_ai It’s like saying we know oil and water don’t mix, then running experiments to measure exactly how much they don’t mix.\" @deepakvijayke added: \"RT @allen_ai: Can LLMs track state changes over long texts like an object changing hands or a variable reassignment? On our new StateBench…\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 383,
-        "like_count": 2,
-        "reply_count": 1,
-        "retweet_count": 1
-      },
-      "why_it_matters": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @ahatamiz1, @deepakvijayke.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "allen_ai",
-      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117670256801873920/pu/img/ngWTR58nsSm8VVSD.jpg",
-      "list_count": 3,
-      "views": 383,
       "desk_rank": 40
     },
     {
@@ -1954,49 +1962,6 @@
       "desk_rank": 41
     },
     {
-      "id": "x-2117642701890105725",
-      "headline": "Intology says its automated research system Locus sets the frontier for automating molecular design",
-      "summary": "Intology says Locus, its automated research system, autonomously develops scientific AI models that outperform state of the art expert solutions in molecular design, using proprietary data to do it. Intology team member @HJCH0 says the lab went from state of the art autonomous po",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-03T15:38:58.000Z",
-      "author_name": "intology",
-      "source_list": "AI Companies: Science/Med, AI Community",
-      "list_names": [
-        "AI Companies: Science/Med",
-        "AI Community #2 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies: Science/Med",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/intology/status/2117642701890105725",
-      "sources": [
-        {
-          "label": "@intology",
-          "url": "https://x.com/intology/status/2117642701890105725"
-        }
-      ],
-      "body": "Intology says Locus, its automated research system, autonomously develops scientific AI models that outperform state of the art expert solutions in molecular design, using proprietary data to do it. Intology team member @HJCH0 says the lab went from state of the art autonomous post training to frontier performance on autonomous molecular design, such as antibody design, in a couple of months, and credits domain agnostic auto research improvements. @omarsar0 called it a highly recommended read, noting it covers molecular property prediction and potency prediction. If an AI research agent can beat expert built models on drug discovery tasks like potency prediction and antibody design, autonomous AI R&D starts to look like a practical tool for biotech rather than a demo.\n\n@intology posted: \"Locus sets the frontier for automating molecular design Our automated research system Locus develops scientific AI models that outperform SOTA expert solutions Unlocking the potential of scientific AI requires leveraging proprietary data. Locus achieves this autonomously\"\n\n@Zanette_ai added: \"RT @intology: Locus sets the frontier for automating molecular design Our automated research system Locus develops scientific AI models th…\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 1042,
-        "like_count": 26,
-        "reply_count": 3,
-        "retweet_count": 8
-      },
-      "why_it_matters": "Robert's AI Companies: Science/Med, AI Community lists carried @intology, @Zanette_ai.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "intology",
-      "media_url": "https://pbs.twimg.com/media/HWNgGBea4AAB3_r.jpg",
-      "list_count": 2,
-      "views": 1042,
-      "desk_rank": 42
-    },
-    {
       "id": "x-2116186245802127411",
       "headline": "Humans& launches Ampersand Tutor, an AI tutor trained on a model of how people learn",
       "summary": "&Tutor scored best on a widely used tutor model eval, the company says. A product launch betting on modeling humans, not just tasks.",
@@ -2042,7 +2007,93 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV4qiMYbsAAz27z.jpg",
       "list_count": 5,
       "views": 2972,
+      "desk_rank": 42
+    },
+    {
+      "id": "x-2117642701890105725",
+      "headline": "Intology says its automated research system Locus sets the frontier for automating molecular design",
+      "summary": "Intology says Locus, its automated research system, autonomously develops scientific AI models that outperform state of the art expert solutions in molecular design, using proprietary data to do it. Intology team member @HJCH0 says the lab went from state of the art autonomous po",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-03T15:38:58.000Z",
+      "author_name": "intology",
+      "source_list": "AI Companies: Science/Med, AI Community",
+      "list_names": [
+        "AI Companies: Science/Med",
+        "AI Community #2 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies: Science/Med",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/intology/status/2117642701890105725",
+      "sources": [
+        {
+          "label": "@intology",
+          "url": "https://x.com/intology/status/2117642701890105725"
+        }
+      ],
+      "body": "Intology says Locus, its automated research system, autonomously develops scientific AI models that outperform state of the art expert solutions in molecular design, using proprietary data to do it. Intology team member @HJCH0 says the lab went from state of the art autonomous post training to frontier performance on autonomous molecular design, such as antibody design, in a couple of months, and credits domain agnostic auto research improvements. @omarsar0 called it a highly recommended read, noting it covers molecular property prediction and potency prediction. If an AI research agent can beat expert built models on drug discovery tasks like potency prediction and antibody design, autonomous AI R&D starts to look like a practical tool for biotech rather than a demo.\n\n@intology posted: \"Locus sets the frontier for automating molecular design Our automated research system Locus develops scientific AI models that outperform SOTA expert solutions Unlocking the potential of scientific AI requires leveraging proprietary data. Locus achieves this autonomously\"\n\n@Zanette_ai added: \"RT @intology: Locus sets the frontier for automating molecular design Our automated research system Locus develops scientific AI models th…\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1042,
+        "like_count": 26,
+        "reply_count": 3,
+        "retweet_count": 8
+      },
+      "why_it_matters": "Robert's AI Companies: Science/Med, AI Community lists carried @intology, @Zanette_ai.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "intology",
+      "media_url": "https://pbs.twimg.com/media/HWNgGBea4AAB3_r.jpg",
+      "list_count": 2,
+      "views": 1042,
       "desk_rank": 43
+    },
+    {
+      "id": "x-2117670295339171994",
+      "headline": "Ai2 releases StateBench, an eval where frontier models drop to 13% or lower on long state tracking problems",
+      "summary": "The Allen Institute for AI (Ai2) introduced StateBench, a new evaluation of whether LLMs can track state changes over long texts, such as an object changing hands or a variable being reassigned. Ai2 says frontier models including GPT 6 Sol and Claude Opus 5.5 fell to 13% accuracy",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-03T17:28:37.000Z",
+      "author_name": "allen_ai",
+      "source_list": "AI Orgs, AI Community",
+      "list_names": [
+        "AI Orgs & Events",
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Orgs",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/allen_ai/status/2117670295339171994",
+      "sources": [
+        {
+          "label": "@allen_ai",
+          "url": "https://x.com/allen_ai/status/2117670295339171994"
+        }
+      ],
+      "body": "The Allen Institute for AI (Ai2) introduced StateBench, a new evaluation of whether LLMs can track state changes over long texts, such as an object changing hands or a variable being reassigned. Ai2 says frontier models including GPT 6 Sol and Claude Opus 5.5 fell to 13% accuracy or lower on the hardest, longest problems. Long context agents and coding tools depend on keeping track of what changed and when; a public benchmark showing top models collapsing on that task gives builders a concrete weakness to test against.\n\n@allen_ai posted: \"Can LLMs track state changes over long texts like an object changing hands or a variable reassignment? On our new StateBench eval, frontier models including GPT 6 Sol & Claude Opus 5.5 fell to 13% accuracy or lower on the hardest, longest problems.\"\n\n@deepakvijayke added: \"RT @allen_ai: Can LLMs track state changes over long texts like an object changing hands or a variable reassignment? On our new StateBench…\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 383,
+        "like_count": 2,
+        "reply_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @deepakvijayke.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "allen_ai",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117670256801873920/pu/img/ngWTR58nsSm8VVSD.jpg",
+      "list_count": 2,
+      "views": 383,
+      "desk_rank": 44
     },
     {
       "id": "x-2117621415520448838",
@@ -2088,7 +2139,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNMZMHacAAl0lx.jpg",
       "list_count": 4,
       "views": 419,
-      "desk_rank": 44
+      "desk_rank": 45
     },
     {
       "id": "x-2115848186950791665",
@@ -2131,7 +2182,48 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115846043845971969/img/h-R_tvcTJBJZzjDI.jpg",
       "list_count": 2,
       "views": 817505,
-      "desk_rank": 45
+      "desk_rank": 46
+    },
+    {
+      "id": "x-2117680635561312732",
+      "headline": "Anthropic lets Claude users auto connect plugins at login, with Claude acting as a trusted issuer for MCP servers",
+      "summary": "Claude users can now auto connect plugins when they sign in, as long as the plugin's MCP server accepts Claude as a trusted issuer. Admins can also use enterprise managed auth, built on an open MCP extension, to connect plugins for a whole organization through their identity prov",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-03T18:09:42.000Z",
+      "author_name": "ClaudeDevs",
+      "source_list": "AI Companies: Developers",
+      "list_names": [
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "AI Companies: Developers"
+      ],
+      "source_url": "https://x.com/ClaudeDevs/status/2117680635561312732",
+      "sources": [
+        {
+          "label": "@ClaudeDevs",
+          "url": "https://x.com/ClaudeDevs/status/2117680635561312732"
+        }
+      ],
+      "body": "Claude users can now auto connect plugins when they sign in, as long as the plugin's MCP server accepts Claude as a trusted issuer. Admins can also use enterprise managed auth, built on an open MCP extension, to connect plugins for a whole organization through their identity provider. Anthropic says the trusted issuer option is in beta on Team and Enterprise plans with partners including Atlassian, Datadog, Figma, HubSpot, Linear, Notion and Supabase. Re authorizing every tool is one of the biggest friction points for agent workflows; login time auth for MCP plugins makes company wide Claude rollouts much easier and pressures other assistants to match it.\n\n@ClaudeDevs posted: \"Users can now auto connect plugins when they log in to Claude, with MCP servers that accept Claude as a trusted issuer. If you’re building plugins for Claude, add support so users get started faster and stay connected without re authorizing.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 5659,
+        "like_count": 42,
+        "reply_count": 7,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert's AI Companies: Developers lists carried @ClaudeDevs.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "ClaudeDevs",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117680108706140161/img/W7IjAqq94Q6lFVOo.jpg",
+      "list_count": 1,
+      "views": 5659,
+      "desk_rank": 47
     },
     {
       "id": "x-2117630688904012268",
@@ -2174,7 +2266,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117630353565175808/img/5FU9I1EVucBqoywR.jpg",
       "list_count": 2,
       "views": 16031,
-      "desk_rank": 46
+      "desk_rank": 48
     },
     {
       "id": "x-2116573344283681010",
@@ -2220,52 +2312,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUsyluaAAA8lcm.jpg",
       "list_count": 5,
       "views": 34,
-      "desk_rank": 47
-    },
-    {
-      "id": "x-2117663862564573240",
-      "headline": "Boston Dynamics unveils Stretch Gen 2, its next autonomous trailer unloading robot",
-      "summary": "Boston Dynamics announced Stretch Gen 2, a new generation of its autonomous mobile robot built to unload trailers with less downtime. A Gen 2 Stretch update is a concrete robotics shipping signal in logistics, not another lab demo.",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-11-03T17:03:03.000Z",
-      "author_name": "BostonDynamics",
-      "source_list": "Tech Companies, Spatial Computing, Robot Influencers/Media",
-      "list_names": [
-        "Tech Companies",
-        "Spatial Computing",
-        "Robot Influencers/Media"
-      ],
-      "chip_labels": [
-        "Tech Companies",
-        "Spatial Computing",
-        "Robot Influencers/Media"
-      ],
-      "source_url": "https://x.com/BostonDynamics/status/2117663862564573240",
-      "sources": [
-        {
-          "label": "@BostonDynamics",
-          "url": "https://x.com/BostonDynamics/status/2117663862564573240"
-        }
-      ],
-      "body": "Boston Dynamics announced Stretch Gen 2, a new generation of its autonomous mobile robot built to unload trailers with less downtime. A Gen 2 Stretch update is a concrete robotics shipping signal in logistics, not another lab demo.\n\n@BostonDynamics posted: \"We're thrilled to announce Stretch Gen 2, the next generation of our autonomous mobile trailer unloading robot! \"Our customers count on Stretch to keep freight moving, and every hour a robot sits idle is an hour of work that piles up on the dock. With Gen 2, we focused on the\"\n\n@clankrmedia added: \"@BostonDynamics This is currently a robot design that can work in factories. Humanoids will have time. It's very good that you haven't abandoned this aspect of your work.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 3921,
-        "like_count": 73,
-        "reply_count": 5,
-        "retweet_count": 9
-      },
-      "why_it_matters": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "BostonDynamics",
-      "media_url": "https://pbs.twimg.com/media/HWN0D2IWcAASzvX.jpg",
-      "list_count": 3,
-      "views": 3921,
-      "desk_rank": 48
+      "desk_rank": 49
     },
     {
       "id": "x-2116620479079354803",
@@ -2312,7 +2359,52 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118401636829724672/img/WEssTzGS9fY77VJO.jpg",
       "list_count": 4,
       "views": 4061,
-      "desk_rank": 49
+      "desk_rank": 50
+    },
+    {
+      "id": "x-2117663862564573240",
+      "headline": "Boston Dynamics unveils Stretch Gen 2, its next autonomous trailer unloading robot",
+      "summary": "Boston Dynamics announced Stretch Gen 2, a new generation of its autonomous mobile robot built to unload trailers with less downtime. A Gen 2 Stretch update is a concrete robotics shipping signal in logistics, not another lab demo.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-11-03T17:03:03.000Z",
+      "author_name": "BostonDynamics",
+      "source_list": "Tech Companies, Spatial Computing, Robot Influencers/Media",
+      "list_names": [
+        "Tech Companies",
+        "Spatial Computing",
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Tech Companies",
+        "Spatial Computing",
+        "Robot Influencers/Media"
+      ],
+      "source_url": "https://x.com/BostonDynamics/status/2117663862564573240",
+      "sources": [
+        {
+          "label": "@BostonDynamics",
+          "url": "https://x.com/BostonDynamics/status/2117663862564573240"
+        }
+      ],
+      "body": "Boston Dynamics announced Stretch Gen 2, a new generation of its autonomous mobile robot built to unload trailers with less downtime. A Gen 2 Stretch update is a concrete robotics shipping signal in logistics, not another lab demo.\n\n@BostonDynamics posted: \"We're thrilled to announce Stretch Gen 2, the next generation of our autonomous mobile trailer unloading robot! \"Our customers count on Stretch to keep freight moving, and every hour a robot sits idle is an hour of work that piles up on the dock. With Gen 2, we focused on the\"\n\n@clankrmedia added: \"@BostonDynamics This is currently a robot design that can work in factories. Humanoids will have time. It's very good that you haven't abandoned this aspect of your work.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3921,
+        "like_count": 73,
+        "reply_count": 5,
+        "retweet_count": 9
+      },
+      "why_it_matters": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "BostonDynamics",
+      "media_url": "https://pbs.twimg.com/media/HWN0D2IWcAASzvX.jpg",
+      "list_count": 3,
+      "views": 3921,
+      "desk_rank": 51
     },
     {
       "id": "x-2116598588172374141",
@@ -2363,7 +2455,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-rMr7awAEkYvc.jpg",
       "list_count": 7,
       "views": 11095,
-      "desk_rank": 50
+      "desk_rank": 52
     },
     {
       "id": "x-2115887660489462091",
@@ -2404,7 +2496,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115887560660766720/img/WyTAk03vOI_RJJVo.jpg",
       "list_count": 1,
       "views": 634809,
-      "desk_rank": 51
+      "desk_rank": 53
     },
     {
       "id": "x-2116005725814280570",
@@ -2445,7 +2537,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116003610509377536/img/tTDEreSob9R_UftI.jpg",
       "list_count": 1,
       "views": 160324,
-      "desk_rank": 52
+      "desk_rank": 54
     },
     {
       "id": "x-2116349211549843666",
@@ -2490,7 +2582,7 @@
       "media_url": "https://pbs.twimg.com/media/HV7E-P7bwAA7OxM.jpg",
       "list_count": 3,
       "views": 164409,
-      "desk_rank": 53
+      "desk_rank": 55
     },
     {
       "id": "x-2116186509384815084",
@@ -2537,7 +2629,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116186389536788480/img/hbO4g10coOsa0Gy3.jpg",
       "list_count": 4,
       "views": 201542,
-      "desk_rank": 54
+      "desk_rank": 56
     },
     {
       "id": "x-2116564505719185593",
@@ -2587,7 +2679,7 @@
       "media_url": "https://pbs.twimg.com/media/HV9_1tmW4AAmHhN.jpg",
       "list_count": 7,
       "views": 412,
-      "desk_rank": 55
+      "desk_rank": 57
     },
     {
       "id": "x-2116188727579918358",
@@ -2599,14 +2691,15 @@
       "tag": "products",
       "published_at": "2026-10-30T15:21:24.000Z",
       "author_name": "emmanuel_2m",
-      "source_list": "AI's Best, AI Founders, News, AI Community, AI Companies: Voice, Tech News",
+      "source_list": "AI's Best, AI Founders, News, AI Community, AI Companies: Voice, Tech News, AI Orgs",
       "list_names": [
         "AI's Best",
         "AI Founders #1 of 3",
         "News #1 of 3",
         "AI Community #1 of 9",
         "AI Companies: Voice",
-        "Tech News"
+        "Tech News",
+        "AI Orgs & Events"
       ],
       "chip_labels": [
         "AI's Best",
@@ -2614,7 +2707,8 @@
         "News",
         "AI Community",
         "AI Companies: Voice",
-        "Tech News"
+        "Tech News",
+        "AI Orgs"
       ],
       "source_url": "https://x.com/emmanuel_2m/status/2116188727579918358",
       "sources": [
@@ -2631,14 +2725,14 @@
         "reply_count": 8,
         "retweet_count": 3
       },
-      "why_it_matters": "Robert's AI's Best, AI Founders, News and 3 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
+      "why_it_matters": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "emmanuel_2m",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116188665508397058/img/e7TjmUY-YuCA7Wfl.jpg",
-      "list_count": 6,
+      "list_count": 7,
       "views": 339,
-      "desk_rank": 56
+      "desk_rank": 58
     },
     {
       "id": "x-2115777746639196376",
@@ -2679,7 +2773,7 @@
       "media_url": "https://pbs.twimg.com/media/HVzAlG4aYAEdykK.jpg",
       "list_count": 1,
       "views": 49674,
-      "desk_rank": 57
+      "desk_rank": 59
     },
     {
       "id": "x-2117249008972550447",
@@ -2721,7 +2815,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
       "list_count": 2,
       "views": 106,
-      "desk_rank": 58
+      "desk_rank": 60
     },
     {
       "id": "x-2117285608745820372",
@@ -2762,7 +2856,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117276914591399937/img/UT3OrHoJmR0zyCbG.jpg",
       "list_count": 1,
       "views": 15572,
-      "desk_rank": 59
+      "desk_rank": 61
     },
     {
       "id": "x-2115962853463396395",
@@ -2809,7 +2903,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115962720092921857/img/plyOVUvSUBS7c3NA.jpg",
       "list_count": 4,
       "views": 13818,
-      "desk_rank": 60
+      "desk_rank": 62
     },
     {
       "id": "x-2115890658636656826",
@@ -2858,7 +2952,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115888862664994816/img/lblQAbfEGXEDNyRh.jpg",
       "list_count": 5,
       "views": 120290,
-      "desk_rank": 61
+      "desk_rank": 63
     },
     {
       "id": "x-2116254202301493459",
@@ -2901,7 +2995,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5x0vvbMAAVG9F.jpg",
       "list_count": 2,
       "views": 4261,
-      "desk_rank": 62
+      "desk_rank": 64
     },
     {
       "id": "x-2116236342653026706",
@@ -2948,7 +3042,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hjyXbUAEH7dA.jpg",
       "list_count": 4,
       "views": 2442,
-      "desk_rank": 63
+      "desk_rank": 65
     },
     {
       "id": "x-2116233418702733514",
@@ -2991,7 +3085,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5fFFEXoAA9thh.jpg",
       "list_count": 2,
       "views": 496,
-      "desk_rank": 64
+      "desk_rank": 66
     },
     {
       "id": "x-2115480443307041130",
@@ -3032,7 +3126,7 @@
       "media_url": "https://pbs.twimg.com/media/HVuyJKuaIAAXXUQ.jpg",
       "list_count": 1,
       "views": 11929,
-      "desk_rank": 65
+      "desk_rank": 67
     },
     {
       "id": "x-2116560120457142451",
@@ -3073,7 +3167,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116559500933251072/img/GSMKoAbET-1y1M8Q.jpg",
       "list_count": 1,
       "views": 6933,
-      "desk_rank": 66
+      "desk_rank": 68
     },
     {
       "id": "x-2117691389265784919",
@@ -3114,7 +3208,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117691327240388608/pu/img/Rklk0_3GWNQqca_u.jpg",
       "list_count": 1,
       "views": 21676,
-      "desk_rank": 67
+      "desk_rank": 69
     },
     {
       "id": "x-2117408792346509663",
@@ -3157,7 +3251,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117408779730108416/img/M_YLvydUvu_YZd9I.jpg",
       "list_count": 2,
       "views": 2568,
-      "desk_rank": 68
+      "desk_rank": 70
     },
     {
       "id": "x-2116587096651505814",
@@ -3208,7 +3302,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg",
       "list_count": 7,
       "views": 275,
-      "desk_rank": 69
+      "desk_rank": 71
     },
     {
       "id": "x-2116593734502797644",
@@ -3251,7 +3345,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
       "list_count": 4,
       "views": 10,
-      "desk_rank": 70
+      "desk_rank": 72
     },
     {
       "id": "x-2116184730668298654",
@@ -3302,7 +3396,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116184615131979776/img/p0nSgnwEzMLoi7Lb.jpg",
       "list_count": 6,
       "views": 2732,
-      "desk_rank": 71
+      "desk_rank": 73
     },
     {
       "id": "x-2116236188319453386",
@@ -3347,7 +3441,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hqrJWYAA1M_E.jpg",
       "list_count": 3,
       "views": 11266,
-      "desk_rank": 72
+      "desk_rank": 74
     },
     {
       "id": "x-2116530643228295205",
@@ -3388,7 +3482,7 @@
       "media_url": "https://pbs.twimg.com/media/HV8QGvGWcAAmnqa.jpg",
       "list_count": 1,
       "views": 1408,
-      "desk_rank": 73
+      "desk_rank": 75
     },
     {
       "id": "x-2116602645972672576",
@@ -3430,7 +3524,7 @@
       "media_url": "https://pbs.twimg.com/media/HWX-BYRXIAAvTyd.png",
       "list_count": 2,
       "views": 5821,
-      "desk_rank": 74
+      "desk_rank": 76
     },
     {
       "id": "x-2115867078964187368",
@@ -3473,7 +3567,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115849542835032070/img/DLvqI6GHXxdGBOR3.jpg",
       "list_count": 2,
       "views": 1007517,
-      "desk_rank": 75
+      "desk_rank": 77
     },
     {
       "id": "x-2115866740705935621",
@@ -3514,7 +3608,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2115866633164017664/pu/img/j2KBZ5b15R_GbRnQ.jpg",
       "list_count": 1,
       "views": 9081,
-      "desk_rank": 76
+      "desk_rank": 78
     },
     {
       "id": "x-2116131501519868036",
@@ -3558,7 +3652,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 4,
       "views": 7,
-      "desk_rank": 77
+      "desk_rank": 79
     },
     {
       "id": "x-2116227954518978729",
@@ -3599,7 +3693,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116227869236215808/img/-xiBqjXdevC1DRL2.jpg",
       "list_count": 1,
       "views": 3688,
-      "desk_rank": 78
+      "desk_rank": 80
     },
     {
       "id": "x-2116551784235782494",
@@ -3642,7 +3736,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2116551633106522112/pu/img/0SXU3jLR4Q_cn8ES.jpg",
       "list_count": 2,
       "views": 329,
-      "desk_rank": 79
+      "desk_rank": 81
     },
     {
       "id": "x-2116222007658586306",
@@ -3683,7 +3777,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 1,
       "views": 2491,
-      "desk_rank": 80
+      "desk_rank": 82
     },
     {
       "id": "x-2116181430359511443",
@@ -3724,7 +3818,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116177737778167809/img/3TkBGjOnva5_-o4-.jpg",
       "list_count": 1,
       "views": 9844,
-      "desk_rank": 81
+      "desk_rank": 83
     },
     {
       "id": "x-2116576079632912834",
@@ -3765,7 +3859,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116575995683913728/img/HerUHqv3Y7i_BXkc.jpg",
       "list_count": 1,
       "views": 7381,
-      "desk_rank": 82
+      "desk_rank": 84
     },
     {
       "id": "x-2116621333992005911",
@@ -3805,7 +3899,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116621244636504064/img/oYscG-9y5Zmzvwen.jpg",
       "list_count": 1,
       "views": 3627,
-      "desk_rank": 83
+      "desk_rank": 85
     },
     {
       "id": "x-2115936769229176975",
@@ -3846,7 +3940,7 @@
       "media_url": "https://pbs.twimg.com/media/HV1RRIJWoAA3Dud.jpg",
       "list_count": 1,
       "views": 3018,
-      "desk_rank": 84
+      "desk_rank": 86
     },
     {
       "id": "x-2116144490993832250",
@@ -3889,7 +3983,7 @@
       "media_url": "https://pbs.twimg.com/media/HV4OEyrXoAAaqBg.jpg",
       "list_count": 2,
       "views": 1363,
-      "desk_rank": 85
+      "desk_rank": 87
     },
     {
       "id": "x-2117255449657725295",
@@ -3929,7 +4023,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH9-TrWsAAMTkn.jpg",
       "list_count": 1,
       "views": 414,
-      "desk_rank": 86
+      "desk_rank": 88
     },
     {
       "id": "x-2115970151933935668",
@@ -3978,7 +4072,7 @@
       "media_url": "https://pbs.twimg.com/media/HWPjGPVa0AAgLPB.png",
       "list_count": 6,
       "views": 9984,
-      "desk_rank": 87
+      "desk_rank": 89
     },
     {
       "id": "x-2116621403327762856",
@@ -4021,7 +4115,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116621406511239168/RaJ-A8va?format=jpg&name=orig",
       "list_count": 2,
       "views": 17296,
-      "desk_rank": 88
+      "desk_rank": 90
     },
     {
       "id": "x-2116586054857719916",
@@ -4062,10 +4156,43 @@
       "media_url": "https://pbs.twimg.com/news_img/2116586056208269312/umgR00XK?format=jpg&name=orig",
       "list_count": 1,
       "views": 18549,
-      "desk_rank": 89
+      "desk_rank": 91
     }
   ],
   "signals": [
+    {
+      "id": "sig-x-2118403114890137895",
+      "title": "Anthropic puts Personal Finance in Claude, a read only US beta that answers money questions from your own accounts",
+      "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 3 more lists carried @claudeai, @kimmonismus, @TokenGremlin.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 3 more lists carried @claudeai, @kimmonismus, @TokenGremlin.",
+      "list_names": [
+        "AI Companies: Marketing",
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI's Best",
+        "AI Community #7 of 9",
+        "AI Community #4 of 9",
+        "AI Community #2 of 9",
+        "Infrastructure"
+      ],
+      "chip_labels": [
+        "AI Companies: Marketing",
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI's Best",
+        "AI Community",
+        "Infrastructure"
+      ],
+      "created_at": "2026-11-05T18:00:35.000Z",
+      "source_url": "https://x.com/claudeai/status/2118403114890137895",
+      "analysis": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 3 more lists carried @claudeai, @kimmonismus, @TokenGremlin.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
     {
       "id": "sig-x-2118390190246879554",
       "title": "OpenAI ships GPT 6 Cyber, the security research model behind its Linux kernel exploit run",
@@ -4152,23 +4279,25 @@
     {
       "id": "sig-x-2118387953005179312",
       "title": "NVIDIA publishes guides to train, simulate and serve world models with Cosmos and NIM",
-      "text": "Robert's Tech Companies, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
+      "text": "Robert's Tech Companies, AI's Best, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
       "badge": "signal",
       "category": "robotics",
       "section_key": "robotics",
       "section_label": "Robotics",
-      "source_list": "Robert's Tech Companies, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
+      "source_list": "Robert's Tech Companies, AI's Best, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
       "list_names": [
         "Tech Companies",
+        "AI's Best",
         "AI Vehicles"
       ],
       "chip_labels": [
         "Tech Companies",
+        "AI's Best",
         "AI Vehicles"
       ],
       "created_at": "2026-11-05T17:00:20.000Z",
       "source_url": "https://x.com/NVIDIAAI/status/2118387953005179312",
-      "analysis": "Robert's Tech Companies, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
+      "analysis": "Robert's Tech Companies, AI's Best, AI Vehicles lists carried @NVIDIAAI, @NVIDIARobotics, @NVIDIADRIVE.",
       "topic_key": "robotics",
       "topic_label": "Robotics"
     },
@@ -4394,6 +4523,27 @@
       "topic_label": "Labs"
     },
     {
+      "id": "sig-x-2118417772774580623",
+      "title": "METR reviews Anthropic's automated R&D risk report and says the public version understated the risk",
+      "text": "Robert's AI Orgs & Events lists carried @METR_Evals.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert's AI Orgs & Events lists carried @METR_Evals.",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "created_at": "2026-11-05T18:58:49.000Z",
+      "source_url": "https://x.com/METR_Evals/status/2118417772774580623",
+      "analysis": "Robert's AI Orgs & Events lists carried @METR_Evals.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
       "id": "sig-x-2118337164702318837",
       "title": "Baidu open sources ERNIE 5.5 Flash Base, a 280B MoE that activates 14B parameters per token",
       "text": "Robert's AI's Best, Tech News, AI Companies: Developers and 1 more lists carried @thePandaily, @sgl_project, @QwenAIFans.",
@@ -4465,27 +4615,6 @@
       "topic_label": "Chips"
     },
     {
-      "id": "sig-x-2118390043249434915",
-      "title": "Epoch AI poll finds 26% of US workers used a paid AI service for their job last week",
-      "text": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
-      "badge": "signal",
-      "category": "policy",
-      "section_key": "policy",
-      "section_label": "Policy",
-      "source_list": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
-      "list_names": [
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI Orgs"
-      ],
-      "created_at": "2026-11-05T17:08:38.000Z",
-      "source_url": "https://x.com/EpochAIResearch/status/2118390043249434915",
-      "analysis": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
-      "topic_key": "policy",
-      "topic_label": "Policy"
-    },
-    {
       "id": "sig-x-2118360866517127217",
       "title": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
       "text": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
@@ -4507,6 +4636,27 @@
       "analysis": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118390043249434915",
+      "title": "Epoch AI poll finds 26% of US workers used a paid AI service for their job last week",
+      "text": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
+      "badge": "signal",
+      "category": "policy",
+      "section_key": "policy",
+      "section_label": "Policy",
+      "source_list": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
+      "list_names": [
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Orgs"
+      ],
+      "created_at": "2026-11-05T17:08:38.000Z",
+      "source_url": "https://x.com/EpochAIResearch/status/2118390043249434915",
+      "analysis": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
+      "topic_key": "policy",
+      "topic_label": "Policy"
     },
     {
       "id": "sig-x-2118343990059872466",
@@ -4603,6 +4753,33 @@
       "analysis": "Robert's AI's Best lists carried @GoogleOSS.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118372770547487117",
+      "title": "Luma ships Luma MCP so Claude and ChatGPT can run Luma's creative workflows end to end",
+      "text": "Robert's Spatial Computing, AR/VR Companies, AI Film Makers and 1 more lists carried @LumaLabsAI, @stonekaiju.",
+      "badge": "signal",
+      "category": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "source_list": "Robert's Spatial Computing, AR/VR Companies, AI Film Makers and 1 more lists carried @LumaLabsAI, @stonekaiju.",
+      "list_names": [
+        "Spatial Computing",
+        "AR/VR Companies",
+        "AI Film Makers",
+        "AI Creative People"
+      ],
+      "chip_labels": [
+        "Spatial Computing",
+        "AR/VR Companies",
+        "AI Film Makers",
+        "AI Creative People"
+      ],
+      "created_at": "2026-11-05T16:00:00.000Z",
+      "source_url": "https://x.com/LumaLabsAI/status/2118372770547487117",
+      "analysis": "Robert's Spatial Computing, AR/VR Companies, AI Film Makers and 1 more lists carried @LumaLabsAI, @stonekaiju.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives"
     },
     {
       "id": "sig-x-2118312415276204328",
@@ -4775,53 +4952,41 @@
       "topic_label": "Models"
     },
     {
-      "id": "sig-x-2117680635561312732",
-      "title": "Anthropic lets Claude users auto connect plugins at login, with Claude acting as a trusted issuer for MCP servers",
-      "text": "Robert's AI Companies: Developers, AI Influencers, AI Community lists carried @ClaudeDevs, @AunySillyMe, @OmkarRay9.",
+      "id": "sig-x-2116220869479428500",
+      "title": "Anthropic renames Claude Max 20x to Ultra and drops the 5 hour limit for verified Ultra accounts",
+      "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI Companies: Developers, AI Influencers, AI Community lists carried @ClaudeDevs, @AunySillyMe, @OmkarRay9.",
+      "source_list": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
       "list_names": [
-        "AI Companies: Developers",
-        "AI Influencers",
-        "AI Community #5 of 9",
-        "AI Community #3 of 9"
+        "AI Companies: Marketing",
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs & Events",
+        "AI Consultants",
+        "AI Community #2 of 9",
+        "AI Companies: #1 of 2-All"
       ],
       "chip_labels": [
-        "AI Companies: Developers",
-        "AI Influencers",
-        "AI Community"
+        "AI Companies: Marketing",
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI Companies: Creative",
+        "AI Companies: Work",
+        "AI Orgs",
+        "AI Consultants",
+        "AI Community",
+        "AI Companies:-All"
       ],
-      "created_at": "2026-11-03T18:09:42.000Z",
-      "source_url": "https://x.com/ClaudeDevs/status/2117680635561312732",
-      "analysis": "Robert's AI Companies: Developers, AI Influencers, AI Community lists carried @ClaudeDevs, @AunySillyMe, @OmkarRay9.",
+      "created_at": "2026-10-30T17:29:07.000Z",
+      "source_url": "https://x.com/claudeai/status/2116220869479428500",
+      "analysis": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
       "topic_key": "products",
       "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2118372770547487117",
-      "title": "Luma ships Luma MCP so Claude and ChatGPT can run Luma's creative workflows end to end",
-      "text": "Robert's Spatial Computing, AR/VR Companies lists carried @LumaLabsAI.",
-      "badge": "signal",
-      "category": "creatives",
-      "section_key": "creatives",
-      "section_label": "Creatives",
-      "source_list": "Robert's Spatial Computing, AR/VR Companies lists carried @LumaLabsAI.",
-      "list_names": [
-        "Spatial Computing",
-        "AR/VR Companies"
-      ],
-      "chip_labels": [
-        "Spatial Computing",
-        "AR/VR Companies"
-      ],
-      "created_at": "2026-11-05T16:00:00.000Z",
-      "source_url": "https://x.com/LumaLabsAI/status/2118372770547487117",
-      "analysis": "Robert's Spatial Computing, AR/VR Companies lists carried @LumaLabsAI.",
-      "topic_key": "creatives",
-      "topic_label": "Creatives"
     },
     {
       "id": "sig-x-2118162131103478221",
@@ -4899,41 +5064,6 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2116220869479428500",
-      "title": "Anthropic renames Claude Max 20x to Ultra and drops the 5 hour limit for verified Ultra accounts",
-      "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 5 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 5 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
-      "list_names": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
-        "AI Orgs & Events",
-        "AI Consultants",
-        "AI Companies: #1 of 2-All"
-      ],
-      "chip_labels": [
-        "AI Companies: Marketing",
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Companies: Creative",
-        "AI Companies: Work",
-        "AI Orgs",
-        "AI Consultants",
-        "AI Companies:-All"
-      ],
-      "created_at": "2026-10-30T17:29:07.000Z",
-      "source_url": "https://x.com/claudeai/status/2116220869479428500",
-      "analysis": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 5 more lists carried @claudeai, @StatsWire, @AIRoboticsInt.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2118078402544734421",
       "title": "Block opens its Sequential Store playbook for Foundational Event Models on Cash App and Square data",
       "text": "Robert's AI Companies: Voice lists carried @blocks.",
@@ -5001,30 +5131,6 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2117670295339171994",
-      "title": "Ai2 releases StateBench, an eval where frontier models drop to 13% or lower on long state tracking problems",
-      "text": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @ahatamiz1, @deepakvijayke.",
-      "badge": "signal",
-      "category": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "source_list": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @ahatamiz1, @deepakvijayke.",
-      "list_names": [
-        "AI Orgs & Events",
-        "AI Community #3 of 9",
-        "AI Community #1 of 9"
-      ],
-      "chip_labels": [
-        "AI Orgs",
-        "AI Community"
-      ],
-      "created_at": "2026-11-03T17:28:37.000Z",
-      "source_url": "https://x.com/allen_ai/status/2117670295339171994",
-      "analysis": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @ahatamiz1, @deepakvijayke.",
-      "topic_key": "models",
-      "topic_label": "Models"
-    },
-    {
       "id": "sig-x-2118156252165358037",
       "title": "FrontierCS 1.1 updates its open ended algorithm benchmark to test modern AI agents",
       "text": "Robert's AI Community, AI: Computer Vision lists carried @wenhaocha1, @lihanc02, @rqiang_rushi.",
@@ -5046,6 +5152,34 @@
       "created_at": "2026-11-05T01:39:38.000Z",
       "source_url": "https://x.com/wenhaocha1/status/2118156252165358037",
       "analysis": "Robert's AI Community, AI: Computer Vision lists carried @wenhaocha1, @lihanc02, @rqiang_rushi.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-x-2116186245802127411",
+      "title": "Humans& launches Ampersand Tutor, an AI tutor trained on a model of how people learn",
+      "text": "Robert's AI Companies, AI Orgs & Events, AR/VR Companies and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Companies, AI Orgs & Events, AR/VR Companies and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "list_names": [
+        "AI Companies: #2 of 2-All",
+        "AI Orgs & Events",
+        "AR/VR Companies",
+        "AI Community #3 of 9",
+        "AI Community #8 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "AI Orgs",
+        "AR/VR Companies",
+        "AI Community"
+      ],
+      "created_at": "2026-10-30T15:11:32.000Z",
+      "source_url": "https://x.com/humansand/status/2116186245802127411",
+      "analysis": "Robert's AI Companies, AI Orgs & Events, AR/VR Companies and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -5073,30 +5207,25 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2116186245802127411",
-      "title": "Humans& launches Ampersand Tutor, an AI tutor trained on a model of how people learn",
-      "text": "Robert's AI Companies, AI Orgs & Events, AR/VR Companies and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "id": "sig-x-2117670295339171994",
+      "title": "Ai2 releases StateBench, an eval where frontier models drop to 13% or lower on long state tracking problems",
+      "text": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @deepakvijayke.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert's AI Companies, AI Orgs & Events, AR/VR Companies and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "source_list": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @deepakvijayke.",
       "list_names": [
-        "AI Companies: #2 of 2-All",
         "AI Orgs & Events",
-        "AR/VR Companies",
-        "AI Community #3 of 9",
-        "AI Community #8 of 9"
+        "AI Community #1 of 9"
       ],
       "chip_labels": [
-        "AI Companies:-All",
         "AI Orgs",
-        "AR/VR Companies",
         "AI Community"
       ],
-      "created_at": "2026-10-30T15:11:32.000Z",
-      "source_url": "https://x.com/humansand/status/2116186245802127411",
-      "analysis": "Robert's AI Companies, AI Orgs & Events, AR/VR Companies and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "created_at": "2026-11-03T17:28:37.000Z",
+      "source_url": "https://x.com/allen_ai/status/2117670295339171994",
+      "analysis": "Robert's AI Orgs & Events, AI Community lists carried @allen_ai, @deepakvijayke.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -5147,6 +5276,27 @@
       "created_at": "2026-10-29T16:48:12.000Z",
       "source_url": "https://x.com/cartesia/status/2115848186950791665",
       "analysis": "Robert's AI Companies: Voice, AI Founders lists carried @cartesia, @marctechireai.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2117680635561312732",
+      "title": "Anthropic lets Claude users auto connect plugins at login, with Claude acting as a trusted issuer for MCP servers",
+      "text": "Robert's AI Companies: Developers lists carried @ClaudeDevs.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Developers lists carried @ClaudeDevs.",
+      "list_names": [
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "AI Companies: Developers"
+      ],
+      "created_at": "2026-11-03T18:09:42.000Z",
+      "source_url": "https://x.com/ClaudeDevs/status/2117680635561312732",
+      "analysis": "Robert's AI Companies: Developers lists carried @ClaudeDevs.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -5203,31 +5353,6 @@
       "topic_label": "Funding"
     },
     {
-      "id": "sig-x-2117663862564573240",
-      "title": "Boston Dynamics unveils Stretch Gen 2, its next autonomous trailer unloading robot",
-      "text": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
-      "badge": "signal",
-      "category": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "source_list": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
-      "list_names": [
-        "Tech Companies",
-        "Spatial Computing",
-        "Robot Influencers/Media"
-      ],
-      "chip_labels": [
-        "Tech Companies",
-        "Spatial Computing",
-        "Robot Influencers/Media"
-      ],
-      "created_at": "2026-11-03T17:03:03.000Z",
-      "source_url": "https://x.com/BostonDynamics/status/2117663862564573240",
-      "analysis": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
-    },
-    {
       "id": "sig-x-2116620479079354803",
       "title": "Apple's touchscreen MacBook Pro gets an early look, with macOS 27 tuned for touch",
       "text": "Robert's Tech News, AR/VR Community, Devs, Designers, DevRel 2 and 1 more lists carried @WIRED, @SpatiallyMe, @tomsguide.",
@@ -5253,6 +5378,31 @@
       "analysis": "Robert's Tech News, AR/VR Community, Devs, Designers, DevRel 2 and 1 more lists carried @WIRED, @SpatiallyMe, @tomsguide.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2117663862564573240",
+      "title": "Boston Dynamics unveils Stretch Gen 2, its next autonomous trailer unloading robot",
+      "text": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
+      "list_names": [
+        "Tech Companies",
+        "Spatial Computing",
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Tech Companies",
+        "Spatial Computing",
+        "Robot Influencers/Media"
+      ],
+      "created_at": "2026-11-03T17:03:03.000Z",
+      "source_url": "https://x.com/BostonDynamics/status/2117663862564573240",
+      "analysis": "Robert's Tech Companies, Spatial Computing, Robot Influencers/Media lists carried @BostonDynamics, @clankrmedia.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2116598588172374141",
@@ -5414,19 +5564,20 @@
     {
       "id": "sig-x-2116188727579918358",
       "title": "Scenario open sources 3D OS, an agent toolkit for 3D production",
-      "text": "Robert's AI's Best, AI Founders, News and 3 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
+      "text": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI's Best, AI Founders, News and 3 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
+      "source_list": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
       "list_names": [
         "AI's Best",
         "AI Founders #1 of 3",
         "News #1 of 3",
         "AI Community #1 of 9",
         "AI Companies: Voice",
-        "Tech News"
+        "Tech News",
+        "AI Orgs & Events"
       ],
       "chip_labels": [
         "AI's Best",
@@ -5434,11 +5585,12 @@
         "News",
         "AI Community",
         "AI Companies: Voice",
-        "Tech News"
+        "Tech News",
+        "AI Orgs"
       ],
       "created_at": "2026-10-30T15:21:24.000Z",
       "source_url": "https://x.com/emmanuel_2m/status/2116188727579918358",
-      "analysis": "Robert's AI's Best, AI Founders, News and 3 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
+      "analysis": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @GaryMarcus.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -6263,9 +6415,9 @@
   "bundles": [],
   "ai_sections": [],
   "top_pulls": [
+    "x-2118403114890137895",
+    "x-2118417772774580623",
     "x-2118408305857228876",
-    "x-2118390043249434915",
-    "x-2118380813498892301",
-    "x-2118388127337517276"
+    "x-2118390043249434915"
   ]
 }
