@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-11-05T15:25:28.000Z",
-    "scrapedAt": "2026-11-05T15:25:28.000Z",
+    "generatedAt": "2026-11-05T15:42:03.000Z",
+    "scrapedAt": "2026-11-05T15:42:03.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 74 stories, source /workspace/pulse/dumps/LATEST_PACK.json",
+    "note": "CONTEXT writeup, 77 stories, source /workspace/pulse/dumps/LATEST_PACK.json",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 51,
-    "stories": 74,
-    "signals": 73,
+    "stories": 77,
+    "signals": 76,
     "reports": 4
   },
   "chips": [
@@ -141,48 +141,44 @@
   ],
   "stories": [
     {
-      "id": "x-2118337806120718495",
-      "headline": "OpenAI LifeVal benchmark ranks 148 everyday life tasks people would pay AI agents to handle",
-      "summary": "OpenAI has a new agent benchmark, LifeVal, built around what ordinary people would actually pay an assistant to do. Researchers surveyed 3,837 U.S. consumers and ranked 148 everyday life tasks by willingness to pay, then turned the most valuable of them into an evaluation for age",
+      "id": "x-2118360866517127217",
+      "headline": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
+      "summary": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code re",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
-      "published_at": "2026-11-05T13:41:04.000Z",
-      "author_name": "dair_ai",
-      "source_list": "AI Orgs, AI's Best, AI Founders",
+      "published_at": "2026-11-05T15:12:42.000Z",
+      "author_name": "HermesAgentTips",
+      "source_list": "AI Community, AI Orgs",
       "list_names": [
-        "AI Orgs & Events",
-        "AI's Best",
-        "AI Founders #1 of 3"
+        "AI Community #7 of 9",
+        "AI Orgs & Events"
       ],
       "chip_labels": [
-        "AI Orgs",
-        "AI's Best",
-        "AI Founders"
+        "AI Community",
+        "AI Orgs"
       ],
-      "source_url": "https://x.com/dair_ai/status/2118337806120718495",
+      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
       "sources": [
         {
-          "label": "@dair_ai",
-          "url": "https://x.com/dair_ai/status/2118337806120718495"
+          "label": "@HermesAgentTips",
+          "url": "https://x.com/HermesAgentTips/status/2118360866517127217"
         }
       ],
-      "body": "OpenAI has a new agent benchmark, LifeVal, built around what ordinary people would actually pay an assistant to do. Researchers surveyed 3,837 U.S. consumers and ranked 148 everyday life tasks by willingness to pay, then turned the most valuable of them into an evaluation for agents. Together the surveyed tasks are valued at more than $1.7 trillion a year.\n\n@dair_ai flagged it as a recommended benchmark on Thursday morning, and @omarsar0 reposted the thread into Robert's AI founders and AI's Best lists. The shift is the yardstick: most agent evals measure coding, math or exams, while LifeVal weights scores by the chores, errands and household work consumers say they value.\n\nWhy it matters: a dollar weighted map of consumer demand tells labs which assistant skills are worth building first. Watch for OpenAI and rival labs publishing LifeVal scores, and whether the benchmark lands in agent product launches.",
+      "body": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code reading and answering Hermes Telegram, Discord and Slack chats through that one endpoint instead of separate connectors.\n\n@HermesAgentTips posted the install commands and marketplace links the same morning on Robert's AI Community list. A follow up lists hermes plugins install mcp serve and hermes plugins enable mcp serve, then setting the MCP client command to hermes.\n\nWhy it matters: agent IDEs need chat context without custom glue, and an official Hermes MCP plugin is a shipping signal for that path. Watch whether Claude Code users adopt it for multi channel ops and how native Slack, Discord and Telegram agent tools answer.",
       "kind": "story",
       "engagement": {
-        "impression_count": 2045,
-        "like_count": 20,
-        "reply_count": 3,
-        "retweet_count": 2
+        "impression_count": 89,
+        "reply_count": 1
       },
-      "why_it_matters": "Robert's AI Orgs & Events, AI's Best, AI Founders lists carried @dair_ai, @omarsar0.",
+      "why_it_matters": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
       "topic_key": "world",
       "topic_label": "World",
-      "x_handle": "dair_ai",
-      "media_url": "https://pbs.twimg.com/media/HWXY_67bUAA2CuZ.jpg",
-      "list_count": 3,
-      "views": 2045,
+      "x_handle": "HermesAgentTips",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118360607564959746/img/liQc2dydENJnI189.jpg",
+      "list_count": 2,
+      "views": 89,
       "desk_rank": 1
     },
     {
@@ -337,21 +333,20 @@
       "tag": "products",
       "published_at": "2026-11-05T13:35:06.000Z",
       "author_name": "InfoWorld",
-      "source_list": "Tech News, AI Community, AI Founders, AI Orgs, Founders",
+      "source_list": "Tech News, AI Community, AI Founders, AI Orgs",
       "list_names": [
         "Tech News",
         "AI Community #9 of 9",
         "AI Founders #1 of 3",
         "AI Community #1 of 9",
         "AI Orgs & Events",
-        "Founders #2 of 3"
+        "AI Community #2 of 9"
       ],
       "chip_labels": [
         "Tech News",
         "AI Community",
         "AI Founders",
-        "AI Orgs",
-        "Founders"
+        "AI Orgs"
       ],
       "source_url": "https://x.com/InfoWorld/status/2118336305520164998",
       "sources": [
@@ -365,7 +360,7 @@
       "engagement": {
         "impression_count": 44
       },
-      "why_it_matters": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "why_it_matters": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "InfoWorld",
@@ -416,6 +411,49 @@
       "desk_rank": 6
     },
     {
+      "id": "x-2118343990059872466",
+      "headline": "Asimov Inc shows its open source Asimov 1 humanoid dancing on day 374 of the build",
+      "summary": "The Asimov company account posted video of its open source humanoid robot Asimov 1 dancing as a progress update on a continuous public build log. Open source humanoid progress posts keep the robotics desk current between larger IPO and lab releases.",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-11-05T14:05:38.000Z",
+      "author_name": "asimovinc",
+      "source_list": "Robotics (AI/SI), AI Companies: Developers",
+      "list_names": [
+        "Robotics (AI/SI)",
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "Robotics (AI/SI)",
+        "AI Companies: Developers"
+      ],
+      "source_url": "https://x.com/asimovinc/status/2118343990059872466",
+      "sources": [
+        {
+          "label": "@asimovinc",
+          "url": "https://x.com/asimovinc/status/2118343990059872466"
+        }
+      ],
+      "body": "The Asimov company account posted video of its open source humanoid robot Asimov 1 dancing as a progress update on a continuous public build log. Open source humanoid progress posts keep the robotics desk current between larger IPO and lab releases.\n\n@asimovinc posted: \"Day 374 of building Asimov 1, an open source humanoid robot. Asimov can dance!\"\n\n@jandotai added: \"RT @asimovinc: Day 374 of building Asimov 1, an open source humanoid robot. Asimov can dance!\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 190,
+        "like_count": 7,
+        "reply_count": 1,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "asimovinc",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118343914235269121/img/Chb7E4XuD4-VBUlV.jpg",
+      "list_count": 2,
+      "views": 190,
+      "desk_rank": 7
+    },
+    {
       "id": "x-2118124944928432327",
       "headline": "OpenAI ships ChatGPT Images 2.6 with GIFs, saved reference images and two faster API image models",
       "summary": "OpenAI shipped ChatGPT Images 2.6 on Wednesday evening. The update adds animated GIFs, so a prompt or a still image can become a loop with adjustable speed and frame by frame edits. It also lets people save reference images of themselves, pets or characters and reuse them without",
@@ -460,7 +498,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118124891572748288/img/ZSIlzNmSPQEK0Sfd.jpg",
       "list_count": 4,
       "views": 294064,
-      "desk_rank": 7
+      "desk_rank": 8
     },
     {
       "id": "x-2118337164702318837",
@@ -503,7 +541,52 @@
       "media_url": "https://pbs.twimg.com/media/HWXX-rnWQAE1YHu.png",
       "list_count": 3,
       "views": 53,
-      "desk_rank": 8
+      "desk_rank": 9
+    },
+    {
+      "id": "x-2118337806120718495",
+      "headline": "OpenAI LifeVal benchmark ranks 148 everyday life tasks people would pay AI agents to handle",
+      "summary": "OpenAI surveyed 3,837 U.S. consumers to rank 148 everyday life tasks by what people would pay an assistant to handle; LifeVal turns the highest value tasks into an agent benchmark, with the surveyed work valued at over $1.7 trillion a year. Puts a dollar weighted consumer map und",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-05T13:41:04.000Z",
+      "author_name": "dair_ai",
+      "source_list": "AI Orgs, AI's Best, AI Founders",
+      "list_names": [
+        "AI Orgs & Events",
+        "AI's Best",
+        "AI Founders #1 of 3"
+      ],
+      "chip_labels": [
+        "AI Orgs",
+        "AI's Best",
+        "AI Founders"
+      ],
+      "source_url": "https://x.com/dair_ai/status/2118337806120718495",
+      "sources": [
+        {
+          "label": "@dair_ai",
+          "url": "https://x.com/dair_ai/status/2118337806120718495"
+        }
+      ],
+      "body": "OpenAI surveyed 3,837 U.S. consumers to rank 148 everyday life tasks by what people would pay an assistant to handle; LifeVal turns the highest value tasks into an agent benchmark, with the surveyed work valued at over $1.7 trillion a year. Puts a dollar weighted consumer map under agent evals instead of only coding/math benches, so labs can prioritize assistants people would actually pay for.\n\n@dair_ai posted: \"Recommended benchmark from OpenAI on agents for everyday life tasks. They surveyed 3,837 US consumers to rank 148 life tasks by what people would pay an assistant to handle. Together, those tasks are worth over $1.7 trillion a year. LifeVal turns the most valuable of them into\"\n\n@omarsar0 added: \"RT @dair_ai: Recommended benchmark from OpenAI on agents for everyday life tasks. They surveyed 3,837 US consumers to rank 148 life tasks…\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 2045,
+        "like_count": 20,
+        "reply_count": 3,
+        "retweet_count": 2
+      },
+      "why_it_matters": "Robert's AI Orgs & Events, AI's Best, AI Founders lists carried @dair_ai, @omarsar0.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "dair_ai",
+      "media_url": "https://pbs.twimg.com/media/HWXY_67bUAA2CuZ.jpg",
+      "list_count": 3,
+      "views": 2045,
+      "desk_rank": 10
     },
     {
       "id": "x-2118314604581495114",
@@ -544,7 +627,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116316246979604480/NTTeohhY?format=png&name=orig",
       "list_count": 3,
       "views": 303,
-      "desk_rank": 9
+      "desk_rank": 11
     },
     {
       "id": "x-2118321182327926885",
@@ -584,7 +667,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118321193174368256/Fe8ZJeDN?format=jpg&name=orig",
       "list_count": 1,
       "views": 375,
-      "desk_rank": 10
+      "desk_rank": 12
     },
     {
       "id": "x-2118312415276204328",
@@ -623,7 +706,52 @@
       "media_url": "https://pbs.twimg.com/news_img/2118312417738317825/fzWBA5Lz?format=jpg&name=orig",
       "list_count": 1,
       "views": 202,
-      "desk_rank": 11
+      "desk_rank": 13
+    },
+    {
+      "id": "x-2118035494898704781",
+      "headline": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
+      "summary": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-04T17:39:47.000Z",
+      "author_name": "perplexity_ai",
+      "source_list": "AI Companies: Education, AI's Best, AI Community",
+      "list_names": [
+        "AI Companies: Education",
+        "AI's Best",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies: Education",
+        "AI's Best",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
+      "sources": [
+        {
+          "label": "@perplexity_ai",
+          "url": "https://x.com/perplexity_ai/status/2118035494898704781"
+        }
+      ],
+      "body": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying.\n\nPerplexity added that Computer can create ads, build Shopify landing pages and run Klaviyo email campaigns, using store and campaign data to decide what to make and which products to promote. The main post passed 85K views.\n\nWhy it matters: this is an agent claim measured in real money, not a demo. Watch for more brands publishing results and how agencies respond.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 85245,
+        "like_count": 388,
+        "reply_count": 57,
+        "retweet_count": 21
+      },
+      "why_it_matters": "Robert's AI Companies: Education, AI's Best, AI Community lists carried @perplexity_ai, @aiedge_, @Urus_niko.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "perplexity_ai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118035306914217984/img/sGJjd92ARR2-UPS3.jpg",
+      "list_count": 3,
+      "views": 85245,
+      "desk_rank": 14
     },
     {
       "id": "x-2118339046967808023",
@@ -664,7 +792,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118276810450587648/img/8-8VTY9fP3-EW9Li.jpg",
       "list_count": 1,
       "views": 115,
-      "desk_rank": 12
+      "desk_rank": 15
     },
     {
       "id": "x-2117642701890105725",
@@ -710,7 +838,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNgGBea4AAB3_r.jpg",
       "list_count": 4,
       "views": 1042,
-      "desk_rank": 13
+      "desk_rank": 16
     },
     {
       "id": "x-2117621415520448838",
@@ -757,7 +885,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNMZMHacAAl0lx.jpg",
       "list_count": 5,
       "views": 419,
-      "desk_rank": 14
+      "desk_rank": 17
     },
     {
       "id": "x-2118119451401048497",
@@ -800,7 +928,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUQl7QbwAAkznq.png",
       "list_count": 2,
       "views": 208846,
-      "desk_rank": 15
+      "desk_rank": 18
     },
     {
       "id": "x-2118148396733050987",
@@ -848,50 +976,7 @@
       "media_url": "https://pbs.twimg.com/media/HWVNt0yaoAAM33x.png",
       "list_count": 7,
       "views": 34,
-      "desk_rank": 16
-    },
-    {
-      "id": "x-2118035494898704781",
-      "headline": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
-      "summary": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-04T17:39:47.000Z",
-      "author_name": "perplexity_ai",
-      "source_list": "AI Companies: Education, AI Community",
-      "list_names": [
-        "AI Companies: Education",
-        "AI Community #4 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies: Education",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
-      "sources": [
-        {
-          "label": "@perplexity_ai",
-          "url": "https://x.com/perplexity_ai/status/2118035494898704781"
-        }
-      ],
-      "body": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying.\n\nPerplexity added that Computer can create ads, build Shopify landing pages and run Klaviyo email campaigns, using store and campaign data to decide what to make and which products to promote. The main post passed 85K views.\n\nWhy it matters: this is an agent claim measured in real money, not a demo. Watch for more brands publishing results and how agencies respond.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 85245,
-        "like_count": 388,
-        "reply_count": 57,
-        "retweet_count": 21
-      },
-      "why_it_matters": "Robert's AI Companies: Education, AI Community lists carried @perplexity_ai, @Urus_niko.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "perplexity_ai",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118035306914217984/img/sGJjd92ARR2-UPS3.jpg",
-      "list_count": 2,
-      "views": 85245,
-      "desk_rank": 17
+      "desk_rank": 19
     },
     {
       "id": "x-2118313092279067026",
@@ -934,7 +1019,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118312690062143488/img/7TuJlZdFiaVOxyym.jpg",
       "list_count": 3,
       "views": 46,
-      "desk_rank": 18
+      "desk_rank": 20
     },
     {
       "id": "x-2117680635561312732",
@@ -979,7 +1064,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117680108706140161/img/W7IjAqq94Q6lFVOo.jpg",
       "list_count": 3,
       "views": 5659,
-      "desk_rank": 19
+      "desk_rank": 21
     },
     {
       "id": "x-2118078402544734421",
@@ -1020,7 +1105,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118078407317786625/2wEhj8dX?format=jpg&name=orig",
       "list_count": 1,
       "views": 22118,
-      "desk_rank": 20
+      "desk_rank": 22
     },
     {
       "id": "x-2115859377488072879",
@@ -1065,7 +1150,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV0G0uhbwAAclVn.jpg",
       "list_count": 3,
       "views": 784130,
-      "desk_rank": 21
+      "desk_rank": 23
     },
     {
       "id": "x-2118129756889604452",
@@ -1109,7 +1194,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2118129671996858368/pu/img/RH8HHYSnneChecLe.jpg",
       "list_count": 3,
       "views": 663,
-      "desk_rank": 22
+      "desk_rank": 24
     },
     {
       "id": "x-2118062782562312416",
@@ -1150,7 +1235,52 @@
       "media_url": "https://pbs.twimg.com/media/HWTe2ZkaIAAQONR.png",
       "list_count": 1,
       "views": 4244,
-      "desk_rank": 23
+      "desk_rank": 25
+    },
+    {
+      "id": "x-2118151126445129928",
+      "headline": "CMU lab releases Pixel, a sub $15K wheeled humanoid co designed with a sub $1K UMI data kit",
+      "summary": "Deepak Pathak's CMU Robotics lab, with co leads Tony Tao and Jason Liu, released Pixel, a full stack low cost wheeled humanoid and learning pipeline aimed at home and service tasks. Pathak said the work shows state of the art robot skills do not need massive resources when hardwa",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-11-05T01:19:16.000Z",
+      "author_name": "deepakpathak",
+      "source_list": "Robotics in San Francisco, Robot Influencers/Media, AI Community",
+      "list_names": [
+        "Robotics in San Francisco",
+        "Robot Influencers/Media",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "Robotics in San Francisco",
+        "Robot Influencers/Media",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/deepakpathak/status/2118151126445129928",
+      "sources": [
+        {
+          "label": "@deepakpathak",
+          "url": "https://x.com/deepakpathak/status/2118151126445129928"
+        }
+      ],
+      "body": "Deepak Pathak's CMU Robotics lab, with co leads Tony Tao and Jason Liu, released Pixel, a full stack low cost wheeled humanoid and learning pipeline aimed at home and service tasks. Pathak said the work shows state of the art robot skills do not need massive resources when hardware, UMI data collection and learning are co designed.\n\n@CyberRobooo pegged the wheeled humanoid under $15K and the sensorized UMI kit under $1K for everyday chores. @JasonJZLiu said the team is releasing two papers, Pixel on the mobile manipulator and Pixel UMI on environment aware retargeting and DAgger for long horizon bimanual work such as folding a box and hanging a jacket. The stack is framed as open source.\n\nWhy it matters: a named price and open learning stack puts capable home robots within reach of labs that cannot buy Big Tech budgets. Watch independent builds, code release and whether the sub $15K claim holds for full kits.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1514,
+        "like_count": 47,
+        "reply_count": 5,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert's Robotics in San Francisco, Robot Influencers/Media, AI Community lists carried @deepakpathak, @CyberRobooo, @JasonJZLiu.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "deepakpathak",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118151083084443648/img/khTlEZxI0I9CVLU1.jpg",
+      "list_count": 3,
+      "views": 1514,
+      "desk_rank": 26
     },
     {
       "id": "x-2118342582321422815",
@@ -1191,7 +1321,55 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117673610081087488/img/POSEcA8oeQthppop.jpg",
       "list_count": 1,
       "views": 240,
-      "desk_rank": 24
+      "desk_rank": 27
+    },
+    {
+      "id": "x-2115985388649242699",
+      "headline": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
+      "summary": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 che",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-10-30T01:53:24.000Z",
+      "author_name": "vllm_project",
+      "source_list": "AI Companies:-All, AI Companies: Developers, AI Companies: Real Estate, AI Community",
+      "list_names": [
+        "AI Companies: #2 of 2-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
+      "sources": [
+        {
+          "label": "@vllm_project",
+          "url": "https://x.com/vllm_project/status/2115985388649242699"
+        }
+      ],
+      "body": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 checkpoint. A frontier scale open model from Europe resets the open weights field outside China and gives builders a new base to fine tune.\n\n@vllm_project posted: \"Day 0 RL for @MistralAI’s Mistral Large 4 with @NovaSkyAI’s SkyRL and @vllm_project! On 8 @nvidia GB200 nodes, LoRA RL on the NVFP4 checkpoint brings AIME 2024 avg@8 from ~64% to ~75% in 75 training steps. vLLM generates rollouts, while FSDP2 or Megatron handles training.\"\n\n@dextune added: \"Axolotl Fine tune large MoE models with YAML configs, then export straight to GGUF Axolotl is a free, open source fine tuning framework. October added Mistral Large 4 with merge aware NVFP4 LoRA and expert parallel training, and Reflection's Beam with QLoRA configs. CPU staged\" @SergioPaniego added: \"Mistral Large 4 by @MistralAI was also trained with MOPD in this case with one teacher per reasoning effort (high, medium, low) instead of per domain, the medium and low ones trained by RL with length penalties if you want to know more about MOPD:\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1738,
+        "like_count": 18,
+        "reply_count": 7,
+        "retweet_count": 9
+      },
+      "why_it_matters": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @SergioPaniego.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "vllm_project",
+      "media_url": "https://pbs.twimg.com/media/HWNhxQDaMAALb8s.jpg",
+      "list_count": 5,
+      "views": 1738,
+      "desk_rank": 28
     },
     {
       "id": "x-2118156252165358037",
@@ -1235,52 +1413,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118153298435825665/img/sPPDAfS2xbpI4Yec.jpg",
       "list_count": 4,
       "views": 525,
-      "desk_rank": 25
-    },
-    {
-      "id": "x-2117630688904012268",
-      "headline": "Soniox releases STT v6, a speech recognition model that filters out a voice agent's own voice",
-      "summary": "Soniox says STT v6 is the first speech recognition model that takes the voice agent's own text as input, giving it context from both sides of the conversation, and cancels the agent's playback echo while still listening to the user, even when they interrupt. Soniox says that mean",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-11-03T14:51:14.000Z",
-      "author_name": "soniox_ai",
-      "source_list": "AI Companies: Voice, AI Companies: Music/Audio, AI Community",
-      "list_names": [
-        "AI Companies: Voice",
-        "AI Companies: Music/Audio",
-        "AI Community #6 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies: Voice",
-        "AI Companies: Music/Audio",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/soniox_ai/status/2117630688904012268",
-      "sources": [
-        {
-          "label": "@soniox_ai",
-          "url": "https://x.com/soniox_ai/status/2117630688904012268"
-        }
-      ],
-      "body": "Soniox says STT v6 is the first speech recognition model that takes the voice agent's own text as input, giving it context from both sides of the conversation, and cancels the agent's playback echo while still listening to the user, even when they interrupt. Soniox says that means fewer false interruptions and clarification loops, plus significantly higher accuracy across 60+ languages for voice typing, meeting transcription, multilingual recognition and real time translation, with stronger diarization, language ID and endpoint detection in one unified model. It is available now for real time streaming and async transcription (soniox.com/blog/soniox stt v6). False barge ins and echo are among the most common failure modes in production voice agents, so building agent aware recognition into the speech model itself could make voice agents noticeably more reliable without extra pipeline work.\n\n@soniox_ai posted: \"Introducing Soniox STT v6, the world’s first speech recognition model that knows what your voice agent is saying and automatically filters out the agent’s own voice. Two connected innovations make this possible: → Agent text input gives recognition context from both sides of\"\n\n@soniox_ai added: \"Speech recognition has been missing half the conversation. Soniox STT v6 is the world’s first STT model that knows what your voice agent is saying. Introducing agent text input. Developers can stream the agent’s outgoing text into STT as it is sent to TTS, giving recognition\" @ashen_one added: \"if you're building a voice agent that keeps cutting itself off mid sentence, soniox v6 goes after that exact problem v6 lets you stream the text your agent is about to say into the speech recognition so it knows what's coming out of the speaker, filters that out, and keeps\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 16031,
-        "like_count": 151,
-        "reply_count": 36,
-        "retweet_count": 13
-      },
-      "why_it_matters": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Community lists carried @soniox_ai, @ashen_one.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "soniox_ai",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117630353565175808/img/5FU9I1EVucBqoywR.jpg",
-      "list_count": 3,
-      "views": 16031,
-      "desk_rank": 26
+      "desk_rank": 29
     },
     {
       "id": "x-2116220869479428500",
@@ -1333,7 +1466,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5MwwNWAAA5hUI.jpg",
       "list_count": 7,
       "views": 4269250,
-      "desk_rank": 27
+      "desk_rank": 30
     },
     {
       "id": "x-2117670295339171994",
@@ -1376,7 +1509,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117670256801873920/pu/img/ngWTR58nsSm8VVSD.jpg",
       "list_count": 2,
       "views": 383,
-      "desk_rank": 28
+      "desk_rank": 31
     },
     {
       "id": "x-2118162131103478221",
@@ -1416,7 +1549,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUQJrCbwAEcG1p.jpg",
       "list_count": 2,
       "views": 85,
-      "desk_rank": 29
+      "desk_rank": 32
     },
     {
       "id": "x-2117663862564573240",
@@ -1461,7 +1594,7 @@
       "media_url": "https://pbs.twimg.com/media/HWN0D2IWcAASzvX.jpg",
       "list_count": 3,
       "views": 3921,
-      "desk_rank": 30
+      "desk_rank": 33
     },
     {
       "id": "x-2116186245802127411",
@@ -1508,54 +1641,50 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV4qiMYbsAAz27z.jpg",
       "list_count": 4,
       "views": 2972,
-      "desk_rank": 31
+      "desk_rank": 34
     },
     {
-      "id": "x-2115985388649242699",
-      "headline": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
-      "summary": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 che",
+      "id": "x-2117630688904012268",
+      "headline": "Soniox releases STT v6, a speech recognition model that filters out a voice agent's own voice",
+      "summary": "Soniox says STT v6 is the first speech recognition model that takes the voice agent's own text as input, giving it context from both sides of the conversation, and cancels the agent's playback echo while still listening to the user, even when they interrupt. Soniox says that mean",
       "section": "models",
       "section_key": "models",
       "section_label": "Models",
       "tag": "models",
-      "published_at": "2026-10-30T01:53:24.000Z",
-      "author_name": "vllm_project",
-      "source_list": "AI Companies:-All, AI Companies: Developers, AI Companies: Real Estate, AI Community",
+      "published_at": "2026-11-03T14:51:14.000Z",
+      "author_name": "soniox_ai",
+      "source_list": "AI Companies: Voice, AI Companies: Music/Audio",
       "list_names": [
-        "AI Companies: #2 of 2-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community #4 of 9"
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio"
       ],
       "chip_labels": [
-        "AI Companies:-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community"
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio"
       ],
-      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
+      "source_url": "https://x.com/soniox_ai/status/2117630688904012268",
       "sources": [
         {
-          "label": "@vllm_project",
-          "url": "https://x.com/vllm_project/status/2115985388649242699"
+          "label": "@soniox_ai",
+          "url": "https://x.com/soniox_ai/status/2117630688904012268"
         }
       ],
-      "body": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 checkpoint. A frontier scale open model from Europe resets the open weights field outside China and gives builders a new base to fine tune.\n\n@vllm_project posted: \"Day 0 RL for @MistralAI’s Mistral Large 4 with @NovaSkyAI’s SkyRL and @vllm_project! On 8 @nvidia GB200 nodes, LoRA RL on the NVFP4 checkpoint brings AIME 2024 avg@8 from ~64% to ~75% in 75 training steps. vLLM generates rollouts, while FSDP2 or Megatron handles training.\"\n\n@dextune added: \"Axolotl Fine tune large MoE models with YAML configs, then export straight to GGUF Axolotl is a free, open source fine tuning framework. October added Mistral Large 4 with merge aware NVFP4 LoRA and expert parallel training, and Reflection's Beam with QLoRA configs. CPU staged\" @Urus_niko added: \"RT @MistralAI: Can Mistral Large 4 find a critical vulnerability, prove it and fix it? We tested it on a recent Django CVE. 133 agents map…\"",
+      "body": "Soniox says STT v6 is the first speech recognition model that takes the voice agent's own text as input, giving it context from both sides of the conversation, and cancels the agent's playback echo while still listening to the user, even when they interrupt. Soniox says that means fewer false interruptions and clarification loops, plus significantly higher accuracy across 60+ languages for voice typing, meeting transcription, multilingual recognition and real time translation, with stronger diarization, language ID and endpoint detection in one unified model. It is available now for real time streaming and async transcription (soniox.com/blog/soniox stt v6). False barge ins and echo are among the most common failure modes in production voice agents, so building agent aware recognition into the speech model itself could make voice agents noticeably more reliable without extra pipeline work.\n\n@soniox_ai posted: \"Introducing Soniox STT v6, the world’s first speech recognition model that knows what your voice agent is saying and automatically filters out the agent’s own voice. Two connected innovations make this possible: → Agent text input gives recognition context from both sides of\"\n\n@soniox_ai added: \"Speech recognition has been missing half the conversation. Soniox STT v6 is the world’s first STT model that knows what your voice agent is saying. Introducing agent text input. Developers can stream the agent’s outgoing text into STT as it is sent to TTS, giving recognition\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 1738,
-        "like_count": 18,
-        "reply_count": 7,
-        "retweet_count": 9
+        "impression_count": 16031,
+        "like_count": 151,
+        "reply_count": 36,
+        "retweet_count": 13
       },
-      "why_it_matters": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @Urus_niko.",
+      "why_it_matters": "Robert's AI Companies: Voice, AI Companies: Music/Audio lists carried @soniox_ai.",
       "topic_key": "models",
       "topic_label": "Models",
-      "x_handle": "vllm_project",
-      "media_url": "https://pbs.twimg.com/media/HWNhxQDaMAALb8s.jpg",
-      "list_count": 4,
-      "views": 1738,
-      "desk_rank": 32
+      "x_handle": "soniox_ai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117630353565175808/img/5FU9I1EVucBqoywR.jpg",
+      "list_count": 2,
+      "views": 16031,
+      "desk_rank": 35
     },
     {
       "id": "x-2115848186950791665",
@@ -1598,7 +1727,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115846043845971969/img/h-R_tvcTJBJZzjDI.jpg",
       "list_count": 2,
       "views": 817505,
-      "desk_rank": 33
+      "desk_rank": 36
     },
     {
       "id": "x-2117249008972550447",
@@ -1642,7 +1771,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
       "list_count": 3,
       "views": 106,
-      "desk_rank": 34
+      "desk_rank": 37
     },
     {
       "id": "x-2116573344283681010",
@@ -1684,7 +1813,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUsyluaAAA8lcm.jpg",
       "list_count": 3,
       "views": 34,
-      "desk_rank": 35
+      "desk_rank": 38
     },
     {
       "id": "x-2116598588172374141",
@@ -1738,7 +1867,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-rMr7awAEkYvc.jpg",
       "list_count": 8,
       "views": 11095,
-      "desk_rank": 36
+      "desk_rank": 39
     },
     {
       "id": "x-2115887660489462091",
@@ -1779,7 +1908,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115887560660766720/img/WyTAk03vOI_RJJVo.jpg",
       "list_count": 1,
       "views": 634809,
-      "desk_rank": 37
+      "desk_rank": 40
     },
     {
       "id": "x-2116005725814280570",
@@ -1820,7 +1949,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116003610509377536/img/tTDEreSob9R_UftI.jpg",
       "list_count": 1,
       "views": 160324,
-      "desk_rank": 38
+      "desk_rank": 41
     },
     {
       "id": "x-2116349211549843666",
@@ -1865,7 +1994,7 @@
       "media_url": "https://pbs.twimg.com/media/HV7E-P7bwAA7OxM.jpg",
       "list_count": 3,
       "views": 164409,
-      "desk_rank": 39
+      "desk_rank": 42
     },
     {
       "id": "x-2116186509384815084",
@@ -1912,7 +2041,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116186389536788480/img/hbO4g10coOsa0Gy3.jpg",
       "list_count": 4,
       "views": 201542,
-      "desk_rank": 40
+      "desk_rank": 43
     },
     {
       "id": "x-2116564505719185593",
@@ -1964,7 +2093,7 @@
       "media_url": "https://pbs.twimg.com/media/HV9_1tmW4AAmHhN.jpg",
       "list_count": 8,
       "views": 412,
-      "desk_rank": 41
+      "desk_rank": 44
     },
     {
       "id": "x-2116188727579918358",
@@ -2015,7 +2144,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116188665508397058/img/e7TjmUY-YuCA7Wfl.jpg",
       "list_count": 6,
       "views": 339,
-      "desk_rank": 42
+      "desk_rank": 45
     },
     {
       "id": "x-2115777746639196376",
@@ -2056,7 +2185,7 @@
       "media_url": "https://pbs.twimg.com/media/HVzAlG4aYAEdykK.jpg",
       "list_count": 1,
       "views": 49674,
-      "desk_rank": 43
+      "desk_rank": 46
     },
     {
       "id": "x-2117285608745820372",
@@ -2097,7 +2226,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117276914591399937/img/UT3OrHoJmR0zyCbG.jpg",
       "list_count": 1,
       "views": 15572,
-      "desk_rank": 44
+      "desk_rank": 47
     },
     {
       "id": "x-2117408792346509663",
@@ -2142,7 +2271,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117408779730108416/img/M_YLvydUvu_YZd9I.jpg",
       "list_count": 3,
       "views": 2568,
-      "desk_rank": 45
+      "desk_rank": 48
     },
     {
       "id": "x-2115962853463396395",
@@ -2189,7 +2318,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115962720092921857/img/plyOVUvSUBS7c3NA.jpg",
       "list_count": 4,
       "views": 13818,
-      "desk_rank": 46
+      "desk_rank": 49
     },
     {
       "id": "x-2116254202301493459",
@@ -2232,7 +2361,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5x0vvbMAAVG9F.jpg",
       "list_count": 2,
       "views": 4261,
-      "desk_rank": 47
+      "desk_rank": 50
     },
     {
       "id": "x-2116236342653026706",
@@ -2279,7 +2408,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hjyXbUAEH7dA.jpg",
       "list_count": 4,
       "views": 2442,
-      "desk_rank": 48
+      "desk_rank": 51
     },
     {
       "id": "x-2116233418702733514",
@@ -2322,7 +2451,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5fFFEXoAA9thh.jpg",
       "list_count": 2,
       "views": 496,
-      "desk_rank": 49
+      "desk_rank": 52
     },
     {
       "id": "x-2115480443307041130",
@@ -2363,7 +2492,7 @@
       "media_url": "https://pbs.twimg.com/media/HVuyJKuaIAAXXUQ.jpg",
       "list_count": 1,
       "views": 11929,
-      "desk_rank": 50
+      "desk_rank": 53
     },
     {
       "id": "x-2117691389265784919",
@@ -2404,7 +2533,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117691327240388608/pu/img/Rklk0_3GWNQqca_u.jpg",
       "list_count": 1,
       "views": 21676,
-      "desk_rank": 51
+      "desk_rank": 54
     },
     {
       "id": "x-2116560120457142451",
@@ -2445,7 +2574,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116559500933251072/img/GSMKoAbET-1y1M8Q.jpg",
       "list_count": 1,
       "views": 6933,
-      "desk_rank": 52
+      "desk_rank": 55
     },
     {
       "id": "x-2115890658636656826",
@@ -2490,7 +2619,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115888862664994816/img/lblQAbfEGXEDNyRh.jpg",
       "list_count": 3,
       "views": 120290,
-      "desk_rank": 53
+      "desk_rank": 56
     },
     {
       "id": "x-2116587096651505814",
@@ -2538,7 +2667,50 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg",
       "list_count": 5,
       "views": 275,
-      "desk_rank": 54
+      "desk_rank": 57
+    },
+    {
+      "id": "x-2116593734502797644",
+      "headline": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
+      "summary": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, wh",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-10-31T18:10:45.000Z",
+      "author_name": "dedene",
+      "source_list": "AI Community, Blockchain/Web 3, AI's Best",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AI Community #7 of 9",
+        "Blockchain/Web 3 #1 of 2",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Blockchain/Web 3",
+        "AI's Best"
+      ],
+      "source_url": "https://x.com/dedene/status/2116593734502797644",
+      "sources": [
+        {
+          "label": "@dedene",
+          "url": "https://x.com/dedene/status/2116593734502797644"
+        }
+      ],
+      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents.\n\n@dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"\n\n@TRue_JDHarmony added: \"RT @afmedia_: Went to a @NousResearch party friday, saw dope art, and found an unmarked envelope with an invite to the Hermes mobile beta i…\" @MichaelWaitze added: \"@KCMontero We actually compared mobile agent experiences, Hermes users rate it way higher for ease of use and control. Worth checking out.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 10
+      },
+      "why_it_matters": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @melvindvivas, @TRue_JDHarmony.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "dedene",
+      "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
+      "list_count": 4,
+      "views": 10,
+      "desk_rank": 58
     },
     {
       "id": "x-2116184730668298654",
@@ -2589,7 +2761,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116184615131979776/img/p0nSgnwEzMLoi7Lb.jpg",
       "list_count": 6,
       "views": 2732,
-      "desk_rank": 55
+      "desk_rank": 59
     },
     {
       "id": "x-2116236188319453386",
@@ -2634,7 +2806,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hqrJWYAA1M_E.jpg",
       "list_count": 3,
       "views": 11266,
-      "desk_rank": 56
+      "desk_rank": 60
     },
     {
       "id": "x-2116131501519868036",
@@ -2681,49 +2853,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 6,
       "views": 7,
-      "desk_rank": 57
-    },
-    {
-      "id": "x-2116593734502797644",
-      "headline": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
-      "summary": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, wh",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-10-31T18:10:45.000Z",
-      "author_name": "dedene",
-      "source_list": "AI Community, Blockchain/Web 3, AI's Best",
-      "list_names": [
-        "AI Community #5 of 9",
-        "Blockchain/Web 3 #1 of 2",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "Blockchain/Web 3",
-        "AI's Best"
-      ],
-      "source_url": "https://x.com/dedene/status/2116593734502797644",
-      "sources": [
-        {
-          "label": "@dedene",
-          "url": "https://x.com/dedene/status/2116593734502797644"
-        }
-      ],
-      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents.\n\n@dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"\n\n@TRue_JDHarmony added: \"RT @afmedia_: Went to a @NousResearch party friday, saw dope art, and found an unmarked envelope with an invite to the Hermes mobile beta i…\" @MichaelWaitze added: \"@KCMontero We actually compared mobile agent experiences, Hermes users rate it way higher for ease of use and control. Worth checking out.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 10
-      },
-      "why_it_matters": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @TRue_JDHarmony, @MichaelWaitze.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "dedene",
-      "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
-      "list_count": 3,
-      "views": 10,
-      "desk_rank": 58
+      "desk_rank": 61
     },
     {
       "id": "x-2115867078964187368",
@@ -2766,7 +2896,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115849542835032070/img/DLvqI6GHXxdGBOR3.jpg",
       "list_count": 2,
       "views": 1007517,
-      "desk_rank": 59
+      "desk_rank": 62
     },
     {
       "id": "x-2116530643228295205",
@@ -2807,7 +2937,7 @@
       "media_url": "https://pbs.twimg.com/media/HV8QGvGWcAAmnqa.jpg",
       "list_count": 1,
       "views": 1408,
-      "desk_rank": 60
+      "desk_rank": 63
     },
     {
       "id": "x-2115866740705935621",
@@ -2848,7 +2978,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2115866633164017664/pu/img/j2KBZ5b15R_GbRnQ.jpg",
       "list_count": 1,
       "views": 9081,
-      "desk_rank": 61
+      "desk_rank": 64
     },
     {
       "id": "x-2116227954518978729",
@@ -2889,7 +3019,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116227869236215808/img/-xiBqjXdevC1DRL2.jpg",
       "list_count": 1,
       "views": 3688,
-      "desk_rank": 62
+      "desk_rank": 65
     },
     {
       "id": "x-2116551784235782494",
@@ -2932,7 +3062,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2116551633106522112/pu/img/0SXU3jLR4Q_cn8ES.jpg",
       "list_count": 2,
       "views": 329,
-      "desk_rank": 63
+      "desk_rank": 66
     },
     {
       "id": "x-2116222007658586306",
@@ -2973,7 +3103,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 1,
       "views": 2491,
-      "desk_rank": 64
+      "desk_rank": 67
     },
     {
       "id": "x-2116572625195470890",
@@ -3014,7 +3144,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-TaMxXUAEReuQ.png",
       "list_count": 2,
       "views": 34,
-      "desk_rank": 65
+      "desk_rank": 68
     },
     {
       "id": "x-2116181430359511443",
@@ -3055,7 +3185,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116177737778167809/img/3TkBGjOnva5_-o4-.jpg",
       "list_count": 1,
       "views": 9844,
-      "desk_rank": 66
+      "desk_rank": 69
     },
     {
       "id": "x-2116576079632912834",
@@ -3096,7 +3226,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116575995683913728/img/HerUHqv3Y7i_BXkc.jpg",
       "list_count": 1,
       "views": 7381,
-      "desk_rank": 67
+      "desk_rank": 70
     },
     {
       "id": "x-2116621333992005911",
@@ -3136,7 +3266,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116621244636504064/img/oYscG-9y5Zmzvwen.jpg",
       "list_count": 1,
       "views": 3627,
-      "desk_rank": 68
+      "desk_rank": 71
     },
     {
       "id": "x-2115936769229176975",
@@ -3177,7 +3307,7 @@
       "media_url": "https://pbs.twimg.com/media/HV1RRIJWoAA3Dud.jpg",
       "list_count": 1,
       "views": 3018,
-      "desk_rank": 69
+      "desk_rank": 72
     },
     {
       "id": "x-2116144490993832250",
@@ -3220,7 +3350,7 @@
       "media_url": "https://pbs.twimg.com/media/HV4OEyrXoAAaqBg.jpg",
       "list_count": 2,
       "views": 1363,
-      "desk_rank": 70
+      "desk_rank": 73
     },
     {
       "id": "x-2117255449657725295",
@@ -3260,7 +3390,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH9-TrWsAAMTkn.jpg",
       "list_count": 1,
       "views": 414,
-      "desk_rank": 71
+      "desk_rank": 74
     },
     {
       "id": "x-2115970151933935668",
@@ -3309,7 +3439,7 @@
       "media_url": "https://pbs.twimg.com/media/HWPjGPVa0AAgLPB.png",
       "list_count": 6,
       "views": 9984,
-      "desk_rank": 72
+      "desk_rank": 75
     },
     {
       "id": "x-2116621403327762856",
@@ -3352,7 +3482,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116621406511239168/RaJ-A8va?format=jpg&name=orig",
       "list_count": 2,
       "views": 17296,
-      "desk_rank": 73
+      "desk_rank": 76
     },
     {
       "id": "x-2116586054857719916",
@@ -3393,7 +3523,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116586056208269312/umgR00XK?format=jpg&name=orig",
       "list_count": 1,
       "views": 18549,
-      "desk_rank": 74
+      "desk_rank": 77
     }
   ],
   "signals": [
@@ -3484,30 +3614,29 @@
     {
       "id": "sig-x-2118336305520164998",
       "title": "Meta acquires Conductor, the parallel coding agent app, as AI coding moves to multi agent workflows",
-      "text": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "text": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "source_list": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "list_names": [
         "Tech News",
         "AI Community #9 of 9",
         "AI Founders #1 of 3",
         "AI Community #1 of 9",
         "AI Orgs & Events",
-        "Founders #2 of 3"
+        "AI Community #2 of 9"
       ],
       "chip_labels": [
         "Tech News",
         "AI Community",
         "AI Founders",
-        "AI Orgs",
-        "Founders"
+        "AI Orgs"
       ],
       "created_at": "2026-11-05T13:35:06.000Z",
       "source_url": "https://x.com/InfoWorld/status/2118336305520164998",
-      "analysis": "Robert's Tech News, AI Community, AI Founders and 2 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
+      "analysis": "Robert's Tech News, AI Community, AI Founders and 1 more lists carried @InfoWorld, @alexandr_wang, @prasad_pilla.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -3531,6 +3660,29 @@
       "analysis": "Robert's Tech Companies lists carried @Cloudflare.",
       "topic_key": "policy",
       "topic_label": "Policy"
+    },
+    {
+      "id": "sig-x-2118343990059872466",
+      "title": "Asimov Inc shows its open source Asimov 1 humanoid dancing on day 374 of the build",
+      "text": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
+      "list_names": [
+        "Robotics (AI/SI)",
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "Robotics (AI/SI)",
+        "AI Companies: Developers"
+      ],
+      "created_at": "2026-11-05T14:05:38.000Z",
+      "source_url": "https://x.com/asimovinc/status/2118343990059872466",
+      "analysis": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2118124944928432327",
@@ -3581,6 +3733,31 @@
       "created_at": "2026-11-05T13:38:31.000Z",
       "source_url": "https://x.com/thePandaily/status/2118337164702318837",
       "analysis": "Robert's AI's Best, Tech News, AI Companies: Developers lists carried @thePandaily, @sgl_project.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-x-2118337806120718495",
+      "title": "OpenAI LifeVal benchmark ranks 148 everyday life tasks people would pay AI agents to handle",
+      "text": "Robert's AI Orgs & Events, AI's Best, AI Founders lists carried @dair_ai, @omarsar0.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Orgs & Events, AI's Best, AI Founders lists carried @dair_ai, @omarsar0.",
+      "list_names": [
+        "AI Orgs & Events",
+        "AI's Best",
+        "AI Founders #1 of 3"
+      ],
+      "chip_labels": [
+        "AI Orgs",
+        "AI's Best",
+        "AI Founders"
+      ],
+      "created_at": "2026-11-05T13:41:04.000Z",
+      "source_url": "https://x.com/dair_ai/status/2118337806120718495",
+      "analysis": "Robert's AI Orgs & Events, AI's Best, AI Founders lists carried @dair_ai, @omarsar0.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -3647,6 +3824,31 @@
       "created_at": "2026-11-05T12:00:10.000Z",
       "source_url": "https://x.com/grafana/status/2118312415276204328",
       "analysis": "Robert's AI Companies: Developers lists carried @grafana.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118035494898704781",
+      "title": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
+      "text": "Robert's AI Companies: Education, AI's Best, AI Community lists carried @perplexity_ai, @aiedge_, @Urus_niko.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Education, AI's Best, AI Community lists carried @perplexity_ai, @aiedge_, @Urus_niko.",
+      "list_names": [
+        "AI Companies: Education",
+        "AI's Best",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies: Education",
+        "AI's Best",
+        "AI Community"
+      ],
+      "created_at": "2026-11-04T17:39:47.000Z",
+      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
+      "analysis": "Robert's AI Companies: Education, AI's Best, AI Community lists carried @perplexity_ai, @aiedge_, @Urus_niko.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -3778,29 +3980,6 @@
       "analysis": "Robert's AI's Best, Tech News, AI: Decentralized and 2 more lists carried @thePandaily, @weroamxyz, @Chinazhidx.",
       "topic_key": "models",
       "topic_label": "Models"
-    },
-    {
-      "id": "sig-x-2118035494898704781",
-      "title": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
-      "text": "Robert's AI Companies: Education, AI Community lists carried @perplexity_ai, @Urus_niko.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Education, AI Community lists carried @perplexity_ai, @Urus_niko.",
-      "list_names": [
-        "AI Companies: Education",
-        "AI Community #4 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies: Education",
-        "AI Community"
-      ],
-      "created_at": "2026-11-04T17:39:47.000Z",
-      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
-      "analysis": "Robert's AI Companies: Education, AI Community lists carried @perplexity_ai, @Urus_niko.",
-      "topic_key": "products",
-      "topic_label": "Products"
     },
     {
       "id": "sig-x-2118313092279067026",
@@ -3943,6 +4122,31 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-x-2118151126445129928",
+      "title": "CMU lab releases Pixel, a sub $15K wheeled humanoid co designed with a sub $1K UMI data kit",
+      "text": "Robert's Robotics in San Francisco, Robot Influencers/Media, AI Community lists carried @deepakpathak, @CyberRobooo, @JasonJZLiu.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's Robotics in San Francisco, Robot Influencers/Media, AI Community lists carried @deepakpathak, @CyberRobooo, @JasonJZLiu.",
+      "list_names": [
+        "Robotics in San Francisco",
+        "Robot Influencers/Media",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "Robotics in San Francisco",
+        "Robot Influencers/Media",
+        "AI Community"
+      ],
+      "created_at": "2026-11-05T01:19:16.000Z",
+      "source_url": "https://x.com/deepakpathak/status/2118151126445129928",
+      "analysis": "Robert's Robotics in San Francisco, Robot Influencers/Media, AI Community lists carried @deepakpathak, @CyberRobooo, @JasonJZLiu.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
+    },
+    {
       "id": "sig-x-2118342582321422815",
       "title": "Xanadu says its algorithms team cut quantum computing overhead costs 4x in under a year",
       "text": "Robert's Quantum lists carried @XanaduAI.",
@@ -3962,6 +4166,34 @@
       "analysis": "Robert's Quantum lists carried @XanaduAI.",
       "topic_key": "labs",
       "topic_label": "Labs"
+    },
+    {
+      "id": "sig-x-2115985388649242699",
+      "title": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
+      "text": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @SergioPaniego.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @SergioPaniego.",
+      "list_names": [
+        "AI Companies: #2 of 2-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community #1 of 9",
+        "AI Community #4 of 9"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "AI Companies: Developers",
+        "AI Companies: Real Estate",
+        "AI Community"
+      ],
+      "created_at": "2026-10-30T01:53:24.000Z",
+      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
+      "analysis": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @SergioPaniego.",
+      "topic_key": "models",
+      "topic_label": "Models"
     },
     {
       "id": "sig-x-2118156252165358037",
@@ -3985,31 +4217,6 @@
       "created_at": "2026-11-05T01:39:38.000Z",
       "source_url": "https://x.com/wenhaocha1/status/2118156252165358037",
       "analysis": "Robert's AI Community, AI: Computer Vision lists carried @wenhaocha1, @lihanc02, @rqiang_rushi.",
-      "topic_key": "models",
-      "topic_label": "Models"
-    },
-    {
-      "id": "sig-x-2117630688904012268",
-      "title": "Soniox releases STT v6, a speech recognition model that filters out a voice agent's own voice",
-      "text": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Community lists carried @soniox_ai, @ashen_one.",
-      "badge": "signal",
-      "category": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "source_list": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Community lists carried @soniox_ai, @ashen_one.",
-      "list_names": [
-        "AI Companies: Voice",
-        "AI Companies: Music/Audio",
-        "AI Community #6 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies: Voice",
-        "AI Companies: Music/Audio",
-        "AI Community"
-      ],
-      "created_at": "2026-11-03T14:51:14.000Z",
-      "source_url": "https://x.com/soniox_ai/status/2117630688904012268",
-      "analysis": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Community lists carried @soniox_ai, @ashen_one.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -4144,29 +4351,25 @@
       "topic_label": "Models"
     },
     {
-      "id": "sig-x-2115985388649242699",
-      "title": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
-      "text": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @Urus_niko.",
+      "id": "sig-x-2117630688904012268",
+      "title": "Soniox releases STT v6, a speech recognition model that filters out a voice agent's own voice",
+      "text": "Robert's AI Companies: Voice, AI Companies: Music/Audio lists carried @soniox_ai.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @Urus_niko.",
+      "source_list": "Robert's AI Companies: Voice, AI Companies: Music/Audio lists carried @soniox_ai.",
       "list_names": [
-        "AI Companies: #2 of 2-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community #4 of 9"
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio"
       ],
       "chip_labels": [
-        "AI Companies:-All",
-        "AI Companies: Developers",
-        "AI Companies: Real Estate",
-        "AI Community"
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio"
       ],
-      "created_at": "2026-10-30T01:53:24.000Z",
-      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
-      "analysis": "Robert's AI Companies, AI Companies: Developers, AI Companies: Real Estate and 1 more lists carried @vllm_project, @dextune, @Urus_niko.",
+      "created_at": "2026-11-03T14:51:14.000Z",
+      "source_url": "https://x.com/soniox_ai/status/2117630688904012268",
+      "analysis": "Robert's AI Companies: Voice, AI Companies: Music/Audio lists carried @soniox_ai.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -4720,6 +4923,32 @@
       "topic_label": "Labs"
     },
     {
+      "id": "sig-x-2116593734502797644",
+      "title": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
+      "text": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @melvindvivas, @TRue_JDHarmony.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @melvindvivas, @TRue_JDHarmony.",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AI Community #7 of 9",
+        "Blockchain/Web 3 #1 of 2",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "Blockchain/Web 3",
+        "AI's Best"
+      ],
+      "created_at": "2026-10-31T18:10:45.000Z",
+      "source_url": "https://x.com/dedene/status/2116593734502797644",
+      "analysis": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @melvindvivas, @TRue_JDHarmony.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
       "id": "sig-x-2116184730668298654",
       "title": "ElevenLabs makes developer onboarding agent first",
       "text": "Robert's AI Companies, AI Companies: Music/Audio, AI Companies: Creative and 3 more lists carried @ElevenLabsDevs, @smallest_AI, @DavidmComfort.",
@@ -4804,31 +5033,6 @@
       "analysis": "Robert's AI Creative People, AI Companies: Creative, AI Companies: Music/Audio and 2 more lists carried @Axylusion, @ComfyUI, @MireloAI.",
       "topic_key": "creatives",
       "topic_label": "Creatives"
-    },
-    {
-      "id": "sig-x-2116593734502797644",
-      "title": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
-      "text": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @TRue_JDHarmony, @MichaelWaitze.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @TRue_JDHarmony, @MichaelWaitze.",
-      "list_names": [
-        "AI Community #5 of 9",
-        "Blockchain/Web 3 #1 of 2",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "Blockchain/Web 3",
-        "AI's Best"
-      ],
-      "created_at": "2026-10-31T18:10:45.000Z",
-      "source_url": "https://x.com/dedene/status/2116593734502797644",
-      "analysis": "Robert's AI Community, Blockchain/Web 3, AI's Best lists carried @dedene, @TRue_JDHarmony, @MichaelWaitze.",
-      "topic_key": "products",
-      "topic_label": "Products"
     },
     {
       "id": "sig-x-2115867078964187368",
@@ -5231,8 +5435,8 @@
   "bundles": [],
   "ai_sections": [],
   "top_pulls": [
+    "x-2118151126445129928",
     "x-2118288470275674172",
-    "x-2118342582321422815",
     "x-2118336305520164998",
     "x-2118339046967808023"
   ]
