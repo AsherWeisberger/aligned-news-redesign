@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-11-05T00:52:33.000Z",
-    "scrapedAt": "2026-11-05T00:52:33.000Z",
+    "generatedAt": "2026-11-05T01:19:56.000Z",
+    "scrapedAt": "2026-11-05T01:19:56.000Z",
     "source": "scobleizer-chrome-lists",
     "note": "CONTEXT writeup, 55 stories, source /workspace/pulse/dumps/LATEST_PACK.json",
     "lastUpdatedTs": 1787909816809,
@@ -12,7 +12,7 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 49,
+    "lists": 48,
     "stories": 55,
     "signals": 54,
     "reports": 4
@@ -141,25 +141,69 @@
   ],
   "stories": [
     {
-      "id": "x-2118124944928432327",
-      "headline": "OpenAI ships ChatGPT Images 2.6 with GIFs, saved reference images and two faster API image models",
-      "summary": "OpenAI shipped ChatGPT Images 2.6 on Wednesday evening. The update adds animated GIFs, so a prompt or a still image can become a loop with adjustable speed and frame by frame edits. It also lets people save reference images of themselves, pets or characters and reuse them without",
+      "id": "x-2118129756889604452",
+      "headline": "Tencent ships Hy4 with vision and computer use on Tencent Cloud, OpenRouter and Nous Portal",
+      "summary": "Tencent shipped Hy4 on Wednesday evening, a new model that adds vision and computer use to everyday work for the first time in its lineup. @TencentGlobal said Hy4 was co designed with product teams across Tencent, and it is available now on Tencent Cloud and OpenRouter, with Nous",
       "section": "world",
       "section_key": "world",
       "section_label": "World",
       "tag": "world",
+      "published_at": "2026-11-04T23:54:21.000Z",
+      "author_name": "TencentGlobal",
+      "source_list": "Tech Companies, AI: Decentralized, AI's Best",
+      "list_names": [
+        "Tech Companies",
+        "AI: Decentralized",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "Tech Companies",
+        "AI: Decentralized",
+        "AI's Best"
+      ],
+      "source_url": "https://x.com/TencentGlobal/status/2118129756889604452",
+      "sources": [
+        {
+          "label": "@TencentGlobal",
+          "url": "https://x.com/TencentGlobal/status/2118129756889604452"
+        }
+      ],
+      "body": "Tencent shipped Hy4 on Wednesday evening, a new model that adds vision and computer use to everyday work for the first time in its lineup. @TencentGlobal said Hy4 was co designed with product teams across Tencent, and it is available now on Tencent Cloud and OpenRouter, with Nous Portal also carrying it.\n\nThe pitch is practical: a model that can see a screen and act on it, offered through the channels developers already use to swap models. Shipping on OpenRouter on day one puts Hy4 in front of builders who compare models side by side, and the post tagged it as open source AI.\n\nWhy it matters: computer use is the frontier labs are racing on, and a Chinese giant just put its answer into third party routers on launch day. Watch independent evals against Claude and OpenAI agents, pricing on OpenRouter, and whether open weights follow.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 663,
+        "like_count": 9,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert's Tech Companies, AI: Decentralized, AI's Best lists carried @TencentGlobal, @NousResearch, @thePandaily.",
+      "topic_key": "world",
+      "topic_label": "World",
+      "x_handle": "TencentGlobal",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2118129671996858368/pu/img/RH8HHYSnneChecLe.jpg",
+      "list_count": 3,
+      "views": 663,
+      "desk_rank": 1
+    },
+    {
+      "id": "x-2118124944928432327",
+      "headline": "OpenAI ships ChatGPT Images 2.6 with GIFs, saved reference images and two faster API image models",
+      "summary": "OpenAI shipped ChatGPT Images 2.6 on Wednesday evening. The update adds animated GIFs, so a prompt or a still image can become a loop with adjustable speed and frame by frame edits. It also lets people save reference images of themselves, pets or characters and reuse them without",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
       "published_at": "2026-11-04T23:35:14.000Z",
       "author_name": "OpenAI",
-      "source_list": "AI Companies: Marketing, AI Founders, AI Consultants",
+      "source_list": "AI Companies: Marketing, AI Founders, AI Film Makers",
       "list_names": [
         "AI Companies: Marketing",
         "AI Founders #1 of 3",
-        "AI Consultants"
+        "AI Film Makers"
       ],
       "chip_labels": [
         "AI Companies: Marketing",
         "AI Founders",
-        "AI Consultants"
+        "AI Film Makers"
       ],
       "source_url": "https://x.com/OpenAI/status/2118124944928432327",
       "sources": [
@@ -176,14 +220,14 @@
         "reply_count": 312,
         "retweet_count": 538
       },
-      "why_it_matters": "Robert's AI Companies: Marketing, AI Founders, AI Consultants lists carried @OpenAI, @swyx, @jerrod_lew.",
-      "topic_key": "world",
-      "topic_label": "World",
+      "why_it_matters": "Robert's AI Companies: Marketing, AI Founders, AI Film Makers lists carried @OpenAI, @swyx, @PJaccetturo.",
+      "topic_key": "products",
+      "topic_label": "Products",
       "x_handle": "OpenAI",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118124891572748288/img/ZSIlzNmSPQEK0Sfd.jpg",
       "list_count": 3,
       "views": 294064,
-      "desk_rank": 1
+      "desk_rank": 2
     },
     {
       "id": "x-2118119451401048497",
@@ -195,14 +239,14 @@
       "tag": "policy",
       "published_at": "2026-11-04T23:13:24.000Z",
       "author_name": "OpenAI",
-      "source_list": "AI Companies: Marketing, Founders",
+      "source_list": "AI Companies: Marketing, AI's Best",
       "list_names": [
         "AI Companies: Marketing",
-        "Founders #2 of 3"
+        "AI's Best"
       ],
       "chip_labels": [
         "AI Companies: Marketing",
-        "Founders"
+        "AI's Best"
       ],
       "source_url": "https://x.com/OpenAI/status/2118119451401048497",
       "sources": [
@@ -219,14 +263,55 @@
         "reply_count": 203,
         "retweet_count": 261
       },
-      "why_it_matters": "Robert's AI Companies: Marketing, Founders lists carried @OpenAI, @TimHaines.",
+      "why_it_matters": "Robert's AI Companies: Marketing, AI's Best lists carried @OpenAI, @rohanpaul_ai.",
       "topic_key": "policy",
       "topic_label": "Policy",
       "x_handle": "OpenAI",
       "media_url": "https://pbs.twimg.com/media/HWUQl7QbwAAkznq.png",
       "list_count": 2,
       "views": 208846,
-      "desk_rank": 2
+      "desk_rank": 3
+    },
+    {
+      "id": "x-2118035494898704781",
+      "headline": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
+      "summary": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying.",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-04T17:39:47.000Z",
+      "author_name": "perplexity_ai",
+      "source_list": "AI Companies: Education",
+      "list_names": [
+        "AI Companies: Education"
+      ],
+      "chip_labels": [
+        "AI Companies: Education"
+      ],
+      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
+      "sources": [
+        {
+          "label": "@perplexity_ai",
+          "url": "https://x.com/perplexity_ai/status/2118035494898704781"
+        }
+      ],
+      "body": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying.\n\nPerplexity added that Computer can create ads, build Shopify landing pages and run Klaviyo email campaigns, using store and campaign data to decide what to make and which products to promote. The main post passed 85K views.\n\nWhy it matters: this is an agent claim measured in real money, not a demo. Watch for more brands publishing results and how agencies respond.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 85245,
+        "like_count": 388,
+        "reply_count": 57,
+        "retweet_count": 21
+      },
+      "why_it_matters": "Robert's AI Companies: Education lists carried @perplexity_ai.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "perplexity_ai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118035306914217984/img/sGJjd92ARR2-UPS3.jpg",
+      "list_count": 1,
+      "views": 85245,
+      "desk_rank": 4
     },
     {
       "id": "x-2118062782562312416",
@@ -267,7 +352,7 @@
       "media_url": "https://pbs.twimg.com/media/HWTe2ZkaIAAQONR.png",
       "list_count": 1,
       "views": 4244,
-      "desk_rank": 3
+      "desk_rank": 5
     },
     {
       "id": "x-2117642701890105725",
@@ -313,7 +398,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNgGBea4AAB3_r.jpg",
       "list_count": 4,
       "views": 1042,
-      "desk_rank": 4
+      "desk_rank": 6
     },
     {
       "id": "x-2117621415520448838",
@@ -358,7 +443,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNMZMHacAAl0lx.jpg",
       "list_count": 4,
       "views": 419,
-      "desk_rank": 5
+      "desk_rank": 7
     },
     {
       "id": "x-2117680635561312732",
@@ -403,7 +488,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117680108706140161/img/W7IjAqq94Q6lFVOo.jpg",
       "list_count": 3,
       "views": 5659,
-      "desk_rank": 6
+      "desk_rank": 8
     },
     {
       "id": "x-2117630688904012268",
@@ -450,7 +535,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117630353565175808/img/5FU9I1EVucBqoywR.jpg",
       "list_count": 4,
       "views": 16031,
-      "desk_rank": 7
+      "desk_rank": 9
     },
     {
       "id": "x-2115859377488072879",
@@ -480,7 +565,7 @@
           "url": "https://x.com/claudeai/status/2115859377488072879"
         }
       ],
-      "body": "Anthropic shipped Claude app upgrades: generated work opens beside the chat on iPad/iPhone, voice mode works in Apple CarPlay, and Claude on Android now behaves like a laptop app on Chromebooks and foldables. Puts Claude into the car and makes mobile a real work surface, sharpening the assistant race with ChatGPT and Gemini.\n\n@claudeai posted: \"A few upgrades to the Claude mobile apps this week: On iPad and iPhone Duo: what Claude makes now opens beside the chat instead of over it, and goes full screen when you want a closer look.\"\n\n@sakhil_ai added: \"A 19 year old Japanese student built a trading bot using Claude Code in just 2 days. He even used his iPad as a second screen. First night profit: $6,732. Starting capital: Just $68. Total profit so far: $750,000. Here's how his bot works The bot checks more than 50\" @ArifAIHQ added: \"RT @The_techAI: 19 year old Japanese student built a trading bot with Claude Code in 2 days. Used his iPad as a second monitor. First nig…\"",
+      "body": "Anthropic shipped Claude app upgrades: generated work opens beside the chat on iPad/iPhone, voice mode works in Apple CarPlay, and Claude on Android now behaves like a laptop app on Chromebooks and foldables. Puts Claude into the car and makes mobile a real work surface, sharpening the assistant race with ChatGPT and Gemini.\n\n@claudeai posted: \"A few upgrades to the Claude mobile apps this week: On iPad and iPhone Duo: what Claude makes now opens beside the chat instead of over it, and goes full screen when you want a closer look.\"\n\n@ArifAIHQ added: \"RT @The_techAI: 19 year old Japanese student built a trading bot with Claude Code in 2 days. Used his iPad as a second monitor. First nig…\" @justinbrave21 added: \"RT @liam_turner_ai: A 19 year old Japanese student built a trading bot using Claude Code in just 2 days. He even used his iPad as a second…\"",
       "kind": "story",
       "engagement": {
         "impression_count": 784130,
@@ -488,14 +573,14 @@
         "reply_count": 434,
         "retweet_count": 386
       },
-      "why_it_matters": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @sakhil_ai, @ArifAIHQ.",
+      "why_it_matters": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @ArifAIHQ, @justinbrave21.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "claudeai",
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV0G0uhbwAAclVn.jpg",
       "list_count": 3,
       "views": 784130,
-      "desk_rank": 8
+      "desk_rank": 10
     },
     {
       "id": "x-2116220869479428500",
@@ -507,7 +592,7 @@
       "tag": "products",
       "published_at": "2026-10-30T17:29:07.000Z",
       "author_name": "claudeai",
-      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI Companies: Creative, AI Companies: Work, AI Community, AI Orgs, AR/VR Community, AI Companies:-All, AI Founders",
+      "source_list": "AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med, AI Companies: Creative, AI Companies: Work, AI Community, AI Orgs, AI Companies:-All, AI Founders",
       "list_names": [
         "AI Companies: Marketing",
         "AI Companies: Education",
@@ -516,7 +601,6 @@
         "AI Companies: Work",
         "AI Community #1 of 9",
         "AI Orgs & Events",
-        "AR/VR Community #2 of 2",
         "AI Companies: #1 of 2-All",
         "AI Founders #2 of 3"
       ],
@@ -528,7 +612,6 @@
         "AI Companies: Work",
         "AI Community",
         "AI Orgs",
-        "AR/VR Community",
         "AI Companies:-All",
         "AI Founders"
       ],
@@ -539,7 +622,7 @@
           "url": "https://x.com/claudeai/status/2116220869479428500"
         }
       ],
-      "body": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; removing the window on the top tier is a direct move in the coding agent pricing war with OpenAI.\n\n@claudeai posted: \"We’re renaming our Max plans: Max 5x → Max Max 20x → Ultra Max is still $100/month, and Ultra is still $200. If you’re a subscriber, there’s nothing you need to do. We’re also removing the 5 hour limit for verified Ultra accounts, starting today with most existing\"\n\n@StatsWire added: \"Claude Opus 4.6 just DESTROYED my Antigravity usage limits!!! A few hours ago, I still had 81% of my weekly Claude/GPT quota left. Now??? • Weekly limit: 45% left • 5 hour limit: 0% left • Reset in 1 hour 11 minutes Anyone else burning through Claude usage like this on\" @Heaney555 added: \"@mveehkim @bensprks What? You just... open Gemini. The app on your phone, or What's the confusion? The caveat is that you need a paid (Pro or Ultra) account to see it, but that's the case for OpenAI and Anthropic's flagship models too.\"",
+      "body": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; removing the window on the top tier is a direct move in the coding agent pricing war with OpenAI.\n\n@claudeai posted: \"We’re renaming our Max plans: Max 5x → Max Max 20x → Ultra Max is still $100/month, and Ultra is still $200. If you’re a subscriber, there’s nothing you need to do. We’re also removing the 5 hour limit for verified Ultra accounts, starting today with most existing\"\n\n@StatsWire added: \"Claude Opus 4.6 just DESTROYED my Antigravity usage limits!!! A few hours ago, I still had 81% of my weekly Claude/GPT quota left. Now??? • Weekly limit: 45% left • 5 hour limit: 0% left • Reset in 1 hour 11 minutes Anyone else burning through Claude usage like this on\" @PreslavMihaylov added: \"@AniC_dev @nickeevans21 insane how ur able to easily vacay and sleep at night with that growth tbh, id personally be ultra antsy to spin up a claude on my laptop\"",
       "kind": "story",
       "engagement": {
         "impression_count": 4269250,
@@ -547,14 +630,14 @@
         "reply_count": 2158,
         "retweet_count": 1585
       },
-      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 7 more lists carried @claudeai, @shao__meng, @StatsWire.",
+      "why_it_matters": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "claudeai",
       "media_url": "https://pbs.twimg.com/media/HV5MwwNWAAA5hUI.jpg",
-      "list_count": 10,
+      "list_count": 9,
       "views": 4269250,
-      "desk_rank": 9
+      "desk_rank": 11
     },
     {
       "id": "x-2117408792346509663",
@@ -566,20 +649,20 @@
       "tag": "products",
       "published_at": "2026-11-03T00:09:30.000Z",
       "author_name": "OpenAIDevs",
-      "source_list": "AI's Best, AI Companies: Developers, AI Community",
+      "source_list": "AI's Best, AI Companies: Developers, AI Community, AI Founders",
       "list_names": [
         "AI's Best",
         "AI Companies: Developers",
-        "AI Community #4 of 9",
         "AI Community #5 of 9",
         "AI Community #6 of 9",
-        "AI Community #7 of 9",
-        "AI Community #8 of 9"
+        "AI Founders #3 of 3",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI's Best",
         "AI Companies: Developers",
-        "AI Community"
+        "AI Community",
+        "AI Founders"
       ],
       "source_url": "https://x.com/OpenAIDevs/status/2117408792346509663",
       "sources": [
@@ -588,7 +671,7 @@
           "url": "https://x.com/OpenAIDevs/status/2117408792346509663"
         }
       ],
-      "body": "OpenAI's developer team says Pando handles more pushes and fetches without changing how its engineers and agents use Git. It cut median push latency by nearly 80%, now serves nearly a petabyte of Git data a day, updates different branches in parallel, and serves fetches from reusable stored packfiles. OpenAI also contributed fixes back to Git, including cleanup after interrupted packfile downloads. Agent driven coding is multiplying Git traffic inside big labs; OpenAI rebuilding its Git backend shows source control is becoming an infrastructure bottleneck for agent heavy engineering.\n\n@OpenAIDevs posted: \"We built Pando, a new Git backend for our monorepo, to handle more pushes and fetches without changing how our engineers and agents use Git. Pando cut push latency by ~80% and now serves nearly a petabyte of Git data a day. We can grow Git capacity alongside agent usage.\"\n\n@dadkins_ added: \"super cool example of rearchitecting a system for the massively horizontal workloads of agents! narrows consistency to per branch, and turns the server into a pack index+cache at the cost of redundant pack transfer\" @udayruddarraju added: \"One of the best things we've done here at OpenAI this year. The growth of our monorepo was unprecedented and so was our approach to scaling it, while keeping compatibility with git. Huge kudos to @tnm and team!\"",
+      "body": "OpenAI's developer team says Pando handles more pushes and fetches without changing how its engineers and agents use Git. It cut median push latency by nearly 80%, now serves nearly a petabyte of Git data a day, updates different branches in parallel, and serves fetches from reusable stored packfiles. OpenAI also contributed fixes back to Git, including cleanup after interrupted packfile downloads. Agent driven coding is multiplying Git traffic inside big labs; OpenAI rebuilding its Git backend shows source control is becoming an infrastructure bottleneck for agent heavy engineering.\n\n@OpenAIDevs posted: \"We built Pando, a new Git backend for our monorepo, to handle more pushes and fetches without changing how our engineers and agents use Git. Pando cut push latency by ~80% and now serves nearly a petabyte of Git data a day. We can grow Git capacity alongside agent usage.\"\n\n@udayruddarraju added: \"One of the best things we've done here at OpenAI this year. The growth of our monorepo was unprecedented and so was our approach to scaling it, while keeping compatibility with git. Huge kudos to @tnm and team!\" @realMikeChong added: \"The reason why big companies, especially leading AI labs, are moving away from GitHub is like:, GitHub has multiple downtimes., GitHub has multiple security breaches. This is not a safe way to store your intellectual property anymore.\"",
       "kind": "story",
       "engagement": {
         "impression_count": 2568,
@@ -596,14 +679,14 @@
         "reply_count": 4,
         "retweet_count": 4
       },
-      "why_it_matters": "Robert's AI's Best, AI Companies: Developers, AI Community lists carried @OpenAIDevs, @dadkins_, @udayruddarraju.",
+      "why_it_matters": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @realMikeChong.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "OpenAIDevs",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117408779730108416/img/M_YLvydUvu_YZd9I.jpg",
-      "list_count": 7,
+      "list_count": 6,
       "views": 2568,
-      "desk_rank": 10
+      "desk_rank": 12
     },
     {
       "id": "x-2117249008972550447",
@@ -648,7 +731,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
       "list_count": 4,
       "views": 106,
-      "desk_rank": 11
+      "desk_rank": 13
     },
     {
       "id": "x-2117670295339171994",
@@ -691,7 +774,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117670256801873920/pu/img/ngWTR58nsSm8VVSD.jpg",
       "list_count": 2,
       "views": 383,
-      "desk_rank": 12
+      "desk_rank": 14
     },
     {
       "id": "x-2115985388649242699",
@@ -741,50 +824,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNhxQDaMAALb8s.jpg",
       "list_count": 6,
       "views": 1738,
-      "desk_rank": 13
-    },
-    {
-      "id": "x-2117285608745820372",
-      "headline": "Hume AI launches the Audio Decision API, one call to answer questions about any audio",
-      "summary": "Hume AI introduced its Audio Decision API, which answers plain language questions about audio, such as how many speakers there are, whether anyone is laughing, or whether a caller is frustrated. Hume says it replaces what used to take 10+ separate models, was trained on more than",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-02T16:00:01.000Z",
-      "author_name": "hume_ai",
-      "source_list": "AI Companies: Voice, AI Community",
-      "list_names": [
-        "AI Companies: Voice",
-        "AI Community #6 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies: Voice",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/hume_ai/status/2117285608745820372",
-      "sources": [
-        {
-          "label": "@hume_ai",
-          "url": "https://x.com/hume_ai/status/2117285608745820372"
-        }
-      ],
-      "body": "Hume AI introduced its Audio Decision API, which answers plain language questions about audio, such as how many speakers there are, whether anyone is laughing, or whether a caller is frustrated. Hume says it replaces what used to take 10+ separate models, was trained on more than 10M human judgments, and works in realtime or across hours of audio. Voice agents and call analytics have been stitching together many narrow audio models; a single queryable audio understanding endpoint lowers the bar to build them.\n\n@hume_ai posted: \"Introducing the Hume Audio Decision API. Ask anything: How many speakers? Is anyone laughing? Is the caller frustrated? What used to take 10+ models is now one call. Trained on 10M+ human judgments, so it answers the way human listeners would. Realtime, or across hours of\"\n\n@hume_ai added: \"For those curious about batch mode: this uncut demo shows the Hume Audio Decision API working through hours of recorded calls, in real time. Reading this post probably took longer than the processing did. All your questions. All your audio. Confidence scores on every answer.\" @hume_ai added: \"@andyhq Now we will know who should and shouldn't be handled properly\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 15572,
-        "like_count": 66,
-        "reply_count": 18,
-        "retweet_count": 25
-      },
-      "why_it_matters": "Robert's AI Companies: Voice, AI Community lists carried @hume_ai, @AlecInRealTime.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "hume_ai",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117276914591399937/img/UT3OrHoJmR0zyCbG.jpg",
-      "list_count": 2,
-      "views": 15572,
-      "desk_rank": 14
+      "desk_rank": 15
     },
     {
       "id": "x-2116186245802127411",
@@ -796,16 +836,18 @@
       "tag": "models",
       "published_at": "2026-10-30T15:11:32.000Z",
       "author_name": "humansand",
-      "source_list": "AI Companies:-All, AI Orgs, AI Community",
+      "source_list": "AI Companies:-All, AI Orgs, AI Community, AI Companies: Education",
       "list_names": [
         "AI Companies: #2 of 2-All",
         "AI Orgs & Events",
-        "AI Community #3 of 9"
+        "AI Community #3 of 9",
+        "AI Companies: Education"
       ],
       "chip_labels": [
         "AI Companies:-All",
         "AI Orgs",
-        "AI Community"
+        "AI Community",
+        "AI Companies: Education"
       ],
       "source_url": "https://x.com/humansand/status/2116186245802127411",
       "sources": [
@@ -822,14 +864,14 @@
         "reply_count": 1,
         "retweet_count": 6
       },
-      "why_it_matters": "Robert's AI Companies, AI Orgs & Events, AI Community lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "why_it_matters": "Robert's AI Companies, AI Orgs & Events, AI Community and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "humansand",
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV4qiMYbsAAz27z.jpg",
-      "list_count": 3,
+      "list_count": 4,
       "views": 2972,
-      "desk_rank": 15
+      "desk_rank": 16
     },
     {
       "id": "x-2115848186950791665",
@@ -872,7 +914,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115846043845971969/img/h-R_tvcTJBJZzjDI.jpg",
       "list_count": 2,
       "views": 817505,
-      "desk_rank": 16
+      "desk_rank": 17
     },
     {
       "id": "x-2116005725814280570",
@@ -915,7 +957,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116003610509377536/img/tTDEreSob9R_UftI.jpg",
       "list_count": 2,
       "views": 160324,
-      "desk_rank": 17
+      "desk_rank": 18
     },
     {
       "id": "x-2116349211549843666",
@@ -962,7 +1004,7 @@
       "media_url": "https://pbs.twimg.com/media/HV7E-P7bwAA7OxM.jpg",
       "list_count": 4,
       "views": 164409,
-      "desk_rank": 18
+      "desk_rank": 19
     },
     {
       "id": "x-2116573344283681010",
@@ -979,8 +1021,7 @@
         "AI Orgs & Events",
         "AI's Best",
         "AI Community #3 of 9",
-        "AI Community #8 of 9",
-        "AI Community #9 of 9"
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
         "AI Orgs",
@@ -1003,10 +1044,51 @@
       "topic_key": "funding",
       "topic_label": "Funding",
       "x_handle": "LifeboatHQ",
-      "media_url": "https://pbs.twimg.com/media/HWPygMOaQAA9wni.png",
-      "list_count": 5,
+      "media_url": "https://pbs.twimg.com/media/HWUsyluaAAA8lcm.jpg",
+      "list_count": 4,
       "views": 34,
-      "desk_rank": 19
+      "desk_rank": 20
+    },
+    {
+      "id": "x-2117285608745820372",
+      "headline": "Hume AI launches the Audio Decision API, one call to answer questions about any audio",
+      "summary": "Hume AI introduced its Audio Decision API, which answers plain language questions about audio, such as how many speakers there are, whether anyone is laughing, or whether a caller is frustrated. Hume says it replaces what used to take 10+ separate models, was trained on more than",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-02T16:00:01.000Z",
+      "author_name": "hume_ai",
+      "source_list": "AI Companies: Voice",
+      "list_names": [
+        "AI Companies: Voice"
+      ],
+      "chip_labels": [
+        "AI Companies: Voice"
+      ],
+      "source_url": "https://x.com/hume_ai/status/2117285608745820372",
+      "sources": [
+        {
+          "label": "@hume_ai",
+          "url": "https://x.com/hume_ai/status/2117285608745820372"
+        }
+      ],
+      "body": "Hume AI introduced its Audio Decision API, which answers plain language questions about audio, such as how many speakers there are, whether anyone is laughing, or whether a caller is frustrated. Hume says it replaces what used to take 10+ separate models, was trained on more than 10M human judgments, and works in realtime or across hours of audio. Voice agents and call analytics have been stitching together many narrow audio models; a single queryable audio understanding endpoint lowers the bar to build them.\n\n@hume_ai posted: \"Introducing the Hume Audio Decision API. Ask anything: How many speakers? Is anyone laughing? Is the caller frustrated? What used to take 10+ models is now one call. Trained on 10M+ human judgments, so it answers the way human listeners would. Realtime, or across hours of\"\n\n@hume_ai added: \"For those curious about batch mode: this uncut demo shows the Hume Audio Decision API working through hours of recorded calls, in real time. Reading this post probably took longer than the processing did. All your questions. All your audio. Confidence scores on every answer.\" @hume_ai added: \"@andyhq Now we will know who should and shouldn't be handled properly\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 15572,
+        "like_count": 66,
+        "reply_count": 18,
+        "retweet_count": 25
+      },
+      "why_it_matters": "Robert's AI Companies: Voice lists carried @hume_ai.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "hume_ai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117276914591399937/img/UT3OrHoJmR0zyCbG.jpg",
+      "list_count": 1,
+      "views": 15572,
+      "desk_rank": 21
     },
     {
       "id": "x-2116598588172374141",
@@ -1026,7 +1108,7 @@
         "AI Community #6 of 9",
         "Tech Companies",
         "AI Community #5 of 9",
-        "AI Community #4 of 9"
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
         "VC Firms",
@@ -1057,7 +1139,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-rMr7awAEkYvc.jpg",
       "list_count": 7,
       "views": 11095,
-      "desk_rank": 20
+      "desk_rank": 22
     },
     {
       "id": "x-2115887660489462091",
@@ -1098,7 +1180,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115887560660766720/img/WyTAk03vOI_RJJVo.jpg",
       "list_count": 1,
       "views": 634809,
-      "desk_rank": 21
+      "desk_rank": 23
     },
     {
       "id": "x-2116186509384815084",
@@ -1145,7 +1227,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116186389536788480/img/hbO4g10coOsa0Gy3.jpg",
       "list_count": 4,
       "views": 201542,
-      "desk_rank": 22
+      "desk_rank": 24
     },
     {
       "id": "x-2116564505719185593",
@@ -1196,7 +1278,7 @@
       "media_url": "https://pbs.twimg.com/media/HV9_1tmW4AAmHhN.jpg",
       "list_count": 7,
       "views": 412,
-      "desk_rank": 23
+      "desk_rank": 25
     },
     {
       "id": "x-2116188727579918358",
@@ -1208,20 +1290,21 @@
       "tag": "products",
       "published_at": "2026-10-30T15:21:24.000Z",
       "author_name": "emmanuel_2m",
-      "source_list": "AI's Best, AI Founders, AI Companies: Voice, Tech News, AI Film Makers, AI Community",
+      "source_list": "AI's Best, AI Founders, News, AI Companies: Voice, Tech News, AI Film Makers, AI Community",
       "list_names": [
         "AI's Best",
         "AI Founders #1 of 3",
+        "News #1 of 3",
         "AI Companies: Voice",
         "Tech News",
         "AI Film Makers",
         "AI Community #1 of 9",
-        "AI Community #7 of 9",
-        "AI Community #3 of 9"
+        "AI Community #7 of 9"
       ],
       "chip_labels": [
         "AI's Best",
         "AI Founders",
+        "News",
         "AI Companies: Voice",
         "Tech News",
         "AI Film Makers",
@@ -1234,7 +1317,7 @@
           "url": "https://x.com/emmanuel_2m/status/2116188727579918358"
         }
       ],
-      "body": "3D OS gives coding agents 80 skills across animation, rigging, art and previs. Agents are being packaged for creative 3D pipelines.\n\n@emmanuel_2m posted: \"We just open sourced an entire 3D studio. Introducing 3D OS by Scenario. It gives your coding agent 6 departments and 80 skills. 3D OS ┃ ┣ Animation ┃ ┣ Rigging Any Character ┃ ┗ Motion From a Video ┃ ┣ Art ┃ ┣ Previs and Storyboards ┃ ┗\"\n\n@retellai added: \"Retell ranked #1 overall in the @G2dotcom × @getbluejay_ai's Voice AI Agent Platform Evaluation. 6 platforms were tested on the same 90 simulated call scenarios, 5 times each, across healthcare, legal, and retail. Success meant completing the caller’s request and taking the\" @physorg_com added: \"U.S. building losses from fires could nearly triple by 2060 under a scenario with moderate climate action but no new fire protections. @NatureComms\"",
+      "body": "3D OS gives coding agents 80 skills across animation, rigging, art and previs. Agents are being packaged for creative 3D pipelines.\n\n@emmanuel_2m posted: \"We just open sourced an entire 3D studio. Introducing 3D OS by Scenario. It gives your coding agent 6 departments and 80 skills. 3D OS ┃ ┣ Animation ┃ ┣ Rigging Any Character ┃ ┗ Motion From a Video ┃ ┣ Art ┃ ┣ Previs and Storyboards ┃ ┗\"\n\n@MarioNawfal added: \"Could Trump go “guns blazing” on Iran to force a deal before the new Congress arrives? Nothing is off the table for the next two months. A humiliating midterm night can push a president toward big, risky moves, and one scenario floated is a final all in strike aimed at\" @retellai added: \"Retell ranked #1 overall in the @G2dotcom × @getbluejay_ai's Voice AI Agent Platform Evaluation. 6 platforms were tested on the same 90 simulated call scenarios, 5 times each, across healthcare, legal, and retail. Success meant completing the caller’s request and taking the\"",
       "kind": "story",
       "engagement": {
         "impression_count": 339,
@@ -1242,14 +1325,14 @@
         "reply_count": 8,
         "retweet_count": 3
       },
-      "why_it_matters": "Robert's AI's Best, AI Founders, AI Companies: Voice and 3 more lists carried @emmanuel_2m, @retellai, @physorg_com.",
+      "why_it_matters": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @retellai.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "emmanuel_2m",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116188665508397058/img/e7TjmUY-YuCA7Wfl.jpg",
       "list_count": 8,
       "views": 339,
-      "desk_rank": 24
+      "desk_rank": 26
     },
     {
       "id": "x-2115777746639196376",
@@ -1290,7 +1373,7 @@
       "media_url": "https://pbs.twimg.com/media/HVzAlG4aYAEdykK.jpg",
       "list_count": 1,
       "views": 49674,
-      "desk_rank": 25
+      "desk_rank": 27
     },
     {
       "id": "x-2115962853463396395",
@@ -1337,7 +1420,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115962720092921857/img/plyOVUvSUBS7c3NA.jpg",
       "list_count": 4,
       "views": 13818,
-      "desk_rank": 26
+      "desk_rank": 28
     },
     {
       "id": "x-2116254202301493459",
@@ -1380,7 +1463,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5x0vvbMAAVG9F.jpg",
       "list_count": 2,
       "views": 4261,
-      "desk_rank": 27
+      "desk_rank": 29
     },
     {
       "id": "x-2116236342653026706",
@@ -1427,7 +1510,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hjyXbUAEH7dA.jpg",
       "list_count": 4,
       "views": 2442,
-      "desk_rank": 28
+      "desk_rank": 30
     },
     {
       "id": "x-2116233418702733514",
@@ -1470,7 +1553,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5fFFEXoAA9thh.jpg",
       "list_count": 2,
       "views": 496,
-      "desk_rank": 29
+      "desk_rank": 31
     },
     {
       "id": "x-2115480443307041130",
@@ -1511,7 +1594,7 @@
       "media_url": "https://pbs.twimg.com/media/HVuyJKuaIAAXXUQ.jpg",
       "list_count": 1,
       "views": 11929,
-      "desk_rank": 30
+      "desk_rank": 32
     },
     {
       "id": "x-2116560120457142451",
@@ -1552,7 +1635,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116559500933251072/img/GSMKoAbET-1y1M8Q.jpg",
       "list_count": 1,
       "views": 6933,
-      "desk_rank": 31
+      "desk_rank": 33
     },
     {
       "id": "x-2115890658636656826",
@@ -1597,7 +1680,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115888862664994816/img/lblQAbfEGXEDNyRh.jpg",
       "list_count": 3,
       "views": 120290,
-      "desk_rank": 32
+      "desk_rank": 34
     },
     {
       "id": "x-2116587096651505814",
@@ -1609,18 +1692,19 @@
       "tag": "labs",
       "published_at": "2026-10-31T17:44:22.000Z",
       "author_name": "cleoabram",
-      "source_list": "Tech Journalists/Analysts, Neuroscience, Robotics in San Francisco, Cybersecurity",
+      "source_list": "Tech Journalists/Analysts, Neuroscience, AI Companies:-All, Robot Influencers/Media",
       "list_names": [
         "Tech Journalists/Analysts",
         "Neuroscience",
-        "Robotics in San Francisco",
-        "Cybersecurity"
+        "AI Companies: #2 of 2-All",
+        "AI Companies: #1 of 2-All",
+        "Robot Influencers/Media"
       ],
       "chip_labels": [
         "Tech Journalists/Analysts",
         "Neuroscience",
-        "Robotics in San Francisco",
-        "Cybersecurity"
+        "AI Companies:-All",
+        "Robot Influencers/Media"
       ],
       "source_url": "https://x.com/cleoabram/status/2116587096651505814",
       "sources": [
@@ -1629,7 +1713,7 @@
           "url": "https://x.com/cleoabram/status/2116587096651505814"
         }
       ],
-      "body": "A new tour of Neuralink shows the R1 implant robot up close; separate reports say Neuralink is testing iPhone calls via its speech implant. BCI is moving from lab demos toward consumer device integration.\n\n@cleoabram posted: \"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces I toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... 00:00 What if you put a\"\n\n@PairedWith_P7 added: \"Using only mind power to drive the wheelchair with my Neuralink N1 implant.\" @maticrobots added: \"@DigitalAssetsUS @elonmusk @neuralink @DeadManRolln @JoshWest247 Welcome to the fam!\"",
+      "body": "A new tour of Neuralink shows the R1 implant robot up close; separate reports say Neuralink is testing iPhone calls via its speech implant. BCI is moving from lab demos toward consumer device integration.\n\n@cleoabram posted: \"Full HUGE* If True episode on Neuralink and the future of brain computer interfaces I toured @neuralink and got a close up view of their new R1 surgical robot, to see the future they and @elonmusk are building and how it is already changing lives... 00:00 What if you put a\"\n\n@PairedWith_P7 added: \"Using only mind power to drive the wheelchair with my Neuralink N1 implant.\" @seeingwithsound added: \"@grok @WiffyWarrior @bot And after analyzing the video, \"The video doesn't merely use opening the eyes as a symbolic gesture. It explicitly presents opening the eyes as the decisive moment when Neuralink Blindsight restores visual perception.\"\"",
       "kind": "story",
       "engagement": {
         "impression_count": 275,
@@ -1637,14 +1721,14 @@
         "reply_count": 1,
         "retweet_count": 1
       },
-      "why_it_matters": "Robert's Tech Journalists/Analysts, Neuroscience, Robotics in San Francisco and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
+      "why_it_matters": "Robert's Tech Journalists/Analysts, Neuroscience, AI Companies and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
       "topic_key": "labs",
       "topic_label": "Labs",
       "x_handle": "cleoabram",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg",
-      "list_count": 4,
+      "list_count": 5,
       "views": 275,
-      "desk_rank": 33
+      "desk_rank": 35
     },
     {
       "id": "x-2116593734502797644",
@@ -1656,17 +1740,17 @@
       "tag": "products",
       "published_at": "2026-10-31T18:10:45.000Z",
       "author_name": "dedene",
-      "source_list": "AI Community, AR/VR Community, AI Orgs, Blockchain/Web 3",
+      "source_list": "AI Community, AI Orgs, AR/VR Community, Blockchain/Web 3",
       "list_names": [
         "AI Community #5 of 9",
-        "AR/VR Community #2 of 2",
         "AI Orgs & Events",
+        "AR/VR Community #2 of 2",
         "Blockchain/Web 3 #1 of 2"
       ],
       "chip_labels": [
         "AI Community",
-        "AR/VR Community",
         "AI Orgs",
+        "AR/VR Community",
         "Blockchain/Web 3"
       ],
       "source_url": "https://x.com/dedene/status/2116593734502797644",
@@ -1676,66 +1760,19 @@
           "url": "https://x.com/dedene/status/2116593734502797644"
         }
       ],
-      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents.\n\n@dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"\n\n@TechMDAI added: \"Love that your able to have Double Hermes agents on IPhone Duo and with the new Hermes mobile app @Teknium\" @HermesWatcher added: \"@Teknium @ToniRMCardoso For the record, the \"LEAK\" was @NousResearch own website. The page literally says \"You are invited to the Hermes Mobile Beta.\"\"",
+      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents.\n\n@dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"\n\n@HermesWatcher added: \"@Teknium @ToniRMCardoso For the record, the \"LEAK\" was @NousResearch own website. The page literally says \"You are invited to the Hermes Mobile Beta.\"\" @TechMDAI added: \"Hermes mobile IOS Bot computer is here like grokbot. @Teknium Bot Screen\"",
       "kind": "story",
       "engagement": {
         "impression_count": 10
       },
-      "why_it_matters": "Robert's AI Community, AR/VR Community, AI Orgs & Events and 1 more lists carried @dedene, @TechMDAI, @HermesWatcher.",
+      "why_it_matters": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "dedene",
       "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
       "list_count": 4,
       "views": 10,
-      "desk_rank": 34
-    },
-    {
-      "id": "x-2116572625195470890",
-      "headline": "Meta built a 106-pound humanoid prototype, Max, with Chinese startup Fourier in about three months",
-      "summary": "Per The Information, Meta and Fourier built the ~106 lb robot, codenamed Max, in roughly three months; a second version started in September. Meta says the units are for internal research and not for sale. Meta pairing its AI agent work with a Chinese humanoid maker shows how fas",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-10-31T16:46:52.000Z",
-      "author_name": "AIRoboticsInt",
-      "source_list": "AI Consultants, Robot Influencers/Media, Tech News, AI's Best, AI Community",
-      "list_names": [
-        "AI Consultants",
-        "Robot Influencers/Media",
-        "Tech News",
-        "AI's Best",
-        "AI Community #5 of 9"
-      ],
-      "chip_labels": [
-        "AI Consultants",
-        "Robot Influencers/Media",
-        "Tech News",
-        "AI's Best",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/AIRoboticsInt/status/2116572625195470890",
-      "sources": [
-        {
-          "label": "@AIRoboticsInt",
-          "url": "https://x.com/AIRoboticsInt/status/2116572625195470890"
-        }
-      ],
-      "body": "Per The Information, Meta and Fourier built the ~106 lb robot, codenamed Max, in roughly three months; a second version started in September. Meta says the units are for internal research and not for sale. Meta pairing its AI agent work with a Chinese humanoid maker shows how fast big platforms are moving into robot bodies.\n\n@AIRoboticsInt posted: \"JUST IN: Meta built a 106 pound humanoid robot in just 3 months, with Chinese startup Fourier. $META • Codename: Max • A second version is already in the works • Meta says it has no plans to sell these units Per The Information.\"\n\n@lukas_m_ziegler added: \"What a week in robotics. I summarized the most important news from the physical AI space. → Tesla is building Optimus on a production line in Fremont. Outside customers get their first robots in 2028. → Meta built a humanoid called Max with Fourier in just 3 months. →\" @theinformation added: \"Meta built a humanoid robot prototype with China’s Fourier in just three months but the collaboration comes with geopolitical complications. The Information’s Jyoti Mann explains: “Neither government is necessarily thrilled about the broader implications of such a cooperation\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 34,
-        "reply_count": 1
-      },
-      "why_it_matters": "Robert's AI Consultants, Robot Influencers/Media, Tech News and 2 more lists carried @AIRoboticsInt, @lukas_m_ziegler, @theinformation.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "AIRoboticsInt",
-      "media_url": "https://pbs.twimg.com/media/HV-TaMxXUAEReuQ.png",
-      "list_count": 5,
-      "views": 34,
-      "desk_rank": 35
+      "desk_rank": 36
     },
     {
       "id": "x-2116236188319453386",
@@ -1780,7 +1817,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hqrJWYAA1M_E.jpg",
       "list_count": 3,
       "views": 11266,
-      "desk_rank": 36
+      "desk_rank": 37
     },
     {
       "id": "x-2116530643228295205",
@@ -1821,7 +1858,7 @@
       "media_url": "https://pbs.twimg.com/media/HV8QGvGWcAAmnqa.jpg",
       "list_count": 1,
       "views": 1408,
-      "desk_rank": 37
+      "desk_rank": 38
     },
     {
       "id": "x-2116131501519868036",
@@ -1868,7 +1905,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 6,
       "views": 7,
-      "desk_rank": 38
+      "desk_rank": 39
     },
     {
       "id": "x-2116222007658586306",
@@ -1911,48 +1948,50 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 2,
       "views": 2491,
-      "desk_rank": 39
+      "desk_rank": 40
     },
     {
-      "id": "x-2116620479079354803",
-      "headline": "Apple's touchscreen MacBook Pro gets an early look, with macOS 27 tuned for touch",
-      "summary": "WIRED published an exclusive early look at Apple's touchscreen MacBook Pro, and 9to5Mac detailed how the new MacBook Pro and macOS 27 are optimized for touch. Apple long said it would never put touch on the Mac, so this changes how developers design Mac apps.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-10-31T19:57:01.000Z",
-      "author_name": "WIRED",
-      "source_list": "Tech News",
+      "id": "x-2116572625195470890",
+      "headline": "Meta built a 106-pound humanoid prototype, Max, with Chinese startup Fourier in about three months",
+      "summary": "Per The Information, Meta and Fourier built the ~106 lb robot, codenamed Max, in roughly three months; a second version started in September. Meta says the units are for internal research and not for sale. Meta pairing its AI agent work with a Chinese humanoid maker shows how fas",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-10-31T16:46:52.000Z",
+      "author_name": "AIRoboticsInt",
+      "source_list": "AI Consultants, Robot Influencers/Media, AI Community",
       "list_names": [
-        "Tech News"
+        "AI Consultants",
+        "Robot Influencers/Media",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Tech News"
+        "AI Consultants",
+        "Robot Influencers/Media",
+        "AI Community"
       ],
-      "source_url": "https://x.com/WIRED/status/2116620479079354803",
+      "source_url": "https://x.com/AIRoboticsInt/status/2116572625195470890",
       "sources": [
         {
-          "label": "@WIRED",
-          "url": "https://x.com/WIRED/status/2116620479079354803"
+          "label": "@AIRoboticsInt",
+          "url": "https://x.com/AIRoboticsInt/status/2116572625195470890"
         }
       ],
-      "body": "WIRED published an exclusive early look at Apple's touchscreen MacBook Pro, and 9to5Mac detailed how the new MacBook Pro and macOS 27 are optimized for touch. Apple long said it would never put touch on the Mac, so this changes how developers design Mac apps.\n\n@WIRED posted: \"An exclusive early look at Apple’s new touchscreen MacBook Pro the computer Apple said would never happen.\"\n\n@cultofmac added: \"Don’t worry, touchscreen MacBook Pro doesn’t mean iPad will go away dlvr.​it/TW98Hc\"",
+      "body": "Per The Information, Meta and Fourier built the ~106 lb robot, codenamed Max, in roughly three months; a second version started in September. Meta says the units are for internal research and not for sale. Meta pairing its AI agent work with a Chinese humanoid maker shows how fast big platforms are moving into robot bodies.\n\n@AIRoboticsInt posted: \"JUST IN: Meta built a 106 pound humanoid robot in just 3 months, with Chinese startup Fourier. $META • Codename: Max • A second version is already in the works • Meta says it has no plans to sell these units Per The Information.\"\n\n@lukas_m_ziegler added: \"What a week in robotics. I summarized the most important news from the physical AI space. → Tesla is building Optimus on a production line in Fremont. Outside customers get their first robots in 2028. → Meta built a humanoid called Max with Fourier in just 3 months. →\" @techniahqrobot added: \"Humanoid Robotics & Physical AI Daily Brief → Meta × Fourier: Meta's humanoid project Max was developed in around three months with Chinese robotics company Fourier. The prototype stands 1.5 m tall, weighs 48 kg and runs on NVIDIA Jetson Thor. → Figure: Brett Adcock shares a\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 4061,
-        "like_count": 6,
-        "reply_count": 2,
-        "retweet_count": 3
+        "impression_count": 34,
+        "reply_count": 1
       },
-      "why_it_matters": "Robert's Tech News lists carried @WIRED, @cultofmac.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "WIRED",
-      "media_url": "https://pbs.twimg.com/media/HWKXvWhbEAAtJws.jpg",
-      "list_count": 1,
-      "views": 4061,
-      "desk_rank": 40
+      "why_it_matters": "Robert's AI Consultants, Robot Influencers/Media, AI Community lists carried @AIRoboticsInt, @lukas_m_ziegler, @techniahqrobot.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "AIRoboticsInt",
+      "media_url": "https://pbs.twimg.com/media/HV-TaMxXUAEReuQ.png",
+      "list_count": 3,
+      "views": 34,
+      "desk_rank": 41
     },
     {
       "id": "x-2116184730668298654",
@@ -1999,7 +2038,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116184615131979776/img/p0nSgnwEzMLoi7Lb.jpg",
       "list_count": 4,
       "views": 2732,
-      "desk_rank": 41
+      "desk_rank": 42
     },
     {
       "id": "x-2115867078964187368",
@@ -2042,50 +2081,6 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115849542835032070/img/DLvqI6GHXxdGBOR3.jpg",
       "list_count": 2,
       "views": 1007517,
-      "desk_rank": 42
-    },
-    {
-      "id": "x-2115983518182645960",
-      "headline": "OpenAI plans to merge ChatGPT Chat and Work, and power users worry about shared Codex quotas",
-      "summary": "AI influencers flag OpenAI's plan to bring Chat and Work together and warn that regular chat may draw from the same quota as Codex. Product consolidation at OpenAI could quietly cut effective limits for the heaviest users, the same people who set the mood around the product.",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-10-30T01:45:58.000Z",
-      "author_name": "hqmank",
-      "source_list": "AI Influencers, Tech Journalists/Analysts, AI Community",
-      "list_names": [
-        "AI Influencers",
-        "Tech Journalists/Analysts",
-        "AI Community #9 of 9"
-      ],
-      "chip_labels": [
-        "AI Influencers",
-        "Tech Journalists/Analysts",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/hqmank/status/2115983518182645960",
-      "sources": [
-        {
-          "label": "@hqmank",
-          "url": "https://x.com/hqmank/status/2115983518182645960"
-        }
-      ],
-      "body": "AI influencers flag OpenAI's plan to bring Chat and Work together and warn that regular chat may draw from the same quota as Codex. Product consolidation at OpenAI could quietly cut effective limits for the heaviest users, the same people who set the mood around the product.\n\n@hqmank posted: \"OpenAI plans to bring Chat and Work together. I'm worried about the usage limits. I do a huge amount of work in ChatGPT's web app. If regular Chat has to share my Codex quota too, I'll need a much higher limit to keep doing the same work.\"\n\n@EvanKirstel added: \"OpenAI is testing a ChatGPT that merges the Chat and Work tabs into one place. Makes sense. People don't split their day into chatting and working, and a single workspace is where enterprise adoption gets sticky. @OpenAI\" @geoffinosaka added: \"@Henryf1w No, OpenAI are planning to boost Google search in December when they merge chat and work. A lot of folk with be driven back to google as they don't want to drain their new token pool or simple questions and searches.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 220,
-        "like_count": 1,
-        "reply_count": 1
-      },
-      "why_it_matters": "Robert's AI Influencers, Tech Journalists/Analysts, AI Community lists carried @hqmank, @EvanKirstel, @geoffinosaka.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "hqmank",
-      "media_url": "https://pbs.twimg.com/news_img/2116552597780000769/5i7shcvX?format=jpg&name=orig",
-      "list_count": 3,
-      "views": 220,
       "desk_rank": 43
     },
     {
@@ -2340,46 +2335,6 @@
       "desk_rank": 49
     },
     {
-      "id": "x-2117255449657725295",
-      "headline": "Xanadu and AMD release Backline, an open-source platform routing quantum workloads to CPUs, GPUs and FPGAs",
-      "summary": "Xanadu says Backline, co designed with AMD, dynamically connects quantum programs to the right classical engine for low latency execution. It is built into PennyLane, open source, and available today. Hybrid quantum classical execution is the practical bottleneck; an AMD backed o",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-11-02T14:00:10.000Z",
-      "author_name": "XanaduAI",
-      "source_list": "Quantum",
-      "list_names": [
-        "Quantum"
-      ],
-      "chip_labels": [
-        "Quantum"
-      ],
-      "source_url": "https://x.com/XanaduAI/status/2117255449657725295",
-      "sources": [
-        {
-          "label": "@XanaduAI",
-          "url": "https://x.com/XanaduAI/status/2117255449657725295"
-        }
-      ],
-      "body": "Xanadu says Backline, co designed with AMD, dynamically connects quantum programs to the right classical engine for low latency execution. It is built into PennyLane, open source, and available today. Hybrid quantum classical execution is the practical bottleneck; an AMD backed open runtime inside PennyLane lowers the barrier for real experiments.\n\n@XanaduAI posted: \"Co designed with @AMD, Backline is an open platform for low latency execution that dynamically connects quantum workloads to the right classical engine, CPU, GPU, FPGA. Built into @PennyLaneAI. Open source. Available today. #QuantumComputing\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 414,
-        "like_count": 8,
-        "reply_count": 1
-      },
-      "why_it_matters": "Robert's Quantum lists carried @XanaduAI.",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "XanaduAI",
-      "media_url": "https://pbs.twimg.com/media/HWH9-TrWsAAMTkn.jpg",
-      "list_count": 1,
-      "views": 414,
-      "desk_rank": 50
-    },
-    {
       "id": "x-2115936769229176975",
       "headline": "a16z names its 2026 American Dynamism Top 50, including autonomous-ship maker Saronic",
       "summary": "Autonomous ship maker Saronic is among a16z's list of companies rebuilding US industry and defense. A guide to where defense tech money is flowing.",
@@ -2418,6 +2373,46 @@
       "media_url": "https://pbs.twimg.com/media/HV1RRIJWoAA3Dud.jpg",
       "list_count": 1,
       "views": 3018,
+      "desk_rank": 50
+    },
+    {
+      "id": "x-2117255449657725295",
+      "headline": "Xanadu and AMD release Backline, an open-source platform routing quantum workloads to CPUs, GPUs and FPGAs",
+      "summary": "Xanadu says Backline, co designed with AMD, dynamically connects quantum programs to the right classical engine for low latency execution. It is built into PennyLane, open source, and available today. Hybrid quantum classical execution is the practical bottleneck; an AMD backed o",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-11-02T14:00:10.000Z",
+      "author_name": "XanaduAI",
+      "source_list": "Quantum",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "source_url": "https://x.com/XanaduAI/status/2117255449657725295",
+      "sources": [
+        {
+          "label": "@XanaduAI",
+          "url": "https://x.com/XanaduAI/status/2117255449657725295"
+        }
+      ],
+      "body": "Xanadu says Backline, co designed with AMD, dynamically connects quantum programs to the right classical engine for low latency execution. It is built into PennyLane, open source, and available today. Hybrid quantum classical execution is the practical bottleneck; an AMD backed open runtime inside PennyLane lowers the barrier for real experiments.\n\n@XanaduAI posted: \"Co designed with @AMD, Backline is an open platform for low latency execution that dynamically connects quantum workloads to the right classical engine, CPU, GPU, FPGA. Built into @PennyLaneAI. Open source. Available today. #QuantumComputing\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 414,
+        "like_count": 8,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert's Quantum lists carried @XanaduAI.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "XanaduAI",
+      "media_url": "https://pbs.twimg.com/media/HWH9-TrWsAAMTkn.jpg",
+      "list_count": 1,
+      "views": 414,
       "desk_rank": 51
     },
     {
@@ -2599,27 +2594,73 @@
   ],
   "signals": [
     {
+      "id": "sig-x-2118124944928432327",
+      "title": "OpenAI ships ChatGPT Images 2.6 with GIFs, saved reference images and two faster API image models",
+      "text": "Robert's AI Companies: Marketing, AI Founders, AI Film Makers lists carried @OpenAI, @swyx, @PJaccetturo.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Marketing, AI Founders, AI Film Makers lists carried @OpenAI, @swyx, @PJaccetturo.",
+      "list_names": [
+        "AI Companies: Marketing",
+        "AI Founders #1 of 3",
+        "AI Film Makers"
+      ],
+      "chip_labels": [
+        "AI Companies: Marketing",
+        "AI Founders",
+        "AI Film Makers"
+      ],
+      "created_at": "2026-11-04T23:35:14.000Z",
+      "source_url": "https://x.com/OpenAI/status/2118124944928432327",
+      "analysis": "Robert's AI Companies: Marketing, AI Founders, AI Film Makers lists carried @OpenAI, @swyx, @PJaccetturo.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
       "id": "sig-x-2118119451401048497",
       "title": "OpenAI cyber pipeline finds, exploits and patches 948 Linux kernel flaws in a single run",
-      "text": "Robert's AI Companies: Marketing, Founders lists carried @OpenAI, @TimHaines.",
+      "text": "Robert's AI Companies: Marketing, AI's Best lists carried @OpenAI, @rohanpaul_ai.",
       "badge": "signal",
       "category": "policy",
       "section_key": "policy",
       "section_label": "Policy",
-      "source_list": "Robert's AI Companies: Marketing, Founders lists carried @OpenAI, @TimHaines.",
+      "source_list": "Robert's AI Companies: Marketing, AI's Best lists carried @OpenAI, @rohanpaul_ai.",
       "list_names": [
         "AI Companies: Marketing",
-        "Founders #2 of 3"
+        "AI's Best"
       ],
       "chip_labels": [
         "AI Companies: Marketing",
-        "Founders"
+        "AI's Best"
       ],
       "created_at": "2026-11-04T23:13:24.000Z",
       "source_url": "https://x.com/OpenAI/status/2118119451401048497",
-      "analysis": "Robert's AI Companies: Marketing, Founders lists carried @OpenAI, @TimHaines.",
+      "analysis": "Robert's AI Companies: Marketing, AI's Best lists carried @OpenAI, @rohanpaul_ai.",
       "topic_key": "policy",
       "topic_label": "Policy"
+    },
+    {
+      "id": "sig-x-2118035494898704781",
+      "title": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
+      "text": "Robert's AI Companies: Education lists carried @perplexity_ai.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Education lists carried @perplexity_ai.",
+      "list_names": [
+        "AI Companies: Education"
+      ],
+      "chip_labels": [
+        "AI Companies: Education"
+      ],
+      "created_at": "2026-11-04T17:39:47.000Z",
+      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
+      "analysis": "Robert's AI Companies: Education lists carried @perplexity_ai.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2118062782562312416",
@@ -2749,12 +2790,12 @@
     {
       "id": "sig-x-2115859377488072879",
       "title": "Anthropic's Claude apps add CarPlay voice mode, iPad side-by-side artifacts and laptop-style Android",
-      "text": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @sakhil_ai, @ArifAIHQ.",
+      "text": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @ArifAIHQ, @justinbrave21.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @sakhil_ai, @ArifAIHQ.",
+      "source_list": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @ArifAIHQ, @justinbrave21.",
       "list_names": [
         "AI Companies: Education",
         "AI Companies: Science/Med",
@@ -2767,19 +2808,19 @@
       ],
       "created_at": "2026-10-29T17:32:41.000Z",
       "source_url": "https://x.com/claudeai/status/2115859377488072879",
-      "analysis": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @sakhil_ai, @ArifAIHQ.",
+      "analysis": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @ArifAIHQ, @justinbrave21.",
       "topic_key": "products",
       "topic_label": "Products"
     },
     {
       "id": "sig-x-2116220869479428500",
       "title": "Anthropic renames Claude Max 20x to Ultra and drops the 5-hour limit for verified Ultra accounts",
-      "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 7 more lists carried @claudeai, @shao__meng, @StatsWire.",
+      "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 7 more lists carried @claudeai, @shao__meng, @StatsWire.",
+      "source_list": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
       "list_names": [
         "AI Companies: Marketing",
         "AI Companies: Education",
@@ -2788,7 +2829,6 @@
         "AI Companies: Work",
         "AI Community #1 of 9",
         "AI Orgs & Events",
-        "AR/VR Community #2 of 2",
         "AI Companies: #1 of 2-All",
         "AI Founders #2 of 3"
       ],
@@ -2800,42 +2840,41 @@
         "AI Companies: Work",
         "AI Community",
         "AI Orgs",
-        "AR/VR Community",
         "AI Companies:-All",
         "AI Founders"
       ],
       "created_at": "2026-10-30T17:29:07.000Z",
       "source_url": "https://x.com/claudeai/status/2116220869479428500",
-      "analysis": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 7 more lists carried @claudeai, @shao__meng, @StatsWire.",
+      "analysis": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @shao__meng, @StatsWire.",
       "topic_key": "products",
       "topic_label": "Products"
     },
     {
       "id": "sig-x-2117408792346509663",
       "title": "OpenAI built Pando, a new Git backend for its monorepo that cut push latency about 80%",
-      "text": "Robert's AI's Best, AI Companies: Developers, AI Community lists carried @OpenAIDevs, @dadkins_, @udayruddarraju.",
+      "text": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @realMikeChong.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI's Best, AI Companies: Developers, AI Community lists carried @OpenAIDevs, @dadkins_, @udayruddarraju.",
+      "source_list": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @realMikeChong.",
       "list_names": [
         "AI's Best",
         "AI Companies: Developers",
-        "AI Community #4 of 9",
         "AI Community #5 of 9",
         "AI Community #6 of 9",
-        "AI Community #7 of 9",
-        "AI Community #8 of 9"
+        "AI Founders #3 of 3",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI's Best",
         "AI Companies: Developers",
-        "AI Community"
+        "AI Community",
+        "AI Founders"
       ],
       "created_at": "2026-11-03T00:09:30.000Z",
       "source_url": "https://x.com/OpenAIDevs/status/2117408792346509663",
-      "analysis": "Robert's AI's Best, AI Companies: Developers, AI Community lists carried @OpenAIDevs, @dadkins_, @udayruddarraju.",
+      "analysis": "Robert's AI's Best, AI Companies: Developers, AI Community and 1 more lists carried @OpenAIDevs, @udayruddarraju, @realMikeChong.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -2919,50 +2958,29 @@
       "topic_label": "Models"
     },
     {
-      "id": "sig-x-2117285608745820372",
-      "title": "Hume AI launches the Audio Decision API, one call to answer questions about any audio",
-      "text": "Robert's AI Companies: Voice, AI Community lists carried @hume_ai, @AlecInRealTime.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Voice, AI Community lists carried @hume_ai, @AlecInRealTime.",
-      "list_names": [
-        "AI Companies: Voice",
-        "AI Community #6 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies: Voice",
-        "AI Community"
-      ],
-      "created_at": "2026-11-02T16:00:01.000Z",
-      "source_url": "https://x.com/hume_ai/status/2117285608745820372",
-      "analysis": "Robert's AI Companies: Voice, AI Community lists carried @hume_ai, @AlecInRealTime.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2116186245802127411",
       "title": "Humans& launches Ampersand Tutor, an AI tutor trained on a model of how people learn",
-      "text": "Robert's AI Companies, AI Orgs & Events, AI Community lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "text": "Robert's AI Companies, AI Orgs & Events, AI Community and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert's AI Companies, AI Orgs & Events, AI Community lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "source_list": "Robert's AI Companies, AI Orgs & Events, AI Community and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
       "list_names": [
         "AI Companies: #2 of 2-All",
         "AI Orgs & Events",
-        "AI Community #3 of 9"
+        "AI Community #3 of 9",
+        "AI Companies: Education"
       ],
       "chip_labels": [
         "AI Companies:-All",
         "AI Orgs",
-        "AI Community"
+        "AI Community",
+        "AI Companies: Education"
       ],
       "created_at": "2026-10-30T15:11:32.000Z",
       "source_url": "https://x.com/humansand/status/2116186245802127411",
-      "analysis": "Robert's AI Companies, AI Orgs & Events, AI Community lists carried @humansand, @freeCodeCamp, @GithubProjects.",
+      "analysis": "Robert's AI Companies, AI Orgs & Events, AI Community and 1 more lists carried @humansand, @freeCodeCamp, @GithubProjects.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -3052,8 +3070,7 @@
         "AI Orgs & Events",
         "AI's Best",
         "AI Community #3 of 9",
-        "AI Community #8 of 9",
-        "AI Community #9 of 9"
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
         "AI Orgs",
@@ -3065,6 +3082,27 @@
       "analysis": "Robert's AI Orgs & Events, AI's Best, AI Community lists carried @LifeboatHQ, @apples_jimmy, @dillon_mulroy.",
       "topic_key": "funding",
       "topic_label": "Funding"
+    },
+    {
+      "id": "sig-x-2117285608745820372",
+      "title": "Hume AI launches the Audio Decision API, one call to answer questions about any audio",
+      "text": "Robert's AI Companies: Voice lists carried @hume_ai.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Voice lists carried @hume_ai.",
+      "list_names": [
+        "AI Companies: Voice"
+      ],
+      "chip_labels": [
+        "AI Companies: Voice"
+      ],
+      "created_at": "2026-11-02T16:00:01.000Z",
+      "source_url": "https://x.com/hume_ai/status/2117285608745820372",
+      "analysis": "Robert's AI Companies: Voice lists carried @hume_ai.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2116598588172374141",
@@ -3082,7 +3120,7 @@
         "AI Community #6 of 9",
         "Tech Companies",
         "AI Community #5 of 9",
-        "AI Community #4 of 9"
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
         "VC Firms",
@@ -3181,25 +3219,26 @@
     {
       "id": "sig-x-2116188727579918358",
       "title": "Scenario open-sources 3D OS, an agent toolkit for 3D production",
-      "text": "Robert's AI's Best, AI Founders, AI Companies: Voice and 3 more lists carried @emmanuel_2m, @retellai, @physorg_com.",
+      "text": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @retellai.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI's Best, AI Founders, AI Companies: Voice and 3 more lists carried @emmanuel_2m, @retellai, @physorg_com.",
+      "source_list": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @retellai.",
       "list_names": [
         "AI's Best",
         "AI Founders #1 of 3",
+        "News #1 of 3",
         "AI Companies: Voice",
         "Tech News",
         "AI Film Makers",
         "AI Community #1 of 9",
-        "AI Community #7 of 9",
-        "AI Community #3 of 9"
+        "AI Community #7 of 9"
       ],
       "chip_labels": [
         "AI's Best",
         "AI Founders",
+        "News",
         "AI Companies: Voice",
         "Tech News",
         "AI Film Makers",
@@ -3207,7 +3246,7 @@
       ],
       "created_at": "2026-10-30T15:21:24.000Z",
       "source_url": "https://x.com/emmanuel_2m/status/2116188727579918358",
-      "analysis": "Robert's AI's Best, AI Founders, AI Companies: Voice and 3 more lists carried @emmanuel_2m, @retellai, @physorg_com.",
+      "analysis": "Robert's AI's Best, AI Founders, News and 4 more lists carried @emmanuel_2m, @MarioNawfal, @retellai.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -3402,85 +3441,57 @@
     {
       "id": "sig-x-2116587096651505814",
       "title": "Neuralink shows its R1 surgical robot as speech-implant iPhone calls are tested",
-      "text": "Robert's Tech Journalists/Analysts, Neuroscience, Robotics in San Francisco and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
+      "text": "Robert's Tech Journalists/Analysts, Neuroscience, AI Companies and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
       "badge": "signal",
       "category": "labs",
       "section_key": "labs",
       "section_label": "Labs",
-      "source_list": "Robert's Tech Journalists/Analysts, Neuroscience, Robotics in San Francisco and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
+      "source_list": "Robert's Tech Journalists/Analysts, Neuroscience, AI Companies and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
       "list_names": [
         "Tech Journalists/Analysts",
         "Neuroscience",
-        "Robotics in San Francisco",
-        "Cybersecurity"
+        "AI Companies: #2 of 2-All",
+        "AI Companies: #1 of 2-All",
+        "Robot Influencers/Media"
       ],
       "chip_labels": [
         "Tech Journalists/Analysts",
         "Neuroscience",
-        "Robotics in San Francisco",
-        "Cybersecurity"
+        "AI Companies:-All",
+        "Robot Influencers/Media"
       ],
       "created_at": "2026-10-31T17:44:22.000Z",
       "source_url": "https://x.com/cleoabram/status/2116587096651505814",
-      "analysis": "Robert's Tech Journalists/Analysts, Neuroscience, Robotics in San Francisco and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
+      "analysis": "Robert's Tech Journalists/Analysts, Neuroscience, AI Companies and 1 more lists carried @cleoabram, @PairedWith_P7, @NeuraPod.",
       "topic_key": "labs",
       "topic_label": "Labs"
     },
     {
       "id": "sig-x-2116593734502797644",
       "title": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
-      "text": "Robert's AI Community, AR/VR Community, AI Orgs & Events and 1 more lists carried @dedene, @TechMDAI, @HermesWatcher.",
+      "text": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI Community, AR/VR Community, AI Orgs & Events and 1 more lists carried @dedene, @TechMDAI, @HermesWatcher.",
+      "source_list": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
       "list_names": [
         "AI Community #5 of 9",
-        "AR/VR Community #2 of 2",
         "AI Orgs & Events",
+        "AR/VR Community #2 of 2",
         "Blockchain/Web 3 #1 of 2"
       ],
       "chip_labels": [
         "AI Community",
-        "AR/VR Community",
         "AI Orgs",
+        "AR/VR Community",
         "Blockchain/Web 3"
       ],
       "created_at": "2026-10-31T18:10:45.000Z",
       "source_url": "https://x.com/dedene/status/2116593734502797644",
-      "analysis": "Robert's AI Community, AR/VR Community, AI Orgs & Events and 1 more lists carried @dedene, @TechMDAI, @HermesWatcher.",
+      "analysis": "Robert's AI Community, AI Orgs & Events, AR/VR Community and 1 more lists carried @dedene, @HermesWatcher, @TechMDAI.",
       "topic_key": "products",
       "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2116572625195470890",
-      "title": "Meta built a 106-pound humanoid prototype, Max, with Chinese startup Fourier in about three months",
-      "text": "Robert's AI Consultants, Robot Influencers/Media, Tech News and 2 more lists carried @AIRoboticsInt, @lukas_m_ziegler, @theinformation.",
-      "badge": "signal",
-      "category": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "source_list": "Robert's AI Consultants, Robot Influencers/Media, Tech News and 2 more lists carried @AIRoboticsInt, @lukas_m_ziegler, @theinformation.",
-      "list_names": [
-        "AI Consultants",
-        "Robot Influencers/Media",
-        "Tech News",
-        "AI's Best",
-        "AI Community #5 of 9"
-      ],
-      "chip_labels": [
-        "AI Consultants",
-        "Robot Influencers/Media",
-        "Tech News",
-        "AI's Best",
-        "AI Community"
-      ],
-      "created_at": "2026-10-31T16:46:52.000Z",
-      "source_url": "https://x.com/AIRoboticsInt/status/2116572625195470890",
-      "analysis": "Robert's AI Consultants, Robot Influencers/Media, Tech News and 2 more lists carried @AIRoboticsInt, @lukas_m_ziegler, @theinformation.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2116236188319453386",
@@ -3582,25 +3593,29 @@
       "topic_label": "Creatives"
     },
     {
-      "id": "sig-x-2116620479079354803",
-      "title": "Apple's touchscreen MacBook Pro gets an early look, with macOS 27 tuned for touch",
-      "text": "Robert's Tech News lists carried @WIRED, @cultofmac.",
+      "id": "sig-x-2116572625195470890",
+      "title": "Meta built a 106-pound humanoid prototype, Max, with Chinese startup Fourier in about three months",
+      "text": "Robert's AI Consultants, Robot Influencers/Media, AI Community lists carried @AIRoboticsInt, @lukas_m_ziegler, @techniahqrobot.",
       "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's Tech News lists carried @WIRED, @cultofmac.",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's AI Consultants, Robot Influencers/Media, AI Community lists carried @AIRoboticsInt, @lukas_m_ziegler, @techniahqrobot.",
       "list_names": [
-        "Tech News"
+        "AI Consultants",
+        "Robot Influencers/Media",
+        "AI Community #5 of 9"
       ],
       "chip_labels": [
-        "Tech News"
+        "AI Consultants",
+        "Robot Influencers/Media",
+        "AI Community"
       ],
-      "created_at": "2026-10-31T19:57:01.000Z",
-      "source_url": "https://x.com/WIRED/status/2116620479079354803",
-      "analysis": "Robert's Tech News lists carried @WIRED, @cultofmac.",
-      "topic_key": "products",
-      "topic_label": "Products"
+      "created_at": "2026-10-31T16:46:52.000Z",
+      "source_url": "https://x.com/AIRoboticsInt/status/2116572625195470890",
+      "analysis": "Robert's AI Consultants, Robot Influencers/Media, AI Community lists carried @AIRoboticsInt, @lukas_m_ziegler, @techniahqrobot.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2116184730668298654",
@@ -3651,31 +3666,6 @@
       "analysis": "Robert's AI Companies: Voice, AI Companies: Music/Audio lists carried @ElevenLabs.",
       "topic_key": "creatives",
       "topic_label": "Creatives"
-    },
-    {
-      "id": "sig-x-2115983518182645960",
-      "title": "OpenAI plans to merge ChatGPT Chat and Work, and power users worry about shared Codex quotas",
-      "text": "Robert's AI Influencers, Tech Journalists/Analysts, AI Community lists carried @hqmank, @EvanKirstel, @geoffinosaka.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Influencers, Tech Journalists/Analysts, AI Community lists carried @hqmank, @EvanKirstel, @geoffinosaka.",
-      "list_names": [
-        "AI Influencers",
-        "Tech Journalists/Analysts",
-        "AI Community #9 of 9"
-      ],
-      "chip_labels": [
-        "AI Influencers",
-        "Tech Journalists/Analysts",
-        "AI Community"
-      ],
-      "created_at": "2026-10-30T01:45:58.000Z",
-      "source_url": "https://x.com/hqmank/status/2115983518182645960",
-      "analysis": "Robert's AI Influencers, Tech Journalists/Analysts, AI Community lists carried @hqmank, @EvanKirstel, @geoffinosaka.",
-      "topic_key": "products",
-      "topic_label": "Products"
     },
     {
       "id": "sig-x-2115866740705935621",
@@ -3810,27 +3800,6 @@
       "topic_label": "Funding"
     },
     {
-      "id": "sig-x-2117255449657725295",
-      "title": "Xanadu and AMD release Backline, an open-source platform routing quantum workloads to CPUs, GPUs and FPGAs",
-      "text": "Robert's Quantum lists carried @XanaduAI.",
-      "badge": "signal",
-      "category": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "source_list": "Robert's Quantum lists carried @XanaduAI.",
-      "list_names": [
-        "Quantum"
-      ],
-      "chip_labels": [
-        "Quantum"
-      ],
-      "created_at": "2026-11-02T14:00:10.000Z",
-      "source_url": "https://x.com/XanaduAI/status/2117255449657725295",
-      "analysis": "Robert's Quantum lists carried @XanaduAI.",
-      "topic_key": "labs",
-      "topic_label": "Labs"
-    },
-    {
       "id": "sig-x-2115936769229176975",
       "title": "a16z names its 2026 American Dynamism Top 50, including autonomous-ship maker Saronic",
       "text": "Robert's AI Vehicles lists carried @Saronic.",
@@ -3850,6 +3819,27 @@
       "analysis": "Robert's AI Vehicles lists carried @Saronic.",
       "topic_key": "funding",
       "topic_label": "Funding"
+    },
+    {
+      "id": "sig-x-2117255449657725295",
+      "title": "Xanadu and AMD release Backline, an open-source platform routing quantum workloads to CPUs, GPUs and FPGAs",
+      "text": "Robert's Quantum lists carried @XanaduAI.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert's Quantum lists carried @XanaduAI.",
+      "list_names": [
+        "Quantum"
+      ],
+      "chip_labels": [
+        "Quantum"
+      ],
+      "created_at": "2026-11-02T14:00:10.000Z",
+      "source_url": "https://x.com/XanaduAI/status/2117255449657725295",
+      "analysis": "Robert's Quantum lists carried @XanaduAI.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
     },
     {
       "id": "sig-x-2116144490993832250",
@@ -3994,9 +3984,9 @@
   "bundles": [],
   "ai_sections": [],
   "top_pulls": [
+    "x-2118035494898704781",
+    "x-2118124944928432327",
     "x-2118119451401048497",
-    "x-2118062782562312416",
-    "x-2117621415520448838",
-    "x-2115985388649242699"
+    "x-2118062782562312416"
   ]
 }
