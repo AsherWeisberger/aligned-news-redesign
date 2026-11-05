@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-11-05T19:15:02.000Z",
-    "scrapedAt": "2026-11-05T19:15:02.000Z",
+    "generatedAt": "2026-11-05T19:43:04.000Z",
+    "scrapedAt": "2026-11-05T19:43:04.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 91 stories, source /workspace/pulse/dumps/live-pack-20261105-141207-et.json",
+    "note": "CONTEXT writeup, 92 stories, source /workspace/pulse/dumps/live-pack-20261105-144020-et.json",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -13,8 +13,8 @@
   },
   "stats": {
     "lists": 54,
-    "stories": 91,
-    "signals": 90,
+    "stories": 92,
+    "signals": 91,
     "reports": 4
   },
   "chips": [
@@ -385,6 +385,51 @@
       "desk_rank": 5
     },
     {
+      "id": "x-2118402973244215309",
+      "headline": "Luel introduces Accentus to detect American English in recorded speech",
+      "summary": "Luel introduced Accentus, a model for detecting American English in real world speech. The company says buyers want American English recordings from contributors around the world, but it cannot listen to every clip. It says models it tried rejected too many real Americans. The an",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-05T18:00:01.000Z",
+      "author_name": "LuelCompany",
+      "source_list": "AI Companies: Voice, AI Companies: Music/Audio, AI Influencers",
+      "list_names": [
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio",
+        "AI Influencers"
+      ],
+      "chip_labels": [
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio",
+        "AI Influencers"
+      ],
+      "source_url": "https://x.com/LuelCompany/status/2118402973244215309",
+      "sources": [
+        {
+          "label": "@LuelCompany",
+          "url": "https://x.com/LuelCompany/status/2118402973244215309"
+        }
+      ],
+      "body": "Luel introduced Accentus, a model for detecting American English in real world speech. The company says buyers want American English recordings from contributors around the world, but it cannot listen to every clip. It says models it tried rejected too many real Americans. The announcement does not provide a benchmark, accuracy figure or general availability date.\n\nThis targets a concrete speech data filtering problem, rather than promising a general voice assistant. @LuelCompany posted the model announcement and a link to its writeup on Robert's AI Companies: Voice and AI Companies: Music/Audio lists. Watch for evaluation across accents and recording conditions, and details on access.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 630,
+        "like_count": 28,
+        "reply_count": 20,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Influencers lists carried @LuelCompany, @HeyAmit_, @ai_explorer25.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "LuelCompany",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118382494894739456/img/QJ1WiPMKeyf1OUSd.jpg",
+      "list_count": 3,
+      "views": 630,
+      "desk_rank": 6
+    },
+    {
       "id": "x-2118387953005179312",
       "headline": "NVIDIA publishes guides to train, simulate and serve world models with Cosmos and NIM",
       "summary": "NVIDIA published a Cosmos Labs walkthrough on training, simulating and serving world models with the Cosmos framework and NIM microservices. @NVIDIAAI posted it to Robert's Tech Companies list.",
@@ -427,7 +472,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118388062375776257/Zm41lLuF?format=jpg&name=orig",
       "list_count": 3,
       "views": 2057,
-      "desk_rank": 6
+      "desk_rank": 7
     },
     {
       "id": "x-2118389961426874879",
@@ -472,7 +517,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118387774378192896/img/dPbZ-qxFOtFSBnvZ.jpg",
       "list_count": 3,
       "views": 4079,
-      "desk_rank": 7
+      "desk_rank": 8
     },
     {
       "id": "x-2118382075564929178",
@@ -515,7 +560,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYBPdya0AEp6uj.png",
       "list_count": 3,
       "views": 278,
-      "desk_rank": 8
+      "desk_rank": 9
     },
     {
       "id": "x-2118373611408945493",
@@ -559,7 +604,7 @@
       "media_url": "https://pbs.twimg.com/media/HWVOvVBaMAAYT0_.jpg",
       "list_count": 3,
       "views": 2001,
-      "desk_rank": 9
+      "desk_rank": 10
     },
     {
       "id": "x-2118348902210449896",
@@ -602,7 +647,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118348838247223296/img/6KKHNO6nbSUmRAVk.jpg",
       "list_count": 2,
       "views": 1560,
-      "desk_rank": 10
+      "desk_rank": 11
     },
     {
       "id": "x-2118313713396793615",
@@ -651,7 +696,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXDCMLbkAAggJK.jpg",
       "list_count": 5,
       "views": 4862,
-      "desk_rank": 11
+      "desk_rank": 12
     },
     {
       "id": "x-2118336305520164998",
@@ -669,8 +714,7 @@
         "AI Community #9 of 9",
         "AI Founders #1 of 3",
         "AI Community #1 of 9",
-        "AI Orgs & Events",
-        "AI Community #2 of 9"
+        "AI Orgs & Events"
       ],
       "chip_labels": [
         "Tech News",
@@ -695,9 +739,9 @@
       "topic_label": "Products",
       "x_handle": "InfoWorld",
       "media_url": "https://pbs.twimg.com/news_img/2118306324610195456/RIR3ExhD?format=jpg&name=orig",
-      "list_count": 6,
+      "list_count": 5,
       "views": 44,
-      "desk_rank": 12
+      "desk_rank": 13
     },
     {
       "id": "x-2118288470275674172",
@@ -738,7 +782,7 @@
       "media_url": "https://pbs.twimg.com/media/HWWsI2JWUAAK1Fm.jpg",
       "list_count": 1,
       "views": 5122,
-      "desk_rank": 13
+      "desk_rank": 14
     },
     {
       "id": "x-2118380813498892301",
@@ -781,7 +825,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118374869645864960/img/X0zFDyMQe_jbJcnE.jpg",
       "list_count": 2,
       "views": 7479,
-      "desk_rank": 14
+      "desk_rank": 15
     },
     {
       "id": "x-2118388149449871712",
@@ -822,7 +866,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYGy3FaoAA_fix.jpg",
       "list_count": 1,
       "views": 3773,
-      "desk_rank": 15
+      "desk_rank": 16
     },
     {
       "id": "x-2118417772774580623",
@@ -863,7 +907,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118413806892359680/vpgRYSE_?format=png&name=orig",
       "list_count": 1,
       "views": 831,
-      "desk_rank": 16
+      "desk_rank": 17
     },
     {
       "id": "x-2118337164702318837",
@@ -908,7 +952,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXX-rnWQAE1YHu.png",
       "list_count": 4,
       "views": 53,
-      "desk_rank": 17
+      "desk_rank": 18
     },
     {
       "id": "x-2118368740819800135",
@@ -951,7 +995,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXylo3bIAAvLXF.png",
       "list_count": 2,
       "views": 449,
-      "desk_rank": 18
+      "desk_rank": 19
     },
     {
       "id": "x-2118388127337517276",
@@ -992,47 +1036,6 @@
       "media_url": "https://pbs.twimg.com/media/HWYGxntaYAEkf3o.jpg",
       "list_count": 1,
       "views": 1120,
-      "desk_rank": 19
-    },
-    {
-      "id": "x-2118360866517127217",
-      "headline": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
-      "summary": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code re",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-05T15:12:42.000Z",
-      "author_name": "HermesAgentTips",
-      "source_list": "AI Community, AI Orgs",
-      "list_names": [
-        "AI Community #7 of 9",
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "AI Orgs"
-      ],
-      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
-      "sources": [
-        {
-          "label": "@HermesAgentTips",
-          "url": "https://x.com/HermesAgentTips/status/2118360866517127217"
-        }
-      ],
-      "body": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code reading and answering Hermes Telegram, Discord and Slack chats through that one endpoint instead of separate connectors.\n\n@HermesAgentTips posted the install commands and marketplace links the same morning on Robert's AI Community list. A follow up lists hermes plugins install mcp serve and hermes plugins enable mcp serve, then setting the MCP client command to hermes.\n\nWhy it matters: agent IDEs need chat context without custom glue, and an official Hermes MCP plugin is a shipping signal for that path. Watch whether Claude Code users adopt it for multi channel ops and how native Slack, Discord and Telegram agent tools answer.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 89,
-        "reply_count": 1
-      },
-      "why_it_matters": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "HermesAgentTips",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118360607564959746/img/liQc2dydENJnI189.jpg",
-      "list_count": 2,
-      "views": 89,
       "desk_rank": 20
     },
     {
@@ -1077,46 +1080,44 @@
       "desk_rank": 21
     },
     {
-      "id": "x-2118343990059872466",
-      "headline": "Asimov Inc shows its open source Asimov 1 humanoid dancing on day 374 of the build",
-      "summary": "The Asimov company account posted video of its open source humanoid robot Asimov 1 dancing as a progress update on a continuous public build log. Open source humanoid progress posts keep the robotics desk current between larger IPO and lab releases.",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-11-05T14:05:38.000Z",
-      "author_name": "asimovinc",
-      "source_list": "Robotics (AI/SI), AI Companies: Developers",
+      "id": "x-2118360866517127217",
+      "headline": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
+      "summary": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code re",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-05T15:12:42.000Z",
+      "author_name": "HermesAgentTips",
+      "source_list": "AI Community, AI Orgs",
       "list_names": [
-        "Robotics (AI/SI)",
-        "AI Companies: Developers"
+        "AI Community #7 of 9",
+        "AI Orgs & Events"
       ],
       "chip_labels": [
-        "Robotics (AI/SI)",
-        "AI Companies: Developers"
+        "AI Community",
+        "AI Orgs"
       ],
-      "source_url": "https://x.com/asimovinc/status/2118343990059872466",
+      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
       "sources": [
         {
-          "label": "@asimovinc",
-          "url": "https://x.com/asimovinc/status/2118343990059872466"
+          "label": "@HermesAgentTips",
+          "url": "https://x.com/HermesAgentTips/status/2118360866517127217"
         }
       ],
-      "body": "The Asimov company account posted video of its open source humanoid robot Asimov 1 dancing as a progress update on a continuous public build log. Open source humanoid progress posts keep the robotics desk current between larger IPO and lab releases.\n\n@asimovinc posted: \"Day 374 of building Asimov 1, an open source humanoid robot. Asimov can dance!\"\n\n@jandotai added: \"RT @asimovinc: Day 374 of building Asimov 1, an open source humanoid robot. Asimov can dance!\"",
+      "body": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code reading and answering Hermes Telegram, Discord and Slack chats through that one endpoint instead of separate connectors.\n\n@HermesAgentTips posted the install commands and marketplace links the same morning on Robert's AI Community list. A follow up lists hermes plugins install mcp serve and hermes plugins enable mcp serve, then setting the MCP client command to hermes.\n\nWhy it matters: agent IDEs need chat context without custom glue, and an official Hermes MCP plugin is a shipping signal for that path. Watch whether Claude Code users adopt it for multi channel ops and how native Slack, Discord and Telegram agent tools answer.",
       "kind": "story",
       "engagement": {
-        "impression_count": 190,
-        "like_count": 7,
-        "reply_count": 1,
-        "retweet_count": 2
+        "impression_count": 89,
+        "reply_count": 1
       },
-      "why_it_matters": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "asimovinc",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118343914235269121/img/Chb7E4XuD4-VBUlV.jpg",
+      "why_it_matters": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HermesAgentTips",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118360607564959746/img/liQc2dydENJnI189.jpg",
       "list_count": 2,
-      "views": 190,
+      "views": 89,
       "desk_rank": 22
     },
     {
@@ -1918,6 +1919,49 @@
       "desk_rank": 40
     },
     {
+      "id": "x-2118408545871782035",
+      "headline": "Fable casts Grimes in AI film Gods Don’t Give Gifts and plans an Oscar campaign",
+      "summary": "Fable announced that Grimes voices Zayinth Alda in Gods Don’t Give Gifts, an AI animated film. @fableshowrunner says it worked with her on the character's costumes and design and is running the film for the Best Animated Feature Oscar. Its claim to be the first AI film in theatre",
+      "section": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "tag": "creatives",
+      "published_at": "2026-11-05T18:22:10.000Z",
+      "author_name": "fableshowrunner",
+      "source_list": "AI Companies:-All, Spatial Computing, AR/VR Companies, Tech Journalists/Analysts",
+      "list_names": [
+        "AI Companies: #1 of 2-All",
+        "Spatial Computing",
+        "AR/VR Companies",
+        "Tech Journalists/Analysts"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "Spatial Computing",
+        "AR/VR Companies",
+        "Tech Journalists/Analysts"
+      ],
+      "source_url": "https://x.com/fableshowrunner/status/2118408545871782035",
+      "sources": [
+        {
+          "label": "@fableshowrunner",
+          "url": "https://x.com/fableshowrunner/status/2118408545871782035"
+        }
+      ],
+      "body": "Fable announced that Grimes voices Zayinth Alda in Gods Don’t Give Gifts, an AI animated film. @fableshowrunner says it worked with her on the character's costumes and design and is running the film for the Best Animated Feature Oscar. Its claim to be the first AI film in theatres is the producer's framing, not an established industry first.\n\n@xpangler shared Variety coverage of how the cameo came together on Robert's Tech Journalists/Analysts list. @fableshowrunner posted the announcement on the AI Companies, Spatial Computing and AR/VR Companies lists, while @Gossip_Goblin shared a preview on AI Film Makers. The casting is a concrete production development, not evidence of the producer's claimed Toy Story scale reset. Watch for confirmed theatrical dates and awards eligibility.",
+      "kind": "story",
+      "engagement": {
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert's AI Companies, Spatial Computing, AR/VR Companies and 1 more lists carried @fableshowrunner, @xpangler.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives",
+      "x_handle": "fableshowrunner",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118388987396042753/img/sWT29gP0spePpogz.jpg",
+      "list_count": 4,
+      "desk_rank": 41
+    },
+    {
       "id": "x-2118156252165358037",
       "headline": "FrontierCS 1.1 updates its open ended algorithm benchmark to test modern AI agents",
       "summary": "The FrontierCS team released version 1.1 of its algorithm problem set to evaluate modern agents more rigorously. Unsaturated, open ended benchmarks are scarce as agents max out older tests, so updates like this shape how autoresearch progress is measured.",
@@ -1959,7 +2003,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118153298435825665/img/sPPDAfS2xbpI4Yec.jpg",
       "list_count": 4,
       "views": 525,
-      "desk_rank": 41
+      "desk_rank": 42
     },
     {
       "id": "x-2116186245802127411",
@@ -2007,7 +2051,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV4qiMYbsAAz27z.jpg",
       "list_count": 5,
       "views": 2972,
-      "desk_rank": 42
+      "desk_rank": 43
     },
     {
       "id": "x-2117642701890105725",
@@ -2050,7 +2094,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNgGBea4AAB3_r.jpg",
       "list_count": 2,
       "views": 1042,
-      "desk_rank": 43
+      "desk_rank": 44
     },
     {
       "id": "x-2117670295339171994",
@@ -2093,7 +2137,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117670256801873920/pu/img/ngWTR58nsSm8VVSD.jpg",
       "list_count": 2,
       "views": 383,
-      "desk_rank": 44
+      "desk_rank": 45
     },
     {
       "id": "x-2117621415520448838",
@@ -2139,7 +2183,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNMZMHacAAl0lx.jpg",
       "list_count": 4,
       "views": 419,
-      "desk_rank": 45
+      "desk_rank": 46
     },
     {
       "id": "x-2115848186950791665",
@@ -2182,7 +2226,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115846043845971969/img/h-R_tvcTJBJZzjDI.jpg",
       "list_count": 2,
       "views": 817505,
-      "desk_rank": 46
+      "desk_rank": 47
     },
     {
       "id": "x-2117680635561312732",
@@ -2223,7 +2267,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117680108706140161/img/W7IjAqq94Q6lFVOo.jpg",
       "list_count": 1,
       "views": 5659,
-      "desk_rank": 47
+      "desk_rank": 48
     },
     {
       "id": "x-2117630688904012268",
@@ -2266,7 +2310,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117630353565175808/img/5FU9I1EVucBqoywR.jpg",
       "list_count": 2,
       "views": 16031,
-      "desk_rank": 48
+      "desk_rank": 49
     },
     {
       "id": "x-2116573344283681010",
@@ -2312,7 +2356,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUsyluaAAA8lcm.jpg",
       "list_count": 5,
       "views": 34,
-      "desk_rank": 49
+      "desk_rank": 50
     },
     {
       "id": "x-2116620479079354803",
@@ -2359,7 +2403,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118401636829724672/img/WEssTzGS9fY77VJO.jpg",
       "list_count": 4,
       "views": 4061,
-      "desk_rank": 50
+      "desk_rank": 51
     },
     {
       "id": "x-2117663862564573240",
@@ -2404,7 +2448,7 @@
       "media_url": "https://pbs.twimg.com/media/HWN0D2IWcAASzvX.jpg",
       "list_count": 3,
       "views": 3921,
-      "desk_rank": 51
+      "desk_rank": 52
     },
     {
       "id": "x-2116598588172374141",
@@ -2455,7 +2499,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-rMr7awAEkYvc.jpg",
       "list_count": 7,
       "views": 11095,
-      "desk_rank": 52
+      "desk_rank": 53
     },
     {
       "id": "x-2115887660489462091",
@@ -2496,7 +2540,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115887560660766720/img/WyTAk03vOI_RJJVo.jpg",
       "list_count": 1,
       "views": 634809,
-      "desk_rank": 53
+      "desk_rank": 54
     },
     {
       "id": "x-2116005725814280570",
@@ -2537,7 +2581,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116003610509377536/img/tTDEreSob9R_UftI.jpg",
       "list_count": 1,
       "views": 160324,
-      "desk_rank": 54
+      "desk_rank": 55
     },
     {
       "id": "x-2116349211549843666",
@@ -2582,7 +2626,7 @@
       "media_url": "https://pbs.twimg.com/media/HV7E-P7bwAA7OxM.jpg",
       "list_count": 3,
       "views": 164409,
-      "desk_rank": 55
+      "desk_rank": 56
     },
     {
       "id": "x-2116186509384815084",
@@ -2629,7 +2673,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116186389536788480/img/hbO4g10coOsa0Gy3.jpg",
       "list_count": 4,
       "views": 201542,
-      "desk_rank": 56
+      "desk_rank": 57
     },
     {
       "id": "x-2116564505719185593",
@@ -2679,7 +2723,7 @@
       "media_url": "https://pbs.twimg.com/media/HV9_1tmW4AAmHhN.jpg",
       "list_count": 7,
       "views": 412,
-      "desk_rank": 57
+      "desk_rank": 58
     },
     {
       "id": "x-2116188727579918358",
@@ -2732,7 +2776,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116188665508397058/img/e7TjmUY-YuCA7Wfl.jpg",
       "list_count": 7,
       "views": 339,
-      "desk_rank": 58
+      "desk_rank": 59
     },
     {
       "id": "x-2115777746639196376",
@@ -2773,7 +2817,7 @@
       "media_url": "https://pbs.twimg.com/media/HVzAlG4aYAEdykK.jpg",
       "list_count": 1,
       "views": 49674,
-      "desk_rank": 59
+      "desk_rank": 60
     },
     {
       "id": "x-2117249008972550447",
@@ -2815,7 +2859,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
       "list_count": 2,
       "views": 106,
-      "desk_rank": 60
+      "desk_rank": 61
     },
     {
       "id": "x-2117285608745820372",
@@ -2856,7 +2900,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117276914591399937/img/UT3OrHoJmR0zyCbG.jpg",
       "list_count": 1,
       "views": 15572,
-      "desk_rank": 61
+      "desk_rank": 62
     },
     {
       "id": "x-2115962853463396395",
@@ -2903,7 +2947,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115962720092921857/img/plyOVUvSUBS7c3NA.jpg",
       "list_count": 4,
       "views": 13818,
-      "desk_rank": 62
+      "desk_rank": 63
     },
     {
       "id": "x-2115890658636656826",
@@ -2952,7 +2996,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115888862664994816/img/lblQAbfEGXEDNyRh.jpg",
       "list_count": 5,
       "views": 120290,
-      "desk_rank": 63
+      "desk_rank": 64
     },
     {
       "id": "x-2116254202301493459",
@@ -2995,7 +3039,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5x0vvbMAAVG9F.jpg",
       "list_count": 2,
       "views": 4261,
-      "desk_rank": 64
+      "desk_rank": 65
     },
     {
       "id": "x-2116236342653026706",
@@ -3042,7 +3086,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hjyXbUAEH7dA.jpg",
       "list_count": 4,
       "views": 2442,
-      "desk_rank": 65
+      "desk_rank": 66
     },
     {
       "id": "x-2116233418702733514",
@@ -3085,7 +3129,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5fFFEXoAA9thh.jpg",
       "list_count": 2,
       "views": 496,
-      "desk_rank": 66
+      "desk_rank": 67
     },
     {
       "id": "x-2115480443307041130",
@@ -3126,7 +3170,7 @@
       "media_url": "https://pbs.twimg.com/media/HVuyJKuaIAAXXUQ.jpg",
       "list_count": 1,
       "views": 11929,
-      "desk_rank": 67
+      "desk_rank": 68
     },
     {
       "id": "x-2116560120457142451",
@@ -3167,7 +3211,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116559500933251072/img/GSMKoAbET-1y1M8Q.jpg",
       "list_count": 1,
       "views": 6933,
-      "desk_rank": 68
+      "desk_rank": 69
     },
     {
       "id": "x-2117691389265784919",
@@ -3208,7 +3252,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117691327240388608/pu/img/Rklk0_3GWNQqca_u.jpg",
       "list_count": 1,
       "views": 21676,
-      "desk_rank": 69
+      "desk_rank": 70
     },
     {
       "id": "x-2117408792346509663",
@@ -3251,7 +3295,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117408779730108416/img/M_YLvydUvu_YZd9I.jpg",
       "list_count": 2,
       "views": 2568,
-      "desk_rank": 70
+      "desk_rank": 71
     },
     {
       "id": "x-2116587096651505814",
@@ -3302,7 +3346,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg",
       "list_count": 7,
       "views": 275,
-      "desk_rank": 71
+      "desk_rank": 72
     },
     {
       "id": "x-2116593734502797644",
@@ -3345,7 +3389,7 @@
       "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
       "list_count": 4,
       "views": 10,
-      "desk_rank": 72
+      "desk_rank": 73
     },
     {
       "id": "x-2116184730668298654",
@@ -3396,7 +3440,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116184615131979776/img/p0nSgnwEzMLoi7Lb.jpg",
       "list_count": 6,
       "views": 2732,
-      "desk_rank": 73
+      "desk_rank": 74
     },
     {
       "id": "x-2116236188319453386",
@@ -3441,7 +3485,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hqrJWYAA1M_E.jpg",
       "list_count": 3,
       "views": 11266,
-      "desk_rank": 74
+      "desk_rank": 75
     },
     {
       "id": "x-2116530643228295205",
@@ -3482,7 +3526,7 @@
       "media_url": "https://pbs.twimg.com/media/HV8QGvGWcAAmnqa.jpg",
       "list_count": 1,
       "views": 1408,
-      "desk_rank": 75
+      "desk_rank": 76
     },
     {
       "id": "x-2116602645972672576",
@@ -3524,7 +3568,7 @@
       "media_url": "https://pbs.twimg.com/media/HWX-BYRXIAAvTyd.png",
       "list_count": 2,
       "views": 5821,
-      "desk_rank": 76
+      "desk_rank": 77
     },
     {
       "id": "x-2115867078964187368",
@@ -3567,7 +3611,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115849542835032070/img/DLvqI6GHXxdGBOR3.jpg",
       "list_count": 2,
       "views": 1007517,
-      "desk_rank": 77
+      "desk_rank": 78
     },
     {
       "id": "x-2115866740705935621",
@@ -3608,7 +3652,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2115866633164017664/pu/img/j2KBZ5b15R_GbRnQ.jpg",
       "list_count": 1,
       "views": 9081,
-      "desk_rank": 78
+      "desk_rank": 79
     },
     {
       "id": "x-2116131501519868036",
@@ -3652,7 +3696,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 4,
       "views": 7,
-      "desk_rank": 79
+      "desk_rank": 80
     },
     {
       "id": "x-2116227954518978729",
@@ -3693,7 +3737,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116227869236215808/img/-xiBqjXdevC1DRL2.jpg",
       "list_count": 1,
       "views": 3688,
-      "desk_rank": 80
+      "desk_rank": 81
     },
     {
       "id": "x-2116551784235782494",
@@ -3736,7 +3780,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2116551633106522112/pu/img/0SXU3jLR4Q_cn8ES.jpg",
       "list_count": 2,
       "views": 329,
-      "desk_rank": 81
+      "desk_rank": 82
     },
     {
       "id": "x-2116222007658586306",
@@ -3777,7 +3821,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 1,
       "views": 2491,
-      "desk_rank": 82
+      "desk_rank": 83
     },
     {
       "id": "x-2116181430359511443",
@@ -3818,7 +3862,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116177737778167809/img/3TkBGjOnva5_-o4-.jpg",
       "list_count": 1,
       "views": 9844,
-      "desk_rank": 83
+      "desk_rank": 84
     },
     {
       "id": "x-2116576079632912834",
@@ -3859,7 +3903,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116575995683913728/img/HerUHqv3Y7i_BXkc.jpg",
       "list_count": 1,
       "views": 7381,
-      "desk_rank": 84
+      "desk_rank": 85
     },
     {
       "id": "x-2116621333992005911",
@@ -3899,7 +3943,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116621244636504064/img/oYscG-9y5Zmzvwen.jpg",
       "list_count": 1,
       "views": 3627,
-      "desk_rank": 85
+      "desk_rank": 86
     },
     {
       "id": "x-2115936769229176975",
@@ -3940,7 +3984,7 @@
       "media_url": "https://pbs.twimg.com/media/HV1RRIJWoAA3Dud.jpg",
       "list_count": 1,
       "views": 3018,
-      "desk_rank": 86
+      "desk_rank": 87
     },
     {
       "id": "x-2116144490993832250",
@@ -3983,7 +4027,7 @@
       "media_url": "https://pbs.twimg.com/media/HV4OEyrXoAAaqBg.jpg",
       "list_count": 2,
       "views": 1363,
-      "desk_rank": 87
+      "desk_rank": 88
     },
     {
       "id": "x-2117255449657725295",
@@ -4023,7 +4067,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH9-TrWsAAMTkn.jpg",
       "list_count": 1,
       "views": 414,
-      "desk_rank": 88
+      "desk_rank": 89
     },
     {
       "id": "x-2115970151933935668",
@@ -4072,7 +4116,7 @@
       "media_url": "https://pbs.twimg.com/media/HWPjGPVa0AAgLPB.png",
       "list_count": 6,
       "views": 9984,
-      "desk_rank": 89
+      "desk_rank": 90
     },
     {
       "id": "x-2116621403327762856",
@@ -4115,7 +4159,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116621406511239168/RaJ-A8va?format=jpg&name=orig",
       "list_count": 2,
       "views": 17296,
-      "desk_rank": 90
+      "desk_rank": 91
     },
     {
       "id": "x-2116586054857719916",
@@ -4156,7 +4200,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116586056208269312/umgR00XK?format=jpg&name=orig",
       "list_count": 1,
       "views": 18549,
-      "desk_rank": 91
+      "desk_rank": 92
     }
   ],
   "signals": [
@@ -4275,6 +4319,31 @@
       "analysis": "Robert's AI's Best, AI Community, VC Firms and 1 more lists carried @kimmonismus, @gabrielchua, @frontrunvc.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118402973244215309",
+      "title": "Luel introduces Accentus to detect American English in recorded speech",
+      "text": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Influencers lists carried @LuelCompany, @HeyAmit_, @ai_explorer25.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Influencers lists carried @LuelCompany, @HeyAmit_, @ai_explorer25.",
+      "list_names": [
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio",
+        "AI Influencers"
+      ],
+      "chip_labels": [
+        "AI Companies: Voice",
+        "AI Companies: Music/Audio",
+        "AI Influencers"
+      ],
+      "created_at": "2026-11-05T18:00:01.000Z",
+      "source_url": "https://x.com/LuelCompany/status/2118402973244215309",
+      "analysis": "Robert's AI Companies: Voice, AI Companies: Music/Audio, AI Influencers lists carried @LuelCompany, @HeyAmit_, @ai_explorer25.",
+      "topic_key": "models",
+      "topic_label": "Models"
     },
     {
       "id": "sig-x-2118387953005179312",
@@ -4442,8 +4511,7 @@
         "AI Community #9 of 9",
         "AI Founders #1 of 3",
         "AI Community #1 of 9",
-        "AI Orgs & Events",
-        "AI Community #2 of 9"
+        "AI Orgs & Events"
       ],
       "chip_labels": [
         "Tech News",
@@ -4615,29 +4683,6 @@
       "topic_label": "Chips"
     },
     {
-      "id": "sig-x-2118360866517127217",
-      "title": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
-      "text": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
-      "list_names": [
-        "AI Community #7 of 9",
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "AI Orgs"
-      ],
-      "created_at": "2026-11-05T15:12:42.000Z",
-      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
-      "analysis": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2118390043249434915",
       "title": "Epoch AI poll finds 26% of US workers used a paid AI service for their job last week",
       "text": "Robert's AI Orgs & Events lists carried @EpochAIResearch.",
@@ -4659,27 +4704,27 @@
       "topic_label": "Policy"
     },
     {
-      "id": "sig-x-2118343990059872466",
-      "title": "Asimov Inc shows its open source Asimov 1 humanoid dancing on day 374 of the build",
-      "text": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
+      "id": "sig-x-2118360866517127217",
+      "title": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
+      "text": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
       "badge": "signal",
-      "category": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "source_list": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
       "list_names": [
-        "Robotics (AI/SI)",
-        "AI Companies: Developers"
+        "AI Community #7 of 9",
+        "AI Orgs & Events"
       ],
       "chip_labels": [
-        "Robotics (AI/SI)",
-        "AI Companies: Developers"
+        "AI Community",
+        "AI Orgs"
       ],
-      "created_at": "2026-11-05T14:05:38.000Z",
-      "source_url": "https://x.com/asimovinc/status/2118343990059872466",
-      "analysis": "Robert's Robotics (AI/SI), AI Companies: Developers lists carried @asimovinc, @jandotai.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
+      "created_at": "2026-11-05T15:12:42.000Z",
+      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
+      "analysis": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2118124944928432327",
@@ -5129,6 +5174,33 @@
       "analysis": "Robert's AI Companies: Music/Audio lists carried @ElevenLabs.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118408545871782035",
+      "title": "Fable casts Grimes in AI film Gods Don’t Give Gifts and plans an Oscar campaign",
+      "text": "Robert's AI Companies, Spatial Computing, AR/VR Companies and 1 more lists carried @fableshowrunner, @xpangler.",
+      "badge": "signal",
+      "category": "creatives",
+      "section_key": "creatives",
+      "section_label": "Creatives",
+      "source_list": "Robert's AI Companies, Spatial Computing, AR/VR Companies and 1 more lists carried @fableshowrunner, @xpangler.",
+      "list_names": [
+        "AI Companies: #1 of 2-All",
+        "Spatial Computing",
+        "AR/VR Companies",
+        "Tech Journalists/Analysts"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "Spatial Computing",
+        "AR/VR Companies",
+        "Tech Journalists/Analysts"
+      ],
+      "created_at": "2026-11-05T18:22:10.000Z",
+      "source_url": "https://x.com/fableshowrunner/status/2118408545871782035",
+      "analysis": "Robert's AI Companies, Spatial Computing, AR/VR Companies and 1 more lists carried @fableshowrunner, @xpangler.",
+      "topic_key": "creatives",
+      "topic_label": "Creatives"
     },
     {
       "id": "sig-x-2118156252165358037",
@@ -6417,7 +6489,7 @@
   "top_pulls": [
     "x-2118403114890137895",
     "x-2118417772774580623",
-    "x-2118408305857228876",
-    "x-2118390043249434915"
+    "x-2118402973244215309",
+    "x-2118408305857228876"
   ]
 }
