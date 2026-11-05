@@ -36,8 +36,8 @@
     requestAnimationFrame(function () { window.anTranslatePage(); });
   }
 
-  var DATA_URL = "live-data.json?v=an298";
-  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an298";
+  var DATA_URL = "live-data.json?v=an299";
+  var NEWSLETTER_DATA_URL = "newsletter-data.json?v=an299";
   var state = {
     data: null,
     newsletter: [],
