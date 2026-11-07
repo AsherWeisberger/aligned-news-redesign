@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-11-07T15:22:10.000Z",
-    "scrapedAt": "2026-11-07T15:22:10.000Z",
+    "generatedAt": "2026-11-07T16:00:26.000Z",
+    "scrapedAt": "2026-11-07T16:00:26.000Z",
     "source": "scobleizer-chrome-lists",
-    "note": "CONTEXT writeup, 171 stories, source /workspace/pulse/dumps/live-pack-20261107-101355-et.json",
+    "note": "CONTEXT writeup, 172 stories, source /workspace/pulse/dumps/live-pack-20261107-105039-et.json",
     "lastUpdatedTs": 1787909816809,
     "photos": 12
   },
@@ -12,9 +12,9 @@
     "plan": "Pro"
   },
   "stats": {
-    "lists": 57,
-    "stories": 171,
-    "signals": 170,
+    "lists": 58,
+    "stories": 172,
+    "signals": 171,
     "reports": 4
   },
   "chips": [
@@ -186,6 +186,47 @@
       "desk_rank": 1
     },
     {
+      "id": "x-2119086689201316272",
+      "headline": "Inkling 2 Small is free on OpenCode for a limited time, Soumith Chintala says",
+      "summary": "Soumith Chintala said on November 7, 2026 that Inkling 2 Small is on OpenCode for free for a limited time, to help them improve their models further. He linked OpenCode's Thinking Machines data page for the model. In a reply the same morning, when asked how long the offer would l",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-07T15:16:52.000Z",
+      "author_name": "soumithchintala",
+      "source_list": "AI Community",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "source_url": "https://x.com/soumithchintala/status/2119086689201316272",
+      "sources": [
+        {
+          "label": "@soumithchintala",
+          "url": "https://x.com/soumithchintala/status/2119086689201316272"
+        }
+      ],
+      "body": "Soumith Chintala said on November 7, 2026 that Inkling 2 Small is on OpenCode for free for a limited time, to help them improve their models further. He linked OpenCode's Thinking Machines data page for the model. In a reply the same morning, when asked how long the offer would last, he said he did not know, maybe a week, and that he had not really thought about it.\n\nOpenCode Data listed the model under Thinking Machines when the page was fetched at about 10:13 AM ET, a few minutes before that post. The catalog describes a multimodal mixture of experts reasoning model with 594 billion total parameters and 17 billion active, a 1 million token context window, 131,072 token max output, text and image inputs, reasoning and tool calling, and closed weights. It shows no dollar price per million tokens, and the usage table reports $0 total spend and $0.00 average cost per session. By comparison, OpenCode lists Kimi K3.1 Pro at $2.00 per 1 million input tokens and $10.00 per 1 million output tokens, with $145,505.58 in recorded spend. Model facts on the Inkling page give a release date of November 5, 2026, matching the day Thinking Machines introduced the model and said it would first be available through Tinker.\n\nAll of the usage OpenCode lists for the past two months is dated November 7: about 175 billion tokens, 790 unique users and 12,403 completed sessions, enough for a rank of 24 by tokens last week, with about 97.6 percent of input tokens served from cache. Those are OpenCode's telemetry figures, not an independent audit. This is a new public way to try the model beyond Tinker, not a new benchmark and not an open weight release. Robert's AI Community lists noticed the announcement through @soumithchintala. The ARC Prize verification of Inkling 2 Small on ARC AGI 2 remains a separate story. Watch whether Thinking Machines or OpenCode publishes a firm end date or pricing, and whether the promised Apache 2.0 weights still follow the safety review described on November 5.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 3283,
+        "like_count": 91,
+        "reply_count": 8,
+        "retweet_count": 9
+      },
+      "why_it_matters": "Robert's AI Community lists carried @soumithchintala.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "soumithchintala",
+      "media_url": "https://pbs.twimg.com/news_img/2119086695840890880/eauJp0FH?format=png&name=orig",
+      "list_count": 1,
+      "views": 3283,
+      "desk_rank": 2
+    },
+    {
       "id": "x-2118822925445050435",
       "headline": "Nous Research introduces Arete 27B, a Qwen post training effort focused on Western values",
       "summary": "Nous Research introduced Arete 27B, a post trained version of Qwen3.8 27B that it says reinforces Western values. The company says it built an 803 prompt evaluation across seven value categories. Its claim that Chinese open models carry state aligned behavior is the developer's f",
@@ -224,7 +265,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118807764206030848/img/KpxiYJQdym7LZmYg.jpg",
       "list_count": 1,
       "views": 8769,
-      "desk_rank": 2
+      "desk_rank": 3
     },
     {
       "id": "x-2118992047613080032",
@@ -265,7 +306,7 @@
       "media_url": "https://pbs.twimg.com/media/HWgsBLVbMAAlao9.png",
       "list_count": 1,
       "views": 24162,
-      "desk_rank": 3
+      "desk_rank": 4
     },
     {
       "id": "x-2118849370703671406",
@@ -306,7 +347,7 @@
       "media_url": "https://pbs.twimg.com/media/HWeptRaa0AIn1tq.jpg",
       "list_count": 1,
       "views": 1240,
-      "desk_rank": 4
+      "desk_rank": 5
     },
     {
       "id": "x-2118765399890416064",
@@ -359,7 +400,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118763567461941248/img/_2HSx5cM6aWglMP8.jpg",
       "list_count": 8,
       "views": 9401,
-      "desk_rank": 5
+      "desk_rank": 6
     },
     {
       "id": "x-2118767484144857342",
@@ -412,7 +453,7 @@
       "media_url": "https://pbs.twimg.com/media/HWdfwxLaoAAd7K3.jpg",
       "list_count": 7,
       "views": 6734,
-      "desk_rank": 6
+      "desk_rank": 7
     },
     {
       "id": "x-2118734093105946792",
@@ -466,7 +507,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118733916576100352/img/4njYY8afGxP9K9Wp.jpg",
       "list_count": 8,
       "views": 9066,
-      "desk_rank": 7
+      "desk_rank": 8
     },
     {
       "id": "x-2118795742651482557",
@@ -478,18 +519,20 @@
       "tag": "products",
       "published_at": "2026-11-06T20:00:45.000Z",
       "author_name": "factory",
-      "source_list": "AI Companies: Developers, AI's Best, AI Companies:-All, AI Orgs",
+      "source_list": "AI Companies: Developers, AI's Best, AI Companies:-All, AI Orgs, AI Community",
       "list_names": [
         "AI Companies: Developers",
         "AI's Best",
         "AI Companies: #2 of 2-All",
-        "AI Orgs & Events"
+        "AI Orgs & Events",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Companies: Developers",
         "AI's Best",
         "AI Companies:-All",
-        "AI Orgs"
+        "AI Orgs",
+        "AI Community"
       ],
       "source_url": "https://x.com/factory/status/2118795742651482557",
       "sources": [
@@ -505,14 +548,14 @@
         "like_count": 15,
         "reply_count": 3
       },
-      "why_it_matters": "Robert's AI Companies: Developers, AI's Best, AI Companies and 1 more lists carried @factory, @gregisenberg, @grok.",
+      "why_it_matters": "Robert's AI Companies: Developers, AI's Best, AI Companies and 2 more lists carried @factory, @gregisenberg, @grok.",
       "topic_key": "products",
       "topic_label": "Products",
       "x_handle": "factory",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118795690935799808/img/hq4rRu4qiA3CU-TT.jpg",
-      "list_count": 4,
+      "list_count": 5,
       "views": 644,
-      "desk_rank": 8
+      "desk_rank": 9
     },
     {
       "id": "x-2119009476166451374",
@@ -552,7 +595,7 @@
       "media_url": "https://pbs.twimg.com/media/HWg743QWYAAnAv2.jpg",
       "list_count": 1,
       "views": 1171,
-      "desk_rank": 9
+      "desk_rank": 10
     },
     {
       "id": "x-2118740269302759597",
@@ -564,22 +607,22 @@
       "tag": "products",
       "published_at": "2026-11-06T16:20:19.000Z",
       "author_name": "OpenRouter",
-      "source_list": "AI Companies: Developers, Quantum, AR/VR Companies, Spatial Computing, AI Community, AI Influencers",
+      "source_list": "AI Companies: Developers, Quantum, AR/VR Companies, Spatial Computing, AI Influencers, Cybersecurity",
       "list_names": [
         "AI Companies: Developers",
         "Quantum",
         "AR/VR Companies",
         "Spatial Computing",
-        "AI Community #6 of 9",
-        "AI Influencers"
+        "AI Influencers",
+        "Cybersecurity"
       ],
       "chip_labels": [
         "AI Companies: Developers",
         "Quantum",
         "AR/VR Companies",
         "Spatial Computing",
-        "AI Community",
-        "AI Influencers"
+        "AI Influencers",
+        "Cybersecurity"
       ],
       "source_url": "https://x.com/OpenRouter/status/2118740269302759597",
       "sources": [
@@ -601,7 +644,7 @@
       "media_url": "https://pbs.twimg.com/media/HWbSK_lacAAMyr4.jpg",
       "list_count": 6,
       "views": 408,
-      "desk_rank": 10
+      "desk_rank": 11
     },
     {
       "id": "x-2118768974779634084",
@@ -613,20 +656,22 @@
       "tag": "models",
       "published_at": "2026-11-06T18:14:23.000Z",
       "author_name": "AIatMeta",
-      "source_list": "AI Orgs, AI's Best, AI Community, AI Founders, Neuroscience",
+      "source_list": "AI Orgs, AI's Best, AI Community, AI Founders, Neuroscience, AR/VR Companies",
       "list_names": [
         "AI Orgs & Events",
         "AI's Best",
         "AI Community #6 of 9",
         "AI Founders #3 of 3",
-        "Neuroscience"
+        "Neuroscience",
+        "AR/VR Companies"
       ],
       "chip_labels": [
         "AI Orgs",
         "AI's Best",
         "AI Community",
         "AI Founders",
-        "Neuroscience"
+        "Neuroscience",
+        "AR/VR Companies"
       ],
       "source_url": "https://x.com/AIatMeta/status/2118768974779634084",
       "sources": [
@@ -643,14 +688,14 @@
         "reply_count": 33,
         "retweet_count": 10
       },
-      "why_it_matters": "Robert's AI Orgs & Events, AI's Best, AI Community and 2 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
+      "why_it_matters": "Robert's AI Orgs & Events, AI's Best, AI Community and 3 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "AIatMeta",
       "media_url": "https://pbs.twimg.com/media/HWdgfSKbEAAV_7y.jpg",
-      "list_count": 5,
+      "list_count": 6,
       "views": 8457,
-      "desk_rank": 11
+      "desk_rank": 12
     },
     {
       "id": "x-2118701973075865973",
@@ -662,20 +707,22 @@
       "tag": "models",
       "published_at": "2026-11-06T13:48:08.000Z",
       "author_name": "smallest_AI",
-      "source_list": "AI Companies: Voice, AI: Decentralized, Tech Journalists/Analysts, AI Companies: Science/Med, News",
+      "source_list": "AI Companies: Voice, Tech Journalists/Analysts, AI Companies: Science/Med, AI: Decentralized, News, AI Community",
       "list_names": [
         "AI Companies: Voice",
-        "AI: Decentralized",
         "Tech Journalists/Analysts",
         "AI Companies: Science/Med",
-        "News #3 of 3"
+        "AI: Decentralized",
+        "News #3 of 3",
+        "AI Community #6 of 9"
       ],
       "chip_labels": [
         "AI Companies: Voice",
-        "AI: Decentralized",
         "Tech Journalists/Analysts",
         "AI Companies: Science/Med",
-        "News"
+        "AI: Decentralized",
+        "News",
+        "AI Community"
       ],
       "source_url": "https://x.com/smallest_AI/status/2118701973075865973",
       "sources": [
@@ -692,14 +739,14 @@
         "reply_count": 2,
         "retweet_count": 1
       },
-      "why_it_matters": "Robert's AI Companies: Voice, AI: Decentralized, Tech Journalists/Analysts and 2 more lists carried @smallest_AI, @x402_Layer, @davetroy.",
+      "why_it_matters": "Robert's AI Companies: Voice, Tech Journalists/Analysts, AI Companies: Science/Med and 3 more lists carried @smallest_AI, @davetroy, @Larvol.",
       "topic_key": "models",
       "topic_label": "Models",
       "x_handle": "smallest_AI",
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HWcfuhZbYAAMvAO.jpg",
-      "list_count": 5,
+      "list_count": 6,
       "views": 694,
-      "desk_rank": 12
+      "desk_rank": 13
     },
     {
       "id": "x-2118794979384676509",
@@ -740,7 +787,7 @@
       "media_url": "https://pbs.twimg.com/media/HWd4zcJaIAAxQ87.png",
       "list_count": 1,
       "views": 1520,
-      "desk_rank": 13
+      "desk_rank": 14
     },
     {
       "id": "x-2118739707408298477",
@@ -790,7 +837,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118739133073952768/img/9oji9-W1rKLQEvtW.jpg",
       "list_count": 6,
       "views": 2277,
-      "desk_rank": 14
+      "desk_rank": 15
     },
     {
       "id": "x-2119035694941389238",
@@ -831,7 +878,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2119034137017552896/img/GDvAJ-pNassYLCDi.jpg",
       "list_count": 1,
       "views": 98,
-      "desk_rank": 15
+      "desk_rank": 16
     },
     {
       "id": "x-2118403114890137895",
@@ -883,7 +930,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYUk7ZWwAAcrVe.jpg",
       "list_count": 7,
       "views": 3164405,
-      "desk_rank": 16
+      "desk_rank": 17
     },
     {
       "id": "x-2118389326459670825",
@@ -932,51 +979,6 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118389256930660352/img/GPUe0mXgz4f2dJ6O.jpg",
       "list_count": 6,
       "views": 37000,
-      "desk_rank": 17
-    },
-    {
-      "id": "x-2118733156069032292",
-      "headline": "Double AI shows coding agents rewriting live training networks, not just weights",
-      "summary": "Double AI reported experiments where coding agents re architect a model during training by splicing code into the live network, rather than only editing weights. On nanochat, the company says the agents used a technique they call phantom gradients to find unmet demand in the netw",
-      "section": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "tag": "labs",
-      "published_at": "2026-11-06T15:52:03.000Z",
-      "author_name": "_doubleAI_",
-      "source_list": "AI Companies: Science/Med, AI Vehicles, AI Orgs",
-      "list_names": [
-        "AI Companies: Science/Med",
-        "AI Vehicles",
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI Companies: Science/Med",
-        "AI Vehicles",
-        "AI Orgs"
-      ],
-      "source_url": "https://x.com/_doubleAI_/status/2118733156069032292",
-      "sources": [
-        {
-          "label": "@_doubleAI_",
-          "url": "https://x.com/_doubleAI_/status/2118733156069032292"
-        }
-      ],
-      "body": "Double AI reported experiments where coding agents re architect a model during training by splicing code into the live network, rather than only editing weights. On nanochat, the company says the agents used a technique they call phantom gradients to find unmet demand in the network and rank candidate code layers, and that loss fell below standard transformer territory. @_doubleAI_ posted the thread on Robert's AI Companies: Science/Med list. These are the company's own experiment results, not an independently replicated training method. Timing of architecture changes mattered in their writeup: planting new layers at the start of training hurt recall. Watch for code, paper details and whether other labs can reproduce the approach.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 550,
-        "like_count": 25,
-        "reply_count": 2,
-        "retweet_count": 10
-      },
-      "why_it_matters": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @PrimaMente.",
-      "topic_key": "labs",
-      "topic_label": "Labs",
-      "x_handle": "_doubleAI_",
-      "media_url": "https://pbs.twimg.com/media/HWc96MuWMAA8vOE.jpg",
-      "list_count": 3,
-      "views": 550,
       "desk_rank": 18
     },
     {
@@ -1416,6 +1418,51 @@
       "desk_rank": 28
     },
     {
+      "id": "x-2118733156069032292",
+      "headline": "Double AI shows coding agents rewriting live training networks, not just weights",
+      "summary": "Double AI reported experiments where coding agents re architect a model during training by splicing code into the live network, rather than only editing weights. On nanochat, the company says the agents used a technique they call phantom gradients to find unmet demand in the netw",
+      "section": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "tag": "labs",
+      "published_at": "2026-11-06T15:52:03.000Z",
+      "author_name": "_doubleAI_",
+      "source_list": "AI Companies: Science/Med, AI Vehicles, AI Orgs",
+      "list_names": [
+        "AI Companies: Science/Med",
+        "AI Vehicles",
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Companies: Science/Med",
+        "AI Vehicles",
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/_doubleAI_/status/2118733156069032292",
+      "sources": [
+        {
+          "label": "@_doubleAI_",
+          "url": "https://x.com/_doubleAI_/status/2118733156069032292"
+        }
+      ],
+      "body": "Double AI reported experiments where coding agents re architect a model during training by splicing code into the live network, rather than only editing weights. On nanochat, the company says the agents used a technique they call phantom gradients to find unmet demand in the network and rank candidate code layers, and that loss fell below standard transformer territory. @_doubleAI_ posted the thread on Robert's AI Companies: Science/Med list. These are the company's own experiment results, not an independently replicated training method. Timing of architecture changes mattered in their writeup: planting new layers at the start of training hurt recall. Watch for code, paper details and whether other labs can reproduce the approach.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 550,
+        "like_count": 25,
+        "reply_count": 2,
+        "retweet_count": 10
+      },
+      "why_it_matters": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @QwenAIFans.",
+      "topic_key": "labs",
+      "topic_label": "Labs",
+      "x_handle": "_doubleAI_",
+      "media_url": "https://pbs.twimg.com/media/HWc96MuWMAA8vOE.jpg",
+      "list_count": 3,
+      "views": 550,
+      "desk_rank": 29
+    },
+    {
       "id": "x-2116220869479428500",
       "headline": "Anthropic renames Claude Max 20x to Ultra and drops the 5 hour limit for verified Ultra accounts",
       "summary": "Anthropic's Max 5x plan becomes Max ($100/month) and Max 20x becomes Ultra ($200/month); verified Ultra accounts lose the 5 hour usage window starting today. Users also report API credits bundled with the plans. Heavy Claude Code users were the most vocal about rate limits; remov",
@@ -1470,7 +1517,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5MwwNWAAA5hUI.jpg",
       "list_count": 9,
       "views": 4269250,
-      "desk_rank": 29
+      "desk_rank": 30
     },
     {
       "id": "x-2118753617637409000",
@@ -1513,7 +1560,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118753384790679552/img/0Qzv8sypYS4PU-og.jpg",
       "list_count": 2,
       "views": 25264,
-      "desk_rank": 30
+      "desk_rank": 31
     },
     {
       "id": "x-2118774820293034437",
@@ -1559,7 +1606,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118774769357303808/img/OdDsUBZl10gzXuJm.jpg",
       "list_count": 5,
       "views": 7,
-      "desk_rank": 31
+      "desk_rank": 32
     },
     {
       "id": "x-2118755960550261233",
@@ -1571,22 +1618,22 @@
       "tag": "papers",
       "published_at": "2026-11-06T17:22:40.000Z",
       "author_name": "StatsWire",
-      "source_list": "AI Orgs, AI Community, AI Policy, AI: Computer Vision, AI Companies:-All, AI Creative People",
+      "source_list": "AI Orgs, AI Policy, AI: Computer Vision, AI Companies:-All, AI Community",
       "list_names": [
         "AI Orgs & Events",
-        "AI Community #4 of 9",
         "AI Policy",
         "AI: Computer Vision",
         "AI Companies: #2 of 2-All",
-        "AI Creative People"
+        "AI Community #4 of 9",
+        "AI Community #1 of 9",
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
         "AI Orgs",
-        "AI Community",
         "AI Policy",
         "AI: Computer Vision",
         "AI Companies:-All",
-        "AI Creative People"
+        "AI Community"
       ],
       "source_url": "https://x.com/StatsWire/status/2118755960550261233",
       "sources": [
@@ -1601,14 +1648,14 @@
         "impression_count": 272,
         "like_count": 7
       },
-      "why_it_matters": "Robert's AI Orgs & Events, AI Community, AI Policy and 3 more lists carried @StatsWire, @alfchung, @theobearman.",
+      "why_it_matters": "Robert's AI Orgs & Events, AI Policy, AI: Computer Vision and 2 more lists carried @StatsWire, @theobearman, @OpticaWorldwide.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "StatsWire",
       "media_url": "https://pbs.twimg.com/media/HWdS_zxXMAA2XKK.png",
-      "list_count": 6,
+      "list_count": 7,
       "views": 272,
-      "desk_rank": 32
+      "desk_rank": 33
     },
     {
       "id": "x-2118380813498892301",
@@ -1657,7 +1704,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118374869645864960/img/X0zFDyMQe_jbJcnE.jpg",
       "list_count": 6,
       "views": 7479,
-      "desk_rank": 33
+      "desk_rank": 34
     },
     {
       "id": "x-2118735163999838548",
@@ -1698,7 +1745,7 @@
       "media_url": "https://pbs.twimg.com/media/HWcYdovbgAARfju.jpg",
       "list_count": 1,
       "views": 1680,
-      "desk_rank": 34
+      "desk_rank": 35
     },
     {
       "id": "x-2118684296441442347",
@@ -1746,7 +1793,7 @@
       "media_url": "https://pbs.twimg.com/media/HWezwpyWIAA9hVI.jpg",
       "list_count": 7,
       "views": 22,
-      "desk_rank": 35
+      "desk_rank": 36
     },
     {
       "id": "x-2118402973244215309",
@@ -1791,7 +1838,96 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118382494894739456/img/QJ1WiPMKeyf1OUSd.jpg",
       "list_count": 3,
       "views": 48250,
-      "desk_rank": 36
+      "desk_rank": 37
+    },
+    {
+      "id": "x-2118652111609348588",
+      "headline": "Machine Skill turns a one line machine description into a 3D simulation in Claude Code",
+      "summary": "Machine Skill is an open source Claude Code skill that turns a one line description of a real machine into a working 3D simulation. @dextune says Claude researches dimensions and physics, then builds a photoreal interactive simulation. The post includes a demo image and ran on Ro",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-06T10:30:00.000Z",
+      "author_name": "dextune",
+      "source_list": "AI Companies: Real Estate",
+      "list_names": [
+        "AI Companies: Real Estate"
+      ],
+      "chip_labels": [
+        "AI Companies: Real Estate"
+      ],
+      "source_url": "https://x.com/dextune/status/2118652111609348588",
+      "sources": [
+        {
+          "label": "@dextune",
+          "url": "https://x.com/dextune/status/2118652111609348588"
+        }
+      ],
+      "body": "Machine Skill is an open source Claude Code skill that turns a one line description of a real machine into a working 3D simulation. @dextune says Claude researches dimensions and physics, then builds a photoreal interactive simulation. The post includes a demo image and ran on Robert's AI Companies: Real Estate list. Letting an agent go from a short prompt to a physics aware sim cuts the setup time for machine demos and teaching tools. License details beyond open source and which Claude Code versions are supported are not fully specified in the provided posts. Watch whether teams use it for real equipment planning or only for demos.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 217,
+        "like_count": 2,
+        "reply_count": 3
+      },
+      "why_it_matters": "Robert's AI Companies: Real Estate list carried @dextune.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "dextune",
+      "media_url": "https://pbs.twimg.com/media/HWbq5-takAAgGp0.jpg",
+      "list_count": 1,
+      "views": 217,
+      "desk_rank": 38
+    },
+    {
+      "id": "x-2115985388649242699",
+      "headline": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
+      "summary": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 che",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-10-30T01:53:24.000Z",
+      "author_name": "vllm_project",
+      "source_list": "AI Companies:-All, AI Companies: Developers, AI Orgs, AI's Best, Infrastructure",
+      "list_names": [
+        "AI Companies: #2 of 2-All",
+        "AI Companies: Developers",
+        "AI Orgs & Events",
+        "AI's Best",
+        "Infrastructure"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "AI Companies: Developers",
+        "AI Orgs",
+        "AI's Best",
+        "Infrastructure"
+      ],
+      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
+      "sources": [
+        {
+          "label": "@vllm_project",
+          "url": "https://x.com/vllm_project/status/2115985388649242699"
+        }
+      ],
+      "body": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 checkpoint. A frontier scale open model from Europe resets the open weights field outside China and gives builders a new base to fine tune. @vllm_project posted: \"Day 0 RL for @MistralAI’s Mistral Large 4 with @NovaSkyAI’s SkyRL and @vllm_project! On 8 @nvidia GB200 nodes, LoRA RL on the NVFP4 checkpoint brings AIME 2024 avg@8 from ~64% to ~75% in 75 training steps. vLLM generates rollouts, while FSDP2 or Megatron handles training.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1738,
+        "like_count": 18,
+        "reply_count": 7,
+        "retweet_count": 9
+      },
+      "why_it_matters": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 2 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "vllm_project",
+      "media_url": "https://pbs.twimg.com/media/HWdiciyaoAAkukR.jpg",
+      "list_count": 5,
+      "views": 1738,
+      "desk_rank": 39
     },
     {
       "id": "x-2118674700624711967",
@@ -1841,58 +1977,7 @@
       "media_url": "https://pbs.twimg.com/media/HWcHpGNXIAAxXGE.png",
       "list_count": 6,
       "views": 293,
-      "desk_rank": 37
-    },
-    {
-      "id": "x-2115985388649242699",
-      "headline": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
-      "summary": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 che",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-10-30T01:53:24.000Z",
-      "author_name": "vllm_project",
-      "source_list": "AI Companies:-All, AI Companies: Developers, AI Orgs, AI's Best, Infrastructure, AI Community",
-      "list_names": [
-        "AI Companies: #2 of 2-All",
-        "AI Companies: Developers",
-        "AI Orgs & Events",
-        "AI's Best",
-        "Infrastructure",
-        "AI Community #1 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies:-All",
-        "AI Companies: Developers",
-        "AI Orgs",
-        "AI's Best",
-        "Infrastructure",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
-      "sources": [
-        {
-          "label": "@vllm_project",
-          "url": "https://x.com/vllm_project/status/2115985388649242699"
-        }
-      ],
-      "body": "Mistral AI published open weights for Mistral Large 4 (\"Le Chonk\"), reported as a ~1T parameter mixture of experts with 49B active. Artificial Analysis ranks it the top open weights model built outside China, and vLLM with NovaSky's SkyRL shipped day 0 RL support on the NVFP4 checkpoint. A frontier scale open model from Europe resets the open weights field outside China and gives builders a new base to fine tune. @vllm_project posted: \"Day 0 RL for @MistralAI’s Mistral Large 4 with @NovaSkyAI’s SkyRL and @vllm_project! On 8 @nvidia GB200 nodes, LoRA RL on the NVFP4 checkpoint brings AIME 2024 avg@8 from ~64% to ~75% in 75 training steps. vLLM generates rollouts, while FSDP2 or Megatron handles training.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 1738,
-        "like_count": 18,
-        "reply_count": 7,
-        "retweet_count": 9
-      },
-      "why_it_matters": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 3 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "vllm_project",
-      "media_url": "https://pbs.twimg.com/media/HWdiciyaoAAkukR.jpg",
-      "list_count": 6,
-      "views": 1738,
-      "desk_rank": 38
+      "desk_rank": 40
     },
     {
       "id": "x-2118313713396793615",
@@ -1943,7 +2028,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXDCMLbkAAggJK.jpg",
       "list_count": 6,
       "views": 4862,
-      "desk_rank": 39
+      "desk_rank": 41
     },
     {
       "id": "x-2118675354441458089",
@@ -1994,7 +2079,7 @@
       "media_url": "https://pbs.twimg.com/media/HWcMAOuakAEKoTf.jpg",
       "list_count": 7,
       "views": 73,
-      "desk_rank": 40
+      "desk_rank": 42
     },
     {
       "id": "x-2118727627397853586",
@@ -2009,11 +2094,11 @@
       "source_list": "Robot Influencers/Media, AI Community, AI Companies: Science/Med, Quantum, Tech News",
       "list_names": [
         "Robot Influencers/Media",
-        "AI Community #6 of 9",
         "AI Community #3 of 9",
         "AI Companies: Science/Med",
         "Quantum",
-        "Tech News"
+        "Tech News",
+        "AI Community #6 of 9"
       ],
       "chip_labels": [
         "Robot Influencers/Media",
@@ -2037,14 +2122,14 @@
         "reply_count": 2,
         "retweet_count": 1
       },
-      "why_it_matters": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @0x0SojalSec, @bert_on_spec.",
+      "why_it_matters": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @bert_on_spec, @CircAHA.",
       "topic_key": "robotics",
       "topic_label": "Robotics",
       "x_handle": "TheHumanoidHub",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118727381590638592/img/0RapxLakktxdiK-E.jpg",
       "list_count": 6,
       "views": 1699,
-      "desk_rank": 41
+      "desk_rank": 43
     },
     {
       "id": "x-2118494957577421138",
@@ -2087,7 +2172,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118493564913225728/img/uhj-mxnb6OOquTKh.jpg",
       "list_count": 3,
       "views": 45,
-      "desk_rank": 42
+      "desk_rank": 44
     },
     {
       "id": "x-2118387953005179312",
@@ -2132,7 +2217,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118388062375776257/Zm41lLuF?format=jpg&name=orig",
       "list_count": 3,
       "views": 2057,
-      "desk_rank": 43
+      "desk_rank": 45
     },
     {
       "id": "x-2118769922255855624",
@@ -2181,7 +2266,7 @@
       "media_url": "https://pbs.twimg.com/media/HWdhNcGXAAEe555.png",
       "list_count": 7,
       "views": 56,
-      "desk_rank": 44
+      "desk_rank": 46
     },
     {
       "id": "x-2118119451401048497",
@@ -2227,47 +2312,7 @@
       "media_url": "https://pbs.twimg.com/media/HWUQl7QbwAAkznq.png",
       "list_count": 4,
       "views": 208846,
-      "desk_rank": 45
-    },
-    {
-      "id": "x-2118652111609348588",
-      "headline": "Machine Skill turns a one line machine description into a 3D simulation in Claude Code",
-      "summary": "Machine Skill is an open source Claude Code skill that turns a one line description of a real machine into a working 3D simulation. @dextune says Claude researches dimensions and physics, then builds a photoreal interactive simulation. The post includes a demo image and ran on Ro",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-06T10:30:00.000Z",
-      "author_name": "dextune",
-      "source_list": "AI Companies: Real Estate",
-      "list_names": [
-        "AI Companies: Real Estate"
-      ],
-      "chip_labels": [
-        "AI Companies: Real Estate"
-      ],
-      "source_url": "https://x.com/dextune/status/2118652111609348588",
-      "sources": [
-        {
-          "label": "@dextune",
-          "url": "https://x.com/dextune/status/2118652111609348588"
-        }
-      ],
-      "body": "Machine Skill is an open source Claude Code skill that turns a one line description of a real machine into a working 3D simulation. @dextune says Claude researches dimensions and physics, then builds a photoreal interactive simulation. The post includes a demo image and ran on Robert's AI Companies: Real Estate list. Letting an agent go from a short prompt to a physics aware sim cuts the setup time for machine demos and teaching tools. License details beyond open source and which Claude Code versions are supported are not fully specified in the provided posts. Watch whether teams use it for real equipment planning or only for demos.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 217,
-        "like_count": 2,
-        "reply_count": 3
-      },
-      "why_it_matters": "Robert's AI Companies: Real Estate list carried @dextune.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "dextune",
-      "media_url": "https://pbs.twimg.com/media/HWbq5-takAAgGp0.jpg",
-      "list_count": 1,
-      "views": 217,
-      "desk_rank": 46
+      "desk_rank": 47
     },
     {
       "id": "x-2118727417661465013",
@@ -2306,7 +2351,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118727417934028800/EK4n6r6z?format=jpg&name=orig",
       "list_count": 1,
       "views": 127,
-      "desk_rank": 47
+      "desk_rank": 48
     },
     {
       "id": "x-2118389961426874879",
@@ -2351,7 +2396,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118387774378192896/img/dPbZ-qxFOtFSBnvZ.jpg",
       "list_count": 3,
       "views": 4079,
-      "desk_rank": 48
+      "desk_rank": 49
     },
     {
       "id": "x-2118337164702318837",
@@ -2398,7 +2443,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXX-rnWQAE1YHu.png",
       "list_count": 5,
       "views": 53,
-      "desk_rank": 49
+      "desk_rank": 50
     },
     {
       "id": "x-2118840854739591343",
@@ -2439,7 +2484,7 @@
       "media_url": "https://pbs.twimg.com/media/HWcswsfagAAccMk.jpg",
       "list_count": 1,
       "views": 1061,
-      "desk_rank": 50
+      "desk_rank": 51
     },
     {
       "id": "x-2118512041736716540",
@@ -2481,7 +2526,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118510534077382657/img/UPLoxYASONr9w6Wn.jpg",
       "list_count": 2,
       "views": 82,
-      "desk_rank": 51
+      "desk_rank": 52
     },
     {
       "id": "x-2118311860218835282",
@@ -2528,7 +2573,7 @@
       "media_url": "https://pbs.twimg.com/media/HWXBQkYXYAAE8VO.png",
       "list_count": 4,
       "views": 4472,
-      "desk_rank": 52
+      "desk_rank": 53
     },
     {
       "id": "x-2118373611408945493",
@@ -2572,7 +2617,7 @@
       "media_url": "https://pbs.twimg.com/media/HWVOvVBaMAAYT0_.jpg",
       "list_count": 3,
       "views": 2001,
-      "desk_rank": 53
+      "desk_rank": 54
     },
     {
       "id": "x-2118649824669311151",
@@ -2613,7 +2658,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118649557064302592/img/Z9kxCvV66MGdJwBv.jpg",
       "list_count": 1,
       "views": 644,
-      "desk_rank": 54
+      "desk_rank": 55
     },
     {
       "id": "x-2118424455873741028",
@@ -2662,7 +2707,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118400697251291136/img/_9Bg9vROC3CjqxOh.jpg",
       "list_count": 5,
       "views": 8191,
-      "desk_rank": 55
+      "desk_rank": 56
     },
     {
       "id": "x-2115958274529079530",
@@ -2711,7 +2756,7 @@
       "media_url": "https://pbs.twimg.com/media/HWc1eSlX0AA3oxz.jpg",
       "list_count": 6,
       "views": 2863,
-      "desk_rank": 56
+      "desk_rank": 57
     },
     {
       "id": "x-2116186245802127411",
@@ -2764,7 +2809,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV4qiMYbsAAz27z.jpg",
       "list_count": 7,
       "views": 2972,
-      "desk_rank": 57
+      "desk_rank": 58
     },
     {
       "id": "x-2118512045201211620",
@@ -2805,7 +2850,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118511873390006272/img/97I5BFPpzfwPg6dp.jpg",
       "list_count": 1,
       "views": 1724,
-      "desk_rank": 58
+      "desk_rank": 59
     },
     {
       "id": "x-2116186531366949192",
@@ -2852,7 +2897,7 @@
       "media_url": "https://pbs.twimg.com/media/HWdYLh4XAAAPX6I.jpg",
       "list_count": 4,
       "views": 2671,
-      "desk_rank": 59
+      "desk_rank": 60
     },
     {
       "id": "x-2118430965383266421",
@@ -2895,7 +2940,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYsl37bwAAXsw2.jpg",
       "list_count": 2,
       "views": 6143,
-      "desk_rank": 60
+      "desk_rank": 61
     },
     {
       "id": "x-2118672709697655074",
@@ -2939,7 +2984,7 @@
       "media_url": "https://pbs.twimg.com/media/HWcIE8aXUAEnivC.jpg",
       "list_count": 3,
       "views": 148,
-      "desk_rank": 61
+      "desk_rank": 62
     },
     {
       "id": "x-2118404891911864536",
@@ -2980,49 +3025,6 @@
       "media_url": "https://pbs.twimg.com/media/HWYV0RtaoAA77vw.jpg",
       "list_count": 1,
       "views": 5275,
-      "desk_rank": 62
-    },
-    {
-      "id": "x-2118035494898704781",
-      "headline": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
-      "summary": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying. Perplexit",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-04T17:39:47.000Z",
-      "author_name": "perplexity_ai",
-      "source_list": "AI Companies: Education, AI's Best",
-      "list_names": [
-        "AI Companies: Education",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "AI Companies: Education",
-        "AI's Best"
-      ],
-      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
-      "sources": [
-        {
-          "label": "@perplexity_ai",
-          "url": "https://x.com/perplexity_ai/status/2118035494898704781"
-        }
-      ],
-      "body": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying. Perplexity added that Computer can create ads, build Shopify landing pages and run Klaviyo email campaigns, using store and campaign data to decide what to make and which products to promote. The main post passed 85K views. Why it matters: this is an agent claim measured in real money, not a demo. Watch for more brands publishing results and how agencies respond.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 85245,
-        "like_count": 388,
-        "reply_count": 57,
-        "retweet_count": 21
-      },
-      "why_it_matters": "Robert's AI Companies: Education, AI's Best lists carried @perplexity_ai, @aiedge_.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "perplexity_ai",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118035306914217984/img/sGJjd92ARR2-UPS3.jpg",
-      "list_count": 2,
-      "views": 85245,
       "desk_rank": 63
     },
     {
@@ -3108,99 +3110,6 @@
       "desk_rank": 65
     },
     {
-      "id": "x-2118337682090721365",
-      "headline": "Moonshot sought Nvidia Blackwell capacity from European data centers amid U.S. curbs on China, CNBC reports",
-      "summary": "Kimi maker Moonshot AI held talks to rent Nvidia Blackwell GPU clusters from European cloud providers, according to sources cited by CNBC. It shows how frontier Chinese labs are trying to reach top tier Nvidia compute through offshore clouds, a gap export control policy has not f",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-05T13:40:34.000Z",
-      "author_name": "CNBC",
-      "source_list": "News, World News, Tech News, AI's Best",
-      "list_names": [
-        "News #1 of 3",
-        "World News",
-        "Tech News",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "News",
-        "World News",
-        "Tech News",
-        "AI's Best"
-      ],
-      "source_url": "https://x.com/CNBC/status/2118337682090721365",
-      "sources": [
-        {
-          "label": "@CNBC",
-          "url": "https://x.com/CNBC/status/2118337682090721365"
-        }
-      ],
-      "body": "Kimi maker Moonshot AI held talks to rent Nvidia Blackwell GPU clusters from European cloud providers, according to sources cited by CNBC. It shows how frontier Chinese labs are trying to reach top tier Nvidia compute through offshore clouds, a gap export control policy has not fully closed. @CNBC posted: \"Chinese AI lab Moonshot turned to Europe for Nvidia Blackwell access amid U.S. China curbs, sources tell CNBC\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 4680,
-        "reply_count": 1
-      },
-      "why_it_matters": "Robert's News, World News, Tech News and 1 more lists carried @CNBC, @tomshardware, @pstAsiatech.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "CNBC",
-      "media_url": "https://pbs.twimg.com/news_img/2118337688025640960/1gfxjkWH?format=jpg&name=orig",
-      "list_count": 4,
-      "views": 4680,
-      "desk_rank": 66
-    },
-    {
-      "id": "x-2118336305520164998",
-      "headline": "Meta acquires Conductor, the parallel coding agent app, as AI coding moves to multi agent workflows",
-      "summary": "Meta is acquiring Conductor, the app developers used to run several AI coding agents in parallel on the same codebase, @InfoWorld reports. @alexandr_wang welcomed the Conductor team to Meta, and users say the standalone product is shutting down as the team joins. The deal lands t",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-05T13:35:06.000Z",
-      "author_name": "InfoWorld",
-      "source_list": "Tech News, Founders, Infrastructure, AI Orgs, AI Community",
-      "list_names": [
-        "Tech News",
-        "Founders #1 of 3",
-        "Infrastructure",
-        "AI Orgs & Events",
-        "AI Community #1 of 9",
-        "AI Community #2 of 9",
-        "AI Community #6 of 9"
-      ],
-      "chip_labels": [
-        "Tech News",
-        "Founders",
-        "Infrastructure",
-        "AI Orgs",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/InfoWorld/status/2118336305520164998",
-      "sources": [
-        {
-          "label": "@InfoWorld",
-          "url": "https://x.com/InfoWorld/status/2118336305520164998"
-        }
-      ],
-      "body": "Meta is acquiring Conductor, the app developers used to run several AI coding agents in parallel on the same codebase, @InfoWorld reports. @alexandr_wang welcomed the Conductor team to Meta, and users say the standalone product is shutting down as the team joins. The deal lands the same week HumanLayer said it is joining Factory, another consolidation move among agentic coding startups. @prasad_pilla noted that teams who built their workflow around these tools now face an immediate question about what comes next. Why it matters: big platforms are absorbing the orchestration layer of AI coding. Watch what Conductor powers inside Meta, where its users migrate, and whether open source alternatives pick up the slack.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 44
-      },
-      "why_it_matters": "Robert's Tech News, Founders, Infrastructure and 2 more lists carried @InfoWorld, @YvesMulkers, @7wData.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "InfoWorld",
-      "media_url": "https://pbs.twimg.com/news_img/2118306324610195456/RIR3ExhD?format=jpg&name=orig",
-      "list_count": 7,
-      "views": 44,
-      "desk_rank": 67
-    },
-    {
       "id": "x-2115859377488072879",
       "headline": "Anthropic's Claude apps add CarPlay voice mode, iPad side by side artifacts and laptop style Android",
       "summary": "Anthropic shipped Claude app upgrades: generated work opens beside the chat on iPad/iPhone, voice mode works in Apple CarPlay, and Claude on Android now behaves like a laptop app on Chromebooks and foldables. Puts Claude into the car and makes mobile a real work surface, sharpeni",
@@ -3243,6 +3152,99 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HV0G0uhbwAAclVn.jpg",
       "list_count": 3,
       "views": 784130,
+      "desk_rank": 66
+    },
+    {
+      "id": "x-2118337682090721365",
+      "headline": "Moonshot sought Nvidia Blackwell capacity from European data centers amid U.S. curbs on China, CNBC reports",
+      "summary": "Kimi maker Moonshot AI held talks to rent Nvidia Blackwell GPU clusters from European cloud providers, according to sources cited by CNBC. It shows how frontier Chinese labs are trying to reach top tier Nvidia compute through offshore clouds, a gap export control policy has not f",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-05T13:40:34.000Z",
+      "author_name": "CNBC",
+      "source_list": "News, World News, Tech News, AI's Best",
+      "list_names": [
+        "News #1 of 3",
+        "World News",
+        "Tech News",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "News",
+        "World News",
+        "Tech News",
+        "AI's Best"
+      ],
+      "source_url": "https://x.com/CNBC/status/2118337682090721365",
+      "sources": [
+        {
+          "label": "@CNBC",
+          "url": "https://x.com/CNBC/status/2118337682090721365"
+        }
+      ],
+      "body": "Kimi maker Moonshot AI held talks to rent Nvidia Blackwell GPU clusters from European cloud providers, according to sources cited by CNBC. It shows how frontier Chinese labs are trying to reach top tier Nvidia compute through offshore clouds, a gap export control policy has not fully closed. @CNBC posted: \"Chinese AI lab Moonshot turned to Europe for Nvidia Blackwell access amid U.S. China curbs, sources tell CNBC\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 4680,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert's News, World News, Tech News and 1 more lists carried @CNBC, @tomshardware, @pstAsiatech.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "CNBC",
+      "media_url": "https://pbs.twimg.com/news_img/2118337688025640960/1gfxjkWH?format=jpg&name=orig",
+      "list_count": 4,
+      "views": 4680,
+      "desk_rank": 67
+    },
+    {
+      "id": "x-2118336305520164998",
+      "headline": "Meta acquires Conductor, the parallel coding agent app, as AI coding moves to multi agent workflows",
+      "summary": "Meta is acquiring Conductor, the app developers used to run several AI coding agents in parallel on the same codebase, @InfoWorld reports. @alexandr_wang welcomed the Conductor team to Meta, and users say the standalone product is shutting down as the team joins. The deal lands t",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-05T13:35:06.000Z",
+      "author_name": "InfoWorld",
+      "source_list": "Tech News, Founders, Infrastructure, AI Orgs, AI Community",
+      "list_names": [
+        "Tech News",
+        "Founders #1 of 3",
+        "Infrastructure",
+        "AI Orgs & Events",
+        "AI Community #1 of 9",
+        "AI Community #6 of 9",
+        "AI Community #9 of 9"
+      ],
+      "chip_labels": [
+        "Tech News",
+        "Founders",
+        "Infrastructure",
+        "AI Orgs",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/InfoWorld/status/2118336305520164998",
+      "sources": [
+        {
+          "label": "@InfoWorld",
+          "url": "https://x.com/InfoWorld/status/2118336305520164998"
+        }
+      ],
+      "body": "Meta is acquiring Conductor, the app developers used to run several AI coding agents in parallel on the same codebase, @InfoWorld reports. @alexandr_wang welcomed the Conductor team to Meta, and users say the standalone product is shutting down as the team joins. The deal lands the same week HumanLayer said it is joining Factory, another consolidation move among agentic coding startups. @prasad_pilla noted that teams who built their workflow around these tools now face an immediate question about what comes next. Why it matters: big platforms are absorbing the orchestration layer of AI coding. Watch what Conductor powers inside Meta, where its users migrate, and whether open source alternatives pick up the slack.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 44
+      },
+      "why_it_matters": "Robert's Tech News, Founders, Infrastructure and 2 more lists carried @InfoWorld, @YvesMulkers, @7wData.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "InfoWorld",
+      "media_url": "https://pbs.twimg.com/news_img/2118306324610195456/RIR3ExhD?format=jpg&name=orig",
+      "list_count": 7,
+      "views": 44,
       "desk_rank": 68
     },
     {
@@ -3328,43 +3330,47 @@
       "desk_rank": 70
     },
     {
-      "id": "x-2118512043435401280",
-      "headline": "LSEG cuts market data backtests from hours to about a minute with NVIDIA AI",
-      "summary": "NVIDIA said LSEG’s Tim Anderson cut a five year market data backtest from hours to just over a minute, then walked through bids, asks, and trades. Same day official NVIDIA+LSEG capital markets AI speedup is a concrete industry desk title not yet on the pack. @NVIDIAAI posted: \"Fi",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-06T01:13:25.000Z",
-      "author_name": "NVIDIAAI",
-      "source_list": "Tech Companies",
+      "id": "x-2116573344283681010",
+      "headline": "Anthropic's IPO filing reports an $80B loss as leveraged ANT ETFs wait on approval",
+      "summary": "Coverage of Anthropic's S 1 highlights a reported $80B loss, while 2x Anthropic ETFs are filed but not yet live. First frontier lab IPO sets the public market read on AI lab economics. @LifeboatHQ posted: \"Anthropic Reports $80 Billion Loss in IPO Filing\"",
+      "section": "funding",
+      "section_key": "funding",
+      "section_label": "Funding",
+      "tag": "funding",
+      "published_at": "2026-10-31T16:49:43.000Z",
+      "author_name": "LifeboatHQ",
+      "source_list": "AI Orgs, AI Founders, AI's Best, AI Community",
       "list_names": [
-        "Tech Companies"
+        "AI Orgs & Events",
+        "Tech VIPs",
+        "AI's Best",
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
-        "Tech Companies"
+        "AI Orgs",
+        "AI Founders",
+        "AI's Best",
+        "AI Community"
       ],
-      "source_url": "https://x.com/NVIDIAAI/status/2118512043435401280",
+      "source_url": "https://x.com/LifeboatHQ/status/2116573344283681010",
       "sources": [
         {
-          "label": "@NVIDIAAI",
-          "url": "https://x.com/NVIDIAAI/status/2118512043435401280"
+          "label": "@LifeboatHQ",
+          "url": "https://x.com/LifeboatHQ/status/2116573344283681010"
         }
       ],
-      "body": "NVIDIA said LSEG’s Tim Anderson cut a five year market data backtest from hours to just over a minute, then walked through bids, asks, and trades. Same day official NVIDIA+LSEG capital markets AI speedup is a concrete industry desk title not yet on the pack. @NVIDIAAI posted: \"Five years of market data. Just over a minute to run a backtest. @LSEGplc’s Tim Anderson shows how the team cut a test from hours to just over a minute, then walks through the data, down to individual bids, asks and trades.\"",
+      "body": "Coverage of Anthropic's S 1 highlights a reported $80B loss, while 2x Anthropic ETFs are filed but not yet live. First frontier lab IPO sets the public market read on AI lab economics. @LifeboatHQ posted: \"Anthropic Reports $80 Billion Loss in IPO Filing\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 1934,
-        "like_count": 4,
-        "reply_count": 1
+        "impression_count": 34
       },
-      "why_it_matters": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "NVIDIAAI",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118511301148467200/img/JrXZQPrf635ro95m.jpg",
-      "list_count": 1,
-      "views": 1934,
+      "why_it_matters": "Robert's AI Orgs & Events, Tech VIPs, AI's Best and 1 more lists carried @LifeboatHQ, @martinvars, @MTSlive.",
+      "topic_key": "funding",
+      "topic_label": "Funding",
+      "x_handle": "LifeboatHQ",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118902613785923584/img/mOsI5xM6laTujGut.jpg",
+      "list_count": 4,
+      "views": 34,
       "desk_rank": 71
     },
     {
@@ -3407,47 +3413,43 @@
       "desk_rank": 72
     },
     {
-      "id": "x-2116573344283681010",
-      "headline": "Anthropic's IPO filing reports an $80B loss as leveraged ANT ETFs wait on approval",
-      "summary": "Coverage of Anthropic's S 1 highlights a reported $80B loss, while 2x Anthropic ETFs are filed but not yet live. First frontier lab IPO sets the public market read on AI lab economics. @LifeboatHQ posted: \"Anthropic Reports $80 Billion Loss in IPO Filing\"",
-      "section": "funding",
-      "section_key": "funding",
-      "section_label": "Funding",
-      "tag": "funding",
-      "published_at": "2026-10-31T16:49:43.000Z",
-      "author_name": "LifeboatHQ",
-      "source_list": "AI Orgs, AI Founders, AI's Best, AI Community",
+      "id": "x-2118512043435401280",
+      "headline": "LSEG cuts market data backtests from hours to about a minute with NVIDIA AI",
+      "summary": "NVIDIA said LSEG’s Tim Anderson cut a five year market data backtest from hours to just over a minute, then walked through bids, asks, and trades. Same day official NVIDIA+LSEG capital markets AI speedup is a concrete industry desk title not yet on the pack. @NVIDIAAI posted: \"Fi",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-06T01:13:25.000Z",
+      "author_name": "NVIDIAAI",
+      "source_list": "Tech Companies",
       "list_names": [
-        "AI Orgs & Events",
-        "Tech VIPs",
-        "AI's Best",
-        "AI Community #8 of 9"
+        "Tech Companies"
       ],
       "chip_labels": [
-        "AI Orgs",
-        "AI Founders",
-        "AI's Best",
-        "AI Community"
+        "Tech Companies"
       ],
-      "source_url": "https://x.com/LifeboatHQ/status/2116573344283681010",
+      "source_url": "https://x.com/NVIDIAAI/status/2118512043435401280",
       "sources": [
         {
-          "label": "@LifeboatHQ",
-          "url": "https://x.com/LifeboatHQ/status/2116573344283681010"
+          "label": "@NVIDIAAI",
+          "url": "https://x.com/NVIDIAAI/status/2118512043435401280"
         }
       ],
-      "body": "Coverage of Anthropic's S 1 highlights a reported $80B loss, while 2x Anthropic ETFs are filed but not yet live. First frontier lab IPO sets the public market read on AI lab economics. @LifeboatHQ posted: \"Anthropic Reports $80 Billion Loss in IPO Filing\"",
+      "body": "NVIDIA said LSEG’s Tim Anderson cut a five year market data backtest from hours to just over a minute, then walked through bids, asks, and trades. Same day official NVIDIA+LSEG capital markets AI speedup is a concrete industry desk title not yet on the pack. @NVIDIAAI posted: \"Five years of market data. Just over a minute to run a backtest. @LSEGplc’s Tim Anderson shows how the team cut a test from hours to just over a minute, then walks through the data, down to individual bids, asks and trades.\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 34
+        "impression_count": 1934,
+        "like_count": 4,
+        "reply_count": 1
       },
-      "why_it_matters": "Robert's AI Orgs & Events, Tech VIPs, AI's Best and 1 more lists carried @LifeboatHQ, @martinvars, @MTSlive.",
-      "topic_key": "funding",
-      "topic_label": "Funding",
-      "x_handle": "LifeboatHQ",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118902613785923584/img/mOsI5xM6laTujGut.jpg",
-      "list_count": 4,
-      "views": 34,
+      "why_it_matters": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "NVIDIAAI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118511301148467200/img/JrXZQPrf635ro95m.jpg",
+      "list_count": 1,
+      "views": 1934,
       "desk_rank": 73
     },
     {
@@ -3740,51 +3742,6 @@
       "desk_rank": 80
     },
     {
-      "id": "x-2118151126445129928",
-      "headline": "CMU lab releases Pixel, a sub $15K wheeled humanoid co designed with a sub $1K UMI data kit",
-      "summary": "Deepak Pathak's CMU Robotics lab, with co leads Tony Tao and Jason Liu, released Pixel, a full stack low cost wheeled humanoid and learning pipeline aimed at home and service tasks. Pathak said the work shows state of the art robot skills do not need massive resources when hardwa",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-11-05T01:19:16.000Z",
-      "author_name": "deepakpathak",
-      "source_list": "Robotics in San Francisco, AI's Best, Robot Influencers/Media",
-      "list_names": [
-        "Robotics in San Francisco",
-        "AI's Best",
-        "Robot Influencers/Media"
-      ],
-      "chip_labels": [
-        "Robotics in San Francisco",
-        "AI's Best",
-        "Robot Influencers/Media"
-      ],
-      "source_url": "https://x.com/deepakpathak/status/2118151126445129928",
-      "sources": [
-        {
-          "label": "@deepakpathak",
-          "url": "https://x.com/deepakpathak/status/2118151126445129928"
-        }
-      ],
-      "body": "Deepak Pathak's CMU Robotics lab, with co leads Tony Tao and Jason Liu, released Pixel, a full stack low cost wheeled humanoid and learning pipeline aimed at home and service tasks. Pathak said the work shows state of the art robot skills do not need massive resources when hardware, UMI data collection and learning are co designed. @CyberRobooo pegged the wheeled humanoid under $15K and the sensorized UMI kit under $1K for everyday chores. @JasonJZLiu said the team is releasing two papers, Pixel on the mobile manipulator and Pixel UMI on environment aware retargeting and DAgger for long horizon bimanual work such as folding a box and hanging a jacket. The stack is framed as open source. Why it matters: a named price and open learning stack puts capable home robots within reach of labs that cannot buy Big Tech budgets. Watch independent builds, code release and whether the sub $15K claim holds for full kits.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 1514,
-        "like_count": 47,
-        "reply_count": 5,
-        "retweet_count": 4
-      },
-      "why_it_matters": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "deepakpathak",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118151083084443648/img/khTlEZxI0I9CVLU1.jpg",
-      "list_count": 3,
-      "views": 1514,
-      "desk_rank": 81
-    },
-    {
       "id": "x-2118545162670383517",
       "headline": "GitHub launches Copilot Verified Proficiency to score skills from real Copilot work",
       "summary": "GitHub launched Copilot Verified Proficiency, which it says continuously measures demonstrated Copilot capability from real work rather than a one time exam. @github posted the product announcement with a learn more link on Robert's Tech Companies list. This turns everyday Copilo",
@@ -3823,7 +3780,7 @@
       "media_url": "https://pbs.twimg.com/media/HWaVmMnXcAAuSPd.jpg",
       "list_count": 1,
       "views": 4136,
-      "desk_rank": 82
+      "desk_rank": 81
     },
     {
       "id": "x-2118388149449871712",
@@ -3864,7 +3821,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYGy3FaoAA_fix.jpg",
       "list_count": 1,
       "views": 3773,
-      "desk_rank": 83
+      "desk_rank": 82
     },
     {
       "id": "x-2116620479079354803",
@@ -3909,7 +3866,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118401636829724672/img/WEssTzGS9fY77VJO.jpg",
       "list_count": 3,
       "views": 4061,
-      "desk_rank": 84
+      "desk_rank": 83
     },
     {
       "id": "x-2116240276616315256",
@@ -3958,7 +3915,7 @@
       "media_url": "https://pbs.twimg.com/tweet_video_thumb/HWcfuhZbYAAMvAO.jpg",
       "list_count": 6,
       "views": 823,
-      "desk_rank": 85
+      "desk_rank": 84
     },
     {
       "id": "x-2118417772774580623",
@@ -3999,7 +3956,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118413806892359680/vpgRYSE_?format=png&name=orig",
       "list_count": 1,
       "views": 831,
-      "desk_rank": 86
+      "desk_rank": 85
     },
     {
       "id": "x-2118509318232224232",
@@ -4040,7 +3997,7 @@
       "media_url": "https://pbs.twimg.com/media/HWZ0_41XEAAzAsR.jpg",
       "list_count": 1,
       "views": 2999,
-      "desk_rank": 87
+      "desk_rank": 86
     },
     {
       "id": "x-2118388127337517276",
@@ -4081,46 +4038,7 @@
       "media_url": "https://pbs.twimg.com/media/HWYGxntaYAEkf3o.jpg",
       "list_count": 1,
       "views": 1120,
-      "desk_rank": 88
-    },
-    {
-      "id": "x-2118512038221934853",
-      "headline": "McCarthy and Palantir use AI agents to reclaim about 30,000 preconstruction hours",
-      "summary": "NVIDIA said McCarthy, with Palantir, is using AI agents to save time in preconstruction and spot job site changes that could affect costs and schedules about 30,000 hours back. Same day official NVIDIA+Palantir construction desk AI agent story is a new industry title not covered ",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-06T01:13:24.000Z",
-      "author_name": "NVIDIAAI",
-      "source_list": "Tech Companies",
-      "list_names": [
-        "Tech Companies"
-      ],
-      "chip_labels": [
-        "Tech Companies"
-      ],
-      "source_url": "https://x.com/NVIDIAAI/status/2118512038221934853",
-      "sources": [
-        {
-          "label": "@NVIDIAAI",
-          "url": "https://x.com/NVIDIAAI/status/2118512038221934853"
-        }
-      ],
-      "body": "NVIDIA said McCarthy, with Palantir, is using AI agents to save time in preconstruction and spot job site changes that could affect costs and schedules about 30,000 hours back. Same day official NVIDIA+Palantir construction desk AI agent story is a new industry title not covered by the Tampa hospital seed. @NVIDIAAI posted: \"One AI agent could give McCarthy’s teams back 30,000 hours. Hear how McCarthy and @PalantirTech are using AI to save time in preconstruction and spot changes on job sites that could affect costs and schedules.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 24,
-        "reply_count": 1
-      },
-      "why_it_matters": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "NVIDIAAI",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118508702705876992/img/YTauBgHAKeh2BVnG.jpg",
-      "list_count": 1,
-      "views": 24,
-      "desk_rank": 89
+      "desk_rank": 87
     },
     {
       "id": "x-2116598588172374141",
@@ -4172,48 +4090,87 @@
       "media_url": "https://pbs.twimg.com/media/HV-rMr7awAEkYvc.jpg",
       "list_count": 8,
       "views": 11095,
-      "desk_rank": 90
+      "desk_rank": 88
     },
     {
-      "id": "x-2118360866517127217",
-      "headline": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
-      "summary": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code re",
+      "id": "x-2118512038221934853",
+      "headline": "McCarthy and Palantir use AI agents to reclaim about 30,000 preconstruction hours",
+      "summary": "NVIDIA said McCarthy, with Palantir, is using AI agents to save time in preconstruction and spot job site changes that could affect costs and schedules about 30,000 hours back. Same day official NVIDIA+Palantir construction desk AI agent story is a new industry title not covered ",
       "section": "products",
       "section_key": "products",
       "section_label": "Products",
       "tag": "products",
-      "published_at": "2026-11-05T15:12:42.000Z",
-      "author_name": "HermesAgentTips",
-      "source_list": "AI Community, AI Orgs",
+      "published_at": "2026-11-06T01:13:24.000Z",
+      "author_name": "NVIDIAAI",
+      "source_list": "Tech Companies",
       "list_names": [
-        "AI Community #7 of 9",
-        "AI Orgs & Events"
+        "Tech Companies"
       ],
       "chip_labels": [
-        "AI Community",
-        "AI Orgs"
+        "Tech Companies"
       ],
-      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
+      "source_url": "https://x.com/NVIDIAAI/status/2118512038221934853",
       "sources": [
         {
-          "label": "@HermesAgentTips",
-          "url": "https://x.com/HermesAgentTips/status/2118360866517127217"
+          "label": "@NVIDIAAI",
+          "url": "https://x.com/NVIDIAAI/status/2118512038221934853"
         }
       ],
-      "body": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code reading and answering Hermes Telegram, Discord and Slack chats through that one endpoint instead of separate connectors. @HermesAgentTips posted the install commands and marketplace links the same morning on Robert's AI Community list. A follow up lists hermes plugins install mcp serve and hermes plugins enable mcp serve, then setting the MCP client command to hermes. Why it matters: agent IDEs need chat context without custom glue, and an official Hermes MCP plugin is a shipping signal for that path. Watch whether Claude Code users adopt it for multi channel ops and how native Slack, Discord and Telegram agent tools answer.",
+      "body": "NVIDIA said McCarthy, with Palantir, is using AI agents to save time in preconstruction and spot job site changes that could affect costs and schedules about 30,000 hours back. Same day official NVIDIA+Palantir construction desk AI agent story is a new industry title not covered by the Tampa hospital seed. @NVIDIAAI posted: \"One AI agent could give McCarthy’s teams back 30,000 hours. Hear how McCarthy and @PalantirTech are using AI to save time in preconstruction and spot changes on job sites that could affect costs and schedules.\"",
       "kind": "story",
       "engagement": {
-        "impression_count": 89,
+        "impression_count": 24,
         "reply_count": 1
       },
-      "why_it_matters": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "why_it_matters": "Robert's Tech Companies lists carried @NVIDIAAI.",
       "topic_key": "products",
       "topic_label": "Products",
-      "x_handle": "HermesAgentTips",
-      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118360607564959746/img/liQc2dydENJnI189.jpg",
-      "list_count": 2,
-      "views": 89,
-      "desk_rank": 91
+      "x_handle": "NVIDIAAI",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118508702705876992/img/YTauBgHAKeh2BVnG.jpg",
+      "list_count": 1,
+      "views": 24,
+      "desk_rank": 89
+    },
+    {
+      "id": "x-2118035494898704781",
+      "headline": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
+      "summary": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying. Perplexit",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-04T17:39:47.000Z",
+      "author_name": "perplexity_ai",
+      "source_list": "AI Companies: Education",
+      "list_names": [
+        "AI Companies: Education"
+      ],
+      "chip_labels": [
+        "AI Companies: Education"
+      ],
+      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
+      "sources": [
+        {
+          "label": "@perplexity_ai",
+          "url": "https://x.com/perplexity_ai/status/2118035494898704781"
+        }
+      ],
+      "body": "Perplexity said its Computer agent managed $30k in Meta ad spend for Get Maine Lobster and beat the brand's agency. @perplexity_ai said Computer delivered 3.5x revenue with 63% higher ROAS than the usual ads, automating creative analysis, ad production and media buying. Perplexity added that Computer can create ads, build Shopify landing pages and run Klaviyo email campaigns, using store and campaign data to decide what to make and which products to promote. The main post passed 85K views. Why it matters: this is an agent claim measured in real money, not a demo. Watch for more brands publishing results and how agencies respond.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 85245,
+        "like_count": 388,
+        "reply_count": 57,
+        "retweet_count": 21
+      },
+      "why_it_matters": "Robert's AI Companies: Education lists carried @perplexity_ai.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "perplexity_ai",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118035306914217984/img/sGJjd92ARR2-UPS3.jpg",
+      "list_count": 1,
+      "views": 85245,
+      "desk_rank": 90
     },
     {
       "id": "x-2118390043249434915",
@@ -4254,6 +4211,47 @@
       "media_url": "https://pbs.twimg.com/media/HWYIhJ3aUAAcoM8.png",
       "list_count": 1,
       "views": 446,
+      "desk_rank": 91
+    },
+    {
+      "id": "x-2118360866517127217",
+      "headline": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
+      "summary": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code re",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-05T15:12:42.000Z",
+      "author_name": "HermesAgentTips",
+      "source_list": "AI Community, AI Orgs",
+      "list_names": [
+        "AI Community #7 of 9",
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
+      "sources": [
+        {
+          "label": "@HermesAgentTips",
+          "url": "https://x.com/HermesAgentTips/status/2118360866517127217"
+        }
+      ],
+      "body": "Hermes shipped mcp serve, an official plugin now in the Hermes plugin catalog that turns Hermes chat surfaces into a single MCP server for Claude Code. Install and enable the plugin, then point an MCP client at the hermes command with mcp serve args. The demo shows Claude Code reading and answering Hermes Telegram, Discord and Slack chats through that one endpoint instead of separate connectors. @HermesAgentTips posted the install commands and marketplace links the same morning on Robert's AI Community list. A follow up lists hermes plugins install mcp serve and hermes plugins enable mcp serve, then setting the MCP client command to hermes. Why it matters: agent IDEs need chat context without custom glue, and an official Hermes MCP plugin is a shipping signal for that path. Watch whether Claude Code users adopt it for multi channel ops and how native Slack, Discord and Telegram agent tools answer.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 89,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "HermesAgentTips",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118360607564959746/img/liQc2dydENJnI189.jpg",
+      "list_count": 2,
+      "views": 89,
       "desk_rank": 92
     },
     {
@@ -4298,47 +4296,6 @@
       "desk_rank": 93
     },
     {
-      "id": "x-2118494020855005652",
-      "headline": "Swarms ships v17 InterLink with multi agent orchestration upgrades and new developer guides",
-      "summary": "Swarms released v17 InterLink with multi agent communication/orchestration upgrades and published new developer guides. Same day official multi agent framework release (v17 InterLink) with published developer guides concrete AI dev tooling not yet on the desk. @swarms_corp posted",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-06T00:01:48.000Z",
-      "author_name": "swarms_corp",
-      "source_list": "AI Companies: Marketing",
-      "list_names": [
-        "AI Companies: Marketing"
-      ],
-      "chip_labels": [
-        "AI Companies: Marketing"
-      ],
-      "source_url": "https://x.com/swarms_corp/status/2118494020855005652",
-      "sources": [
-        {
-          "label": "@swarms_corp",
-          "url": "https://x.com/swarms_corp/status/2118494020855005652"
-        }
-      ],
-      "body": "Swarms released v17 InterLink with multi agent communication/orchestration upgrades and published new developer guides. Same day official multi agent framework release (v17 InterLink) with published developer guides concrete AI dev tooling not yet on the desk. @swarms_corp posted: \"Introducing the Latest Swarms v17 Developer Guides Swarms v17 InterLink is here, bringing major improvements to multi agent communication, orchestration, performance, and scalability. To help developers get the most out of this release, we've published 8+ new blogs and\" @swarms_corp added: \"2 / Using SQLite as Shared Memory for AI Agents Shared memory for AI agents with SQLite: SqliteChannel gives agents and processes one durable, queryable conversation history. Store, share and run SQL over it.\" @swarms_corp added: \"8 / Find More Tutorials Want to learn more about Swarms v17, explore our API, or discover what's possible with the Swarms Marketplace? Visit our official blog for more tutorials, technical guides, product updates, and resources to help you build with Swarms. Explore more:\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 788,
-        "like_count": 10,
-        "reply_count": 5,
-        "retweet_count": 7
-      },
-      "why_it_matters": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "swarms_corp",
-      "media_url": "https://pbs.twimg.com/news_img/2118494028996153344/E2j2BXJN?format=png&name=orig",
-      "list_count": 1,
-      "views": 788,
-      "desk_rank": 94
-    },
-    {
       "id": "x-2115887660489462091",
       "headline": "Google NotebookLM opens hundreds of free textbooks to students",
       "summary": "Students can now browse and add textbooks from OpenStax, S Chand and Open Textbook Library as NotebookLM sources at no charge. Google is locking in the student market by pairing its research notebook with licensed course material. @Gemini_Notebook posted: \"Calling all students: Y",
@@ -4377,7 +4334,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115887560660766720/img/WyTAk03vOI_RJJVo.jpg",
       "list_count": 1,
       "views": 634809,
-      "desk_rank": 95
+      "desk_rank": 94
     },
     {
       "id": "x-2115848186950791665",
@@ -4418,7 +4375,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115846043845971969/img/h-R_tvcTJBJZzjDI.jpg",
       "list_count": 1,
       "views": 817505,
-      "desk_rank": 96
+      "desk_rank": 95
     },
     {
       "id": "x-2116005725814280570",
@@ -4459,7 +4416,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116003610509377536/img/tTDEreSob9R_UftI.jpg",
       "list_count": 1,
       "views": 160324,
-      "desk_rank": 97
+      "desk_rank": 96
     },
     {
       "id": "x-2116349211549843666",
@@ -4504,7 +4461,7 @@
       "media_url": "https://pbs.twimg.com/media/HV7E-P7bwAA7OxM.jpg",
       "list_count": 3,
       "views": 164409,
-      "desk_rank": 98
+      "desk_rank": 97
     },
     {
       "id": "x-2116186509384815084",
@@ -4551,7 +4508,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116186389536788480/img/hbO4g10coOsa0Gy3.jpg",
       "list_count": 4,
       "views": 201542,
-      "desk_rank": 99
+      "desk_rank": 98
     },
     {
       "id": "x-2116222751895855452",
@@ -4592,7 +4549,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116210907726667776/img/gZ16suqOJNPMutJy.jpg",
       "list_count": 1,
       "views": 149417,
-      "desk_rank": 100
+      "desk_rank": 99
     },
     {
       "id": "x-2116564505719185593",
@@ -4604,20 +4561,21 @@
       "tag": "papers",
       "published_at": "2026-10-31T16:14:36.000Z",
       "author_name": "NielsRogge",
-      "source_list": "AI: Computer Vision, AI Companies:-All, AI Companies: Developers, AI Community, AI Companies: Science/Med",
+      "source_list": "AI: Computer Vision, AI Companies:-All, AI Companies: Developers, AI's Best, AI Community, AI Companies: Science/Med",
       "list_names": [
         "AI: Computer Vision",
         "AI Companies: #1 of 2-All",
         "AI Companies: Developers",
+        "AI's Best",
         "AI Community #9 of 9",
         "AI Companies: Science/Med",
-        "AI Community #6 of 9",
-        "AI Community #8 of 9"
+        "AI Community #2 of 9"
       ],
       "chip_labels": [
         "AI: Computer Vision",
         "AI Companies:-All",
         "AI Companies: Developers",
+        "AI's Best",
         "AI Community",
         "AI Companies: Science/Med"
       ],
@@ -4634,13 +4592,54 @@
         "impression_count": 412,
         "like_count": 1
       },
-      "why_it_matters": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 2 more lists carried @NielsRogge, @UnslothAI, @ashxhart.",
+      "why_it_matters": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 3 more lists carried @NielsRogge, @UnslothAI, @ivanfioravanti.",
       "topic_key": "papers",
       "topic_label": "Papers",
       "x_handle": "NielsRogge",
       "media_url": "https://pbs.twimg.com/media/HV9_1tmW4AAmHhN.jpg",
       "list_count": 7,
       "views": 412,
+      "desk_rank": 100
+    },
+    {
+      "id": "x-2118494020855005652",
+      "headline": "Swarms ships v17 InterLink with multi agent orchestration upgrades and new developer guides",
+      "summary": "Swarms released v17 InterLink with multi agent communication/orchestration upgrades and published new developer guides. Same day official multi agent framework release (v17 InterLink) with published developer guides concrete AI dev tooling not yet on the desk. @swarms_corp posted",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-06T00:01:48.000Z",
+      "author_name": "swarms_corp",
+      "source_list": "AI Companies: Marketing",
+      "list_names": [
+        "AI Companies: Marketing"
+      ],
+      "chip_labels": [
+        "AI Companies: Marketing"
+      ],
+      "source_url": "https://x.com/swarms_corp/status/2118494020855005652",
+      "sources": [
+        {
+          "label": "@swarms_corp",
+          "url": "https://x.com/swarms_corp/status/2118494020855005652"
+        }
+      ],
+      "body": "Swarms released v17 InterLink with multi agent communication/orchestration upgrades and published new developer guides. Same day official multi agent framework release (v17 InterLink) with published developer guides concrete AI dev tooling not yet on the desk. @swarms_corp posted: \"Introducing the Latest Swarms v17 Developer Guides Swarms v17 InterLink is here, bringing major improvements to multi agent communication, orchestration, performance, and scalability. To help developers get the most out of this release, we've published 8+ new blogs and\" @swarms_corp added: \"2 / Using SQLite as Shared Memory for AI Agents Shared memory for AI agents with SQLite: SqliteChannel gives agents and processes one durable, queryable conversation history. Store, share and run SQL over it.\" @swarms_corp added: \"8 / Find More Tutorials Want to learn more about Swarms v17, explore our API, or discover what's possible with the Swarms Marketplace? Visit our official blog for more tutorials, technical guides, product updates, and resources to help you build with Swarms. Explore more:\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 788,
+        "like_count": 10,
+        "reply_count": 5,
+        "retweet_count": 7
+      },
+      "why_it_matters": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "swarms_corp",
+      "media_url": "https://pbs.twimg.com/news_img/2118494028996153344/E2j2BXJN?format=png&name=orig",
+      "list_count": 1,
+      "views": 788,
       "desk_rank": 101
     },
     {
@@ -4860,48 +4859,6 @@
       "desk_rank": 106
     },
     {
-      "id": "x-2118442005651169644",
-      "headline": "Mistral Studio adds managed agents and hosted apps, according to product reports",
-      "summary": "Reports in the scan describe Mistral Studio adding managed agents and hosted apps. @thehypedotnews reports that the platform supports agents built on Mistral Large 4. Separately, @shariqriazzz describes sandboxed agent execution and hosted apps with built in authentication, sayin",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-05T20:35:07.000Z",
-      "author_name": "thehypedotnews",
-      "source_list": "AI's Best, AI Community",
-      "list_names": [
-        "AI's Best",
-        "AI Community #8 of 9"
-      ],
-      "chip_labels": [
-        "AI's Best",
-        "AI Community"
-      ],
-      "source_url": "https://x.com/thehypedotnews/status/2118442005651169644",
-      "sources": [
-        {
-          "label": "@thehypedotnews",
-          "url": "https://x.com/thehypedotnews/status/2118442005651169644"
-        }
-      ],
-      "body": "Reports in the scan describe Mistral Studio adding managed agents and hosted apps. @thehypedotnews reports that the platform supports agents built on Mistral Large 4. Separately, @shariqriazzz describes sandboxed agent execution and hosted apps with built in authentication, saying both are in public preview on Mistral Cloud. These are reported product details, not an official release post inspected by this desk. @shariqriazzz says private cloud and on premises deployments are due at the end of November; that is a stated plan rather than current availability. The reports surfaced on Robert's AI's Best and AI Founders lists respectively. Managed execution and authentication would move Studio beyond model access toward application deployment. Watch for official access terms and confirmation of deployment timelines.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 44,
-        "like_count": 1,
-        "reply_count": 1
-      },
-      "why_it_matters": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "thehypedotnews",
-      "media_url": "https://pbs.twimg.com/media/HWY3tKdWcAAPaXm.jpg",
-      "list_count": 2,
-      "views": 44,
-      "desk_rank": 107
-    },
-    {
       "id": "x-2115962853463396395",
       "headline": "NVIDIA pits open Nemotron Retriever against another open source retrieval stack on accuracy and token use",
       "summary": "NVIDIA shows Nemotron Retriever answering the same questions as another open retrieval stack, comparing evidence retrieved, accuracy, and tokens spent, with open models and recipes on Hugging Face. Every extra agent search burns tokens, so retrieval quality directly drives agent ",
@@ -4946,6 +4903,48 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115962720092921857/img/plyOVUvSUBS7c3NA.jpg",
       "list_count": 4,
       "views": 13818,
+      "desk_rank": 107
+    },
+    {
+      "id": "x-2118442005651169644",
+      "headline": "Mistral Studio adds managed agents and hosted apps, according to product reports",
+      "summary": "Reports in the scan describe Mistral Studio adding managed agents and hosted apps. @thehypedotnews reports that the platform supports agents built on Mistral Large 4. Separately, @shariqriazzz describes sandboxed agent execution and hosted apps with built in authentication, sayin",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-05T20:35:07.000Z",
+      "author_name": "thehypedotnews",
+      "source_list": "AI's Best, AI Community",
+      "list_names": [
+        "AI's Best",
+        "AI Community #8 of 9"
+      ],
+      "chip_labels": [
+        "AI's Best",
+        "AI Community"
+      ],
+      "source_url": "https://x.com/thehypedotnews/status/2118442005651169644",
+      "sources": [
+        {
+          "label": "@thehypedotnews",
+          "url": "https://x.com/thehypedotnews/status/2118442005651169644"
+        }
+      ],
+      "body": "Reports in the scan describe Mistral Studio adding managed agents and hosted apps. @thehypedotnews reports that the platform supports agents built on Mistral Large 4. Separately, @shariqriazzz describes sandboxed agent execution and hosted apps with built in authentication, saying both are in public preview on Mistral Cloud. These are reported product details, not an official release post inspected by this desk. @shariqriazzz says private cloud and on premises deployments are due at the end of November; that is a stated plan rather than current availability. The reports surfaced on Robert's AI's Best and AI Founders lists respectively. Managed execution and authentication would move Studio beyond model access toward application deployment. Watch for official access terms and confirmation of deployment timelines.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 44,
+        "like_count": 1,
+        "reply_count": 1
+      },
+      "why_it_matters": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "thehypedotnews",
+      "media_url": "https://pbs.twimg.com/media/HWY3tKdWcAAPaXm.jpg",
+      "list_count": 2,
+      "views": 44,
       "desk_rank": 108
     },
     {
@@ -4990,6 +4989,51 @@
       "desk_rank": 109
     },
     {
+      "id": "x-2118151126445129928",
+      "headline": "CMU lab releases Pixel, a sub $15K wheeled humanoid co designed with a sub $1K UMI data kit",
+      "summary": "Deepak Pathak's CMU Robotics lab, with co leads Tony Tao and Jason Liu, released Pixel, a full stack low cost wheeled humanoid and learning pipeline aimed at home and service tasks. Pathak said the work shows state of the art robot skills do not need massive resources when hardwa",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-11-05T01:19:16.000Z",
+      "author_name": "deepakpathak",
+      "source_list": "Robotics in San Francisco, AI's Best, Robot Influencers/Media",
+      "list_names": [
+        "Robotics in San Francisco",
+        "AI's Best",
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robotics in San Francisco",
+        "AI's Best",
+        "Robot Influencers/Media"
+      ],
+      "source_url": "https://x.com/deepakpathak/status/2118151126445129928",
+      "sources": [
+        {
+          "label": "@deepakpathak",
+          "url": "https://x.com/deepakpathak/status/2118151126445129928"
+        }
+      ],
+      "body": "Deepak Pathak's CMU Robotics lab, with co leads Tony Tao and Jason Liu, released Pixel, a full stack low cost wheeled humanoid and learning pipeline aimed at home and service tasks. Pathak said the work shows state of the art robot skills do not need massive resources when hardware, UMI data collection and learning are co designed. @CyberRobooo pegged the wheeled humanoid under $15K and the sensorized UMI kit under $1K for everyday chores. @JasonJZLiu said the team is releasing two papers, Pixel on the mobile manipulator and Pixel UMI on environment aware retargeting and DAgger for long horizon bimanual work such as folding a box and hanging a jacket. The stack is framed as open source. Why it matters: a named price and open learning stack puts capable home robots within reach of labs that cannot buy Big Tech budgets. Watch independent builds, code release and whether the sub $15K claim holds for full kits.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1514,
+        "like_count": 47,
+        "reply_count": 5,
+        "retweet_count": 4
+      },
+      "why_it_matters": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "deepakpathak",
+      "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118151083084443648/img/khTlEZxI0I9CVLU1.jpg",
+      "list_count": 3,
+      "views": 1514,
+      "desk_rank": 110
+    },
+    {
       "id": "x-2116254202301493459",
       "headline": "Clover Health uses ElevenLabs voice agents for member care check ins and plan questions",
       "summary": "ElevenLabs says Clover Health is running voice agents that handle care check ins, plan benefit navigation, and instant answers to member inquiries. Health insurers are among the first big buyers putting voice AI directly in front of members. @ElevenLabs posted: \"What does it take",
@@ -5030,7 +5074,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5x0vvbMAAVG9F.jpg",
       "list_count": 2,
       "views": 4261,
-      "desk_rank": 110
+      "desk_rank": 111
     },
     {
       "id": "x-2116236342653026706",
@@ -5077,49 +5121,6 @@
       "media_url": "https://pbs.twimg.com/media/HV5hjyXbUAEH7dA.jpg",
       "list_count": 4,
       "views": 2442,
-      "desk_rank": 111
-    },
-    {
-      "id": "x-2116593734502797644",
-      "headline": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
-      "summary": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, wh",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-10-31T18:10:45.000Z",
-      "author_name": "dedene",
-      "source_list": "AI Community, AR/VR Community, AI's Best",
-      "list_names": [
-        "AI Community #5 of 9",
-        "AI Community #7 of 9",
-        "AR/VR Community #2 of 2",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "AR/VR Community",
-        "AI's Best"
-      ],
-      "source_url": "https://x.com/dedene/status/2116593734502797644",
-      "sources": [
-        {
-          "label": "@dedene",
-          "url": "https://x.com/dedene/status/2116593734502797644"
-        }
-      ],
-      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents. @dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 10
-      },
-      "why_it_matters": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @melvindvivas, @TechMDAI.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "dedene",
-      "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
-      "list_count": 4,
-      "views": 10,
       "desk_rank": 112
     },
     {
@@ -5252,49 +5253,6 @@
       "desk_rank": 115
     },
     {
-      "id": "x-2118368740819800135",
-      "headline": "Apple is reportedly building a home robot with a 9 inch display after HomeView",
-      "summary": "Robotics accounts say Apple is moving past its HomeView smart display toward a home robot with a 9 inch screen on a mobile base. @CyberRobooo framed it as a step toward home humanoid ambitions and pointed to The Information coverage, while @XRoboHub highlighted Apple HALO demos o",
-      "section": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "tag": "robotics",
-      "published_at": "2026-11-05T15:43:59.000Z",
-      "author_name": "CyberRobooo",
-      "source_list": "Robot Influencers/Media, AI's Best",
-      "list_names": [
-        "Robot Influencers/Media",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "Robot Influencers/Media",
-        "AI's Best"
-      ],
-      "source_url": "https://x.com/CyberRobooo/status/2118368740819800135",
-      "sources": [
-        {
-          "label": "@CyberRobooo",
-          "url": "https://x.com/CyberRobooo/status/2118368740819800135"
-        }
-      ],
-      "body": "Robotics accounts say Apple is moving past its HomeView smart display toward a home robot with a 9 inch screen on a mobile base. @CyberRobooo framed it as a step toward home humanoid ambitions and pointed to The Information coverage, while @XRoboHub highlighted Apple HALO demos on a Unitree G1 that crouches under a table and turns sideways through a half open door. Why it matters: if Apple is really building a mobile home robot, that puts a consumer giant into the same arena as Digit and other home service platforms. The reporting is still reportedly sourced, so watch for Apple confirmation, hardware specs, and whether HALO leaves the lab.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 449,
-        "like_count": 7,
-        "reply_count": 1,
-        "retweet_count": 1
-      },
-      "why_it_matters": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @TheRundownAI, @thePandaily.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics",
-      "x_handle": "CyberRobooo",
-      "media_url": "https://pbs.twimg.com/media/HWXylo3bIAAvLXF.png",
-      "list_count": 2,
-      "views": 449,
-      "desk_rank": 116
-    },
-    {
       "id": "x-2116236718957314116",
       "headline": "micro1 test: only 2 of 10 frontier models finished a simulated surgical robot task",
       "summary": "Across 800 simulated operating room trials, only Gemini 4 Argon (9 times) and GPT 6 Astra (twice) completed the task, and all 213 claims of success by models were wrong. A sharp data point on agent overconfidence in high stakes physical tasks. @micro1_ai posted: \"We gave 10 front",
@@ -5339,7 +5297,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116231140952469504/img/OFhztU68z-utZVYm.jpg",
       "list_count": 4,
       "views": 1100,
-      "desk_rank": 117
+      "desk_rank": 116
     },
     {
       "id": "x-2117642701890105725",
@@ -5380,7 +5338,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNgGBea4AAB3_r.jpg",
       "list_count": 1,
       "views": 1042,
-      "desk_rank": 118
+      "desk_rank": 117
     },
     {
       "id": "x-2116645142719291857",
@@ -5422,7 +5380,7 @@
       "media_url": "https://pbs.twimg.com/media/HV79epgW8AAJTGh.jpg",
       "list_count": 2,
       "views": 636,
-      "desk_rank": 119
+      "desk_rank": 118
     },
     {
       "id": "x-2116233418702733514",
@@ -5465,7 +5423,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5fFFEXoAA9thh.jpg",
       "list_count": 2,
       "views": 496,
-      "desk_rank": 120
+      "desk_rank": 119
     },
     {
       "id": "x-2116560902594101299",
@@ -5506,7 +5464,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116560880360214528/img/eFg6NfTfSy-cGtYZ.jpg",
       "list_count": 1,
       "views": 465,
-      "desk_rank": 121
+      "desk_rank": 120
     },
     {
       "id": "x-2117621415520448838",
@@ -5548,7 +5506,7 @@
       "media_url": "https://pbs.twimg.com/media/HWNMZMHacAAl0lx.jpg",
       "list_count": 2,
       "views": 419,
-      "desk_rank": 122
+      "desk_rank": 121
     },
     {
       "id": "x-2117670295339171994",
@@ -5589,7 +5547,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117670256801873920/pu/img/ngWTR58nsSm8VVSD.jpg",
       "list_count": 1,
       "views": 383,
-      "desk_rank": 123
+      "desk_rank": 122
     },
     {
       "id": "x-2118372770547487117",
@@ -5636,46 +5594,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118336075286355968/img/a4aXTR-CQzVfNQzH.jpg",
       "list_count": 4,
       "views": 1147,
-      "desk_rank": 124
-    },
-    {
-      "id": "x-2118312415276204328",
-      "headline": "Grafana says Assistant error rate fell to 0.65% after six months of agent tooling work",
-      "summary": "Grafana Labs reported Grafana Assistant dashboarding error rate dropping from 2.47% to 0.65% over ~10 weeks, with P95 latency down from 63s to 28.8s and cost per request down 18%. Concrete reliability and latency gains on a widely used observability AI assistant show how evaluati",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-05T12:00:10.000Z",
-      "author_name": "grafana",
-      "source_list": "AI Companies: Developers",
-      "list_names": [
-        "AI Companies: Developers"
-      ],
-      "chip_labels": [
-        "AI Companies: Developers"
-      ],
-      "source_url": "https://x.com/grafana/status/2118312415276204328",
-      "sources": [
-        {
-          "label": "@grafana",
-          "url": "https://x.com/grafana/status/2118312415276204328"
-        }
-      ],
-      "body": "Grafana Labs reported Grafana Assistant dashboarding error rate dropping from 2.47% to 0.65% over ~10 weeks, with P95 latency down from 63s to 28.8s and cost per request down 18%. Concrete reliability and latency gains on a widely used observability AI assistant show how evaluation loops are becoming table stakes for shipping agent UX. @grafana posted: \"Grafana Assistant dashboarding error rate dropped from 2.47% to 0.65% over ~10 weeks. P95 latency fell from 63s to 28.8s. And cost per request went down by 18%. This was a result of six months of evaluation loops, CLI redesign, and agent tooling work.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 202,
-        "like_count": 2
-      },
-      "why_it_matters": "Robert's AI Companies: Developers lists carried @grafana.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "grafana",
-      "media_url": "https://pbs.twimg.com/news_img/2118312417738317825/fzWBA5Lz?format=jpg&name=orig",
-      "list_count": 1,
-      "views": 202,
-      "desk_rank": 125
+      "desk_rank": 123
     },
     {
       "id": "x-2115480443307041130",
@@ -5716,7 +5635,46 @@
       "media_url": "https://pbs.twimg.com/media/HVuyJKuaIAAXXUQ.jpg",
       "list_count": 1,
       "views": 11929,
-      "desk_rank": 126
+      "desk_rank": 124
+    },
+    {
+      "id": "x-2118312415276204328",
+      "headline": "Grafana says Assistant error rate fell to 0.65% after six months of agent tooling work",
+      "summary": "Grafana Labs reported Grafana Assistant dashboarding error rate dropping from 2.47% to 0.65% over ~10 weeks, with P95 latency down from 63s to 28.8s and cost per request down 18%. Concrete reliability and latency gains on a widely used observability AI assistant show how evaluati",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-05T12:00:10.000Z",
+      "author_name": "grafana",
+      "source_list": "AI Companies: Developers",
+      "list_names": [
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "AI Companies: Developers"
+      ],
+      "source_url": "https://x.com/grafana/status/2118312415276204328",
+      "sources": [
+        {
+          "label": "@grafana",
+          "url": "https://x.com/grafana/status/2118312415276204328"
+        }
+      ],
+      "body": "Grafana Labs reported Grafana Assistant dashboarding error rate dropping from 2.47% to 0.65% over ~10 weeks, with P95 latency down from 63s to 28.8s and cost per request down 18%. Concrete reliability and latency gains on a widely used observability AI assistant show how evaluation loops are becoming table stakes for shipping agent UX. @grafana posted: \"Grafana Assistant dashboarding error rate dropped from 2.47% to 0.65% over ~10 weeks. P95 latency fell from 63s to 28.8s. And cost per request went down by 18%. This was a result of six months of evaluation loops, CLI redesign, and agent tooling work.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 202,
+        "like_count": 2
+      },
+      "why_it_matters": "Robert's AI Companies: Developers lists carried @grafana.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "grafana",
+      "media_url": "https://pbs.twimg.com/news_img/2118312417738317825/fzWBA5Lz?format=jpg&name=orig",
+      "list_count": 1,
+      "views": 202,
+      "desk_rank": 125
     },
     {
       "id": "x-2117663862564573240",
@@ -5761,7 +5719,7 @@
       "media_url": "https://pbs.twimg.com/media/HWN0D2IWcAASzvX.jpg",
       "list_count": 3,
       "views": 3921,
-      "desk_rank": 127
+      "desk_rank": 126
     },
     {
       "id": "x-2116560120457142451",
@@ -5802,6 +5760,46 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116559500933251072/img/GSMKoAbET-1y1M8Q.jpg",
       "list_count": 1,
       "views": 6933,
+      "desk_rank": 127
+    },
+    {
+      "id": "x-2117249008972550447",
+      "headline": "Deep Principle launches Hydrogen 1.0, a general purpose AI model for scientific discovery",
+      "summary": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching ",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-02T13:34:34.000Z",
+      "author_name": "DeepPrinciple",
+      "source_list": "AI Companies: Science/Med",
+      "list_names": [
+        "AI Companies: Science/Med"
+      ],
+      "chip_labels": [
+        "AI Companies: Science/Med"
+      ],
+      "source_url": "https://x.com/DeepPrinciple/status/2117249008972550447",
+      "sources": [
+        {
+          "label": "@DeepPrinciple",
+          "url": "https://x.com/DeepPrinciple/status/2117249008972550447"
+        }
+      ],
+      "body": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching models as research partners rather than chatbots. @DeepPrinciple posted: \"Introducing Hydrogen 1.0, Deep Principle’s first general purpose large AI model, built to support scientific discovery. Hydrogen 1.0 helps researchers reason through complex scientific questions, carry out calculations and simulations, turn research ideas into experimental\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 106,
+        "like_count": 3,
+        "reply_count": 6
+      },
+      "why_it_matters": "Robert's AI Companies: Science/Med lists carried @DeepPrinciple.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "DeepPrinciple",
+      "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
+      "list_count": 1,
+      "views": 106,
       "desk_rank": 128
     },
     {
@@ -5846,46 +5844,6 @@
       "desk_rank": 129
     },
     {
-      "id": "x-2117249008972550447",
-      "headline": "Deep Principle launches Hydrogen 1.0, a general purpose AI model for scientific discovery",
-      "summary": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching ",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-11-02T13:34:34.000Z",
-      "author_name": "DeepPrinciple",
-      "source_list": "AI Companies: Science/Med",
-      "list_names": [
-        "AI Companies: Science/Med"
-      ],
-      "chip_labels": [
-        "AI Companies: Science/Med"
-      ],
-      "source_url": "https://x.com/DeepPrinciple/status/2117249008972550447",
-      "sources": [
-        {
-          "label": "@DeepPrinciple",
-          "url": "https://x.com/DeepPrinciple/status/2117249008972550447"
-        }
-      ],
-      "body": "Deep Principle introduced Hydrogen 1.0, its first general purpose large model, aimed at helping researchers reason through scientific questions, run calculations and simulations, and turn ideas into experiments. Another entrant in the AI for science race, where labs are pitching models as research partners rather than chatbots. @DeepPrinciple posted: \"Introducing Hydrogen 1.0, Deep Principle’s first general purpose large AI model, built to support scientific discovery. Hydrogen 1.0 helps researchers reason through complex scientific questions, carry out calculations and simulations, turn research ideas into experimental\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 106,
-        "like_count": 3,
-        "reply_count": 6
-      },
-      "why_it_matters": "Robert's AI Companies: Science/Med lists carried @DeepPrinciple.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "DeepPrinciple",
-      "media_url": "https://pbs.twimg.com/media/HWH6pe4b0AAJUH2.jpg",
-      "list_count": 1,
-      "views": 106,
-      "desk_rank": 130
-    },
-    {
       "id": "x-2118339046967808023",
       "headline": "BAAI and Chinese lab partners introduce CausGround, a plug and play causal grounding layer for embodied planners",
       "summary": "The Beijing Academy of Artificial Intelligence, with ECNU, NPU, UCAS and CASIA, introduced CausGround, a plug and play causal interaction grounding framework for embodied planners. @BAAIBeijing said it doubles embodied planning performance with zero parameter updates, targeting t",
@@ -5924,7 +5882,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118276810450587648/img/8-8VTY9fP3-EW9Li.jpg",
       "list_count": 1,
       "views": 115,
-      "desk_rank": 131
+      "desk_rank": 130
     },
     {
       "id": "x-2118478996174172228",
@@ -5967,7 +5925,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118478919942733824/img/Z6DzPcqZEFmeIPa7.jpg",
       "list_count": 2,
       "views": 1222,
-      "desk_rank": 132
+      "desk_rank": 131
     },
     {
       "id": "x-2116225660246986976",
@@ -6010,7 +5968,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5YBbxXMAANAvB.jpg",
       "list_count": 2,
       "views": 1460,
-      "desk_rank": 133
+      "desk_rank": 132
     },
     {
       "id": "x-2118321182327926885",
@@ -6050,7 +6008,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2118321193174368256/Fe8ZJeDN?format=jpg&name=orig",
       "list_count": 1,
       "views": 375,
-      "desk_rank": 134
+      "desk_rank": 133
     },
     {
       "id": "x-2118313092279067026",
@@ -6096,7 +6054,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118312690062143488/img/7TuJlZdFiaVOxyym.jpg",
       "list_count": 4,
       "views": 46,
-      "desk_rank": 135
+      "desk_rank": 134
     },
     {
       "id": "x-2118408305857228876",
@@ -6137,7 +6095,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118405561645727744/img/Lx5FFI1zu_kODU-s.jpg",
       "list_count": 2,
       "views": 5,
-      "desk_rank": 136
+      "desk_rank": 135
     },
     {
       "id": "x-2116036376076722264",
@@ -6178,7 +6136,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116036237668864000/img/Exq6Z7mdWIk5abhy.jpg",
       "list_count": 1,
       "views": 24057,
-      "desk_rank": 137
+      "desk_rank": 136
     },
     {
       "id": "x-2116156587404562491",
@@ -6221,49 +6179,7 @@
       "media_url": "https://pbs.twimg.com/media/HV4XBGya0AA3qin.jpg",
       "list_count": 2,
       "views": 19675,
-      "desk_rank": 138
-    },
-    {
-      "id": "x-2118148396733050987",
-      "headline": "Kimi K3.1 Pro's open weight license carves out Moonshot's biggest commercial users",
-      "summary": "The license on Moonshot's open weight Kimi K3.1 Pro is MIT style but adds revenue and user count conditions for the largest commercial users. As frontier class Chinese models go open weight, license terms like these decide who can freely build on them and who must negotiate with ",
-      "section": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "tag": "models",
-      "published_at": "2026-11-05T01:08:25.000Z",
-      "author_name": "thePandaily",
-      "source_list": "AI's Best, Tech News, AI Orgs",
-      "list_names": [
-        "AI's Best",
-        "Tech News",
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI's Best",
-        "Tech News",
-        "AI Orgs"
-      ],
-      "source_url": "https://x.com/thePandaily/status/2118148396733050987",
-      "sources": [
-        {
-          "label": "@thePandaily",
-          "url": "https://x.com/thePandaily/status/2118148396733050987"
-        }
-      ],
-      "body": "The license on Moonshot's open weight Kimi K3.1 Pro is MIT style but adds revenue and user count conditions for the largest commercial users. As frontier class Chinese models go open weight, license terms like these decide who can freely build on them and who must negotiate with the lab. @thePandaily posted: \"The \"Kimi K3.1 Pro\" License is MIT style with two catches: a model as a service business with over $20M in revenue across any 12 months needs a separate deal with Moonshot, and products past 100M MAU or $20M monthly revenue must display \"Kimi K3.1 Pro\" in the UI.\"",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 34
-      },
-      "why_it_matters": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
-      "topic_key": "models",
-      "topic_label": "Models",
-      "x_handle": "thePandaily",
-      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2118693832648957952/pu/img/FXyZcoPEbYdJM4MR.jpg",
-      "list_count": 3,
-      "views": 34,
-      "desk_rank": 139
+      "desk_rank": 137
     },
     {
       "id": "x-2116587096651505814",
@@ -6311,6 +6227,90 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116583027560124418/img/7daOuJgaAkXL97sl.jpg",
       "list_count": 5,
       "views": 275,
+      "desk_rank": 138
+    },
+    {
+      "id": "x-2118148396733050987",
+      "headline": "Kimi K3.1 Pro's open weight license carves out Moonshot's biggest commercial users",
+      "summary": "The license on Moonshot's open weight Kimi K3.1 Pro is MIT style but adds revenue and user count conditions for the largest commercial users. As frontier class Chinese models go open weight, license terms like these decide who can freely build on them and who must negotiate with ",
+      "section": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "tag": "models",
+      "published_at": "2026-11-05T01:08:25.000Z",
+      "author_name": "thePandaily",
+      "source_list": "AI's Best, Tech News, AI Orgs",
+      "list_names": [
+        "AI's Best",
+        "Tech News",
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI's Best",
+        "Tech News",
+        "AI Orgs"
+      ],
+      "source_url": "https://x.com/thePandaily/status/2118148396733050987",
+      "sources": [
+        {
+          "label": "@thePandaily",
+          "url": "https://x.com/thePandaily/status/2118148396733050987"
+        }
+      ],
+      "body": "The license on Moonshot's open weight Kimi K3.1 Pro is MIT style but adds revenue and user count conditions for the largest commercial users. As frontier class Chinese models go open weight, license terms like these decide who can freely build on them and who must negotiate with the lab. @thePandaily posted: \"The \"Kimi K3.1 Pro\" License is MIT style with two catches: a model as a service business with over $20M in revenue across any 12 months needs a separate deal with Moonshot, and products past 100M MAU or $20M monthly revenue must display \"Kimi K3.1 Pro\" in the UI.\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 34
+      },
+      "why_it_matters": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
+      "topic_key": "models",
+      "topic_label": "Models",
+      "x_handle": "thePandaily",
+      "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2118693832648957952/pu/img/FXyZcoPEbYdJM4MR.jpg",
+      "list_count": 3,
+      "views": 34,
+      "desk_rank": 139
+    },
+    {
+      "id": "x-2116593734502797644",
+      "headline": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
+      "summary": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, wh",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-10-31T18:10:45.000Z",
+      "author_name": "dedene",
+      "source_list": "AI Community, AR/VR Community, AI's Best",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AR/VR Community #2 of 2",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AR/VR Community",
+        "AI's Best"
+      ],
+      "source_url": "https://x.com/dedene/status/2116593734502797644",
+      "sources": [
+        {
+          "label": "@dedene",
+          "url": "https://x.com/dedene/status/2116593734502797644"
+        }
+      ],
+      "body": "Several builders posted that an official Hermes Agent mobile beta from Nous Research is out for iOS and Android, letting people reach their agent from their phone; some testers note access is still limited. Open agent frameworks are following commercial assistants onto phones, where people actually check in on agents. @dedene posted: \"The official Hermes Mobile beta for iOS and Android can be downloaded from here:\"",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 10
+      },
+      "why_it_matters": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @TechMDAI, @RonfortMartin.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "dedene",
+      "media_url": "https://pbs.twimg.com/media/HV-myFWa4AAKdUh.jpg",
+      "list_count": 3,
+      "views": 10,
       "desk_rank": 140
     },
     {
@@ -6363,6 +6363,49 @@
       "desk_rank": 141
     },
     {
+      "id": "x-2118368740819800135",
+      "headline": "Apple is reportedly building a home robot with a 9 inch display after HomeView",
+      "summary": "Robotics accounts say Apple is moving past its HomeView smart display toward a home robot with a 9 inch screen on a mobile base. @CyberRobooo framed it as a step toward home humanoid ambitions and pointed to The Information coverage, while @XRoboHub highlighted Apple HALO demos o",
+      "section": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "tag": "robotics",
+      "published_at": "2026-11-05T15:43:59.000Z",
+      "author_name": "CyberRobooo",
+      "source_list": "Robot Influencers/Media, AI's Best",
+      "list_names": [
+        "Robot Influencers/Media",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media",
+        "AI's Best"
+      ],
+      "source_url": "https://x.com/CyberRobooo/status/2118368740819800135",
+      "sources": [
+        {
+          "label": "@CyberRobooo",
+          "url": "https://x.com/CyberRobooo/status/2118368740819800135"
+        }
+      ],
+      "body": "Robotics accounts say Apple is moving past its HomeView smart display toward a home robot with a 9 inch screen on a mobile base. @CyberRobooo framed it as a step toward home humanoid ambitions and pointed to The Information coverage, while @XRoboHub highlighted Apple HALO demos on a Unitree G1 that crouches under a table and turns sideways through a half open door. Why it matters: if Apple is really building a mobile home robot, that puts a consumer giant into the same arena as Digit and other home service platforms. The reporting is still reportedly sourced, so watch for Apple confirmation, hardware specs, and whether HALO leaves the lab.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 449,
+        "like_count": 7,
+        "reply_count": 1,
+        "retweet_count": 1
+      },
+      "why_it_matters": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @thePandaily.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics",
+      "x_handle": "CyberRobooo",
+      "media_url": "https://pbs.twimg.com/media/HWXylo3bIAAvLXF.png",
+      "list_count": 2,
+      "views": 449,
+      "desk_rank": 142
+    },
+    {
       "id": "x-2117966612607226034",
       "headline": "freeCodeCamp shows how to build a local healthcare AI assistant with MedGemma, Ollama, and Open WebUI",
       "summary": "freeCodeCamp published a tutorial for running a local healthcare AI assistant with MedGemma on Ollama behind Open WebUI so sensitive data stays on device. Same day official freeCodeCamp guide that packages Google’s MedGemma into a practical local stack is a concrete developer des",
@@ -6399,7 +6442,7 @@
       "media_url": "https://pbs.twimg.com/media/HWSHaQtWoAAtTqv.jpg",
       "list_count": 1,
       "views": 2757,
-      "desk_rank": 142
+      "desk_rank": 143
     },
     {
       "id": "x-2116236188319453386",
@@ -6444,7 +6487,7 @@
       "media_url": "https://pbs.twimg.com/media/HV5hqrJWYAA1M_E.jpg",
       "list_count": 3,
       "views": 11266,
-      "desk_rank": 143
+      "desk_rank": 144
     },
     {
       "id": "x-2117408792346509663",
@@ -6487,7 +6530,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2117408779730108416/img/M_YLvydUvu_YZd9I.jpg",
       "list_count": 2,
       "views": 2568,
-      "desk_rank": 144
+      "desk_rank": 145
     },
     {
       "id": "x-2116530643228295205",
@@ -6530,47 +6573,6 @@
       "media_url": "https://pbs.twimg.com/media/HV8QGvGWcAAmnqa.jpg",
       "list_count": 2,
       "views": 1408,
-      "desk_rank": 145
-    },
-    {
-      "id": "x-2119046850455978063",
-      "headline": "Researchers find Claude Code can store passwords and API keys that later appear on GitHub",
-      "summary": "Apiiro researchers found that Claude Code can retain secrets in project settings that later appear in public GitHub repositories, according to Cyber Security News. Choosing \"Yes, and don't ask again\" can store an approved shell command, including a password or API key embedded in",
-      "section": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "tag": "products",
-      "published_at": "2026-11-07T12:38:33.000Z",
-      "author_name": "The_Cyber_News",
-      "source_list": "Tech News",
-      "list_names": [
-        "Tech News"
-      ],
-      "chip_labels": [
-        "Tech News"
-      ],
-      "source_url": "https://x.com/The_Cyber_News/status/2119046850455978063",
-      "sources": [
-        {
-          "label": "@The_Cyber_News",
-          "url": "https://x.com/The_Cyber_News/status/2119046850455978063"
-        }
-      ],
-      "body": "Apiiro researchers found that Claude Code can retain secrets in project settings that later appear in public GitHub repositories, according to Cyber Security News. Choosing \"Yes, and don't ask again\" can store an approved shell command, including a password or API key embedded in it, as an allow rule in .claude/settings.local.json. If that file is committed, the secret can become public. @The_Cyber_News carried the report on Robert's Tech News list; this is third party security research, not an Anthropic announcement.\n\nCyber Security News reports that Apiiro examined 104,185 public copies of the local settings file and found real secrets in 1,122 files, containing 1,379 distinct credentials. Including earlier commits, shared settings and agent transcripts, the researchers reported 2,539 secrets across 1,994 public repositories. Collection ran November 1 through 3, 2026. The report identified 63 affected organizations, mostly software companies, and said one company confirmed that an exposed key had been live. These are Apiiro's findings as reported by Cyber Security News, not an independent audit by this desk.\n\nThe report says Claude Code adds a global Git exclude on the machine when it first writes the file, but that protection does not travel with the project, cover files already tracked, or reliably protect a folder later turned into a repository. This makes local agent settings part of the credential handling risk around version control. Watch for an Anthropic product or documentation change and confirmation that exposed credentials have been rotated.",
-      "kind": "story",
-      "engagement": {
-        "impression_count": 1755,
-        "like_count": 12,
-        "reply_count": 2,
-        "retweet_count": 5
-      },
-      "why_it_matters": "Robert's Tech News list carried @The_Cyber_News.",
-      "topic_key": "products",
-      "topic_label": "Products",
-      "x_handle": "The_Cyber_News",
-      "media_url": "https://pbs.twimg.com/media/HWhd3I-aUAAkY0i.jpg",
-      "list_count": 1,
-      "views": 1755,
       "desk_rank": 146
     },
     {
@@ -6617,6 +6619,47 @@
       "desk_rank": 147
     },
     {
+      "id": "x-2119046850455978063",
+      "headline": "Researchers find Claude Code can store passwords and API keys that later appear on GitHub",
+      "summary": "Apiiro researchers found that Claude Code can retain secrets in project settings that later appear in public GitHub repositories, according to Cyber Security News. Choosing \"Yes, and don't ask again\" can store an approved shell command, including a password or API key embedded in",
+      "section": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "tag": "products",
+      "published_at": "2026-11-07T12:38:33.000Z",
+      "author_name": "The_Cyber_News",
+      "source_list": "Tech News",
+      "list_names": [
+        "Tech News"
+      ],
+      "chip_labels": [
+        "Tech News"
+      ],
+      "source_url": "https://x.com/The_Cyber_News/status/2119046850455978063",
+      "sources": [
+        {
+          "label": "@The_Cyber_News",
+          "url": "https://x.com/The_Cyber_News/status/2119046850455978063"
+        }
+      ],
+      "body": "Apiiro researchers found that Claude Code can retain secrets in project settings that later appear in public GitHub repositories, according to Cyber Security News. Choosing \"Yes, and don't ask again\" can store an approved shell command, including a password or API key embedded in it, as an allow rule in .claude/settings.local.json. If that file is committed, the secret can become public. @The_Cyber_News carried the report on Robert's Tech News list; this is third party security research, not an Anthropic announcement.\n\nCyber Security News reports that Apiiro examined 104,185 public copies of the local settings file and found real secrets in 1,122 files, containing 1,379 distinct credentials. Including earlier commits, shared settings and agent transcripts, the researchers reported 2,539 secrets across 1,994 public repositories. Collection ran November 1 through 3, 2026. The report identified 63 affected organizations, mostly software companies, and said one company confirmed that an exposed key had been live. These are Apiiro's findings as reported by Cyber Security News, not an independent audit by this desk.\n\nThe report says Claude Code adds a global Git exclude on the machine when it first writes the file, but that protection does not travel with the project, cover files already tracked, or reliably protect a folder later turned into a repository. This makes local agent settings part of the credential handling risk around version control. Watch for an Anthropic product or documentation change and confirmation that exposed credentials have been rotated.",
+      "kind": "story",
+      "engagement": {
+        "impression_count": 1755,
+        "like_count": 12,
+        "reply_count": 2,
+        "retweet_count": 5
+      },
+      "why_it_matters": "Robert's Tech News list carried @The_Cyber_News.",
+      "topic_key": "products",
+      "topic_label": "Products",
+      "x_handle": "The_Cyber_News",
+      "media_url": "https://pbs.twimg.com/media/HWhd3I-aUAAkY0i.jpg",
+      "list_count": 1,
+      "views": 1755,
+      "desk_rank": 148
+    },
+    {
       "id": "x-2116227954518978729",
       "headline": "Runway Agent can now run code and build brand launch kits",
       "summary": "Runway's Agent opens files, runs code, and produces product shots, ad variations and motion graphics. Creative AI tools are becoming full agents, not just generators. @runwayml posted: \"Introducing new capabilities in Runway Agent Now, Agent does more than generate. It can open f",
@@ -6658,7 +6701,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116227869236215808/img/-xiBqjXdevC1DRL2.jpg",
       "list_count": 3,
       "views": 3688,
-      "desk_rank": 148
+      "desk_rank": 149
     },
     {
       "id": "x-2116716249589952903",
@@ -6699,7 +6742,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116715933322674176/img/EW4mW7tsCzICv0lg.jpg",
       "list_count": 1,
       "views": 551,
-      "desk_rank": 149
+      "desk_rank": 150
     },
     {
       "id": "x-2116153410101944352",
@@ -6742,7 +6785,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116153358943981568/img/I4G-jGHuZaYgqg6H.jpg",
       "list_count": 2,
       "views": 2089,
-      "desk_rank": 150
+      "desk_rank": 151
     },
     {
       "id": "x-2117792552430514287",
@@ -6781,7 +6824,7 @@
       "media_url": "https://pbs.twimg.com/media/HWPpEftXUAA1-b0.jpg",
       "list_count": 1,
       "views": 101,
-      "desk_rank": 151
+      "desk_rank": 152
     },
     {
       "id": "x-2115890658636656826",
@@ -6826,7 +6869,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115888862664994816/img/lblQAbfEGXEDNyRh.jpg",
       "list_count": 3,
       "views": 120290,
-      "desk_rank": 152
+      "desk_rank": 153
     },
     {
       "id": "x-2116602645972672576",
@@ -6868,7 +6911,7 @@
       "media_url": "https://pbs.twimg.com/media/HWX-BYRXIAAvTyd.png",
       "list_count": 2,
       "views": 5821,
-      "desk_rank": 153
+      "desk_rank": 154
     },
     {
       "id": "x-2115867078964187368",
@@ -6911,7 +6954,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2115849542835032070/img/DLvqI6GHXxdGBOR3.jpg",
       "list_count": 2,
       "views": 1007517,
-      "desk_rank": 154
+      "desk_rank": 155
     },
     {
       "id": "x-2116198551814623370",
@@ -6956,7 +6999,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116165050645823488/img/wilLEOXrq6jIhRZ1.jpg",
       "list_count": 3,
       "views": 89821,
-      "desk_rank": 155
+      "desk_rank": 156
     },
     {
       "id": "x-2118408545871782035",
@@ -7001,7 +7044,7 @@
       "x_handle": "fableshowrunner",
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118388987396042753/img/sWT29gP0spePpogz.jpg",
       "list_count": 5,
-      "desk_rank": 156
+      "desk_rank": 157
     },
     {
       "id": "x-2118161379731677274",
@@ -7042,7 +7085,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2118139030965506048/img/vCt5ZXq9YZxAN3MW.jpg",
       "list_count": 2,
       "views": 824,
-      "desk_rank": 157
+      "desk_rank": 158
     },
     {
       "id": "x-2115866740705935621",
@@ -7083,7 +7126,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2115866633164017664/pu/img/j2KBZ5b15R_GbRnQ.jpg",
       "list_count": 1,
       "views": 9081,
-      "desk_rank": 158
+      "desk_rank": 159
     },
     {
       "id": "x-2116551784235782494",
@@ -7126,7 +7169,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2116551633106522112/pu/img/0SXU3jLR4Q_cn8ES.jpg",
       "list_count": 2,
       "views": 329,
-      "desk_rank": 159
+      "desk_rank": 160
     },
     {
       "id": "x-2116190908916146488",
@@ -7167,7 +7210,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116190796592603136/img/rykGlTX_-6TNHomY.jpg",
       "list_count": 1,
       "views": 2950,
-      "desk_rank": 160
+      "desk_rank": 161
     },
     {
       "id": "x-2116222007658586306",
@@ -7208,7 +7251,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 1,
       "views": 2491,
-      "desk_rank": 161
+      "desk_rank": 162
     },
     {
       "id": "x-2116144490993832250",
@@ -7251,7 +7294,7 @@
       "media_url": "https://pbs.twimg.com/media/HV4OEyrXoAAaqBg.jpg",
       "list_count": 2,
       "views": 1363,
-      "desk_rank": 162
+      "desk_rank": 163
     },
     {
       "id": "x-2117691389265784919",
@@ -7292,7 +7335,7 @@
       "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2117691327240388608/pu/img/Rklk0_3GWNQqca_u.jpg",
       "list_count": 1,
       "views": 21676,
-      "desk_rank": 163
+      "desk_rank": 164
     },
     {
       "id": "x-2116181430359511443",
@@ -7333,7 +7376,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116177737778167809/img/3TkBGjOnva5_-o4-.jpg",
       "list_count": 1,
       "views": 9844,
-      "desk_rank": 164
+      "desk_rank": 165
     },
     {
       "id": "x-2116576079632912834",
@@ -7374,7 +7417,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116575995683913728/img/HerUHqv3Y7i_BXkc.jpg",
       "list_count": 1,
       "views": 7381,
-      "desk_rank": 165
+      "desk_rank": 166
     },
     {
       "id": "x-2116621333992005911",
@@ -7414,7 +7457,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116621244636504064/img/oYscG-9y5Zmzvwen.jpg",
       "list_count": 1,
       "views": 3627,
-      "desk_rank": 166
+      "desk_rank": 167
     },
     {
       "id": "x-2115936769229176975",
@@ -7455,7 +7498,7 @@
       "media_url": "https://pbs.twimg.com/media/HV1RRIJWoAA3Dud.jpg",
       "list_count": 1,
       "views": 3018,
-      "desk_rank": 167
+      "desk_rank": 168
     },
     {
       "id": "x-2117255449657725295",
@@ -7495,7 +7538,7 @@
       "media_url": "https://pbs.twimg.com/media/HWH9-TrWsAAMTkn.jpg",
       "list_count": 1,
       "views": 414,
-      "desk_rank": 168
+      "desk_rank": 169
     },
     {
       "id": "x-2116131501519868036",
@@ -7535,7 +7578,7 @@
       "media_url": "https://pbs.twimg.com/amplify_video_thumb/2116221949953331200/img/dGq5SPPYbafhm1E4.jpg",
       "list_count": 2,
       "views": 7,
-      "desk_rank": 169
+      "desk_rank": 170
     },
     {
       "id": "x-2116586054857719916",
@@ -7576,7 +7619,7 @@
       "media_url": "https://pbs.twimg.com/news_img/2116586056208269312/umgR00XK?format=jpg&name=orig",
       "list_count": 1,
       "views": 18549,
-      "desk_rank": 170
+      "desk_rank": 171
     },
     {
       "id": "x-2116621403327762856",
@@ -7617,10 +7660,31 @@
       "media_url": "https://pbs.twimg.com/news_img/2116621406511239168/RaJ-A8va?format=jpg&name=orig",
       "list_count": 1,
       "views": 17296,
-      "desk_rank": 171
+      "desk_rank": 172
     }
   ],
   "signals": [
+    {
+      "id": "sig-x-2119086689201316272",
+      "title": "Inkling 2 Small is free on OpenCode for a limited time, Soumith Chintala says",
+      "text": "Robert's AI Community lists carried @soumithchintala.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Community lists carried @soumithchintala.",
+      "list_names": [
+        "AI Community #1 of 9"
+      ],
+      "chip_labels": [
+        "AI Community"
+      ],
+      "created_at": "2026-11-07T15:16:52.000Z",
+      "source_url": "https://x.com/soumithchintala/status/2119086689201316272",
+      "analysis": "Robert's AI Community lists carried @soumithchintala.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
     {
       "id": "sig-x-2118822925445050435",
       "title": "Nous Research introduces Arete 27B, a Qwen post training effort focused on Western values",
@@ -7787,27 +7851,29 @@
     {
       "id": "sig-x-2118795742651482557",
       "title": "Factory puts its Droid coding agent inside Microsoft Teams channels",
-      "text": "Robert's AI Companies: Developers, AI's Best, AI Companies and 1 more lists carried @factory, @gregisenberg, @grok.",
+      "text": "Robert's AI Companies: Developers, AI's Best, AI Companies and 2 more lists carried @factory, @gregisenberg, @grok.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI Companies: Developers, AI's Best, AI Companies and 1 more lists carried @factory, @gregisenberg, @grok.",
+      "source_list": "Robert's AI Companies: Developers, AI's Best, AI Companies and 2 more lists carried @factory, @gregisenberg, @grok.",
       "list_names": [
         "AI Companies: Developers",
         "AI's Best",
         "AI Companies: #2 of 2-All",
-        "AI Orgs & Events"
+        "AI Orgs & Events",
+        "AI Community #4 of 9"
       ],
       "chip_labels": [
         "AI Companies: Developers",
         "AI's Best",
         "AI Companies:-All",
-        "AI Orgs"
+        "AI Orgs",
+        "AI Community"
       ],
       "created_at": "2026-11-06T20:00:45.000Z",
       "source_url": "https://x.com/factory/status/2118795742651482557",
-      "analysis": "Robert's AI Companies: Developers, AI's Best, AI Companies and 1 more lists carried @factory, @gregisenberg, @grok.",
+      "analysis": "Robert's AI Companies: Developers, AI's Best, AI Companies and 2 more lists carried @factory, @gregisenberg, @grok.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -7846,16 +7912,16 @@
         "Quantum",
         "AR/VR Companies",
         "Spatial Computing",
-        "AI Community #6 of 9",
-        "AI Influencers"
+        "AI Influencers",
+        "Cybersecurity"
       ],
       "chip_labels": [
         "AI Companies: Developers",
         "Quantum",
         "AR/VR Companies",
         "Spatial Computing",
-        "AI Community",
-        "AI Influencers"
+        "AI Influencers",
+        "Cybersecurity"
       ],
       "created_at": "2026-11-06T16:20:19.000Z",
       "source_url": "https://x.com/OpenRouter/status/2118740269302759597",
@@ -7866,58 +7932,62 @@
     {
       "id": "sig-x-2118768974779634084",
       "title": "Meta brings Muse Wonder trained specialized models into Muse and Meta AI",
-      "text": "Robert's AI Orgs & Events, AI's Best, AI Community and 2 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
+      "text": "Robert's AI Orgs & Events, AI's Best, AI Community and 3 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert's AI Orgs & Events, AI's Best, AI Community and 2 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
+      "source_list": "Robert's AI Orgs & Events, AI's Best, AI Community and 3 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
       "list_names": [
         "AI Orgs & Events",
         "AI's Best",
         "AI Community #6 of 9",
         "AI Founders #3 of 3",
-        "Neuroscience"
+        "Neuroscience",
+        "AR/VR Companies"
       ],
       "chip_labels": [
         "AI Orgs",
         "AI's Best",
         "AI Community",
         "AI Founders",
-        "Neuroscience"
+        "Neuroscience",
+        "AR/VR Companies"
       ],
       "created_at": "2026-11-06T18:14:23.000Z",
       "source_url": "https://x.com/AIatMeta/status/2118768974779634084",
-      "analysis": "Robert's AI Orgs & Events, AI's Best, AI Community and 2 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
+      "analysis": "Robert's AI Orgs & Events, AI's Best, AI Community and 3 more lists carried @AIatMeta, @kimmonismus, @infinterenders.",
       "topic_key": "models",
       "topic_label": "Models"
     },
     {
       "id": "sig-x-2118701973075865973",
       "title": "Smallest.ai says Lightning 3.1 Pro leads Hindi real time TTS on Voice Arena",
-      "text": "Robert's AI Companies: Voice, AI: Decentralized, Tech Journalists/Analysts and 2 more lists carried @smallest_AI, @x402_Layer, @davetroy.",
+      "text": "Robert's AI Companies: Voice, Tech Journalists/Analysts, AI Companies: Science/Med and 3 more lists carried @smallest_AI, @davetroy, @Larvol.",
       "badge": "signal",
       "category": "models",
       "section_key": "models",
       "section_label": "Models",
-      "source_list": "Robert's AI Companies: Voice, AI: Decentralized, Tech Journalists/Analysts and 2 more lists carried @smallest_AI, @x402_Layer, @davetroy.",
+      "source_list": "Robert's AI Companies: Voice, Tech Journalists/Analysts, AI Companies: Science/Med and 3 more lists carried @smallest_AI, @davetroy, @Larvol.",
       "list_names": [
         "AI Companies: Voice",
-        "AI: Decentralized",
         "Tech Journalists/Analysts",
         "AI Companies: Science/Med",
-        "News #3 of 3"
+        "AI: Decentralized",
+        "News #3 of 3",
+        "AI Community #6 of 9"
       ],
       "chip_labels": [
         "AI Companies: Voice",
-        "AI: Decentralized",
         "Tech Journalists/Analysts",
         "AI Companies: Science/Med",
-        "News"
+        "AI: Decentralized",
+        "News",
+        "AI Community"
       ],
       "created_at": "2026-11-06T13:48:08.000Z",
       "source_url": "https://x.com/smallest_AI/status/2118701973075865973",
-      "analysis": "Robert's AI Companies: Voice, AI: Decentralized, Tech Journalists/Analysts and 2 more lists carried @smallest_AI, @x402_Layer, @davetroy.",
+      "analysis": "Robert's AI Companies: Voice, Tech Journalists/Analysts, AI Companies: Science/Med and 3 more lists carried @smallest_AI, @davetroy, @Larvol.",
       "topic_key": "models",
       "topic_label": "Models"
     },
@@ -8053,31 +8123,6 @@
       "analysis": "Robert's AI Companies: Education, AI's Best, AI Community and 1 more lists carried @perplexity_ai, @apostraphi, @wallstengine.",
       "topic_key": "products",
       "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2118733156069032292",
-      "title": "Double AI shows coding agents rewriting live training networks, not just weights",
-      "text": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @PrimaMente.",
-      "badge": "signal",
-      "category": "labs",
-      "section_key": "labs",
-      "section_label": "Labs",
-      "source_list": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @PrimaMente.",
-      "list_names": [
-        "AI Companies: Science/Med",
-        "AI Vehicles",
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI Companies: Science/Med",
-        "AI Vehicles",
-        "AI Orgs"
-      ],
-      "created_at": "2026-11-06T15:52:03.000Z",
-      "source_url": "https://x.com/_doubleAI_/status/2118733156069032292",
-      "analysis": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @PrimaMente.",
-      "topic_key": "labs",
-      "topic_label": "Labs"
     },
     {
       "id": "sig-x-2119013634403971246",
@@ -8325,6 +8370,31 @@
       "topic_label": "Products"
     },
     {
+      "id": "sig-x-2118733156069032292",
+      "title": "Double AI shows coding agents rewriting live training networks, not just weights",
+      "text": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @QwenAIFans.",
+      "badge": "signal",
+      "category": "labs",
+      "section_key": "labs",
+      "section_label": "Labs",
+      "source_list": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @QwenAIFans.",
+      "list_names": [
+        "AI Companies: Science/Med",
+        "AI Vehicles",
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Companies: Science/Med",
+        "AI Vehicles",
+        "AI Orgs"
+      ],
+      "created_at": "2026-11-06T15:52:03.000Z",
+      "source_url": "https://x.com/_doubleAI_/status/2118733156069032292",
+      "analysis": "Robert's AI Companies: Science/Med, AI Vehicles, AI Orgs & Events lists carried @_doubleAI_, @Arbe_Robotics, @QwenAIFans.",
+      "topic_key": "labs",
+      "topic_label": "Labs"
+    },
+    {
       "id": "sig-x-2116220869479428500",
       "title": "Anthropic renames Claude Max 20x to Ultra and drops the 5 hour limit for verified Ultra accounts",
       "text": "Robert's AI Companies: Marketing, AI Companies: Education, AI Companies: Science/Med and 6 more lists carried @claudeai, @AndruEdwards, @itsharmanjot.",
@@ -8415,31 +8485,31 @@
     {
       "id": "sig-x-2118755960550261233",
       "title": "Artificial Analysis VIALS board ranks Gemini 4 Carbon first on scientific visual reasoning",
-      "text": "Robert's AI Orgs & Events, AI Community, AI Policy and 3 more lists carried @StatsWire, @alfchung, @theobearman.",
+      "text": "Robert's AI Orgs & Events, AI Policy, AI: Computer Vision and 2 more lists carried @StatsWire, @theobearman, @OpticaWorldwide.",
       "badge": "signal",
       "category": "papers",
       "section_key": "papers",
       "section_label": "Papers",
-      "source_list": "Robert's AI Orgs & Events, AI Community, AI Policy and 3 more lists carried @StatsWire, @alfchung, @theobearman.",
+      "source_list": "Robert's AI Orgs & Events, AI Policy, AI: Computer Vision and 2 more lists carried @StatsWire, @theobearman, @OpticaWorldwide.",
       "list_names": [
         "AI Orgs & Events",
-        "AI Community #4 of 9",
         "AI Policy",
         "AI: Computer Vision",
         "AI Companies: #2 of 2-All",
-        "AI Creative People"
+        "AI Community #4 of 9",
+        "AI Community #1 of 9",
+        "AI Community #8 of 9"
       ],
       "chip_labels": [
         "AI Orgs",
-        "AI Community",
         "AI Policy",
         "AI: Computer Vision",
         "AI Companies:-All",
-        "AI Creative People"
+        "AI Community"
       ],
       "created_at": "2026-11-06T17:22:40.000Z",
       "source_url": "https://x.com/StatsWire/status/2118755960550261233",
-      "analysis": "Robert's AI Orgs & Events, AI Community, AI Policy and 3 more lists carried @StatsWire, @alfchung, @theobearman.",
+      "analysis": "Robert's AI Orgs & Events, AI Policy, AI: Computer Vision and 2 more lists carried @StatsWire, @theobearman, @OpticaWorldwide.",
       "topic_key": "papers",
       "topic_label": "Papers"
     },
@@ -8550,6 +8620,56 @@
       "topic_label": "Models"
     },
     {
+      "id": "sig-x-2118652111609348588",
+      "title": "Machine Skill turns a one line machine description into a 3D simulation in Claude Code",
+      "text": "Robert's AI Companies: Real Estate list carried @dextune.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Real Estate list carried @dextune.",
+      "list_names": [
+        "AI Companies: Real Estate"
+      ],
+      "chip_labels": [
+        "AI Companies: Real Estate"
+      ],
+      "created_at": "2026-11-06T10:30:00.000Z",
+      "source_url": "https://x.com/dextune/status/2118652111609348588",
+      "analysis": "Robert's AI Companies: Real Estate list carried @dextune.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2115985388649242699",
+      "title": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
+      "text": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 2 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 2 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
+      "list_names": [
+        "AI Companies: #2 of 2-All",
+        "AI Companies: Developers",
+        "AI Orgs & Events",
+        "AI's Best",
+        "Infrastructure"
+      ],
+      "chip_labels": [
+        "AI Companies:-All",
+        "AI Companies: Developers",
+        "AI Orgs",
+        "AI's Best",
+        "Infrastructure"
+      ],
+      "created_at": "2026-10-30T01:53:24.000Z",
+      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
+      "analysis": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 2 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
       "id": "sig-x-2118674700624711967",
       "title": "Visa shopping tests find AI agents failed often and still completed purchases",
       "text": "Robert's Founders, AI Orgs & Events, SpaceX (AI/SI) and 3 more lists carried @sytaylor, @StatsWire, @blankspeaker.",
@@ -8579,37 +8699,6 @@
       "analysis": "Robert's Founders, AI Orgs & Events, SpaceX (AI/SI) and 3 more lists carried @sytaylor, @StatsWire, @blankspeaker.",
       "topic_key": "policy",
       "topic_label": "Policy"
-    },
-    {
-      "id": "sig-x-2115985388649242699",
-      "title": "Mistral releases open weights for Mistral Large 4, a roughly 1T parameter MoE model",
-      "text": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 3 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
-      "badge": "signal",
-      "category": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "source_list": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 3 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
-      "list_names": [
-        "AI Companies: #2 of 2-All",
-        "AI Companies: Developers",
-        "AI Orgs & Events",
-        "AI's Best",
-        "Infrastructure",
-        "AI Community #1 of 9"
-      ],
-      "chip_labels": [
-        "AI Companies:-All",
-        "AI Companies: Developers",
-        "AI Orgs",
-        "AI's Best",
-        "Infrastructure",
-        "AI Community"
-      ],
-      "created_at": "2026-10-30T01:53:24.000Z",
-      "source_url": "https://x.com/vllm_project/status/2115985388649242699",
-      "analysis": "Robert's AI Companies, AI Companies: Developers, AI Orgs & Events and 3 more lists carried @vllm_project, @HuggingModels, @thehypedotnews.",
-      "topic_key": "models",
-      "topic_label": "Models"
     },
     {
       "id": "sig-x-2118313713396793615",
@@ -8678,19 +8767,19 @@
     {
       "id": "sig-x-2118727627397853586",
       "title": "NVIDIA SimReady Central puts thousands of OpenUSD robot assets on Hugging Face",
-      "text": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @0x0SojalSec, @bert_on_spec.",
+      "text": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @bert_on_spec, @CircAHA.",
       "badge": "signal",
       "category": "robotics",
       "section_key": "robotics",
       "section_label": "Robotics",
-      "source_list": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @0x0SojalSec, @bert_on_spec.",
+      "source_list": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @bert_on_spec, @CircAHA.",
       "list_names": [
         "Robot Influencers/Media",
-        "AI Community #6 of 9",
         "AI Community #3 of 9",
         "AI Companies: Science/Med",
         "Quantum",
-        "Tech News"
+        "Tech News",
+        "AI Community #6 of 9"
       ],
       "chip_labels": [
         "Robot Influencers/Media",
@@ -8701,7 +8790,7 @@
       ],
       "created_at": "2026-11-06T15:30:05.000Z",
       "source_url": "https://x.com/TheHumanoidHub/status/2118727627397853586",
-      "analysis": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @0x0SojalSec, @bert_on_spec.",
+      "analysis": "Robert's Robot Influencers/Media, AI Community, AI Companies: Science/Med and 2 more lists carried @TheHumanoidHub, @bert_on_spec, @CircAHA.",
       "topic_key": "robotics",
       "topic_label": "Robotics"
     },
@@ -8809,27 +8898,6 @@
       "analysis": "Robert's AI Companies: Marketing, AI Community, News lists carried @OpenAI, @alightinastorm, @jakehandy.",
       "topic_key": "policy",
       "topic_label": "Policy"
-    },
-    {
-      "id": "sig-x-2118652111609348588",
-      "title": "Machine Skill turns a one line machine description into a 3D simulation in Claude Code",
-      "text": "Robert's AI Companies: Real Estate list carried @dextune.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Real Estate list carried @dextune.",
-      "list_names": [
-        "AI Companies: Real Estate"
-      ],
-      "chip_labels": [
-        "AI Companies: Real Estate"
-      ],
-      "created_at": "2026-11-06T10:30:00.000Z",
-      "source_url": "https://x.com/dextune/status/2118652111609348588",
-      "analysis": "Robert's AI Companies: Real Estate list carried @dextune.",
-      "topic_key": "products",
-      "topic_label": "Products"
     },
     {
       "id": "sig-x-2118727417661465013",
@@ -9231,29 +9299,6 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2118035494898704781",
-      "title": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
-      "text": "Robert's AI Companies: Education, AI's Best lists carried @perplexity_ai, @aiedge_.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Education, AI's Best lists carried @perplexity_ai, @aiedge_.",
-      "list_names": [
-        "AI Companies: Education",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "AI Companies: Education",
-        "AI's Best"
-      ],
-      "created_at": "2026-11-04T17:39:47.000Z",
-      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
-      "analysis": "Robert's AI Companies: Education, AI's Best lists carried @perplexity_ai, @aiedge_.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2118455675504263619",
       "title": "Google research uses smartwatch sensors to passively flag hypertension signs",
       "text": "Robert's AI Companies: Science/Med lists carried @GoogleForHealth.",
@@ -9292,6 +9337,31 @@
       "created_at": "2026-11-05T21:40:25.000Z",
       "source_url": "https://x.com/inworld/status/2118458438191583232",
       "analysis": "Robert's AI Companies: Voice lists carried @inworld.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2115859377488072879",
+      "title": "Anthropic's Claude apps add CarPlay voice mode, iPad side by side artifacts and laptop style Android",
+      "text": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @Tech_Tafsin.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @Tech_Tafsin.",
+      "list_names": [
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI Influencers"
+      ],
+      "chip_labels": [
+        "AI Companies: Education",
+        "AI Companies: Science/Med",
+        "AI Influencers"
+      ],
+      "created_at": "2026-10-29T17:32:41.000Z",
+      "source_url": "https://x.com/claudeai/status/2115859377488072879",
+      "analysis": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @Tech_Tafsin.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -9337,8 +9407,8 @@
         "Infrastructure",
         "AI Orgs & Events",
         "AI Community #1 of 9",
-        "AI Community #2 of 9",
-        "AI Community #6 of 9"
+        "AI Community #6 of 9",
+        "AI Community #9 of 9"
       ],
       "chip_labels": [
         "Tech News",
@@ -9350,31 +9420,6 @@
       "created_at": "2026-11-05T13:35:06.000Z",
       "source_url": "https://x.com/InfoWorld/status/2118336305520164998",
       "analysis": "Robert's Tech News, Founders, Infrastructure and 2 more lists carried @InfoWorld, @YvesMulkers, @7wData.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2115859377488072879",
-      "title": "Anthropic's Claude apps add CarPlay voice mode, iPad side by side artifacts and laptop style Android",
-      "text": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @Tech_Tafsin.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @Tech_Tafsin.",
-      "list_names": [
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Influencers"
-      ],
-      "chip_labels": [
-        "AI Companies: Education",
-        "AI Companies: Science/Med",
-        "AI Influencers"
-      ],
-      "created_at": "2026-10-29T17:32:41.000Z",
-      "source_url": "https://x.com/claudeai/status/2115859377488072879",
-      "analysis": "Robert's AI Companies: Education, AI Companies: Science/Med, AI Influencers lists carried @claudeai, @Tech_Tafsin.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -9423,48 +9468,6 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2118512043435401280",
-      "title": "LSEG cuts market data backtests from hours to about a minute with NVIDIA AI",
-      "text": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "list_names": [
-        "Tech Companies"
-      ],
-      "chip_labels": [
-        "Tech Companies"
-      ],
-      "created_at": "2026-11-06T01:13:25.000Z",
-      "source_url": "https://x.com/NVIDIAAI/status/2118512043435401280",
-      "analysis": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2118512036523225530",
-      "title": "Cohere’s North platform helps teams control and secure tool using AI agents",
-      "text": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "list_names": [
-        "Tech Companies"
-      ],
-      "chip_labels": [
-        "Tech Companies"
-      ],
-      "created_at": "2026-11-06T01:13:24.000Z",
-      "source_url": "https://x.com/NVIDIAAI/status/2118512036523225530",
-      "analysis": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2116573344283681010",
       "title": "Anthropic's IPO filing reports an $80B loss as leveraged ANT ETFs wait on approval",
       "text": "Robert's AI Orgs & Events, Tech VIPs, AI's Best and 1 more lists carried @LifeboatHQ, @martinvars, @MTSlive.",
@@ -9490,6 +9493,48 @@
       "analysis": "Robert's AI Orgs & Events, Tech VIPs, AI's Best and 1 more lists carried @LifeboatHQ, @martinvars, @MTSlive.",
       "topic_key": "funding",
       "topic_label": "Funding"
+    },
+    {
+      "id": "sig-x-2118512036523225530",
+      "title": "Cohere’s North platform helps teams control and secure tool using AI agents",
+      "text": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "created_at": "2026-11-06T01:13:24.000Z",
+      "source_url": "https://x.com/NVIDIAAI/status/2118512036523225530",
+      "analysis": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118512043435401280",
+      "title": "LSEG cuts market data backtests from hours to about a minute with NVIDIA AI",
+      "text": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "list_names": [
+        "Tech Companies"
+      ],
+      "chip_labels": [
+        "Tech Companies"
+      ],
+      "created_at": "2026-11-06T01:13:25.000Z",
+      "source_url": "https://x.com/NVIDIAAI/status/2118512043435401280",
+      "analysis": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2118738862583271504",
@@ -9644,31 +9689,6 @@
       "analysis": "Robert's Tech Companies lists carried @NVIDIAAI.",
       "topic_key": "products",
       "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2118151126445129928",
-      "title": "CMU lab releases Pixel, a sub $15K wheeled humanoid co designed with a sub $1K UMI data kit",
-      "text": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
-      "badge": "signal",
-      "category": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "source_list": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
-      "list_names": [
-        "Robotics in San Francisco",
-        "AI's Best",
-        "Robot Influencers/Media"
-      ],
-      "chip_labels": [
-        "Robotics in San Francisco",
-        "AI's Best",
-        "Robot Influencers/Media"
-      ],
-      "created_at": "2026-11-05T01:19:16.000Z",
-      "source_url": "https://x.com/deepakpathak/status/2118151126445129928",
-      "analysis": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2118545162670383517",
@@ -9832,27 +9852,6 @@
       "topic_label": "Chips"
     },
     {
-      "id": "sig-x-2118512038221934853",
-      "title": "McCarthy and Palantir use AI agents to reclaim about 30,000 preconstruction hours",
-      "text": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "list_names": [
-        "Tech Companies"
-      ],
-      "chip_labels": [
-        "Tech Companies"
-      ],
-      "created_at": "2026-11-06T01:13:24.000Z",
-      "source_url": "https://x.com/NVIDIAAI/status/2118512038221934853",
-      "analysis": "Robert's Tech Companies lists carried @NVIDIAAI.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2116598588172374141",
       "title": "a16z: token prices are down 67% since May, but token spend is up more than 120%",
       "text": "Robert's VC Firms, SpaceX (AI/SI), AI Community and 2 more lists carried @a16z, @aegeantic, @StephanSturges.",
@@ -9885,25 +9884,44 @@
       "topic_label": "Funding"
     },
     {
-      "id": "sig-x-2118360866517127217",
-      "title": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
-      "text": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "id": "sig-x-2118512038221934853",
+      "title": "McCarthy and Palantir use AI agents to reclaim about 30,000 preconstruction hours",
+      "text": "Robert's Tech Companies lists carried @NVIDIAAI.",
       "badge": "signal",
       "category": "products",
       "section_key": "products",
       "section_label": "Products",
-      "source_list": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "source_list": "Robert's Tech Companies lists carried @NVIDIAAI.",
       "list_names": [
-        "AI Community #7 of 9",
-        "AI Orgs & Events"
+        "Tech Companies"
       ],
       "chip_labels": [
-        "AI Community",
-        "AI Orgs"
+        "Tech Companies"
       ],
-      "created_at": "2026-11-05T15:12:42.000Z",
-      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
-      "analysis": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "created_at": "2026-11-06T01:13:24.000Z",
+      "source_url": "https://x.com/NVIDIAAI/status/2118512038221934853",
+      "analysis": "Robert's Tech Companies lists carried @NVIDIAAI.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118035494898704781",
+      "title": "Perplexity says its Computer agent beat a brand's ad agency on $30k of Meta ad spend",
+      "text": "Robert's AI Companies: Education lists carried @perplexity_ai.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Education lists carried @perplexity_ai.",
+      "list_names": [
+        "AI Companies: Education"
+      ],
+      "chip_labels": [
+        "AI Companies: Education"
+      ],
+      "created_at": "2026-11-04T17:39:47.000Z",
+      "source_url": "https://x.com/perplexity_ai/status/2118035494898704781",
+      "analysis": "Robert's AI Companies: Education lists carried @perplexity_ai.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -9929,6 +9947,29 @@
       "topic_label": "Policy"
     },
     {
+      "id": "sig-x-2118360866517127217",
+      "title": "Hermes ships mcp serve so Claude Code can read and answer Telegram, Discord and Slack over one MCP server",
+      "text": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "list_names": [
+        "AI Community #7 of 9",
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AI Orgs"
+      ],
+      "created_at": "2026-11-05T15:12:42.000Z",
+      "source_url": "https://x.com/HermesAgentTips/status/2118360866517127217",
+      "analysis": "Robert's AI Community, AI Orgs & Events lists carried @HermesAgentTips, @HermesWatcher.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
       "id": "sig-x-2118078402544734421",
       "title": "Block opens its Sequential Store playbook for Foundational Event Models on Cash App and Square data",
       "text": "Robert's AI Companies: Voice lists carried @blocks.",
@@ -9946,27 +9987,6 @@
       "created_at": "2026-11-04T20:30:17.000Z",
       "source_url": "https://x.com/blocks/status/2118078402544734421",
       "analysis": "Robert's AI Companies: Voice lists carried @blocks.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
-      "id": "sig-x-2118494020855005652",
-      "title": "Swarms ships v17 InterLink with multi agent orchestration upgrades and new developer guides",
-      "text": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
-      "list_names": [
-        "AI Companies: Marketing"
-      ],
-      "chip_labels": [
-        "AI Companies: Marketing"
-      ],
-      "created_at": "2026-11-06T00:01:48.000Z",
-      "source_url": "https://x.com/swarms_corp/status/2118494020855005652",
-      "analysis": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
       "topic_key": "products",
       "topic_label": "Products"
     },
@@ -10109,33 +10129,55 @@
     {
       "id": "sig-x-2116564505719185593",
       "title": "DeepSeek V4.1 Flash becomes the most used method on Papers with Code",
-      "text": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 2 more lists carried @NielsRogge, @UnslothAI, @ashxhart.",
+      "text": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 3 more lists carried @NielsRogge, @UnslothAI, @ivanfioravanti.",
       "badge": "signal",
       "category": "papers",
       "section_key": "papers",
       "section_label": "Papers",
-      "source_list": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 2 more lists carried @NielsRogge, @UnslothAI, @ashxhart.",
+      "source_list": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 3 more lists carried @NielsRogge, @UnslothAI, @ivanfioravanti.",
       "list_names": [
         "AI: Computer Vision",
         "AI Companies: #1 of 2-All",
         "AI Companies: Developers",
+        "AI's Best",
         "AI Community #9 of 9",
         "AI Companies: Science/Med",
-        "AI Community #6 of 9",
-        "AI Community #8 of 9"
+        "AI Community #2 of 9"
       ],
       "chip_labels": [
         "AI: Computer Vision",
         "AI Companies:-All",
         "AI Companies: Developers",
+        "AI's Best",
         "AI Community",
         "AI Companies: Science/Med"
       ],
       "created_at": "2026-10-31T16:14:36.000Z",
       "source_url": "https://x.com/NielsRogge/status/2116564505719185593",
-      "analysis": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 2 more lists carried @NielsRogge, @UnslothAI, @ashxhart.",
+      "analysis": "Robert's AI: Computer Vision, AI Companies, AI Companies: Developers and 3 more lists carried @NielsRogge, @UnslothAI, @ivanfioravanti.",
       "topic_key": "papers",
       "topic_label": "Papers"
+    },
+    {
+      "id": "sig-x-2118494020855005652",
+      "title": "Swarms ships v17 InterLink with multi agent orchestration upgrades and new developer guides",
+      "text": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
+      "list_names": [
+        "AI Companies: Marketing"
+      ],
+      "chip_labels": [
+        "AI Companies: Marketing"
+      ],
+      "created_at": "2026-11-06T00:01:48.000Z",
+      "source_url": "https://x.com/swarms_corp/status/2118494020855005652",
+      "analysis": "Robert's AI Companies: Marketing lists carried @swarms_corp.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2116188727579918358",
@@ -10254,29 +10296,6 @@
       "topic_label": "Models"
     },
     {
-      "id": "sig-x-2118442005651169644",
-      "title": "Mistral Studio adds managed agents and hosted apps, according to product reports",
-      "text": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
-      "list_names": [
-        "AI's Best",
-        "AI Community #8 of 9"
-      ],
-      "chip_labels": [
-        "AI's Best",
-        "AI Community"
-      ],
-      "created_at": "2026-11-05T20:35:07.000Z",
-      "source_url": "https://x.com/thehypedotnews/status/2118442005651169644",
-      "analysis": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2115962853463396395",
       "title": "NVIDIA pits open Nemotron Retriever against another open source retrieval stack on accuracy and token use",
       "text": "Robert's AI Companies, AI Companies: Developers, AI Companies: Work and 1 more lists carried @NVIDIAAI.",
@@ -10304,6 +10323,29 @@
       "topic_label": "Models"
     },
     {
+      "id": "sig-x-2118442005651169644",
+      "title": "Mistral Studio adds managed agents and hosted apps, according to product reports",
+      "text": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
+      "list_names": [
+        "AI's Best",
+        "AI Community #8 of 9"
+      ],
+      "chip_labels": [
+        "AI's Best",
+        "AI Community"
+      ],
+      "created_at": "2026-11-05T20:35:07.000Z",
+      "source_url": "https://x.com/thehypedotnews/status/2118442005651169644",
+      "analysis": "Robert's AI's Best, AI Community lists carried @thehypedotnews, @v_arustamov.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
       "id": "sig-x-2117680635561312732",
       "title": "Anthropic lets Claude users auto connect plugins at login, with Claude acting as a trusted issuer for MCP servers",
       "text": "Robert's AI Companies: Developers lists carried @ClaudeDevs.",
@@ -10323,6 +10365,31 @@
       "analysis": "Robert's AI Companies: Developers lists carried @ClaudeDevs.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118151126445129928",
+      "title": "CMU lab releases Pixel, a sub $15K wheeled humanoid co designed with a sub $1K UMI data kit",
+      "text": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
+      "list_names": [
+        "Robotics in San Francisco",
+        "AI's Best",
+        "Robot Influencers/Media"
+      ],
+      "chip_labels": [
+        "Robotics in San Francisco",
+        "AI's Best",
+        "Robot Influencers/Media"
+      ],
+      "created_at": "2026-11-05T01:19:16.000Z",
+      "source_url": "https://x.com/deepakpathak/status/2118151126445129928",
+      "analysis": "Robert's Robotics in San Francisco, AI's Best, Robot Influencers/Media lists carried @deepakpathak, @chris_j_paxton, @humanoidsdaily.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2116254202301493459",
@@ -10373,32 +10440,6 @@
       "analysis": "Robert's AI Companies, AI's Best, AI Companies: Developers and 1 more lists carried @NVIDIAAI.",
       "topic_key": "chips",
       "topic_label": "Chips"
-    },
-    {
-      "id": "sig-x-2116593734502797644",
-      "title": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
-      "text": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @melvindvivas, @TechMDAI.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @melvindvivas, @TechMDAI.",
-      "list_names": [
-        "AI Community #5 of 9",
-        "AI Community #7 of 9",
-        "AR/VR Community #2 of 2",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "AI Community",
-        "AR/VR Community",
-        "AI's Best"
-      ],
-      "created_at": "2026-10-31T18:10:45.000Z",
-      "source_url": "https://x.com/dedene/status/2116593734502797644",
-      "analysis": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @melvindvivas, @TechMDAI.",
-      "topic_key": "products",
-      "topic_label": "Products"
     },
     {
       "id": "sig-x-2116235413962854557",
@@ -10468,29 +10509,6 @@
       "analysis": "Robert's AI Companies: Voice lists carried @smallest_AI.",
       "topic_key": "models",
       "topic_label": "Models"
-    },
-    {
-      "id": "sig-x-2118368740819800135",
-      "title": "Apple is reportedly building a home robot with a 9 inch display after HomeView",
-      "text": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @TheRundownAI, @thePandaily.",
-      "badge": "signal",
-      "category": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "source_list": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @TheRundownAI, @thePandaily.",
-      "list_names": [
-        "Robot Influencers/Media",
-        "AI's Best"
-      ],
-      "chip_labels": [
-        "Robot Influencers/Media",
-        "AI's Best"
-      ],
-      "created_at": "2026-11-05T15:43:59.000Z",
-      "source_url": "https://x.com/CyberRobooo/status/2118368740819800135",
-      "analysis": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @TheRundownAI, @thePandaily.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2116236718957314116",
@@ -10679,27 +10697,6 @@
       "topic_label": "Creatives"
     },
     {
-      "id": "sig-x-2118312415276204328",
-      "title": "Grafana says Assistant error rate fell to 0.65% after six months of agent tooling work",
-      "text": "Robert's AI Companies: Developers lists carried @grafana.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's AI Companies: Developers lists carried @grafana.",
-      "list_names": [
-        "AI Companies: Developers"
-      ],
-      "chip_labels": [
-        "AI Companies: Developers"
-      ],
-      "created_at": "2026-11-05T12:00:10.000Z",
-      "source_url": "https://x.com/grafana/status/2118312415276204328",
-      "analysis": "Robert's AI Companies: Developers lists carried @grafana.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2115480443307041130",
       "title": "Samaya AI's Sterling model beats Claude on FrontierFinance at 11x lower cost",
       "text": "Robert's AI Companies: Education lists carried @samaya_AI.",
@@ -10719,6 +10716,27 @@
       "analysis": "Robert's AI Companies: Education lists carried @samaya_AI.",
       "topic_key": "models",
       "topic_label": "Models"
+    },
+    {
+      "id": "sig-x-2118312415276204328",
+      "title": "Grafana says Assistant error rate fell to 0.65% after six months of agent tooling work",
+      "text": "Robert's AI Companies: Developers lists carried @grafana.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Companies: Developers lists carried @grafana.",
+      "list_names": [
+        "AI Companies: Developers"
+      ],
+      "chip_labels": [
+        "AI Companies: Developers"
+      ],
+      "created_at": "2026-11-05T12:00:10.000Z",
+      "source_url": "https://x.com/grafana/status/2118312415276204328",
+      "analysis": "Robert's AI Companies: Developers lists carried @grafana.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2117663862564573240",
@@ -10767,27 +10785,6 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2118343990059872466",
-      "title": "Asimov Inc shows its open source Asimov 1 humanoid dancing on day 374 of the build",
-      "text": "Robert's Robotics (AI/SI) lists carried @asimovinc.",
-      "badge": "signal",
-      "category": "robotics",
-      "section_key": "robotics",
-      "section_label": "Robotics",
-      "source_list": "Robert's Robotics (AI/SI) lists carried @asimovinc.",
-      "list_names": [
-        "Robotics (AI/SI)"
-      ],
-      "chip_labels": [
-        "Robotics (AI/SI)"
-      ],
-      "created_at": "2026-11-05T14:05:38.000Z",
-      "source_url": "https://x.com/asimovinc/status/2118343990059872466",
-      "analysis": "Robert's Robotics (AI/SI) lists carried @asimovinc.",
-      "topic_key": "robotics",
-      "topic_label": "Robotics"
-    },
-    {
       "id": "sig-x-2117249008972550447",
       "title": "Deep Principle launches Hydrogen 1.0, a general purpose AI model for scientific discovery",
       "text": "Robert's AI Companies: Science/Med lists carried @DeepPrinciple.",
@@ -10807,6 +10804,27 @@
       "analysis": "Robert's AI Companies: Science/Med lists carried @DeepPrinciple.",
       "topic_key": "models",
       "topic_label": "Models"
+    },
+    {
+      "id": "sig-x-2118343990059872466",
+      "title": "Asimov Inc shows its open source Asimov 1 humanoid dancing on day 374 of the build",
+      "text": "Robert's Robotics (AI/SI) lists carried @asimovinc.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's Robotics (AI/SI) lists carried @asimovinc.",
+      "list_names": [
+        "Robotics (AI/SI)"
+      ],
+      "chip_labels": [
+        "Robotics (AI/SI)"
+      ],
+      "created_at": "2026-11-05T14:05:38.000Z",
+      "source_url": "https://x.com/asimovinc/status/2118343990059872466",
+      "analysis": "Robert's Robotics (AI/SI) lists carried @asimovinc.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2118339046967808023",
@@ -10990,31 +11008,6 @@
       "topic_label": "Products"
     },
     {
-      "id": "sig-x-2118148396733050987",
-      "title": "Kimi K3.1 Pro's open weight license carves out Moonshot's biggest commercial users",
-      "text": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
-      "badge": "signal",
-      "category": "models",
-      "section_key": "models",
-      "section_label": "Models",
-      "source_list": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
-      "list_names": [
-        "AI's Best",
-        "Tech News",
-        "AI Orgs & Events"
-      ],
-      "chip_labels": [
-        "AI's Best",
-        "Tech News",
-        "AI Orgs"
-      ],
-      "created_at": "2026-11-05T01:08:25.000Z",
-      "source_url": "https://x.com/thePandaily/status/2118148396733050987",
-      "analysis": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
-      "topic_key": "models",
-      "topic_label": "Models"
-    },
-    {
       "id": "sig-x-2116587096651505814",
       "title": "Neuralink shows its R1 surgical robot as speech implant iPhone calls are tested",
       "text": "Robert's Tech Journalists/Analysts, Neuroscience, AI Community and 1 more lists carried @cleoabram, @PairedWith_P7, @RyanTanaka.",
@@ -11041,6 +11034,56 @@
       "analysis": "Robert's Tech Journalists/Analysts, Neuroscience, AI Community and 1 more lists carried @cleoabram, @PairedWith_P7, @RyanTanaka.",
       "topic_key": "labs",
       "topic_label": "Labs"
+    },
+    {
+      "id": "sig-x-2118148396733050987",
+      "title": "Kimi K3.1 Pro's open weight license carves out Moonshot's biggest commercial users",
+      "text": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
+      "badge": "signal",
+      "category": "models",
+      "section_key": "models",
+      "section_label": "Models",
+      "source_list": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
+      "list_names": [
+        "AI's Best",
+        "Tech News",
+        "AI Orgs & Events"
+      ],
+      "chip_labels": [
+        "AI's Best",
+        "Tech News",
+        "AI Orgs"
+      ],
+      "created_at": "2026-11-05T01:08:25.000Z",
+      "source_url": "https://x.com/thePandaily/status/2118148396733050987",
+      "analysis": "Robert's AI's Best, Tech News, AI Orgs & Events lists carried @thePandaily, @AINativeF.",
+      "topic_key": "models",
+      "topic_label": "Models"
+    },
+    {
+      "id": "sig-x-2116593734502797644",
+      "title": "Nous Research's Hermes Agent mobile app reaches testers on iOS and Android",
+      "text": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @TechMDAI, @RonfortMartin.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @TechMDAI, @RonfortMartin.",
+      "list_names": [
+        "AI Community #5 of 9",
+        "AR/VR Community #2 of 2",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "AI Community",
+        "AR/VR Community",
+        "AI's Best"
+      ],
+      "created_at": "2026-10-31T18:10:45.000Z",
+      "source_url": "https://x.com/dedene/status/2116593734502797644",
+      "analysis": "Robert's AI Community, AR/VR Community, AI's Best lists carried @dedene, @TechMDAI, @RonfortMartin.",
+      "topic_key": "products",
+      "topic_label": "Products"
     },
     {
       "id": "sig-x-2116184730668298654",
@@ -11070,6 +11113,29 @@
       "analysis": "Robert's AI Companies, AI Companies: Music/Audio, AI Companies: Creative and 2 more lists carried @ElevenLabsDevs, @smallest_AI, @NVIDIAAI.",
       "topic_key": "products",
       "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2118368740819800135",
+      "title": "Apple is reportedly building a home robot with a 9 inch display after HomeView",
+      "text": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @thePandaily.",
+      "badge": "signal",
+      "category": "robotics",
+      "section_key": "robotics",
+      "section_label": "Robotics",
+      "source_list": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @thePandaily.",
+      "list_names": [
+        "Robot Influencers/Media",
+        "AI's Best"
+      ],
+      "chip_labels": [
+        "Robot Influencers/Media",
+        "AI's Best"
+      ],
+      "created_at": "2026-11-05T15:43:59.000Z",
+      "source_url": "https://x.com/CyberRobooo/status/2118368740819800135",
+      "analysis": "Robert's Robot Influencers/Media, AI's Best lists carried @CyberRobooo, @thePandaily.",
+      "topic_key": "robotics",
+      "topic_label": "Robotics"
     },
     {
       "id": "sig-x-2117966612607226034",
@@ -11164,27 +11230,6 @@
       "topic_label": "Robotics"
     },
     {
-      "id": "sig-x-2119046850455978063",
-      "title": "Researchers find Claude Code can store passwords and API keys that later appear on GitHub",
-      "text": "Robert's Tech News list carried @The_Cyber_News.",
-      "badge": "signal",
-      "category": "products",
-      "section_key": "products",
-      "section_label": "Products",
-      "source_list": "Robert's Tech News list carried @The_Cyber_News.",
-      "list_names": [
-        "Tech News"
-      ],
-      "chip_labels": [
-        "Tech News"
-      ],
-      "created_at": "2026-11-07T12:38:33.000Z",
-      "source_url": "https://x.com/The_Cyber_News/status/2119046850455978063",
-      "analysis": "Robert's Tech News list carried @The_Cyber_News.",
-      "topic_key": "products",
-      "topic_label": "Products"
-    },
-    {
       "id": "sig-x-2116224346935185728",
       "title": "Pally and Agentcard launch agent shopping across Amazon, Walmart, DoorDash and 17 more stores",
       "text": "Robert's AI Companies: Marketing, AI Companies: Work lists carried @pally.",
@@ -11204,6 +11249,27 @@
       "created_at": "2026-10-30T17:42:56.000Z",
       "source_url": "https://x.com/pally/status/2116224346935185728",
       "analysis": "Robert's AI Companies: Marketing, AI Companies: Work lists carried @pally.",
+      "topic_key": "products",
+      "topic_label": "Products"
+    },
+    {
+      "id": "sig-x-2119046850455978063",
+      "title": "Researchers find Claude Code can store passwords and API keys that later appear on GitHub",
+      "text": "Robert's Tech News list carried @The_Cyber_News.",
+      "badge": "signal",
+      "category": "products",
+      "section_key": "products",
+      "section_label": "Products",
+      "source_list": "Robert's Tech News list carried @The_Cyber_News.",
+      "list_names": [
+        "Tech News"
+      ],
+      "chip_labels": [
+        "Tech News"
+      ],
+      "created_at": "2026-11-07T12:38:33.000Z",
+      "source_url": "https://x.com/The_Cyber_News/status/2119046850455978063",
+      "analysis": "Robert's Tech News list carried @The_Cyber_News.",
       "topic_key": "products",
       "topic_label": "Products"
     },
